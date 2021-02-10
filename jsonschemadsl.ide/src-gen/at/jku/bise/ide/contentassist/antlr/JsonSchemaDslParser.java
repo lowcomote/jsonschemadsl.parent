@@ -49,8 +49,6 @@ public class JsonSchemaDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getAnyOfSchemaDefinitionAccess().getGroup(), "rule__AnyOfSchemaDefinition__Group__0");
 			builder.put(grammarAccess.getTitleSchemaDefinitionAccess().getGroup(), "rule__TitleSchemaDefinition__Group__0");
 			builder.put(grammarAccess.getItemsSchemaDefinitionAccess().getGroup(), "rule__ItemsSchemaDefinition__Group__0");
-			builder.put(grammarAccess.getItemsSchemaDefinitionAccess().getGroup_3(), "rule__ItemsSchemaDefinition__Group_3__0");
-			builder.put(grammarAccess.getItemsSchemaDefinitionAccess().getGroup_4(), "rule__ItemsSchemaDefinition__Group_4__0");
 			builder.put(grammarAccess.getDefaultSchemaDefinitionAccess().getGroup(), "rule__DefaultSchemaDefinition__Group__0");
 			builder.put(grammarAccess.getThenSchemaDefinitionAccess().getGroup(), "rule__ThenSchemaDefinition__Group__0");
 			builder.put(grammarAccess.getMinLengthSchemaDefinitionAccess().getGroup(), "rule__MinLengthSchemaDefinition__Group__0");
@@ -130,8 +128,8 @@ public class JsonSchemaDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getUniqueItemsSchemaDefinitionAccess().getUniqueItemsAssignment_2(), "rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2");
 			builder.put(grammarAccess.getAnyOfSchemaDefinitionAccess().getAnyOfAssignment_2(), "rule__AnyOfSchemaDefinition__AnyOfAssignment_2");
 			builder.put(grammarAccess.getTitleSchemaDefinitionAccess().getTitleAssignment_2(), "rule__TitleSchemaDefinition__TitleAssignment_2");
-			builder.put(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf1Assignment_3_1(), "rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3_1");
-			builder.put(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf2Assignment_4_1(), "rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4_1");
+			builder.put(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf1Assignment_3(), "rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3");
+			builder.put(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf2Assignment_4(), "rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4");
 			builder.put(grammarAccess.getDefaultSchemaDefinitionAccess().getDefaultAssignment_2(), "rule__DefaultSchemaDefinition__DefaultAssignment_2");
 			builder.put(grammarAccess.getThenSchemaDefinitionAccess().getThenAssignment_2(), "rule__ThenSchemaDefinition__ThenAssignment_2");
 			builder.put(grammarAccess.getMinLengthSchemaDefinitionAccess().getMinLengthAssignment_2(), "rule__MinLengthSchemaDefinition__MinLengthAssignment_2");

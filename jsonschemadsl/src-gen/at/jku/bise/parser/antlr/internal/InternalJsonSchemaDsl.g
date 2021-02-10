@@ -1141,68 +1141,52 @@ ruleItemsSchemaDefinition returns [EObject current=null]
 					$current);
 			}
 		)
-		otherlv_1='ItemsSchemaDefinition'
+		otherlv_1='"items"'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getItemsSchemaDefinitionAccess().getItemsSchemaDefinitionKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getItemsSchemaDefinitionAccess().getItemsKeyword_1());
 		}
-		otherlv_2='{'
+		otherlv_2=':'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getItemsSchemaDefinitionAccess().getLeftCurlyBracketKeyword_2());
+			newLeafNode(otherlv_2, grammarAccess.getItemsSchemaDefinitionAccess().getColonKeyword_2());
 		}
 		(
-			otherlv_3='itemsAnyOf1'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf1Keyword_3_0());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf1SchemaParserRuleCall_3_1_0());
+				{
+					newCompositeNode(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf1SchemaParserRuleCall_3_0());
+				}
+				lv_itemsAnyOf1_3_0=ruleSchema
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getItemsSchemaDefinitionRule());
 					}
-					lv_itemsAnyOf1_4_0=ruleSchema
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getItemsSchemaDefinitionRule());
-						}
-						set(
-							$current,
-							"itemsAnyOf1",
-							lv_itemsAnyOf1_4_0,
-							"at.jku.bise.JsonSchemaDsl.Schema");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"itemsAnyOf1",
+						lv_itemsAnyOf1_3_0,
+						"at.jku.bise.JsonSchemaDsl.Schema");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)?
 		(
-			otherlv_5='itemsAnyOf2'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf2Keyword_4_0());
-			}
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf2SchemaArrayParserRuleCall_4_1_0());
+				{
+					newCompositeNode(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf2SchemaArrayParserRuleCall_4_0());
+				}
+				lv_itemsAnyOf2_4_0=ruleSchemaArray
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getItemsSchemaDefinitionRule());
 					}
-					lv_itemsAnyOf2_6_0=ruleSchemaArray
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getItemsSchemaDefinitionRule());
-						}
-						set(
-							$current,
-							"itemsAnyOf2",
-							lv_itemsAnyOf2_6_0,
-							"at.jku.bise.JsonSchemaDsl.SchemaArray");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"itemsAnyOf2",
+						lv_itemsAnyOf2_4_0,
+						"at.jku.bise.JsonSchemaDsl.SchemaArray");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)?
-		otherlv_7='}'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getItemsSchemaDefinitionAccess().getRightCurlyBracketKeyword_5());
-		}
 	)
 ;
 

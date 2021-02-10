@@ -173,13 +173,28 @@ TitleSchemaDefinition returns TitleSchemaDefinition:
 //		'title' title=EString
 //	'}';
 
+/**
+ * 	TODO validate that at least one of anyOf1 and anyOf2 must exist
+ * 	"items": {
+		"anyOf": [
+			{ "$ref": "#" },
+			{ "$ref": "#/definitions/schemaArray" }
+		],
+		"default": true
+	}
+ */
 ItemsSchemaDefinition returns ItemsSchemaDefinition:
-	{ItemsSchemaDefinition}
-	'ItemsSchemaDefinition'
-	'{'
-		('itemsAnyOf1' itemsAnyOf1=Schema)?
-		('itemsAnyOf2' itemsAnyOf2=SchemaArray)?
-	'}';
+	{ItemsSchemaDefinition} 
+	'"items"' ':' 
+		(itemsAnyOf1=Schema)?
+		(itemsAnyOf2=SchemaArray)?
+;
+//	{ItemsSchemaDefinition}
+//	'ItemsSchemaDefinition'
+//	'{'
+//		('itemsAnyOf1' itemsAnyOf1=Schema)?
+//		('itemsAnyOf2' itemsAnyOf2=SchemaArray)?
+//	'}';
 
 /**
  * 	"default": true

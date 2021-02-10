@@ -661,68 +661,56 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.bise.JsonSchemaDsl.ItemsSchemaDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cItemsSchemaDefinitionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cItemsSchemaDefinitionKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cItemsAnyOf1Keyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cItemsAnyOf1Assignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cItemsAnyOf1SchemaParserRuleCall_3_1_0 = (RuleCall)cItemsAnyOf1Assignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cItemsAnyOf2Keyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cItemsAnyOf2Assignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cItemsAnyOf2SchemaArrayParserRuleCall_4_1_0 = (RuleCall)cItemsAnyOf2Assignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cItemsKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cItemsAnyOf1Assignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cItemsAnyOf1SchemaParserRuleCall_3_0 = (RuleCall)cItemsAnyOf1Assignment_3.eContents().get(0);
+		private final Assignment cItemsAnyOf2Assignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cItemsAnyOf2SchemaArrayParserRuleCall_4_0 = (RuleCall)cItemsAnyOf2Assignment_4.eContents().get(0);
 		
 		////	'TitleSchemaDefinition'
 		////	'{'
 		////		'title' title=EString
 		////	'}';
-		//ItemsSchemaDefinition:
+		///**
+		// * 	TODO validate that at least one of anyOf1 and anyOf2 must exist
+		// * 	"items": {
+		//		"anyOf": [
+		//			{ "$ref": "#" },
+		//			{ "$ref": "#/definitions/schemaArray" }
+		//		],
+		//		"default": true
+		//	}
+		// */ ItemsSchemaDefinition:
 		//	{ItemsSchemaDefinition}
-		//	'ItemsSchemaDefinition'
-		//	'{' ('itemsAnyOf1' itemsAnyOf1=Schema)? ('itemsAnyOf2' itemsAnyOf2=SchemaArray)?
-		//	'}';
+		//	'"items"' ':'
+		//	itemsAnyOf1=Schema?
+		//	itemsAnyOf2=SchemaArray?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ItemsSchemaDefinition} 'ItemsSchemaDefinition' '{' ('itemsAnyOf1' itemsAnyOf1=Schema)? ('itemsAnyOf2'
-		//itemsAnyOf2=SchemaArray)? '}'
+		//{ItemsSchemaDefinition} '"items"' ':' itemsAnyOf1=Schema? itemsAnyOf2=SchemaArray?
 		public Group getGroup() { return cGroup; }
 		
 		//{ItemsSchemaDefinition}
 		public Action getItemsSchemaDefinitionAction_0() { return cItemsSchemaDefinitionAction_0; }
 		
-		//'ItemsSchemaDefinition'
-		public Keyword getItemsSchemaDefinitionKeyword_1() { return cItemsSchemaDefinitionKeyword_1; }
+		//'"items"'
+		public Keyword getItemsKeyword_1() { return cItemsKeyword_1; }
 		
-		//'{'
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		//':'
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
-		//('itemsAnyOf1' itemsAnyOf1=Schema)?
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//'itemsAnyOf1'
-		public Keyword getItemsAnyOf1Keyword_3_0() { return cItemsAnyOf1Keyword_3_0; }
-		
-		//itemsAnyOf1=Schema
-		public Assignment getItemsAnyOf1Assignment_3_1() { return cItemsAnyOf1Assignment_3_1; }
+		//itemsAnyOf1=Schema?
+		public Assignment getItemsAnyOf1Assignment_3() { return cItemsAnyOf1Assignment_3; }
 		
 		//Schema
-		public RuleCall getItemsAnyOf1SchemaParserRuleCall_3_1_0() { return cItemsAnyOf1SchemaParserRuleCall_3_1_0; }
+		public RuleCall getItemsAnyOf1SchemaParserRuleCall_3_0() { return cItemsAnyOf1SchemaParserRuleCall_3_0; }
 		
-		//('itemsAnyOf2' itemsAnyOf2=SchemaArray)?
-		public Group getGroup_4() { return cGroup_4; }
-		
-		//'itemsAnyOf2'
-		public Keyword getItemsAnyOf2Keyword_4_0() { return cItemsAnyOf2Keyword_4_0; }
-		
-		//itemsAnyOf2=SchemaArray
-		public Assignment getItemsAnyOf2Assignment_4_1() { return cItemsAnyOf2Assignment_4_1; }
+		//itemsAnyOf2=SchemaArray?
+		public Assignment getItemsAnyOf2Assignment_4() { return cItemsAnyOf2Assignment_4; }
 		
 		//SchemaArray
-		public RuleCall getItemsAnyOf2SchemaArrayParserRuleCall_4_1_0() { return cItemsAnyOf2SchemaArrayParserRuleCall_4_1_0; }
-		
-		//'}'
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public RuleCall getItemsAnyOf2SchemaArrayParserRuleCall_4_0() { return cItemsAnyOf2SchemaArrayParserRuleCall_4_0; }
 	}
 	public class DefaultSchemaDefinitionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.bise.JsonSchemaDsl.DefaultSchemaDefinition");
@@ -732,6 +720,12 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final Assignment cDefaultAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cDefaultJsonDocumentParserRuleCall_2_0 = (RuleCall)cDefaultAssignment_2.eContents().get(0);
 		
+		////	{ItemsSchemaDefinition}
+		////	'ItemsSchemaDefinition'
+		////	'{'
+		////		('itemsAnyOf1' itemsAnyOf1=Schema)?
+		////		('itemsAnyOf2' itemsAnyOf2=SchemaArray)?
+		////	'}';
 		///**
 		// * 	"default": true
 		// */ DefaultSchemaDefinition:
@@ -3300,11 +3294,20 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 	////	'{'
 	////		'title' title=EString
 	////	'}';
-	//ItemsSchemaDefinition:
+	///**
+	// * 	TODO validate that at least one of anyOf1 and anyOf2 must exist
+	// * 	"items": {
+	//		"anyOf": [
+	//			{ "$ref": "#" },
+	//			{ "$ref": "#/definitions/schemaArray" }
+	//		],
+	//		"default": true
+	//	}
+	// */ ItemsSchemaDefinition:
 	//	{ItemsSchemaDefinition}
-	//	'ItemsSchemaDefinition'
-	//	'{' ('itemsAnyOf1' itemsAnyOf1=Schema)? ('itemsAnyOf2' itemsAnyOf2=SchemaArray)?
-	//	'}';
+	//	'"items"' ':'
+	//	itemsAnyOf1=Schema?
+	//	itemsAnyOf2=SchemaArray?;
 	public ItemsSchemaDefinitionElements getItemsSchemaDefinitionAccess() {
 		return pItemsSchemaDefinition;
 	}
@@ -3313,6 +3316,12 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 		return getItemsSchemaDefinitionAccess().getRule();
 	}
 	
+	////	{ItemsSchemaDefinition}
+	////	'ItemsSchemaDefinition'
+	////	'{'
+	////		('itemsAnyOf1' itemsAnyOf1=Schema)?
+	////		('itemsAnyOf2' itemsAnyOf2=SchemaArray)?
+	////	'}';
 	///**
 	// * 	"default": true
 	// */ DefaultSchemaDefinition:
