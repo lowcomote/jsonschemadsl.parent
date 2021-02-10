@@ -9,5 +9,18 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: json-metaschema-MM,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0"
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: at.jku.bise,
+ at.jku.bise.scoping,
+ at.jku.bise.generator,
+ at.jku.bise.services,
+ at.jku.bise.parser.antlr,
+ at.jku.bise.serializer,
+ at.jku.bise.parser.antlr.internal,
+ at.jku.bise.validation,
+ at.jku.bise.formatting2
+Import-Package: org.apache.log4j

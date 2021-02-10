@@ -6,81 +6,172 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 JsonSchema returns JsonSchema:
 	{JsonSchema}
-	'JsonSchema'
-	'{'
-		('schema' schema=Schema)?
-	'}';
+	(schema=Schema)?
+;
+//	{JsonSchema}
+//	'JsonSchema'
+//	'{'
+//		('schema' schema=Schema)?
+//	'}';
 
 Schema returns Schema:
 	ObjectSchema | BooleanSchema;
 
 KeywordDefinition returns KeywordDefinition:
-	MaximumSchemaDefinition | WriteOnlySchemaDefinition | CommentSchemaDefinition | EnumSchemaDefinition | UniqueItemsSchemaDefinition | AnyOfSchemaDefinition | TitleSchemaDefinition | ItemsSchemaDefinition | DefaultSchemaDefinition | ThenSchemaDefinition | MinLengthSchemaDefinition | DefinitionsSchemaDefinition | MinItemsSchemaDefinition | OneOfSchemaDefinition | MaxPropertiesSchemaDefinition | MinimumSchemaDefinition | MaxItemsSchemaDefinition | FormatSchemaDefinition | ReadOnlySchemaDefinition | TypeSchemaDefinition | AdditionalPropertiesSchemaDefinition | ElseSchemaDefinition | IdSchemaDefinition | ConstSchemaDefinition | DependenciesSchemaDefinition | RequiredSchemaDefinition | DescriptionSchemaDefinition | MinPropertiesSchemaDefinition | PatternPropertiesSchemaDefinition | AdditionalItemsSchemaDefinition | KeyValuePair | ExamplesSchemaDefinition | IfSchemaDefinition | AllOfSchemaDefinition | ContentEncodingSchemaDefinition | MultipleOfSchemaDefinition | PatternSchemaDefinition | ContainsSchemaDefinition | NotSchemaDefinition | ExclusiveMaximumSchemaDefinition | MaxLengthSchemaDefinition | RefSchemaDefinition | ContentMediaTypeSchemaDefinition | ExclusiveMinimumSchemaDefinition | SchemaSchemaDefinition | PropertiesSchemaDefinition | PropertyNamesSchemaDefinition;
-
-
-
-
-
-
-
-
+	IdSchemaDefinition |
+	SchemaSchemaDefinition |
+	RefSchemaDefinition |
+	CommentSchemaDefinition | 
+	TitleSchemaDefinition |
+	DescriptionSchemaDefinition | 
+	DefaultSchemaDefinition | 
+	ReadOnlySchemaDefinition |
+	WriteOnlySchemaDefinition |
+	ExamplesSchemaDefinition |
+	MultipleOfSchemaDefinition | 
+	MaximumSchemaDefinition | 
+	ExclusiveMaximumSchemaDefinition |
+	MinimumSchemaDefinition |
+	ExclusiveMinimumSchemaDefinition | 
+	MaxLengthSchemaDefinition |
+	MinLengthSchemaDefinition | 
+	PatternSchemaDefinition |
+	AdditionalItemsSchemaDefinition |
+	ItemsSchemaDefinition |
+	MaxItemsSchemaDefinition |
+	MinItemsSchemaDefinition |
+	UniqueItemsSchemaDefinition|
+	ContainsSchemaDefinition|
+	MaxPropertiesSchemaDefinition|
+	MinPropertiesSchemaDefinition|
+	RequiredSchemaDefinition|
+	AdditionalPropertiesSchemaDefinition|
+	DefinitionsSchemaDefinition|
+	PropertiesSchemaDefinition|
+	PatternPropertiesSchemaDefinition|
+	//DependenciesSchemaDefinition| //TODO add OCL validation otherwise it crashes
+	PropertyNamesSchemaDefinition|
+	ConstSchemaDefinition|
+	EnumSchemaDefinition|
+	TypeSchemaDefinition|
+	FormatSchemaDefinition|
+	ContentMediaTypeSchemaDefinition|
+	ContentEncodingSchemaDefinition|
+	IfSchemaDefinition|
+	ThenSchemaDefinition|
+	ElseSchemaDefinition|
+	AllOfSchemaDefinition|
+	AnyOfSchemaDefinition|
+	OneOfSchemaDefinition|
+	NotSchemaDefinition|
+	KeyValuePair
+;
 
 Value returns Value:
-	IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue;
+//	Value_Impl | IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue;
+IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue;
 
 
 
 ObjectSchema returns ObjectSchema:
 	{ObjectSchema}
-	'ObjectSchema'
 	'{'
-		('keywordDefinition' '{' keywordDefinition+=KeywordDefinition ( "," keywordDefinition+=KeywordDefinition)* '}' )?
-	'}';
+		(keywordDefinition+=KeywordDefinition ("," keywordDefinition+=KeywordDefinition)*)?
+	'}'
+;
+//	{ObjectSchema}
+//	'ObjectSchema'
+//	'{'
+//		('keywordDefinition' '{' keywordDefinition+=KeywordDefinition ( "," keywordDefinition+=KeywordDefinition)* '}' )?
+//	'}';
 
 BooleanSchema returns BooleanSchema:
-	value?='value'
-	'BooleanSchema'
-	;
+	value=EBoolean
+;
+//	value?='value'
+//	'BooleanSchema'
+//	;
 
 MaximumSchemaDefinition returns MaximumSchemaDefinition:
-	'MaximumSchemaDefinition'
-	'{'
-		'maximum' maximum=EDouble
-	'}';
+	'"maximum"' ':' maximum=EDouble
+;
+//	'MaximumSchemaDefinition'
+//	'{'
+//		'maximum' maximum=EDouble
+//	'}';
 
+/**
+ * 	"writeOnly": {
+		"type": "boolean",
+		"default": false
+	}
+ */
 WriteOnlySchemaDefinition returns WriteOnlySchemaDefinition:
-	writeOnly?='writeOnly'
-	'WriteOnlySchemaDefinition'
-	;
+	'"writeOnly"' ':' writeOnly=EBoolean
+;
+//	writeOnly?='writeOnly'
+//	'WriteOnlySchemaDefinition'
+//	;
 
+/**
+ * 	"$comment": {
+		"type": "string"
+	}
+ */
 CommentSchemaDefinition returns CommentSchemaDefinition:
-	'CommentSchemaDefinition'
-	'{'
-		'comment' comment=EString
-	'}';
-
+	'"$comment"' ':' comment=EString
+;
+//	'CommentSchemaDefinition'
+//	'{'
+//		'comment' comment=EString
+//	'}';
+/**
+ * TODO fix minitems in ecore and delete class Enum
+ * 	"enum": {
+		"type": "array",
+		"items": true,
+		"minItems": 1,
+		"uniqueItems": true
+        }
+ */
 EnumSchemaDefinition returns EnumSchemaDefinition:
-	'EnumSchemaDefinition'
-	'{'
-		'items' '{' items+=JsonDocument ( "," items+=JsonDocument)* '}' 
-	'}';
+	'[' items+=JsonDocument ( "," items+=JsonDocument)* ']'
+;
+//	'"enum"' ':' enumeration=Enum;
+//	{EnumSchemaDefinition}
+//	'EnumSchemaDefinition'
+//	'{'
+//		('enumeration' enumeration=Enum)?
+//	'}';
 
 UniqueItemsSchemaDefinition returns UniqueItemsSchemaDefinition:
-	uniqueItems?='uniqueItems'
-	'UniqueItemsSchemaDefinition'
-	;
+	'"uniqueItems"' ':' uniqueItems=EBoolean
+;
+//	uniqueItems?='uniqueItems'
+//	'UniqueItemsSchemaDefinition'
+//	;
 
 AnyOfSchemaDefinition returns AnyOfSchemaDefinition:
-	'AnyOfSchemaDefinition'
-	'{'
-		'anyOf' anyOf=SchemaArray
-	'}';
+	'"anyOf"' ':' anyOf=SchemaArray
+;
+//	'AnyOfSchemaDefinition'
+//	'{'
+//		'anyOf' anyOf=SchemaArray
+//	'}';
 
+
+/**
+ * 	"title": {
+		"type": "string"
+	}
+ */
 TitleSchemaDefinition returns TitleSchemaDefinition:
-	'TitleSchemaDefinition'
-	'{'
-		'title' title=EString
-	'}';
+	'"title"' ':' title=EString
+;
+//	'TitleSchemaDefinition'
+//	'{'
+//		'title' title=EString
+//	'}';
 
 ItemsSchemaDefinition returns ItemsSchemaDefinition:
 	{ItemsSchemaDefinition}
@@ -90,363 +181,664 @@ ItemsSchemaDefinition returns ItemsSchemaDefinition:
 		('itemsAnyOf2' itemsAnyOf2=SchemaArray)?
 	'}';
 
+/**
+ * 	"default": true
+ */
 DefaultSchemaDefinition returns DefaultSchemaDefinition:
-	{DefaultSchemaDefinition}
-	'DefaultSchemaDefinition'
-	'{'
-		('default' default=JsonDocument)?
-	'}';
+	'"default"' ':' default=JsonDocument
+;
+//	{DefaultSchemaDefinition}
+//	'DefaultSchemaDefinition'
+//	'{'
+//		('default' default=JsonDocument)?
+//	'}';
 
 ThenSchemaDefinition returns ThenSchemaDefinition:
-	'ThenSchemaDefinition'
-	'{'
-		'then' then=Schema
-	'}';
+	'"then"' ':' then=Schema
+;
+//	'ThenSchemaDefinition'
+//	'{'
+//		'then' then=Schema
+//	'}';
 
+/**
+ * "minLength": { "$ref": "#/definitions/nonNegativeIntegerDefault0" }
+ */
 MinLengthSchemaDefinition returns MinLengthSchemaDefinition:
-	'MinLengthSchemaDefinition'
-	'{'
-		'minLength' minLength=NonNegativeIntegerDefault0
-	'}';
+	'"minLength"' ':' minLength=NonNegativeIntegerDefault0
+;
+//	'MinLengthSchemaDefinition'
+//	'{'
+//		'minLength' minLength=NonNegativeIntegerDefault0
+//	'}';
 
 DefinitionsSchemaDefinition returns DefinitionsSchemaDefinition:
-	{DefinitionsSchemaDefinition}
-	'DefinitionsSchemaDefinition'
+	{DefinitionsSchemaDefinition} 
+	'"definitions"' ':' 
 	'{'
-		('keySchemaPairs' '{' keySchemaPairs+=KeySchemaPair ( "," keySchemaPairs+=KeySchemaPair)* '}' )?
-	'}';
+		(keySchemaPairs+=KeySchemaPair ( "," keySchemaPairs+=KeySchemaPair)*)?
+	'}'
+;
+//	{DefinitionsSchemaDefinition}
+//	'DefinitionsSchemaDefinition'
+//	'{'
+//		('keySchemaPairs' '{' keySchemaPairs+=KeySchemaPair ( "," keySchemaPairs+=KeySchemaPair)* '}' )?
+//	'}';
 
+/**
+ * "minItems": { "$ref": "#/definitions/nonNegativeIntegerDefault0" }
+ */
 MinItemsSchemaDefinition returns MinItemsSchemaDefinition:
-	'MinItemsSchemaDefinition'
-	'{'
-		'minItems' minItems=NonNegativeIntegerDefault0
-	'}';
+	'"minItems"' ':' minItems=NonNegativeIntegerDefault0
+;
+//	'MinItemsSchemaDefinition'
+//	'{'
+//		'minItems' minItems=NonNegativeIntegerDefault0
+//	'}';
 
 OneOfSchemaDefinition returns OneOfSchemaDefinition:
-	'OneOfSchemaDefinition'
-	'{'
-		'oneOf' oneOf=SchemaArray
-	'}';
+	'"oneOf"' ':' oneOf=SchemaArray
+;
+//	'OneOfSchemaDefinition'
+//	'{'
+//		'oneOf' oneOf=SchemaArray
+//	'}';
 
+/**
+ * "maxProperties": { "$ref": "#/definitions/nonNegativeInteger" }
+ */
 MaxPropertiesSchemaDefinition returns MaxPropertiesSchemaDefinition:
-	'MaxPropertiesSchemaDefinition'
-	'{'
-		'maxProperties' maxProperties=NonNegativeInteger
-	'}';
+	'"maxProperties"' ':' maxProperties=NonNegativeInteger
+;
+//	'MaxPropertiesSchemaDefinition'
+//	'{'
+//		'maxProperties' maxProperties=NonNegativeInteger
+//	'}';
 
 MinimumSchemaDefinition returns MinimumSchemaDefinition:
-	'MinimumSchemaDefinition'
-	'{'
-		'minimum' minimum=EDouble
-	'}';
+	'"minimum"' ':' minimum=EDouble
+;
+//	'MinimumSchemaDefinition'
+//	'{'
+//		'minimum' minimum=EDouble
+//	'}';
 
+/**
+ * "maxItems": { "$ref": "#/definitions/nonNegativeInteger" }
+ */
 MaxItemsSchemaDefinition returns MaxItemsSchemaDefinition:
-	'MaxItemsSchemaDefinition'
-	'{'
-		'maxItems' maxItems=NonNegativeInteger
-	'}';
+	'"maxItems"' ':' maxItems=NonNegativeInteger
+;
+//	'MaxItemsSchemaDefinition'
+//	'{'
+//		'maxItems' maxItems=NonNegativeInteger
+//	'}';
 
 FormatSchemaDefinition returns FormatSchemaDefinition:
-	'FormatSchemaDefinition'
-	'{'
-		'format' format=EString
-	'}';
+	'"format"' ':' format=EString
+;
+//	'FormatSchemaDefinition'
+//	'{'
+//		'format' format=EString
+//	'}';
 
+
+/**
+ * "readOnly": {
+		"type": "boolean",
+		"default": false
+	}
+ */
 ReadOnlySchemaDefinition returns ReadOnlySchemaDefinition:
-	readOnly?='readOnly'
-	'ReadOnlySchemaDefinition'
-	;
-
+	'"readOnly"' ':' readOnly=EBoolean
+;
+//	readOnly?='readOnly'
+//	'ReadOnlySchemaDefinition'
+//	;
+/**
+ * TODO validate that at the least on of anyOf1 and anyOf2 must exist
+ * 	"type": {
+		"anyOf": [
+			{ "$ref": "#/definitions/simpleTypes" },
+			{
+				"type": "array",
+				"items": { "$ref": "#/definitions/simpleTypes" },
+				"minItems": 1,
+				"uniqueItems": true
+			}
+		]
+	}
+ */
 TypeSchemaDefinition returns TypeSchemaDefinition:
-	{TypeSchemaDefinition}
-	'TypeSchemaDefinition'
-	'{'
-		('typeAnyOf1' typeAnyOf1=SimpleTypes)?
-		('typesAnyOf2' typesAnyOf2=TypesAnyOf2)?
-	'}';
+	{TypeSchemaDefinition} 
+	'"type"' ':' 
+		(typeAnyOf1=SimpleTypes)?
+		(typesAnyOf2=TypesAnyOf2)?
+;
+//	{TypeSchemaDefinition}
+//	'TypeSchemaDefinition'
+//	'{'
+//		('typeAnyOf1' typeAnyOf1=SimpleTypes)?
+//		('typesAnyOf2' typesAnyOf2=TypesAnyOf2)?
+//	'}';
 
 AdditionalPropertiesSchemaDefinition returns AdditionalPropertiesSchemaDefinition:
-	'AdditionalPropertiesSchemaDefinition'
-	'{'
-		'additionalProperties' additionalProperties=Schema
-	'}';
+	'"additionalProperties"' ':' additionalProperties=Schema
+;
+//	'AdditionalPropertiesSchemaDefinition'
+//	'{'
+//		'additionalProperties' additionalProperties=Schema
+//	'}';
 
 ElseSchemaDefinition returns ElseSchemaDefinition:
-	'ElseSchemaDefinition'
-	'{'
-		'else' else=Schema
-	'}';
+	'"else"' ':' else=Schema
+;
+//	'ElseSchemaDefinition'
+//	'{'
+//		'else' else=Schema
+//	'}';
 
+
+/**
+ * TODO validate "format": "uri-reference"
+ * 		"$id": {
+            "type": "string",
+            "format": "uri-reference"
+        }
+ */	
 IdSchemaDefinition returns IdSchemaDefinition:
-	'IdSchemaDefinition'
-	'{'
-		'id' id=EString
-	'}';
-
+	'"$id"' ':' id=EString
+;
+//	'IdSchemaDefinition'
+//	'{'
+//		'id' id=EString
+//	'}';
+/**
+ * "const": true
+ */
 ConstSchemaDefinition returns ConstSchemaDefinition:
-	{ConstSchemaDefinition}
-	'ConstSchemaDefinition'
-	'{'
-		('const' const=JsonDocument)?
-	'}';
+	'"const"' ':' const=JsonDocument
+;
+//	{ConstSchemaDefinition}
+//	'ConstSchemaDefinition'
+//	'{'
+//		('const' const=JsonDocument)?
+//	'}';
 
 DependenciesSchemaDefinition returns DependenciesSchemaDefinition:
-	{DependenciesSchemaDefinition}
-	'DependenciesSchemaDefinition'
+	{DependenciesSchemaDefinition} 
+	'"dependencies"' ':'
 	'{'
-		('dependencies' '{' dependencies+=DependenciesAnyOf ( "," dependencies+=DependenciesAnyOf)* '}' )?
-	'}';
+		(dependencies+=DependenciesAnyOf ("," dependencies+=DependenciesAnyOf)*)?
+	'}'
+;
+//	{DependenciesSchemaDefinition}
+//	'DependenciesSchemaDefinition'
+//	'{'
+//		('dependencies' '{' dependencies+=DependenciesAnyOf ( "," dependencies+=DependenciesAnyOf)* '}' )?
+//	'}';
 
+/*
+ * TODO in ecore put RequiredSchemaDefinition.required has to be [1..1]
+ */
 RequiredSchemaDefinition returns RequiredSchemaDefinition:
-	'RequiredSchemaDefinition'
-	'{'
-		'required' required=StringArray
-	'}';
+	'"required"' ':' required=StringArray
+;
+//	{RequiredSchemaDefinition}
+//	'RequiredSchemaDefinition'
+//	'{'
+//		('required' required=StringArray)?
+//	'}';
 
+/**
+ * "description": {
+		"type": "string"
+	}
+ */
 DescriptionSchemaDefinition returns DescriptionSchemaDefinition:
-	'DescriptionSchemaDefinition'
-	'{'
-		'description' description=EString
-	'}';
+	'"description"' ':' description=EString
+;
+//	'DescriptionSchemaDefinition'
+//	'{'
+//		'description' description=EString
+//	'}';
 
+
+/**
+ * "minProperties": { "$ref": "#/definitions/nonNegativeIntegerDefault0" }
+ */
 MinPropertiesSchemaDefinition returns MinPropertiesSchemaDefinition:
-	'MinPropertiesSchemaDefinition'
-	'{'
-		'minProperties' minProperties=NonNegativeIntegerDefault0
-	'}';
+	'"minProperties"' ':' minProperties=NonNegativeIntegerDefault0
+;
+//	'MinPropertiesSchemaDefinition'
+//	'{'
+//		'minProperties' minProperties=NonNegativeIntegerDefault0
+//	'}';
 
+/**
+ * TODO validate "propertyNames": { "format": "regex" }
+ * 	"patternProperties": {
+		"type": "object",
+		"additionalProperties": { "$ref": "#" },
+		"propertyNames": { "format": "regex" },
+		"default": {}
+	}
+ */
 PatternPropertiesSchemaDefinition returns PatternPropertiesSchemaDefinition:
-	{PatternPropertiesSchemaDefinition}
-	'PatternPropertiesSchemaDefinition'
+	{PatternPropertiesSchemaDefinition} 
+	'"patternProperties"' ':' 
 	'{'
-		('keySchemaPairs' '{' keySchemaPairs+=KeySchemaPair ( "," keySchemaPairs+=KeySchemaPair)* '}' )?
-	'}';
+		(keySchemaPairs+=KeySchemaPair ( "," keySchemaPairs+=KeySchemaPair)*)?
+	'}'
+;
+//	{PatternPropertiesSchemaDefinition}
+//	'PatternPropertiesSchemaDefinition'
+//	'{'
+//		('keySchemaPairs' '{' keySchemaPairs+=KeySchemaPair ( "," keySchemaPairs+=KeySchemaPair)* '}' )?
+//	'}';
 
 AdditionalItemsSchemaDefinition returns AdditionalItemsSchemaDefinition:
-	'AdditionalItemsSchemaDefinition'
-	'{'
-		'additionalItems' additionalItems=Schema
-	'}';
+	'"additionalItems"' ':' additionalItems=Schema
+;
+//	'AdditionalItemsSchemaDefinition'
+//	'{'
+//		'additionalItems' additionalItems=Schema
+//	'}';
 
 KeyValuePair returns KeyValuePair:
-	{KeyValuePair}
-	'KeyValuePair'
-	'{'
-		('key' key=EString)?
-		('value' value=Value)?
-	'}';
+	key=EString ':' value=Value
+;
+//	{KeyValuePair}
+//	'KeyValuePair'
+//	'{'
+//		('key' key=EString)?
+//		('value' value=Value)?
+//	'}';
 
+
+/**
+ * 	"examples": {
+		"type": "array",
+		"items": true
+	}
+ */
 ExamplesSchemaDefinition returns ExamplesSchemaDefinition:
-	{ExamplesSchemaDefinition}
-	'ExamplesSchemaDefinition'
-	'{'
-		('examples' '{' examples+=JsonDocument ( "," examples+=JsonDocument)* '}' )?
-	'}';
+	{ExamplesSchemaDefinition} 
+	'"examples"' ':' '[' (examples+=JsonDocument ( "," examples+=JsonDocument)* )?']' 
+;
+//	{ExamplesSchemaDefinition}
+//	'ExamplesSchemaDefinition'
+//	'{'
+//		('examples' '{' examples+=JsonDocument ( "," examples+=JsonDocument)* '}' )?
+//	'}';
 
 IfSchemaDefinition returns IfSchemaDefinition:
-	'IfSchemaDefinition'
-	'{'
-		'if' if=Schema
-	'}';
+	'"if"' ':' if=Schema
+;
+//	'IfSchemaDefinition'
+//	'{'
+//		'if' if=Schema
+//	'}';
 
 AllOfSchemaDefinition returns AllOfSchemaDefinition:
-	'AllOfSchemaDefinition'
-	'{'
-		'allOf' allOf=SchemaArray
-	'}';
+	'"allOf"' ':' allOf=SchemaArray
+;
+//	'AllOfSchemaDefinition'
+//	'{'
+//		'allOf' allOf=SchemaArray
+//	'}';
 
 ContentEncodingSchemaDefinition returns ContentEncodingSchemaDefinition:
-	'ContentEncodingSchemaDefinition'
-	'{'
-		'contentEncoding' contentEncoding=EString
-	'}';
+	'"contentEncoding"' ':' contentEncoding=EString
+;
+//	'ContentEncodingSchemaDefinition'
+//	'{'
+//		'contentEncoding' contentEncoding=EString
+//	'}';
 
 MultipleOfSchemaDefinition returns MultipleOfSchemaDefinition:
-	'MultipleOfSchemaDefinition'
-	'{'
-		'multipleOf' multipleOf=EDouble
-	'}';
+	'"multipleOf"' ':' multipleOf=EDouble
+;
+//	'MultipleOfSchemaDefinition'
+//	'{'
+//		'multipleOf' multipleOf=EDouble
+//	'}';
 
+/**
+ * TODO validate "format": "regex"
+	"pattern": {
+   		"type": "string",
+		"format": "regex"
+	}
+ */
 PatternSchemaDefinition returns PatternSchemaDefinition:
-	'PatternSchemaDefinition'
-	'{'
-		'pattern' pattern=EString
-	'}';
+	'"pattern"' ':' pattern=EString
+;
+//	'PatternSchemaDefinition'
+//	'{'
+//		'pattern' pattern=EString
+//	'}';
 
 ContainsSchemaDefinition returns ContainsSchemaDefinition:
-	'ContainsSchemaDefinition'
-	'{'
-		'contains' contains=Schema
-	'}';
+	'"contains"' ':' contains=Schema
+;
+//	'ContainsSchemaDefinition'
+//	'{'
+//		'contains' contains=Schema
+//	'}';
 
 NotSchemaDefinition returns NotSchemaDefinition:
-	'NotSchemaDefinition'
-	'{'
-		'not' not=Schema
-	'}';
+	'"not"' ':' not=Schema
+;
+//	'NotSchemaDefinition'
+//	'{'
+//		'not' not=Schema
+//	'}';
 
 ExclusiveMaximumSchemaDefinition returns ExclusiveMaximumSchemaDefinition:
-	'ExclusiveMaximumSchemaDefinition'
-	'{'
-		'exclusiveMaximum' exclusiveMaximum=EDouble
-	'}';
+	'"exclusiveMaximum"' ':' exclusiveMaximum=EDouble
+;
+//	'ExclusiveMaximumSchemaDefinition'
+//	'{'
+//		'exclusiveMaximum' exclusiveMaximum=EDouble
+//	'}';
 
+/**
+ * "maxLength": { "$ref": "#/definitions/nonNegativeInteger" }
+ */
 MaxLengthSchemaDefinition returns MaxLengthSchemaDefinition:
-	'MaxLengthSchemaDefinition'
-	'{'
-		'maxLength' maxLength=NonNegativeInteger
-	'}';
+	'"maxLength"' ':' maxLength=NonNegativeInteger
+;
+//	'MaxLengthSchemaDefinition'
+//	'{'
+//		'maxLength' maxLength=NonNegativeInteger
+//	'}';
 
+
+/**
+ * TODO validate "format": "uri-reference"
+ * 		"$ref": {
+            "type": "string",
+            "format": "uri-reference"
+        }
+ * 
+ */
 RefSchemaDefinition returns RefSchemaDefinition:
-	'RefSchemaDefinition'
-	'{'
-		'ref' ref=EString
-	'}';
+	'"$ref"' ':' ref=EString
+;
+//	'RefSchemaDefinition'
+//	'{'
+//		'ref' ref=EString
+//	'}';
 
 ContentMediaTypeSchemaDefinition returns ContentMediaTypeSchemaDefinition:
-	'ContentMediaTypeSchemaDefinition'
-	'{'
-		'contentMediaType' contentMediaType=EString
-	'}';
+	'"contentMediaType"' ':' contentMediaType=EString
+;
+//	'ContentMediaTypeSchemaDefinition'
+//	'{'
+//		'contentMediaType' contentMediaType=EString
+//	'}';
 
 ExclusiveMinimumSchemaDefinition returns ExclusiveMinimumSchemaDefinition:
-	'ExclusiveMinimumSchemaDefinition'
-	'{'
-		'exclusiveMinimum' exclusiveMinimum=EDouble
-	'}';
+	'"exclusiveMinimum"' ':' exclusiveMinimum=EDouble
+;
+//	'ExclusiveMinimumSchemaDefinition'
+//	'{'
+//		'exclusiveMinimum' exclusiveMinimum=EDouble
+//	'}';
 
+
+/**
+ * TODO validate "format": "uri"
+ * 		"$schema": {
+            "type": "string",
+            "format": "uri"
+        }
+ */
 SchemaSchemaDefinition returns SchemaSchemaDefinition:
-	'SchemaSchemaDefinition'
-	'{'
-		'schema' schema=EString
-	'}';
+	'"$schema"' ':' schema=EString
+;
+//	'SchemaSchemaDefinition'
+//	'{'
+//		'schema' schema=EString
+//	'}';
 
 PropertiesSchemaDefinition returns PropertiesSchemaDefinition:
-	{PropertiesSchemaDefinition}
-	'PropertiesSchemaDefinition'
+	{PropertiesSchemaDefinition} 
+	'"properties"' ':' 
 	'{'
-		('keySchemaPairs' '{' keySchemaPairs+=KeySchemaPair ( "," keySchemaPairs+=KeySchemaPair)* '}' )?
-	'}';
+		(keySchemaPairs+=KeySchemaPair ( "," keySchemaPairs+=KeySchemaPair)*)?
+	'}'
+;
+//	{PropertiesSchemaDefinition}
+//	'PropertiesSchemaDefinition'
+//	'{'
+//		('keySchemaPairs' '{' keySchemaPairs+=KeySchemaPair ( "," keySchemaPairs+=KeySchemaPair)* '}' )?
+//	'}';
 
 PropertyNamesSchemaDefinition returns PropertyNamesSchemaDefinition:
-	'PropertyNamesSchemaDefinition'
-	'{'
-		'propertyNames' propertyNames=Schema
-	'}';
+	'"propertyNames"' ':' propertyNames=Schema
+;
+//	'PropertyNamesSchemaDefinition'
+//	'{'
+//		'propertyNames' propertyNames=Schema
+//	'}';
+
+/**
+ * Not auto generated. Manually introduced
+ */
+terminal JSON_NUMBER returns ecore::EFloat:
+	'-'? ('0'|'1'..'9' ('0'..'9')*) ('.' ('0'..'9')+)? (('E'|'e')('+'|'-')('0'..'9')+)?
+;
 
 EDouble returns ecore::EDouble:
-	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
+	JSON_NUMBER
+;
+//	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
 
 EBoolean returns ecore::EBoolean:
 	'true' | 'false';
 
 EString returns ecore::EString:
-	STRING | ID;
+	STRING
+;
+//	STRING | ID;
+
+/**
+ * TODO delete here and in ecore
+ */
+//Enum returns Enum:
+//	'[' items+=JsonDocument ( "," items+=JsonDocument)* ']'
+//;
+//	{Enum}
+//	'Enum'
+//	'{'
+//		('items' '{' items+=JsonDocument ( "," items+=JsonDocument)* '}' )?
+//	'}';
 
 JsonDocument returns JsonDocument:
-	{JsonDocument}
-	'JsonDocument'
-	'{'
-		('value' value=Value)?
-	'}';
+	value=Value
+;
+//	{JsonDocument}
+//	'JsonDocument'
+//	'{'
+//		('value' value=Value)?
+//	'}';
 
+/** TODO put Value as abstract in ecore
+Value_Impl returns Value:
+	{Value}
+	'Value'
+	;
+ */
 IntegerValue returns IntegerValue:
-	'IntegerValue'
-	'{'
-		'value' value=EInt
-	'}';
+	value=EInt
+;
+//	'IntegerValue'
+//	'{'
+//		'value' value=EInt
+//	'}';
 
 BooleanValue returns BooleanValue:
-	value?='value'
-	'BooleanValue'
-	;
+	value=EBoolean
+;
+//	value?='value'
+//	'BooleanValue'
+//	;
 
 NullValue returns NullValue:
 	{NullValue}
-	'NullValue'
-	;
+	'null'
+;
+//	{NullValue}
+//	'NullValue'
+//	;
 
 StringValue returns StringValue:
-	'StringValue'
-	'{'
-		'value' value=EString
-	'}';
+	value=STRING
+;
+//	'StringValue'
+//	'{'
+//		'value' value=EString
+//	'}';
 
 ObjectValue returns ObjectValue:
 	{ObjectValue}
-	'ObjectValue'
 	'{'
-		('keyvaluepair' '{' keyvaluepair+=KeyValuePair ( "," keyvaluepair+=KeyValuePair)* '}' )?
-	'}';
+		(keyvaluepair+=KeyValuePair ( "," keyvaluepair+=KeyValuePair)*  )?
+	'}'
+;
+//	{ObjectValue}
+//	'ObjectValue'
+//	'{'
+//		('keyvaluepair' '{' keyvaluepair+=KeyValuePair ( "," keyvaluepair+=KeyValuePair)* '}' )?
+//	'}';
 
 NumberValue returns NumberValue:
-	'NumberValue'
-	'{'
-		'value' value=EDouble
-	'}';
+	value=EDouble
+;
+//	'NumberValue'
+//	'{'
+//		'value' value=EDouble
+//	'}';
 
 ArrayValue returns ArrayValue:
 	{ArrayValue}
-	'ArrayValue'
-	'{'
-		('value' '{' value+=Value ( "," value+=Value)* '}' )?
-	'}';
+	'[' (  value+=Value ( "," value+=Value)*  )? ']'
+;
+//	{ArrayValue}
+//	'ArrayValue'
+//	'{'
+//		('value' '{' value+=Value ( "," value+=Value)* '}' )?
+//	'}';
 
 EInt returns ecore::EInt:
 	'-'? INT;
 
 SchemaArray returns SchemaArray:
-	'SchemaArray'
-	'{'
-		'items' '{' items+=Schema ( "," items+=Schema)* '}' 
-	'}';
+	'[' items+=Schema ( "," items+=Schema)* ']'
+;
+//	'SchemaArray'
+//	'{'
+//		'items' '{' items+=Schema ( "," items+=Schema)* '}' 
+//	'}';
 
+/**
+ * TODO put validation value >=0
+ * 	"nonNegativeIntegerDefault0": {
+		"allOf": [
+			{ "$ref": "#/definitions/nonNegativeInteger" },
+			{ "default": 0 }
+		]
+	}
+ */
 NonNegativeIntegerDefault0 returns NonNegativeIntegerDefault0:
-	'NonNegativeIntegerDefault0'
-	'{'
-		'value' value=EInt
-	'}';
+	value=EInt
+;
+//	'NonNegativeIntegerDefault0'
+//	'{'
+//		'value' value=EInt
+//	'}';
 
 KeySchemaPair returns KeySchemaPair:
-	'KeySchemaPair'
-	'{'
-		'key' key=EString
-		'value' value=Schema
-	'}';
+	key=EString ':' value=Schema
+;
+//	'KeySchemaPair'
+//	'{'
+//		'key' key=EString
+//		'value' value=Schema
+//	'}';
 
+/**
+ * TODO put validation value >=0
+ * "nonNegativeInteger": {
+		"type": "integer",
+		"minimum": 0
+	}
+ */
 NonNegativeInteger returns NonNegativeInteger:
-	'NonNegativeInteger'
-	'{'
-		'value' value=EInt
-	'}';
+	value=EInt
+;
+//	'NonNegativeInteger'
+//	'{'
+//		'value' value=EInt
+//	'}';
 
 enum SimpleTypes returns SimpleTypes:
-				array = 'array' | boolean = 'boolean' | integer = 'integer' | null = 'null' | number = 'number' | object = 'object' | string = 'string';
+	array = '"array"' | boolean = '"boolean"' | integer = '"integer"' | null = '"null"' | number = '"number"' | object = '"object"' | string = '"string"'
+;
+//	array = 'array' | boolean = 'boolean' | integer = 'integer' | null = 'null' | number = 'number' | object = 'object' | string = 'string';
 
 TypesAnyOf2 returns TypesAnyOf2:
-	'TypesAnyOf2'
-	'{'
-		'items' '{' items+=SimpleTypes ( "," items+=SimpleTypes)* '}' 
-	'}';
+	'[' items+=SimpleTypes ( "," items+=SimpleTypes)* ']' 
+;
+//	'TypesAnyOf2'
+//	'{'
+//		'items' '{' items+=SimpleTypes ( "," items+=SimpleTypes)* '}' 
+//	'}';
 
+/**
+ * TODO validation that at least one of anyOf1 and anyOf2 must exist 
+ */
 DependenciesAnyOf returns DependenciesAnyOf:
-	{DependenciesAnyOf}
-	'DependenciesAnyOf'
-	'{'
-		('dependenciesAnyOf2' dependenciesAnyOf2=KeyStringArrayPair)?
-		('dependenciesAnyOf1' dependenciesAnyOf1=KeySchemaPair)?
-	'}';
+		{DependenciesAnyOf} 
+		(dependenciesAnyOf2=KeyStringArrayPair)?
+		(dependenciesAnyOf1=KeySchemaPair)?
+;
+//	{DependenciesAnyOf}
+//	'DependenciesAnyOf'
+//	'{'
+//		('dependenciesAnyOf2' dependenciesAnyOf2=KeyStringArrayPair)?
+//		('dependenciesAnyOf1' dependenciesAnyOf1=KeySchemaPair)?
+//	'}';
 
 KeyStringArrayPair returns KeyStringArrayPair:
-	'KeyStringArrayPair'
-	'{'
-		'key' key=EString
-		'value' value=StringArray
-	'}';
+	key=EString ':' value=StringArray
+;
 
+//	'KeyStringArrayPair'
+//	'{'
+//		'key' key=EString
+//		'value' value=StringArray
+//	'}';
+
+/**
+ * TODO uniqueness validation
+ */
 StringArray returns StringArray:
-	{StringArray}
-	'StringArray'
-	'{'
-		('values' '{' values+=EString ( "," values+=EString)* '}' )?
-	'}';
+	{StringArray} 
+	'[' (values+=EString ( "," values+=EString)*)?  ']' 
+;
+//	{StringArray}
+//	'StringArray'
+//	'{'
+//		('values' '{' values+=EString ( "," values+=EString)* '}' )?
+//	'}';
+	
+/**
+ * In Json the single quote for String is not admitted
+ */
+@Override 
+terminal STRING:
+	'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"'
+;	

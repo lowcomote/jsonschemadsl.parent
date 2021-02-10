@@ -67,15 +67,6 @@ KeywordDefinition returns KeywordDefinition:
 	KeyValuePair
 ;
 
-
-
-
-
-
-
-
-
-/**TODO put Value as abstract in ecore */
 Value returns Value:
 //	Value_Impl | IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue;
 IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue;
@@ -704,7 +695,7 @@ NullValue returns NullValue:
 //	;
 
 StringValue returns StringValue:
-	value=EString
+	value=STRING
 ;
 //	'StringValue'
 //	'{'
