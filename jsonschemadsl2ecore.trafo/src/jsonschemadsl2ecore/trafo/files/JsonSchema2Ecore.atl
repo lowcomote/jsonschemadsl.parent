@@ -1,0 +1,16 @@
+-- @nsURI MM=http://at.jku.bise/jsonMetaschemaMM
+-- @nsURI MM1=http://www.eclipse.org/emf/2002/Ecore
+
+module JsonSchema2Ecore;
+create OUT : MM1 from IN : MM;
+
+uses JsonSchema2EcoreUtils;
+
+rule JsonSchemaToEPackage {
+	from
+		jsonSchema : MM!JsonSchema
+	to 
+		package : MM1!EPackage (
+			name <- 'test'			
+		)
+}
