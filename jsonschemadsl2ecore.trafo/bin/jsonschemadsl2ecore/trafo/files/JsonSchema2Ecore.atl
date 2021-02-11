@@ -8,8 +8,6 @@ uses JsonSchema2EcoreUtils;
 
 helper def: rootEPackage : MM1!EPackage = OclUndefined;
 
---helper def: addEClass(MM1!EClass eClass) = thisModule.rootEPackage.get
-
 rule JsonSchemaToEPackage {
 	from
 		jsonSchema : MM!JsonSchema
@@ -22,13 +20,29 @@ rule JsonSchemaToEPackage {
 		}
 }
 
---rule addEClassToEPackage(eClass : MM1!EClass){
---	do{thisModule.rootEPackage.eClassifiers.}
---}
+helper context MM!ObjectSchema def: isTypeObject() : Boolean =
+	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
+		->select(keyword | not keyword.typeAnyOf1.oclIsUndefined())
+		->exists(keyword | keyword.typeAnyOf1 = #"\"object\"");
+		
+
+
+		
+	
+--	self.keywordDefinition->exists(keyword | 
+--		keyword.oclIsTypeOf(MM!TypeSchemaDefinition)
+--		and not keyword.typeAnyOf1.oclIsUndefined()	
+--		and keyword.typeAnyOf1=#"object"
+--	);
+--	if self.keywordDefinition->exists(keyword | keyword.oclIsKindOf(MM!TypeSchemaDefinition)) then 
+--		true
+--	else 
+--		false
+--	endif;
 
 rule ObjectSchemaToEClass {
 	from
-		objectSchema : MM!ObjectSchema
+		objectSchema : MM!ObjectSchema(objectSchema.isTypeObject())
 	to
 		eClass : MM1!EClass
 	do {
