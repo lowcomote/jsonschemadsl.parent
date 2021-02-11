@@ -1,3 +1,11 @@
 library JsonSchema2EcoreUtils;
 
-
+helper context MM!ObjectSchema def: isTypeObject() : Boolean =
+	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
+		->select(keyword | not keyword.typeAnyOf1.oclIsUndefined())
+		->exists(keyword | keyword.typeAnyOf1 = #"\"object\"");
+		
+--helper context MM!ObjectSchema def: isType(type:String) : Boolean =
+--	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
+--		->select(keyword | not keyword.typeAnyOf1.oclIsUndefined())
+--		->exists(keyword | keyword.typeAnyOf1 = #"\""+type.toString()+"\"");

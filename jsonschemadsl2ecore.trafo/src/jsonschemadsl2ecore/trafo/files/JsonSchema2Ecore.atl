@@ -20,16 +20,11 @@ rule JsonSchemaToEPackage {
 		}
 }
 
-helper context MM!ObjectSchema def: isTypeObject() : Boolean =
-	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
-		->select(keyword | not keyword.typeAnyOf1.oclIsUndefined())
-		->exists(keyword | keyword.typeAnyOf1 = #"\"object\"");
-		
-
 
 rule ObjectSchemaToEClass {
 	from
 		objectSchema : MM!ObjectSchema(objectSchema.isTypeObject())
+--	TODO 	objectSchema : MM!ObjectSchema(objectSchema.isType('object'))
 	to
 		eClass : MM1!EClass
 	do {
