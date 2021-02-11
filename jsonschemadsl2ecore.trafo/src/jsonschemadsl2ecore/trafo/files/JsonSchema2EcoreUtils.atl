@@ -1,2 +1,4 @@
 library JsonSchema2EcoreUtils;
 
+--helper context MM!ObjectSchema def: isTypeObject() : Boolean =
+--	if self.kewordDefinition.

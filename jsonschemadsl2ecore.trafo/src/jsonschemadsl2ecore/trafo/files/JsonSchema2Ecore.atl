@@ -6,11 +6,28 @@ create OUT : MM1 from IN : MM;
 
 uses JsonSchema2EcoreUtils;
 
+helper def: rootEPackage : MM1!EPackage = OclUndefined;
+
 rule JsonSchemaToEPackage {
 	from
 		jsonSchema : MM!JsonSchema
 	to 
-		package : MM1!EPackage (
-			name <- 'test'			
+		ePackage : MM1!EPackage (
+			name <- 'test1'			
 		)
+		do{
+			thisModule.rootEPackage <- ePackage;
+		}
+}
+
+
+
+rule ObjectSchemaToEClass {
+	from
+		objectSchema : MM!ObjectSchema
+	to
+		eClass : MM1!EClass
+	do {
+		thisModule.rootEPackage.eClassifiers <-eClass;
+	}	
 }
