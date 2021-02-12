@@ -847,7 +847,7 @@ public class JsonSchemaDslSemanticSequencer extends AbstractDelegatingSemanticSe
 	 *     KeyValuePair returns KeyValuePair
 	 *
 	 * Constraint:
-	 *     (key=EString value=Value)
+	 *     (key=STRING value=Value)
 	 */
 	protected void sequence_KeyValuePair(ISerializationContext context, KeyValuePair semanticObject) {
 		if (errorAcceptor != null) {
@@ -857,7 +857,7 @@ public class JsonSchemaDslSemanticSequencer extends AbstractDelegatingSemanticSe
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JsonMetaschemaMMPackage.Literals.KEY_VALUE_PAIR__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getKeyValuePairAccess().getKeyEStringParserRuleCall_0_0(), semanticObject.getKey());
+		feeder.accept(grammarAccess.getKeyValuePairAccess().getKeySTRINGTerminalRuleCall_0_0(), semanticObject.getKey());
 		feeder.accept(grammarAccess.getKeyValuePairAccess().getValueValueParserRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
@@ -1336,7 +1336,7 @@ public class JsonSchemaDslSemanticSequencer extends AbstractDelegatingSemanticSe
 	 *     StringValue returns StringValue
 	 *
 	 * Constraint:
-	 *     value=STRING
+	 *     value=VALID_STRING
 	 */
 	protected void sequence_StringValue(ISerializationContext context, StringValue semanticObject) {
 		if (errorAcceptor != null) {
@@ -1344,7 +1344,7 @@ public class JsonSchemaDslSemanticSequencer extends AbstractDelegatingSemanticSe
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, JsonMetaschemaMMPackage.Literals.STRING_VALUE__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStringValueAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getStringValueAccess().getValueVALID_STRINGParserRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

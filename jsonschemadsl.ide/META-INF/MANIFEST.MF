@@ -13,4 +13,5 @@ Require-Bundle: jsonschemadsl,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: at.jku.bise.ide.contentassist.antlr,
- at.jku.bise.ide.contentassist.antlr.internal
+ at.jku.bise.ide.contentassist.antlr.internal,
+ at.jku.bise.ide.syntaxcoloring

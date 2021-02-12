@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.emf.common.util.URI
 
 /**
  * Generates code from your model files on save.
@@ -16,6 +17,9 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class JsonSchemaDslGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		var URI resourceURI = fsa.getURI('/').trimSegments(1).appendSegment('model')
+					.appendSegment(resource.URI.trimFileExtension.lastSegment + '.ecore');
+		println(resourceURI.toString);
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
 //			resource.allContents
 //				.filter(Greeting)

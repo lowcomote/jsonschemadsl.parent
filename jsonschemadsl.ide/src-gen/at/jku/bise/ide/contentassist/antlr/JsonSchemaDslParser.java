@@ -35,6 +35,8 @@ public class JsonSchemaDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getKeywordDefinitionAccess().getAlternatives(), "rule__KeywordDefinition__Alternatives");
 			builder.put(grammarAccess.getValueAccess().getAlternatives(), "rule__Value__Alternatives");
 			builder.put(grammarAccess.getEBooleanAccess().getAlternatives(), "rule__EBoolean__Alternatives");
+			builder.put(grammarAccess.getVALID_STRINGAccess().getAlternatives(), "rule__VALID_STRING__Alternatives");
+			builder.put(grammarAccess.getKEYWORDAccess().getAlternatives(), "rule__KEYWORD__Alternatives");
 			builder.put(grammarAccess.getSimpleTypesAccess().getAlternatives(), "rule__SimpleTypes__Alternatives");
 			builder.put(grammarAccess.getJsonSchemaAccess().getGroup(), "rule__JsonSchema__Group__0");
 			builder.put(grammarAccess.getObjectSchemaAccess().getGroup(), "rule__ObjectSchema__Group__0");

@@ -1582,7 +1582,7 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.bise.JsonSchemaDsl.KeyValuePair");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cKeyEStringParserRuleCall_0_0 = (RuleCall)cKeyAssignment_0.eContents().get(0);
+		private final RuleCall cKeySTRINGTerminalRuleCall_0_0 = (RuleCall)cKeyAssignment_0.eContents().get(0);
 		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cValueValueParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
@@ -1592,18 +1592,21 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 		////		'additionalItems' additionalItems=Schema
 		////	'}';
 		//KeyValuePair:
-		//	key=EString ':' value=Value;
+		//	key=STRING //EString 
+		//	':' value=Value;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//key=EString ':' value=Value
+		//key=STRING //EString 
+		//':' value=Value
 		public Group getGroup() { return cGroup; }
 		
-		//key=EString
+		//key=STRING
 		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
 		
-		//EString
-		public RuleCall getKeyEStringParserRuleCall_0_0() { return cKeyEStringParserRuleCall_0_0; }
+		//STRING
+		public RuleCall getKeySTRINGTerminalRuleCall_0_0() { return cKeySTRINGTerminalRuleCall_0_0; }
 		
+		////EString 
 		//':'
 		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
 		
@@ -2241,14 +2244,14 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.bise.JsonSchemaDsl.EString");
-		private final RuleCall cSTRINGTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		private final RuleCall cVALID_STRINGParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//EString:
-		//	STRING;
+		//	VALID_STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall() { return cSTRINGTerminalRuleCall; }
+		//VALID_STRING
+		public RuleCall getVALID_STRINGParserRuleCall() { return cVALID_STRINGParserRuleCall; }
 	}
 	public class JsonDocumentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.bise.JsonSchemaDsl.JsonDocument");
@@ -2346,20 +2349,20 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 	public class StringValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.bise.JsonSchemaDsl.StringValue");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		private final RuleCall cValueVALID_STRINGParserRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
 		////	{NullValue}
 		////	'NullValue'
 		////	;
 		//StringValue:
-		//	value=STRING;
+		//	value=VALID_STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//value=STRING
+		//value=VALID_STRING
 		public Assignment getValueAssignment() { return cValueAssignment; }
 		
-		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
+		//VALID_STRING
+		public RuleCall getValueVALID_STRINGParserRuleCall_0() { return cValueVALID_STRINGParserRuleCall_0; }
 	}
 	public class ObjectValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.bise.JsonSchemaDsl.ObjectValue");
@@ -2827,6 +2830,221 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 		//']'
 		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
 	}
+	public class VALID_STRINGElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.bise.JsonSchemaDsl.VALID_STRING");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cSTRINGTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cKEYWORDParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		////	{StringArray}
+		////	'StringArray'
+		////	'{'
+		////		('values' '{' values+=EString ( "," values+=EString)* '}' )?
+		////	'}';
+		//VALID_STRING:
+		//	STRING | KEYWORD;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//STRING | KEYWORD
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall_0() { return cSTRINGTerminalRuleCall_0; }
+		
+		//KEYWORD
+		public RuleCall getKEYWORDParserRuleCall_1() { return cKEYWORDParserRuleCall_1; }
+	}
+	public class KEYWORDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.bise.JsonSchemaDsl.KEYWORD");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cIdKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cSchemaKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cRefKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cCommentKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cTitleKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cDescriptionKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cDefaultKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cReadOnlyKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cWriteOnlyKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cExamplesKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
+		private final Keyword cMultipleOfKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
+		private final Keyword cMaximumKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
+		private final Keyword cExclusiveMaximumKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
+		private final Keyword cMaxLengthKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cMinLengthKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final Keyword cPatternKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
+		private final Keyword cAdditionalItemsKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
+		private final Keyword cItemsKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
+		private final Keyword cMaxItemsKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
+		private final Keyword cMinItemsKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
+		private final Keyword cUniqueItemsKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
+		private final Keyword cContainsKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
+		private final Keyword cMaxPropertiesKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
+		private final Keyword cMinPropertiesKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
+		private final Keyword cRequiredKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
+		private final Keyword cAdditionalPropertiesKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
+		private final Keyword cDefinitionsKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
+		private final Keyword cPropertiesKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
+		private final Keyword cPatternPropertiesKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
+		private final Keyword cPropertyNamesKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
+		private final Keyword cConstKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
+		private final Keyword cTypeKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
+		private final Keyword cFormatKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
+		private final Keyword cContentMediaTypeKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
+		private final Keyword cContentEncodingKeyword_34 = (Keyword)cAlternatives.eContents().get(34);
+		private final Keyword cIfKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
+		private final Keyword cThenKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
+		private final Keyword cElseKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
+		private final Keyword cAllOfKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
+		private final Keyword cAnyOfKeyword_39 = (Keyword)cAlternatives.eContents().get(39);
+		private final Keyword cOneOfKeyword_40 = (Keyword)cAlternatives.eContents().get(40);
+		private final Keyword cNotKeyword_41 = (Keyword)cAlternatives.eContents().get(41);
+		
+		//// TODO please @Alessandro review that all keywords are defined here. Thanks!
+		//KEYWORD:
+		//	'"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
+		//	'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"maxLength"' | '"minLength"' |
+		//	'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |
+		//	'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
+		//	'"patternProperties"' | '"propertyNames"' | '"const"' | '"type"' | '"format"' | '"contentMediaType"' |
+		//	'"contentEncoding"' |
+		//	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
+		//'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"maxLength"' | '"minLength"' |
+		//'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |
+		//'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
+		//'"patternProperties"' | '"propertyNames"' | '"const"' | '"type"' | '"format"' | '"contentMediaType"' |
+		//'"contentEncoding"' | '"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'"$id"'
+		public Keyword getIdKeyword_0() { return cIdKeyword_0; }
+		
+		//'"$schema"'
+		public Keyword getSchemaKeyword_1() { return cSchemaKeyword_1; }
+		
+		//'"$ref"'
+		public Keyword getRefKeyword_2() { return cRefKeyword_2; }
+		
+		//'"$comment"'
+		public Keyword getCommentKeyword_3() { return cCommentKeyword_3; }
+		
+		//'"title"'
+		public Keyword getTitleKeyword_4() { return cTitleKeyword_4; }
+		
+		//'"description"'
+		public Keyword getDescriptionKeyword_5() { return cDescriptionKeyword_5; }
+		
+		//'"default"'
+		public Keyword getDefaultKeyword_6() { return cDefaultKeyword_6; }
+		
+		//'"readOnly"'
+		public Keyword getReadOnlyKeyword_7() { return cReadOnlyKeyword_7; }
+		
+		//'"writeOnly"'
+		public Keyword getWriteOnlyKeyword_8() { return cWriteOnlyKeyword_8; }
+		
+		//'"examples"'
+		public Keyword getExamplesKeyword_9() { return cExamplesKeyword_9; }
+		
+		//'"multipleOf"'
+		public Keyword getMultipleOfKeyword_10() { return cMultipleOfKeyword_10; }
+		
+		//'"maximum"'
+		public Keyword getMaximumKeyword_11() { return cMaximumKeyword_11; }
+		
+		//'"exclusiveMaximum"'
+		public Keyword getExclusiveMaximumKeyword_12() { return cExclusiveMaximumKeyword_12; }
+		
+		//'"maxLength"'
+		public Keyword getMaxLengthKeyword_13() { return cMaxLengthKeyword_13; }
+		
+		//'"minLength"'
+		public Keyword getMinLengthKeyword_14() { return cMinLengthKeyword_14; }
+		
+		//'"pattern"'
+		public Keyword getPatternKeyword_15() { return cPatternKeyword_15; }
+		
+		//'"additionalItems"'
+		public Keyword getAdditionalItemsKeyword_16() { return cAdditionalItemsKeyword_16; }
+		
+		//'"items"'
+		public Keyword getItemsKeyword_17() { return cItemsKeyword_17; }
+		
+		//'"maxItems"'
+		public Keyword getMaxItemsKeyword_18() { return cMaxItemsKeyword_18; }
+		
+		//'"minItems"'
+		public Keyword getMinItemsKeyword_19() { return cMinItemsKeyword_19; }
+		
+		//'"uniqueItems"'
+		public Keyword getUniqueItemsKeyword_20() { return cUniqueItemsKeyword_20; }
+		
+		//'"contains"'
+		public Keyword getContainsKeyword_21() { return cContainsKeyword_21; }
+		
+		//'"maxProperties"'
+		public Keyword getMaxPropertiesKeyword_22() { return cMaxPropertiesKeyword_22; }
+		
+		//'"minProperties"'
+		public Keyword getMinPropertiesKeyword_23() { return cMinPropertiesKeyword_23; }
+		
+		//'"required"'
+		public Keyword getRequiredKeyword_24() { return cRequiredKeyword_24; }
+		
+		//'"additionalProperties"'
+		public Keyword getAdditionalPropertiesKeyword_25() { return cAdditionalPropertiesKeyword_25; }
+		
+		//'"definitions"'
+		public Keyword getDefinitionsKeyword_26() { return cDefinitionsKeyword_26; }
+		
+		//'"properties"'
+		public Keyword getPropertiesKeyword_27() { return cPropertiesKeyword_27; }
+		
+		//'"patternProperties"'
+		public Keyword getPatternPropertiesKeyword_28() { return cPatternPropertiesKeyword_28; }
+		
+		//'"propertyNames"'
+		public Keyword getPropertyNamesKeyword_29() { return cPropertyNamesKeyword_29; }
+		
+		//'"const"'
+		public Keyword getConstKeyword_30() { return cConstKeyword_30; }
+		
+		//'"type"'
+		public Keyword getTypeKeyword_31() { return cTypeKeyword_31; }
+		
+		//'"format"'
+		public Keyword getFormatKeyword_32() { return cFormatKeyword_32; }
+		
+		//'"contentMediaType"'
+		public Keyword getContentMediaTypeKeyword_33() { return cContentMediaTypeKeyword_33; }
+		
+		//'"contentEncoding"'
+		public Keyword getContentEncodingKeyword_34() { return cContentEncodingKeyword_34; }
+		
+		//'"if"'
+		public Keyword getIfKeyword_35() { return cIfKeyword_35; }
+		
+		//'"then"'
+		public Keyword getThenKeyword_36() { return cThenKeyword_36; }
+		
+		//'"else"'
+		public Keyword getElseKeyword_37() { return cElseKeyword_37; }
+		
+		//'"allOf"'
+		public Keyword getAllOfKeyword_38() { return cAllOfKeyword_38; }
+		
+		//'"anyOf"'
+		public Keyword getAnyOfKeyword_39() { return cAnyOfKeyword_39; }
+		
+		//'"oneOf"'
+		public Keyword getOneOfKeyword_40() { return cOneOfKeyword_40; }
+		
+		//'"not"'
+		public Keyword getNotKeyword_41() { return cNotKeyword_41; }
+	}
 	
 	public class SimpleTypesElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.bise.JsonSchemaDsl.SimpleTypes");
@@ -2973,7 +3191,9 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 	private final DependenciesAnyOfElements pDependenciesAnyOf;
 	private final KeyStringArrayPairElements pKeyStringArrayPair;
 	private final StringArrayElements pStringArray;
+	private final VALID_STRINGElements pVALID_STRING;
 	private final TerminalRule tSTRING;
+	private final KEYWORDElements pKEYWORD;
 	
 	private final Grammar grammar;
 	
@@ -3059,7 +3279,9 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 		this.pDependenciesAnyOf = new DependenciesAnyOfElements();
 		this.pKeyStringArrayPair = new KeyStringArrayPairElements();
 		this.pStringArray = new StringArrayElements();
+		this.pVALID_STRING = new VALID_STRINGElements();
 		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "at.jku.bise.JsonSchemaDsl.STRING");
+		this.pKEYWORD = new KEYWORDElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -3702,7 +3924,8 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 	////		'additionalItems' additionalItems=Schema
 	////	'}';
 	//KeyValuePair:
-	//	key=EString ':' value=Value;
+	//	key=STRING //EString 
+	//	':' value=Value;
 	public KeyValuePairElements getKeyValuePairAccess() {
 		return pKeyValuePair;
 	}
@@ -3997,7 +4220,7 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 	}
 	
 	//EString:
-	//	STRING;
+	//	VALID_STRING;
 	public EStringElements getEStringAccess() {
 		return pEString;
 	}
@@ -4079,7 +4302,7 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 	////	'NullValue'
 	////	;
 	//StringValue:
-	//	value=STRING;
+	//	value=VALID_STRING;
 	public StringValueElements getStringValueAccess() {
 		return pStringValue;
 	}
@@ -4289,11 +4512,43 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 		return getStringArrayAccess().getRule();
 	}
 	
+	////	{StringArray}
+	////	'StringArray'
+	////	'{'
+	////		('values' '{' values+=EString ( "," values+=EString)* '}' )?
+	////	'}';
+	//VALID_STRING:
+	//	STRING | KEYWORD;
+	public VALID_STRINGElements getVALID_STRINGAccess() {
+		return pVALID_STRING;
+	}
+	
+	public ParserRule getVALID_STRINGRule() {
+		return getVALID_STRINGAccess().getRule();
+	}
+	
 	//@Override
 	//terminal STRING:
 	//	'"' ('\\' . | !('\\' | '"'))* '"';
 	public TerminalRule getSTRINGRule() {
 		return tSTRING;
+	}
+	
+	//// TODO please @Alessandro review that all keywords are defined here. Thanks!
+	//KEYWORD:
+	//	'"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
+	//	'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"maxLength"' | '"minLength"' |
+	//	'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |
+	//	'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
+	//	'"patternProperties"' | '"propertyNames"' | '"const"' | '"type"' | '"format"' | '"contentMediaType"' |
+	//	'"contentEncoding"' |
+	//	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"';
+	public KEYWORDElements getKEYWORDAccess() {
+		return pKEYWORD;
+	}
+	
+	public ParserRule getKEYWORDRule() {
+		return getKEYWORDAccess().getRule();
 	}
 	
 	//terminal ID:

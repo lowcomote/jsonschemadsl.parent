@@ -461,7 +461,8 @@ AdditionalItemsSchemaDefinition returns AdditionalItemsSchemaDefinition:
 //	'}';
 
 KeyValuePair returns KeyValuePair:
-	key=EString ':' value=Value
+	key=STRING//EString 
+	':' value=Value
 ;
 //	{KeyValuePair}
 //	'KeyValuePair'
@@ -655,7 +656,7 @@ EBoolean returns ecore::EBoolean:
 	'true' | 'false';
 
 EString returns ecore::EString:
-	STRING
+	VALID_STRING 
 ;
 //	STRING | ID;
 
@@ -710,7 +711,7 @@ NullValue returns NullValue:
 //	;
 
 StringValue returns StringValue:
-	value=STRING
+	value=VALID_STRING
 ;
 //	'StringValue'
 //	'{'
@@ -817,7 +818,7 @@ TypesAnyOf2 returns TypesAnyOf2:
  */
 DependenciesAnyOf returns DependenciesAnyOf:
 		{DependenciesAnyOf} 
-		(dependenciesAnyOf2=KeyStringArrayPair)?
+		(dependenciesAnyOf2=KeyStringArrayPair)? 
 		(dependenciesAnyOf1=KeySchemaPair)?
 ;
 //	{DependenciesAnyOf}
@@ -849,7 +850,8 @@ StringArray returns StringArray:
 //	'{'
 //		('values' '{' values+=EString ( "," values+=EString)* '}' )?
 //	'}';
-	
+
+VALID_STRING: STRING  | KEYWORD;
 /**
  * In Json the single quote for String is not admitted
  */
@@ -857,3 +859,14 @@ StringArray returns StringArray:
 terminal STRING:
 	'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"'
 ;	
+
+
+// TODO please @Alessandro review that all keywords are defined here. Thanks!
+KEYWORD: '"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
+	'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"maxLength"' | '"minLength"' |
+	'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |  
+	'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
+	'"patternProperties"' | '"propertyNames"' | '"const"' | '"type"' | '"format"' | '"contentMediaType"' | '"contentEncoding"' |
+	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"'
+;
+

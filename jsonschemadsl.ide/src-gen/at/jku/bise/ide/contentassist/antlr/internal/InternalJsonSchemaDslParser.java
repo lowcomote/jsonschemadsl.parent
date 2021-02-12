@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_JSON_NUMBER", "RULE_STRING", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'true'", "'false'", "'\"array\"'", "'\"boolean\"'", "'\"integer\"'", "'\"null\"'", "'\"number\"'", "'\"object\"'", "'\"string\"'", "'{'", "'}'", "','", "'\"maximum\"'", "':'", "'\"writeOnly\"'", "'\"$comment\"'", "'['", "']'", "'\"uniqueItems\"'", "'\"anyOf\"'", "'\"title\"'", "'\"items\"'", "'\"default\"'", "'\"then\"'", "'\"minLength\"'", "'\"definitions\"'", "'\"minItems\"'", "'\"oneOf\"'", "'\"maxProperties\"'", "'\"minimum\"'", "'\"maxItems\"'", "'\"format\"'", "'\"readOnly\"'", "'\"type\"'", "'\"additionalProperties\"'", "'\"else\"'", "'\"$id\"'", "'\"const\"'", "'\"required\"'", "'\"description\"'", "'\"minProperties\"'", "'\"patternProperties\"'", "'\"additionalItems\"'", "'\"examples\"'", "'\"if\"'", "'\"allOf\"'", "'\"contentEncoding\"'", "'\"multipleOf\"'", "'\"pattern\"'", "'\"contains\"'", "'\"not\"'", "'\"exclusiveMaximum\"'", "'\"maxLength\"'", "'\"$ref\"'", "'\"contentMediaType\"'", "'\"exclusiveMinimum\"'", "'\"$schema\"'", "'\"properties\"'", "'\"propertyNames\"'", "'null'", "'-'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_JSON_NUMBER", "RULE_STRING", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'true'", "'false'", "'\"$id\"'", "'\"$schema\"'", "'\"$ref\"'", "'\"$comment\"'", "'\"title\"'", "'\"description\"'", "'\"default\"'", "'\"readOnly\"'", "'\"writeOnly\"'", "'\"examples\"'", "'\"multipleOf\"'", "'\"maximum\"'", "'\"exclusiveMaximum\"'", "'\"maxLength\"'", "'\"minLength\"'", "'\"pattern\"'", "'\"additionalItems\"'", "'\"items\"'", "'\"maxItems\"'", "'\"minItems\"'", "'\"uniqueItems\"'", "'\"contains\"'", "'\"maxProperties\"'", "'\"minProperties\"'", "'\"required\"'", "'\"additionalProperties\"'", "'\"definitions\"'", "'\"properties\"'", "'\"patternProperties\"'", "'\"propertyNames\"'", "'\"const\"'", "'\"type\"'", "'\"format\"'", "'\"contentMediaType\"'", "'\"contentEncoding\"'", "'\"if\"'", "'\"then\"'", "'\"else\"'", "'\"allOf\"'", "'\"anyOf\"'", "'\"oneOf\"'", "'\"not\"'", "'\"array\"'", "'\"boolean\"'", "'\"integer\"'", "'\"null\"'", "'\"number\"'", "'\"object\"'", "'\"string\"'", "'{'", "'}'", "','", "':'", "'['", "']'", "'\"minimum\"'", "'\"exclusiveMinimum\"'", "'null'", "'-'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -4309,21 +4309,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "ruleEString"
-    // InternalJsonSchemaDsl.g:1412:1: ruleEString : ( RULE_STRING ) ;
+    // InternalJsonSchemaDsl.g:1412:1: ruleEString : ( ruleVALID_STRING ) ;
     public final void ruleEString() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:1416:2: ( ( RULE_STRING ) )
-            // InternalJsonSchemaDsl.g:1417:2: ( RULE_STRING )
+            // InternalJsonSchemaDsl.g:1416:2: ( ( ruleVALID_STRING ) )
+            // InternalJsonSchemaDsl.g:1417:2: ( ruleVALID_STRING )
             {
-            // InternalJsonSchemaDsl.g:1417:2: ( RULE_STRING )
-            // InternalJsonSchemaDsl.g:1418:3: RULE_STRING
+            // InternalJsonSchemaDsl.g:1417:2: ( ruleVALID_STRING )
+            // InternalJsonSchemaDsl.g:1418:3: ruleVALID_STRING
             {
-             before(grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall()); 
+             before(grammarAccess.getEStringAccess().getVALID_STRINGParserRuleCall()); 
+            pushFollow(FOLLOW_2);
+            ruleVALID_STRING();
+
+            state._fsp--;
+
+             after(grammarAccess.getEStringAccess().getVALID_STRINGParserRuleCall()); 
 
             }
 
@@ -5654,22 +5658,176 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
     // $ANTLR end "ruleStringArray"
 
 
+    // $ANTLR start "entryRuleVALID_STRING"
+    // InternalJsonSchemaDsl.g:1853:1: entryRuleVALID_STRING : ruleVALID_STRING EOF ;
+    public final void entryRuleVALID_STRING() throws RecognitionException {
+        try {
+            // InternalJsonSchemaDsl.g:1854:1: ( ruleVALID_STRING EOF )
+            // InternalJsonSchemaDsl.g:1855:1: ruleVALID_STRING EOF
+            {
+             before(grammarAccess.getVALID_STRINGRule()); 
+            pushFollow(FOLLOW_1);
+            ruleVALID_STRING();
+
+            state._fsp--;
+
+             after(grammarAccess.getVALID_STRINGRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleVALID_STRING"
+
+
+    // $ANTLR start "ruleVALID_STRING"
+    // InternalJsonSchemaDsl.g:1862:1: ruleVALID_STRING : ( ( rule__VALID_STRING__Alternatives ) ) ;
+    public final void ruleVALID_STRING() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalJsonSchemaDsl.g:1866:2: ( ( ( rule__VALID_STRING__Alternatives ) ) )
+            // InternalJsonSchemaDsl.g:1867:2: ( ( rule__VALID_STRING__Alternatives ) )
+            {
+            // InternalJsonSchemaDsl.g:1867:2: ( ( rule__VALID_STRING__Alternatives ) )
+            // InternalJsonSchemaDsl.g:1868:3: ( rule__VALID_STRING__Alternatives )
+            {
+             before(grammarAccess.getVALID_STRINGAccess().getAlternatives()); 
+            // InternalJsonSchemaDsl.g:1869:3: ( rule__VALID_STRING__Alternatives )
+            // InternalJsonSchemaDsl.g:1869:4: rule__VALID_STRING__Alternatives
+            {
+            pushFollow(FOLLOW_2);
+            rule__VALID_STRING__Alternatives();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getVALID_STRINGAccess().getAlternatives()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleVALID_STRING"
+
+
+    // $ANTLR start "entryRuleKEYWORD"
+    // InternalJsonSchemaDsl.g:1878:1: entryRuleKEYWORD : ruleKEYWORD EOF ;
+    public final void entryRuleKEYWORD() throws RecognitionException {
+        try {
+            // InternalJsonSchemaDsl.g:1879:1: ( ruleKEYWORD EOF )
+            // InternalJsonSchemaDsl.g:1880:1: ruleKEYWORD EOF
+            {
+             before(grammarAccess.getKEYWORDRule()); 
+            pushFollow(FOLLOW_1);
+            ruleKEYWORD();
+
+            state._fsp--;
+
+             after(grammarAccess.getKEYWORDRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleKEYWORD"
+
+
+    // $ANTLR start "ruleKEYWORD"
+    // InternalJsonSchemaDsl.g:1887:1: ruleKEYWORD : ( ( rule__KEYWORD__Alternatives ) ) ;
+    public final void ruleKEYWORD() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalJsonSchemaDsl.g:1891:2: ( ( ( rule__KEYWORD__Alternatives ) ) )
+            // InternalJsonSchemaDsl.g:1892:2: ( ( rule__KEYWORD__Alternatives ) )
+            {
+            // InternalJsonSchemaDsl.g:1892:2: ( ( rule__KEYWORD__Alternatives ) )
+            // InternalJsonSchemaDsl.g:1893:3: ( rule__KEYWORD__Alternatives )
+            {
+             before(grammarAccess.getKEYWORDAccess().getAlternatives()); 
+            // InternalJsonSchemaDsl.g:1894:3: ( rule__KEYWORD__Alternatives )
+            // InternalJsonSchemaDsl.g:1894:4: rule__KEYWORD__Alternatives
+            {
+            pushFollow(FOLLOW_2);
+            rule__KEYWORD__Alternatives();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getKEYWORDAccess().getAlternatives()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleKEYWORD"
+
+
     // $ANTLR start "ruleSimpleTypes"
-    // InternalJsonSchemaDsl.g:1853:1: ruleSimpleTypes : ( ( rule__SimpleTypes__Alternatives ) ) ;
+    // InternalJsonSchemaDsl.g:1903:1: ruleSimpleTypes : ( ( rule__SimpleTypes__Alternatives ) ) ;
     public final void ruleSimpleTypes() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:1857:1: ( ( ( rule__SimpleTypes__Alternatives ) ) )
-            // InternalJsonSchemaDsl.g:1858:2: ( ( rule__SimpleTypes__Alternatives ) )
+            // InternalJsonSchemaDsl.g:1907:1: ( ( ( rule__SimpleTypes__Alternatives ) ) )
+            // InternalJsonSchemaDsl.g:1908:2: ( ( rule__SimpleTypes__Alternatives ) )
             {
-            // InternalJsonSchemaDsl.g:1858:2: ( ( rule__SimpleTypes__Alternatives ) )
-            // InternalJsonSchemaDsl.g:1859:3: ( rule__SimpleTypes__Alternatives )
+            // InternalJsonSchemaDsl.g:1908:2: ( ( rule__SimpleTypes__Alternatives ) )
+            // InternalJsonSchemaDsl.g:1909:3: ( rule__SimpleTypes__Alternatives )
             {
              before(grammarAccess.getSimpleTypesAccess().getAlternatives()); 
-            // InternalJsonSchemaDsl.g:1860:3: ( rule__SimpleTypes__Alternatives )
-            // InternalJsonSchemaDsl.g:1860:4: rule__SimpleTypes__Alternatives
+            // InternalJsonSchemaDsl.g:1910:3: ( rule__SimpleTypes__Alternatives )
+            // InternalJsonSchemaDsl.g:1910:4: rule__SimpleTypes__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__SimpleTypes__Alternatives();
@@ -5702,17 +5860,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Schema__Alternatives"
-    // InternalJsonSchemaDsl.g:1868:1: rule__Schema__Alternatives : ( ( ruleObjectSchema ) | ( ruleBooleanSchema ) );
+    // InternalJsonSchemaDsl.g:1918:1: rule__Schema__Alternatives : ( ( ruleObjectSchema ) | ( ruleBooleanSchema ) );
     public final void rule__Schema__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:1872:1: ( ( ruleObjectSchema ) | ( ruleBooleanSchema ) )
+            // InternalJsonSchemaDsl.g:1922:1: ( ( ruleObjectSchema ) | ( ruleBooleanSchema ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==21) ) {
+            if ( (LA1_0==63) ) {
                 alt1=1;
             }
             else if ( ((LA1_0>=12 && LA1_0<=13)) ) {
@@ -5726,10 +5884,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             }
             switch (alt1) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:1873:2: ( ruleObjectSchema )
+                    // InternalJsonSchemaDsl.g:1923:2: ( ruleObjectSchema )
                     {
-                    // InternalJsonSchemaDsl.g:1873:2: ( ruleObjectSchema )
-                    // InternalJsonSchemaDsl.g:1874:3: ruleObjectSchema
+                    // InternalJsonSchemaDsl.g:1923:2: ( ruleObjectSchema )
+                    // InternalJsonSchemaDsl.g:1924:3: ruleObjectSchema
                     {
                      before(grammarAccess.getSchemaAccess().getObjectSchemaParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -5745,10 +5903,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 2 :
-                    // InternalJsonSchemaDsl.g:1879:2: ( ruleBooleanSchema )
+                    // InternalJsonSchemaDsl.g:1929:2: ( ruleBooleanSchema )
                     {
-                    // InternalJsonSchemaDsl.g:1879:2: ( ruleBooleanSchema )
-                    // InternalJsonSchemaDsl.g:1880:3: ruleBooleanSchema
+                    // InternalJsonSchemaDsl.g:1929:2: ( ruleBooleanSchema )
+                    // InternalJsonSchemaDsl.g:1930:3: ruleBooleanSchema
                     {
                      before(grammarAccess.getSchemaAccess().getBooleanSchemaParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -5781,181 +5939,181 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeywordDefinition__Alternatives"
-    // InternalJsonSchemaDsl.g:1889:1: rule__KeywordDefinition__Alternatives : ( ( ruleIdSchemaDefinition ) | ( ruleSchemaSchemaDefinition ) | ( ruleRefSchemaDefinition ) | ( ruleCommentSchemaDefinition ) | ( ruleTitleSchemaDefinition ) | ( ruleDescriptionSchemaDefinition ) | ( ruleDefaultSchemaDefinition ) | ( ruleReadOnlySchemaDefinition ) | ( ruleWriteOnlySchemaDefinition ) | ( ruleExamplesSchemaDefinition ) | ( ruleMultipleOfSchemaDefinition ) | ( ruleMaximumSchemaDefinition ) | ( ruleExclusiveMaximumSchemaDefinition ) | ( ruleMinimumSchemaDefinition ) | ( ruleExclusiveMinimumSchemaDefinition ) | ( ruleMaxLengthSchemaDefinition ) | ( ruleMinLengthSchemaDefinition ) | ( rulePatternSchemaDefinition ) | ( ruleAdditionalItemsSchemaDefinition ) | ( ruleItemsSchemaDefinition ) | ( ruleMaxItemsSchemaDefinition ) | ( ruleMinItemsSchemaDefinition ) | ( ruleUniqueItemsSchemaDefinition ) | ( ruleContainsSchemaDefinition ) | ( ruleMaxPropertiesSchemaDefinition ) | ( ruleMinPropertiesSchemaDefinition ) | ( ruleRequiredSchemaDefinition ) | ( ruleAdditionalPropertiesSchemaDefinition ) | ( ruleDefinitionsSchemaDefinition ) | ( rulePropertiesSchemaDefinition ) | ( rulePatternPropertiesSchemaDefinition ) | ( rulePropertyNamesSchemaDefinition ) | ( ruleConstSchemaDefinition ) | ( ruleEnumSchemaDefinition ) | ( ruleTypeSchemaDefinition ) | ( ruleFormatSchemaDefinition ) | ( ruleContentMediaTypeSchemaDefinition ) | ( ruleContentEncodingSchemaDefinition ) | ( ruleIfSchemaDefinition ) | ( ruleThenSchemaDefinition ) | ( ruleElseSchemaDefinition ) | ( ruleAllOfSchemaDefinition ) | ( ruleAnyOfSchemaDefinition ) | ( ruleOneOfSchemaDefinition ) | ( ruleNotSchemaDefinition ) | ( ruleKeyValuePair ) );
+    // InternalJsonSchemaDsl.g:1939:1: rule__KeywordDefinition__Alternatives : ( ( ruleIdSchemaDefinition ) | ( ruleSchemaSchemaDefinition ) | ( ruleRefSchemaDefinition ) | ( ruleCommentSchemaDefinition ) | ( ruleTitleSchemaDefinition ) | ( ruleDescriptionSchemaDefinition ) | ( ruleDefaultSchemaDefinition ) | ( ruleReadOnlySchemaDefinition ) | ( ruleWriteOnlySchemaDefinition ) | ( ruleExamplesSchemaDefinition ) | ( ruleMultipleOfSchemaDefinition ) | ( ruleMaximumSchemaDefinition ) | ( ruleExclusiveMaximumSchemaDefinition ) | ( ruleMinimumSchemaDefinition ) | ( ruleExclusiveMinimumSchemaDefinition ) | ( ruleMaxLengthSchemaDefinition ) | ( ruleMinLengthSchemaDefinition ) | ( rulePatternSchemaDefinition ) | ( ruleAdditionalItemsSchemaDefinition ) | ( ruleItemsSchemaDefinition ) | ( ruleMaxItemsSchemaDefinition ) | ( ruleMinItemsSchemaDefinition ) | ( ruleUniqueItemsSchemaDefinition ) | ( ruleContainsSchemaDefinition ) | ( ruleMaxPropertiesSchemaDefinition ) | ( ruleMinPropertiesSchemaDefinition ) | ( ruleRequiredSchemaDefinition ) | ( ruleAdditionalPropertiesSchemaDefinition ) | ( ruleDefinitionsSchemaDefinition ) | ( rulePropertiesSchemaDefinition ) | ( rulePatternPropertiesSchemaDefinition ) | ( rulePropertyNamesSchemaDefinition ) | ( ruleConstSchemaDefinition ) | ( ruleEnumSchemaDefinition ) | ( ruleTypeSchemaDefinition ) | ( ruleFormatSchemaDefinition ) | ( ruleContentMediaTypeSchemaDefinition ) | ( ruleContentEncodingSchemaDefinition ) | ( ruleIfSchemaDefinition ) | ( ruleThenSchemaDefinition ) | ( ruleElseSchemaDefinition ) | ( ruleAllOfSchemaDefinition ) | ( ruleAnyOfSchemaDefinition ) | ( ruleOneOfSchemaDefinition ) | ( ruleNotSchemaDefinition ) | ( ruleKeyValuePair ) );
     public final void rule__KeywordDefinition__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:1893:1: ( ( ruleIdSchemaDefinition ) | ( ruleSchemaSchemaDefinition ) | ( ruleRefSchemaDefinition ) | ( ruleCommentSchemaDefinition ) | ( ruleTitleSchemaDefinition ) | ( ruleDescriptionSchemaDefinition ) | ( ruleDefaultSchemaDefinition ) | ( ruleReadOnlySchemaDefinition ) | ( ruleWriteOnlySchemaDefinition ) | ( ruleExamplesSchemaDefinition ) | ( ruleMultipleOfSchemaDefinition ) | ( ruleMaximumSchemaDefinition ) | ( ruleExclusiveMaximumSchemaDefinition ) | ( ruleMinimumSchemaDefinition ) | ( ruleExclusiveMinimumSchemaDefinition ) | ( ruleMaxLengthSchemaDefinition ) | ( ruleMinLengthSchemaDefinition ) | ( rulePatternSchemaDefinition ) | ( ruleAdditionalItemsSchemaDefinition ) | ( ruleItemsSchemaDefinition ) | ( ruleMaxItemsSchemaDefinition ) | ( ruleMinItemsSchemaDefinition ) | ( ruleUniqueItemsSchemaDefinition ) | ( ruleContainsSchemaDefinition ) | ( ruleMaxPropertiesSchemaDefinition ) | ( ruleMinPropertiesSchemaDefinition ) | ( ruleRequiredSchemaDefinition ) | ( ruleAdditionalPropertiesSchemaDefinition ) | ( ruleDefinitionsSchemaDefinition ) | ( rulePropertiesSchemaDefinition ) | ( rulePatternPropertiesSchemaDefinition ) | ( rulePropertyNamesSchemaDefinition ) | ( ruleConstSchemaDefinition ) | ( ruleEnumSchemaDefinition ) | ( ruleTypeSchemaDefinition ) | ( ruleFormatSchemaDefinition ) | ( ruleContentMediaTypeSchemaDefinition ) | ( ruleContentEncodingSchemaDefinition ) | ( ruleIfSchemaDefinition ) | ( ruleThenSchemaDefinition ) | ( ruleElseSchemaDefinition ) | ( ruleAllOfSchemaDefinition ) | ( ruleAnyOfSchemaDefinition ) | ( ruleOneOfSchemaDefinition ) | ( ruleNotSchemaDefinition ) | ( ruleKeyValuePair ) )
+            // InternalJsonSchemaDsl.g:1943:1: ( ( ruleIdSchemaDefinition ) | ( ruleSchemaSchemaDefinition ) | ( ruleRefSchemaDefinition ) | ( ruleCommentSchemaDefinition ) | ( ruleTitleSchemaDefinition ) | ( ruleDescriptionSchemaDefinition ) | ( ruleDefaultSchemaDefinition ) | ( ruleReadOnlySchemaDefinition ) | ( ruleWriteOnlySchemaDefinition ) | ( ruleExamplesSchemaDefinition ) | ( ruleMultipleOfSchemaDefinition ) | ( ruleMaximumSchemaDefinition ) | ( ruleExclusiveMaximumSchemaDefinition ) | ( ruleMinimumSchemaDefinition ) | ( ruleExclusiveMinimumSchemaDefinition ) | ( ruleMaxLengthSchemaDefinition ) | ( ruleMinLengthSchemaDefinition ) | ( rulePatternSchemaDefinition ) | ( ruleAdditionalItemsSchemaDefinition ) | ( ruleItemsSchemaDefinition ) | ( ruleMaxItemsSchemaDefinition ) | ( ruleMinItemsSchemaDefinition ) | ( ruleUniqueItemsSchemaDefinition ) | ( ruleContainsSchemaDefinition ) | ( ruleMaxPropertiesSchemaDefinition ) | ( ruleMinPropertiesSchemaDefinition ) | ( ruleRequiredSchemaDefinition ) | ( ruleAdditionalPropertiesSchemaDefinition ) | ( ruleDefinitionsSchemaDefinition ) | ( rulePropertiesSchemaDefinition ) | ( rulePatternPropertiesSchemaDefinition ) | ( rulePropertyNamesSchemaDefinition ) | ( ruleConstSchemaDefinition ) | ( ruleEnumSchemaDefinition ) | ( ruleTypeSchemaDefinition ) | ( ruleFormatSchemaDefinition ) | ( ruleContentMediaTypeSchemaDefinition ) | ( ruleContentEncodingSchemaDefinition ) | ( ruleIfSchemaDefinition ) | ( ruleThenSchemaDefinition ) | ( ruleElseSchemaDefinition ) | ( ruleAllOfSchemaDefinition ) | ( ruleAnyOfSchemaDefinition ) | ( ruleOneOfSchemaDefinition ) | ( ruleNotSchemaDefinition ) | ( ruleKeyValuePair ) )
             int alt2=46;
             switch ( input.LA(1) ) {
-            case 48:
+            case 14:
                 {
                 alt2=1;
                 }
                 break;
-            case 68:
+            case 15:
                 {
                 alt2=2;
                 }
                 break;
-            case 65:
+            case 16:
                 {
                 alt2=3;
                 }
                 break;
-            case 27:
+            case 17:
                 {
                 alt2=4;
                 }
                 break;
-            case 32:
+            case 18:
                 {
                 alt2=5;
                 }
                 break;
-            case 51:
+            case 19:
                 {
                 alt2=6;
                 }
                 break;
-            case 34:
+            case 20:
                 {
                 alt2=7;
                 }
                 break;
-            case 44:
+            case 21:
                 {
                 alt2=8;
                 }
                 break;
-            case 26:
+            case 22:
                 {
                 alt2=9;
                 }
                 break;
-            case 55:
+            case 23:
                 {
                 alt2=10;
                 }
                 break;
-            case 59:
+            case 24:
                 {
                 alt2=11;
                 }
                 break;
-            case 24:
+            case 25:
                 {
                 alt2=12;
                 }
                 break;
-            case 63:
+            case 26:
                 {
                 alt2=13;
                 }
                 break;
-            case 41:
+            case 69:
                 {
                 alt2=14;
                 }
                 break;
-            case 67:
+            case 70:
                 {
                 alt2=15;
                 }
                 break;
-            case 64:
+            case 27:
                 {
                 alt2=16;
                 }
                 break;
-            case 36:
+            case 28:
                 {
                 alt2=17;
                 }
                 break;
-            case 60:
+            case 29:
                 {
                 alt2=18;
                 }
                 break;
-            case 54:
+            case 30:
                 {
                 alt2=19;
                 }
                 break;
-            case 33:
+            case 31:
                 {
                 alt2=20;
                 }
                 break;
-            case 42:
+            case 32:
                 {
                 alt2=21;
                 }
                 break;
-            case 38:
+            case 33:
                 {
                 alt2=22;
                 }
                 break;
-            case 30:
+            case 34:
                 {
                 alt2=23;
                 }
                 break;
-            case 61:
+            case 35:
                 {
                 alt2=24;
                 }
                 break;
-            case 40:
+            case 36:
                 {
                 alt2=25;
                 }
                 break;
-            case 52:
+            case 37:
                 {
                 alt2=26;
                 }
                 break;
-            case 50:
+            case 38:
                 {
                 alt2=27;
                 }
                 break;
-            case 46:
+            case 39:
                 {
                 alt2=28;
                 }
                 break;
-            case 37:
+            case 40:
                 {
                 alt2=29;
                 }
                 break;
-            case 69:
+            case 41:
                 {
                 alt2=30;
                 }
                 break;
-            case 53:
+            case 42:
                 {
                 alt2=31;
                 }
                 break;
-            case 70:
+            case 43:
                 {
                 alt2=32;
                 }
                 break;
-            case 49:
+            case 44:
                 {
                 alt2=33;
                 }
                 break;
-            case 28:
+            case 67:
                 {
                 alt2=34;
                 }
@@ -5965,52 +6123,52 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                 alt2=35;
                 }
                 break;
-            case 43:
+            case 46:
                 {
                 alt2=36;
                 }
                 break;
-            case 66:
+            case 47:
                 {
                 alt2=37;
                 }
                 break;
-            case 58:
+            case 48:
                 {
                 alt2=38;
                 }
                 break;
-            case 56:
+            case 49:
                 {
                 alt2=39;
                 }
                 break;
-            case 35:
+            case 50:
                 {
                 alt2=40;
                 }
                 break;
-            case 47:
+            case 51:
                 {
                 alt2=41;
                 }
                 break;
-            case 57:
+            case 52:
                 {
                 alt2=42;
                 }
                 break;
-            case 31:
+            case 53:
                 {
                 alt2=43;
                 }
                 break;
-            case 39:
+            case 54:
                 {
                 alt2=44;
                 }
                 break;
-            case 62:
+            case 55:
                 {
                 alt2=45;
                 }
@@ -6029,10 +6187,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
             switch (alt2) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:1894:2: ( ruleIdSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1944:2: ( ruleIdSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1894:2: ( ruleIdSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1895:3: ruleIdSchemaDefinition
+                    // InternalJsonSchemaDsl.g:1944:2: ( ruleIdSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1945:3: ruleIdSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getIdSchemaDefinitionParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -6048,10 +6206,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 2 :
-                    // InternalJsonSchemaDsl.g:1900:2: ( ruleSchemaSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1950:2: ( ruleSchemaSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1900:2: ( ruleSchemaSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1901:3: ruleSchemaSchemaDefinition
+                    // InternalJsonSchemaDsl.g:1950:2: ( ruleSchemaSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1951:3: ruleSchemaSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getSchemaSchemaDefinitionParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -6067,10 +6225,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 3 :
-                    // InternalJsonSchemaDsl.g:1906:2: ( ruleRefSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1956:2: ( ruleRefSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1906:2: ( ruleRefSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1907:3: ruleRefSchemaDefinition
+                    // InternalJsonSchemaDsl.g:1956:2: ( ruleRefSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1957:3: ruleRefSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getRefSchemaDefinitionParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -6086,10 +6244,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 4 :
-                    // InternalJsonSchemaDsl.g:1912:2: ( ruleCommentSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1962:2: ( ruleCommentSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1912:2: ( ruleCommentSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1913:3: ruleCommentSchemaDefinition
+                    // InternalJsonSchemaDsl.g:1962:2: ( ruleCommentSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1963:3: ruleCommentSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getCommentSchemaDefinitionParserRuleCall_3()); 
                     pushFollow(FOLLOW_2);
@@ -6105,10 +6263,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 5 :
-                    // InternalJsonSchemaDsl.g:1918:2: ( ruleTitleSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1968:2: ( ruleTitleSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1918:2: ( ruleTitleSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1919:3: ruleTitleSchemaDefinition
+                    // InternalJsonSchemaDsl.g:1968:2: ( ruleTitleSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1969:3: ruleTitleSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getTitleSchemaDefinitionParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
@@ -6124,10 +6282,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 6 :
-                    // InternalJsonSchemaDsl.g:1924:2: ( ruleDescriptionSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1974:2: ( ruleDescriptionSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1924:2: ( ruleDescriptionSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1925:3: ruleDescriptionSchemaDefinition
+                    // InternalJsonSchemaDsl.g:1974:2: ( ruleDescriptionSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1975:3: ruleDescriptionSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getDescriptionSchemaDefinitionParserRuleCall_5()); 
                     pushFollow(FOLLOW_2);
@@ -6143,10 +6301,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 7 :
-                    // InternalJsonSchemaDsl.g:1930:2: ( ruleDefaultSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1980:2: ( ruleDefaultSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1930:2: ( ruleDefaultSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1931:3: ruleDefaultSchemaDefinition
+                    // InternalJsonSchemaDsl.g:1980:2: ( ruleDefaultSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1981:3: ruleDefaultSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getDefaultSchemaDefinitionParserRuleCall_6()); 
                     pushFollow(FOLLOW_2);
@@ -6162,10 +6320,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 8 :
-                    // InternalJsonSchemaDsl.g:1936:2: ( ruleReadOnlySchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1986:2: ( ruleReadOnlySchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1936:2: ( ruleReadOnlySchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1937:3: ruleReadOnlySchemaDefinition
+                    // InternalJsonSchemaDsl.g:1986:2: ( ruleReadOnlySchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1987:3: ruleReadOnlySchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getReadOnlySchemaDefinitionParserRuleCall_7()); 
                     pushFollow(FOLLOW_2);
@@ -6181,10 +6339,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 9 :
-                    // InternalJsonSchemaDsl.g:1942:2: ( ruleWriteOnlySchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1992:2: ( ruleWriteOnlySchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1942:2: ( ruleWriteOnlySchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1943:3: ruleWriteOnlySchemaDefinition
+                    // InternalJsonSchemaDsl.g:1992:2: ( ruleWriteOnlySchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1993:3: ruleWriteOnlySchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getWriteOnlySchemaDefinitionParserRuleCall_8()); 
                     pushFollow(FOLLOW_2);
@@ -6200,10 +6358,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 10 :
-                    // InternalJsonSchemaDsl.g:1948:2: ( ruleExamplesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1998:2: ( ruleExamplesSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1948:2: ( ruleExamplesSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1949:3: ruleExamplesSchemaDefinition
+                    // InternalJsonSchemaDsl.g:1998:2: ( ruleExamplesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:1999:3: ruleExamplesSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getExamplesSchemaDefinitionParserRuleCall_9()); 
                     pushFollow(FOLLOW_2);
@@ -6219,10 +6377,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 11 :
-                    // InternalJsonSchemaDsl.g:1954:2: ( ruleMultipleOfSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2004:2: ( ruleMultipleOfSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1954:2: ( ruleMultipleOfSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1955:3: ruleMultipleOfSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2004:2: ( ruleMultipleOfSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2005:3: ruleMultipleOfSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getMultipleOfSchemaDefinitionParserRuleCall_10()); 
                     pushFollow(FOLLOW_2);
@@ -6238,10 +6396,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 12 :
-                    // InternalJsonSchemaDsl.g:1960:2: ( ruleMaximumSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2010:2: ( ruleMaximumSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1960:2: ( ruleMaximumSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1961:3: ruleMaximumSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2010:2: ( ruleMaximumSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2011:3: ruleMaximumSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getMaximumSchemaDefinitionParserRuleCall_11()); 
                     pushFollow(FOLLOW_2);
@@ -6257,10 +6415,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 13 :
-                    // InternalJsonSchemaDsl.g:1966:2: ( ruleExclusiveMaximumSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2016:2: ( ruleExclusiveMaximumSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1966:2: ( ruleExclusiveMaximumSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1967:3: ruleExclusiveMaximumSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2016:2: ( ruleExclusiveMaximumSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2017:3: ruleExclusiveMaximumSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getExclusiveMaximumSchemaDefinitionParserRuleCall_12()); 
                     pushFollow(FOLLOW_2);
@@ -6276,10 +6434,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 14 :
-                    // InternalJsonSchemaDsl.g:1972:2: ( ruleMinimumSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2022:2: ( ruleMinimumSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1972:2: ( ruleMinimumSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1973:3: ruleMinimumSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2022:2: ( ruleMinimumSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2023:3: ruleMinimumSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getMinimumSchemaDefinitionParserRuleCall_13()); 
                     pushFollow(FOLLOW_2);
@@ -6295,10 +6453,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 15 :
-                    // InternalJsonSchemaDsl.g:1978:2: ( ruleExclusiveMinimumSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2028:2: ( ruleExclusiveMinimumSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1978:2: ( ruleExclusiveMinimumSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1979:3: ruleExclusiveMinimumSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2028:2: ( ruleExclusiveMinimumSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2029:3: ruleExclusiveMinimumSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getExclusiveMinimumSchemaDefinitionParserRuleCall_14()); 
                     pushFollow(FOLLOW_2);
@@ -6314,10 +6472,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 16 :
-                    // InternalJsonSchemaDsl.g:1984:2: ( ruleMaxLengthSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2034:2: ( ruleMaxLengthSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1984:2: ( ruleMaxLengthSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1985:3: ruleMaxLengthSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2034:2: ( ruleMaxLengthSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2035:3: ruleMaxLengthSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getMaxLengthSchemaDefinitionParserRuleCall_15()); 
                     pushFollow(FOLLOW_2);
@@ -6333,10 +6491,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 17 :
-                    // InternalJsonSchemaDsl.g:1990:2: ( ruleMinLengthSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2040:2: ( ruleMinLengthSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1990:2: ( ruleMinLengthSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1991:3: ruleMinLengthSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2040:2: ( ruleMinLengthSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2041:3: ruleMinLengthSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getMinLengthSchemaDefinitionParserRuleCall_16()); 
                     pushFollow(FOLLOW_2);
@@ -6352,10 +6510,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 18 :
-                    // InternalJsonSchemaDsl.g:1996:2: ( rulePatternSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2046:2: ( rulePatternSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:1996:2: ( rulePatternSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:1997:3: rulePatternSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2046:2: ( rulePatternSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2047:3: rulePatternSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getPatternSchemaDefinitionParserRuleCall_17()); 
                     pushFollow(FOLLOW_2);
@@ -6371,10 +6529,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 19 :
-                    // InternalJsonSchemaDsl.g:2002:2: ( ruleAdditionalItemsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2052:2: ( ruleAdditionalItemsSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2002:2: ( ruleAdditionalItemsSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2003:3: ruleAdditionalItemsSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2052:2: ( ruleAdditionalItemsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2053:3: ruleAdditionalItemsSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getAdditionalItemsSchemaDefinitionParserRuleCall_18()); 
                     pushFollow(FOLLOW_2);
@@ -6390,10 +6548,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 20 :
-                    // InternalJsonSchemaDsl.g:2008:2: ( ruleItemsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2058:2: ( ruleItemsSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2008:2: ( ruleItemsSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2009:3: ruleItemsSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2058:2: ( ruleItemsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2059:3: ruleItemsSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getItemsSchemaDefinitionParserRuleCall_19()); 
                     pushFollow(FOLLOW_2);
@@ -6409,10 +6567,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 21 :
-                    // InternalJsonSchemaDsl.g:2014:2: ( ruleMaxItemsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2064:2: ( ruleMaxItemsSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2014:2: ( ruleMaxItemsSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2015:3: ruleMaxItemsSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2064:2: ( ruleMaxItemsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2065:3: ruleMaxItemsSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getMaxItemsSchemaDefinitionParserRuleCall_20()); 
                     pushFollow(FOLLOW_2);
@@ -6428,10 +6586,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 22 :
-                    // InternalJsonSchemaDsl.g:2020:2: ( ruleMinItemsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2070:2: ( ruleMinItemsSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2020:2: ( ruleMinItemsSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2021:3: ruleMinItemsSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2070:2: ( ruleMinItemsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2071:3: ruleMinItemsSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getMinItemsSchemaDefinitionParserRuleCall_21()); 
                     pushFollow(FOLLOW_2);
@@ -6447,10 +6605,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 23 :
-                    // InternalJsonSchemaDsl.g:2026:2: ( ruleUniqueItemsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2076:2: ( ruleUniqueItemsSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2026:2: ( ruleUniqueItemsSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2027:3: ruleUniqueItemsSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2076:2: ( ruleUniqueItemsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2077:3: ruleUniqueItemsSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getUniqueItemsSchemaDefinitionParserRuleCall_22()); 
                     pushFollow(FOLLOW_2);
@@ -6466,10 +6624,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 24 :
-                    // InternalJsonSchemaDsl.g:2032:2: ( ruleContainsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2082:2: ( ruleContainsSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2032:2: ( ruleContainsSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2033:3: ruleContainsSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2082:2: ( ruleContainsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2083:3: ruleContainsSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getContainsSchemaDefinitionParserRuleCall_23()); 
                     pushFollow(FOLLOW_2);
@@ -6485,10 +6643,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 25 :
-                    // InternalJsonSchemaDsl.g:2038:2: ( ruleMaxPropertiesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2088:2: ( ruleMaxPropertiesSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2038:2: ( ruleMaxPropertiesSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2039:3: ruleMaxPropertiesSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2088:2: ( ruleMaxPropertiesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2089:3: ruleMaxPropertiesSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getMaxPropertiesSchemaDefinitionParserRuleCall_24()); 
                     pushFollow(FOLLOW_2);
@@ -6504,10 +6662,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 26 :
-                    // InternalJsonSchemaDsl.g:2044:2: ( ruleMinPropertiesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2094:2: ( ruleMinPropertiesSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2044:2: ( ruleMinPropertiesSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2045:3: ruleMinPropertiesSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2094:2: ( ruleMinPropertiesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2095:3: ruleMinPropertiesSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getMinPropertiesSchemaDefinitionParserRuleCall_25()); 
                     pushFollow(FOLLOW_2);
@@ -6523,10 +6681,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 27 :
-                    // InternalJsonSchemaDsl.g:2050:2: ( ruleRequiredSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2100:2: ( ruleRequiredSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2050:2: ( ruleRequiredSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2051:3: ruleRequiredSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2100:2: ( ruleRequiredSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2101:3: ruleRequiredSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getRequiredSchemaDefinitionParserRuleCall_26()); 
                     pushFollow(FOLLOW_2);
@@ -6542,10 +6700,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 28 :
-                    // InternalJsonSchemaDsl.g:2056:2: ( ruleAdditionalPropertiesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2106:2: ( ruleAdditionalPropertiesSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2056:2: ( ruleAdditionalPropertiesSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2057:3: ruleAdditionalPropertiesSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2106:2: ( ruleAdditionalPropertiesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2107:3: ruleAdditionalPropertiesSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getAdditionalPropertiesSchemaDefinitionParserRuleCall_27()); 
                     pushFollow(FOLLOW_2);
@@ -6561,10 +6719,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 29 :
-                    // InternalJsonSchemaDsl.g:2062:2: ( ruleDefinitionsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2112:2: ( ruleDefinitionsSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2062:2: ( ruleDefinitionsSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2063:3: ruleDefinitionsSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2112:2: ( ruleDefinitionsSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2113:3: ruleDefinitionsSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getDefinitionsSchemaDefinitionParserRuleCall_28()); 
                     pushFollow(FOLLOW_2);
@@ -6580,10 +6738,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 30 :
-                    // InternalJsonSchemaDsl.g:2068:2: ( rulePropertiesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2118:2: ( rulePropertiesSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2068:2: ( rulePropertiesSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2069:3: rulePropertiesSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2118:2: ( rulePropertiesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2119:3: rulePropertiesSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getPropertiesSchemaDefinitionParserRuleCall_29()); 
                     pushFollow(FOLLOW_2);
@@ -6599,10 +6757,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 31 :
-                    // InternalJsonSchemaDsl.g:2074:2: ( rulePatternPropertiesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2124:2: ( rulePatternPropertiesSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2074:2: ( rulePatternPropertiesSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2075:3: rulePatternPropertiesSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2124:2: ( rulePatternPropertiesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2125:3: rulePatternPropertiesSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getPatternPropertiesSchemaDefinitionParserRuleCall_30()); 
                     pushFollow(FOLLOW_2);
@@ -6618,10 +6776,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 32 :
-                    // InternalJsonSchemaDsl.g:2080:2: ( rulePropertyNamesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2130:2: ( rulePropertyNamesSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2080:2: ( rulePropertyNamesSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2081:3: rulePropertyNamesSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2130:2: ( rulePropertyNamesSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2131:3: rulePropertyNamesSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getPropertyNamesSchemaDefinitionParserRuleCall_31()); 
                     pushFollow(FOLLOW_2);
@@ -6637,10 +6795,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 33 :
-                    // InternalJsonSchemaDsl.g:2086:2: ( ruleConstSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2136:2: ( ruleConstSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2086:2: ( ruleConstSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2087:3: ruleConstSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2136:2: ( ruleConstSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2137:3: ruleConstSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getConstSchemaDefinitionParserRuleCall_32()); 
                     pushFollow(FOLLOW_2);
@@ -6656,10 +6814,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 34 :
-                    // InternalJsonSchemaDsl.g:2092:2: ( ruleEnumSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2142:2: ( ruleEnumSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2092:2: ( ruleEnumSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2093:3: ruleEnumSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2142:2: ( ruleEnumSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2143:3: ruleEnumSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getEnumSchemaDefinitionParserRuleCall_33()); 
                     pushFollow(FOLLOW_2);
@@ -6675,10 +6833,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 35 :
-                    // InternalJsonSchemaDsl.g:2098:2: ( ruleTypeSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2148:2: ( ruleTypeSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2098:2: ( ruleTypeSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2099:3: ruleTypeSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2148:2: ( ruleTypeSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2149:3: ruleTypeSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getTypeSchemaDefinitionParserRuleCall_34()); 
                     pushFollow(FOLLOW_2);
@@ -6694,10 +6852,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 36 :
-                    // InternalJsonSchemaDsl.g:2104:2: ( ruleFormatSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2154:2: ( ruleFormatSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2104:2: ( ruleFormatSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2105:3: ruleFormatSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2154:2: ( ruleFormatSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2155:3: ruleFormatSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getFormatSchemaDefinitionParserRuleCall_35()); 
                     pushFollow(FOLLOW_2);
@@ -6713,10 +6871,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 37 :
-                    // InternalJsonSchemaDsl.g:2110:2: ( ruleContentMediaTypeSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2160:2: ( ruleContentMediaTypeSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2110:2: ( ruleContentMediaTypeSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2111:3: ruleContentMediaTypeSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2160:2: ( ruleContentMediaTypeSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2161:3: ruleContentMediaTypeSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getContentMediaTypeSchemaDefinitionParserRuleCall_36()); 
                     pushFollow(FOLLOW_2);
@@ -6732,10 +6890,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 38 :
-                    // InternalJsonSchemaDsl.g:2116:2: ( ruleContentEncodingSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2166:2: ( ruleContentEncodingSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2116:2: ( ruleContentEncodingSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2117:3: ruleContentEncodingSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2166:2: ( ruleContentEncodingSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2167:3: ruleContentEncodingSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getContentEncodingSchemaDefinitionParserRuleCall_37()); 
                     pushFollow(FOLLOW_2);
@@ -6751,10 +6909,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 39 :
-                    // InternalJsonSchemaDsl.g:2122:2: ( ruleIfSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2172:2: ( ruleIfSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2122:2: ( ruleIfSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2123:3: ruleIfSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2172:2: ( ruleIfSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2173:3: ruleIfSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getIfSchemaDefinitionParserRuleCall_38()); 
                     pushFollow(FOLLOW_2);
@@ -6770,10 +6928,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 40 :
-                    // InternalJsonSchemaDsl.g:2128:2: ( ruleThenSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2178:2: ( ruleThenSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2128:2: ( ruleThenSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2129:3: ruleThenSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2178:2: ( ruleThenSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2179:3: ruleThenSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getThenSchemaDefinitionParserRuleCall_39()); 
                     pushFollow(FOLLOW_2);
@@ -6789,10 +6947,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 41 :
-                    // InternalJsonSchemaDsl.g:2134:2: ( ruleElseSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2184:2: ( ruleElseSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2134:2: ( ruleElseSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2135:3: ruleElseSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2184:2: ( ruleElseSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2185:3: ruleElseSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getElseSchemaDefinitionParserRuleCall_40()); 
                     pushFollow(FOLLOW_2);
@@ -6808,10 +6966,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 42 :
-                    // InternalJsonSchemaDsl.g:2140:2: ( ruleAllOfSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2190:2: ( ruleAllOfSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2140:2: ( ruleAllOfSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2141:3: ruleAllOfSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2190:2: ( ruleAllOfSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2191:3: ruleAllOfSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getAllOfSchemaDefinitionParserRuleCall_41()); 
                     pushFollow(FOLLOW_2);
@@ -6827,10 +6985,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 43 :
-                    // InternalJsonSchemaDsl.g:2146:2: ( ruleAnyOfSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2196:2: ( ruleAnyOfSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2146:2: ( ruleAnyOfSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2147:3: ruleAnyOfSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2196:2: ( ruleAnyOfSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2197:3: ruleAnyOfSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getAnyOfSchemaDefinitionParserRuleCall_42()); 
                     pushFollow(FOLLOW_2);
@@ -6846,10 +7004,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 44 :
-                    // InternalJsonSchemaDsl.g:2152:2: ( ruleOneOfSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2202:2: ( ruleOneOfSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2152:2: ( ruleOneOfSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2153:3: ruleOneOfSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2202:2: ( ruleOneOfSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2203:3: ruleOneOfSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getOneOfSchemaDefinitionParserRuleCall_43()); 
                     pushFollow(FOLLOW_2);
@@ -6865,10 +7023,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 45 :
-                    // InternalJsonSchemaDsl.g:2158:2: ( ruleNotSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2208:2: ( ruleNotSchemaDefinition )
                     {
-                    // InternalJsonSchemaDsl.g:2158:2: ( ruleNotSchemaDefinition )
-                    // InternalJsonSchemaDsl.g:2159:3: ruleNotSchemaDefinition
+                    // InternalJsonSchemaDsl.g:2208:2: ( ruleNotSchemaDefinition )
+                    // InternalJsonSchemaDsl.g:2209:3: ruleNotSchemaDefinition
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getNotSchemaDefinitionParserRuleCall_44()); 
                     pushFollow(FOLLOW_2);
@@ -6884,10 +7042,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 46 :
-                    // InternalJsonSchemaDsl.g:2164:2: ( ruleKeyValuePair )
+                    // InternalJsonSchemaDsl.g:2214:2: ( ruleKeyValuePair )
                     {
-                    // InternalJsonSchemaDsl.g:2164:2: ( ruleKeyValuePair )
-                    // InternalJsonSchemaDsl.g:2165:3: ruleKeyValuePair
+                    // InternalJsonSchemaDsl.g:2214:2: ( ruleKeyValuePair )
+                    // InternalJsonSchemaDsl.g:2215:3: ruleKeyValuePair
                     {
                      before(grammarAccess.getKeywordDefinitionAccess().getKeyValuePairParserRuleCall_45()); 
                     pushFollow(FOLLOW_2);
@@ -6920,13 +7078,13 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Value__Alternatives"
-    // InternalJsonSchemaDsl.g:2174:1: rule__Value__Alternatives : ( ( ruleIntegerValue ) | ( ruleBooleanValue ) | ( ruleNullValue ) | ( ruleStringValue ) | ( ruleObjectValue ) | ( ruleNumberValue ) | ( ruleArrayValue ) );
+    // InternalJsonSchemaDsl.g:2224:1: rule__Value__Alternatives : ( ( ruleIntegerValue ) | ( ruleBooleanValue ) | ( ruleNullValue ) | ( ruleStringValue ) | ( ruleObjectValue ) | ( ruleNumberValue ) | ( ruleArrayValue ) );
     public final void rule__Value__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2178:1: ( ( ruleIntegerValue ) | ( ruleBooleanValue ) | ( ruleNullValue ) | ( ruleStringValue ) | ( ruleObjectValue ) | ( ruleNumberValue ) | ( ruleArrayValue ) )
+            // InternalJsonSchemaDsl.g:2228:1: ( ( ruleIntegerValue ) | ( ruleBooleanValue ) | ( ruleNullValue ) | ( ruleStringValue ) | ( ruleObjectValue ) | ( ruleNumberValue ) | ( ruleArrayValue ) )
             int alt3=7;
             switch ( input.LA(1) ) {
             case RULE_INT:
@@ -6947,11 +7105,53 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                 }
                 break;
             case RULE_STRING:
+            case 14:
+            case 15:
+            case 16:
+            case 17:
+            case 18:
+            case 19:
+            case 20:
+            case 21:
+            case 22:
+            case 23:
+            case 24:
+            case 25:
+            case 26:
+            case 27:
+            case 28:
+            case 29:
+            case 30:
+            case 31:
+            case 32:
+            case 33:
+            case 34:
+            case 35:
+            case 36:
+            case 37:
+            case 38:
+            case 39:
+            case 40:
+            case 41:
+            case 42:
+            case 43:
+            case 44:
+            case 45:
+            case 46:
+            case 47:
+            case 48:
+            case 49:
+            case 50:
+            case 51:
+            case 52:
+            case 53:
+            case 54:
+            case 55:
                 {
                 alt3=4;
                 }
                 break;
-            case 21:
+            case 63:
                 {
                 alt3=5;
                 }
@@ -6961,7 +7161,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                 alt3=6;
                 }
                 break;
-            case 28:
+            case 67:
                 {
                 alt3=7;
                 }
@@ -6975,10 +7175,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
             switch (alt3) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:2179:2: ( ruleIntegerValue )
+                    // InternalJsonSchemaDsl.g:2229:2: ( ruleIntegerValue )
                     {
-                    // InternalJsonSchemaDsl.g:2179:2: ( ruleIntegerValue )
-                    // InternalJsonSchemaDsl.g:2180:3: ruleIntegerValue
+                    // InternalJsonSchemaDsl.g:2229:2: ( ruleIntegerValue )
+                    // InternalJsonSchemaDsl.g:2230:3: ruleIntegerValue
                     {
                      before(grammarAccess.getValueAccess().getIntegerValueParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -6994,10 +7194,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 2 :
-                    // InternalJsonSchemaDsl.g:2185:2: ( ruleBooleanValue )
+                    // InternalJsonSchemaDsl.g:2235:2: ( ruleBooleanValue )
                     {
-                    // InternalJsonSchemaDsl.g:2185:2: ( ruleBooleanValue )
-                    // InternalJsonSchemaDsl.g:2186:3: ruleBooleanValue
+                    // InternalJsonSchemaDsl.g:2235:2: ( ruleBooleanValue )
+                    // InternalJsonSchemaDsl.g:2236:3: ruleBooleanValue
                     {
                      before(grammarAccess.getValueAccess().getBooleanValueParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -7013,10 +7213,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 3 :
-                    // InternalJsonSchemaDsl.g:2191:2: ( ruleNullValue )
+                    // InternalJsonSchemaDsl.g:2241:2: ( ruleNullValue )
                     {
-                    // InternalJsonSchemaDsl.g:2191:2: ( ruleNullValue )
-                    // InternalJsonSchemaDsl.g:2192:3: ruleNullValue
+                    // InternalJsonSchemaDsl.g:2241:2: ( ruleNullValue )
+                    // InternalJsonSchemaDsl.g:2242:3: ruleNullValue
                     {
                      before(grammarAccess.getValueAccess().getNullValueParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -7032,10 +7232,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 4 :
-                    // InternalJsonSchemaDsl.g:2197:2: ( ruleStringValue )
+                    // InternalJsonSchemaDsl.g:2247:2: ( ruleStringValue )
                     {
-                    // InternalJsonSchemaDsl.g:2197:2: ( ruleStringValue )
-                    // InternalJsonSchemaDsl.g:2198:3: ruleStringValue
+                    // InternalJsonSchemaDsl.g:2247:2: ( ruleStringValue )
+                    // InternalJsonSchemaDsl.g:2248:3: ruleStringValue
                     {
                      before(grammarAccess.getValueAccess().getStringValueParserRuleCall_3()); 
                     pushFollow(FOLLOW_2);
@@ -7051,10 +7251,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 5 :
-                    // InternalJsonSchemaDsl.g:2203:2: ( ruleObjectValue )
+                    // InternalJsonSchemaDsl.g:2253:2: ( ruleObjectValue )
                     {
-                    // InternalJsonSchemaDsl.g:2203:2: ( ruleObjectValue )
-                    // InternalJsonSchemaDsl.g:2204:3: ruleObjectValue
+                    // InternalJsonSchemaDsl.g:2253:2: ( ruleObjectValue )
+                    // InternalJsonSchemaDsl.g:2254:3: ruleObjectValue
                     {
                      before(grammarAccess.getValueAccess().getObjectValueParserRuleCall_4()); 
                     pushFollow(FOLLOW_2);
@@ -7070,10 +7270,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 6 :
-                    // InternalJsonSchemaDsl.g:2209:2: ( ruleNumberValue )
+                    // InternalJsonSchemaDsl.g:2259:2: ( ruleNumberValue )
                     {
-                    // InternalJsonSchemaDsl.g:2209:2: ( ruleNumberValue )
-                    // InternalJsonSchemaDsl.g:2210:3: ruleNumberValue
+                    // InternalJsonSchemaDsl.g:2259:2: ( ruleNumberValue )
+                    // InternalJsonSchemaDsl.g:2260:3: ruleNumberValue
                     {
                      before(grammarAccess.getValueAccess().getNumberValueParserRuleCall_5()); 
                     pushFollow(FOLLOW_2);
@@ -7089,10 +7289,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 7 :
-                    // InternalJsonSchemaDsl.g:2215:2: ( ruleArrayValue )
+                    // InternalJsonSchemaDsl.g:2265:2: ( ruleArrayValue )
                     {
-                    // InternalJsonSchemaDsl.g:2215:2: ( ruleArrayValue )
-                    // InternalJsonSchemaDsl.g:2216:3: ruleArrayValue
+                    // InternalJsonSchemaDsl.g:2265:2: ( ruleArrayValue )
+                    // InternalJsonSchemaDsl.g:2266:3: ruleArrayValue
                     {
                      before(grammarAccess.getValueAccess().getArrayValueParserRuleCall_6()); 
                     pushFollow(FOLLOW_2);
@@ -7125,13 +7325,13 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EBoolean__Alternatives"
-    // InternalJsonSchemaDsl.g:2225:1: rule__EBoolean__Alternatives : ( ( 'true' ) | ( 'false' ) );
+    // InternalJsonSchemaDsl.g:2275:1: rule__EBoolean__Alternatives : ( ( 'true' ) | ( 'false' ) );
     public final void rule__EBoolean__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2229:1: ( ( 'true' ) | ( 'false' ) )
+            // InternalJsonSchemaDsl.g:2279:1: ( ( 'true' ) | ( 'false' ) )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -7149,10 +7349,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             }
             switch (alt4) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:2230:2: ( 'true' )
+                    // InternalJsonSchemaDsl.g:2280:2: ( 'true' )
                     {
-                    // InternalJsonSchemaDsl.g:2230:2: ( 'true' )
-                    // InternalJsonSchemaDsl.g:2231:3: 'true'
+                    // InternalJsonSchemaDsl.g:2280:2: ( 'true' )
+                    // InternalJsonSchemaDsl.g:2281:3: 'true'
                     {
                      before(grammarAccess.getEBooleanAccess().getTrueKeyword_0()); 
                     match(input,12,FOLLOW_2); 
@@ -7164,10 +7364,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 2 :
-                    // InternalJsonSchemaDsl.g:2236:2: ( 'false' )
+                    // InternalJsonSchemaDsl.g:2286:2: ( 'false' )
                     {
-                    // InternalJsonSchemaDsl.g:2236:2: ( 'false' )
-                    // InternalJsonSchemaDsl.g:2237:3: 'false'
+                    // InternalJsonSchemaDsl.g:2286:2: ( 'false' )
+                    // InternalJsonSchemaDsl.g:2287:3: 'false'
                     {
                      before(grammarAccess.getEBooleanAccess().getFalseKeyword_1()); 
                     match(input,13,FOLLOW_2); 
@@ -7195,70 +7395,1020 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
     // $ANTLR end "rule__EBoolean__Alternatives"
 
 
-    // $ANTLR start "rule__SimpleTypes__Alternatives"
-    // InternalJsonSchemaDsl.g:2246:1: rule__SimpleTypes__Alternatives : ( ( ( '\"array\"' ) ) | ( ( '\"boolean\"' ) ) | ( ( '\"integer\"' ) ) | ( ( '\"null\"' ) ) | ( ( '\"number\"' ) ) | ( ( '\"object\"' ) ) | ( ( '\"string\"' ) ) );
-    public final void rule__SimpleTypes__Alternatives() throws RecognitionException {
+    // $ANTLR start "rule__VALID_STRING__Alternatives"
+    // InternalJsonSchemaDsl.g:2296:1: rule__VALID_STRING__Alternatives : ( ( RULE_STRING ) | ( ruleKEYWORD ) );
+    public final void rule__VALID_STRING__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2250:1: ( ( ( '\"array\"' ) ) | ( ( '\"boolean\"' ) ) | ( ( '\"integer\"' ) ) | ( ( '\"null\"' ) ) | ( ( '\"number\"' ) ) | ( ( '\"object\"' ) ) | ( ( '\"string\"' ) ) )
-            int alt5=7;
-            switch ( input.LA(1) ) {
-            case 14:
-                {
+            // InternalJsonSchemaDsl.g:2300:1: ( ( RULE_STRING ) | ( ruleKEYWORD ) )
+            int alt5=2;
+            int LA5_0 = input.LA(1);
+
+            if ( (LA5_0==RULE_STRING) ) {
                 alt5=1;
-                }
-                break;
-            case 15:
-                {
+            }
+            else if ( ((LA5_0>=14 && LA5_0<=55)) ) {
                 alt5=2;
-                }
-                break;
-            case 16:
-                {
-                alt5=3;
-                }
-                break;
-            case 17:
-                {
-                alt5=4;
-                }
-                break;
-            case 18:
-                {
-                alt5=5;
-                }
-                break;
-            case 19:
-                {
-                alt5=6;
-                }
-                break;
-            case 20:
-                {
-                alt5=7;
-                }
-                break;
-            default:
+            }
+            else {
                 NoViableAltException nvae =
                     new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
-
             switch (alt5) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:2251:2: ( ( '\"array\"' ) )
+                    // InternalJsonSchemaDsl.g:2301:2: ( RULE_STRING )
                     {
-                    // InternalJsonSchemaDsl.g:2251:2: ( ( '\"array\"' ) )
-                    // InternalJsonSchemaDsl.g:2252:3: ( '\"array\"' )
+                    // InternalJsonSchemaDsl.g:2301:2: ( RULE_STRING )
+                    // InternalJsonSchemaDsl.g:2302:3: RULE_STRING
+                    {
+                     before(grammarAccess.getVALID_STRINGAccess().getSTRINGTerminalRuleCall_0()); 
+                    match(input,RULE_STRING,FOLLOW_2); 
+                     after(grammarAccess.getVALID_STRINGAccess().getSTRINGTerminalRuleCall_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalJsonSchemaDsl.g:2307:2: ( ruleKEYWORD )
+                    {
+                    // InternalJsonSchemaDsl.g:2307:2: ( ruleKEYWORD )
+                    // InternalJsonSchemaDsl.g:2308:3: ruleKEYWORD
+                    {
+                     before(grammarAccess.getVALID_STRINGAccess().getKEYWORDParserRuleCall_1()); 
+                    pushFollow(FOLLOW_2);
+                    ruleKEYWORD();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getVALID_STRINGAccess().getKEYWORDParserRuleCall_1()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__VALID_STRING__Alternatives"
+
+
+    // $ANTLR start "rule__KEYWORD__Alternatives"
+    // InternalJsonSchemaDsl.g:2317:1: rule__KEYWORD__Alternatives : ( ( '\"$id\"' ) | ( '\"$schema\"' ) | ( '\"$ref\"' ) | ( '\"$comment\"' ) | ( '\"title\"' ) | ( '\"description\"' ) | ( '\"default\"' ) | ( '\"readOnly\"' ) | ( '\"writeOnly\"' ) | ( '\"examples\"' ) | ( '\"multipleOf\"' ) | ( '\"maximum\"' ) | ( '\"exclusiveMaximum\"' ) | ( '\"maxLength\"' ) | ( '\"minLength\"' ) | ( '\"pattern\"' ) | ( '\"additionalItems\"' ) | ( '\"items\"' ) | ( '\"maxItems\"' ) | ( '\"minItems\"' ) | ( '\"uniqueItems\"' ) | ( '\"contains\"' ) | ( '\"maxProperties\"' ) | ( '\"minProperties\"' ) | ( '\"required\"' ) | ( '\"additionalProperties\"' ) | ( '\"definitions\"' ) | ( '\"properties\"' ) | ( '\"patternProperties\"' ) | ( '\"propertyNames\"' ) | ( '\"const\"' ) | ( '\"type\"' ) | ( '\"format\"' ) | ( '\"contentMediaType\"' ) | ( '\"contentEncoding\"' ) | ( '\"if\"' ) | ( '\"then\"' ) | ( '\"else\"' ) | ( '\"allOf\"' ) | ( '\"anyOf\"' ) | ( '\"oneOf\"' ) | ( '\"not\"' ) );
+    public final void rule__KEYWORD__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalJsonSchemaDsl.g:2321:1: ( ( '\"$id\"' ) | ( '\"$schema\"' ) | ( '\"$ref\"' ) | ( '\"$comment\"' ) | ( '\"title\"' ) | ( '\"description\"' ) | ( '\"default\"' ) | ( '\"readOnly\"' ) | ( '\"writeOnly\"' ) | ( '\"examples\"' ) | ( '\"multipleOf\"' ) | ( '\"maximum\"' ) | ( '\"exclusiveMaximum\"' ) | ( '\"maxLength\"' ) | ( '\"minLength\"' ) | ( '\"pattern\"' ) | ( '\"additionalItems\"' ) | ( '\"items\"' ) | ( '\"maxItems\"' ) | ( '\"minItems\"' ) | ( '\"uniqueItems\"' ) | ( '\"contains\"' ) | ( '\"maxProperties\"' ) | ( '\"minProperties\"' ) | ( '\"required\"' ) | ( '\"additionalProperties\"' ) | ( '\"definitions\"' ) | ( '\"properties\"' ) | ( '\"patternProperties\"' ) | ( '\"propertyNames\"' ) | ( '\"const\"' ) | ( '\"type\"' ) | ( '\"format\"' ) | ( '\"contentMediaType\"' ) | ( '\"contentEncoding\"' ) | ( '\"if\"' ) | ( '\"then\"' ) | ( '\"else\"' ) | ( '\"allOf\"' ) | ( '\"anyOf\"' ) | ( '\"oneOf\"' ) | ( '\"not\"' ) )
+            int alt6=42;
+            switch ( input.LA(1) ) {
+            case 14:
+                {
+                alt6=1;
+                }
+                break;
+            case 15:
+                {
+                alt6=2;
+                }
+                break;
+            case 16:
+                {
+                alt6=3;
+                }
+                break;
+            case 17:
+                {
+                alt6=4;
+                }
+                break;
+            case 18:
+                {
+                alt6=5;
+                }
+                break;
+            case 19:
+                {
+                alt6=6;
+                }
+                break;
+            case 20:
+                {
+                alt6=7;
+                }
+                break;
+            case 21:
+                {
+                alt6=8;
+                }
+                break;
+            case 22:
+                {
+                alt6=9;
+                }
+                break;
+            case 23:
+                {
+                alt6=10;
+                }
+                break;
+            case 24:
+                {
+                alt6=11;
+                }
+                break;
+            case 25:
+                {
+                alt6=12;
+                }
+                break;
+            case 26:
+                {
+                alt6=13;
+                }
+                break;
+            case 27:
+                {
+                alt6=14;
+                }
+                break;
+            case 28:
+                {
+                alt6=15;
+                }
+                break;
+            case 29:
+                {
+                alt6=16;
+                }
+                break;
+            case 30:
+                {
+                alt6=17;
+                }
+                break;
+            case 31:
+                {
+                alt6=18;
+                }
+                break;
+            case 32:
+                {
+                alt6=19;
+                }
+                break;
+            case 33:
+                {
+                alt6=20;
+                }
+                break;
+            case 34:
+                {
+                alt6=21;
+                }
+                break;
+            case 35:
+                {
+                alt6=22;
+                }
+                break;
+            case 36:
+                {
+                alt6=23;
+                }
+                break;
+            case 37:
+                {
+                alt6=24;
+                }
+                break;
+            case 38:
+                {
+                alt6=25;
+                }
+                break;
+            case 39:
+                {
+                alt6=26;
+                }
+                break;
+            case 40:
+                {
+                alt6=27;
+                }
+                break;
+            case 41:
+                {
+                alt6=28;
+                }
+                break;
+            case 42:
+                {
+                alt6=29;
+                }
+                break;
+            case 43:
+                {
+                alt6=30;
+                }
+                break;
+            case 44:
+                {
+                alt6=31;
+                }
+                break;
+            case 45:
+                {
+                alt6=32;
+                }
+                break;
+            case 46:
+                {
+                alt6=33;
+                }
+                break;
+            case 47:
+                {
+                alt6=34;
+                }
+                break;
+            case 48:
+                {
+                alt6=35;
+                }
+                break;
+            case 49:
+                {
+                alt6=36;
+                }
+                break;
+            case 50:
+                {
+                alt6=37;
+                }
+                break;
+            case 51:
+                {
+                alt6=38;
+                }
+                break;
+            case 52:
+                {
+                alt6=39;
+                }
+                break;
+            case 53:
+                {
+                alt6=40;
+                }
+                break;
+            case 54:
+                {
+                alt6=41;
+                }
+                break;
+            case 55:
+                {
+                alt6=42;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 6, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt6) {
+                case 1 :
+                    // InternalJsonSchemaDsl.g:2322:2: ( '\"$id\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2322:2: ( '\"$id\"' )
+                    // InternalJsonSchemaDsl.g:2323:3: '\"$id\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getIdKeyword_0()); 
+                    match(input,14,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getIdKeyword_0()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalJsonSchemaDsl.g:2328:2: ( '\"$schema\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2328:2: ( '\"$schema\"' )
+                    // InternalJsonSchemaDsl.g:2329:3: '\"$schema\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getSchemaKeyword_1()); 
+                    match(input,15,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getSchemaKeyword_1()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalJsonSchemaDsl.g:2334:2: ( '\"$ref\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2334:2: ( '\"$ref\"' )
+                    // InternalJsonSchemaDsl.g:2335:3: '\"$ref\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getRefKeyword_2()); 
+                    match(input,16,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getRefKeyword_2()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 4 :
+                    // InternalJsonSchemaDsl.g:2340:2: ( '\"$comment\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2340:2: ( '\"$comment\"' )
+                    // InternalJsonSchemaDsl.g:2341:3: '\"$comment\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getCommentKeyword_3()); 
+                    match(input,17,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getCommentKeyword_3()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalJsonSchemaDsl.g:2346:2: ( '\"title\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2346:2: ( '\"title\"' )
+                    // InternalJsonSchemaDsl.g:2347:3: '\"title\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getTitleKeyword_4()); 
+                    match(input,18,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getTitleKeyword_4()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 6 :
+                    // InternalJsonSchemaDsl.g:2352:2: ( '\"description\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2352:2: ( '\"description\"' )
+                    // InternalJsonSchemaDsl.g:2353:3: '\"description\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getDescriptionKeyword_5()); 
+                    match(input,19,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getDescriptionKeyword_5()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 7 :
+                    // InternalJsonSchemaDsl.g:2358:2: ( '\"default\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2358:2: ( '\"default\"' )
+                    // InternalJsonSchemaDsl.g:2359:3: '\"default\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getDefaultKeyword_6()); 
+                    match(input,20,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getDefaultKeyword_6()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 8 :
+                    // InternalJsonSchemaDsl.g:2364:2: ( '\"readOnly\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2364:2: ( '\"readOnly\"' )
+                    // InternalJsonSchemaDsl.g:2365:3: '\"readOnly\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getReadOnlyKeyword_7()); 
+                    match(input,21,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getReadOnlyKeyword_7()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 9 :
+                    // InternalJsonSchemaDsl.g:2370:2: ( '\"writeOnly\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2370:2: ( '\"writeOnly\"' )
+                    // InternalJsonSchemaDsl.g:2371:3: '\"writeOnly\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getWriteOnlyKeyword_8()); 
+                    match(input,22,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getWriteOnlyKeyword_8()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 10 :
+                    // InternalJsonSchemaDsl.g:2376:2: ( '\"examples\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2376:2: ( '\"examples\"' )
+                    // InternalJsonSchemaDsl.g:2377:3: '\"examples\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getExamplesKeyword_9()); 
+                    match(input,23,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getExamplesKeyword_9()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 11 :
+                    // InternalJsonSchemaDsl.g:2382:2: ( '\"multipleOf\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2382:2: ( '\"multipleOf\"' )
+                    // InternalJsonSchemaDsl.g:2383:3: '\"multipleOf\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getMultipleOfKeyword_10()); 
+                    match(input,24,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getMultipleOfKeyword_10()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 12 :
+                    // InternalJsonSchemaDsl.g:2388:2: ( '\"maximum\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2388:2: ( '\"maximum\"' )
+                    // InternalJsonSchemaDsl.g:2389:3: '\"maximum\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getMaximumKeyword_11()); 
+                    match(input,25,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getMaximumKeyword_11()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 13 :
+                    // InternalJsonSchemaDsl.g:2394:2: ( '\"exclusiveMaximum\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2394:2: ( '\"exclusiveMaximum\"' )
+                    // InternalJsonSchemaDsl.g:2395:3: '\"exclusiveMaximum\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getExclusiveMaximumKeyword_12()); 
+                    match(input,26,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getExclusiveMaximumKeyword_12()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 14 :
+                    // InternalJsonSchemaDsl.g:2400:2: ( '\"maxLength\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2400:2: ( '\"maxLength\"' )
+                    // InternalJsonSchemaDsl.g:2401:3: '\"maxLength\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getMaxLengthKeyword_13()); 
+                    match(input,27,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getMaxLengthKeyword_13()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 15 :
+                    // InternalJsonSchemaDsl.g:2406:2: ( '\"minLength\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2406:2: ( '\"minLength\"' )
+                    // InternalJsonSchemaDsl.g:2407:3: '\"minLength\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getMinLengthKeyword_14()); 
+                    match(input,28,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getMinLengthKeyword_14()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 16 :
+                    // InternalJsonSchemaDsl.g:2412:2: ( '\"pattern\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2412:2: ( '\"pattern\"' )
+                    // InternalJsonSchemaDsl.g:2413:3: '\"pattern\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getPatternKeyword_15()); 
+                    match(input,29,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getPatternKeyword_15()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 17 :
+                    // InternalJsonSchemaDsl.g:2418:2: ( '\"additionalItems\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2418:2: ( '\"additionalItems\"' )
+                    // InternalJsonSchemaDsl.g:2419:3: '\"additionalItems\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getAdditionalItemsKeyword_16()); 
+                    match(input,30,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getAdditionalItemsKeyword_16()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 18 :
+                    // InternalJsonSchemaDsl.g:2424:2: ( '\"items\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2424:2: ( '\"items\"' )
+                    // InternalJsonSchemaDsl.g:2425:3: '\"items\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getItemsKeyword_17()); 
+                    match(input,31,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getItemsKeyword_17()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 19 :
+                    // InternalJsonSchemaDsl.g:2430:2: ( '\"maxItems\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2430:2: ( '\"maxItems\"' )
+                    // InternalJsonSchemaDsl.g:2431:3: '\"maxItems\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getMaxItemsKeyword_18()); 
+                    match(input,32,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getMaxItemsKeyword_18()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 20 :
+                    // InternalJsonSchemaDsl.g:2436:2: ( '\"minItems\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2436:2: ( '\"minItems\"' )
+                    // InternalJsonSchemaDsl.g:2437:3: '\"minItems\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getMinItemsKeyword_19()); 
+                    match(input,33,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getMinItemsKeyword_19()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 21 :
+                    // InternalJsonSchemaDsl.g:2442:2: ( '\"uniqueItems\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2442:2: ( '\"uniqueItems\"' )
+                    // InternalJsonSchemaDsl.g:2443:3: '\"uniqueItems\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getUniqueItemsKeyword_20()); 
+                    match(input,34,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getUniqueItemsKeyword_20()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 22 :
+                    // InternalJsonSchemaDsl.g:2448:2: ( '\"contains\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2448:2: ( '\"contains\"' )
+                    // InternalJsonSchemaDsl.g:2449:3: '\"contains\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getContainsKeyword_21()); 
+                    match(input,35,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getContainsKeyword_21()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 23 :
+                    // InternalJsonSchemaDsl.g:2454:2: ( '\"maxProperties\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2454:2: ( '\"maxProperties\"' )
+                    // InternalJsonSchemaDsl.g:2455:3: '\"maxProperties\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getMaxPropertiesKeyword_22()); 
+                    match(input,36,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getMaxPropertiesKeyword_22()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 24 :
+                    // InternalJsonSchemaDsl.g:2460:2: ( '\"minProperties\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2460:2: ( '\"minProperties\"' )
+                    // InternalJsonSchemaDsl.g:2461:3: '\"minProperties\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getMinPropertiesKeyword_23()); 
+                    match(input,37,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getMinPropertiesKeyword_23()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 25 :
+                    // InternalJsonSchemaDsl.g:2466:2: ( '\"required\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2466:2: ( '\"required\"' )
+                    // InternalJsonSchemaDsl.g:2467:3: '\"required\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getRequiredKeyword_24()); 
+                    match(input,38,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getRequiredKeyword_24()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 26 :
+                    // InternalJsonSchemaDsl.g:2472:2: ( '\"additionalProperties\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2472:2: ( '\"additionalProperties\"' )
+                    // InternalJsonSchemaDsl.g:2473:3: '\"additionalProperties\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getAdditionalPropertiesKeyword_25()); 
+                    match(input,39,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getAdditionalPropertiesKeyword_25()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 27 :
+                    // InternalJsonSchemaDsl.g:2478:2: ( '\"definitions\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2478:2: ( '\"definitions\"' )
+                    // InternalJsonSchemaDsl.g:2479:3: '\"definitions\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getDefinitionsKeyword_26()); 
+                    match(input,40,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getDefinitionsKeyword_26()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 28 :
+                    // InternalJsonSchemaDsl.g:2484:2: ( '\"properties\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2484:2: ( '\"properties\"' )
+                    // InternalJsonSchemaDsl.g:2485:3: '\"properties\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getPropertiesKeyword_27()); 
+                    match(input,41,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getPropertiesKeyword_27()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 29 :
+                    // InternalJsonSchemaDsl.g:2490:2: ( '\"patternProperties\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2490:2: ( '\"patternProperties\"' )
+                    // InternalJsonSchemaDsl.g:2491:3: '\"patternProperties\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getPatternPropertiesKeyword_28()); 
+                    match(input,42,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getPatternPropertiesKeyword_28()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 30 :
+                    // InternalJsonSchemaDsl.g:2496:2: ( '\"propertyNames\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2496:2: ( '\"propertyNames\"' )
+                    // InternalJsonSchemaDsl.g:2497:3: '\"propertyNames\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getPropertyNamesKeyword_29()); 
+                    match(input,43,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getPropertyNamesKeyword_29()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 31 :
+                    // InternalJsonSchemaDsl.g:2502:2: ( '\"const\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2502:2: ( '\"const\"' )
+                    // InternalJsonSchemaDsl.g:2503:3: '\"const\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getConstKeyword_30()); 
+                    match(input,44,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getConstKeyword_30()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 32 :
+                    // InternalJsonSchemaDsl.g:2508:2: ( '\"type\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2508:2: ( '\"type\"' )
+                    // InternalJsonSchemaDsl.g:2509:3: '\"type\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getTypeKeyword_31()); 
+                    match(input,45,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getTypeKeyword_31()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 33 :
+                    // InternalJsonSchemaDsl.g:2514:2: ( '\"format\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2514:2: ( '\"format\"' )
+                    // InternalJsonSchemaDsl.g:2515:3: '\"format\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getFormatKeyword_32()); 
+                    match(input,46,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getFormatKeyword_32()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 34 :
+                    // InternalJsonSchemaDsl.g:2520:2: ( '\"contentMediaType\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2520:2: ( '\"contentMediaType\"' )
+                    // InternalJsonSchemaDsl.g:2521:3: '\"contentMediaType\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getContentMediaTypeKeyword_33()); 
+                    match(input,47,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getContentMediaTypeKeyword_33()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 35 :
+                    // InternalJsonSchemaDsl.g:2526:2: ( '\"contentEncoding\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2526:2: ( '\"contentEncoding\"' )
+                    // InternalJsonSchemaDsl.g:2527:3: '\"contentEncoding\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getContentEncodingKeyword_34()); 
+                    match(input,48,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getContentEncodingKeyword_34()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 36 :
+                    // InternalJsonSchemaDsl.g:2532:2: ( '\"if\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2532:2: ( '\"if\"' )
+                    // InternalJsonSchemaDsl.g:2533:3: '\"if\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getIfKeyword_35()); 
+                    match(input,49,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getIfKeyword_35()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 37 :
+                    // InternalJsonSchemaDsl.g:2538:2: ( '\"then\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2538:2: ( '\"then\"' )
+                    // InternalJsonSchemaDsl.g:2539:3: '\"then\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getThenKeyword_36()); 
+                    match(input,50,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getThenKeyword_36()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 38 :
+                    // InternalJsonSchemaDsl.g:2544:2: ( '\"else\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2544:2: ( '\"else\"' )
+                    // InternalJsonSchemaDsl.g:2545:3: '\"else\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getElseKeyword_37()); 
+                    match(input,51,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getElseKeyword_37()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 39 :
+                    // InternalJsonSchemaDsl.g:2550:2: ( '\"allOf\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2550:2: ( '\"allOf\"' )
+                    // InternalJsonSchemaDsl.g:2551:3: '\"allOf\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getAllOfKeyword_38()); 
+                    match(input,52,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getAllOfKeyword_38()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 40 :
+                    // InternalJsonSchemaDsl.g:2556:2: ( '\"anyOf\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2556:2: ( '\"anyOf\"' )
+                    // InternalJsonSchemaDsl.g:2557:3: '\"anyOf\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getAnyOfKeyword_39()); 
+                    match(input,53,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getAnyOfKeyword_39()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 41 :
+                    // InternalJsonSchemaDsl.g:2562:2: ( '\"oneOf\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2562:2: ( '\"oneOf\"' )
+                    // InternalJsonSchemaDsl.g:2563:3: '\"oneOf\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getOneOfKeyword_40()); 
+                    match(input,54,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getOneOfKeyword_40()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 42 :
+                    // InternalJsonSchemaDsl.g:2568:2: ( '\"not\"' )
+                    {
+                    // InternalJsonSchemaDsl.g:2568:2: ( '\"not\"' )
+                    // InternalJsonSchemaDsl.g:2569:3: '\"not\"'
+                    {
+                     before(grammarAccess.getKEYWORDAccess().getNotKeyword_41()); 
+                    match(input,55,FOLLOW_2); 
+                     after(grammarAccess.getKEYWORDAccess().getNotKeyword_41()); 
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__KEYWORD__Alternatives"
+
+
+    // $ANTLR start "rule__SimpleTypes__Alternatives"
+    // InternalJsonSchemaDsl.g:2578:1: rule__SimpleTypes__Alternatives : ( ( ( '\"array\"' ) ) | ( ( '\"boolean\"' ) ) | ( ( '\"integer\"' ) ) | ( ( '\"null\"' ) ) | ( ( '\"number\"' ) ) | ( ( '\"object\"' ) ) | ( ( '\"string\"' ) ) );
+    public final void rule__SimpleTypes__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalJsonSchemaDsl.g:2582:1: ( ( ( '\"array\"' ) ) | ( ( '\"boolean\"' ) ) | ( ( '\"integer\"' ) ) | ( ( '\"null\"' ) ) | ( ( '\"number\"' ) ) | ( ( '\"object\"' ) ) | ( ( '\"string\"' ) ) )
+            int alt7=7;
+            switch ( input.LA(1) ) {
+            case 56:
+                {
+                alt7=1;
+                }
+                break;
+            case 57:
+                {
+                alt7=2;
+                }
+                break;
+            case 58:
+                {
+                alt7=3;
+                }
+                break;
+            case 59:
+                {
+                alt7=4;
+                }
+                break;
+            case 60:
+                {
+                alt7=5;
+                }
+                break;
+            case 61:
+                {
+                alt7=6;
+                }
+                break;
+            case 62:
+                {
+                alt7=7;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 7, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt7) {
+                case 1 :
+                    // InternalJsonSchemaDsl.g:2583:2: ( ( '\"array\"' ) )
+                    {
+                    // InternalJsonSchemaDsl.g:2583:2: ( ( '\"array\"' ) )
+                    // InternalJsonSchemaDsl.g:2584:3: ( '\"array\"' )
                     {
                      before(grammarAccess.getSimpleTypesAccess().getArrayEnumLiteralDeclaration_0()); 
-                    // InternalJsonSchemaDsl.g:2253:3: ( '\"array\"' )
-                    // InternalJsonSchemaDsl.g:2253:4: '\"array\"'
+                    // InternalJsonSchemaDsl.g:2585:3: ( '\"array\"' )
+                    // InternalJsonSchemaDsl.g:2585:4: '\"array\"'
                     {
-                    match(input,14,FOLLOW_2); 
+                    match(input,56,FOLLOW_2); 
 
                     }
 
@@ -7270,16 +8420,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 2 :
-                    // InternalJsonSchemaDsl.g:2257:2: ( ( '\"boolean\"' ) )
+                    // InternalJsonSchemaDsl.g:2589:2: ( ( '\"boolean\"' ) )
                     {
-                    // InternalJsonSchemaDsl.g:2257:2: ( ( '\"boolean\"' ) )
-                    // InternalJsonSchemaDsl.g:2258:3: ( '\"boolean\"' )
+                    // InternalJsonSchemaDsl.g:2589:2: ( ( '\"boolean\"' ) )
+                    // InternalJsonSchemaDsl.g:2590:3: ( '\"boolean\"' )
                     {
                      before(grammarAccess.getSimpleTypesAccess().getBooleanEnumLiteralDeclaration_1()); 
-                    // InternalJsonSchemaDsl.g:2259:3: ( '\"boolean\"' )
-                    // InternalJsonSchemaDsl.g:2259:4: '\"boolean\"'
+                    // InternalJsonSchemaDsl.g:2591:3: ( '\"boolean\"' )
+                    // InternalJsonSchemaDsl.g:2591:4: '\"boolean\"'
                     {
-                    match(input,15,FOLLOW_2); 
+                    match(input,57,FOLLOW_2); 
 
                     }
 
@@ -7291,16 +8441,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 3 :
-                    // InternalJsonSchemaDsl.g:2263:2: ( ( '\"integer\"' ) )
+                    // InternalJsonSchemaDsl.g:2595:2: ( ( '\"integer\"' ) )
                     {
-                    // InternalJsonSchemaDsl.g:2263:2: ( ( '\"integer\"' ) )
-                    // InternalJsonSchemaDsl.g:2264:3: ( '\"integer\"' )
+                    // InternalJsonSchemaDsl.g:2595:2: ( ( '\"integer\"' ) )
+                    // InternalJsonSchemaDsl.g:2596:3: ( '\"integer\"' )
                     {
                      before(grammarAccess.getSimpleTypesAccess().getIntegerEnumLiteralDeclaration_2()); 
-                    // InternalJsonSchemaDsl.g:2265:3: ( '\"integer\"' )
-                    // InternalJsonSchemaDsl.g:2265:4: '\"integer\"'
+                    // InternalJsonSchemaDsl.g:2597:3: ( '\"integer\"' )
+                    // InternalJsonSchemaDsl.g:2597:4: '\"integer\"'
                     {
-                    match(input,16,FOLLOW_2); 
+                    match(input,58,FOLLOW_2); 
 
                     }
 
@@ -7312,16 +8462,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 4 :
-                    // InternalJsonSchemaDsl.g:2269:2: ( ( '\"null\"' ) )
+                    // InternalJsonSchemaDsl.g:2601:2: ( ( '\"null\"' ) )
                     {
-                    // InternalJsonSchemaDsl.g:2269:2: ( ( '\"null\"' ) )
-                    // InternalJsonSchemaDsl.g:2270:3: ( '\"null\"' )
+                    // InternalJsonSchemaDsl.g:2601:2: ( ( '\"null\"' ) )
+                    // InternalJsonSchemaDsl.g:2602:3: ( '\"null\"' )
                     {
                      before(grammarAccess.getSimpleTypesAccess().getNullEnumLiteralDeclaration_3()); 
-                    // InternalJsonSchemaDsl.g:2271:3: ( '\"null\"' )
-                    // InternalJsonSchemaDsl.g:2271:4: '\"null\"'
+                    // InternalJsonSchemaDsl.g:2603:3: ( '\"null\"' )
+                    // InternalJsonSchemaDsl.g:2603:4: '\"null\"'
                     {
-                    match(input,17,FOLLOW_2); 
+                    match(input,59,FOLLOW_2); 
 
                     }
 
@@ -7333,16 +8483,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 5 :
-                    // InternalJsonSchemaDsl.g:2275:2: ( ( '\"number\"' ) )
+                    // InternalJsonSchemaDsl.g:2607:2: ( ( '\"number\"' ) )
                     {
-                    // InternalJsonSchemaDsl.g:2275:2: ( ( '\"number\"' ) )
-                    // InternalJsonSchemaDsl.g:2276:3: ( '\"number\"' )
+                    // InternalJsonSchemaDsl.g:2607:2: ( ( '\"number\"' ) )
+                    // InternalJsonSchemaDsl.g:2608:3: ( '\"number\"' )
                     {
                      before(grammarAccess.getSimpleTypesAccess().getNumberEnumLiteralDeclaration_4()); 
-                    // InternalJsonSchemaDsl.g:2277:3: ( '\"number\"' )
-                    // InternalJsonSchemaDsl.g:2277:4: '\"number\"'
+                    // InternalJsonSchemaDsl.g:2609:3: ( '\"number\"' )
+                    // InternalJsonSchemaDsl.g:2609:4: '\"number\"'
                     {
-                    match(input,18,FOLLOW_2); 
+                    match(input,60,FOLLOW_2); 
 
                     }
 
@@ -7354,16 +8504,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 6 :
-                    // InternalJsonSchemaDsl.g:2281:2: ( ( '\"object\"' ) )
+                    // InternalJsonSchemaDsl.g:2613:2: ( ( '\"object\"' ) )
                     {
-                    // InternalJsonSchemaDsl.g:2281:2: ( ( '\"object\"' ) )
-                    // InternalJsonSchemaDsl.g:2282:3: ( '\"object\"' )
+                    // InternalJsonSchemaDsl.g:2613:2: ( ( '\"object\"' ) )
+                    // InternalJsonSchemaDsl.g:2614:3: ( '\"object\"' )
                     {
                      before(grammarAccess.getSimpleTypesAccess().getObjectEnumLiteralDeclaration_5()); 
-                    // InternalJsonSchemaDsl.g:2283:3: ( '\"object\"' )
-                    // InternalJsonSchemaDsl.g:2283:4: '\"object\"'
+                    // InternalJsonSchemaDsl.g:2615:3: ( '\"object\"' )
+                    // InternalJsonSchemaDsl.g:2615:4: '\"object\"'
                     {
-                    match(input,19,FOLLOW_2); 
+                    match(input,61,FOLLOW_2); 
 
                     }
 
@@ -7375,16 +8525,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
                     }
                     break;
                 case 7 :
-                    // InternalJsonSchemaDsl.g:2287:2: ( ( '\"string\"' ) )
+                    // InternalJsonSchemaDsl.g:2619:2: ( ( '\"string\"' ) )
                     {
-                    // InternalJsonSchemaDsl.g:2287:2: ( ( '\"string\"' ) )
-                    // InternalJsonSchemaDsl.g:2288:3: ( '\"string\"' )
+                    // InternalJsonSchemaDsl.g:2619:2: ( ( '\"string\"' ) )
+                    // InternalJsonSchemaDsl.g:2620:3: ( '\"string\"' )
                     {
                      before(grammarAccess.getSimpleTypesAccess().getStringEnumLiteralDeclaration_6()); 
-                    // InternalJsonSchemaDsl.g:2289:3: ( '\"string\"' )
-                    // InternalJsonSchemaDsl.g:2289:4: '\"string\"'
+                    // InternalJsonSchemaDsl.g:2621:3: ( '\"string\"' )
+                    // InternalJsonSchemaDsl.g:2621:4: '\"string\"'
                     {
-                    match(input,20,FOLLOW_2); 
+                    match(input,62,FOLLOW_2); 
 
                     }
 
@@ -7413,14 +8563,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__JsonSchema__Group__0"
-    // InternalJsonSchemaDsl.g:2297:1: rule__JsonSchema__Group__0 : rule__JsonSchema__Group__0__Impl rule__JsonSchema__Group__1 ;
+    // InternalJsonSchemaDsl.g:2629:1: rule__JsonSchema__Group__0 : rule__JsonSchema__Group__0__Impl rule__JsonSchema__Group__1 ;
     public final void rule__JsonSchema__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2301:1: ( rule__JsonSchema__Group__0__Impl rule__JsonSchema__Group__1 )
-            // InternalJsonSchemaDsl.g:2302:2: rule__JsonSchema__Group__0__Impl rule__JsonSchema__Group__1
+            // InternalJsonSchemaDsl.g:2633:1: ( rule__JsonSchema__Group__0__Impl rule__JsonSchema__Group__1 )
+            // InternalJsonSchemaDsl.g:2634:2: rule__JsonSchema__Group__0__Impl rule__JsonSchema__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__JsonSchema__Group__0__Impl();
@@ -7451,21 +8601,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__JsonSchema__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:2309:1: rule__JsonSchema__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:2641:1: rule__JsonSchema__Group__0__Impl : ( () ) ;
     public final void rule__JsonSchema__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2313:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:2314:1: ( () )
+            // InternalJsonSchemaDsl.g:2645:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:2646:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:2314:1: ( () )
-            // InternalJsonSchemaDsl.g:2315:2: ()
+            // InternalJsonSchemaDsl.g:2646:1: ( () )
+            // InternalJsonSchemaDsl.g:2647:2: ()
             {
              before(grammarAccess.getJsonSchemaAccess().getJsonSchemaAction_0()); 
-            // InternalJsonSchemaDsl.g:2316:2: ()
-            // InternalJsonSchemaDsl.g:2316:3: 
+            // InternalJsonSchemaDsl.g:2648:2: ()
+            // InternalJsonSchemaDsl.g:2648:3: 
             {
             }
 
@@ -7488,14 +8638,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__JsonSchema__Group__1"
-    // InternalJsonSchemaDsl.g:2324:1: rule__JsonSchema__Group__1 : rule__JsonSchema__Group__1__Impl ;
+    // InternalJsonSchemaDsl.g:2656:1: rule__JsonSchema__Group__1 : rule__JsonSchema__Group__1__Impl ;
     public final void rule__JsonSchema__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2328:1: ( rule__JsonSchema__Group__1__Impl )
-            // InternalJsonSchemaDsl.g:2329:2: rule__JsonSchema__Group__1__Impl
+            // InternalJsonSchemaDsl.g:2660:1: ( rule__JsonSchema__Group__1__Impl )
+            // InternalJsonSchemaDsl.g:2661:2: rule__JsonSchema__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__JsonSchema__Group__1__Impl();
@@ -7521,29 +8671,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__JsonSchema__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:2335:1: rule__JsonSchema__Group__1__Impl : ( ( rule__JsonSchema__SchemaAssignment_1 )? ) ;
+    // InternalJsonSchemaDsl.g:2667:1: rule__JsonSchema__Group__1__Impl : ( ( rule__JsonSchema__SchemaAssignment_1 )? ) ;
     public final void rule__JsonSchema__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2339:1: ( ( ( rule__JsonSchema__SchemaAssignment_1 )? ) )
-            // InternalJsonSchemaDsl.g:2340:1: ( ( rule__JsonSchema__SchemaAssignment_1 )? )
+            // InternalJsonSchemaDsl.g:2671:1: ( ( ( rule__JsonSchema__SchemaAssignment_1 )? ) )
+            // InternalJsonSchemaDsl.g:2672:1: ( ( rule__JsonSchema__SchemaAssignment_1 )? )
             {
-            // InternalJsonSchemaDsl.g:2340:1: ( ( rule__JsonSchema__SchemaAssignment_1 )? )
-            // InternalJsonSchemaDsl.g:2341:2: ( rule__JsonSchema__SchemaAssignment_1 )?
+            // InternalJsonSchemaDsl.g:2672:1: ( ( rule__JsonSchema__SchemaAssignment_1 )? )
+            // InternalJsonSchemaDsl.g:2673:2: ( rule__JsonSchema__SchemaAssignment_1 )?
             {
              before(grammarAccess.getJsonSchemaAccess().getSchemaAssignment_1()); 
-            // InternalJsonSchemaDsl.g:2342:2: ( rule__JsonSchema__SchemaAssignment_1 )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:2674:2: ( rule__JsonSchema__SchemaAssignment_1 )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( ((LA6_0>=12 && LA6_0<=13)||LA6_0==21) ) {
-                alt6=1;
+            if ( ((LA8_0>=12 && LA8_0<=13)||LA8_0==63) ) {
+                alt8=1;
             }
-            switch (alt6) {
+            switch (alt8) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:2342:3: rule__JsonSchema__SchemaAssignment_1
+                    // InternalJsonSchemaDsl.g:2674:3: rule__JsonSchema__SchemaAssignment_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__JsonSchema__SchemaAssignment_1();
@@ -7579,14 +8729,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group__0"
-    // InternalJsonSchemaDsl.g:2351:1: rule__ObjectSchema__Group__0 : rule__ObjectSchema__Group__0__Impl rule__ObjectSchema__Group__1 ;
+    // InternalJsonSchemaDsl.g:2683:1: rule__ObjectSchema__Group__0 : rule__ObjectSchema__Group__0__Impl rule__ObjectSchema__Group__1 ;
     public final void rule__ObjectSchema__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2355:1: ( rule__ObjectSchema__Group__0__Impl rule__ObjectSchema__Group__1 )
-            // InternalJsonSchemaDsl.g:2356:2: rule__ObjectSchema__Group__0__Impl rule__ObjectSchema__Group__1
+            // InternalJsonSchemaDsl.g:2687:1: ( rule__ObjectSchema__Group__0__Impl rule__ObjectSchema__Group__1 )
+            // InternalJsonSchemaDsl.g:2688:2: rule__ObjectSchema__Group__0__Impl rule__ObjectSchema__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__ObjectSchema__Group__0__Impl();
@@ -7617,21 +8767,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:2363:1: rule__ObjectSchema__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:2695:1: rule__ObjectSchema__Group__0__Impl : ( () ) ;
     public final void rule__ObjectSchema__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2367:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:2368:1: ( () )
+            // InternalJsonSchemaDsl.g:2699:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:2700:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:2368:1: ( () )
-            // InternalJsonSchemaDsl.g:2369:2: ()
+            // InternalJsonSchemaDsl.g:2700:1: ( () )
+            // InternalJsonSchemaDsl.g:2701:2: ()
             {
              before(grammarAccess.getObjectSchemaAccess().getObjectSchemaAction_0()); 
-            // InternalJsonSchemaDsl.g:2370:2: ()
-            // InternalJsonSchemaDsl.g:2370:3: 
+            // InternalJsonSchemaDsl.g:2702:2: ()
+            // InternalJsonSchemaDsl.g:2702:3: 
             {
             }
 
@@ -7654,14 +8804,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group__1"
-    // InternalJsonSchemaDsl.g:2378:1: rule__ObjectSchema__Group__1 : rule__ObjectSchema__Group__1__Impl rule__ObjectSchema__Group__2 ;
+    // InternalJsonSchemaDsl.g:2710:1: rule__ObjectSchema__Group__1 : rule__ObjectSchema__Group__1__Impl rule__ObjectSchema__Group__2 ;
     public final void rule__ObjectSchema__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2382:1: ( rule__ObjectSchema__Group__1__Impl rule__ObjectSchema__Group__2 )
-            // InternalJsonSchemaDsl.g:2383:2: rule__ObjectSchema__Group__1__Impl rule__ObjectSchema__Group__2
+            // InternalJsonSchemaDsl.g:2714:1: ( rule__ObjectSchema__Group__1__Impl rule__ObjectSchema__Group__2 )
+            // InternalJsonSchemaDsl.g:2715:2: rule__ObjectSchema__Group__1__Impl rule__ObjectSchema__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__ObjectSchema__Group__1__Impl();
@@ -7692,20 +8842,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:2390:1: rule__ObjectSchema__Group__1__Impl : ( '{' ) ;
+    // InternalJsonSchemaDsl.g:2722:1: rule__ObjectSchema__Group__1__Impl : ( '{' ) ;
     public final void rule__ObjectSchema__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2394:1: ( ( '{' ) )
-            // InternalJsonSchemaDsl.g:2395:1: ( '{' )
+            // InternalJsonSchemaDsl.g:2726:1: ( ( '{' ) )
+            // InternalJsonSchemaDsl.g:2727:1: ( '{' )
             {
-            // InternalJsonSchemaDsl.g:2395:1: ( '{' )
-            // InternalJsonSchemaDsl.g:2396:2: '{'
+            // InternalJsonSchemaDsl.g:2727:1: ( '{' )
+            // InternalJsonSchemaDsl.g:2728:2: '{'
             {
              before(grammarAccess.getObjectSchemaAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,21,FOLLOW_2); 
+            match(input,63,FOLLOW_2); 
              after(grammarAccess.getObjectSchemaAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -7729,14 +8879,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group__2"
-    // InternalJsonSchemaDsl.g:2405:1: rule__ObjectSchema__Group__2 : rule__ObjectSchema__Group__2__Impl rule__ObjectSchema__Group__3 ;
+    // InternalJsonSchemaDsl.g:2737:1: rule__ObjectSchema__Group__2 : rule__ObjectSchema__Group__2__Impl rule__ObjectSchema__Group__3 ;
     public final void rule__ObjectSchema__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2409:1: ( rule__ObjectSchema__Group__2__Impl rule__ObjectSchema__Group__3 )
-            // InternalJsonSchemaDsl.g:2410:2: rule__ObjectSchema__Group__2__Impl rule__ObjectSchema__Group__3
+            // InternalJsonSchemaDsl.g:2741:1: ( rule__ObjectSchema__Group__2__Impl rule__ObjectSchema__Group__3 )
+            // InternalJsonSchemaDsl.g:2742:2: rule__ObjectSchema__Group__2__Impl rule__ObjectSchema__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__ObjectSchema__Group__2__Impl();
@@ -7767,29 +8917,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:2417:1: rule__ObjectSchema__Group__2__Impl : ( ( rule__ObjectSchema__Group_2__0 )? ) ;
+    // InternalJsonSchemaDsl.g:2749:1: rule__ObjectSchema__Group__2__Impl : ( ( rule__ObjectSchema__Group_2__0 )? ) ;
     public final void rule__ObjectSchema__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2421:1: ( ( ( rule__ObjectSchema__Group_2__0 )? ) )
-            // InternalJsonSchemaDsl.g:2422:1: ( ( rule__ObjectSchema__Group_2__0 )? )
+            // InternalJsonSchemaDsl.g:2753:1: ( ( ( rule__ObjectSchema__Group_2__0 )? ) )
+            // InternalJsonSchemaDsl.g:2754:1: ( ( rule__ObjectSchema__Group_2__0 )? )
             {
-            // InternalJsonSchemaDsl.g:2422:1: ( ( rule__ObjectSchema__Group_2__0 )? )
-            // InternalJsonSchemaDsl.g:2423:2: ( rule__ObjectSchema__Group_2__0 )?
+            // InternalJsonSchemaDsl.g:2754:1: ( ( rule__ObjectSchema__Group_2__0 )? )
+            // InternalJsonSchemaDsl.g:2755:2: ( rule__ObjectSchema__Group_2__0 )?
             {
              before(grammarAccess.getObjectSchemaAccess().getGroup_2()); 
-            // InternalJsonSchemaDsl.g:2424:2: ( rule__ObjectSchema__Group_2__0 )?
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:2756:2: ( rule__ObjectSchema__Group_2__0 )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA7_0==RULE_STRING||LA7_0==24||(LA7_0>=26 && LA7_0<=28)||(LA7_0>=30 && LA7_0<=70)) ) {
-                alt7=1;
+            if ( (LA9_0==RULE_STRING||(LA9_0>=14 && LA9_0<=55)||LA9_0==67||(LA9_0>=69 && LA9_0<=70)) ) {
+                alt9=1;
             }
-            switch (alt7) {
+            switch (alt9) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:2424:3: rule__ObjectSchema__Group_2__0
+                    // InternalJsonSchemaDsl.g:2756:3: rule__ObjectSchema__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ObjectSchema__Group_2__0();
@@ -7825,14 +8975,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group__3"
-    // InternalJsonSchemaDsl.g:2432:1: rule__ObjectSchema__Group__3 : rule__ObjectSchema__Group__3__Impl ;
+    // InternalJsonSchemaDsl.g:2764:1: rule__ObjectSchema__Group__3 : rule__ObjectSchema__Group__3__Impl ;
     public final void rule__ObjectSchema__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2436:1: ( rule__ObjectSchema__Group__3__Impl )
-            // InternalJsonSchemaDsl.g:2437:2: rule__ObjectSchema__Group__3__Impl
+            // InternalJsonSchemaDsl.g:2768:1: ( rule__ObjectSchema__Group__3__Impl )
+            // InternalJsonSchemaDsl.g:2769:2: rule__ObjectSchema__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ObjectSchema__Group__3__Impl();
@@ -7858,20 +9008,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:2443:1: rule__ObjectSchema__Group__3__Impl : ( '}' ) ;
+    // InternalJsonSchemaDsl.g:2775:1: rule__ObjectSchema__Group__3__Impl : ( '}' ) ;
     public final void rule__ObjectSchema__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2447:1: ( ( '}' ) )
-            // InternalJsonSchemaDsl.g:2448:1: ( '}' )
+            // InternalJsonSchemaDsl.g:2779:1: ( ( '}' ) )
+            // InternalJsonSchemaDsl.g:2780:1: ( '}' )
             {
-            // InternalJsonSchemaDsl.g:2448:1: ( '}' )
-            // InternalJsonSchemaDsl.g:2449:2: '}'
+            // InternalJsonSchemaDsl.g:2780:1: ( '}' )
+            // InternalJsonSchemaDsl.g:2781:2: '}'
             {
              before(grammarAccess.getObjectSchemaAccess().getRightCurlyBracketKeyword_3()); 
-            match(input,22,FOLLOW_2); 
+            match(input,64,FOLLOW_2); 
              after(grammarAccess.getObjectSchemaAccess().getRightCurlyBracketKeyword_3()); 
 
             }
@@ -7895,14 +9045,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group_2__0"
-    // InternalJsonSchemaDsl.g:2459:1: rule__ObjectSchema__Group_2__0 : rule__ObjectSchema__Group_2__0__Impl rule__ObjectSchema__Group_2__1 ;
+    // InternalJsonSchemaDsl.g:2791:1: rule__ObjectSchema__Group_2__0 : rule__ObjectSchema__Group_2__0__Impl rule__ObjectSchema__Group_2__1 ;
     public final void rule__ObjectSchema__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2463:1: ( rule__ObjectSchema__Group_2__0__Impl rule__ObjectSchema__Group_2__1 )
-            // InternalJsonSchemaDsl.g:2464:2: rule__ObjectSchema__Group_2__0__Impl rule__ObjectSchema__Group_2__1
+            // InternalJsonSchemaDsl.g:2795:1: ( rule__ObjectSchema__Group_2__0__Impl rule__ObjectSchema__Group_2__1 )
+            // InternalJsonSchemaDsl.g:2796:2: rule__ObjectSchema__Group_2__0__Impl rule__ObjectSchema__Group_2__1
             {
             pushFollow(FOLLOW_6);
             rule__ObjectSchema__Group_2__0__Impl();
@@ -7933,21 +9083,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group_2__0__Impl"
-    // InternalJsonSchemaDsl.g:2471:1: rule__ObjectSchema__Group_2__0__Impl : ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 ) ) ;
+    // InternalJsonSchemaDsl.g:2803:1: rule__ObjectSchema__Group_2__0__Impl : ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 ) ) ;
     public final void rule__ObjectSchema__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2475:1: ( ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 ) ) )
-            // InternalJsonSchemaDsl.g:2476:1: ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 ) )
+            // InternalJsonSchemaDsl.g:2807:1: ( ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 ) ) )
+            // InternalJsonSchemaDsl.g:2808:1: ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 ) )
             {
-            // InternalJsonSchemaDsl.g:2476:1: ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 ) )
-            // InternalJsonSchemaDsl.g:2477:2: ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 )
+            // InternalJsonSchemaDsl.g:2808:1: ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 ) )
+            // InternalJsonSchemaDsl.g:2809:2: ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 )
             {
              before(grammarAccess.getObjectSchemaAccess().getKeywordDefinitionAssignment_2_0()); 
-            // InternalJsonSchemaDsl.g:2478:2: ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 )
-            // InternalJsonSchemaDsl.g:2478:3: rule__ObjectSchema__KeywordDefinitionAssignment_2_0
+            // InternalJsonSchemaDsl.g:2810:2: ( rule__ObjectSchema__KeywordDefinitionAssignment_2_0 )
+            // InternalJsonSchemaDsl.g:2810:3: rule__ObjectSchema__KeywordDefinitionAssignment_2_0
             {
             pushFollow(FOLLOW_2);
             rule__ObjectSchema__KeywordDefinitionAssignment_2_0();
@@ -7980,14 +9130,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group_2__1"
-    // InternalJsonSchemaDsl.g:2486:1: rule__ObjectSchema__Group_2__1 : rule__ObjectSchema__Group_2__1__Impl ;
+    // InternalJsonSchemaDsl.g:2818:1: rule__ObjectSchema__Group_2__1 : rule__ObjectSchema__Group_2__1__Impl ;
     public final void rule__ObjectSchema__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2490:1: ( rule__ObjectSchema__Group_2__1__Impl )
-            // InternalJsonSchemaDsl.g:2491:2: rule__ObjectSchema__Group_2__1__Impl
+            // InternalJsonSchemaDsl.g:2822:1: ( rule__ObjectSchema__Group_2__1__Impl )
+            // InternalJsonSchemaDsl.g:2823:2: rule__ObjectSchema__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ObjectSchema__Group_2__1__Impl();
@@ -8013,33 +9163,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group_2__1__Impl"
-    // InternalJsonSchemaDsl.g:2497:1: rule__ObjectSchema__Group_2__1__Impl : ( ( rule__ObjectSchema__Group_2_1__0 )* ) ;
+    // InternalJsonSchemaDsl.g:2829:1: rule__ObjectSchema__Group_2__1__Impl : ( ( rule__ObjectSchema__Group_2_1__0 )* ) ;
     public final void rule__ObjectSchema__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2501:1: ( ( ( rule__ObjectSchema__Group_2_1__0 )* ) )
-            // InternalJsonSchemaDsl.g:2502:1: ( ( rule__ObjectSchema__Group_2_1__0 )* )
+            // InternalJsonSchemaDsl.g:2833:1: ( ( ( rule__ObjectSchema__Group_2_1__0 )* ) )
+            // InternalJsonSchemaDsl.g:2834:1: ( ( rule__ObjectSchema__Group_2_1__0 )* )
             {
-            // InternalJsonSchemaDsl.g:2502:1: ( ( rule__ObjectSchema__Group_2_1__0 )* )
-            // InternalJsonSchemaDsl.g:2503:2: ( rule__ObjectSchema__Group_2_1__0 )*
+            // InternalJsonSchemaDsl.g:2834:1: ( ( rule__ObjectSchema__Group_2_1__0 )* )
+            // InternalJsonSchemaDsl.g:2835:2: ( rule__ObjectSchema__Group_2_1__0 )*
             {
              before(grammarAccess.getObjectSchemaAccess().getGroup_2_1()); 
-            // InternalJsonSchemaDsl.g:2504:2: ( rule__ObjectSchema__Group_2_1__0 )*
-            loop8:
+            // InternalJsonSchemaDsl.g:2836:2: ( rule__ObjectSchema__Group_2_1__0 )*
+            loop10:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA8_0==23) ) {
-                    alt8=1;
+                if ( (LA10_0==65) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt10) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:2504:3: rule__ObjectSchema__Group_2_1__0
+            	    // InternalJsonSchemaDsl.g:2836:3: rule__ObjectSchema__Group_2_1__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__ObjectSchema__Group_2_1__0();
@@ -8051,7 +9201,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop10;
                 }
             } while (true);
 
@@ -8078,14 +9228,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group_2_1__0"
-    // InternalJsonSchemaDsl.g:2513:1: rule__ObjectSchema__Group_2_1__0 : rule__ObjectSchema__Group_2_1__0__Impl rule__ObjectSchema__Group_2_1__1 ;
+    // InternalJsonSchemaDsl.g:2845:1: rule__ObjectSchema__Group_2_1__0 : rule__ObjectSchema__Group_2_1__0__Impl rule__ObjectSchema__Group_2_1__1 ;
     public final void rule__ObjectSchema__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2517:1: ( rule__ObjectSchema__Group_2_1__0__Impl rule__ObjectSchema__Group_2_1__1 )
-            // InternalJsonSchemaDsl.g:2518:2: rule__ObjectSchema__Group_2_1__0__Impl rule__ObjectSchema__Group_2_1__1
+            // InternalJsonSchemaDsl.g:2849:1: ( rule__ObjectSchema__Group_2_1__0__Impl rule__ObjectSchema__Group_2_1__1 )
+            // InternalJsonSchemaDsl.g:2850:2: rule__ObjectSchema__Group_2_1__0__Impl rule__ObjectSchema__Group_2_1__1
             {
             pushFollow(FOLLOW_8);
             rule__ObjectSchema__Group_2_1__0__Impl();
@@ -8116,20 +9266,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group_2_1__0__Impl"
-    // InternalJsonSchemaDsl.g:2525:1: rule__ObjectSchema__Group_2_1__0__Impl : ( ',' ) ;
+    // InternalJsonSchemaDsl.g:2857:1: rule__ObjectSchema__Group_2_1__0__Impl : ( ',' ) ;
     public final void rule__ObjectSchema__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2529:1: ( ( ',' ) )
-            // InternalJsonSchemaDsl.g:2530:1: ( ',' )
+            // InternalJsonSchemaDsl.g:2861:1: ( ( ',' ) )
+            // InternalJsonSchemaDsl.g:2862:1: ( ',' )
             {
-            // InternalJsonSchemaDsl.g:2530:1: ( ',' )
-            // InternalJsonSchemaDsl.g:2531:2: ','
+            // InternalJsonSchemaDsl.g:2862:1: ( ',' )
+            // InternalJsonSchemaDsl.g:2863:2: ','
             {
              before(grammarAccess.getObjectSchemaAccess().getCommaKeyword_2_1_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getObjectSchemaAccess().getCommaKeyword_2_1_0()); 
 
             }
@@ -8153,14 +9303,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group_2_1__1"
-    // InternalJsonSchemaDsl.g:2540:1: rule__ObjectSchema__Group_2_1__1 : rule__ObjectSchema__Group_2_1__1__Impl ;
+    // InternalJsonSchemaDsl.g:2872:1: rule__ObjectSchema__Group_2_1__1 : rule__ObjectSchema__Group_2_1__1__Impl ;
     public final void rule__ObjectSchema__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2544:1: ( rule__ObjectSchema__Group_2_1__1__Impl )
-            // InternalJsonSchemaDsl.g:2545:2: rule__ObjectSchema__Group_2_1__1__Impl
+            // InternalJsonSchemaDsl.g:2876:1: ( rule__ObjectSchema__Group_2_1__1__Impl )
+            // InternalJsonSchemaDsl.g:2877:2: rule__ObjectSchema__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ObjectSchema__Group_2_1__1__Impl();
@@ -8186,21 +9336,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__Group_2_1__1__Impl"
-    // InternalJsonSchemaDsl.g:2551:1: rule__ObjectSchema__Group_2_1__1__Impl : ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 ) ) ;
+    // InternalJsonSchemaDsl.g:2883:1: rule__ObjectSchema__Group_2_1__1__Impl : ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 ) ) ;
     public final void rule__ObjectSchema__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2555:1: ( ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 ) ) )
-            // InternalJsonSchemaDsl.g:2556:1: ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 ) )
+            // InternalJsonSchemaDsl.g:2887:1: ( ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 ) ) )
+            // InternalJsonSchemaDsl.g:2888:1: ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 ) )
             {
-            // InternalJsonSchemaDsl.g:2556:1: ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 ) )
-            // InternalJsonSchemaDsl.g:2557:2: ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 )
+            // InternalJsonSchemaDsl.g:2888:1: ( ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 ) )
+            // InternalJsonSchemaDsl.g:2889:2: ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 )
             {
              before(grammarAccess.getObjectSchemaAccess().getKeywordDefinitionAssignment_2_1_1()); 
-            // InternalJsonSchemaDsl.g:2558:2: ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 )
-            // InternalJsonSchemaDsl.g:2558:3: rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1
+            // InternalJsonSchemaDsl.g:2890:2: ( rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 )
+            // InternalJsonSchemaDsl.g:2890:3: rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1();
@@ -8233,14 +9383,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaximumSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:2567:1: rule__MaximumSchemaDefinition__Group__0 : rule__MaximumSchemaDefinition__Group__0__Impl rule__MaximumSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:2899:1: rule__MaximumSchemaDefinition__Group__0 : rule__MaximumSchemaDefinition__Group__0__Impl rule__MaximumSchemaDefinition__Group__1 ;
     public final void rule__MaximumSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2571:1: ( rule__MaximumSchemaDefinition__Group__0__Impl rule__MaximumSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:2572:2: rule__MaximumSchemaDefinition__Group__0__Impl rule__MaximumSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:2903:1: ( rule__MaximumSchemaDefinition__Group__0__Impl rule__MaximumSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:2904:2: rule__MaximumSchemaDefinition__Group__0__Impl rule__MaximumSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__MaximumSchemaDefinition__Group__0__Impl();
@@ -8271,20 +9421,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaximumSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:2579:1: rule__MaximumSchemaDefinition__Group__0__Impl : ( '\"maximum\"' ) ;
+    // InternalJsonSchemaDsl.g:2911:1: rule__MaximumSchemaDefinition__Group__0__Impl : ( '\"maximum\"' ) ;
     public final void rule__MaximumSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2583:1: ( ( '\"maximum\"' ) )
-            // InternalJsonSchemaDsl.g:2584:1: ( '\"maximum\"' )
+            // InternalJsonSchemaDsl.g:2915:1: ( ( '\"maximum\"' ) )
+            // InternalJsonSchemaDsl.g:2916:1: ( '\"maximum\"' )
             {
-            // InternalJsonSchemaDsl.g:2584:1: ( '\"maximum\"' )
-            // InternalJsonSchemaDsl.g:2585:2: '\"maximum\"'
+            // InternalJsonSchemaDsl.g:2916:1: ( '\"maximum\"' )
+            // InternalJsonSchemaDsl.g:2917:2: '\"maximum\"'
             {
              before(grammarAccess.getMaximumSchemaDefinitionAccess().getMaximumKeyword_0()); 
-            match(input,24,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getMaximumSchemaDefinitionAccess().getMaximumKeyword_0()); 
 
             }
@@ -8308,14 +9458,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaximumSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:2594:1: rule__MaximumSchemaDefinition__Group__1 : rule__MaximumSchemaDefinition__Group__1__Impl rule__MaximumSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:2926:1: rule__MaximumSchemaDefinition__Group__1 : rule__MaximumSchemaDefinition__Group__1__Impl rule__MaximumSchemaDefinition__Group__2 ;
     public final void rule__MaximumSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2598:1: ( rule__MaximumSchemaDefinition__Group__1__Impl rule__MaximumSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:2599:2: rule__MaximumSchemaDefinition__Group__1__Impl rule__MaximumSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:2930:1: ( rule__MaximumSchemaDefinition__Group__1__Impl rule__MaximumSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:2931:2: rule__MaximumSchemaDefinition__Group__1__Impl rule__MaximumSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__MaximumSchemaDefinition__Group__1__Impl();
@@ -8346,20 +9496,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaximumSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:2606:1: rule__MaximumSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:2938:1: rule__MaximumSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__MaximumSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2610:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:2611:1: ( ':' )
+            // InternalJsonSchemaDsl.g:2942:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:2943:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:2611:1: ( ':' )
-            // InternalJsonSchemaDsl.g:2612:2: ':'
+            // InternalJsonSchemaDsl.g:2943:1: ( ':' )
+            // InternalJsonSchemaDsl.g:2944:2: ':'
             {
              before(grammarAccess.getMaximumSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getMaximumSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -8383,14 +9533,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaximumSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:2621:1: rule__MaximumSchemaDefinition__Group__2 : rule__MaximumSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:2953:1: rule__MaximumSchemaDefinition__Group__2 : rule__MaximumSchemaDefinition__Group__2__Impl ;
     public final void rule__MaximumSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2625:1: ( rule__MaximumSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:2626:2: rule__MaximumSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:2957:1: ( rule__MaximumSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:2958:2: rule__MaximumSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MaximumSchemaDefinition__Group__2__Impl();
@@ -8416,21 +9566,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaximumSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:2632:1: rule__MaximumSchemaDefinition__Group__2__Impl : ( ( rule__MaximumSchemaDefinition__MaximumAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:2964:1: rule__MaximumSchemaDefinition__Group__2__Impl : ( ( rule__MaximumSchemaDefinition__MaximumAssignment_2 ) ) ;
     public final void rule__MaximumSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2636:1: ( ( ( rule__MaximumSchemaDefinition__MaximumAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:2637:1: ( ( rule__MaximumSchemaDefinition__MaximumAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:2968:1: ( ( ( rule__MaximumSchemaDefinition__MaximumAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:2969:1: ( ( rule__MaximumSchemaDefinition__MaximumAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:2637:1: ( ( rule__MaximumSchemaDefinition__MaximumAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:2638:2: ( rule__MaximumSchemaDefinition__MaximumAssignment_2 )
+            // InternalJsonSchemaDsl.g:2969:1: ( ( rule__MaximumSchemaDefinition__MaximumAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:2970:2: ( rule__MaximumSchemaDefinition__MaximumAssignment_2 )
             {
              before(grammarAccess.getMaximumSchemaDefinitionAccess().getMaximumAssignment_2()); 
-            // InternalJsonSchemaDsl.g:2639:2: ( rule__MaximumSchemaDefinition__MaximumAssignment_2 )
-            // InternalJsonSchemaDsl.g:2639:3: rule__MaximumSchemaDefinition__MaximumAssignment_2
+            // InternalJsonSchemaDsl.g:2971:2: ( rule__MaximumSchemaDefinition__MaximumAssignment_2 )
+            // InternalJsonSchemaDsl.g:2971:3: rule__MaximumSchemaDefinition__MaximumAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MaximumSchemaDefinition__MaximumAssignment_2();
@@ -8463,14 +9613,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__WriteOnlySchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:2648:1: rule__WriteOnlySchemaDefinition__Group__0 : rule__WriteOnlySchemaDefinition__Group__0__Impl rule__WriteOnlySchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:2980:1: rule__WriteOnlySchemaDefinition__Group__0 : rule__WriteOnlySchemaDefinition__Group__0__Impl rule__WriteOnlySchemaDefinition__Group__1 ;
     public final void rule__WriteOnlySchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2652:1: ( rule__WriteOnlySchemaDefinition__Group__0__Impl rule__WriteOnlySchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:2653:2: rule__WriteOnlySchemaDefinition__Group__0__Impl rule__WriteOnlySchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:2984:1: ( rule__WriteOnlySchemaDefinition__Group__0__Impl rule__WriteOnlySchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:2985:2: rule__WriteOnlySchemaDefinition__Group__0__Impl rule__WriteOnlySchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__WriteOnlySchemaDefinition__Group__0__Impl();
@@ -8501,20 +9651,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__WriteOnlySchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:2660:1: rule__WriteOnlySchemaDefinition__Group__0__Impl : ( '\"writeOnly\"' ) ;
+    // InternalJsonSchemaDsl.g:2992:1: rule__WriteOnlySchemaDefinition__Group__0__Impl : ( '\"writeOnly\"' ) ;
     public final void rule__WriteOnlySchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2664:1: ( ( '\"writeOnly\"' ) )
-            // InternalJsonSchemaDsl.g:2665:1: ( '\"writeOnly\"' )
+            // InternalJsonSchemaDsl.g:2996:1: ( ( '\"writeOnly\"' ) )
+            // InternalJsonSchemaDsl.g:2997:1: ( '\"writeOnly\"' )
             {
-            // InternalJsonSchemaDsl.g:2665:1: ( '\"writeOnly\"' )
-            // InternalJsonSchemaDsl.g:2666:2: '\"writeOnly\"'
+            // InternalJsonSchemaDsl.g:2997:1: ( '\"writeOnly\"' )
+            // InternalJsonSchemaDsl.g:2998:2: '\"writeOnly\"'
             {
              before(grammarAccess.getWriteOnlySchemaDefinitionAccess().getWriteOnlyKeyword_0()); 
-            match(input,26,FOLLOW_2); 
+            match(input,22,FOLLOW_2); 
              after(grammarAccess.getWriteOnlySchemaDefinitionAccess().getWriteOnlyKeyword_0()); 
 
             }
@@ -8538,14 +9688,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__WriteOnlySchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:2675:1: rule__WriteOnlySchemaDefinition__Group__1 : rule__WriteOnlySchemaDefinition__Group__1__Impl rule__WriteOnlySchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:3007:1: rule__WriteOnlySchemaDefinition__Group__1 : rule__WriteOnlySchemaDefinition__Group__1__Impl rule__WriteOnlySchemaDefinition__Group__2 ;
     public final void rule__WriteOnlySchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2679:1: ( rule__WriteOnlySchemaDefinition__Group__1__Impl rule__WriteOnlySchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:2680:2: rule__WriteOnlySchemaDefinition__Group__1__Impl rule__WriteOnlySchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:3011:1: ( rule__WriteOnlySchemaDefinition__Group__1__Impl rule__WriteOnlySchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:3012:2: rule__WriteOnlySchemaDefinition__Group__1__Impl rule__WriteOnlySchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__WriteOnlySchemaDefinition__Group__1__Impl();
@@ -8576,20 +9726,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__WriteOnlySchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:2687:1: rule__WriteOnlySchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:3019:1: rule__WriteOnlySchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__WriteOnlySchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2691:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:2692:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3023:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:3024:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:2692:1: ( ':' )
-            // InternalJsonSchemaDsl.g:2693:2: ':'
+            // InternalJsonSchemaDsl.g:3024:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3025:2: ':'
             {
              before(grammarAccess.getWriteOnlySchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getWriteOnlySchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -8613,14 +9763,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__WriteOnlySchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:2702:1: rule__WriteOnlySchemaDefinition__Group__2 : rule__WriteOnlySchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:3034:1: rule__WriteOnlySchemaDefinition__Group__2 : rule__WriteOnlySchemaDefinition__Group__2__Impl ;
     public final void rule__WriteOnlySchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2706:1: ( rule__WriteOnlySchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:2707:2: rule__WriteOnlySchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:3038:1: ( rule__WriteOnlySchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:3039:2: rule__WriteOnlySchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__WriteOnlySchemaDefinition__Group__2__Impl();
@@ -8646,21 +9796,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__WriteOnlySchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:2713:1: rule__WriteOnlySchemaDefinition__Group__2__Impl : ( ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:3045:1: rule__WriteOnlySchemaDefinition__Group__2__Impl : ( ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 ) ) ;
     public final void rule__WriteOnlySchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2717:1: ( ( ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:2718:1: ( ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3049:1: ( ( ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:3050:1: ( ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:2718:1: ( ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:2719:2: ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 )
+            // InternalJsonSchemaDsl.g:3050:1: ( ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3051:2: ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 )
             {
              before(grammarAccess.getWriteOnlySchemaDefinitionAccess().getWriteOnlyAssignment_2()); 
-            // InternalJsonSchemaDsl.g:2720:2: ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 )
-            // InternalJsonSchemaDsl.g:2720:3: rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2
+            // InternalJsonSchemaDsl.g:3052:2: ( rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 )
+            // InternalJsonSchemaDsl.g:3052:3: rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2();
@@ -8693,14 +9843,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__CommentSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:2729:1: rule__CommentSchemaDefinition__Group__0 : rule__CommentSchemaDefinition__Group__0__Impl rule__CommentSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:3061:1: rule__CommentSchemaDefinition__Group__0 : rule__CommentSchemaDefinition__Group__0__Impl rule__CommentSchemaDefinition__Group__1 ;
     public final void rule__CommentSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2733:1: ( rule__CommentSchemaDefinition__Group__0__Impl rule__CommentSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:2734:2: rule__CommentSchemaDefinition__Group__0__Impl rule__CommentSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:3065:1: ( rule__CommentSchemaDefinition__Group__0__Impl rule__CommentSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:3066:2: rule__CommentSchemaDefinition__Group__0__Impl rule__CommentSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__CommentSchemaDefinition__Group__0__Impl();
@@ -8731,20 +9881,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__CommentSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:2741:1: rule__CommentSchemaDefinition__Group__0__Impl : ( '\"$comment\"' ) ;
+    // InternalJsonSchemaDsl.g:3073:1: rule__CommentSchemaDefinition__Group__0__Impl : ( '\"$comment\"' ) ;
     public final void rule__CommentSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2745:1: ( ( '\"$comment\"' ) )
-            // InternalJsonSchemaDsl.g:2746:1: ( '\"$comment\"' )
+            // InternalJsonSchemaDsl.g:3077:1: ( ( '\"$comment\"' ) )
+            // InternalJsonSchemaDsl.g:3078:1: ( '\"$comment\"' )
             {
-            // InternalJsonSchemaDsl.g:2746:1: ( '\"$comment\"' )
-            // InternalJsonSchemaDsl.g:2747:2: '\"$comment\"'
+            // InternalJsonSchemaDsl.g:3078:1: ( '\"$comment\"' )
+            // InternalJsonSchemaDsl.g:3079:2: '\"$comment\"'
             {
              before(grammarAccess.getCommentSchemaDefinitionAccess().getCommentKeyword_0()); 
-            match(input,27,FOLLOW_2); 
+            match(input,17,FOLLOW_2); 
              after(grammarAccess.getCommentSchemaDefinitionAccess().getCommentKeyword_0()); 
 
             }
@@ -8768,16 +9918,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__CommentSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:2756:1: rule__CommentSchemaDefinition__Group__1 : rule__CommentSchemaDefinition__Group__1__Impl rule__CommentSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:3088:1: rule__CommentSchemaDefinition__Group__1 : rule__CommentSchemaDefinition__Group__1__Impl rule__CommentSchemaDefinition__Group__2 ;
     public final void rule__CommentSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2760:1: ( rule__CommentSchemaDefinition__Group__1__Impl rule__CommentSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:2761:2: rule__CommentSchemaDefinition__Group__1__Impl rule__CommentSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:3092:1: ( rule__CommentSchemaDefinition__Group__1__Impl rule__CommentSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:3093:2: rule__CommentSchemaDefinition__Group__1__Impl rule__CommentSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__CommentSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -8806,20 +9956,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__CommentSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:2768:1: rule__CommentSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:3100:1: rule__CommentSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__CommentSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2772:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:2773:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3104:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:3105:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:2773:1: ( ':' )
-            // InternalJsonSchemaDsl.g:2774:2: ':'
+            // InternalJsonSchemaDsl.g:3105:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3106:2: ':'
             {
              before(grammarAccess.getCommentSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getCommentSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -8843,14 +9993,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__CommentSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:2783:1: rule__CommentSchemaDefinition__Group__2 : rule__CommentSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:3115:1: rule__CommentSchemaDefinition__Group__2 : rule__CommentSchemaDefinition__Group__2__Impl ;
     public final void rule__CommentSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2787:1: ( rule__CommentSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:2788:2: rule__CommentSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:3119:1: ( rule__CommentSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:3120:2: rule__CommentSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CommentSchemaDefinition__Group__2__Impl();
@@ -8876,21 +10026,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__CommentSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:2794:1: rule__CommentSchemaDefinition__Group__2__Impl : ( ( rule__CommentSchemaDefinition__CommentAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:3126:1: rule__CommentSchemaDefinition__Group__2__Impl : ( ( rule__CommentSchemaDefinition__CommentAssignment_2 ) ) ;
     public final void rule__CommentSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2798:1: ( ( ( rule__CommentSchemaDefinition__CommentAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:2799:1: ( ( rule__CommentSchemaDefinition__CommentAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3130:1: ( ( ( rule__CommentSchemaDefinition__CommentAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:3131:1: ( ( rule__CommentSchemaDefinition__CommentAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:2799:1: ( ( rule__CommentSchemaDefinition__CommentAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:2800:2: ( rule__CommentSchemaDefinition__CommentAssignment_2 )
+            // InternalJsonSchemaDsl.g:3131:1: ( ( rule__CommentSchemaDefinition__CommentAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3132:2: ( rule__CommentSchemaDefinition__CommentAssignment_2 )
             {
              before(grammarAccess.getCommentSchemaDefinitionAccess().getCommentAssignment_2()); 
-            // InternalJsonSchemaDsl.g:2801:2: ( rule__CommentSchemaDefinition__CommentAssignment_2 )
-            // InternalJsonSchemaDsl.g:2801:3: rule__CommentSchemaDefinition__CommentAssignment_2
+            // InternalJsonSchemaDsl.g:3133:2: ( rule__CommentSchemaDefinition__CommentAssignment_2 )
+            // InternalJsonSchemaDsl.g:3133:3: rule__CommentSchemaDefinition__CommentAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__CommentSchemaDefinition__CommentAssignment_2();
@@ -8923,16 +10073,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:2810:1: rule__EnumSchemaDefinition__Group__0 : rule__EnumSchemaDefinition__Group__0__Impl rule__EnumSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:3142:1: rule__EnumSchemaDefinition__Group__0 : rule__EnumSchemaDefinition__Group__0__Impl rule__EnumSchemaDefinition__Group__1 ;
     public final void rule__EnumSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2814:1: ( rule__EnumSchemaDefinition__Group__0__Impl rule__EnumSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:2815:2: rule__EnumSchemaDefinition__Group__0__Impl rule__EnumSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:3146:1: ( rule__EnumSchemaDefinition__Group__0__Impl rule__EnumSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:3147:2: rule__EnumSchemaDefinition__Group__0__Impl rule__EnumSchemaDefinition__Group__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__EnumSchemaDefinition__Group__0__Impl();
 
             state._fsp--;
@@ -8961,20 +10111,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:2822:1: rule__EnumSchemaDefinition__Group__0__Impl : ( '[' ) ;
+    // InternalJsonSchemaDsl.g:3154:1: rule__EnumSchemaDefinition__Group__0__Impl : ( '[' ) ;
     public final void rule__EnumSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2826:1: ( ( '[' ) )
-            // InternalJsonSchemaDsl.g:2827:1: ( '[' )
+            // InternalJsonSchemaDsl.g:3158:1: ( ( '[' ) )
+            // InternalJsonSchemaDsl.g:3159:1: ( '[' )
             {
-            // InternalJsonSchemaDsl.g:2827:1: ( '[' )
-            // InternalJsonSchemaDsl.g:2828:2: '['
+            // InternalJsonSchemaDsl.g:3159:1: ( '[' )
+            // InternalJsonSchemaDsl.g:3160:2: '['
             {
              before(grammarAccess.getEnumSchemaDefinitionAccess().getLeftSquareBracketKeyword_0()); 
-            match(input,28,FOLLOW_2); 
+            match(input,67,FOLLOW_2); 
              after(grammarAccess.getEnumSchemaDefinitionAccess().getLeftSquareBracketKeyword_0()); 
 
             }
@@ -8998,16 +10148,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:2837:1: rule__EnumSchemaDefinition__Group__1 : rule__EnumSchemaDefinition__Group__1__Impl rule__EnumSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:3169:1: rule__EnumSchemaDefinition__Group__1 : rule__EnumSchemaDefinition__Group__1__Impl rule__EnumSchemaDefinition__Group__2 ;
     public final void rule__EnumSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2841:1: ( rule__EnumSchemaDefinition__Group__1__Impl rule__EnumSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:2842:2: rule__EnumSchemaDefinition__Group__1__Impl rule__EnumSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:3173:1: ( rule__EnumSchemaDefinition__Group__1__Impl rule__EnumSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:3174:2: rule__EnumSchemaDefinition__Group__1__Impl rule__EnumSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__EnumSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -9036,21 +10186,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:2849:1: rule__EnumSchemaDefinition__Group__1__Impl : ( ( rule__EnumSchemaDefinition__ItemsAssignment_1 ) ) ;
+    // InternalJsonSchemaDsl.g:3181:1: rule__EnumSchemaDefinition__Group__1__Impl : ( ( rule__EnumSchemaDefinition__ItemsAssignment_1 ) ) ;
     public final void rule__EnumSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2853:1: ( ( ( rule__EnumSchemaDefinition__ItemsAssignment_1 ) ) )
-            // InternalJsonSchemaDsl.g:2854:1: ( ( rule__EnumSchemaDefinition__ItemsAssignment_1 ) )
+            // InternalJsonSchemaDsl.g:3185:1: ( ( ( rule__EnumSchemaDefinition__ItemsAssignment_1 ) ) )
+            // InternalJsonSchemaDsl.g:3186:1: ( ( rule__EnumSchemaDefinition__ItemsAssignment_1 ) )
             {
-            // InternalJsonSchemaDsl.g:2854:1: ( ( rule__EnumSchemaDefinition__ItemsAssignment_1 ) )
-            // InternalJsonSchemaDsl.g:2855:2: ( rule__EnumSchemaDefinition__ItemsAssignment_1 )
+            // InternalJsonSchemaDsl.g:3186:1: ( ( rule__EnumSchemaDefinition__ItemsAssignment_1 ) )
+            // InternalJsonSchemaDsl.g:3187:2: ( rule__EnumSchemaDefinition__ItemsAssignment_1 )
             {
              before(grammarAccess.getEnumSchemaDefinitionAccess().getItemsAssignment_1()); 
-            // InternalJsonSchemaDsl.g:2856:2: ( rule__EnumSchemaDefinition__ItemsAssignment_1 )
-            // InternalJsonSchemaDsl.g:2856:3: rule__EnumSchemaDefinition__ItemsAssignment_1
+            // InternalJsonSchemaDsl.g:3188:2: ( rule__EnumSchemaDefinition__ItemsAssignment_1 )
+            // InternalJsonSchemaDsl.g:3188:3: rule__EnumSchemaDefinition__ItemsAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__EnumSchemaDefinition__ItemsAssignment_1();
@@ -9083,16 +10233,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:2864:1: rule__EnumSchemaDefinition__Group__2 : rule__EnumSchemaDefinition__Group__2__Impl rule__EnumSchemaDefinition__Group__3 ;
+    // InternalJsonSchemaDsl.g:3196:1: rule__EnumSchemaDefinition__Group__2 : rule__EnumSchemaDefinition__Group__2__Impl rule__EnumSchemaDefinition__Group__3 ;
     public final void rule__EnumSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2868:1: ( rule__EnumSchemaDefinition__Group__2__Impl rule__EnumSchemaDefinition__Group__3 )
-            // InternalJsonSchemaDsl.g:2869:2: rule__EnumSchemaDefinition__Group__2__Impl rule__EnumSchemaDefinition__Group__3
+            // InternalJsonSchemaDsl.g:3200:1: ( rule__EnumSchemaDefinition__Group__2__Impl rule__EnumSchemaDefinition__Group__3 )
+            // InternalJsonSchemaDsl.g:3201:2: rule__EnumSchemaDefinition__Group__2__Impl rule__EnumSchemaDefinition__Group__3
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__EnumSchemaDefinition__Group__2__Impl();
 
             state._fsp--;
@@ -9121,33 +10271,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:2876:1: rule__EnumSchemaDefinition__Group__2__Impl : ( ( rule__EnumSchemaDefinition__Group_2__0 )* ) ;
+    // InternalJsonSchemaDsl.g:3208:1: rule__EnumSchemaDefinition__Group__2__Impl : ( ( rule__EnumSchemaDefinition__Group_2__0 )* ) ;
     public final void rule__EnumSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2880:1: ( ( ( rule__EnumSchemaDefinition__Group_2__0 )* ) )
-            // InternalJsonSchemaDsl.g:2881:1: ( ( rule__EnumSchemaDefinition__Group_2__0 )* )
+            // InternalJsonSchemaDsl.g:3212:1: ( ( ( rule__EnumSchemaDefinition__Group_2__0 )* ) )
+            // InternalJsonSchemaDsl.g:3213:1: ( ( rule__EnumSchemaDefinition__Group_2__0 )* )
             {
-            // InternalJsonSchemaDsl.g:2881:1: ( ( rule__EnumSchemaDefinition__Group_2__0 )* )
-            // InternalJsonSchemaDsl.g:2882:2: ( rule__EnumSchemaDefinition__Group_2__0 )*
+            // InternalJsonSchemaDsl.g:3213:1: ( ( rule__EnumSchemaDefinition__Group_2__0 )* )
+            // InternalJsonSchemaDsl.g:3214:2: ( rule__EnumSchemaDefinition__Group_2__0 )*
             {
              before(grammarAccess.getEnumSchemaDefinitionAccess().getGroup_2()); 
-            // InternalJsonSchemaDsl.g:2883:2: ( rule__EnumSchemaDefinition__Group_2__0 )*
-            loop9:
+            // InternalJsonSchemaDsl.g:3215:2: ( rule__EnumSchemaDefinition__Group_2__0 )*
+            loop11:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( (LA9_0==23) ) {
-                    alt9=1;
+                if ( (LA11_0==65) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt11) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:2883:3: rule__EnumSchemaDefinition__Group_2__0
+            	    // InternalJsonSchemaDsl.g:3215:3: rule__EnumSchemaDefinition__Group_2__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__EnumSchemaDefinition__Group_2__0();
@@ -9159,7 +10309,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop11;
                 }
             } while (true);
 
@@ -9186,14 +10336,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group__3"
-    // InternalJsonSchemaDsl.g:2891:1: rule__EnumSchemaDefinition__Group__3 : rule__EnumSchemaDefinition__Group__3__Impl ;
+    // InternalJsonSchemaDsl.g:3223:1: rule__EnumSchemaDefinition__Group__3 : rule__EnumSchemaDefinition__Group__3__Impl ;
     public final void rule__EnumSchemaDefinition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2895:1: ( rule__EnumSchemaDefinition__Group__3__Impl )
-            // InternalJsonSchemaDsl.g:2896:2: rule__EnumSchemaDefinition__Group__3__Impl
+            // InternalJsonSchemaDsl.g:3227:1: ( rule__EnumSchemaDefinition__Group__3__Impl )
+            // InternalJsonSchemaDsl.g:3228:2: rule__EnumSchemaDefinition__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EnumSchemaDefinition__Group__3__Impl();
@@ -9219,20 +10369,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:2902:1: rule__EnumSchemaDefinition__Group__3__Impl : ( ']' ) ;
+    // InternalJsonSchemaDsl.g:3234:1: rule__EnumSchemaDefinition__Group__3__Impl : ( ']' ) ;
     public final void rule__EnumSchemaDefinition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2906:1: ( ( ']' ) )
-            // InternalJsonSchemaDsl.g:2907:1: ( ']' )
+            // InternalJsonSchemaDsl.g:3238:1: ( ( ']' ) )
+            // InternalJsonSchemaDsl.g:3239:1: ( ']' )
             {
-            // InternalJsonSchemaDsl.g:2907:1: ( ']' )
-            // InternalJsonSchemaDsl.g:2908:2: ']'
+            // InternalJsonSchemaDsl.g:3239:1: ( ']' )
+            // InternalJsonSchemaDsl.g:3240:2: ']'
             {
              before(grammarAccess.getEnumSchemaDefinitionAccess().getRightSquareBracketKeyword_3()); 
-            match(input,29,FOLLOW_2); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getEnumSchemaDefinitionAccess().getRightSquareBracketKeyword_3()); 
 
             }
@@ -9256,16 +10406,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group_2__0"
-    // InternalJsonSchemaDsl.g:2918:1: rule__EnumSchemaDefinition__Group_2__0 : rule__EnumSchemaDefinition__Group_2__0__Impl rule__EnumSchemaDefinition__Group_2__1 ;
+    // InternalJsonSchemaDsl.g:3250:1: rule__EnumSchemaDefinition__Group_2__0 : rule__EnumSchemaDefinition__Group_2__0__Impl rule__EnumSchemaDefinition__Group_2__1 ;
     public final void rule__EnumSchemaDefinition__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2922:1: ( rule__EnumSchemaDefinition__Group_2__0__Impl rule__EnumSchemaDefinition__Group_2__1 )
-            // InternalJsonSchemaDsl.g:2923:2: rule__EnumSchemaDefinition__Group_2__0__Impl rule__EnumSchemaDefinition__Group_2__1
+            // InternalJsonSchemaDsl.g:3254:1: ( rule__EnumSchemaDefinition__Group_2__0__Impl rule__EnumSchemaDefinition__Group_2__1 )
+            // InternalJsonSchemaDsl.g:3255:2: rule__EnumSchemaDefinition__Group_2__0__Impl rule__EnumSchemaDefinition__Group_2__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__EnumSchemaDefinition__Group_2__0__Impl();
 
             state._fsp--;
@@ -9294,20 +10444,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group_2__0__Impl"
-    // InternalJsonSchemaDsl.g:2930:1: rule__EnumSchemaDefinition__Group_2__0__Impl : ( ',' ) ;
+    // InternalJsonSchemaDsl.g:3262:1: rule__EnumSchemaDefinition__Group_2__0__Impl : ( ',' ) ;
     public final void rule__EnumSchemaDefinition__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2934:1: ( ( ',' ) )
-            // InternalJsonSchemaDsl.g:2935:1: ( ',' )
+            // InternalJsonSchemaDsl.g:3266:1: ( ( ',' ) )
+            // InternalJsonSchemaDsl.g:3267:1: ( ',' )
             {
-            // InternalJsonSchemaDsl.g:2935:1: ( ',' )
-            // InternalJsonSchemaDsl.g:2936:2: ','
+            // InternalJsonSchemaDsl.g:3267:1: ( ',' )
+            // InternalJsonSchemaDsl.g:3268:2: ','
             {
              before(grammarAccess.getEnumSchemaDefinitionAccess().getCommaKeyword_2_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getEnumSchemaDefinitionAccess().getCommaKeyword_2_0()); 
 
             }
@@ -9331,14 +10481,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group_2__1"
-    // InternalJsonSchemaDsl.g:2945:1: rule__EnumSchemaDefinition__Group_2__1 : rule__EnumSchemaDefinition__Group_2__1__Impl ;
+    // InternalJsonSchemaDsl.g:3277:1: rule__EnumSchemaDefinition__Group_2__1 : rule__EnumSchemaDefinition__Group_2__1__Impl ;
     public final void rule__EnumSchemaDefinition__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2949:1: ( rule__EnumSchemaDefinition__Group_2__1__Impl )
-            // InternalJsonSchemaDsl.g:2950:2: rule__EnumSchemaDefinition__Group_2__1__Impl
+            // InternalJsonSchemaDsl.g:3281:1: ( rule__EnumSchemaDefinition__Group_2__1__Impl )
+            // InternalJsonSchemaDsl.g:3282:2: rule__EnumSchemaDefinition__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EnumSchemaDefinition__Group_2__1__Impl();
@@ -9364,21 +10514,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__Group_2__1__Impl"
-    // InternalJsonSchemaDsl.g:2956:1: rule__EnumSchemaDefinition__Group_2__1__Impl : ( ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 ) ) ;
+    // InternalJsonSchemaDsl.g:3288:1: rule__EnumSchemaDefinition__Group_2__1__Impl : ( ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 ) ) ;
     public final void rule__EnumSchemaDefinition__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2960:1: ( ( ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 ) ) )
-            // InternalJsonSchemaDsl.g:2961:1: ( ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 ) )
+            // InternalJsonSchemaDsl.g:3292:1: ( ( ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 ) ) )
+            // InternalJsonSchemaDsl.g:3293:1: ( ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 ) )
             {
-            // InternalJsonSchemaDsl.g:2961:1: ( ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 ) )
-            // InternalJsonSchemaDsl.g:2962:2: ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 )
+            // InternalJsonSchemaDsl.g:3293:1: ( ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 ) )
+            // InternalJsonSchemaDsl.g:3294:2: ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 )
             {
              before(grammarAccess.getEnumSchemaDefinitionAccess().getItemsAssignment_2_1()); 
-            // InternalJsonSchemaDsl.g:2963:2: ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 )
-            // InternalJsonSchemaDsl.g:2963:3: rule__EnumSchemaDefinition__ItemsAssignment_2_1
+            // InternalJsonSchemaDsl.g:3295:2: ( rule__EnumSchemaDefinition__ItemsAssignment_2_1 )
+            // InternalJsonSchemaDsl.g:3295:3: rule__EnumSchemaDefinition__ItemsAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__EnumSchemaDefinition__ItemsAssignment_2_1();
@@ -9411,14 +10561,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__UniqueItemsSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:2972:1: rule__UniqueItemsSchemaDefinition__Group__0 : rule__UniqueItemsSchemaDefinition__Group__0__Impl rule__UniqueItemsSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:3304:1: rule__UniqueItemsSchemaDefinition__Group__0 : rule__UniqueItemsSchemaDefinition__Group__0__Impl rule__UniqueItemsSchemaDefinition__Group__1 ;
     public final void rule__UniqueItemsSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2976:1: ( rule__UniqueItemsSchemaDefinition__Group__0__Impl rule__UniqueItemsSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:2977:2: rule__UniqueItemsSchemaDefinition__Group__0__Impl rule__UniqueItemsSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:3308:1: ( rule__UniqueItemsSchemaDefinition__Group__0__Impl rule__UniqueItemsSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:3309:2: rule__UniqueItemsSchemaDefinition__Group__0__Impl rule__UniqueItemsSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__UniqueItemsSchemaDefinition__Group__0__Impl();
@@ -9449,20 +10599,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__UniqueItemsSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:2984:1: rule__UniqueItemsSchemaDefinition__Group__0__Impl : ( '\"uniqueItems\"' ) ;
+    // InternalJsonSchemaDsl.g:3316:1: rule__UniqueItemsSchemaDefinition__Group__0__Impl : ( '\"uniqueItems\"' ) ;
     public final void rule__UniqueItemsSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:2988:1: ( ( '\"uniqueItems\"' ) )
-            // InternalJsonSchemaDsl.g:2989:1: ( '\"uniqueItems\"' )
+            // InternalJsonSchemaDsl.g:3320:1: ( ( '\"uniqueItems\"' ) )
+            // InternalJsonSchemaDsl.g:3321:1: ( '\"uniqueItems\"' )
             {
-            // InternalJsonSchemaDsl.g:2989:1: ( '\"uniqueItems\"' )
-            // InternalJsonSchemaDsl.g:2990:2: '\"uniqueItems\"'
+            // InternalJsonSchemaDsl.g:3321:1: ( '\"uniqueItems\"' )
+            // InternalJsonSchemaDsl.g:3322:2: '\"uniqueItems\"'
             {
              before(grammarAccess.getUniqueItemsSchemaDefinitionAccess().getUniqueItemsKeyword_0()); 
-            match(input,30,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getUniqueItemsSchemaDefinitionAccess().getUniqueItemsKeyword_0()); 
 
             }
@@ -9486,14 +10636,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__UniqueItemsSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:2999:1: rule__UniqueItemsSchemaDefinition__Group__1 : rule__UniqueItemsSchemaDefinition__Group__1__Impl rule__UniqueItemsSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:3331:1: rule__UniqueItemsSchemaDefinition__Group__1 : rule__UniqueItemsSchemaDefinition__Group__1__Impl rule__UniqueItemsSchemaDefinition__Group__2 ;
     public final void rule__UniqueItemsSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3003:1: ( rule__UniqueItemsSchemaDefinition__Group__1__Impl rule__UniqueItemsSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:3004:2: rule__UniqueItemsSchemaDefinition__Group__1__Impl rule__UniqueItemsSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:3335:1: ( rule__UniqueItemsSchemaDefinition__Group__1__Impl rule__UniqueItemsSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:3336:2: rule__UniqueItemsSchemaDefinition__Group__1__Impl rule__UniqueItemsSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__UniqueItemsSchemaDefinition__Group__1__Impl();
@@ -9524,20 +10674,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__UniqueItemsSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:3011:1: rule__UniqueItemsSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:3343:1: rule__UniqueItemsSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__UniqueItemsSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3015:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:3016:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3347:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:3348:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:3016:1: ( ':' )
-            // InternalJsonSchemaDsl.g:3017:2: ':'
+            // InternalJsonSchemaDsl.g:3348:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3349:2: ':'
             {
              before(grammarAccess.getUniqueItemsSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getUniqueItemsSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -9561,14 +10711,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__UniqueItemsSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:3026:1: rule__UniqueItemsSchemaDefinition__Group__2 : rule__UniqueItemsSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:3358:1: rule__UniqueItemsSchemaDefinition__Group__2 : rule__UniqueItemsSchemaDefinition__Group__2__Impl ;
     public final void rule__UniqueItemsSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3030:1: ( rule__UniqueItemsSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:3031:2: rule__UniqueItemsSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:3362:1: ( rule__UniqueItemsSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:3363:2: rule__UniqueItemsSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__UniqueItemsSchemaDefinition__Group__2__Impl();
@@ -9594,21 +10744,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__UniqueItemsSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:3037:1: rule__UniqueItemsSchemaDefinition__Group__2__Impl : ( ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:3369:1: rule__UniqueItemsSchemaDefinition__Group__2__Impl : ( ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 ) ) ;
     public final void rule__UniqueItemsSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3041:1: ( ( ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:3042:1: ( ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3373:1: ( ( ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:3374:1: ( ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:3042:1: ( ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:3043:2: ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 )
+            // InternalJsonSchemaDsl.g:3374:1: ( ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3375:2: ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 )
             {
              before(grammarAccess.getUniqueItemsSchemaDefinitionAccess().getUniqueItemsAssignment_2()); 
-            // InternalJsonSchemaDsl.g:3044:2: ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 )
-            // InternalJsonSchemaDsl.g:3044:3: rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2
+            // InternalJsonSchemaDsl.g:3376:2: ( rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 )
+            // InternalJsonSchemaDsl.g:3376:3: rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2();
@@ -9641,14 +10791,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AnyOfSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:3053:1: rule__AnyOfSchemaDefinition__Group__0 : rule__AnyOfSchemaDefinition__Group__0__Impl rule__AnyOfSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:3385:1: rule__AnyOfSchemaDefinition__Group__0 : rule__AnyOfSchemaDefinition__Group__0__Impl rule__AnyOfSchemaDefinition__Group__1 ;
     public final void rule__AnyOfSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3057:1: ( rule__AnyOfSchemaDefinition__Group__0__Impl rule__AnyOfSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:3058:2: rule__AnyOfSchemaDefinition__Group__0__Impl rule__AnyOfSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:3389:1: ( rule__AnyOfSchemaDefinition__Group__0__Impl rule__AnyOfSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:3390:2: rule__AnyOfSchemaDefinition__Group__0__Impl rule__AnyOfSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__AnyOfSchemaDefinition__Group__0__Impl();
@@ -9679,20 +10829,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AnyOfSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:3065:1: rule__AnyOfSchemaDefinition__Group__0__Impl : ( '\"anyOf\"' ) ;
+    // InternalJsonSchemaDsl.g:3397:1: rule__AnyOfSchemaDefinition__Group__0__Impl : ( '\"anyOf\"' ) ;
     public final void rule__AnyOfSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3069:1: ( ( '\"anyOf\"' ) )
-            // InternalJsonSchemaDsl.g:3070:1: ( '\"anyOf\"' )
+            // InternalJsonSchemaDsl.g:3401:1: ( ( '\"anyOf\"' ) )
+            // InternalJsonSchemaDsl.g:3402:1: ( '\"anyOf\"' )
             {
-            // InternalJsonSchemaDsl.g:3070:1: ( '\"anyOf\"' )
-            // InternalJsonSchemaDsl.g:3071:2: '\"anyOf\"'
+            // InternalJsonSchemaDsl.g:3402:1: ( '\"anyOf\"' )
+            // InternalJsonSchemaDsl.g:3403:2: '\"anyOf\"'
             {
              before(grammarAccess.getAnyOfSchemaDefinitionAccess().getAnyOfKeyword_0()); 
-            match(input,31,FOLLOW_2); 
+            match(input,53,FOLLOW_2); 
              after(grammarAccess.getAnyOfSchemaDefinitionAccess().getAnyOfKeyword_0()); 
 
             }
@@ -9716,16 +10866,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AnyOfSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:3080:1: rule__AnyOfSchemaDefinition__Group__1 : rule__AnyOfSchemaDefinition__Group__1__Impl rule__AnyOfSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:3412:1: rule__AnyOfSchemaDefinition__Group__1 : rule__AnyOfSchemaDefinition__Group__1__Impl rule__AnyOfSchemaDefinition__Group__2 ;
     public final void rule__AnyOfSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3084:1: ( rule__AnyOfSchemaDefinition__Group__1__Impl rule__AnyOfSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:3085:2: rule__AnyOfSchemaDefinition__Group__1__Impl rule__AnyOfSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:3416:1: ( rule__AnyOfSchemaDefinition__Group__1__Impl rule__AnyOfSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:3417:2: rule__AnyOfSchemaDefinition__Group__1__Impl rule__AnyOfSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__AnyOfSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -9754,20 +10904,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AnyOfSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:3092:1: rule__AnyOfSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:3424:1: rule__AnyOfSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__AnyOfSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3096:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:3097:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3428:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:3429:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:3097:1: ( ':' )
-            // InternalJsonSchemaDsl.g:3098:2: ':'
+            // InternalJsonSchemaDsl.g:3429:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3430:2: ':'
             {
              before(grammarAccess.getAnyOfSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getAnyOfSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -9791,14 +10941,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AnyOfSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:3107:1: rule__AnyOfSchemaDefinition__Group__2 : rule__AnyOfSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:3439:1: rule__AnyOfSchemaDefinition__Group__2 : rule__AnyOfSchemaDefinition__Group__2__Impl ;
     public final void rule__AnyOfSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3111:1: ( rule__AnyOfSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:3112:2: rule__AnyOfSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:3443:1: ( rule__AnyOfSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:3444:2: rule__AnyOfSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AnyOfSchemaDefinition__Group__2__Impl();
@@ -9824,21 +10974,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AnyOfSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:3118:1: rule__AnyOfSchemaDefinition__Group__2__Impl : ( ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:3450:1: rule__AnyOfSchemaDefinition__Group__2__Impl : ( ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 ) ) ;
     public final void rule__AnyOfSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3122:1: ( ( ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:3123:1: ( ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3454:1: ( ( ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:3455:1: ( ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:3123:1: ( ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:3124:2: ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 )
+            // InternalJsonSchemaDsl.g:3455:1: ( ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3456:2: ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 )
             {
              before(grammarAccess.getAnyOfSchemaDefinitionAccess().getAnyOfAssignment_2()); 
-            // InternalJsonSchemaDsl.g:3125:2: ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 )
-            // InternalJsonSchemaDsl.g:3125:3: rule__AnyOfSchemaDefinition__AnyOfAssignment_2
+            // InternalJsonSchemaDsl.g:3457:2: ( rule__AnyOfSchemaDefinition__AnyOfAssignment_2 )
+            // InternalJsonSchemaDsl.g:3457:3: rule__AnyOfSchemaDefinition__AnyOfAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__AnyOfSchemaDefinition__AnyOfAssignment_2();
@@ -9871,14 +11021,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TitleSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:3134:1: rule__TitleSchemaDefinition__Group__0 : rule__TitleSchemaDefinition__Group__0__Impl rule__TitleSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:3466:1: rule__TitleSchemaDefinition__Group__0 : rule__TitleSchemaDefinition__Group__0__Impl rule__TitleSchemaDefinition__Group__1 ;
     public final void rule__TitleSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3138:1: ( rule__TitleSchemaDefinition__Group__0__Impl rule__TitleSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:3139:2: rule__TitleSchemaDefinition__Group__0__Impl rule__TitleSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:3470:1: ( rule__TitleSchemaDefinition__Group__0__Impl rule__TitleSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:3471:2: rule__TitleSchemaDefinition__Group__0__Impl rule__TitleSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__TitleSchemaDefinition__Group__0__Impl();
@@ -9909,20 +11059,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TitleSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:3146:1: rule__TitleSchemaDefinition__Group__0__Impl : ( '\"title\"' ) ;
+    // InternalJsonSchemaDsl.g:3478:1: rule__TitleSchemaDefinition__Group__0__Impl : ( '\"title\"' ) ;
     public final void rule__TitleSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3150:1: ( ( '\"title\"' ) )
-            // InternalJsonSchemaDsl.g:3151:1: ( '\"title\"' )
+            // InternalJsonSchemaDsl.g:3482:1: ( ( '\"title\"' ) )
+            // InternalJsonSchemaDsl.g:3483:1: ( '\"title\"' )
             {
-            // InternalJsonSchemaDsl.g:3151:1: ( '\"title\"' )
-            // InternalJsonSchemaDsl.g:3152:2: '\"title\"'
+            // InternalJsonSchemaDsl.g:3483:1: ( '\"title\"' )
+            // InternalJsonSchemaDsl.g:3484:2: '\"title\"'
             {
              before(grammarAccess.getTitleSchemaDefinitionAccess().getTitleKeyword_0()); 
-            match(input,32,FOLLOW_2); 
+            match(input,18,FOLLOW_2); 
              after(grammarAccess.getTitleSchemaDefinitionAccess().getTitleKeyword_0()); 
 
             }
@@ -9946,16 +11096,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TitleSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:3161:1: rule__TitleSchemaDefinition__Group__1 : rule__TitleSchemaDefinition__Group__1__Impl rule__TitleSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:3493:1: rule__TitleSchemaDefinition__Group__1 : rule__TitleSchemaDefinition__Group__1__Impl rule__TitleSchemaDefinition__Group__2 ;
     public final void rule__TitleSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3165:1: ( rule__TitleSchemaDefinition__Group__1__Impl rule__TitleSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:3166:2: rule__TitleSchemaDefinition__Group__1__Impl rule__TitleSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:3497:1: ( rule__TitleSchemaDefinition__Group__1__Impl rule__TitleSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:3498:2: rule__TitleSchemaDefinition__Group__1__Impl rule__TitleSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__TitleSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -9984,20 +11134,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TitleSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:3173:1: rule__TitleSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:3505:1: rule__TitleSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__TitleSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3177:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:3178:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3509:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:3510:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:3178:1: ( ':' )
-            // InternalJsonSchemaDsl.g:3179:2: ':'
+            // InternalJsonSchemaDsl.g:3510:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3511:2: ':'
             {
              before(grammarAccess.getTitleSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getTitleSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -10021,14 +11171,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TitleSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:3188:1: rule__TitleSchemaDefinition__Group__2 : rule__TitleSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:3520:1: rule__TitleSchemaDefinition__Group__2 : rule__TitleSchemaDefinition__Group__2__Impl ;
     public final void rule__TitleSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3192:1: ( rule__TitleSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:3193:2: rule__TitleSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:3524:1: ( rule__TitleSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:3525:2: rule__TitleSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TitleSchemaDefinition__Group__2__Impl();
@@ -10054,21 +11204,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TitleSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:3199:1: rule__TitleSchemaDefinition__Group__2__Impl : ( ( rule__TitleSchemaDefinition__TitleAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:3531:1: rule__TitleSchemaDefinition__Group__2__Impl : ( ( rule__TitleSchemaDefinition__TitleAssignment_2 ) ) ;
     public final void rule__TitleSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3203:1: ( ( ( rule__TitleSchemaDefinition__TitleAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:3204:1: ( ( rule__TitleSchemaDefinition__TitleAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3535:1: ( ( ( rule__TitleSchemaDefinition__TitleAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:3536:1: ( ( rule__TitleSchemaDefinition__TitleAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:3204:1: ( ( rule__TitleSchemaDefinition__TitleAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:3205:2: ( rule__TitleSchemaDefinition__TitleAssignment_2 )
+            // InternalJsonSchemaDsl.g:3536:1: ( ( rule__TitleSchemaDefinition__TitleAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3537:2: ( rule__TitleSchemaDefinition__TitleAssignment_2 )
             {
              before(grammarAccess.getTitleSchemaDefinitionAccess().getTitleAssignment_2()); 
-            // InternalJsonSchemaDsl.g:3206:2: ( rule__TitleSchemaDefinition__TitleAssignment_2 )
-            // InternalJsonSchemaDsl.g:3206:3: rule__TitleSchemaDefinition__TitleAssignment_2
+            // InternalJsonSchemaDsl.g:3538:2: ( rule__TitleSchemaDefinition__TitleAssignment_2 )
+            // InternalJsonSchemaDsl.g:3538:3: rule__TitleSchemaDefinition__TitleAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__TitleSchemaDefinition__TitleAssignment_2();
@@ -10101,16 +11251,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:3215:1: rule__ItemsSchemaDefinition__Group__0 : rule__ItemsSchemaDefinition__Group__0__Impl rule__ItemsSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:3547:1: rule__ItemsSchemaDefinition__Group__0 : rule__ItemsSchemaDefinition__Group__0__Impl rule__ItemsSchemaDefinition__Group__1 ;
     public final void rule__ItemsSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3219:1: ( rule__ItemsSchemaDefinition__Group__0__Impl rule__ItemsSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:3220:2: rule__ItemsSchemaDefinition__Group__0__Impl rule__ItemsSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:3551:1: ( rule__ItemsSchemaDefinition__Group__0__Impl rule__ItemsSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:3552:2: rule__ItemsSchemaDefinition__Group__0__Impl rule__ItemsSchemaDefinition__Group__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_15);
             rule__ItemsSchemaDefinition__Group__0__Impl();
 
             state._fsp--;
@@ -10139,21 +11289,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:3227:1: rule__ItemsSchemaDefinition__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:3559:1: rule__ItemsSchemaDefinition__Group__0__Impl : ( () ) ;
     public final void rule__ItemsSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3231:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:3232:1: ( () )
+            // InternalJsonSchemaDsl.g:3563:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:3564:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:3232:1: ( () )
-            // InternalJsonSchemaDsl.g:3233:2: ()
+            // InternalJsonSchemaDsl.g:3564:1: ( () )
+            // InternalJsonSchemaDsl.g:3565:2: ()
             {
              before(grammarAccess.getItemsSchemaDefinitionAccess().getItemsSchemaDefinitionAction_0()); 
-            // InternalJsonSchemaDsl.g:3234:2: ()
-            // InternalJsonSchemaDsl.g:3234:3: 
+            // InternalJsonSchemaDsl.g:3566:2: ()
+            // InternalJsonSchemaDsl.g:3566:3: 
             {
             }
 
@@ -10176,14 +11326,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:3242:1: rule__ItemsSchemaDefinition__Group__1 : rule__ItemsSchemaDefinition__Group__1__Impl rule__ItemsSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:3574:1: rule__ItemsSchemaDefinition__Group__1 : rule__ItemsSchemaDefinition__Group__1__Impl rule__ItemsSchemaDefinition__Group__2 ;
     public final void rule__ItemsSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3246:1: ( rule__ItemsSchemaDefinition__Group__1__Impl rule__ItemsSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:3247:2: rule__ItemsSchemaDefinition__Group__1__Impl rule__ItemsSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:3578:1: ( rule__ItemsSchemaDefinition__Group__1__Impl rule__ItemsSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:3579:2: rule__ItemsSchemaDefinition__Group__1__Impl rule__ItemsSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__ItemsSchemaDefinition__Group__1__Impl();
@@ -10214,20 +11364,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:3254:1: rule__ItemsSchemaDefinition__Group__1__Impl : ( '\"items\"' ) ;
+    // InternalJsonSchemaDsl.g:3586:1: rule__ItemsSchemaDefinition__Group__1__Impl : ( '\"items\"' ) ;
     public final void rule__ItemsSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3258:1: ( ( '\"items\"' ) )
-            // InternalJsonSchemaDsl.g:3259:1: ( '\"items\"' )
+            // InternalJsonSchemaDsl.g:3590:1: ( ( '\"items\"' ) )
+            // InternalJsonSchemaDsl.g:3591:1: ( '\"items\"' )
             {
-            // InternalJsonSchemaDsl.g:3259:1: ( '\"items\"' )
-            // InternalJsonSchemaDsl.g:3260:2: '\"items\"'
+            // InternalJsonSchemaDsl.g:3591:1: ( '\"items\"' )
+            // InternalJsonSchemaDsl.g:3592:2: '\"items\"'
             {
              before(grammarAccess.getItemsSchemaDefinitionAccess().getItemsKeyword_1()); 
-            match(input,33,FOLLOW_2); 
+            match(input,31,FOLLOW_2); 
              after(grammarAccess.getItemsSchemaDefinitionAccess().getItemsKeyword_1()); 
 
             }
@@ -10251,16 +11401,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:3269:1: rule__ItemsSchemaDefinition__Group__2 : rule__ItemsSchemaDefinition__Group__2__Impl rule__ItemsSchemaDefinition__Group__3 ;
+    // InternalJsonSchemaDsl.g:3601:1: rule__ItemsSchemaDefinition__Group__2 : rule__ItemsSchemaDefinition__Group__2__Impl rule__ItemsSchemaDefinition__Group__3 ;
     public final void rule__ItemsSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3273:1: ( rule__ItemsSchemaDefinition__Group__2__Impl rule__ItemsSchemaDefinition__Group__3 )
-            // InternalJsonSchemaDsl.g:3274:2: rule__ItemsSchemaDefinition__Group__2__Impl rule__ItemsSchemaDefinition__Group__3
+            // InternalJsonSchemaDsl.g:3605:1: ( rule__ItemsSchemaDefinition__Group__2__Impl rule__ItemsSchemaDefinition__Group__3 )
+            // InternalJsonSchemaDsl.g:3606:2: rule__ItemsSchemaDefinition__Group__2__Impl rule__ItemsSchemaDefinition__Group__3
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__ItemsSchemaDefinition__Group__2__Impl();
 
             state._fsp--;
@@ -10289,20 +11439,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:3281:1: rule__ItemsSchemaDefinition__Group__2__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:3613:1: rule__ItemsSchemaDefinition__Group__2__Impl : ( ':' ) ;
     public final void rule__ItemsSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3285:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:3286:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3617:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:3618:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:3286:1: ( ':' )
-            // InternalJsonSchemaDsl.g:3287:2: ':'
+            // InternalJsonSchemaDsl.g:3618:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3619:2: ':'
             {
              before(grammarAccess.getItemsSchemaDefinitionAccess().getColonKeyword_2()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getItemsSchemaDefinitionAccess().getColonKeyword_2()); 
 
             }
@@ -10326,16 +11476,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__Group__3"
-    // InternalJsonSchemaDsl.g:3296:1: rule__ItemsSchemaDefinition__Group__3 : rule__ItemsSchemaDefinition__Group__3__Impl rule__ItemsSchemaDefinition__Group__4 ;
+    // InternalJsonSchemaDsl.g:3628:1: rule__ItemsSchemaDefinition__Group__3 : rule__ItemsSchemaDefinition__Group__3__Impl rule__ItemsSchemaDefinition__Group__4 ;
     public final void rule__ItemsSchemaDefinition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3300:1: ( rule__ItemsSchemaDefinition__Group__3__Impl rule__ItemsSchemaDefinition__Group__4 )
-            // InternalJsonSchemaDsl.g:3301:2: rule__ItemsSchemaDefinition__Group__3__Impl rule__ItemsSchemaDefinition__Group__4
+            // InternalJsonSchemaDsl.g:3632:1: ( rule__ItemsSchemaDefinition__Group__3__Impl rule__ItemsSchemaDefinition__Group__4 )
+            // InternalJsonSchemaDsl.g:3633:2: rule__ItemsSchemaDefinition__Group__3__Impl rule__ItemsSchemaDefinition__Group__4
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__ItemsSchemaDefinition__Group__3__Impl();
 
             state._fsp--;
@@ -10364,29 +11514,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:3308:1: rule__ItemsSchemaDefinition__Group__3__Impl : ( ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )? ) ;
+    // InternalJsonSchemaDsl.g:3640:1: rule__ItemsSchemaDefinition__Group__3__Impl : ( ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )? ) ;
     public final void rule__ItemsSchemaDefinition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3312:1: ( ( ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )? ) )
-            // InternalJsonSchemaDsl.g:3313:1: ( ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )? )
+            // InternalJsonSchemaDsl.g:3644:1: ( ( ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )? ) )
+            // InternalJsonSchemaDsl.g:3645:1: ( ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )? )
             {
-            // InternalJsonSchemaDsl.g:3313:1: ( ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )? )
-            // InternalJsonSchemaDsl.g:3314:2: ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )?
+            // InternalJsonSchemaDsl.g:3645:1: ( ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )? )
+            // InternalJsonSchemaDsl.g:3646:2: ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )?
             {
              before(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf1Assignment_3()); 
-            // InternalJsonSchemaDsl.g:3315:2: ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:3647:2: ( rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( ((LA10_0>=12 && LA10_0<=13)||LA10_0==21) ) {
-                alt10=1;
+            if ( ((LA12_0>=12 && LA12_0<=13)||LA12_0==63) ) {
+                alt12=1;
             }
-            switch (alt10) {
+            switch (alt12) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:3315:3: rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3
+                    // InternalJsonSchemaDsl.g:3647:3: rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3
                     {
                     pushFollow(FOLLOW_2);
                     rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3();
@@ -10422,14 +11572,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__Group__4"
-    // InternalJsonSchemaDsl.g:3323:1: rule__ItemsSchemaDefinition__Group__4 : rule__ItemsSchemaDefinition__Group__4__Impl ;
+    // InternalJsonSchemaDsl.g:3655:1: rule__ItemsSchemaDefinition__Group__4 : rule__ItemsSchemaDefinition__Group__4__Impl ;
     public final void rule__ItemsSchemaDefinition__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3327:1: ( rule__ItemsSchemaDefinition__Group__4__Impl )
-            // InternalJsonSchemaDsl.g:3328:2: rule__ItemsSchemaDefinition__Group__4__Impl
+            // InternalJsonSchemaDsl.g:3659:1: ( rule__ItemsSchemaDefinition__Group__4__Impl )
+            // InternalJsonSchemaDsl.g:3660:2: rule__ItemsSchemaDefinition__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ItemsSchemaDefinition__Group__4__Impl();
@@ -10455,29 +11605,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__Group__4__Impl"
-    // InternalJsonSchemaDsl.g:3334:1: rule__ItemsSchemaDefinition__Group__4__Impl : ( ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )? ) ;
+    // InternalJsonSchemaDsl.g:3666:1: rule__ItemsSchemaDefinition__Group__4__Impl : ( ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )? ) ;
     public final void rule__ItemsSchemaDefinition__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3338:1: ( ( ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )? ) )
-            // InternalJsonSchemaDsl.g:3339:1: ( ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )? )
+            // InternalJsonSchemaDsl.g:3670:1: ( ( ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )? ) )
+            // InternalJsonSchemaDsl.g:3671:1: ( ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )? )
             {
-            // InternalJsonSchemaDsl.g:3339:1: ( ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )? )
-            // InternalJsonSchemaDsl.g:3340:2: ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )?
+            // InternalJsonSchemaDsl.g:3671:1: ( ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )? )
+            // InternalJsonSchemaDsl.g:3672:2: ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )?
             {
              before(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf2Assignment_4()); 
-            // InternalJsonSchemaDsl.g:3341:2: ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:3673:2: ( rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA11_0==28) ) {
-                alt11=1;
+            if ( (LA13_0==67) ) {
+                alt13=1;
             }
-            switch (alt11) {
+            switch (alt13) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:3341:3: rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4
+                    // InternalJsonSchemaDsl.g:3673:3: rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4
                     {
                     pushFollow(FOLLOW_2);
                     rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4();
@@ -10513,14 +11663,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefaultSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:3350:1: rule__DefaultSchemaDefinition__Group__0 : rule__DefaultSchemaDefinition__Group__0__Impl rule__DefaultSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:3682:1: rule__DefaultSchemaDefinition__Group__0 : rule__DefaultSchemaDefinition__Group__0__Impl rule__DefaultSchemaDefinition__Group__1 ;
     public final void rule__DefaultSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3354:1: ( rule__DefaultSchemaDefinition__Group__0__Impl rule__DefaultSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:3355:2: rule__DefaultSchemaDefinition__Group__0__Impl rule__DefaultSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:3686:1: ( rule__DefaultSchemaDefinition__Group__0__Impl rule__DefaultSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:3687:2: rule__DefaultSchemaDefinition__Group__0__Impl rule__DefaultSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__DefaultSchemaDefinition__Group__0__Impl();
@@ -10551,20 +11701,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefaultSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:3362:1: rule__DefaultSchemaDefinition__Group__0__Impl : ( '\"default\"' ) ;
+    // InternalJsonSchemaDsl.g:3694:1: rule__DefaultSchemaDefinition__Group__0__Impl : ( '\"default\"' ) ;
     public final void rule__DefaultSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3366:1: ( ( '\"default\"' ) )
-            // InternalJsonSchemaDsl.g:3367:1: ( '\"default\"' )
+            // InternalJsonSchemaDsl.g:3698:1: ( ( '\"default\"' ) )
+            // InternalJsonSchemaDsl.g:3699:1: ( '\"default\"' )
             {
-            // InternalJsonSchemaDsl.g:3367:1: ( '\"default\"' )
-            // InternalJsonSchemaDsl.g:3368:2: '\"default\"'
+            // InternalJsonSchemaDsl.g:3699:1: ( '\"default\"' )
+            // InternalJsonSchemaDsl.g:3700:2: '\"default\"'
             {
              before(grammarAccess.getDefaultSchemaDefinitionAccess().getDefaultKeyword_0()); 
-            match(input,34,FOLLOW_2); 
+            match(input,20,FOLLOW_2); 
              after(grammarAccess.getDefaultSchemaDefinitionAccess().getDefaultKeyword_0()); 
 
             }
@@ -10588,16 +11738,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefaultSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:3377:1: rule__DefaultSchemaDefinition__Group__1 : rule__DefaultSchemaDefinition__Group__1__Impl rule__DefaultSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:3709:1: rule__DefaultSchemaDefinition__Group__1 : rule__DefaultSchemaDefinition__Group__1__Impl rule__DefaultSchemaDefinition__Group__2 ;
     public final void rule__DefaultSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3381:1: ( rule__DefaultSchemaDefinition__Group__1__Impl rule__DefaultSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:3382:2: rule__DefaultSchemaDefinition__Group__1__Impl rule__DefaultSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:3713:1: ( rule__DefaultSchemaDefinition__Group__1__Impl rule__DefaultSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:3714:2: rule__DefaultSchemaDefinition__Group__1__Impl rule__DefaultSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__DefaultSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -10626,20 +11776,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefaultSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:3389:1: rule__DefaultSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:3721:1: rule__DefaultSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__DefaultSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3393:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:3394:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3725:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:3726:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:3394:1: ( ':' )
-            // InternalJsonSchemaDsl.g:3395:2: ':'
+            // InternalJsonSchemaDsl.g:3726:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3727:2: ':'
             {
              before(grammarAccess.getDefaultSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getDefaultSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -10663,14 +11813,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefaultSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:3404:1: rule__DefaultSchemaDefinition__Group__2 : rule__DefaultSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:3736:1: rule__DefaultSchemaDefinition__Group__2 : rule__DefaultSchemaDefinition__Group__2__Impl ;
     public final void rule__DefaultSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3408:1: ( rule__DefaultSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:3409:2: rule__DefaultSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:3740:1: ( rule__DefaultSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:3741:2: rule__DefaultSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DefaultSchemaDefinition__Group__2__Impl();
@@ -10696,21 +11846,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefaultSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:3415:1: rule__DefaultSchemaDefinition__Group__2__Impl : ( ( rule__DefaultSchemaDefinition__DefaultAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:3747:1: rule__DefaultSchemaDefinition__Group__2__Impl : ( ( rule__DefaultSchemaDefinition__DefaultAssignment_2 ) ) ;
     public final void rule__DefaultSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3419:1: ( ( ( rule__DefaultSchemaDefinition__DefaultAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:3420:1: ( ( rule__DefaultSchemaDefinition__DefaultAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3751:1: ( ( ( rule__DefaultSchemaDefinition__DefaultAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:3752:1: ( ( rule__DefaultSchemaDefinition__DefaultAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:3420:1: ( ( rule__DefaultSchemaDefinition__DefaultAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:3421:2: ( rule__DefaultSchemaDefinition__DefaultAssignment_2 )
+            // InternalJsonSchemaDsl.g:3752:1: ( ( rule__DefaultSchemaDefinition__DefaultAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3753:2: ( rule__DefaultSchemaDefinition__DefaultAssignment_2 )
             {
              before(grammarAccess.getDefaultSchemaDefinitionAccess().getDefaultAssignment_2()); 
-            // InternalJsonSchemaDsl.g:3422:2: ( rule__DefaultSchemaDefinition__DefaultAssignment_2 )
-            // InternalJsonSchemaDsl.g:3422:3: rule__DefaultSchemaDefinition__DefaultAssignment_2
+            // InternalJsonSchemaDsl.g:3754:2: ( rule__DefaultSchemaDefinition__DefaultAssignment_2 )
+            // InternalJsonSchemaDsl.g:3754:3: rule__DefaultSchemaDefinition__DefaultAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DefaultSchemaDefinition__DefaultAssignment_2();
@@ -10743,14 +11893,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ThenSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:3431:1: rule__ThenSchemaDefinition__Group__0 : rule__ThenSchemaDefinition__Group__0__Impl rule__ThenSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:3763:1: rule__ThenSchemaDefinition__Group__0 : rule__ThenSchemaDefinition__Group__0__Impl rule__ThenSchemaDefinition__Group__1 ;
     public final void rule__ThenSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3435:1: ( rule__ThenSchemaDefinition__Group__0__Impl rule__ThenSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:3436:2: rule__ThenSchemaDefinition__Group__0__Impl rule__ThenSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:3767:1: ( rule__ThenSchemaDefinition__Group__0__Impl rule__ThenSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:3768:2: rule__ThenSchemaDefinition__Group__0__Impl rule__ThenSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__ThenSchemaDefinition__Group__0__Impl();
@@ -10781,20 +11931,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ThenSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:3443:1: rule__ThenSchemaDefinition__Group__0__Impl : ( '\"then\"' ) ;
+    // InternalJsonSchemaDsl.g:3775:1: rule__ThenSchemaDefinition__Group__0__Impl : ( '\"then\"' ) ;
     public final void rule__ThenSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3447:1: ( ( '\"then\"' ) )
-            // InternalJsonSchemaDsl.g:3448:1: ( '\"then\"' )
+            // InternalJsonSchemaDsl.g:3779:1: ( ( '\"then\"' ) )
+            // InternalJsonSchemaDsl.g:3780:1: ( '\"then\"' )
             {
-            // InternalJsonSchemaDsl.g:3448:1: ( '\"then\"' )
-            // InternalJsonSchemaDsl.g:3449:2: '\"then\"'
+            // InternalJsonSchemaDsl.g:3780:1: ( '\"then\"' )
+            // InternalJsonSchemaDsl.g:3781:2: '\"then\"'
             {
              before(grammarAccess.getThenSchemaDefinitionAccess().getThenKeyword_0()); 
-            match(input,35,FOLLOW_2); 
+            match(input,50,FOLLOW_2); 
              after(grammarAccess.getThenSchemaDefinitionAccess().getThenKeyword_0()); 
 
             }
@@ -10818,14 +11968,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ThenSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:3458:1: rule__ThenSchemaDefinition__Group__1 : rule__ThenSchemaDefinition__Group__1__Impl rule__ThenSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:3790:1: rule__ThenSchemaDefinition__Group__1 : rule__ThenSchemaDefinition__Group__1__Impl rule__ThenSchemaDefinition__Group__2 ;
     public final void rule__ThenSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3462:1: ( rule__ThenSchemaDefinition__Group__1__Impl rule__ThenSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:3463:2: rule__ThenSchemaDefinition__Group__1__Impl rule__ThenSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:3794:1: ( rule__ThenSchemaDefinition__Group__1__Impl rule__ThenSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:3795:2: rule__ThenSchemaDefinition__Group__1__Impl rule__ThenSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__ThenSchemaDefinition__Group__1__Impl();
@@ -10856,20 +12006,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ThenSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:3470:1: rule__ThenSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:3802:1: rule__ThenSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__ThenSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3474:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:3475:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3806:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:3807:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:3475:1: ( ':' )
-            // InternalJsonSchemaDsl.g:3476:2: ':'
+            // InternalJsonSchemaDsl.g:3807:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3808:2: ':'
             {
              before(grammarAccess.getThenSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getThenSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -10893,14 +12043,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ThenSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:3485:1: rule__ThenSchemaDefinition__Group__2 : rule__ThenSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:3817:1: rule__ThenSchemaDefinition__Group__2 : rule__ThenSchemaDefinition__Group__2__Impl ;
     public final void rule__ThenSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3489:1: ( rule__ThenSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:3490:2: rule__ThenSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:3821:1: ( rule__ThenSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:3822:2: rule__ThenSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ThenSchemaDefinition__Group__2__Impl();
@@ -10926,21 +12076,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ThenSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:3496:1: rule__ThenSchemaDefinition__Group__2__Impl : ( ( rule__ThenSchemaDefinition__ThenAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:3828:1: rule__ThenSchemaDefinition__Group__2__Impl : ( ( rule__ThenSchemaDefinition__ThenAssignment_2 ) ) ;
     public final void rule__ThenSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3500:1: ( ( ( rule__ThenSchemaDefinition__ThenAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:3501:1: ( ( rule__ThenSchemaDefinition__ThenAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3832:1: ( ( ( rule__ThenSchemaDefinition__ThenAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:3833:1: ( ( rule__ThenSchemaDefinition__ThenAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:3501:1: ( ( rule__ThenSchemaDefinition__ThenAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:3502:2: ( rule__ThenSchemaDefinition__ThenAssignment_2 )
+            // InternalJsonSchemaDsl.g:3833:1: ( ( rule__ThenSchemaDefinition__ThenAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3834:2: ( rule__ThenSchemaDefinition__ThenAssignment_2 )
             {
              before(grammarAccess.getThenSchemaDefinitionAccess().getThenAssignment_2()); 
-            // InternalJsonSchemaDsl.g:3503:2: ( rule__ThenSchemaDefinition__ThenAssignment_2 )
-            // InternalJsonSchemaDsl.g:3503:3: rule__ThenSchemaDefinition__ThenAssignment_2
+            // InternalJsonSchemaDsl.g:3835:2: ( rule__ThenSchemaDefinition__ThenAssignment_2 )
+            // InternalJsonSchemaDsl.g:3835:3: rule__ThenSchemaDefinition__ThenAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ThenSchemaDefinition__ThenAssignment_2();
@@ -10973,14 +12123,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinLengthSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:3512:1: rule__MinLengthSchemaDefinition__Group__0 : rule__MinLengthSchemaDefinition__Group__0__Impl rule__MinLengthSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:3844:1: rule__MinLengthSchemaDefinition__Group__0 : rule__MinLengthSchemaDefinition__Group__0__Impl rule__MinLengthSchemaDefinition__Group__1 ;
     public final void rule__MinLengthSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3516:1: ( rule__MinLengthSchemaDefinition__Group__0__Impl rule__MinLengthSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:3517:2: rule__MinLengthSchemaDefinition__Group__0__Impl rule__MinLengthSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:3848:1: ( rule__MinLengthSchemaDefinition__Group__0__Impl rule__MinLengthSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:3849:2: rule__MinLengthSchemaDefinition__Group__0__Impl rule__MinLengthSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__MinLengthSchemaDefinition__Group__0__Impl();
@@ -11011,20 +12161,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinLengthSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:3524:1: rule__MinLengthSchemaDefinition__Group__0__Impl : ( '\"minLength\"' ) ;
+    // InternalJsonSchemaDsl.g:3856:1: rule__MinLengthSchemaDefinition__Group__0__Impl : ( '\"minLength\"' ) ;
     public final void rule__MinLengthSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3528:1: ( ( '\"minLength\"' ) )
-            // InternalJsonSchemaDsl.g:3529:1: ( '\"minLength\"' )
+            // InternalJsonSchemaDsl.g:3860:1: ( ( '\"minLength\"' ) )
+            // InternalJsonSchemaDsl.g:3861:1: ( '\"minLength\"' )
             {
-            // InternalJsonSchemaDsl.g:3529:1: ( '\"minLength\"' )
-            // InternalJsonSchemaDsl.g:3530:2: '\"minLength\"'
+            // InternalJsonSchemaDsl.g:3861:1: ( '\"minLength\"' )
+            // InternalJsonSchemaDsl.g:3862:2: '\"minLength\"'
             {
              before(grammarAccess.getMinLengthSchemaDefinitionAccess().getMinLengthKeyword_0()); 
-            match(input,36,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getMinLengthSchemaDefinitionAccess().getMinLengthKeyword_0()); 
 
             }
@@ -11048,16 +12198,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinLengthSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:3539:1: rule__MinLengthSchemaDefinition__Group__1 : rule__MinLengthSchemaDefinition__Group__1__Impl rule__MinLengthSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:3871:1: rule__MinLengthSchemaDefinition__Group__1 : rule__MinLengthSchemaDefinition__Group__1__Impl rule__MinLengthSchemaDefinition__Group__2 ;
     public final void rule__MinLengthSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3543:1: ( rule__MinLengthSchemaDefinition__Group__1__Impl rule__MinLengthSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:3544:2: rule__MinLengthSchemaDefinition__Group__1__Impl rule__MinLengthSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:3875:1: ( rule__MinLengthSchemaDefinition__Group__1__Impl rule__MinLengthSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:3876:2: rule__MinLengthSchemaDefinition__Group__1__Impl rule__MinLengthSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__MinLengthSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -11086,20 +12236,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinLengthSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:3551:1: rule__MinLengthSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:3883:1: rule__MinLengthSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__MinLengthSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3555:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:3556:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3887:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:3888:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:3556:1: ( ':' )
-            // InternalJsonSchemaDsl.g:3557:2: ':'
+            // InternalJsonSchemaDsl.g:3888:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3889:2: ':'
             {
              before(grammarAccess.getMinLengthSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getMinLengthSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -11123,14 +12273,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinLengthSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:3566:1: rule__MinLengthSchemaDefinition__Group__2 : rule__MinLengthSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:3898:1: rule__MinLengthSchemaDefinition__Group__2 : rule__MinLengthSchemaDefinition__Group__2__Impl ;
     public final void rule__MinLengthSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3570:1: ( rule__MinLengthSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:3571:2: rule__MinLengthSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:3902:1: ( rule__MinLengthSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:3903:2: rule__MinLengthSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MinLengthSchemaDefinition__Group__2__Impl();
@@ -11156,21 +12306,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinLengthSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:3577:1: rule__MinLengthSchemaDefinition__Group__2__Impl : ( ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:3909:1: rule__MinLengthSchemaDefinition__Group__2__Impl : ( ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 ) ) ;
     public final void rule__MinLengthSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3581:1: ( ( ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:3582:1: ( ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3913:1: ( ( ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:3914:1: ( ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:3582:1: ( ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:3583:2: ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 )
+            // InternalJsonSchemaDsl.g:3914:1: ( ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:3915:2: ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 )
             {
              before(grammarAccess.getMinLengthSchemaDefinitionAccess().getMinLengthAssignment_2()); 
-            // InternalJsonSchemaDsl.g:3584:2: ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 )
-            // InternalJsonSchemaDsl.g:3584:3: rule__MinLengthSchemaDefinition__MinLengthAssignment_2
+            // InternalJsonSchemaDsl.g:3916:2: ( rule__MinLengthSchemaDefinition__MinLengthAssignment_2 )
+            // InternalJsonSchemaDsl.g:3916:3: rule__MinLengthSchemaDefinition__MinLengthAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MinLengthSchemaDefinition__MinLengthAssignment_2();
@@ -11203,16 +12353,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:3593:1: rule__DefinitionsSchemaDefinition__Group__0 : rule__DefinitionsSchemaDefinition__Group__0__Impl rule__DefinitionsSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:3925:1: rule__DefinitionsSchemaDefinition__Group__0 : rule__DefinitionsSchemaDefinition__Group__0__Impl rule__DefinitionsSchemaDefinition__Group__1 ;
     public final void rule__DefinitionsSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3597:1: ( rule__DefinitionsSchemaDefinition__Group__0__Impl rule__DefinitionsSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:3598:2: rule__DefinitionsSchemaDefinition__Group__0__Impl rule__DefinitionsSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:3929:1: ( rule__DefinitionsSchemaDefinition__Group__0__Impl rule__DefinitionsSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:3930:2: rule__DefinitionsSchemaDefinition__Group__0__Impl rule__DefinitionsSchemaDefinition__Group__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_18);
             rule__DefinitionsSchemaDefinition__Group__0__Impl();
 
             state._fsp--;
@@ -11241,21 +12391,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:3605:1: rule__DefinitionsSchemaDefinition__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:3937:1: rule__DefinitionsSchemaDefinition__Group__0__Impl : ( () ) ;
     public final void rule__DefinitionsSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3609:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:3610:1: ( () )
+            // InternalJsonSchemaDsl.g:3941:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:3942:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:3610:1: ( () )
-            // InternalJsonSchemaDsl.g:3611:2: ()
+            // InternalJsonSchemaDsl.g:3942:1: ( () )
+            // InternalJsonSchemaDsl.g:3943:2: ()
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getDefinitionsSchemaDefinitionAction_0()); 
-            // InternalJsonSchemaDsl.g:3612:2: ()
-            // InternalJsonSchemaDsl.g:3612:3: 
+            // InternalJsonSchemaDsl.g:3944:2: ()
+            // InternalJsonSchemaDsl.g:3944:3: 
             {
             }
 
@@ -11278,14 +12428,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:3620:1: rule__DefinitionsSchemaDefinition__Group__1 : rule__DefinitionsSchemaDefinition__Group__1__Impl rule__DefinitionsSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:3952:1: rule__DefinitionsSchemaDefinition__Group__1 : rule__DefinitionsSchemaDefinition__Group__1__Impl rule__DefinitionsSchemaDefinition__Group__2 ;
     public final void rule__DefinitionsSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3624:1: ( rule__DefinitionsSchemaDefinition__Group__1__Impl rule__DefinitionsSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:3625:2: rule__DefinitionsSchemaDefinition__Group__1__Impl rule__DefinitionsSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:3956:1: ( rule__DefinitionsSchemaDefinition__Group__1__Impl rule__DefinitionsSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:3957:2: rule__DefinitionsSchemaDefinition__Group__1__Impl rule__DefinitionsSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__DefinitionsSchemaDefinition__Group__1__Impl();
@@ -11316,20 +12466,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:3632:1: rule__DefinitionsSchemaDefinition__Group__1__Impl : ( '\"definitions\"' ) ;
+    // InternalJsonSchemaDsl.g:3964:1: rule__DefinitionsSchemaDefinition__Group__1__Impl : ( '\"definitions\"' ) ;
     public final void rule__DefinitionsSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3636:1: ( ( '\"definitions\"' ) )
-            // InternalJsonSchemaDsl.g:3637:1: ( '\"definitions\"' )
+            // InternalJsonSchemaDsl.g:3968:1: ( ( '\"definitions\"' ) )
+            // InternalJsonSchemaDsl.g:3969:1: ( '\"definitions\"' )
             {
-            // InternalJsonSchemaDsl.g:3637:1: ( '\"definitions\"' )
-            // InternalJsonSchemaDsl.g:3638:2: '\"definitions\"'
+            // InternalJsonSchemaDsl.g:3969:1: ( '\"definitions\"' )
+            // InternalJsonSchemaDsl.g:3970:2: '\"definitions\"'
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getDefinitionsKeyword_1()); 
-            match(input,37,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getDefinitionsSchemaDefinitionAccess().getDefinitionsKeyword_1()); 
 
             }
@@ -11353,14 +12503,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:3647:1: rule__DefinitionsSchemaDefinition__Group__2 : rule__DefinitionsSchemaDefinition__Group__2__Impl rule__DefinitionsSchemaDefinition__Group__3 ;
+    // InternalJsonSchemaDsl.g:3979:1: rule__DefinitionsSchemaDefinition__Group__2 : rule__DefinitionsSchemaDefinition__Group__2__Impl rule__DefinitionsSchemaDefinition__Group__3 ;
     public final void rule__DefinitionsSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3651:1: ( rule__DefinitionsSchemaDefinition__Group__2__Impl rule__DefinitionsSchemaDefinition__Group__3 )
-            // InternalJsonSchemaDsl.g:3652:2: rule__DefinitionsSchemaDefinition__Group__2__Impl rule__DefinitionsSchemaDefinition__Group__3
+            // InternalJsonSchemaDsl.g:3983:1: ( rule__DefinitionsSchemaDefinition__Group__2__Impl rule__DefinitionsSchemaDefinition__Group__3 )
+            // InternalJsonSchemaDsl.g:3984:2: rule__DefinitionsSchemaDefinition__Group__2__Impl rule__DefinitionsSchemaDefinition__Group__3
             {
             pushFollow(FOLLOW_4);
             rule__DefinitionsSchemaDefinition__Group__2__Impl();
@@ -11391,20 +12541,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:3659:1: rule__DefinitionsSchemaDefinition__Group__2__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:3991:1: rule__DefinitionsSchemaDefinition__Group__2__Impl : ( ':' ) ;
     public final void rule__DefinitionsSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3663:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:3664:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3995:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:3996:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:3664:1: ( ':' )
-            // InternalJsonSchemaDsl.g:3665:2: ':'
+            // InternalJsonSchemaDsl.g:3996:1: ( ':' )
+            // InternalJsonSchemaDsl.g:3997:2: ':'
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getColonKeyword_2()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getDefinitionsSchemaDefinitionAccess().getColonKeyword_2()); 
 
             }
@@ -11428,16 +12578,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__3"
-    // InternalJsonSchemaDsl.g:3674:1: rule__DefinitionsSchemaDefinition__Group__3 : rule__DefinitionsSchemaDefinition__Group__3__Impl rule__DefinitionsSchemaDefinition__Group__4 ;
+    // InternalJsonSchemaDsl.g:4006:1: rule__DefinitionsSchemaDefinition__Group__3 : rule__DefinitionsSchemaDefinition__Group__3__Impl rule__DefinitionsSchemaDefinition__Group__4 ;
     public final void rule__DefinitionsSchemaDefinition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3678:1: ( rule__DefinitionsSchemaDefinition__Group__3__Impl rule__DefinitionsSchemaDefinition__Group__4 )
-            // InternalJsonSchemaDsl.g:3679:2: rule__DefinitionsSchemaDefinition__Group__3__Impl rule__DefinitionsSchemaDefinition__Group__4
+            // InternalJsonSchemaDsl.g:4010:1: ( rule__DefinitionsSchemaDefinition__Group__3__Impl rule__DefinitionsSchemaDefinition__Group__4 )
+            // InternalJsonSchemaDsl.g:4011:2: rule__DefinitionsSchemaDefinition__Group__3__Impl rule__DefinitionsSchemaDefinition__Group__4
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_19);
             rule__DefinitionsSchemaDefinition__Group__3__Impl();
 
             state._fsp--;
@@ -11466,20 +12616,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:3686:1: rule__DefinitionsSchemaDefinition__Group__3__Impl : ( '{' ) ;
+    // InternalJsonSchemaDsl.g:4018:1: rule__DefinitionsSchemaDefinition__Group__3__Impl : ( '{' ) ;
     public final void rule__DefinitionsSchemaDefinition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3690:1: ( ( '{' ) )
-            // InternalJsonSchemaDsl.g:3691:1: ( '{' )
+            // InternalJsonSchemaDsl.g:4022:1: ( ( '{' ) )
+            // InternalJsonSchemaDsl.g:4023:1: ( '{' )
             {
-            // InternalJsonSchemaDsl.g:3691:1: ( '{' )
-            // InternalJsonSchemaDsl.g:3692:2: '{'
+            // InternalJsonSchemaDsl.g:4023:1: ( '{' )
+            // InternalJsonSchemaDsl.g:4024:2: '{'
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getLeftCurlyBracketKeyword_3()); 
-            match(input,21,FOLLOW_2); 
+            match(input,63,FOLLOW_2); 
              after(grammarAccess.getDefinitionsSchemaDefinitionAccess().getLeftCurlyBracketKeyword_3()); 
 
             }
@@ -11503,16 +12653,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__4"
-    // InternalJsonSchemaDsl.g:3701:1: rule__DefinitionsSchemaDefinition__Group__4 : rule__DefinitionsSchemaDefinition__Group__4__Impl rule__DefinitionsSchemaDefinition__Group__5 ;
+    // InternalJsonSchemaDsl.g:4033:1: rule__DefinitionsSchemaDefinition__Group__4 : rule__DefinitionsSchemaDefinition__Group__4__Impl rule__DefinitionsSchemaDefinition__Group__5 ;
     public final void rule__DefinitionsSchemaDefinition__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3705:1: ( rule__DefinitionsSchemaDefinition__Group__4__Impl rule__DefinitionsSchemaDefinition__Group__5 )
-            // InternalJsonSchemaDsl.g:3706:2: rule__DefinitionsSchemaDefinition__Group__4__Impl rule__DefinitionsSchemaDefinition__Group__5
+            // InternalJsonSchemaDsl.g:4037:1: ( rule__DefinitionsSchemaDefinition__Group__4__Impl rule__DefinitionsSchemaDefinition__Group__5 )
+            // InternalJsonSchemaDsl.g:4038:2: rule__DefinitionsSchemaDefinition__Group__4__Impl rule__DefinitionsSchemaDefinition__Group__5
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_19);
             rule__DefinitionsSchemaDefinition__Group__4__Impl();
 
             state._fsp--;
@@ -11541,29 +12691,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__4__Impl"
-    // InternalJsonSchemaDsl.g:3713:1: rule__DefinitionsSchemaDefinition__Group__4__Impl : ( ( rule__DefinitionsSchemaDefinition__Group_4__0 )? ) ;
+    // InternalJsonSchemaDsl.g:4045:1: rule__DefinitionsSchemaDefinition__Group__4__Impl : ( ( rule__DefinitionsSchemaDefinition__Group_4__0 )? ) ;
     public final void rule__DefinitionsSchemaDefinition__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3717:1: ( ( ( rule__DefinitionsSchemaDefinition__Group_4__0 )? ) )
-            // InternalJsonSchemaDsl.g:3718:1: ( ( rule__DefinitionsSchemaDefinition__Group_4__0 )? )
+            // InternalJsonSchemaDsl.g:4049:1: ( ( ( rule__DefinitionsSchemaDefinition__Group_4__0 )? ) )
+            // InternalJsonSchemaDsl.g:4050:1: ( ( rule__DefinitionsSchemaDefinition__Group_4__0 )? )
             {
-            // InternalJsonSchemaDsl.g:3718:1: ( ( rule__DefinitionsSchemaDefinition__Group_4__0 )? )
-            // InternalJsonSchemaDsl.g:3719:2: ( rule__DefinitionsSchemaDefinition__Group_4__0 )?
+            // InternalJsonSchemaDsl.g:4050:1: ( ( rule__DefinitionsSchemaDefinition__Group_4__0 )? )
+            // InternalJsonSchemaDsl.g:4051:2: ( rule__DefinitionsSchemaDefinition__Group_4__0 )?
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getGroup_4()); 
-            // InternalJsonSchemaDsl.g:3720:2: ( rule__DefinitionsSchemaDefinition__Group_4__0 )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:4052:2: ( rule__DefinitionsSchemaDefinition__Group_4__0 )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA12_0==RULE_STRING) ) {
-                alt12=1;
+            if ( (LA14_0==RULE_STRING||(LA14_0>=14 && LA14_0<=55)) ) {
+                alt14=1;
             }
-            switch (alt12) {
+            switch (alt14) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:3720:3: rule__DefinitionsSchemaDefinition__Group_4__0
+                    // InternalJsonSchemaDsl.g:4052:3: rule__DefinitionsSchemaDefinition__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DefinitionsSchemaDefinition__Group_4__0();
@@ -11599,14 +12749,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__5"
-    // InternalJsonSchemaDsl.g:3728:1: rule__DefinitionsSchemaDefinition__Group__5 : rule__DefinitionsSchemaDefinition__Group__5__Impl ;
+    // InternalJsonSchemaDsl.g:4060:1: rule__DefinitionsSchemaDefinition__Group__5 : rule__DefinitionsSchemaDefinition__Group__5__Impl ;
     public final void rule__DefinitionsSchemaDefinition__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3732:1: ( rule__DefinitionsSchemaDefinition__Group__5__Impl )
-            // InternalJsonSchemaDsl.g:3733:2: rule__DefinitionsSchemaDefinition__Group__5__Impl
+            // InternalJsonSchemaDsl.g:4064:1: ( rule__DefinitionsSchemaDefinition__Group__5__Impl )
+            // InternalJsonSchemaDsl.g:4065:2: rule__DefinitionsSchemaDefinition__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DefinitionsSchemaDefinition__Group__5__Impl();
@@ -11632,20 +12782,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group__5__Impl"
-    // InternalJsonSchemaDsl.g:3739:1: rule__DefinitionsSchemaDefinition__Group__5__Impl : ( '}' ) ;
+    // InternalJsonSchemaDsl.g:4071:1: rule__DefinitionsSchemaDefinition__Group__5__Impl : ( '}' ) ;
     public final void rule__DefinitionsSchemaDefinition__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3743:1: ( ( '}' ) )
-            // InternalJsonSchemaDsl.g:3744:1: ( '}' )
+            // InternalJsonSchemaDsl.g:4075:1: ( ( '}' ) )
+            // InternalJsonSchemaDsl.g:4076:1: ( '}' )
             {
-            // InternalJsonSchemaDsl.g:3744:1: ( '}' )
-            // InternalJsonSchemaDsl.g:3745:2: '}'
+            // InternalJsonSchemaDsl.g:4076:1: ( '}' )
+            // InternalJsonSchemaDsl.g:4077:2: '}'
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getRightCurlyBracketKeyword_5()); 
-            match(input,22,FOLLOW_2); 
+            match(input,64,FOLLOW_2); 
              after(grammarAccess.getDefinitionsSchemaDefinitionAccess().getRightCurlyBracketKeyword_5()); 
 
             }
@@ -11669,14 +12819,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group_4__0"
-    // InternalJsonSchemaDsl.g:3755:1: rule__DefinitionsSchemaDefinition__Group_4__0 : rule__DefinitionsSchemaDefinition__Group_4__0__Impl rule__DefinitionsSchemaDefinition__Group_4__1 ;
+    // InternalJsonSchemaDsl.g:4087:1: rule__DefinitionsSchemaDefinition__Group_4__0 : rule__DefinitionsSchemaDefinition__Group_4__0__Impl rule__DefinitionsSchemaDefinition__Group_4__1 ;
     public final void rule__DefinitionsSchemaDefinition__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3759:1: ( rule__DefinitionsSchemaDefinition__Group_4__0__Impl rule__DefinitionsSchemaDefinition__Group_4__1 )
-            // InternalJsonSchemaDsl.g:3760:2: rule__DefinitionsSchemaDefinition__Group_4__0__Impl rule__DefinitionsSchemaDefinition__Group_4__1
+            // InternalJsonSchemaDsl.g:4091:1: ( rule__DefinitionsSchemaDefinition__Group_4__0__Impl rule__DefinitionsSchemaDefinition__Group_4__1 )
+            // InternalJsonSchemaDsl.g:4092:2: rule__DefinitionsSchemaDefinition__Group_4__0__Impl rule__DefinitionsSchemaDefinition__Group_4__1
             {
             pushFollow(FOLLOW_6);
             rule__DefinitionsSchemaDefinition__Group_4__0__Impl();
@@ -11707,21 +12857,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group_4__0__Impl"
-    // InternalJsonSchemaDsl.g:3767:1: rule__DefinitionsSchemaDefinition__Group_4__0__Impl : ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) ;
+    // InternalJsonSchemaDsl.g:4099:1: rule__DefinitionsSchemaDefinition__Group_4__0__Impl : ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) ;
     public final void rule__DefinitionsSchemaDefinition__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3771:1: ( ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) )
-            // InternalJsonSchemaDsl.g:3772:1: ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
+            // InternalJsonSchemaDsl.g:4103:1: ( ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) )
+            // InternalJsonSchemaDsl.g:4104:1: ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
             {
-            // InternalJsonSchemaDsl.g:3772:1: ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
-            // InternalJsonSchemaDsl.g:3773:2: ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 )
+            // InternalJsonSchemaDsl.g:4104:1: ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
+            // InternalJsonSchemaDsl.g:4105:2: ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 )
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getKeySchemaPairsAssignment_4_0()); 
-            // InternalJsonSchemaDsl.g:3774:2: ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 )
-            // InternalJsonSchemaDsl.g:3774:3: rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0
+            // InternalJsonSchemaDsl.g:4106:2: ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 )
+            // InternalJsonSchemaDsl.g:4106:3: rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0
             {
             pushFollow(FOLLOW_2);
             rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0();
@@ -11754,14 +12904,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group_4__1"
-    // InternalJsonSchemaDsl.g:3782:1: rule__DefinitionsSchemaDefinition__Group_4__1 : rule__DefinitionsSchemaDefinition__Group_4__1__Impl ;
+    // InternalJsonSchemaDsl.g:4114:1: rule__DefinitionsSchemaDefinition__Group_4__1 : rule__DefinitionsSchemaDefinition__Group_4__1__Impl ;
     public final void rule__DefinitionsSchemaDefinition__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3786:1: ( rule__DefinitionsSchemaDefinition__Group_4__1__Impl )
-            // InternalJsonSchemaDsl.g:3787:2: rule__DefinitionsSchemaDefinition__Group_4__1__Impl
+            // InternalJsonSchemaDsl.g:4118:1: ( rule__DefinitionsSchemaDefinition__Group_4__1__Impl )
+            // InternalJsonSchemaDsl.g:4119:2: rule__DefinitionsSchemaDefinition__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DefinitionsSchemaDefinition__Group_4__1__Impl();
@@ -11787,33 +12937,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group_4__1__Impl"
-    // InternalJsonSchemaDsl.g:3793:1: rule__DefinitionsSchemaDefinition__Group_4__1__Impl : ( ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )* ) ;
+    // InternalJsonSchemaDsl.g:4125:1: rule__DefinitionsSchemaDefinition__Group_4__1__Impl : ( ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )* ) ;
     public final void rule__DefinitionsSchemaDefinition__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3797:1: ( ( ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )* ) )
-            // InternalJsonSchemaDsl.g:3798:1: ( ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )* )
+            // InternalJsonSchemaDsl.g:4129:1: ( ( ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )* ) )
+            // InternalJsonSchemaDsl.g:4130:1: ( ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )* )
             {
-            // InternalJsonSchemaDsl.g:3798:1: ( ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )* )
-            // InternalJsonSchemaDsl.g:3799:2: ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )*
+            // InternalJsonSchemaDsl.g:4130:1: ( ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )* )
+            // InternalJsonSchemaDsl.g:4131:2: ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )*
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getGroup_4_1()); 
-            // InternalJsonSchemaDsl.g:3800:2: ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )*
-            loop13:
+            // InternalJsonSchemaDsl.g:4132:2: ( rule__DefinitionsSchemaDefinition__Group_4_1__0 )*
+            loop15:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( (LA13_0==23) ) {
-                    alt13=1;
+                if ( (LA15_0==65) ) {
+                    alt15=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt15) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:3800:3: rule__DefinitionsSchemaDefinition__Group_4_1__0
+            	    // InternalJsonSchemaDsl.g:4132:3: rule__DefinitionsSchemaDefinition__Group_4_1__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__DefinitionsSchemaDefinition__Group_4_1__0();
@@ -11825,7 +12975,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop15;
                 }
             } while (true);
 
@@ -11852,16 +13002,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group_4_1__0"
-    // InternalJsonSchemaDsl.g:3809:1: rule__DefinitionsSchemaDefinition__Group_4_1__0 : rule__DefinitionsSchemaDefinition__Group_4_1__0__Impl rule__DefinitionsSchemaDefinition__Group_4_1__1 ;
+    // InternalJsonSchemaDsl.g:4141:1: rule__DefinitionsSchemaDefinition__Group_4_1__0 : rule__DefinitionsSchemaDefinition__Group_4_1__0__Impl rule__DefinitionsSchemaDefinition__Group_4_1__1 ;
     public final void rule__DefinitionsSchemaDefinition__Group_4_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3813:1: ( rule__DefinitionsSchemaDefinition__Group_4_1__0__Impl rule__DefinitionsSchemaDefinition__Group_4_1__1 )
-            // InternalJsonSchemaDsl.g:3814:2: rule__DefinitionsSchemaDefinition__Group_4_1__0__Impl rule__DefinitionsSchemaDefinition__Group_4_1__1
+            // InternalJsonSchemaDsl.g:4145:1: ( rule__DefinitionsSchemaDefinition__Group_4_1__0__Impl rule__DefinitionsSchemaDefinition__Group_4_1__1 )
+            // InternalJsonSchemaDsl.g:4146:2: rule__DefinitionsSchemaDefinition__Group_4_1__0__Impl rule__DefinitionsSchemaDefinition__Group_4_1__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__DefinitionsSchemaDefinition__Group_4_1__0__Impl();
 
             state._fsp--;
@@ -11890,20 +13040,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group_4_1__0__Impl"
-    // InternalJsonSchemaDsl.g:3821:1: rule__DefinitionsSchemaDefinition__Group_4_1__0__Impl : ( ',' ) ;
+    // InternalJsonSchemaDsl.g:4153:1: rule__DefinitionsSchemaDefinition__Group_4_1__0__Impl : ( ',' ) ;
     public final void rule__DefinitionsSchemaDefinition__Group_4_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3825:1: ( ( ',' ) )
-            // InternalJsonSchemaDsl.g:3826:1: ( ',' )
+            // InternalJsonSchemaDsl.g:4157:1: ( ( ',' ) )
+            // InternalJsonSchemaDsl.g:4158:1: ( ',' )
             {
-            // InternalJsonSchemaDsl.g:3826:1: ( ',' )
-            // InternalJsonSchemaDsl.g:3827:2: ','
+            // InternalJsonSchemaDsl.g:4158:1: ( ',' )
+            // InternalJsonSchemaDsl.g:4159:2: ','
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getCommaKeyword_4_1_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getDefinitionsSchemaDefinitionAccess().getCommaKeyword_4_1_0()); 
 
             }
@@ -11927,14 +13077,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group_4_1__1"
-    // InternalJsonSchemaDsl.g:3836:1: rule__DefinitionsSchemaDefinition__Group_4_1__1 : rule__DefinitionsSchemaDefinition__Group_4_1__1__Impl ;
+    // InternalJsonSchemaDsl.g:4168:1: rule__DefinitionsSchemaDefinition__Group_4_1__1 : rule__DefinitionsSchemaDefinition__Group_4_1__1__Impl ;
     public final void rule__DefinitionsSchemaDefinition__Group_4_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3840:1: ( rule__DefinitionsSchemaDefinition__Group_4_1__1__Impl )
-            // InternalJsonSchemaDsl.g:3841:2: rule__DefinitionsSchemaDefinition__Group_4_1__1__Impl
+            // InternalJsonSchemaDsl.g:4172:1: ( rule__DefinitionsSchemaDefinition__Group_4_1__1__Impl )
+            // InternalJsonSchemaDsl.g:4173:2: rule__DefinitionsSchemaDefinition__Group_4_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DefinitionsSchemaDefinition__Group_4_1__1__Impl();
@@ -11960,21 +13110,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__Group_4_1__1__Impl"
-    // InternalJsonSchemaDsl.g:3847:1: rule__DefinitionsSchemaDefinition__Group_4_1__1__Impl : ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) ;
+    // InternalJsonSchemaDsl.g:4179:1: rule__DefinitionsSchemaDefinition__Group_4_1__1__Impl : ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) ;
     public final void rule__DefinitionsSchemaDefinition__Group_4_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3851:1: ( ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) )
-            // InternalJsonSchemaDsl.g:3852:1: ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
+            // InternalJsonSchemaDsl.g:4183:1: ( ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) )
+            // InternalJsonSchemaDsl.g:4184:1: ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
             {
-            // InternalJsonSchemaDsl.g:3852:1: ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
-            // InternalJsonSchemaDsl.g:3853:2: ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
+            // InternalJsonSchemaDsl.g:4184:1: ( ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
+            // InternalJsonSchemaDsl.g:4185:2: ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getKeySchemaPairsAssignment_4_1_1()); 
-            // InternalJsonSchemaDsl.g:3854:2: ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
-            // InternalJsonSchemaDsl.g:3854:3: rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1
+            // InternalJsonSchemaDsl.g:4186:2: ( rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
+            // InternalJsonSchemaDsl.g:4186:3: rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1();
@@ -12007,14 +13157,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinItemsSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:3863:1: rule__MinItemsSchemaDefinition__Group__0 : rule__MinItemsSchemaDefinition__Group__0__Impl rule__MinItemsSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:4195:1: rule__MinItemsSchemaDefinition__Group__0 : rule__MinItemsSchemaDefinition__Group__0__Impl rule__MinItemsSchemaDefinition__Group__1 ;
     public final void rule__MinItemsSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3867:1: ( rule__MinItemsSchemaDefinition__Group__0__Impl rule__MinItemsSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:3868:2: rule__MinItemsSchemaDefinition__Group__0__Impl rule__MinItemsSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:4199:1: ( rule__MinItemsSchemaDefinition__Group__0__Impl rule__MinItemsSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:4200:2: rule__MinItemsSchemaDefinition__Group__0__Impl rule__MinItemsSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__MinItemsSchemaDefinition__Group__0__Impl();
@@ -12045,20 +13195,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinItemsSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:3875:1: rule__MinItemsSchemaDefinition__Group__0__Impl : ( '\"minItems\"' ) ;
+    // InternalJsonSchemaDsl.g:4207:1: rule__MinItemsSchemaDefinition__Group__0__Impl : ( '\"minItems\"' ) ;
     public final void rule__MinItemsSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3879:1: ( ( '\"minItems\"' ) )
-            // InternalJsonSchemaDsl.g:3880:1: ( '\"minItems\"' )
+            // InternalJsonSchemaDsl.g:4211:1: ( ( '\"minItems\"' ) )
+            // InternalJsonSchemaDsl.g:4212:1: ( '\"minItems\"' )
             {
-            // InternalJsonSchemaDsl.g:3880:1: ( '\"minItems\"' )
-            // InternalJsonSchemaDsl.g:3881:2: '\"minItems\"'
+            // InternalJsonSchemaDsl.g:4212:1: ( '\"minItems\"' )
+            // InternalJsonSchemaDsl.g:4213:2: '\"minItems\"'
             {
              before(grammarAccess.getMinItemsSchemaDefinitionAccess().getMinItemsKeyword_0()); 
-            match(input,38,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getMinItemsSchemaDefinitionAccess().getMinItemsKeyword_0()); 
 
             }
@@ -12082,16 +13232,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinItemsSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:3890:1: rule__MinItemsSchemaDefinition__Group__1 : rule__MinItemsSchemaDefinition__Group__1__Impl rule__MinItemsSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:4222:1: rule__MinItemsSchemaDefinition__Group__1 : rule__MinItemsSchemaDefinition__Group__1__Impl rule__MinItemsSchemaDefinition__Group__2 ;
     public final void rule__MinItemsSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3894:1: ( rule__MinItemsSchemaDefinition__Group__1__Impl rule__MinItemsSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:3895:2: rule__MinItemsSchemaDefinition__Group__1__Impl rule__MinItemsSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:4226:1: ( rule__MinItemsSchemaDefinition__Group__1__Impl rule__MinItemsSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:4227:2: rule__MinItemsSchemaDefinition__Group__1__Impl rule__MinItemsSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__MinItemsSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -12120,20 +13270,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinItemsSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:3902:1: rule__MinItemsSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:4234:1: rule__MinItemsSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__MinItemsSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3906:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:3907:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4238:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:4239:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:3907:1: ( ':' )
-            // InternalJsonSchemaDsl.g:3908:2: ':'
+            // InternalJsonSchemaDsl.g:4239:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4240:2: ':'
             {
              before(grammarAccess.getMinItemsSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getMinItemsSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -12157,14 +13307,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinItemsSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:3917:1: rule__MinItemsSchemaDefinition__Group__2 : rule__MinItemsSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:4249:1: rule__MinItemsSchemaDefinition__Group__2 : rule__MinItemsSchemaDefinition__Group__2__Impl ;
     public final void rule__MinItemsSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3921:1: ( rule__MinItemsSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:3922:2: rule__MinItemsSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:4253:1: ( rule__MinItemsSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:4254:2: rule__MinItemsSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MinItemsSchemaDefinition__Group__2__Impl();
@@ -12190,21 +13340,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinItemsSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:3928:1: rule__MinItemsSchemaDefinition__Group__2__Impl : ( ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:4260:1: rule__MinItemsSchemaDefinition__Group__2__Impl : ( ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 ) ) ;
     public final void rule__MinItemsSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3932:1: ( ( ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:3933:1: ( ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4264:1: ( ( ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:4265:1: ( ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:3933:1: ( ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:3934:2: ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 )
+            // InternalJsonSchemaDsl.g:4265:1: ( ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4266:2: ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 )
             {
              before(grammarAccess.getMinItemsSchemaDefinitionAccess().getMinItemsAssignment_2()); 
-            // InternalJsonSchemaDsl.g:3935:2: ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 )
-            // InternalJsonSchemaDsl.g:3935:3: rule__MinItemsSchemaDefinition__MinItemsAssignment_2
+            // InternalJsonSchemaDsl.g:4267:2: ( rule__MinItemsSchemaDefinition__MinItemsAssignment_2 )
+            // InternalJsonSchemaDsl.g:4267:3: rule__MinItemsSchemaDefinition__MinItemsAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MinItemsSchemaDefinition__MinItemsAssignment_2();
@@ -12237,14 +13387,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__OneOfSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:3944:1: rule__OneOfSchemaDefinition__Group__0 : rule__OneOfSchemaDefinition__Group__0__Impl rule__OneOfSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:4276:1: rule__OneOfSchemaDefinition__Group__0 : rule__OneOfSchemaDefinition__Group__0__Impl rule__OneOfSchemaDefinition__Group__1 ;
     public final void rule__OneOfSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3948:1: ( rule__OneOfSchemaDefinition__Group__0__Impl rule__OneOfSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:3949:2: rule__OneOfSchemaDefinition__Group__0__Impl rule__OneOfSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:4280:1: ( rule__OneOfSchemaDefinition__Group__0__Impl rule__OneOfSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:4281:2: rule__OneOfSchemaDefinition__Group__0__Impl rule__OneOfSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__OneOfSchemaDefinition__Group__0__Impl();
@@ -12275,20 +13425,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__OneOfSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:3956:1: rule__OneOfSchemaDefinition__Group__0__Impl : ( '\"oneOf\"' ) ;
+    // InternalJsonSchemaDsl.g:4288:1: rule__OneOfSchemaDefinition__Group__0__Impl : ( '\"oneOf\"' ) ;
     public final void rule__OneOfSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3960:1: ( ( '\"oneOf\"' ) )
-            // InternalJsonSchemaDsl.g:3961:1: ( '\"oneOf\"' )
+            // InternalJsonSchemaDsl.g:4292:1: ( ( '\"oneOf\"' ) )
+            // InternalJsonSchemaDsl.g:4293:1: ( '\"oneOf\"' )
             {
-            // InternalJsonSchemaDsl.g:3961:1: ( '\"oneOf\"' )
-            // InternalJsonSchemaDsl.g:3962:2: '\"oneOf\"'
+            // InternalJsonSchemaDsl.g:4293:1: ( '\"oneOf\"' )
+            // InternalJsonSchemaDsl.g:4294:2: '\"oneOf\"'
             {
              before(grammarAccess.getOneOfSchemaDefinitionAccess().getOneOfKeyword_0()); 
-            match(input,39,FOLLOW_2); 
+            match(input,54,FOLLOW_2); 
              after(grammarAccess.getOneOfSchemaDefinitionAccess().getOneOfKeyword_0()); 
 
             }
@@ -12312,16 +13462,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__OneOfSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:3971:1: rule__OneOfSchemaDefinition__Group__1 : rule__OneOfSchemaDefinition__Group__1__Impl rule__OneOfSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:4303:1: rule__OneOfSchemaDefinition__Group__1 : rule__OneOfSchemaDefinition__Group__1__Impl rule__OneOfSchemaDefinition__Group__2 ;
     public final void rule__OneOfSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3975:1: ( rule__OneOfSchemaDefinition__Group__1__Impl rule__OneOfSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:3976:2: rule__OneOfSchemaDefinition__Group__1__Impl rule__OneOfSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:4307:1: ( rule__OneOfSchemaDefinition__Group__1__Impl rule__OneOfSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:4308:2: rule__OneOfSchemaDefinition__Group__1__Impl rule__OneOfSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__OneOfSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -12350,20 +13500,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__OneOfSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:3983:1: rule__OneOfSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:4315:1: rule__OneOfSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__OneOfSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:3987:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:3988:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4319:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:4320:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:3988:1: ( ':' )
-            // InternalJsonSchemaDsl.g:3989:2: ':'
+            // InternalJsonSchemaDsl.g:4320:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4321:2: ':'
             {
              before(grammarAccess.getOneOfSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getOneOfSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -12387,14 +13537,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__OneOfSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:3998:1: rule__OneOfSchemaDefinition__Group__2 : rule__OneOfSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:4330:1: rule__OneOfSchemaDefinition__Group__2 : rule__OneOfSchemaDefinition__Group__2__Impl ;
     public final void rule__OneOfSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4002:1: ( rule__OneOfSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:4003:2: rule__OneOfSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:4334:1: ( rule__OneOfSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:4335:2: rule__OneOfSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__OneOfSchemaDefinition__Group__2__Impl();
@@ -12420,21 +13570,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__OneOfSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4009:1: rule__OneOfSchemaDefinition__Group__2__Impl : ( ( rule__OneOfSchemaDefinition__OneOfAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:4341:1: rule__OneOfSchemaDefinition__Group__2__Impl : ( ( rule__OneOfSchemaDefinition__OneOfAssignment_2 ) ) ;
     public final void rule__OneOfSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4013:1: ( ( ( rule__OneOfSchemaDefinition__OneOfAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:4014:1: ( ( rule__OneOfSchemaDefinition__OneOfAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4345:1: ( ( ( rule__OneOfSchemaDefinition__OneOfAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:4346:1: ( ( rule__OneOfSchemaDefinition__OneOfAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:4014:1: ( ( rule__OneOfSchemaDefinition__OneOfAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:4015:2: ( rule__OneOfSchemaDefinition__OneOfAssignment_2 )
+            // InternalJsonSchemaDsl.g:4346:1: ( ( rule__OneOfSchemaDefinition__OneOfAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4347:2: ( rule__OneOfSchemaDefinition__OneOfAssignment_2 )
             {
              before(grammarAccess.getOneOfSchemaDefinitionAccess().getOneOfAssignment_2()); 
-            // InternalJsonSchemaDsl.g:4016:2: ( rule__OneOfSchemaDefinition__OneOfAssignment_2 )
-            // InternalJsonSchemaDsl.g:4016:3: rule__OneOfSchemaDefinition__OneOfAssignment_2
+            // InternalJsonSchemaDsl.g:4348:2: ( rule__OneOfSchemaDefinition__OneOfAssignment_2 )
+            // InternalJsonSchemaDsl.g:4348:3: rule__OneOfSchemaDefinition__OneOfAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__OneOfSchemaDefinition__OneOfAssignment_2();
@@ -12467,14 +13617,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxPropertiesSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4025:1: rule__MaxPropertiesSchemaDefinition__Group__0 : rule__MaxPropertiesSchemaDefinition__Group__0__Impl rule__MaxPropertiesSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:4357:1: rule__MaxPropertiesSchemaDefinition__Group__0 : rule__MaxPropertiesSchemaDefinition__Group__0__Impl rule__MaxPropertiesSchemaDefinition__Group__1 ;
     public final void rule__MaxPropertiesSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4029:1: ( rule__MaxPropertiesSchemaDefinition__Group__0__Impl rule__MaxPropertiesSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4030:2: rule__MaxPropertiesSchemaDefinition__Group__0__Impl rule__MaxPropertiesSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:4361:1: ( rule__MaxPropertiesSchemaDefinition__Group__0__Impl rule__MaxPropertiesSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:4362:2: rule__MaxPropertiesSchemaDefinition__Group__0__Impl rule__MaxPropertiesSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__MaxPropertiesSchemaDefinition__Group__0__Impl();
@@ -12505,20 +13655,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxPropertiesSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4037:1: rule__MaxPropertiesSchemaDefinition__Group__0__Impl : ( '\"maxProperties\"' ) ;
+    // InternalJsonSchemaDsl.g:4369:1: rule__MaxPropertiesSchemaDefinition__Group__0__Impl : ( '\"maxProperties\"' ) ;
     public final void rule__MaxPropertiesSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4041:1: ( ( '\"maxProperties\"' ) )
-            // InternalJsonSchemaDsl.g:4042:1: ( '\"maxProperties\"' )
+            // InternalJsonSchemaDsl.g:4373:1: ( ( '\"maxProperties\"' ) )
+            // InternalJsonSchemaDsl.g:4374:1: ( '\"maxProperties\"' )
             {
-            // InternalJsonSchemaDsl.g:4042:1: ( '\"maxProperties\"' )
-            // InternalJsonSchemaDsl.g:4043:2: '\"maxProperties\"'
+            // InternalJsonSchemaDsl.g:4374:1: ( '\"maxProperties\"' )
+            // InternalJsonSchemaDsl.g:4375:2: '\"maxProperties\"'
             {
              before(grammarAccess.getMaxPropertiesSchemaDefinitionAccess().getMaxPropertiesKeyword_0()); 
-            match(input,40,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getMaxPropertiesSchemaDefinitionAccess().getMaxPropertiesKeyword_0()); 
 
             }
@@ -12542,16 +13692,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxPropertiesSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4052:1: rule__MaxPropertiesSchemaDefinition__Group__1 : rule__MaxPropertiesSchemaDefinition__Group__1__Impl rule__MaxPropertiesSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:4384:1: rule__MaxPropertiesSchemaDefinition__Group__1 : rule__MaxPropertiesSchemaDefinition__Group__1__Impl rule__MaxPropertiesSchemaDefinition__Group__2 ;
     public final void rule__MaxPropertiesSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4056:1: ( rule__MaxPropertiesSchemaDefinition__Group__1__Impl rule__MaxPropertiesSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:4057:2: rule__MaxPropertiesSchemaDefinition__Group__1__Impl rule__MaxPropertiesSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:4388:1: ( rule__MaxPropertiesSchemaDefinition__Group__1__Impl rule__MaxPropertiesSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:4389:2: rule__MaxPropertiesSchemaDefinition__Group__1__Impl rule__MaxPropertiesSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__MaxPropertiesSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -12580,20 +13730,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxPropertiesSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:4064:1: rule__MaxPropertiesSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:4396:1: rule__MaxPropertiesSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__MaxPropertiesSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4068:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:4069:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4400:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:4401:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:4069:1: ( ':' )
-            // InternalJsonSchemaDsl.g:4070:2: ':'
+            // InternalJsonSchemaDsl.g:4401:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4402:2: ':'
             {
              before(grammarAccess.getMaxPropertiesSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getMaxPropertiesSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -12617,14 +13767,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxPropertiesSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:4079:1: rule__MaxPropertiesSchemaDefinition__Group__2 : rule__MaxPropertiesSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:4411:1: rule__MaxPropertiesSchemaDefinition__Group__2 : rule__MaxPropertiesSchemaDefinition__Group__2__Impl ;
     public final void rule__MaxPropertiesSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4083:1: ( rule__MaxPropertiesSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:4084:2: rule__MaxPropertiesSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:4415:1: ( rule__MaxPropertiesSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:4416:2: rule__MaxPropertiesSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MaxPropertiesSchemaDefinition__Group__2__Impl();
@@ -12650,21 +13800,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxPropertiesSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4090:1: rule__MaxPropertiesSchemaDefinition__Group__2__Impl : ( ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:4422:1: rule__MaxPropertiesSchemaDefinition__Group__2__Impl : ( ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 ) ) ;
     public final void rule__MaxPropertiesSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4094:1: ( ( ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:4095:1: ( ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4426:1: ( ( ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:4427:1: ( ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:4095:1: ( ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:4096:2: ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 )
+            // InternalJsonSchemaDsl.g:4427:1: ( ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4428:2: ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 )
             {
              before(grammarAccess.getMaxPropertiesSchemaDefinitionAccess().getMaxPropertiesAssignment_2()); 
-            // InternalJsonSchemaDsl.g:4097:2: ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 )
-            // InternalJsonSchemaDsl.g:4097:3: rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2
+            // InternalJsonSchemaDsl.g:4429:2: ( rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 )
+            // InternalJsonSchemaDsl.g:4429:3: rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2();
@@ -12697,14 +13847,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinimumSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4106:1: rule__MinimumSchemaDefinition__Group__0 : rule__MinimumSchemaDefinition__Group__0__Impl rule__MinimumSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:4438:1: rule__MinimumSchemaDefinition__Group__0 : rule__MinimumSchemaDefinition__Group__0__Impl rule__MinimumSchemaDefinition__Group__1 ;
     public final void rule__MinimumSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4110:1: ( rule__MinimumSchemaDefinition__Group__0__Impl rule__MinimumSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4111:2: rule__MinimumSchemaDefinition__Group__0__Impl rule__MinimumSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:4442:1: ( rule__MinimumSchemaDefinition__Group__0__Impl rule__MinimumSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:4443:2: rule__MinimumSchemaDefinition__Group__0__Impl rule__MinimumSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__MinimumSchemaDefinition__Group__0__Impl();
@@ -12735,20 +13885,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinimumSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4118:1: rule__MinimumSchemaDefinition__Group__0__Impl : ( '\"minimum\"' ) ;
+    // InternalJsonSchemaDsl.g:4450:1: rule__MinimumSchemaDefinition__Group__0__Impl : ( '\"minimum\"' ) ;
     public final void rule__MinimumSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4122:1: ( ( '\"minimum\"' ) )
-            // InternalJsonSchemaDsl.g:4123:1: ( '\"minimum\"' )
+            // InternalJsonSchemaDsl.g:4454:1: ( ( '\"minimum\"' ) )
+            // InternalJsonSchemaDsl.g:4455:1: ( '\"minimum\"' )
             {
-            // InternalJsonSchemaDsl.g:4123:1: ( '\"minimum\"' )
-            // InternalJsonSchemaDsl.g:4124:2: '\"minimum\"'
+            // InternalJsonSchemaDsl.g:4455:1: ( '\"minimum\"' )
+            // InternalJsonSchemaDsl.g:4456:2: '\"minimum\"'
             {
              before(grammarAccess.getMinimumSchemaDefinitionAccess().getMinimumKeyword_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,69,FOLLOW_2); 
              after(grammarAccess.getMinimumSchemaDefinitionAccess().getMinimumKeyword_0()); 
 
             }
@@ -12772,14 +13922,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinimumSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4133:1: rule__MinimumSchemaDefinition__Group__1 : rule__MinimumSchemaDefinition__Group__1__Impl rule__MinimumSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:4465:1: rule__MinimumSchemaDefinition__Group__1 : rule__MinimumSchemaDefinition__Group__1__Impl rule__MinimumSchemaDefinition__Group__2 ;
     public final void rule__MinimumSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4137:1: ( rule__MinimumSchemaDefinition__Group__1__Impl rule__MinimumSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:4138:2: rule__MinimumSchemaDefinition__Group__1__Impl rule__MinimumSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:4469:1: ( rule__MinimumSchemaDefinition__Group__1__Impl rule__MinimumSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:4470:2: rule__MinimumSchemaDefinition__Group__1__Impl rule__MinimumSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__MinimumSchemaDefinition__Group__1__Impl();
@@ -12810,20 +13960,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinimumSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:4145:1: rule__MinimumSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:4477:1: rule__MinimumSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__MinimumSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4149:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:4150:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4481:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:4482:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:4150:1: ( ':' )
-            // InternalJsonSchemaDsl.g:4151:2: ':'
+            // InternalJsonSchemaDsl.g:4482:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4483:2: ':'
             {
              before(grammarAccess.getMinimumSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getMinimumSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -12847,14 +13997,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinimumSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:4160:1: rule__MinimumSchemaDefinition__Group__2 : rule__MinimumSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:4492:1: rule__MinimumSchemaDefinition__Group__2 : rule__MinimumSchemaDefinition__Group__2__Impl ;
     public final void rule__MinimumSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4164:1: ( rule__MinimumSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:4165:2: rule__MinimumSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:4496:1: ( rule__MinimumSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:4497:2: rule__MinimumSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MinimumSchemaDefinition__Group__2__Impl();
@@ -12880,21 +14030,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinimumSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4171:1: rule__MinimumSchemaDefinition__Group__2__Impl : ( ( rule__MinimumSchemaDefinition__MinimumAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:4503:1: rule__MinimumSchemaDefinition__Group__2__Impl : ( ( rule__MinimumSchemaDefinition__MinimumAssignment_2 ) ) ;
     public final void rule__MinimumSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4175:1: ( ( ( rule__MinimumSchemaDefinition__MinimumAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:4176:1: ( ( rule__MinimumSchemaDefinition__MinimumAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4507:1: ( ( ( rule__MinimumSchemaDefinition__MinimumAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:4508:1: ( ( rule__MinimumSchemaDefinition__MinimumAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:4176:1: ( ( rule__MinimumSchemaDefinition__MinimumAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:4177:2: ( rule__MinimumSchemaDefinition__MinimumAssignment_2 )
+            // InternalJsonSchemaDsl.g:4508:1: ( ( rule__MinimumSchemaDefinition__MinimumAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4509:2: ( rule__MinimumSchemaDefinition__MinimumAssignment_2 )
             {
              before(grammarAccess.getMinimumSchemaDefinitionAccess().getMinimumAssignment_2()); 
-            // InternalJsonSchemaDsl.g:4178:2: ( rule__MinimumSchemaDefinition__MinimumAssignment_2 )
-            // InternalJsonSchemaDsl.g:4178:3: rule__MinimumSchemaDefinition__MinimumAssignment_2
+            // InternalJsonSchemaDsl.g:4510:2: ( rule__MinimumSchemaDefinition__MinimumAssignment_2 )
+            // InternalJsonSchemaDsl.g:4510:3: rule__MinimumSchemaDefinition__MinimumAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MinimumSchemaDefinition__MinimumAssignment_2();
@@ -12927,14 +14077,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxItemsSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4187:1: rule__MaxItemsSchemaDefinition__Group__0 : rule__MaxItemsSchemaDefinition__Group__0__Impl rule__MaxItemsSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:4519:1: rule__MaxItemsSchemaDefinition__Group__0 : rule__MaxItemsSchemaDefinition__Group__0__Impl rule__MaxItemsSchemaDefinition__Group__1 ;
     public final void rule__MaxItemsSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4191:1: ( rule__MaxItemsSchemaDefinition__Group__0__Impl rule__MaxItemsSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4192:2: rule__MaxItemsSchemaDefinition__Group__0__Impl rule__MaxItemsSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:4523:1: ( rule__MaxItemsSchemaDefinition__Group__0__Impl rule__MaxItemsSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:4524:2: rule__MaxItemsSchemaDefinition__Group__0__Impl rule__MaxItemsSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__MaxItemsSchemaDefinition__Group__0__Impl();
@@ -12965,20 +14115,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxItemsSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4199:1: rule__MaxItemsSchemaDefinition__Group__0__Impl : ( '\"maxItems\"' ) ;
+    // InternalJsonSchemaDsl.g:4531:1: rule__MaxItemsSchemaDefinition__Group__0__Impl : ( '\"maxItems\"' ) ;
     public final void rule__MaxItemsSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4203:1: ( ( '\"maxItems\"' ) )
-            // InternalJsonSchemaDsl.g:4204:1: ( '\"maxItems\"' )
+            // InternalJsonSchemaDsl.g:4535:1: ( ( '\"maxItems\"' ) )
+            // InternalJsonSchemaDsl.g:4536:1: ( '\"maxItems\"' )
             {
-            // InternalJsonSchemaDsl.g:4204:1: ( '\"maxItems\"' )
-            // InternalJsonSchemaDsl.g:4205:2: '\"maxItems\"'
+            // InternalJsonSchemaDsl.g:4536:1: ( '\"maxItems\"' )
+            // InternalJsonSchemaDsl.g:4537:2: '\"maxItems\"'
             {
              before(grammarAccess.getMaxItemsSchemaDefinitionAccess().getMaxItemsKeyword_0()); 
-            match(input,42,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getMaxItemsSchemaDefinitionAccess().getMaxItemsKeyword_0()); 
 
             }
@@ -13002,16 +14152,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxItemsSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4214:1: rule__MaxItemsSchemaDefinition__Group__1 : rule__MaxItemsSchemaDefinition__Group__1__Impl rule__MaxItemsSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:4546:1: rule__MaxItemsSchemaDefinition__Group__1 : rule__MaxItemsSchemaDefinition__Group__1__Impl rule__MaxItemsSchemaDefinition__Group__2 ;
     public final void rule__MaxItemsSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4218:1: ( rule__MaxItemsSchemaDefinition__Group__1__Impl rule__MaxItemsSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:4219:2: rule__MaxItemsSchemaDefinition__Group__1__Impl rule__MaxItemsSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:4550:1: ( rule__MaxItemsSchemaDefinition__Group__1__Impl rule__MaxItemsSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:4551:2: rule__MaxItemsSchemaDefinition__Group__1__Impl rule__MaxItemsSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__MaxItemsSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -13040,20 +14190,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxItemsSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:4226:1: rule__MaxItemsSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:4558:1: rule__MaxItemsSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__MaxItemsSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4230:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:4231:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4562:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:4563:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:4231:1: ( ':' )
-            // InternalJsonSchemaDsl.g:4232:2: ':'
+            // InternalJsonSchemaDsl.g:4563:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4564:2: ':'
             {
              before(grammarAccess.getMaxItemsSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getMaxItemsSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -13077,14 +14227,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxItemsSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:4241:1: rule__MaxItemsSchemaDefinition__Group__2 : rule__MaxItemsSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:4573:1: rule__MaxItemsSchemaDefinition__Group__2 : rule__MaxItemsSchemaDefinition__Group__2__Impl ;
     public final void rule__MaxItemsSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4245:1: ( rule__MaxItemsSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:4246:2: rule__MaxItemsSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:4577:1: ( rule__MaxItemsSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:4578:2: rule__MaxItemsSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MaxItemsSchemaDefinition__Group__2__Impl();
@@ -13110,21 +14260,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxItemsSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4252:1: rule__MaxItemsSchemaDefinition__Group__2__Impl : ( ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:4584:1: rule__MaxItemsSchemaDefinition__Group__2__Impl : ( ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 ) ) ;
     public final void rule__MaxItemsSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4256:1: ( ( ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:4257:1: ( ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4588:1: ( ( ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:4589:1: ( ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:4257:1: ( ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:4258:2: ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 )
+            // InternalJsonSchemaDsl.g:4589:1: ( ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4590:2: ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 )
             {
              before(grammarAccess.getMaxItemsSchemaDefinitionAccess().getMaxItemsAssignment_2()); 
-            // InternalJsonSchemaDsl.g:4259:2: ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 )
-            // InternalJsonSchemaDsl.g:4259:3: rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2
+            // InternalJsonSchemaDsl.g:4591:2: ( rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 )
+            // InternalJsonSchemaDsl.g:4591:3: rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2();
@@ -13157,14 +14307,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FormatSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4268:1: rule__FormatSchemaDefinition__Group__0 : rule__FormatSchemaDefinition__Group__0__Impl rule__FormatSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:4600:1: rule__FormatSchemaDefinition__Group__0 : rule__FormatSchemaDefinition__Group__0__Impl rule__FormatSchemaDefinition__Group__1 ;
     public final void rule__FormatSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4272:1: ( rule__FormatSchemaDefinition__Group__0__Impl rule__FormatSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4273:2: rule__FormatSchemaDefinition__Group__0__Impl rule__FormatSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:4604:1: ( rule__FormatSchemaDefinition__Group__0__Impl rule__FormatSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:4605:2: rule__FormatSchemaDefinition__Group__0__Impl rule__FormatSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__FormatSchemaDefinition__Group__0__Impl();
@@ -13195,20 +14345,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FormatSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4280:1: rule__FormatSchemaDefinition__Group__0__Impl : ( '\"format\"' ) ;
+    // InternalJsonSchemaDsl.g:4612:1: rule__FormatSchemaDefinition__Group__0__Impl : ( '\"format\"' ) ;
     public final void rule__FormatSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4284:1: ( ( '\"format\"' ) )
-            // InternalJsonSchemaDsl.g:4285:1: ( '\"format\"' )
+            // InternalJsonSchemaDsl.g:4616:1: ( ( '\"format\"' ) )
+            // InternalJsonSchemaDsl.g:4617:1: ( '\"format\"' )
             {
-            // InternalJsonSchemaDsl.g:4285:1: ( '\"format\"' )
-            // InternalJsonSchemaDsl.g:4286:2: '\"format\"'
+            // InternalJsonSchemaDsl.g:4617:1: ( '\"format\"' )
+            // InternalJsonSchemaDsl.g:4618:2: '\"format\"'
             {
              before(grammarAccess.getFormatSchemaDefinitionAccess().getFormatKeyword_0()); 
-            match(input,43,FOLLOW_2); 
+            match(input,46,FOLLOW_2); 
              after(grammarAccess.getFormatSchemaDefinitionAccess().getFormatKeyword_0()); 
 
             }
@@ -13232,16 +14382,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FormatSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4295:1: rule__FormatSchemaDefinition__Group__1 : rule__FormatSchemaDefinition__Group__1__Impl rule__FormatSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:4627:1: rule__FormatSchemaDefinition__Group__1 : rule__FormatSchemaDefinition__Group__1__Impl rule__FormatSchemaDefinition__Group__2 ;
     public final void rule__FormatSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4299:1: ( rule__FormatSchemaDefinition__Group__1__Impl rule__FormatSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:4300:2: rule__FormatSchemaDefinition__Group__1__Impl rule__FormatSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:4631:1: ( rule__FormatSchemaDefinition__Group__1__Impl rule__FormatSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:4632:2: rule__FormatSchemaDefinition__Group__1__Impl rule__FormatSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__FormatSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -13270,20 +14420,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FormatSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:4307:1: rule__FormatSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:4639:1: rule__FormatSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__FormatSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4311:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:4312:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4643:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:4644:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:4312:1: ( ':' )
-            // InternalJsonSchemaDsl.g:4313:2: ':'
+            // InternalJsonSchemaDsl.g:4644:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4645:2: ':'
             {
              before(grammarAccess.getFormatSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getFormatSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -13307,14 +14457,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FormatSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:4322:1: rule__FormatSchemaDefinition__Group__2 : rule__FormatSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:4654:1: rule__FormatSchemaDefinition__Group__2 : rule__FormatSchemaDefinition__Group__2__Impl ;
     public final void rule__FormatSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4326:1: ( rule__FormatSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:4327:2: rule__FormatSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:4658:1: ( rule__FormatSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:4659:2: rule__FormatSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FormatSchemaDefinition__Group__2__Impl();
@@ -13340,21 +14490,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FormatSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4333:1: rule__FormatSchemaDefinition__Group__2__Impl : ( ( rule__FormatSchemaDefinition__FormatAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:4665:1: rule__FormatSchemaDefinition__Group__2__Impl : ( ( rule__FormatSchemaDefinition__FormatAssignment_2 ) ) ;
     public final void rule__FormatSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4337:1: ( ( ( rule__FormatSchemaDefinition__FormatAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:4338:1: ( ( rule__FormatSchemaDefinition__FormatAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4669:1: ( ( ( rule__FormatSchemaDefinition__FormatAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:4670:1: ( ( rule__FormatSchemaDefinition__FormatAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:4338:1: ( ( rule__FormatSchemaDefinition__FormatAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:4339:2: ( rule__FormatSchemaDefinition__FormatAssignment_2 )
+            // InternalJsonSchemaDsl.g:4670:1: ( ( rule__FormatSchemaDefinition__FormatAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4671:2: ( rule__FormatSchemaDefinition__FormatAssignment_2 )
             {
              before(grammarAccess.getFormatSchemaDefinitionAccess().getFormatAssignment_2()); 
-            // InternalJsonSchemaDsl.g:4340:2: ( rule__FormatSchemaDefinition__FormatAssignment_2 )
-            // InternalJsonSchemaDsl.g:4340:3: rule__FormatSchemaDefinition__FormatAssignment_2
+            // InternalJsonSchemaDsl.g:4672:2: ( rule__FormatSchemaDefinition__FormatAssignment_2 )
+            // InternalJsonSchemaDsl.g:4672:3: rule__FormatSchemaDefinition__FormatAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__FormatSchemaDefinition__FormatAssignment_2();
@@ -13387,14 +14537,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ReadOnlySchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4349:1: rule__ReadOnlySchemaDefinition__Group__0 : rule__ReadOnlySchemaDefinition__Group__0__Impl rule__ReadOnlySchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:4681:1: rule__ReadOnlySchemaDefinition__Group__0 : rule__ReadOnlySchemaDefinition__Group__0__Impl rule__ReadOnlySchemaDefinition__Group__1 ;
     public final void rule__ReadOnlySchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4353:1: ( rule__ReadOnlySchemaDefinition__Group__0__Impl rule__ReadOnlySchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4354:2: rule__ReadOnlySchemaDefinition__Group__0__Impl rule__ReadOnlySchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:4685:1: ( rule__ReadOnlySchemaDefinition__Group__0__Impl rule__ReadOnlySchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:4686:2: rule__ReadOnlySchemaDefinition__Group__0__Impl rule__ReadOnlySchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__ReadOnlySchemaDefinition__Group__0__Impl();
@@ -13425,20 +14575,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ReadOnlySchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4361:1: rule__ReadOnlySchemaDefinition__Group__0__Impl : ( '\"readOnly\"' ) ;
+    // InternalJsonSchemaDsl.g:4693:1: rule__ReadOnlySchemaDefinition__Group__0__Impl : ( '\"readOnly\"' ) ;
     public final void rule__ReadOnlySchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4365:1: ( ( '\"readOnly\"' ) )
-            // InternalJsonSchemaDsl.g:4366:1: ( '\"readOnly\"' )
+            // InternalJsonSchemaDsl.g:4697:1: ( ( '\"readOnly\"' ) )
+            // InternalJsonSchemaDsl.g:4698:1: ( '\"readOnly\"' )
             {
-            // InternalJsonSchemaDsl.g:4366:1: ( '\"readOnly\"' )
-            // InternalJsonSchemaDsl.g:4367:2: '\"readOnly\"'
+            // InternalJsonSchemaDsl.g:4698:1: ( '\"readOnly\"' )
+            // InternalJsonSchemaDsl.g:4699:2: '\"readOnly\"'
             {
              before(grammarAccess.getReadOnlySchemaDefinitionAccess().getReadOnlyKeyword_0()); 
-            match(input,44,FOLLOW_2); 
+            match(input,21,FOLLOW_2); 
              after(grammarAccess.getReadOnlySchemaDefinitionAccess().getReadOnlyKeyword_0()); 
 
             }
@@ -13462,14 +14612,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ReadOnlySchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4376:1: rule__ReadOnlySchemaDefinition__Group__1 : rule__ReadOnlySchemaDefinition__Group__1__Impl rule__ReadOnlySchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:4708:1: rule__ReadOnlySchemaDefinition__Group__1 : rule__ReadOnlySchemaDefinition__Group__1__Impl rule__ReadOnlySchemaDefinition__Group__2 ;
     public final void rule__ReadOnlySchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4380:1: ( rule__ReadOnlySchemaDefinition__Group__1__Impl rule__ReadOnlySchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:4381:2: rule__ReadOnlySchemaDefinition__Group__1__Impl rule__ReadOnlySchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:4712:1: ( rule__ReadOnlySchemaDefinition__Group__1__Impl rule__ReadOnlySchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:4713:2: rule__ReadOnlySchemaDefinition__Group__1__Impl rule__ReadOnlySchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__ReadOnlySchemaDefinition__Group__1__Impl();
@@ -13500,20 +14650,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ReadOnlySchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:4388:1: rule__ReadOnlySchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:4720:1: rule__ReadOnlySchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__ReadOnlySchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4392:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:4393:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4724:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:4725:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:4393:1: ( ':' )
-            // InternalJsonSchemaDsl.g:4394:2: ':'
+            // InternalJsonSchemaDsl.g:4725:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4726:2: ':'
             {
              before(grammarAccess.getReadOnlySchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getReadOnlySchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -13537,14 +14687,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ReadOnlySchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:4403:1: rule__ReadOnlySchemaDefinition__Group__2 : rule__ReadOnlySchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:4735:1: rule__ReadOnlySchemaDefinition__Group__2 : rule__ReadOnlySchemaDefinition__Group__2__Impl ;
     public final void rule__ReadOnlySchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4407:1: ( rule__ReadOnlySchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:4408:2: rule__ReadOnlySchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:4739:1: ( rule__ReadOnlySchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:4740:2: rule__ReadOnlySchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ReadOnlySchemaDefinition__Group__2__Impl();
@@ -13570,21 +14720,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ReadOnlySchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4414:1: rule__ReadOnlySchemaDefinition__Group__2__Impl : ( ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:4746:1: rule__ReadOnlySchemaDefinition__Group__2__Impl : ( ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 ) ) ;
     public final void rule__ReadOnlySchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4418:1: ( ( ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:4419:1: ( ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4750:1: ( ( ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:4751:1: ( ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:4419:1: ( ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:4420:2: ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 )
+            // InternalJsonSchemaDsl.g:4751:1: ( ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4752:2: ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 )
             {
              before(grammarAccess.getReadOnlySchemaDefinitionAccess().getReadOnlyAssignment_2()); 
-            // InternalJsonSchemaDsl.g:4421:2: ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 )
-            // InternalJsonSchemaDsl.g:4421:3: rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2
+            // InternalJsonSchemaDsl.g:4753:2: ( rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 )
+            // InternalJsonSchemaDsl.g:4753:3: rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2();
@@ -13617,16 +14767,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4430:1: rule__TypeSchemaDefinition__Group__0 : rule__TypeSchemaDefinition__Group__0__Impl rule__TypeSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:4762:1: rule__TypeSchemaDefinition__Group__0 : rule__TypeSchemaDefinition__Group__0__Impl rule__TypeSchemaDefinition__Group__1 ;
     public final void rule__TypeSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4434:1: ( rule__TypeSchemaDefinition__Group__0__Impl rule__TypeSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4435:2: rule__TypeSchemaDefinition__Group__0__Impl rule__TypeSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:4766:1: ( rule__TypeSchemaDefinition__Group__0__Impl rule__TypeSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:4767:2: rule__TypeSchemaDefinition__Group__0__Impl rule__TypeSchemaDefinition__Group__1
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_20);
             rule__TypeSchemaDefinition__Group__0__Impl();
 
             state._fsp--;
@@ -13655,21 +14805,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4442:1: rule__TypeSchemaDefinition__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:4774:1: rule__TypeSchemaDefinition__Group__0__Impl : ( () ) ;
     public final void rule__TypeSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4446:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:4447:1: ( () )
+            // InternalJsonSchemaDsl.g:4778:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:4779:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:4447:1: ( () )
-            // InternalJsonSchemaDsl.g:4448:2: ()
+            // InternalJsonSchemaDsl.g:4779:1: ( () )
+            // InternalJsonSchemaDsl.g:4780:2: ()
             {
              before(grammarAccess.getTypeSchemaDefinitionAccess().getTypeSchemaDefinitionAction_0()); 
-            // InternalJsonSchemaDsl.g:4449:2: ()
-            // InternalJsonSchemaDsl.g:4449:3: 
+            // InternalJsonSchemaDsl.g:4781:2: ()
+            // InternalJsonSchemaDsl.g:4781:3: 
             {
             }
 
@@ -13692,14 +14842,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4457:1: rule__TypeSchemaDefinition__Group__1 : rule__TypeSchemaDefinition__Group__1__Impl rule__TypeSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:4789:1: rule__TypeSchemaDefinition__Group__1 : rule__TypeSchemaDefinition__Group__1__Impl rule__TypeSchemaDefinition__Group__2 ;
     public final void rule__TypeSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4461:1: ( rule__TypeSchemaDefinition__Group__1__Impl rule__TypeSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:4462:2: rule__TypeSchemaDefinition__Group__1__Impl rule__TypeSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:4793:1: ( rule__TypeSchemaDefinition__Group__1__Impl rule__TypeSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:4794:2: rule__TypeSchemaDefinition__Group__1__Impl rule__TypeSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__TypeSchemaDefinition__Group__1__Impl();
@@ -13730,17 +14880,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:4469:1: rule__TypeSchemaDefinition__Group__1__Impl : ( '\"type\"' ) ;
+    // InternalJsonSchemaDsl.g:4801:1: rule__TypeSchemaDefinition__Group__1__Impl : ( '\"type\"' ) ;
     public final void rule__TypeSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4473:1: ( ( '\"type\"' ) )
-            // InternalJsonSchemaDsl.g:4474:1: ( '\"type\"' )
+            // InternalJsonSchemaDsl.g:4805:1: ( ( '\"type\"' ) )
+            // InternalJsonSchemaDsl.g:4806:1: ( '\"type\"' )
             {
-            // InternalJsonSchemaDsl.g:4474:1: ( '\"type\"' )
-            // InternalJsonSchemaDsl.g:4475:2: '\"type\"'
+            // InternalJsonSchemaDsl.g:4806:1: ( '\"type\"' )
+            // InternalJsonSchemaDsl.g:4807:2: '\"type\"'
             {
              before(grammarAccess.getTypeSchemaDefinitionAccess().getTypeKeyword_1()); 
             match(input,45,FOLLOW_2); 
@@ -13767,16 +14917,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:4484:1: rule__TypeSchemaDefinition__Group__2 : rule__TypeSchemaDefinition__Group__2__Impl rule__TypeSchemaDefinition__Group__3 ;
+    // InternalJsonSchemaDsl.g:4816:1: rule__TypeSchemaDefinition__Group__2 : rule__TypeSchemaDefinition__Group__2__Impl rule__TypeSchemaDefinition__Group__3 ;
     public final void rule__TypeSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4488:1: ( rule__TypeSchemaDefinition__Group__2__Impl rule__TypeSchemaDefinition__Group__3 )
-            // InternalJsonSchemaDsl.g:4489:2: rule__TypeSchemaDefinition__Group__2__Impl rule__TypeSchemaDefinition__Group__3
+            // InternalJsonSchemaDsl.g:4820:1: ( rule__TypeSchemaDefinition__Group__2__Impl rule__TypeSchemaDefinition__Group__3 )
+            // InternalJsonSchemaDsl.g:4821:2: rule__TypeSchemaDefinition__Group__2__Impl rule__TypeSchemaDefinition__Group__3
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__TypeSchemaDefinition__Group__2__Impl();
 
             state._fsp--;
@@ -13805,20 +14955,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4496:1: rule__TypeSchemaDefinition__Group__2__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:4828:1: rule__TypeSchemaDefinition__Group__2__Impl : ( ':' ) ;
     public final void rule__TypeSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4500:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:4501:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4832:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:4833:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:4501:1: ( ':' )
-            // InternalJsonSchemaDsl.g:4502:2: ':'
+            // InternalJsonSchemaDsl.g:4833:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4834:2: ':'
             {
              before(grammarAccess.getTypeSchemaDefinitionAccess().getColonKeyword_2()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getTypeSchemaDefinitionAccess().getColonKeyword_2()); 
 
             }
@@ -13842,16 +14992,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__Group__3"
-    // InternalJsonSchemaDsl.g:4511:1: rule__TypeSchemaDefinition__Group__3 : rule__TypeSchemaDefinition__Group__3__Impl rule__TypeSchemaDefinition__Group__4 ;
+    // InternalJsonSchemaDsl.g:4843:1: rule__TypeSchemaDefinition__Group__3 : rule__TypeSchemaDefinition__Group__3__Impl rule__TypeSchemaDefinition__Group__4 ;
     public final void rule__TypeSchemaDefinition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4515:1: ( rule__TypeSchemaDefinition__Group__3__Impl rule__TypeSchemaDefinition__Group__4 )
-            // InternalJsonSchemaDsl.g:4516:2: rule__TypeSchemaDefinition__Group__3__Impl rule__TypeSchemaDefinition__Group__4
+            // InternalJsonSchemaDsl.g:4847:1: ( rule__TypeSchemaDefinition__Group__3__Impl rule__TypeSchemaDefinition__Group__4 )
+            // InternalJsonSchemaDsl.g:4848:2: rule__TypeSchemaDefinition__Group__3__Impl rule__TypeSchemaDefinition__Group__4
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_21);
             rule__TypeSchemaDefinition__Group__3__Impl();
 
             state._fsp--;
@@ -13880,29 +15030,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:4523:1: rule__TypeSchemaDefinition__Group__3__Impl : ( ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )? ) ;
+    // InternalJsonSchemaDsl.g:4855:1: rule__TypeSchemaDefinition__Group__3__Impl : ( ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )? ) ;
     public final void rule__TypeSchemaDefinition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4527:1: ( ( ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )? ) )
-            // InternalJsonSchemaDsl.g:4528:1: ( ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )? )
+            // InternalJsonSchemaDsl.g:4859:1: ( ( ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )? ) )
+            // InternalJsonSchemaDsl.g:4860:1: ( ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )? )
             {
-            // InternalJsonSchemaDsl.g:4528:1: ( ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )? )
-            // InternalJsonSchemaDsl.g:4529:2: ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )?
+            // InternalJsonSchemaDsl.g:4860:1: ( ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )? )
+            // InternalJsonSchemaDsl.g:4861:2: ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )?
             {
              before(grammarAccess.getTypeSchemaDefinitionAccess().getTypeAnyOf1Assignment_3()); 
-            // InternalJsonSchemaDsl.g:4530:2: ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:4862:2: ( rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 )?
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            if ( ((LA14_0>=14 && LA14_0<=20)) ) {
-                alt14=1;
+            if ( ((LA16_0>=56 && LA16_0<=62)) ) {
+                alt16=1;
             }
-            switch (alt14) {
+            switch (alt16) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:4530:3: rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3
+                    // InternalJsonSchemaDsl.g:4862:3: rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3
                     {
                     pushFollow(FOLLOW_2);
                     rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3();
@@ -13938,14 +15088,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__Group__4"
-    // InternalJsonSchemaDsl.g:4538:1: rule__TypeSchemaDefinition__Group__4 : rule__TypeSchemaDefinition__Group__4__Impl ;
+    // InternalJsonSchemaDsl.g:4870:1: rule__TypeSchemaDefinition__Group__4 : rule__TypeSchemaDefinition__Group__4__Impl ;
     public final void rule__TypeSchemaDefinition__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4542:1: ( rule__TypeSchemaDefinition__Group__4__Impl )
-            // InternalJsonSchemaDsl.g:4543:2: rule__TypeSchemaDefinition__Group__4__Impl
+            // InternalJsonSchemaDsl.g:4874:1: ( rule__TypeSchemaDefinition__Group__4__Impl )
+            // InternalJsonSchemaDsl.g:4875:2: rule__TypeSchemaDefinition__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TypeSchemaDefinition__Group__4__Impl();
@@ -13971,29 +15121,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__Group__4__Impl"
-    // InternalJsonSchemaDsl.g:4549:1: rule__TypeSchemaDefinition__Group__4__Impl : ( ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )? ) ;
+    // InternalJsonSchemaDsl.g:4881:1: rule__TypeSchemaDefinition__Group__4__Impl : ( ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )? ) ;
     public final void rule__TypeSchemaDefinition__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4553:1: ( ( ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )? ) )
-            // InternalJsonSchemaDsl.g:4554:1: ( ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )? )
+            // InternalJsonSchemaDsl.g:4885:1: ( ( ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )? ) )
+            // InternalJsonSchemaDsl.g:4886:1: ( ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )? )
             {
-            // InternalJsonSchemaDsl.g:4554:1: ( ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )? )
-            // InternalJsonSchemaDsl.g:4555:2: ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )?
+            // InternalJsonSchemaDsl.g:4886:1: ( ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )? )
+            // InternalJsonSchemaDsl.g:4887:2: ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )?
             {
              before(grammarAccess.getTypeSchemaDefinitionAccess().getTypesAnyOf2Assignment_4()); 
-            // InternalJsonSchemaDsl.g:4556:2: ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )?
-            int alt15=2;
-            int LA15_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:4888:2: ( rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA15_0==28) ) {
-                alt15=1;
+            if ( (LA17_0==67) ) {
+                alt17=1;
             }
-            switch (alt15) {
+            switch (alt17) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:4556:3: rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4
+                    // InternalJsonSchemaDsl.g:4888:3: rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4
                     {
                     pushFollow(FOLLOW_2);
                     rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4();
@@ -14029,14 +15179,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalPropertiesSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4565:1: rule__AdditionalPropertiesSchemaDefinition__Group__0 : rule__AdditionalPropertiesSchemaDefinition__Group__0__Impl rule__AdditionalPropertiesSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:4897:1: rule__AdditionalPropertiesSchemaDefinition__Group__0 : rule__AdditionalPropertiesSchemaDefinition__Group__0__Impl rule__AdditionalPropertiesSchemaDefinition__Group__1 ;
     public final void rule__AdditionalPropertiesSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4569:1: ( rule__AdditionalPropertiesSchemaDefinition__Group__0__Impl rule__AdditionalPropertiesSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4570:2: rule__AdditionalPropertiesSchemaDefinition__Group__0__Impl rule__AdditionalPropertiesSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:4901:1: ( rule__AdditionalPropertiesSchemaDefinition__Group__0__Impl rule__AdditionalPropertiesSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:4902:2: rule__AdditionalPropertiesSchemaDefinition__Group__0__Impl rule__AdditionalPropertiesSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__AdditionalPropertiesSchemaDefinition__Group__0__Impl();
@@ -14067,20 +15217,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalPropertiesSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4577:1: rule__AdditionalPropertiesSchemaDefinition__Group__0__Impl : ( '\"additionalProperties\"' ) ;
+    // InternalJsonSchemaDsl.g:4909:1: rule__AdditionalPropertiesSchemaDefinition__Group__0__Impl : ( '\"additionalProperties\"' ) ;
     public final void rule__AdditionalPropertiesSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4581:1: ( ( '\"additionalProperties\"' ) )
-            // InternalJsonSchemaDsl.g:4582:1: ( '\"additionalProperties\"' )
+            // InternalJsonSchemaDsl.g:4913:1: ( ( '\"additionalProperties\"' ) )
+            // InternalJsonSchemaDsl.g:4914:1: ( '\"additionalProperties\"' )
             {
-            // InternalJsonSchemaDsl.g:4582:1: ( '\"additionalProperties\"' )
-            // InternalJsonSchemaDsl.g:4583:2: '\"additionalProperties\"'
+            // InternalJsonSchemaDsl.g:4914:1: ( '\"additionalProperties\"' )
+            // InternalJsonSchemaDsl.g:4915:2: '\"additionalProperties\"'
             {
              before(grammarAccess.getAdditionalPropertiesSchemaDefinitionAccess().getAdditionalPropertiesKeyword_0()); 
-            match(input,46,FOLLOW_2); 
+            match(input,39,FOLLOW_2); 
              after(grammarAccess.getAdditionalPropertiesSchemaDefinitionAccess().getAdditionalPropertiesKeyword_0()); 
 
             }
@@ -14104,14 +15254,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalPropertiesSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4592:1: rule__AdditionalPropertiesSchemaDefinition__Group__1 : rule__AdditionalPropertiesSchemaDefinition__Group__1__Impl rule__AdditionalPropertiesSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:4924:1: rule__AdditionalPropertiesSchemaDefinition__Group__1 : rule__AdditionalPropertiesSchemaDefinition__Group__1__Impl rule__AdditionalPropertiesSchemaDefinition__Group__2 ;
     public final void rule__AdditionalPropertiesSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4596:1: ( rule__AdditionalPropertiesSchemaDefinition__Group__1__Impl rule__AdditionalPropertiesSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:4597:2: rule__AdditionalPropertiesSchemaDefinition__Group__1__Impl rule__AdditionalPropertiesSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:4928:1: ( rule__AdditionalPropertiesSchemaDefinition__Group__1__Impl rule__AdditionalPropertiesSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:4929:2: rule__AdditionalPropertiesSchemaDefinition__Group__1__Impl rule__AdditionalPropertiesSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__AdditionalPropertiesSchemaDefinition__Group__1__Impl();
@@ -14142,20 +15292,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalPropertiesSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:4604:1: rule__AdditionalPropertiesSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:4936:1: rule__AdditionalPropertiesSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__AdditionalPropertiesSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4608:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:4609:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4940:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:4941:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:4609:1: ( ':' )
-            // InternalJsonSchemaDsl.g:4610:2: ':'
+            // InternalJsonSchemaDsl.g:4941:1: ( ':' )
+            // InternalJsonSchemaDsl.g:4942:2: ':'
             {
              before(grammarAccess.getAdditionalPropertiesSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getAdditionalPropertiesSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -14179,14 +15329,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalPropertiesSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:4619:1: rule__AdditionalPropertiesSchemaDefinition__Group__2 : rule__AdditionalPropertiesSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:4951:1: rule__AdditionalPropertiesSchemaDefinition__Group__2 : rule__AdditionalPropertiesSchemaDefinition__Group__2__Impl ;
     public final void rule__AdditionalPropertiesSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4623:1: ( rule__AdditionalPropertiesSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:4624:2: rule__AdditionalPropertiesSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:4955:1: ( rule__AdditionalPropertiesSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:4956:2: rule__AdditionalPropertiesSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AdditionalPropertiesSchemaDefinition__Group__2__Impl();
@@ -14212,21 +15362,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalPropertiesSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4630:1: rule__AdditionalPropertiesSchemaDefinition__Group__2__Impl : ( ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:4962:1: rule__AdditionalPropertiesSchemaDefinition__Group__2__Impl : ( ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 ) ) ;
     public final void rule__AdditionalPropertiesSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4634:1: ( ( ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:4635:1: ( ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4966:1: ( ( ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:4967:1: ( ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:4635:1: ( ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:4636:2: ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 )
+            // InternalJsonSchemaDsl.g:4967:1: ( ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:4968:2: ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 )
             {
              before(grammarAccess.getAdditionalPropertiesSchemaDefinitionAccess().getAdditionalPropertiesAssignment_2()); 
-            // InternalJsonSchemaDsl.g:4637:2: ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 )
-            // InternalJsonSchemaDsl.g:4637:3: rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2
+            // InternalJsonSchemaDsl.g:4969:2: ( rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 )
+            // InternalJsonSchemaDsl.g:4969:3: rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2();
@@ -14259,14 +15409,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ElseSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4646:1: rule__ElseSchemaDefinition__Group__0 : rule__ElseSchemaDefinition__Group__0__Impl rule__ElseSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:4978:1: rule__ElseSchemaDefinition__Group__0 : rule__ElseSchemaDefinition__Group__0__Impl rule__ElseSchemaDefinition__Group__1 ;
     public final void rule__ElseSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4650:1: ( rule__ElseSchemaDefinition__Group__0__Impl rule__ElseSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4651:2: rule__ElseSchemaDefinition__Group__0__Impl rule__ElseSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:4982:1: ( rule__ElseSchemaDefinition__Group__0__Impl rule__ElseSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:4983:2: rule__ElseSchemaDefinition__Group__0__Impl rule__ElseSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__ElseSchemaDefinition__Group__0__Impl();
@@ -14297,20 +15447,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ElseSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4658:1: rule__ElseSchemaDefinition__Group__0__Impl : ( '\"else\"' ) ;
+    // InternalJsonSchemaDsl.g:4990:1: rule__ElseSchemaDefinition__Group__0__Impl : ( '\"else\"' ) ;
     public final void rule__ElseSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4662:1: ( ( '\"else\"' ) )
-            // InternalJsonSchemaDsl.g:4663:1: ( '\"else\"' )
+            // InternalJsonSchemaDsl.g:4994:1: ( ( '\"else\"' ) )
+            // InternalJsonSchemaDsl.g:4995:1: ( '\"else\"' )
             {
-            // InternalJsonSchemaDsl.g:4663:1: ( '\"else\"' )
-            // InternalJsonSchemaDsl.g:4664:2: '\"else\"'
+            // InternalJsonSchemaDsl.g:4995:1: ( '\"else\"' )
+            // InternalJsonSchemaDsl.g:4996:2: '\"else\"'
             {
              before(grammarAccess.getElseSchemaDefinitionAccess().getElseKeyword_0()); 
-            match(input,47,FOLLOW_2); 
+            match(input,51,FOLLOW_2); 
              after(grammarAccess.getElseSchemaDefinitionAccess().getElseKeyword_0()); 
 
             }
@@ -14334,14 +15484,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ElseSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4673:1: rule__ElseSchemaDefinition__Group__1 : rule__ElseSchemaDefinition__Group__1__Impl rule__ElseSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:5005:1: rule__ElseSchemaDefinition__Group__1 : rule__ElseSchemaDefinition__Group__1__Impl rule__ElseSchemaDefinition__Group__2 ;
     public final void rule__ElseSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4677:1: ( rule__ElseSchemaDefinition__Group__1__Impl rule__ElseSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:4678:2: rule__ElseSchemaDefinition__Group__1__Impl rule__ElseSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:5009:1: ( rule__ElseSchemaDefinition__Group__1__Impl rule__ElseSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:5010:2: rule__ElseSchemaDefinition__Group__1__Impl rule__ElseSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__ElseSchemaDefinition__Group__1__Impl();
@@ -14372,20 +15522,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ElseSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:4685:1: rule__ElseSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:5017:1: rule__ElseSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__ElseSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4689:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:4690:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5021:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:5022:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:4690:1: ( ':' )
-            // InternalJsonSchemaDsl.g:4691:2: ':'
+            // InternalJsonSchemaDsl.g:5022:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5023:2: ':'
             {
              before(grammarAccess.getElseSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getElseSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -14409,14 +15559,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ElseSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:4700:1: rule__ElseSchemaDefinition__Group__2 : rule__ElseSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:5032:1: rule__ElseSchemaDefinition__Group__2 : rule__ElseSchemaDefinition__Group__2__Impl ;
     public final void rule__ElseSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4704:1: ( rule__ElseSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:4705:2: rule__ElseSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:5036:1: ( rule__ElseSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:5037:2: rule__ElseSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ElseSchemaDefinition__Group__2__Impl();
@@ -14442,21 +15592,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ElseSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4711:1: rule__ElseSchemaDefinition__Group__2__Impl : ( ( rule__ElseSchemaDefinition__ElseAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:5043:1: rule__ElseSchemaDefinition__Group__2__Impl : ( ( rule__ElseSchemaDefinition__ElseAssignment_2 ) ) ;
     public final void rule__ElseSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4715:1: ( ( ( rule__ElseSchemaDefinition__ElseAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:4716:1: ( ( rule__ElseSchemaDefinition__ElseAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5047:1: ( ( ( rule__ElseSchemaDefinition__ElseAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:5048:1: ( ( rule__ElseSchemaDefinition__ElseAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:4716:1: ( ( rule__ElseSchemaDefinition__ElseAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:4717:2: ( rule__ElseSchemaDefinition__ElseAssignment_2 )
+            // InternalJsonSchemaDsl.g:5048:1: ( ( rule__ElseSchemaDefinition__ElseAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5049:2: ( rule__ElseSchemaDefinition__ElseAssignment_2 )
             {
              before(grammarAccess.getElseSchemaDefinitionAccess().getElseAssignment_2()); 
-            // InternalJsonSchemaDsl.g:4718:2: ( rule__ElseSchemaDefinition__ElseAssignment_2 )
-            // InternalJsonSchemaDsl.g:4718:3: rule__ElseSchemaDefinition__ElseAssignment_2
+            // InternalJsonSchemaDsl.g:5050:2: ( rule__ElseSchemaDefinition__ElseAssignment_2 )
+            // InternalJsonSchemaDsl.g:5050:3: rule__ElseSchemaDefinition__ElseAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ElseSchemaDefinition__ElseAssignment_2();
@@ -14489,14 +15639,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IdSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4727:1: rule__IdSchemaDefinition__Group__0 : rule__IdSchemaDefinition__Group__0__Impl rule__IdSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:5059:1: rule__IdSchemaDefinition__Group__0 : rule__IdSchemaDefinition__Group__0__Impl rule__IdSchemaDefinition__Group__1 ;
     public final void rule__IdSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4731:1: ( rule__IdSchemaDefinition__Group__0__Impl rule__IdSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4732:2: rule__IdSchemaDefinition__Group__0__Impl rule__IdSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:5063:1: ( rule__IdSchemaDefinition__Group__0__Impl rule__IdSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:5064:2: rule__IdSchemaDefinition__Group__0__Impl rule__IdSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__IdSchemaDefinition__Group__0__Impl();
@@ -14527,20 +15677,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IdSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4739:1: rule__IdSchemaDefinition__Group__0__Impl : ( '\"$id\"' ) ;
+    // InternalJsonSchemaDsl.g:5071:1: rule__IdSchemaDefinition__Group__0__Impl : ( '\"$id\"' ) ;
     public final void rule__IdSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4743:1: ( ( '\"$id\"' ) )
-            // InternalJsonSchemaDsl.g:4744:1: ( '\"$id\"' )
+            // InternalJsonSchemaDsl.g:5075:1: ( ( '\"$id\"' ) )
+            // InternalJsonSchemaDsl.g:5076:1: ( '\"$id\"' )
             {
-            // InternalJsonSchemaDsl.g:4744:1: ( '\"$id\"' )
-            // InternalJsonSchemaDsl.g:4745:2: '\"$id\"'
+            // InternalJsonSchemaDsl.g:5076:1: ( '\"$id\"' )
+            // InternalJsonSchemaDsl.g:5077:2: '\"$id\"'
             {
              before(grammarAccess.getIdSchemaDefinitionAccess().getIdKeyword_0()); 
-            match(input,48,FOLLOW_2); 
+            match(input,14,FOLLOW_2); 
              after(grammarAccess.getIdSchemaDefinitionAccess().getIdKeyword_0()); 
 
             }
@@ -14564,16 +15714,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IdSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4754:1: rule__IdSchemaDefinition__Group__1 : rule__IdSchemaDefinition__Group__1__Impl rule__IdSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:5086:1: rule__IdSchemaDefinition__Group__1 : rule__IdSchemaDefinition__Group__1__Impl rule__IdSchemaDefinition__Group__2 ;
     public final void rule__IdSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4758:1: ( rule__IdSchemaDefinition__Group__1__Impl rule__IdSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:4759:2: rule__IdSchemaDefinition__Group__1__Impl rule__IdSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:5090:1: ( rule__IdSchemaDefinition__Group__1__Impl rule__IdSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:5091:2: rule__IdSchemaDefinition__Group__1__Impl rule__IdSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__IdSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -14602,20 +15752,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IdSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:4766:1: rule__IdSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:5098:1: rule__IdSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__IdSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4770:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:4771:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5102:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:5103:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:4771:1: ( ':' )
-            // InternalJsonSchemaDsl.g:4772:2: ':'
+            // InternalJsonSchemaDsl.g:5103:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5104:2: ':'
             {
              before(grammarAccess.getIdSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getIdSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -14639,14 +15789,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IdSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:4781:1: rule__IdSchemaDefinition__Group__2 : rule__IdSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:5113:1: rule__IdSchemaDefinition__Group__2 : rule__IdSchemaDefinition__Group__2__Impl ;
     public final void rule__IdSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4785:1: ( rule__IdSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:4786:2: rule__IdSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:5117:1: ( rule__IdSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:5118:2: rule__IdSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IdSchemaDefinition__Group__2__Impl();
@@ -14672,21 +15822,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IdSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4792:1: rule__IdSchemaDefinition__Group__2__Impl : ( ( rule__IdSchemaDefinition__IdAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:5124:1: rule__IdSchemaDefinition__Group__2__Impl : ( ( rule__IdSchemaDefinition__IdAssignment_2 ) ) ;
     public final void rule__IdSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4796:1: ( ( ( rule__IdSchemaDefinition__IdAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:4797:1: ( ( rule__IdSchemaDefinition__IdAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5128:1: ( ( ( rule__IdSchemaDefinition__IdAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:5129:1: ( ( rule__IdSchemaDefinition__IdAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:4797:1: ( ( rule__IdSchemaDefinition__IdAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:4798:2: ( rule__IdSchemaDefinition__IdAssignment_2 )
+            // InternalJsonSchemaDsl.g:5129:1: ( ( rule__IdSchemaDefinition__IdAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5130:2: ( rule__IdSchemaDefinition__IdAssignment_2 )
             {
              before(grammarAccess.getIdSchemaDefinitionAccess().getIdAssignment_2()); 
-            // InternalJsonSchemaDsl.g:4799:2: ( rule__IdSchemaDefinition__IdAssignment_2 )
-            // InternalJsonSchemaDsl.g:4799:3: rule__IdSchemaDefinition__IdAssignment_2
+            // InternalJsonSchemaDsl.g:5131:2: ( rule__IdSchemaDefinition__IdAssignment_2 )
+            // InternalJsonSchemaDsl.g:5131:3: rule__IdSchemaDefinition__IdAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__IdSchemaDefinition__IdAssignment_2();
@@ -14719,14 +15869,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ConstSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4808:1: rule__ConstSchemaDefinition__Group__0 : rule__ConstSchemaDefinition__Group__0__Impl rule__ConstSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:5140:1: rule__ConstSchemaDefinition__Group__0 : rule__ConstSchemaDefinition__Group__0__Impl rule__ConstSchemaDefinition__Group__1 ;
     public final void rule__ConstSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4812:1: ( rule__ConstSchemaDefinition__Group__0__Impl rule__ConstSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4813:2: rule__ConstSchemaDefinition__Group__0__Impl rule__ConstSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:5144:1: ( rule__ConstSchemaDefinition__Group__0__Impl rule__ConstSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:5145:2: rule__ConstSchemaDefinition__Group__0__Impl rule__ConstSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__ConstSchemaDefinition__Group__0__Impl();
@@ -14757,20 +15907,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ConstSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4820:1: rule__ConstSchemaDefinition__Group__0__Impl : ( '\"const\"' ) ;
+    // InternalJsonSchemaDsl.g:5152:1: rule__ConstSchemaDefinition__Group__0__Impl : ( '\"const\"' ) ;
     public final void rule__ConstSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4824:1: ( ( '\"const\"' ) )
-            // InternalJsonSchemaDsl.g:4825:1: ( '\"const\"' )
+            // InternalJsonSchemaDsl.g:5156:1: ( ( '\"const\"' ) )
+            // InternalJsonSchemaDsl.g:5157:1: ( '\"const\"' )
             {
-            // InternalJsonSchemaDsl.g:4825:1: ( '\"const\"' )
-            // InternalJsonSchemaDsl.g:4826:2: '\"const\"'
+            // InternalJsonSchemaDsl.g:5157:1: ( '\"const\"' )
+            // InternalJsonSchemaDsl.g:5158:2: '\"const\"'
             {
              before(grammarAccess.getConstSchemaDefinitionAccess().getConstKeyword_0()); 
-            match(input,49,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getConstSchemaDefinitionAccess().getConstKeyword_0()); 
 
             }
@@ -14794,16 +15944,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ConstSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4835:1: rule__ConstSchemaDefinition__Group__1 : rule__ConstSchemaDefinition__Group__1__Impl rule__ConstSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:5167:1: rule__ConstSchemaDefinition__Group__1 : rule__ConstSchemaDefinition__Group__1__Impl rule__ConstSchemaDefinition__Group__2 ;
     public final void rule__ConstSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4839:1: ( rule__ConstSchemaDefinition__Group__1__Impl rule__ConstSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:4840:2: rule__ConstSchemaDefinition__Group__1__Impl rule__ConstSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:5171:1: ( rule__ConstSchemaDefinition__Group__1__Impl rule__ConstSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:5172:2: rule__ConstSchemaDefinition__Group__1__Impl rule__ConstSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__ConstSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -14832,20 +15982,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ConstSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:4847:1: rule__ConstSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:5179:1: rule__ConstSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__ConstSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4851:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:4852:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5183:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:5184:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:4852:1: ( ':' )
-            // InternalJsonSchemaDsl.g:4853:2: ':'
+            // InternalJsonSchemaDsl.g:5184:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5185:2: ':'
             {
              before(grammarAccess.getConstSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getConstSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -14869,14 +16019,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ConstSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:4862:1: rule__ConstSchemaDefinition__Group__2 : rule__ConstSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:5194:1: rule__ConstSchemaDefinition__Group__2 : rule__ConstSchemaDefinition__Group__2__Impl ;
     public final void rule__ConstSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4866:1: ( rule__ConstSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:4867:2: rule__ConstSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:5198:1: ( rule__ConstSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:5199:2: rule__ConstSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ConstSchemaDefinition__Group__2__Impl();
@@ -14902,21 +16052,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ConstSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4873:1: rule__ConstSchemaDefinition__Group__2__Impl : ( ( rule__ConstSchemaDefinition__ConstAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:5205:1: rule__ConstSchemaDefinition__Group__2__Impl : ( ( rule__ConstSchemaDefinition__ConstAssignment_2 ) ) ;
     public final void rule__ConstSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4877:1: ( ( ( rule__ConstSchemaDefinition__ConstAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:4878:1: ( ( rule__ConstSchemaDefinition__ConstAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5209:1: ( ( ( rule__ConstSchemaDefinition__ConstAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:5210:1: ( ( rule__ConstSchemaDefinition__ConstAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:4878:1: ( ( rule__ConstSchemaDefinition__ConstAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:4879:2: ( rule__ConstSchemaDefinition__ConstAssignment_2 )
+            // InternalJsonSchemaDsl.g:5210:1: ( ( rule__ConstSchemaDefinition__ConstAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5211:2: ( rule__ConstSchemaDefinition__ConstAssignment_2 )
             {
              before(grammarAccess.getConstSchemaDefinitionAccess().getConstAssignment_2()); 
-            // InternalJsonSchemaDsl.g:4880:2: ( rule__ConstSchemaDefinition__ConstAssignment_2 )
-            // InternalJsonSchemaDsl.g:4880:3: rule__ConstSchemaDefinition__ConstAssignment_2
+            // InternalJsonSchemaDsl.g:5212:2: ( rule__ConstSchemaDefinition__ConstAssignment_2 )
+            // InternalJsonSchemaDsl.g:5212:3: rule__ConstSchemaDefinition__ConstAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ConstSchemaDefinition__ConstAssignment_2();
@@ -14949,14 +16099,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RequiredSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4889:1: rule__RequiredSchemaDefinition__Group__0 : rule__RequiredSchemaDefinition__Group__0__Impl rule__RequiredSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:5221:1: rule__RequiredSchemaDefinition__Group__0 : rule__RequiredSchemaDefinition__Group__0__Impl rule__RequiredSchemaDefinition__Group__1 ;
     public final void rule__RequiredSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4893:1: ( rule__RequiredSchemaDefinition__Group__0__Impl rule__RequiredSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4894:2: rule__RequiredSchemaDefinition__Group__0__Impl rule__RequiredSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:5225:1: ( rule__RequiredSchemaDefinition__Group__0__Impl rule__RequiredSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:5226:2: rule__RequiredSchemaDefinition__Group__0__Impl rule__RequiredSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__RequiredSchemaDefinition__Group__0__Impl();
@@ -14987,20 +16137,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RequiredSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4901:1: rule__RequiredSchemaDefinition__Group__0__Impl : ( '\"required\"' ) ;
+    // InternalJsonSchemaDsl.g:5233:1: rule__RequiredSchemaDefinition__Group__0__Impl : ( '\"required\"' ) ;
     public final void rule__RequiredSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4905:1: ( ( '\"required\"' ) )
-            // InternalJsonSchemaDsl.g:4906:1: ( '\"required\"' )
+            // InternalJsonSchemaDsl.g:5237:1: ( ( '\"required\"' ) )
+            // InternalJsonSchemaDsl.g:5238:1: ( '\"required\"' )
             {
-            // InternalJsonSchemaDsl.g:4906:1: ( '\"required\"' )
-            // InternalJsonSchemaDsl.g:4907:2: '\"required\"'
+            // InternalJsonSchemaDsl.g:5238:1: ( '\"required\"' )
+            // InternalJsonSchemaDsl.g:5239:2: '\"required\"'
             {
              before(grammarAccess.getRequiredSchemaDefinitionAccess().getRequiredKeyword_0()); 
-            match(input,50,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getRequiredSchemaDefinitionAccess().getRequiredKeyword_0()); 
 
             }
@@ -15024,16 +16174,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RequiredSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4916:1: rule__RequiredSchemaDefinition__Group__1 : rule__RequiredSchemaDefinition__Group__1__Impl rule__RequiredSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:5248:1: rule__RequiredSchemaDefinition__Group__1 : rule__RequiredSchemaDefinition__Group__1__Impl rule__RequiredSchemaDefinition__Group__2 ;
     public final void rule__RequiredSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4920:1: ( rule__RequiredSchemaDefinition__Group__1__Impl rule__RequiredSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:4921:2: rule__RequiredSchemaDefinition__Group__1__Impl rule__RequiredSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:5252:1: ( rule__RequiredSchemaDefinition__Group__1__Impl rule__RequiredSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:5253:2: rule__RequiredSchemaDefinition__Group__1__Impl rule__RequiredSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__RequiredSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -15062,20 +16212,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RequiredSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:4928:1: rule__RequiredSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:5260:1: rule__RequiredSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__RequiredSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4932:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:4933:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5264:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:5265:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:4933:1: ( ':' )
-            // InternalJsonSchemaDsl.g:4934:2: ':'
+            // InternalJsonSchemaDsl.g:5265:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5266:2: ':'
             {
              before(grammarAccess.getRequiredSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getRequiredSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -15099,14 +16249,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RequiredSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:4943:1: rule__RequiredSchemaDefinition__Group__2 : rule__RequiredSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:5275:1: rule__RequiredSchemaDefinition__Group__2 : rule__RequiredSchemaDefinition__Group__2__Impl ;
     public final void rule__RequiredSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4947:1: ( rule__RequiredSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:4948:2: rule__RequiredSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:5279:1: ( rule__RequiredSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:5280:2: rule__RequiredSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RequiredSchemaDefinition__Group__2__Impl();
@@ -15132,21 +16282,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RequiredSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:4954:1: rule__RequiredSchemaDefinition__Group__2__Impl : ( ( rule__RequiredSchemaDefinition__RequiredAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:5286:1: rule__RequiredSchemaDefinition__Group__2__Impl : ( ( rule__RequiredSchemaDefinition__RequiredAssignment_2 ) ) ;
     public final void rule__RequiredSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4958:1: ( ( ( rule__RequiredSchemaDefinition__RequiredAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:4959:1: ( ( rule__RequiredSchemaDefinition__RequiredAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5290:1: ( ( ( rule__RequiredSchemaDefinition__RequiredAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:5291:1: ( ( rule__RequiredSchemaDefinition__RequiredAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:4959:1: ( ( rule__RequiredSchemaDefinition__RequiredAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:4960:2: ( rule__RequiredSchemaDefinition__RequiredAssignment_2 )
+            // InternalJsonSchemaDsl.g:5291:1: ( ( rule__RequiredSchemaDefinition__RequiredAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5292:2: ( rule__RequiredSchemaDefinition__RequiredAssignment_2 )
             {
              before(grammarAccess.getRequiredSchemaDefinitionAccess().getRequiredAssignment_2()); 
-            // InternalJsonSchemaDsl.g:4961:2: ( rule__RequiredSchemaDefinition__RequiredAssignment_2 )
-            // InternalJsonSchemaDsl.g:4961:3: rule__RequiredSchemaDefinition__RequiredAssignment_2
+            // InternalJsonSchemaDsl.g:5293:2: ( rule__RequiredSchemaDefinition__RequiredAssignment_2 )
+            // InternalJsonSchemaDsl.g:5293:3: rule__RequiredSchemaDefinition__RequiredAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__RequiredSchemaDefinition__RequiredAssignment_2();
@@ -15179,14 +16329,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DescriptionSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:4970:1: rule__DescriptionSchemaDefinition__Group__0 : rule__DescriptionSchemaDefinition__Group__0__Impl rule__DescriptionSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:5302:1: rule__DescriptionSchemaDefinition__Group__0 : rule__DescriptionSchemaDefinition__Group__0__Impl rule__DescriptionSchemaDefinition__Group__1 ;
     public final void rule__DescriptionSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4974:1: ( rule__DescriptionSchemaDefinition__Group__0__Impl rule__DescriptionSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:4975:2: rule__DescriptionSchemaDefinition__Group__0__Impl rule__DescriptionSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:5306:1: ( rule__DescriptionSchemaDefinition__Group__0__Impl rule__DescriptionSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:5307:2: rule__DescriptionSchemaDefinition__Group__0__Impl rule__DescriptionSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__DescriptionSchemaDefinition__Group__0__Impl();
@@ -15217,20 +16367,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DescriptionSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:4982:1: rule__DescriptionSchemaDefinition__Group__0__Impl : ( '\"description\"' ) ;
+    // InternalJsonSchemaDsl.g:5314:1: rule__DescriptionSchemaDefinition__Group__0__Impl : ( '\"description\"' ) ;
     public final void rule__DescriptionSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:4986:1: ( ( '\"description\"' ) )
-            // InternalJsonSchemaDsl.g:4987:1: ( '\"description\"' )
+            // InternalJsonSchemaDsl.g:5318:1: ( ( '\"description\"' ) )
+            // InternalJsonSchemaDsl.g:5319:1: ( '\"description\"' )
             {
-            // InternalJsonSchemaDsl.g:4987:1: ( '\"description\"' )
-            // InternalJsonSchemaDsl.g:4988:2: '\"description\"'
+            // InternalJsonSchemaDsl.g:5319:1: ( '\"description\"' )
+            // InternalJsonSchemaDsl.g:5320:2: '\"description\"'
             {
              before(grammarAccess.getDescriptionSchemaDefinitionAccess().getDescriptionKeyword_0()); 
-            match(input,51,FOLLOW_2); 
+            match(input,19,FOLLOW_2); 
              after(grammarAccess.getDescriptionSchemaDefinitionAccess().getDescriptionKeyword_0()); 
 
             }
@@ -15254,16 +16404,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DescriptionSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:4997:1: rule__DescriptionSchemaDefinition__Group__1 : rule__DescriptionSchemaDefinition__Group__1__Impl rule__DescriptionSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:5329:1: rule__DescriptionSchemaDefinition__Group__1 : rule__DescriptionSchemaDefinition__Group__1__Impl rule__DescriptionSchemaDefinition__Group__2 ;
     public final void rule__DescriptionSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5001:1: ( rule__DescriptionSchemaDefinition__Group__1__Impl rule__DescriptionSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:5002:2: rule__DescriptionSchemaDefinition__Group__1__Impl rule__DescriptionSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:5333:1: ( rule__DescriptionSchemaDefinition__Group__1__Impl rule__DescriptionSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:5334:2: rule__DescriptionSchemaDefinition__Group__1__Impl rule__DescriptionSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__DescriptionSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -15292,20 +16442,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DescriptionSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:5009:1: rule__DescriptionSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:5341:1: rule__DescriptionSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__DescriptionSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5013:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:5014:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5345:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:5346:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:5014:1: ( ':' )
-            // InternalJsonSchemaDsl.g:5015:2: ':'
+            // InternalJsonSchemaDsl.g:5346:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5347:2: ':'
             {
              before(grammarAccess.getDescriptionSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getDescriptionSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -15329,14 +16479,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DescriptionSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:5024:1: rule__DescriptionSchemaDefinition__Group__2 : rule__DescriptionSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:5356:1: rule__DescriptionSchemaDefinition__Group__2 : rule__DescriptionSchemaDefinition__Group__2__Impl ;
     public final void rule__DescriptionSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5028:1: ( rule__DescriptionSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:5029:2: rule__DescriptionSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:5360:1: ( rule__DescriptionSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:5361:2: rule__DescriptionSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DescriptionSchemaDefinition__Group__2__Impl();
@@ -15362,21 +16512,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DescriptionSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:5035:1: rule__DescriptionSchemaDefinition__Group__2__Impl : ( ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:5367:1: rule__DescriptionSchemaDefinition__Group__2__Impl : ( ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 ) ) ;
     public final void rule__DescriptionSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5039:1: ( ( ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:5040:1: ( ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5371:1: ( ( ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:5372:1: ( ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:5040:1: ( ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:5041:2: ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 )
+            // InternalJsonSchemaDsl.g:5372:1: ( ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5373:2: ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 )
             {
              before(grammarAccess.getDescriptionSchemaDefinitionAccess().getDescriptionAssignment_2()); 
-            // InternalJsonSchemaDsl.g:5042:2: ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 )
-            // InternalJsonSchemaDsl.g:5042:3: rule__DescriptionSchemaDefinition__DescriptionAssignment_2
+            // InternalJsonSchemaDsl.g:5374:2: ( rule__DescriptionSchemaDefinition__DescriptionAssignment_2 )
+            // InternalJsonSchemaDsl.g:5374:3: rule__DescriptionSchemaDefinition__DescriptionAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__DescriptionSchemaDefinition__DescriptionAssignment_2();
@@ -15409,14 +16559,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinPropertiesSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:5051:1: rule__MinPropertiesSchemaDefinition__Group__0 : rule__MinPropertiesSchemaDefinition__Group__0__Impl rule__MinPropertiesSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:5383:1: rule__MinPropertiesSchemaDefinition__Group__0 : rule__MinPropertiesSchemaDefinition__Group__0__Impl rule__MinPropertiesSchemaDefinition__Group__1 ;
     public final void rule__MinPropertiesSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5055:1: ( rule__MinPropertiesSchemaDefinition__Group__0__Impl rule__MinPropertiesSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:5056:2: rule__MinPropertiesSchemaDefinition__Group__0__Impl rule__MinPropertiesSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:5387:1: ( rule__MinPropertiesSchemaDefinition__Group__0__Impl rule__MinPropertiesSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:5388:2: rule__MinPropertiesSchemaDefinition__Group__0__Impl rule__MinPropertiesSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__MinPropertiesSchemaDefinition__Group__0__Impl();
@@ -15447,20 +16597,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinPropertiesSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:5063:1: rule__MinPropertiesSchemaDefinition__Group__0__Impl : ( '\"minProperties\"' ) ;
+    // InternalJsonSchemaDsl.g:5395:1: rule__MinPropertiesSchemaDefinition__Group__0__Impl : ( '\"minProperties\"' ) ;
     public final void rule__MinPropertiesSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5067:1: ( ( '\"minProperties\"' ) )
-            // InternalJsonSchemaDsl.g:5068:1: ( '\"minProperties\"' )
+            // InternalJsonSchemaDsl.g:5399:1: ( ( '\"minProperties\"' ) )
+            // InternalJsonSchemaDsl.g:5400:1: ( '\"minProperties\"' )
             {
-            // InternalJsonSchemaDsl.g:5068:1: ( '\"minProperties\"' )
-            // InternalJsonSchemaDsl.g:5069:2: '\"minProperties\"'
+            // InternalJsonSchemaDsl.g:5400:1: ( '\"minProperties\"' )
+            // InternalJsonSchemaDsl.g:5401:2: '\"minProperties\"'
             {
              before(grammarAccess.getMinPropertiesSchemaDefinitionAccess().getMinPropertiesKeyword_0()); 
-            match(input,52,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getMinPropertiesSchemaDefinitionAccess().getMinPropertiesKeyword_0()); 
 
             }
@@ -15484,16 +16634,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinPropertiesSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:5078:1: rule__MinPropertiesSchemaDefinition__Group__1 : rule__MinPropertiesSchemaDefinition__Group__1__Impl rule__MinPropertiesSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:5410:1: rule__MinPropertiesSchemaDefinition__Group__1 : rule__MinPropertiesSchemaDefinition__Group__1__Impl rule__MinPropertiesSchemaDefinition__Group__2 ;
     public final void rule__MinPropertiesSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5082:1: ( rule__MinPropertiesSchemaDefinition__Group__1__Impl rule__MinPropertiesSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:5083:2: rule__MinPropertiesSchemaDefinition__Group__1__Impl rule__MinPropertiesSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:5414:1: ( rule__MinPropertiesSchemaDefinition__Group__1__Impl rule__MinPropertiesSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:5415:2: rule__MinPropertiesSchemaDefinition__Group__1__Impl rule__MinPropertiesSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__MinPropertiesSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -15522,20 +16672,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinPropertiesSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:5090:1: rule__MinPropertiesSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:5422:1: rule__MinPropertiesSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__MinPropertiesSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5094:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:5095:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5426:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:5427:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:5095:1: ( ':' )
-            // InternalJsonSchemaDsl.g:5096:2: ':'
+            // InternalJsonSchemaDsl.g:5427:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5428:2: ':'
             {
              before(grammarAccess.getMinPropertiesSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getMinPropertiesSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -15559,14 +16709,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinPropertiesSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:5105:1: rule__MinPropertiesSchemaDefinition__Group__2 : rule__MinPropertiesSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:5437:1: rule__MinPropertiesSchemaDefinition__Group__2 : rule__MinPropertiesSchemaDefinition__Group__2__Impl ;
     public final void rule__MinPropertiesSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5109:1: ( rule__MinPropertiesSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:5110:2: rule__MinPropertiesSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:5441:1: ( rule__MinPropertiesSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:5442:2: rule__MinPropertiesSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MinPropertiesSchemaDefinition__Group__2__Impl();
@@ -15592,21 +16742,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinPropertiesSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:5116:1: rule__MinPropertiesSchemaDefinition__Group__2__Impl : ( ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:5448:1: rule__MinPropertiesSchemaDefinition__Group__2__Impl : ( ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 ) ) ;
     public final void rule__MinPropertiesSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5120:1: ( ( ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:5121:1: ( ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5452:1: ( ( ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:5453:1: ( ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:5121:1: ( ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:5122:2: ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 )
+            // InternalJsonSchemaDsl.g:5453:1: ( ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5454:2: ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 )
             {
              before(grammarAccess.getMinPropertiesSchemaDefinitionAccess().getMinPropertiesAssignment_2()); 
-            // InternalJsonSchemaDsl.g:5123:2: ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 )
-            // InternalJsonSchemaDsl.g:5123:3: rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2
+            // InternalJsonSchemaDsl.g:5455:2: ( rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 )
+            // InternalJsonSchemaDsl.g:5455:3: rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2();
@@ -15639,16 +16789,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:5132:1: rule__PatternPropertiesSchemaDefinition__Group__0 : rule__PatternPropertiesSchemaDefinition__Group__0__Impl rule__PatternPropertiesSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:5464:1: rule__PatternPropertiesSchemaDefinition__Group__0 : rule__PatternPropertiesSchemaDefinition__Group__0__Impl rule__PatternPropertiesSchemaDefinition__Group__1 ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5136:1: ( rule__PatternPropertiesSchemaDefinition__Group__0__Impl rule__PatternPropertiesSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:5137:2: rule__PatternPropertiesSchemaDefinition__Group__0__Impl rule__PatternPropertiesSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:5468:1: ( rule__PatternPropertiesSchemaDefinition__Group__0__Impl rule__PatternPropertiesSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:5469:2: rule__PatternPropertiesSchemaDefinition__Group__0__Impl rule__PatternPropertiesSchemaDefinition__Group__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_22);
             rule__PatternPropertiesSchemaDefinition__Group__0__Impl();
 
             state._fsp--;
@@ -15677,21 +16827,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:5144:1: rule__PatternPropertiesSchemaDefinition__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:5476:1: rule__PatternPropertiesSchemaDefinition__Group__0__Impl : ( () ) ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5148:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:5149:1: ( () )
+            // InternalJsonSchemaDsl.g:5480:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:5481:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:5149:1: ( () )
-            // InternalJsonSchemaDsl.g:5150:2: ()
+            // InternalJsonSchemaDsl.g:5481:1: ( () )
+            // InternalJsonSchemaDsl.g:5482:2: ()
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getPatternPropertiesSchemaDefinitionAction_0()); 
-            // InternalJsonSchemaDsl.g:5151:2: ()
-            // InternalJsonSchemaDsl.g:5151:3: 
+            // InternalJsonSchemaDsl.g:5483:2: ()
+            // InternalJsonSchemaDsl.g:5483:3: 
             {
             }
 
@@ -15714,14 +16864,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:5159:1: rule__PatternPropertiesSchemaDefinition__Group__1 : rule__PatternPropertiesSchemaDefinition__Group__1__Impl rule__PatternPropertiesSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:5491:1: rule__PatternPropertiesSchemaDefinition__Group__1 : rule__PatternPropertiesSchemaDefinition__Group__1__Impl rule__PatternPropertiesSchemaDefinition__Group__2 ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5163:1: ( rule__PatternPropertiesSchemaDefinition__Group__1__Impl rule__PatternPropertiesSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:5164:2: rule__PatternPropertiesSchemaDefinition__Group__1__Impl rule__PatternPropertiesSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:5495:1: ( rule__PatternPropertiesSchemaDefinition__Group__1__Impl rule__PatternPropertiesSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:5496:2: rule__PatternPropertiesSchemaDefinition__Group__1__Impl rule__PatternPropertiesSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__PatternPropertiesSchemaDefinition__Group__1__Impl();
@@ -15752,20 +16902,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:5171:1: rule__PatternPropertiesSchemaDefinition__Group__1__Impl : ( '\"patternProperties\"' ) ;
+    // InternalJsonSchemaDsl.g:5503:1: rule__PatternPropertiesSchemaDefinition__Group__1__Impl : ( '\"patternProperties\"' ) ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5175:1: ( ( '\"patternProperties\"' ) )
-            // InternalJsonSchemaDsl.g:5176:1: ( '\"patternProperties\"' )
+            // InternalJsonSchemaDsl.g:5507:1: ( ( '\"patternProperties\"' ) )
+            // InternalJsonSchemaDsl.g:5508:1: ( '\"patternProperties\"' )
             {
-            // InternalJsonSchemaDsl.g:5176:1: ( '\"patternProperties\"' )
-            // InternalJsonSchemaDsl.g:5177:2: '\"patternProperties\"'
+            // InternalJsonSchemaDsl.g:5508:1: ( '\"patternProperties\"' )
+            // InternalJsonSchemaDsl.g:5509:2: '\"patternProperties\"'
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getPatternPropertiesKeyword_1()); 
-            match(input,53,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getPatternPropertiesKeyword_1()); 
 
             }
@@ -15789,14 +16939,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:5186:1: rule__PatternPropertiesSchemaDefinition__Group__2 : rule__PatternPropertiesSchemaDefinition__Group__2__Impl rule__PatternPropertiesSchemaDefinition__Group__3 ;
+    // InternalJsonSchemaDsl.g:5518:1: rule__PatternPropertiesSchemaDefinition__Group__2 : rule__PatternPropertiesSchemaDefinition__Group__2__Impl rule__PatternPropertiesSchemaDefinition__Group__3 ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5190:1: ( rule__PatternPropertiesSchemaDefinition__Group__2__Impl rule__PatternPropertiesSchemaDefinition__Group__3 )
-            // InternalJsonSchemaDsl.g:5191:2: rule__PatternPropertiesSchemaDefinition__Group__2__Impl rule__PatternPropertiesSchemaDefinition__Group__3
+            // InternalJsonSchemaDsl.g:5522:1: ( rule__PatternPropertiesSchemaDefinition__Group__2__Impl rule__PatternPropertiesSchemaDefinition__Group__3 )
+            // InternalJsonSchemaDsl.g:5523:2: rule__PatternPropertiesSchemaDefinition__Group__2__Impl rule__PatternPropertiesSchemaDefinition__Group__3
             {
             pushFollow(FOLLOW_4);
             rule__PatternPropertiesSchemaDefinition__Group__2__Impl();
@@ -15827,20 +16977,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:5198:1: rule__PatternPropertiesSchemaDefinition__Group__2__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:5530:1: rule__PatternPropertiesSchemaDefinition__Group__2__Impl : ( ':' ) ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5202:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:5203:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5534:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:5535:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:5203:1: ( ':' )
-            // InternalJsonSchemaDsl.g:5204:2: ':'
+            // InternalJsonSchemaDsl.g:5535:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5536:2: ':'
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getColonKeyword_2()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getColonKeyword_2()); 
 
             }
@@ -15864,16 +17014,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__3"
-    // InternalJsonSchemaDsl.g:5213:1: rule__PatternPropertiesSchemaDefinition__Group__3 : rule__PatternPropertiesSchemaDefinition__Group__3__Impl rule__PatternPropertiesSchemaDefinition__Group__4 ;
+    // InternalJsonSchemaDsl.g:5545:1: rule__PatternPropertiesSchemaDefinition__Group__3 : rule__PatternPropertiesSchemaDefinition__Group__3__Impl rule__PatternPropertiesSchemaDefinition__Group__4 ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5217:1: ( rule__PatternPropertiesSchemaDefinition__Group__3__Impl rule__PatternPropertiesSchemaDefinition__Group__4 )
-            // InternalJsonSchemaDsl.g:5218:2: rule__PatternPropertiesSchemaDefinition__Group__3__Impl rule__PatternPropertiesSchemaDefinition__Group__4
+            // InternalJsonSchemaDsl.g:5549:1: ( rule__PatternPropertiesSchemaDefinition__Group__3__Impl rule__PatternPropertiesSchemaDefinition__Group__4 )
+            // InternalJsonSchemaDsl.g:5550:2: rule__PatternPropertiesSchemaDefinition__Group__3__Impl rule__PatternPropertiesSchemaDefinition__Group__4
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_19);
             rule__PatternPropertiesSchemaDefinition__Group__3__Impl();
 
             state._fsp--;
@@ -15902,20 +17052,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:5225:1: rule__PatternPropertiesSchemaDefinition__Group__3__Impl : ( '{' ) ;
+    // InternalJsonSchemaDsl.g:5557:1: rule__PatternPropertiesSchemaDefinition__Group__3__Impl : ( '{' ) ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5229:1: ( ( '{' ) )
-            // InternalJsonSchemaDsl.g:5230:1: ( '{' )
+            // InternalJsonSchemaDsl.g:5561:1: ( ( '{' ) )
+            // InternalJsonSchemaDsl.g:5562:1: ( '{' )
             {
-            // InternalJsonSchemaDsl.g:5230:1: ( '{' )
-            // InternalJsonSchemaDsl.g:5231:2: '{'
+            // InternalJsonSchemaDsl.g:5562:1: ( '{' )
+            // InternalJsonSchemaDsl.g:5563:2: '{'
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getLeftCurlyBracketKeyword_3()); 
-            match(input,21,FOLLOW_2); 
+            match(input,63,FOLLOW_2); 
              after(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getLeftCurlyBracketKeyword_3()); 
 
             }
@@ -15939,16 +17089,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__4"
-    // InternalJsonSchemaDsl.g:5240:1: rule__PatternPropertiesSchemaDefinition__Group__4 : rule__PatternPropertiesSchemaDefinition__Group__4__Impl rule__PatternPropertiesSchemaDefinition__Group__5 ;
+    // InternalJsonSchemaDsl.g:5572:1: rule__PatternPropertiesSchemaDefinition__Group__4 : rule__PatternPropertiesSchemaDefinition__Group__4__Impl rule__PatternPropertiesSchemaDefinition__Group__5 ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5244:1: ( rule__PatternPropertiesSchemaDefinition__Group__4__Impl rule__PatternPropertiesSchemaDefinition__Group__5 )
-            // InternalJsonSchemaDsl.g:5245:2: rule__PatternPropertiesSchemaDefinition__Group__4__Impl rule__PatternPropertiesSchemaDefinition__Group__5
+            // InternalJsonSchemaDsl.g:5576:1: ( rule__PatternPropertiesSchemaDefinition__Group__4__Impl rule__PatternPropertiesSchemaDefinition__Group__5 )
+            // InternalJsonSchemaDsl.g:5577:2: rule__PatternPropertiesSchemaDefinition__Group__4__Impl rule__PatternPropertiesSchemaDefinition__Group__5
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_19);
             rule__PatternPropertiesSchemaDefinition__Group__4__Impl();
 
             state._fsp--;
@@ -15977,29 +17127,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__4__Impl"
-    // InternalJsonSchemaDsl.g:5252:1: rule__PatternPropertiesSchemaDefinition__Group__4__Impl : ( ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )? ) ;
+    // InternalJsonSchemaDsl.g:5584:1: rule__PatternPropertiesSchemaDefinition__Group__4__Impl : ( ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )? ) ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5256:1: ( ( ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )? ) )
-            // InternalJsonSchemaDsl.g:5257:1: ( ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )? )
+            // InternalJsonSchemaDsl.g:5588:1: ( ( ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )? ) )
+            // InternalJsonSchemaDsl.g:5589:1: ( ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )? )
             {
-            // InternalJsonSchemaDsl.g:5257:1: ( ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )? )
-            // InternalJsonSchemaDsl.g:5258:2: ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )?
+            // InternalJsonSchemaDsl.g:5589:1: ( ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )? )
+            // InternalJsonSchemaDsl.g:5590:2: ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )?
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getGroup_4()); 
-            // InternalJsonSchemaDsl.g:5259:2: ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:5591:2: ( rule__PatternPropertiesSchemaDefinition__Group_4__0 )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA16_0==RULE_STRING) ) {
-                alt16=1;
+            if ( (LA18_0==RULE_STRING||(LA18_0>=14 && LA18_0<=55)) ) {
+                alt18=1;
             }
-            switch (alt16) {
+            switch (alt18) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:5259:3: rule__PatternPropertiesSchemaDefinition__Group_4__0
+                    // InternalJsonSchemaDsl.g:5591:3: rule__PatternPropertiesSchemaDefinition__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__PatternPropertiesSchemaDefinition__Group_4__0();
@@ -16035,14 +17185,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__5"
-    // InternalJsonSchemaDsl.g:5267:1: rule__PatternPropertiesSchemaDefinition__Group__5 : rule__PatternPropertiesSchemaDefinition__Group__5__Impl ;
+    // InternalJsonSchemaDsl.g:5599:1: rule__PatternPropertiesSchemaDefinition__Group__5 : rule__PatternPropertiesSchemaDefinition__Group__5__Impl ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5271:1: ( rule__PatternPropertiesSchemaDefinition__Group__5__Impl )
-            // InternalJsonSchemaDsl.g:5272:2: rule__PatternPropertiesSchemaDefinition__Group__5__Impl
+            // InternalJsonSchemaDsl.g:5603:1: ( rule__PatternPropertiesSchemaDefinition__Group__5__Impl )
+            // InternalJsonSchemaDsl.g:5604:2: rule__PatternPropertiesSchemaDefinition__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PatternPropertiesSchemaDefinition__Group__5__Impl();
@@ -16068,20 +17218,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group__5__Impl"
-    // InternalJsonSchemaDsl.g:5278:1: rule__PatternPropertiesSchemaDefinition__Group__5__Impl : ( '}' ) ;
+    // InternalJsonSchemaDsl.g:5610:1: rule__PatternPropertiesSchemaDefinition__Group__5__Impl : ( '}' ) ;
     public final void rule__PatternPropertiesSchemaDefinition__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5282:1: ( ( '}' ) )
-            // InternalJsonSchemaDsl.g:5283:1: ( '}' )
+            // InternalJsonSchemaDsl.g:5614:1: ( ( '}' ) )
+            // InternalJsonSchemaDsl.g:5615:1: ( '}' )
             {
-            // InternalJsonSchemaDsl.g:5283:1: ( '}' )
-            // InternalJsonSchemaDsl.g:5284:2: '}'
+            // InternalJsonSchemaDsl.g:5615:1: ( '}' )
+            // InternalJsonSchemaDsl.g:5616:2: '}'
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getRightCurlyBracketKeyword_5()); 
-            match(input,22,FOLLOW_2); 
+            match(input,64,FOLLOW_2); 
              after(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getRightCurlyBracketKeyword_5()); 
 
             }
@@ -16105,14 +17255,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group_4__0"
-    // InternalJsonSchemaDsl.g:5294:1: rule__PatternPropertiesSchemaDefinition__Group_4__0 : rule__PatternPropertiesSchemaDefinition__Group_4__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4__1 ;
+    // InternalJsonSchemaDsl.g:5626:1: rule__PatternPropertiesSchemaDefinition__Group_4__0 : rule__PatternPropertiesSchemaDefinition__Group_4__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4__1 ;
     public final void rule__PatternPropertiesSchemaDefinition__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5298:1: ( rule__PatternPropertiesSchemaDefinition__Group_4__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4__1 )
-            // InternalJsonSchemaDsl.g:5299:2: rule__PatternPropertiesSchemaDefinition__Group_4__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4__1
+            // InternalJsonSchemaDsl.g:5630:1: ( rule__PatternPropertiesSchemaDefinition__Group_4__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4__1 )
+            // InternalJsonSchemaDsl.g:5631:2: rule__PatternPropertiesSchemaDefinition__Group_4__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4__1
             {
             pushFollow(FOLLOW_6);
             rule__PatternPropertiesSchemaDefinition__Group_4__0__Impl();
@@ -16143,21 +17293,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group_4__0__Impl"
-    // InternalJsonSchemaDsl.g:5306:1: rule__PatternPropertiesSchemaDefinition__Group_4__0__Impl : ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) ;
+    // InternalJsonSchemaDsl.g:5638:1: rule__PatternPropertiesSchemaDefinition__Group_4__0__Impl : ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) ;
     public final void rule__PatternPropertiesSchemaDefinition__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5310:1: ( ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) )
-            // InternalJsonSchemaDsl.g:5311:1: ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
+            // InternalJsonSchemaDsl.g:5642:1: ( ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) )
+            // InternalJsonSchemaDsl.g:5643:1: ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
             {
-            // InternalJsonSchemaDsl.g:5311:1: ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
-            // InternalJsonSchemaDsl.g:5312:2: ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 )
+            // InternalJsonSchemaDsl.g:5643:1: ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
+            // InternalJsonSchemaDsl.g:5644:2: ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 )
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getKeySchemaPairsAssignment_4_0()); 
-            // InternalJsonSchemaDsl.g:5313:2: ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 )
-            // InternalJsonSchemaDsl.g:5313:3: rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0
+            // InternalJsonSchemaDsl.g:5645:2: ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 )
+            // InternalJsonSchemaDsl.g:5645:3: rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0
             {
             pushFollow(FOLLOW_2);
             rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0();
@@ -16190,14 +17340,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group_4__1"
-    // InternalJsonSchemaDsl.g:5321:1: rule__PatternPropertiesSchemaDefinition__Group_4__1 : rule__PatternPropertiesSchemaDefinition__Group_4__1__Impl ;
+    // InternalJsonSchemaDsl.g:5653:1: rule__PatternPropertiesSchemaDefinition__Group_4__1 : rule__PatternPropertiesSchemaDefinition__Group_4__1__Impl ;
     public final void rule__PatternPropertiesSchemaDefinition__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5325:1: ( rule__PatternPropertiesSchemaDefinition__Group_4__1__Impl )
-            // InternalJsonSchemaDsl.g:5326:2: rule__PatternPropertiesSchemaDefinition__Group_4__1__Impl
+            // InternalJsonSchemaDsl.g:5657:1: ( rule__PatternPropertiesSchemaDefinition__Group_4__1__Impl )
+            // InternalJsonSchemaDsl.g:5658:2: rule__PatternPropertiesSchemaDefinition__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PatternPropertiesSchemaDefinition__Group_4__1__Impl();
@@ -16223,33 +17373,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group_4__1__Impl"
-    // InternalJsonSchemaDsl.g:5332:1: rule__PatternPropertiesSchemaDefinition__Group_4__1__Impl : ( ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )* ) ;
+    // InternalJsonSchemaDsl.g:5664:1: rule__PatternPropertiesSchemaDefinition__Group_4__1__Impl : ( ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )* ) ;
     public final void rule__PatternPropertiesSchemaDefinition__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5336:1: ( ( ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )* ) )
-            // InternalJsonSchemaDsl.g:5337:1: ( ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )* )
+            // InternalJsonSchemaDsl.g:5668:1: ( ( ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )* ) )
+            // InternalJsonSchemaDsl.g:5669:1: ( ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )* )
             {
-            // InternalJsonSchemaDsl.g:5337:1: ( ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )* )
-            // InternalJsonSchemaDsl.g:5338:2: ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )*
+            // InternalJsonSchemaDsl.g:5669:1: ( ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )* )
+            // InternalJsonSchemaDsl.g:5670:2: ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )*
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getGroup_4_1()); 
-            // InternalJsonSchemaDsl.g:5339:2: ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )*
-            loop17:
+            // InternalJsonSchemaDsl.g:5671:2: ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0 )*
+            loop19:
             do {
-                int alt17=2;
-                int LA17_0 = input.LA(1);
+                int alt19=2;
+                int LA19_0 = input.LA(1);
 
-                if ( (LA17_0==23) ) {
-                    alt17=1;
+                if ( (LA19_0==65) ) {
+                    alt19=1;
                 }
 
 
-                switch (alt17) {
+                switch (alt19) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:5339:3: rule__PatternPropertiesSchemaDefinition__Group_4_1__0
+            	    // InternalJsonSchemaDsl.g:5671:3: rule__PatternPropertiesSchemaDefinition__Group_4_1__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__PatternPropertiesSchemaDefinition__Group_4_1__0();
@@ -16261,7 +17411,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             	    break;
 
             	default :
-            	    break loop17;
+            	    break loop19;
                 }
             } while (true);
 
@@ -16288,16 +17438,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group_4_1__0"
-    // InternalJsonSchemaDsl.g:5348:1: rule__PatternPropertiesSchemaDefinition__Group_4_1__0 : rule__PatternPropertiesSchemaDefinition__Group_4_1__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4_1__1 ;
+    // InternalJsonSchemaDsl.g:5680:1: rule__PatternPropertiesSchemaDefinition__Group_4_1__0 : rule__PatternPropertiesSchemaDefinition__Group_4_1__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4_1__1 ;
     public final void rule__PatternPropertiesSchemaDefinition__Group_4_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5352:1: ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4_1__1 )
-            // InternalJsonSchemaDsl.g:5353:2: rule__PatternPropertiesSchemaDefinition__Group_4_1__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4_1__1
+            // InternalJsonSchemaDsl.g:5684:1: ( rule__PatternPropertiesSchemaDefinition__Group_4_1__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4_1__1 )
+            // InternalJsonSchemaDsl.g:5685:2: rule__PatternPropertiesSchemaDefinition__Group_4_1__0__Impl rule__PatternPropertiesSchemaDefinition__Group_4_1__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__PatternPropertiesSchemaDefinition__Group_4_1__0__Impl();
 
             state._fsp--;
@@ -16326,20 +17476,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group_4_1__0__Impl"
-    // InternalJsonSchemaDsl.g:5360:1: rule__PatternPropertiesSchemaDefinition__Group_4_1__0__Impl : ( ',' ) ;
+    // InternalJsonSchemaDsl.g:5692:1: rule__PatternPropertiesSchemaDefinition__Group_4_1__0__Impl : ( ',' ) ;
     public final void rule__PatternPropertiesSchemaDefinition__Group_4_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5364:1: ( ( ',' ) )
-            // InternalJsonSchemaDsl.g:5365:1: ( ',' )
+            // InternalJsonSchemaDsl.g:5696:1: ( ( ',' ) )
+            // InternalJsonSchemaDsl.g:5697:1: ( ',' )
             {
-            // InternalJsonSchemaDsl.g:5365:1: ( ',' )
-            // InternalJsonSchemaDsl.g:5366:2: ','
+            // InternalJsonSchemaDsl.g:5697:1: ( ',' )
+            // InternalJsonSchemaDsl.g:5698:2: ','
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getCommaKeyword_4_1_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getCommaKeyword_4_1_0()); 
 
             }
@@ -16363,14 +17513,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group_4_1__1"
-    // InternalJsonSchemaDsl.g:5375:1: rule__PatternPropertiesSchemaDefinition__Group_4_1__1 : rule__PatternPropertiesSchemaDefinition__Group_4_1__1__Impl ;
+    // InternalJsonSchemaDsl.g:5707:1: rule__PatternPropertiesSchemaDefinition__Group_4_1__1 : rule__PatternPropertiesSchemaDefinition__Group_4_1__1__Impl ;
     public final void rule__PatternPropertiesSchemaDefinition__Group_4_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5379:1: ( rule__PatternPropertiesSchemaDefinition__Group_4_1__1__Impl )
-            // InternalJsonSchemaDsl.g:5380:2: rule__PatternPropertiesSchemaDefinition__Group_4_1__1__Impl
+            // InternalJsonSchemaDsl.g:5711:1: ( rule__PatternPropertiesSchemaDefinition__Group_4_1__1__Impl )
+            // InternalJsonSchemaDsl.g:5712:2: rule__PatternPropertiesSchemaDefinition__Group_4_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PatternPropertiesSchemaDefinition__Group_4_1__1__Impl();
@@ -16396,21 +17546,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__Group_4_1__1__Impl"
-    // InternalJsonSchemaDsl.g:5386:1: rule__PatternPropertiesSchemaDefinition__Group_4_1__1__Impl : ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) ;
+    // InternalJsonSchemaDsl.g:5718:1: rule__PatternPropertiesSchemaDefinition__Group_4_1__1__Impl : ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) ;
     public final void rule__PatternPropertiesSchemaDefinition__Group_4_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5390:1: ( ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) )
-            // InternalJsonSchemaDsl.g:5391:1: ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
+            // InternalJsonSchemaDsl.g:5722:1: ( ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) )
+            // InternalJsonSchemaDsl.g:5723:1: ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
             {
-            // InternalJsonSchemaDsl.g:5391:1: ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
-            // InternalJsonSchemaDsl.g:5392:2: ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
+            // InternalJsonSchemaDsl.g:5723:1: ( ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
+            // InternalJsonSchemaDsl.g:5724:2: ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getKeySchemaPairsAssignment_4_1_1()); 
-            // InternalJsonSchemaDsl.g:5393:2: ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
-            // InternalJsonSchemaDsl.g:5393:3: rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1
+            // InternalJsonSchemaDsl.g:5725:2: ( rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
+            // InternalJsonSchemaDsl.g:5725:3: rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1
             {
             pushFollow(FOLLOW_2);
             rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1();
@@ -16443,14 +17593,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalItemsSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:5402:1: rule__AdditionalItemsSchemaDefinition__Group__0 : rule__AdditionalItemsSchemaDefinition__Group__0__Impl rule__AdditionalItemsSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:5734:1: rule__AdditionalItemsSchemaDefinition__Group__0 : rule__AdditionalItemsSchemaDefinition__Group__0__Impl rule__AdditionalItemsSchemaDefinition__Group__1 ;
     public final void rule__AdditionalItemsSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5406:1: ( rule__AdditionalItemsSchemaDefinition__Group__0__Impl rule__AdditionalItemsSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:5407:2: rule__AdditionalItemsSchemaDefinition__Group__0__Impl rule__AdditionalItemsSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:5738:1: ( rule__AdditionalItemsSchemaDefinition__Group__0__Impl rule__AdditionalItemsSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:5739:2: rule__AdditionalItemsSchemaDefinition__Group__0__Impl rule__AdditionalItemsSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__AdditionalItemsSchemaDefinition__Group__0__Impl();
@@ -16481,20 +17631,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalItemsSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:5414:1: rule__AdditionalItemsSchemaDefinition__Group__0__Impl : ( '\"additionalItems\"' ) ;
+    // InternalJsonSchemaDsl.g:5746:1: rule__AdditionalItemsSchemaDefinition__Group__0__Impl : ( '\"additionalItems\"' ) ;
     public final void rule__AdditionalItemsSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5418:1: ( ( '\"additionalItems\"' ) )
-            // InternalJsonSchemaDsl.g:5419:1: ( '\"additionalItems\"' )
+            // InternalJsonSchemaDsl.g:5750:1: ( ( '\"additionalItems\"' ) )
+            // InternalJsonSchemaDsl.g:5751:1: ( '\"additionalItems\"' )
             {
-            // InternalJsonSchemaDsl.g:5419:1: ( '\"additionalItems\"' )
-            // InternalJsonSchemaDsl.g:5420:2: '\"additionalItems\"'
+            // InternalJsonSchemaDsl.g:5751:1: ( '\"additionalItems\"' )
+            // InternalJsonSchemaDsl.g:5752:2: '\"additionalItems\"'
             {
              before(grammarAccess.getAdditionalItemsSchemaDefinitionAccess().getAdditionalItemsKeyword_0()); 
-            match(input,54,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getAdditionalItemsSchemaDefinitionAccess().getAdditionalItemsKeyword_0()); 
 
             }
@@ -16518,14 +17668,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalItemsSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:5429:1: rule__AdditionalItemsSchemaDefinition__Group__1 : rule__AdditionalItemsSchemaDefinition__Group__1__Impl rule__AdditionalItemsSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:5761:1: rule__AdditionalItemsSchemaDefinition__Group__1 : rule__AdditionalItemsSchemaDefinition__Group__1__Impl rule__AdditionalItemsSchemaDefinition__Group__2 ;
     public final void rule__AdditionalItemsSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5433:1: ( rule__AdditionalItemsSchemaDefinition__Group__1__Impl rule__AdditionalItemsSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:5434:2: rule__AdditionalItemsSchemaDefinition__Group__1__Impl rule__AdditionalItemsSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:5765:1: ( rule__AdditionalItemsSchemaDefinition__Group__1__Impl rule__AdditionalItemsSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:5766:2: rule__AdditionalItemsSchemaDefinition__Group__1__Impl rule__AdditionalItemsSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__AdditionalItemsSchemaDefinition__Group__1__Impl();
@@ -16556,20 +17706,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalItemsSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:5441:1: rule__AdditionalItemsSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:5773:1: rule__AdditionalItemsSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__AdditionalItemsSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5445:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:5446:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5777:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:5778:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:5446:1: ( ':' )
-            // InternalJsonSchemaDsl.g:5447:2: ':'
+            // InternalJsonSchemaDsl.g:5778:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5779:2: ':'
             {
              before(grammarAccess.getAdditionalItemsSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getAdditionalItemsSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -16593,14 +17743,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalItemsSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:5456:1: rule__AdditionalItemsSchemaDefinition__Group__2 : rule__AdditionalItemsSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:5788:1: rule__AdditionalItemsSchemaDefinition__Group__2 : rule__AdditionalItemsSchemaDefinition__Group__2__Impl ;
     public final void rule__AdditionalItemsSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5460:1: ( rule__AdditionalItemsSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:5461:2: rule__AdditionalItemsSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:5792:1: ( rule__AdditionalItemsSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:5793:2: rule__AdditionalItemsSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AdditionalItemsSchemaDefinition__Group__2__Impl();
@@ -16626,21 +17776,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalItemsSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:5467:1: rule__AdditionalItemsSchemaDefinition__Group__2__Impl : ( ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:5799:1: rule__AdditionalItemsSchemaDefinition__Group__2__Impl : ( ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 ) ) ;
     public final void rule__AdditionalItemsSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5471:1: ( ( ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:5472:1: ( ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5803:1: ( ( ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:5804:1: ( ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:5472:1: ( ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:5473:2: ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 )
+            // InternalJsonSchemaDsl.g:5804:1: ( ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5805:2: ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 )
             {
              before(grammarAccess.getAdditionalItemsSchemaDefinitionAccess().getAdditionalItemsAssignment_2()); 
-            // InternalJsonSchemaDsl.g:5474:2: ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 )
-            // InternalJsonSchemaDsl.g:5474:3: rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2
+            // InternalJsonSchemaDsl.g:5806:2: ( rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 )
+            // InternalJsonSchemaDsl.g:5806:3: rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2();
@@ -16673,14 +17823,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyValuePair__Group__0"
-    // InternalJsonSchemaDsl.g:5483:1: rule__KeyValuePair__Group__0 : rule__KeyValuePair__Group__0__Impl rule__KeyValuePair__Group__1 ;
+    // InternalJsonSchemaDsl.g:5815:1: rule__KeyValuePair__Group__0 : rule__KeyValuePair__Group__0__Impl rule__KeyValuePair__Group__1 ;
     public final void rule__KeyValuePair__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5487:1: ( rule__KeyValuePair__Group__0__Impl rule__KeyValuePair__Group__1 )
-            // InternalJsonSchemaDsl.g:5488:2: rule__KeyValuePair__Group__0__Impl rule__KeyValuePair__Group__1
+            // InternalJsonSchemaDsl.g:5819:1: ( rule__KeyValuePair__Group__0__Impl rule__KeyValuePair__Group__1 )
+            // InternalJsonSchemaDsl.g:5820:2: rule__KeyValuePair__Group__0__Impl rule__KeyValuePair__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__KeyValuePair__Group__0__Impl();
@@ -16711,21 +17861,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyValuePair__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:5495:1: rule__KeyValuePair__Group__0__Impl : ( ( rule__KeyValuePair__KeyAssignment_0 ) ) ;
+    // InternalJsonSchemaDsl.g:5827:1: rule__KeyValuePair__Group__0__Impl : ( ( rule__KeyValuePair__KeyAssignment_0 ) ) ;
     public final void rule__KeyValuePair__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5499:1: ( ( ( rule__KeyValuePair__KeyAssignment_0 ) ) )
-            // InternalJsonSchemaDsl.g:5500:1: ( ( rule__KeyValuePair__KeyAssignment_0 ) )
+            // InternalJsonSchemaDsl.g:5831:1: ( ( ( rule__KeyValuePair__KeyAssignment_0 ) ) )
+            // InternalJsonSchemaDsl.g:5832:1: ( ( rule__KeyValuePair__KeyAssignment_0 ) )
             {
-            // InternalJsonSchemaDsl.g:5500:1: ( ( rule__KeyValuePair__KeyAssignment_0 ) )
-            // InternalJsonSchemaDsl.g:5501:2: ( rule__KeyValuePair__KeyAssignment_0 )
+            // InternalJsonSchemaDsl.g:5832:1: ( ( rule__KeyValuePair__KeyAssignment_0 ) )
+            // InternalJsonSchemaDsl.g:5833:2: ( rule__KeyValuePair__KeyAssignment_0 )
             {
              before(grammarAccess.getKeyValuePairAccess().getKeyAssignment_0()); 
-            // InternalJsonSchemaDsl.g:5502:2: ( rule__KeyValuePair__KeyAssignment_0 )
-            // InternalJsonSchemaDsl.g:5502:3: rule__KeyValuePair__KeyAssignment_0
+            // InternalJsonSchemaDsl.g:5834:2: ( rule__KeyValuePair__KeyAssignment_0 )
+            // InternalJsonSchemaDsl.g:5834:3: rule__KeyValuePair__KeyAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__KeyValuePair__KeyAssignment_0();
@@ -16758,16 +17908,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyValuePair__Group__1"
-    // InternalJsonSchemaDsl.g:5510:1: rule__KeyValuePair__Group__1 : rule__KeyValuePair__Group__1__Impl rule__KeyValuePair__Group__2 ;
+    // InternalJsonSchemaDsl.g:5842:1: rule__KeyValuePair__Group__1 : rule__KeyValuePair__Group__1__Impl rule__KeyValuePair__Group__2 ;
     public final void rule__KeyValuePair__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5514:1: ( rule__KeyValuePair__Group__1__Impl rule__KeyValuePair__Group__2 )
-            // InternalJsonSchemaDsl.g:5515:2: rule__KeyValuePair__Group__1__Impl rule__KeyValuePair__Group__2
+            // InternalJsonSchemaDsl.g:5846:1: ( rule__KeyValuePair__Group__1__Impl rule__KeyValuePair__Group__2 )
+            // InternalJsonSchemaDsl.g:5847:2: rule__KeyValuePair__Group__1__Impl rule__KeyValuePair__Group__2
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__KeyValuePair__Group__1__Impl();
 
             state._fsp--;
@@ -16796,20 +17946,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyValuePair__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:5522:1: rule__KeyValuePair__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:5854:1: rule__KeyValuePair__Group__1__Impl : ( ':' ) ;
     public final void rule__KeyValuePair__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5526:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:5527:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5858:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:5859:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:5527:1: ( ':' )
-            // InternalJsonSchemaDsl.g:5528:2: ':'
+            // InternalJsonSchemaDsl.g:5859:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5860:2: ':'
             {
              before(grammarAccess.getKeyValuePairAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getKeyValuePairAccess().getColonKeyword_1()); 
 
             }
@@ -16833,14 +17983,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyValuePair__Group__2"
-    // InternalJsonSchemaDsl.g:5537:1: rule__KeyValuePair__Group__2 : rule__KeyValuePair__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:5869:1: rule__KeyValuePair__Group__2 : rule__KeyValuePair__Group__2__Impl ;
     public final void rule__KeyValuePair__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5541:1: ( rule__KeyValuePair__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:5542:2: rule__KeyValuePair__Group__2__Impl
+            // InternalJsonSchemaDsl.g:5873:1: ( rule__KeyValuePair__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:5874:2: rule__KeyValuePair__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__KeyValuePair__Group__2__Impl();
@@ -16866,21 +18016,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyValuePair__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:5548:1: rule__KeyValuePair__Group__2__Impl : ( ( rule__KeyValuePair__ValueAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:5880:1: rule__KeyValuePair__Group__2__Impl : ( ( rule__KeyValuePair__ValueAssignment_2 ) ) ;
     public final void rule__KeyValuePair__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5552:1: ( ( ( rule__KeyValuePair__ValueAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:5553:1: ( ( rule__KeyValuePair__ValueAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5884:1: ( ( ( rule__KeyValuePair__ValueAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:5885:1: ( ( rule__KeyValuePair__ValueAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:5553:1: ( ( rule__KeyValuePair__ValueAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:5554:2: ( rule__KeyValuePair__ValueAssignment_2 )
+            // InternalJsonSchemaDsl.g:5885:1: ( ( rule__KeyValuePair__ValueAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:5886:2: ( rule__KeyValuePair__ValueAssignment_2 )
             {
              before(grammarAccess.getKeyValuePairAccess().getValueAssignment_2()); 
-            // InternalJsonSchemaDsl.g:5555:2: ( rule__KeyValuePair__ValueAssignment_2 )
-            // InternalJsonSchemaDsl.g:5555:3: rule__KeyValuePair__ValueAssignment_2
+            // InternalJsonSchemaDsl.g:5887:2: ( rule__KeyValuePair__ValueAssignment_2 )
+            // InternalJsonSchemaDsl.g:5887:3: rule__KeyValuePair__ValueAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__KeyValuePair__ValueAssignment_2();
@@ -16913,16 +18063,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:5564:1: rule__ExamplesSchemaDefinition__Group__0 : rule__ExamplesSchemaDefinition__Group__0__Impl rule__ExamplesSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:5896:1: rule__ExamplesSchemaDefinition__Group__0 : rule__ExamplesSchemaDefinition__Group__0__Impl rule__ExamplesSchemaDefinition__Group__1 ;
     public final void rule__ExamplesSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5568:1: ( rule__ExamplesSchemaDefinition__Group__0__Impl rule__ExamplesSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:5569:2: rule__ExamplesSchemaDefinition__Group__0__Impl rule__ExamplesSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:5900:1: ( rule__ExamplesSchemaDefinition__Group__0__Impl rule__ExamplesSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:5901:2: rule__ExamplesSchemaDefinition__Group__0__Impl rule__ExamplesSchemaDefinition__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_23);
             rule__ExamplesSchemaDefinition__Group__0__Impl();
 
             state._fsp--;
@@ -16951,21 +18101,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:5576:1: rule__ExamplesSchemaDefinition__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:5908:1: rule__ExamplesSchemaDefinition__Group__0__Impl : ( () ) ;
     public final void rule__ExamplesSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5580:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:5581:1: ( () )
+            // InternalJsonSchemaDsl.g:5912:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:5913:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:5581:1: ( () )
-            // InternalJsonSchemaDsl.g:5582:2: ()
+            // InternalJsonSchemaDsl.g:5913:1: ( () )
+            // InternalJsonSchemaDsl.g:5914:2: ()
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getExamplesSchemaDefinitionAction_0()); 
-            // InternalJsonSchemaDsl.g:5583:2: ()
-            // InternalJsonSchemaDsl.g:5583:3: 
+            // InternalJsonSchemaDsl.g:5915:2: ()
+            // InternalJsonSchemaDsl.g:5915:3: 
             {
             }
 
@@ -16988,14 +18138,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:5591:1: rule__ExamplesSchemaDefinition__Group__1 : rule__ExamplesSchemaDefinition__Group__1__Impl rule__ExamplesSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:5923:1: rule__ExamplesSchemaDefinition__Group__1 : rule__ExamplesSchemaDefinition__Group__1__Impl rule__ExamplesSchemaDefinition__Group__2 ;
     public final void rule__ExamplesSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5595:1: ( rule__ExamplesSchemaDefinition__Group__1__Impl rule__ExamplesSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:5596:2: rule__ExamplesSchemaDefinition__Group__1__Impl rule__ExamplesSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:5927:1: ( rule__ExamplesSchemaDefinition__Group__1__Impl rule__ExamplesSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:5928:2: rule__ExamplesSchemaDefinition__Group__1__Impl rule__ExamplesSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__ExamplesSchemaDefinition__Group__1__Impl();
@@ -17026,20 +18176,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:5603:1: rule__ExamplesSchemaDefinition__Group__1__Impl : ( '\"examples\"' ) ;
+    // InternalJsonSchemaDsl.g:5935:1: rule__ExamplesSchemaDefinition__Group__1__Impl : ( '\"examples\"' ) ;
     public final void rule__ExamplesSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5607:1: ( ( '\"examples\"' ) )
-            // InternalJsonSchemaDsl.g:5608:1: ( '\"examples\"' )
+            // InternalJsonSchemaDsl.g:5939:1: ( ( '\"examples\"' ) )
+            // InternalJsonSchemaDsl.g:5940:1: ( '\"examples\"' )
             {
-            // InternalJsonSchemaDsl.g:5608:1: ( '\"examples\"' )
-            // InternalJsonSchemaDsl.g:5609:2: '\"examples\"'
+            // InternalJsonSchemaDsl.g:5940:1: ( '\"examples\"' )
+            // InternalJsonSchemaDsl.g:5941:2: '\"examples\"'
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getExamplesKeyword_1()); 
-            match(input,55,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getExamplesSchemaDefinitionAccess().getExamplesKeyword_1()); 
 
             }
@@ -17063,16 +18213,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:5618:1: rule__ExamplesSchemaDefinition__Group__2 : rule__ExamplesSchemaDefinition__Group__2__Impl rule__ExamplesSchemaDefinition__Group__3 ;
+    // InternalJsonSchemaDsl.g:5950:1: rule__ExamplesSchemaDefinition__Group__2 : rule__ExamplesSchemaDefinition__Group__2__Impl rule__ExamplesSchemaDefinition__Group__3 ;
     public final void rule__ExamplesSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5622:1: ( rule__ExamplesSchemaDefinition__Group__2__Impl rule__ExamplesSchemaDefinition__Group__3 )
-            // InternalJsonSchemaDsl.g:5623:2: rule__ExamplesSchemaDefinition__Group__2__Impl rule__ExamplesSchemaDefinition__Group__3
+            // InternalJsonSchemaDsl.g:5954:1: ( rule__ExamplesSchemaDefinition__Group__2__Impl rule__ExamplesSchemaDefinition__Group__3 )
+            // InternalJsonSchemaDsl.g:5955:2: rule__ExamplesSchemaDefinition__Group__2__Impl rule__ExamplesSchemaDefinition__Group__3
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__ExamplesSchemaDefinition__Group__2__Impl();
 
             state._fsp--;
@@ -17101,20 +18251,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:5630:1: rule__ExamplesSchemaDefinition__Group__2__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:5962:1: rule__ExamplesSchemaDefinition__Group__2__Impl : ( ':' ) ;
     public final void rule__ExamplesSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5634:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:5635:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5966:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:5967:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:5635:1: ( ':' )
-            // InternalJsonSchemaDsl.g:5636:2: ':'
+            // InternalJsonSchemaDsl.g:5967:1: ( ':' )
+            // InternalJsonSchemaDsl.g:5968:2: ':'
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getColonKeyword_2()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getExamplesSchemaDefinitionAccess().getColonKeyword_2()); 
 
             }
@@ -17138,16 +18288,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__3"
-    // InternalJsonSchemaDsl.g:5645:1: rule__ExamplesSchemaDefinition__Group__3 : rule__ExamplesSchemaDefinition__Group__3__Impl rule__ExamplesSchemaDefinition__Group__4 ;
+    // InternalJsonSchemaDsl.g:5977:1: rule__ExamplesSchemaDefinition__Group__3 : rule__ExamplesSchemaDefinition__Group__3__Impl rule__ExamplesSchemaDefinition__Group__4 ;
     public final void rule__ExamplesSchemaDefinition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5649:1: ( rule__ExamplesSchemaDefinition__Group__3__Impl rule__ExamplesSchemaDefinition__Group__4 )
-            // InternalJsonSchemaDsl.g:5650:2: rule__ExamplesSchemaDefinition__Group__3__Impl rule__ExamplesSchemaDefinition__Group__4
+            // InternalJsonSchemaDsl.g:5981:1: ( rule__ExamplesSchemaDefinition__Group__3__Impl rule__ExamplesSchemaDefinition__Group__4 )
+            // InternalJsonSchemaDsl.g:5982:2: rule__ExamplesSchemaDefinition__Group__3__Impl rule__ExamplesSchemaDefinition__Group__4
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_24);
             rule__ExamplesSchemaDefinition__Group__3__Impl();
 
             state._fsp--;
@@ -17176,20 +18326,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:5657:1: rule__ExamplesSchemaDefinition__Group__3__Impl : ( '[' ) ;
+    // InternalJsonSchemaDsl.g:5989:1: rule__ExamplesSchemaDefinition__Group__3__Impl : ( '[' ) ;
     public final void rule__ExamplesSchemaDefinition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5661:1: ( ( '[' ) )
-            // InternalJsonSchemaDsl.g:5662:1: ( '[' )
+            // InternalJsonSchemaDsl.g:5993:1: ( ( '[' ) )
+            // InternalJsonSchemaDsl.g:5994:1: ( '[' )
             {
-            // InternalJsonSchemaDsl.g:5662:1: ( '[' )
-            // InternalJsonSchemaDsl.g:5663:2: '['
+            // InternalJsonSchemaDsl.g:5994:1: ( '[' )
+            // InternalJsonSchemaDsl.g:5995:2: '['
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getLeftSquareBracketKeyword_3()); 
-            match(input,28,FOLLOW_2); 
+            match(input,67,FOLLOW_2); 
              after(grammarAccess.getExamplesSchemaDefinitionAccess().getLeftSquareBracketKeyword_3()); 
 
             }
@@ -17213,16 +18363,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__4"
-    // InternalJsonSchemaDsl.g:5672:1: rule__ExamplesSchemaDefinition__Group__4 : rule__ExamplesSchemaDefinition__Group__4__Impl rule__ExamplesSchemaDefinition__Group__5 ;
+    // InternalJsonSchemaDsl.g:6004:1: rule__ExamplesSchemaDefinition__Group__4 : rule__ExamplesSchemaDefinition__Group__4__Impl rule__ExamplesSchemaDefinition__Group__5 ;
     public final void rule__ExamplesSchemaDefinition__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5676:1: ( rule__ExamplesSchemaDefinition__Group__4__Impl rule__ExamplesSchemaDefinition__Group__5 )
-            // InternalJsonSchemaDsl.g:5677:2: rule__ExamplesSchemaDefinition__Group__4__Impl rule__ExamplesSchemaDefinition__Group__5
+            // InternalJsonSchemaDsl.g:6008:1: ( rule__ExamplesSchemaDefinition__Group__4__Impl rule__ExamplesSchemaDefinition__Group__5 )
+            // InternalJsonSchemaDsl.g:6009:2: rule__ExamplesSchemaDefinition__Group__4__Impl rule__ExamplesSchemaDefinition__Group__5
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_24);
             rule__ExamplesSchemaDefinition__Group__4__Impl();
 
             state._fsp--;
@@ -17251,29 +18401,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__4__Impl"
-    // InternalJsonSchemaDsl.g:5684:1: rule__ExamplesSchemaDefinition__Group__4__Impl : ( ( rule__ExamplesSchemaDefinition__Group_4__0 )? ) ;
+    // InternalJsonSchemaDsl.g:6016:1: rule__ExamplesSchemaDefinition__Group__4__Impl : ( ( rule__ExamplesSchemaDefinition__Group_4__0 )? ) ;
     public final void rule__ExamplesSchemaDefinition__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5688:1: ( ( ( rule__ExamplesSchemaDefinition__Group_4__0 )? ) )
-            // InternalJsonSchemaDsl.g:5689:1: ( ( rule__ExamplesSchemaDefinition__Group_4__0 )? )
+            // InternalJsonSchemaDsl.g:6020:1: ( ( ( rule__ExamplesSchemaDefinition__Group_4__0 )? ) )
+            // InternalJsonSchemaDsl.g:6021:1: ( ( rule__ExamplesSchemaDefinition__Group_4__0 )? )
             {
-            // InternalJsonSchemaDsl.g:5689:1: ( ( rule__ExamplesSchemaDefinition__Group_4__0 )? )
-            // InternalJsonSchemaDsl.g:5690:2: ( rule__ExamplesSchemaDefinition__Group_4__0 )?
+            // InternalJsonSchemaDsl.g:6021:1: ( ( rule__ExamplesSchemaDefinition__Group_4__0 )? )
+            // InternalJsonSchemaDsl.g:6022:2: ( rule__ExamplesSchemaDefinition__Group_4__0 )?
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getGroup_4()); 
-            // InternalJsonSchemaDsl.g:5691:2: ( rule__ExamplesSchemaDefinition__Group_4__0 )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:6023:2: ( rule__ExamplesSchemaDefinition__Group_4__0 )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( ((LA18_0>=RULE_JSON_NUMBER && LA18_0<=RULE_INT)||(LA18_0>=12 && LA18_0<=13)||LA18_0==21||LA18_0==28||(LA18_0>=71 && LA18_0<=72)) ) {
-                alt18=1;
+            if ( ((LA20_0>=RULE_JSON_NUMBER && LA20_0<=RULE_INT)||(LA20_0>=12 && LA20_0<=55)||LA20_0==63||LA20_0==67||(LA20_0>=71 && LA20_0<=72)) ) {
+                alt20=1;
             }
-            switch (alt18) {
+            switch (alt20) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:5691:3: rule__ExamplesSchemaDefinition__Group_4__0
+                    // InternalJsonSchemaDsl.g:6023:3: rule__ExamplesSchemaDefinition__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ExamplesSchemaDefinition__Group_4__0();
@@ -17309,14 +18459,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__5"
-    // InternalJsonSchemaDsl.g:5699:1: rule__ExamplesSchemaDefinition__Group__5 : rule__ExamplesSchemaDefinition__Group__5__Impl ;
+    // InternalJsonSchemaDsl.g:6031:1: rule__ExamplesSchemaDefinition__Group__5 : rule__ExamplesSchemaDefinition__Group__5__Impl ;
     public final void rule__ExamplesSchemaDefinition__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5703:1: ( rule__ExamplesSchemaDefinition__Group__5__Impl )
-            // InternalJsonSchemaDsl.g:5704:2: rule__ExamplesSchemaDefinition__Group__5__Impl
+            // InternalJsonSchemaDsl.g:6035:1: ( rule__ExamplesSchemaDefinition__Group__5__Impl )
+            // InternalJsonSchemaDsl.g:6036:2: rule__ExamplesSchemaDefinition__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExamplesSchemaDefinition__Group__5__Impl();
@@ -17342,20 +18492,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group__5__Impl"
-    // InternalJsonSchemaDsl.g:5710:1: rule__ExamplesSchemaDefinition__Group__5__Impl : ( ']' ) ;
+    // InternalJsonSchemaDsl.g:6042:1: rule__ExamplesSchemaDefinition__Group__5__Impl : ( ']' ) ;
     public final void rule__ExamplesSchemaDefinition__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5714:1: ( ( ']' ) )
-            // InternalJsonSchemaDsl.g:5715:1: ( ']' )
+            // InternalJsonSchemaDsl.g:6046:1: ( ( ']' ) )
+            // InternalJsonSchemaDsl.g:6047:1: ( ']' )
             {
-            // InternalJsonSchemaDsl.g:5715:1: ( ']' )
-            // InternalJsonSchemaDsl.g:5716:2: ']'
+            // InternalJsonSchemaDsl.g:6047:1: ( ']' )
+            // InternalJsonSchemaDsl.g:6048:2: ']'
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getRightSquareBracketKeyword_5()); 
-            match(input,29,FOLLOW_2); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getExamplesSchemaDefinitionAccess().getRightSquareBracketKeyword_5()); 
 
             }
@@ -17379,14 +18529,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group_4__0"
-    // InternalJsonSchemaDsl.g:5726:1: rule__ExamplesSchemaDefinition__Group_4__0 : rule__ExamplesSchemaDefinition__Group_4__0__Impl rule__ExamplesSchemaDefinition__Group_4__1 ;
+    // InternalJsonSchemaDsl.g:6058:1: rule__ExamplesSchemaDefinition__Group_4__0 : rule__ExamplesSchemaDefinition__Group_4__0__Impl rule__ExamplesSchemaDefinition__Group_4__1 ;
     public final void rule__ExamplesSchemaDefinition__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5730:1: ( rule__ExamplesSchemaDefinition__Group_4__0__Impl rule__ExamplesSchemaDefinition__Group_4__1 )
-            // InternalJsonSchemaDsl.g:5731:2: rule__ExamplesSchemaDefinition__Group_4__0__Impl rule__ExamplesSchemaDefinition__Group_4__1
+            // InternalJsonSchemaDsl.g:6062:1: ( rule__ExamplesSchemaDefinition__Group_4__0__Impl rule__ExamplesSchemaDefinition__Group_4__1 )
+            // InternalJsonSchemaDsl.g:6063:2: rule__ExamplesSchemaDefinition__Group_4__0__Impl rule__ExamplesSchemaDefinition__Group_4__1
             {
             pushFollow(FOLLOW_6);
             rule__ExamplesSchemaDefinition__Group_4__0__Impl();
@@ -17417,21 +18567,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group_4__0__Impl"
-    // InternalJsonSchemaDsl.g:5738:1: rule__ExamplesSchemaDefinition__Group_4__0__Impl : ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 ) ) ;
+    // InternalJsonSchemaDsl.g:6070:1: rule__ExamplesSchemaDefinition__Group_4__0__Impl : ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 ) ) ;
     public final void rule__ExamplesSchemaDefinition__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5742:1: ( ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 ) ) )
-            // InternalJsonSchemaDsl.g:5743:1: ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 ) )
+            // InternalJsonSchemaDsl.g:6074:1: ( ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 ) ) )
+            // InternalJsonSchemaDsl.g:6075:1: ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 ) )
             {
-            // InternalJsonSchemaDsl.g:5743:1: ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 ) )
-            // InternalJsonSchemaDsl.g:5744:2: ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 )
+            // InternalJsonSchemaDsl.g:6075:1: ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 ) )
+            // InternalJsonSchemaDsl.g:6076:2: ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 )
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getExamplesAssignment_4_0()); 
-            // InternalJsonSchemaDsl.g:5745:2: ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 )
-            // InternalJsonSchemaDsl.g:5745:3: rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0
+            // InternalJsonSchemaDsl.g:6077:2: ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 )
+            // InternalJsonSchemaDsl.g:6077:3: rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0
             {
             pushFollow(FOLLOW_2);
             rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0();
@@ -17464,14 +18614,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group_4__1"
-    // InternalJsonSchemaDsl.g:5753:1: rule__ExamplesSchemaDefinition__Group_4__1 : rule__ExamplesSchemaDefinition__Group_4__1__Impl ;
+    // InternalJsonSchemaDsl.g:6085:1: rule__ExamplesSchemaDefinition__Group_4__1 : rule__ExamplesSchemaDefinition__Group_4__1__Impl ;
     public final void rule__ExamplesSchemaDefinition__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5757:1: ( rule__ExamplesSchemaDefinition__Group_4__1__Impl )
-            // InternalJsonSchemaDsl.g:5758:2: rule__ExamplesSchemaDefinition__Group_4__1__Impl
+            // InternalJsonSchemaDsl.g:6089:1: ( rule__ExamplesSchemaDefinition__Group_4__1__Impl )
+            // InternalJsonSchemaDsl.g:6090:2: rule__ExamplesSchemaDefinition__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExamplesSchemaDefinition__Group_4__1__Impl();
@@ -17497,33 +18647,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group_4__1__Impl"
-    // InternalJsonSchemaDsl.g:5764:1: rule__ExamplesSchemaDefinition__Group_4__1__Impl : ( ( rule__ExamplesSchemaDefinition__Group_4_1__0 )* ) ;
+    // InternalJsonSchemaDsl.g:6096:1: rule__ExamplesSchemaDefinition__Group_4__1__Impl : ( ( rule__ExamplesSchemaDefinition__Group_4_1__0 )* ) ;
     public final void rule__ExamplesSchemaDefinition__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5768:1: ( ( ( rule__ExamplesSchemaDefinition__Group_4_1__0 )* ) )
-            // InternalJsonSchemaDsl.g:5769:1: ( ( rule__ExamplesSchemaDefinition__Group_4_1__0 )* )
+            // InternalJsonSchemaDsl.g:6100:1: ( ( ( rule__ExamplesSchemaDefinition__Group_4_1__0 )* ) )
+            // InternalJsonSchemaDsl.g:6101:1: ( ( rule__ExamplesSchemaDefinition__Group_4_1__0 )* )
             {
-            // InternalJsonSchemaDsl.g:5769:1: ( ( rule__ExamplesSchemaDefinition__Group_4_1__0 )* )
-            // InternalJsonSchemaDsl.g:5770:2: ( rule__ExamplesSchemaDefinition__Group_4_1__0 )*
+            // InternalJsonSchemaDsl.g:6101:1: ( ( rule__ExamplesSchemaDefinition__Group_4_1__0 )* )
+            // InternalJsonSchemaDsl.g:6102:2: ( rule__ExamplesSchemaDefinition__Group_4_1__0 )*
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getGroup_4_1()); 
-            // InternalJsonSchemaDsl.g:5771:2: ( rule__ExamplesSchemaDefinition__Group_4_1__0 )*
-            loop19:
+            // InternalJsonSchemaDsl.g:6103:2: ( rule__ExamplesSchemaDefinition__Group_4_1__0 )*
+            loop21:
             do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( (LA19_0==23) ) {
-                    alt19=1;
+                if ( (LA21_0==65) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt19) {
+                switch (alt21) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:5771:3: rule__ExamplesSchemaDefinition__Group_4_1__0
+            	    // InternalJsonSchemaDsl.g:6103:3: rule__ExamplesSchemaDefinition__Group_4_1__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__ExamplesSchemaDefinition__Group_4_1__0();
@@ -17535,7 +18685,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             	    break;
 
             	default :
-            	    break loop19;
+            	    break loop21;
                 }
             } while (true);
 
@@ -17562,16 +18712,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group_4_1__0"
-    // InternalJsonSchemaDsl.g:5780:1: rule__ExamplesSchemaDefinition__Group_4_1__0 : rule__ExamplesSchemaDefinition__Group_4_1__0__Impl rule__ExamplesSchemaDefinition__Group_4_1__1 ;
+    // InternalJsonSchemaDsl.g:6112:1: rule__ExamplesSchemaDefinition__Group_4_1__0 : rule__ExamplesSchemaDefinition__Group_4_1__0__Impl rule__ExamplesSchemaDefinition__Group_4_1__1 ;
     public final void rule__ExamplesSchemaDefinition__Group_4_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5784:1: ( rule__ExamplesSchemaDefinition__Group_4_1__0__Impl rule__ExamplesSchemaDefinition__Group_4_1__1 )
-            // InternalJsonSchemaDsl.g:5785:2: rule__ExamplesSchemaDefinition__Group_4_1__0__Impl rule__ExamplesSchemaDefinition__Group_4_1__1
+            // InternalJsonSchemaDsl.g:6116:1: ( rule__ExamplesSchemaDefinition__Group_4_1__0__Impl rule__ExamplesSchemaDefinition__Group_4_1__1 )
+            // InternalJsonSchemaDsl.g:6117:2: rule__ExamplesSchemaDefinition__Group_4_1__0__Impl rule__ExamplesSchemaDefinition__Group_4_1__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__ExamplesSchemaDefinition__Group_4_1__0__Impl();
 
             state._fsp--;
@@ -17600,20 +18750,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group_4_1__0__Impl"
-    // InternalJsonSchemaDsl.g:5792:1: rule__ExamplesSchemaDefinition__Group_4_1__0__Impl : ( ',' ) ;
+    // InternalJsonSchemaDsl.g:6124:1: rule__ExamplesSchemaDefinition__Group_4_1__0__Impl : ( ',' ) ;
     public final void rule__ExamplesSchemaDefinition__Group_4_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5796:1: ( ( ',' ) )
-            // InternalJsonSchemaDsl.g:5797:1: ( ',' )
+            // InternalJsonSchemaDsl.g:6128:1: ( ( ',' ) )
+            // InternalJsonSchemaDsl.g:6129:1: ( ',' )
             {
-            // InternalJsonSchemaDsl.g:5797:1: ( ',' )
-            // InternalJsonSchemaDsl.g:5798:2: ','
+            // InternalJsonSchemaDsl.g:6129:1: ( ',' )
+            // InternalJsonSchemaDsl.g:6130:2: ','
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getCommaKeyword_4_1_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getExamplesSchemaDefinitionAccess().getCommaKeyword_4_1_0()); 
 
             }
@@ -17637,14 +18787,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group_4_1__1"
-    // InternalJsonSchemaDsl.g:5807:1: rule__ExamplesSchemaDefinition__Group_4_1__1 : rule__ExamplesSchemaDefinition__Group_4_1__1__Impl ;
+    // InternalJsonSchemaDsl.g:6139:1: rule__ExamplesSchemaDefinition__Group_4_1__1 : rule__ExamplesSchemaDefinition__Group_4_1__1__Impl ;
     public final void rule__ExamplesSchemaDefinition__Group_4_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5811:1: ( rule__ExamplesSchemaDefinition__Group_4_1__1__Impl )
-            // InternalJsonSchemaDsl.g:5812:2: rule__ExamplesSchemaDefinition__Group_4_1__1__Impl
+            // InternalJsonSchemaDsl.g:6143:1: ( rule__ExamplesSchemaDefinition__Group_4_1__1__Impl )
+            // InternalJsonSchemaDsl.g:6144:2: rule__ExamplesSchemaDefinition__Group_4_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExamplesSchemaDefinition__Group_4_1__1__Impl();
@@ -17670,21 +18820,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__Group_4_1__1__Impl"
-    // InternalJsonSchemaDsl.g:5818:1: rule__ExamplesSchemaDefinition__Group_4_1__1__Impl : ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 ) ) ;
+    // InternalJsonSchemaDsl.g:6150:1: rule__ExamplesSchemaDefinition__Group_4_1__1__Impl : ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 ) ) ;
     public final void rule__ExamplesSchemaDefinition__Group_4_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5822:1: ( ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 ) ) )
-            // InternalJsonSchemaDsl.g:5823:1: ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 ) )
+            // InternalJsonSchemaDsl.g:6154:1: ( ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 ) ) )
+            // InternalJsonSchemaDsl.g:6155:1: ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 ) )
             {
-            // InternalJsonSchemaDsl.g:5823:1: ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 ) )
-            // InternalJsonSchemaDsl.g:5824:2: ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 )
+            // InternalJsonSchemaDsl.g:6155:1: ( ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 ) )
+            // InternalJsonSchemaDsl.g:6156:2: ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 )
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getExamplesAssignment_4_1_1()); 
-            // InternalJsonSchemaDsl.g:5825:2: ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 )
-            // InternalJsonSchemaDsl.g:5825:3: rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1
+            // InternalJsonSchemaDsl.g:6157:2: ( rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 )
+            // InternalJsonSchemaDsl.g:6157:3: rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1
             {
             pushFollow(FOLLOW_2);
             rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1();
@@ -17717,14 +18867,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IfSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:5834:1: rule__IfSchemaDefinition__Group__0 : rule__IfSchemaDefinition__Group__0__Impl rule__IfSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:6166:1: rule__IfSchemaDefinition__Group__0 : rule__IfSchemaDefinition__Group__0__Impl rule__IfSchemaDefinition__Group__1 ;
     public final void rule__IfSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5838:1: ( rule__IfSchemaDefinition__Group__0__Impl rule__IfSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:5839:2: rule__IfSchemaDefinition__Group__0__Impl rule__IfSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:6170:1: ( rule__IfSchemaDefinition__Group__0__Impl rule__IfSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:6171:2: rule__IfSchemaDefinition__Group__0__Impl rule__IfSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__IfSchemaDefinition__Group__0__Impl();
@@ -17755,20 +18905,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IfSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:5846:1: rule__IfSchemaDefinition__Group__0__Impl : ( '\"if\"' ) ;
+    // InternalJsonSchemaDsl.g:6178:1: rule__IfSchemaDefinition__Group__0__Impl : ( '\"if\"' ) ;
     public final void rule__IfSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5850:1: ( ( '\"if\"' ) )
-            // InternalJsonSchemaDsl.g:5851:1: ( '\"if\"' )
+            // InternalJsonSchemaDsl.g:6182:1: ( ( '\"if\"' ) )
+            // InternalJsonSchemaDsl.g:6183:1: ( '\"if\"' )
             {
-            // InternalJsonSchemaDsl.g:5851:1: ( '\"if\"' )
-            // InternalJsonSchemaDsl.g:5852:2: '\"if\"'
+            // InternalJsonSchemaDsl.g:6183:1: ( '\"if\"' )
+            // InternalJsonSchemaDsl.g:6184:2: '\"if\"'
             {
              before(grammarAccess.getIfSchemaDefinitionAccess().getIfKeyword_0()); 
-            match(input,56,FOLLOW_2); 
+            match(input,49,FOLLOW_2); 
              after(grammarAccess.getIfSchemaDefinitionAccess().getIfKeyword_0()); 
 
             }
@@ -17792,14 +18942,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IfSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:5861:1: rule__IfSchemaDefinition__Group__1 : rule__IfSchemaDefinition__Group__1__Impl rule__IfSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:6193:1: rule__IfSchemaDefinition__Group__1 : rule__IfSchemaDefinition__Group__1__Impl rule__IfSchemaDefinition__Group__2 ;
     public final void rule__IfSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5865:1: ( rule__IfSchemaDefinition__Group__1__Impl rule__IfSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:5866:2: rule__IfSchemaDefinition__Group__1__Impl rule__IfSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:6197:1: ( rule__IfSchemaDefinition__Group__1__Impl rule__IfSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:6198:2: rule__IfSchemaDefinition__Group__1__Impl rule__IfSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__IfSchemaDefinition__Group__1__Impl();
@@ -17830,20 +18980,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IfSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:5873:1: rule__IfSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:6205:1: rule__IfSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__IfSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5877:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:5878:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6209:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:6210:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:5878:1: ( ':' )
-            // InternalJsonSchemaDsl.g:5879:2: ':'
+            // InternalJsonSchemaDsl.g:6210:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6211:2: ':'
             {
              before(grammarAccess.getIfSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getIfSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -17867,14 +19017,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IfSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:5888:1: rule__IfSchemaDefinition__Group__2 : rule__IfSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:6220:1: rule__IfSchemaDefinition__Group__2 : rule__IfSchemaDefinition__Group__2__Impl ;
     public final void rule__IfSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5892:1: ( rule__IfSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:5893:2: rule__IfSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:6224:1: ( rule__IfSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:6225:2: rule__IfSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IfSchemaDefinition__Group__2__Impl();
@@ -17900,21 +19050,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IfSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:5899:1: rule__IfSchemaDefinition__Group__2__Impl : ( ( rule__IfSchemaDefinition__IfAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:6231:1: rule__IfSchemaDefinition__Group__2__Impl : ( ( rule__IfSchemaDefinition__IfAssignment_2 ) ) ;
     public final void rule__IfSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5903:1: ( ( ( rule__IfSchemaDefinition__IfAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:5904:1: ( ( rule__IfSchemaDefinition__IfAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6235:1: ( ( ( rule__IfSchemaDefinition__IfAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:6236:1: ( ( rule__IfSchemaDefinition__IfAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:5904:1: ( ( rule__IfSchemaDefinition__IfAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:5905:2: ( rule__IfSchemaDefinition__IfAssignment_2 )
+            // InternalJsonSchemaDsl.g:6236:1: ( ( rule__IfSchemaDefinition__IfAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6237:2: ( rule__IfSchemaDefinition__IfAssignment_2 )
             {
              before(grammarAccess.getIfSchemaDefinitionAccess().getIfAssignment_2()); 
-            // InternalJsonSchemaDsl.g:5906:2: ( rule__IfSchemaDefinition__IfAssignment_2 )
-            // InternalJsonSchemaDsl.g:5906:3: rule__IfSchemaDefinition__IfAssignment_2
+            // InternalJsonSchemaDsl.g:6238:2: ( rule__IfSchemaDefinition__IfAssignment_2 )
+            // InternalJsonSchemaDsl.g:6238:3: rule__IfSchemaDefinition__IfAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__IfSchemaDefinition__IfAssignment_2();
@@ -17947,14 +19097,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AllOfSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:5915:1: rule__AllOfSchemaDefinition__Group__0 : rule__AllOfSchemaDefinition__Group__0__Impl rule__AllOfSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:6247:1: rule__AllOfSchemaDefinition__Group__0 : rule__AllOfSchemaDefinition__Group__0__Impl rule__AllOfSchemaDefinition__Group__1 ;
     public final void rule__AllOfSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5919:1: ( rule__AllOfSchemaDefinition__Group__0__Impl rule__AllOfSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:5920:2: rule__AllOfSchemaDefinition__Group__0__Impl rule__AllOfSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:6251:1: ( rule__AllOfSchemaDefinition__Group__0__Impl rule__AllOfSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:6252:2: rule__AllOfSchemaDefinition__Group__0__Impl rule__AllOfSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__AllOfSchemaDefinition__Group__0__Impl();
@@ -17985,20 +19135,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AllOfSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:5927:1: rule__AllOfSchemaDefinition__Group__0__Impl : ( '\"allOf\"' ) ;
+    // InternalJsonSchemaDsl.g:6259:1: rule__AllOfSchemaDefinition__Group__0__Impl : ( '\"allOf\"' ) ;
     public final void rule__AllOfSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5931:1: ( ( '\"allOf\"' ) )
-            // InternalJsonSchemaDsl.g:5932:1: ( '\"allOf\"' )
+            // InternalJsonSchemaDsl.g:6263:1: ( ( '\"allOf\"' ) )
+            // InternalJsonSchemaDsl.g:6264:1: ( '\"allOf\"' )
             {
-            // InternalJsonSchemaDsl.g:5932:1: ( '\"allOf\"' )
-            // InternalJsonSchemaDsl.g:5933:2: '\"allOf\"'
+            // InternalJsonSchemaDsl.g:6264:1: ( '\"allOf\"' )
+            // InternalJsonSchemaDsl.g:6265:2: '\"allOf\"'
             {
              before(grammarAccess.getAllOfSchemaDefinitionAccess().getAllOfKeyword_0()); 
-            match(input,57,FOLLOW_2); 
+            match(input,52,FOLLOW_2); 
              after(grammarAccess.getAllOfSchemaDefinitionAccess().getAllOfKeyword_0()); 
 
             }
@@ -18022,16 +19172,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AllOfSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:5942:1: rule__AllOfSchemaDefinition__Group__1 : rule__AllOfSchemaDefinition__Group__1__Impl rule__AllOfSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:6274:1: rule__AllOfSchemaDefinition__Group__1 : rule__AllOfSchemaDefinition__Group__1__Impl rule__AllOfSchemaDefinition__Group__2 ;
     public final void rule__AllOfSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5946:1: ( rule__AllOfSchemaDefinition__Group__1__Impl rule__AllOfSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:5947:2: rule__AllOfSchemaDefinition__Group__1__Impl rule__AllOfSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:6278:1: ( rule__AllOfSchemaDefinition__Group__1__Impl rule__AllOfSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:6279:2: rule__AllOfSchemaDefinition__Group__1__Impl rule__AllOfSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__AllOfSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -18060,20 +19210,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AllOfSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:5954:1: rule__AllOfSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:6286:1: rule__AllOfSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__AllOfSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5958:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:5959:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6290:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:6291:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:5959:1: ( ':' )
-            // InternalJsonSchemaDsl.g:5960:2: ':'
+            // InternalJsonSchemaDsl.g:6291:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6292:2: ':'
             {
              before(grammarAccess.getAllOfSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getAllOfSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -18097,14 +19247,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AllOfSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:5969:1: rule__AllOfSchemaDefinition__Group__2 : rule__AllOfSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:6301:1: rule__AllOfSchemaDefinition__Group__2 : rule__AllOfSchemaDefinition__Group__2__Impl ;
     public final void rule__AllOfSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5973:1: ( rule__AllOfSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:5974:2: rule__AllOfSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:6305:1: ( rule__AllOfSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:6306:2: rule__AllOfSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__AllOfSchemaDefinition__Group__2__Impl();
@@ -18130,21 +19280,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AllOfSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:5980:1: rule__AllOfSchemaDefinition__Group__2__Impl : ( ( rule__AllOfSchemaDefinition__AllOfAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:6312:1: rule__AllOfSchemaDefinition__Group__2__Impl : ( ( rule__AllOfSchemaDefinition__AllOfAssignment_2 ) ) ;
     public final void rule__AllOfSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:5984:1: ( ( ( rule__AllOfSchemaDefinition__AllOfAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:5985:1: ( ( rule__AllOfSchemaDefinition__AllOfAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6316:1: ( ( ( rule__AllOfSchemaDefinition__AllOfAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:6317:1: ( ( rule__AllOfSchemaDefinition__AllOfAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:5985:1: ( ( rule__AllOfSchemaDefinition__AllOfAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:5986:2: ( rule__AllOfSchemaDefinition__AllOfAssignment_2 )
+            // InternalJsonSchemaDsl.g:6317:1: ( ( rule__AllOfSchemaDefinition__AllOfAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6318:2: ( rule__AllOfSchemaDefinition__AllOfAssignment_2 )
             {
              before(grammarAccess.getAllOfSchemaDefinitionAccess().getAllOfAssignment_2()); 
-            // InternalJsonSchemaDsl.g:5987:2: ( rule__AllOfSchemaDefinition__AllOfAssignment_2 )
-            // InternalJsonSchemaDsl.g:5987:3: rule__AllOfSchemaDefinition__AllOfAssignment_2
+            // InternalJsonSchemaDsl.g:6319:2: ( rule__AllOfSchemaDefinition__AllOfAssignment_2 )
+            // InternalJsonSchemaDsl.g:6319:3: rule__AllOfSchemaDefinition__AllOfAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__AllOfSchemaDefinition__AllOfAssignment_2();
@@ -18177,14 +19327,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentEncodingSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:5996:1: rule__ContentEncodingSchemaDefinition__Group__0 : rule__ContentEncodingSchemaDefinition__Group__0__Impl rule__ContentEncodingSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:6328:1: rule__ContentEncodingSchemaDefinition__Group__0 : rule__ContentEncodingSchemaDefinition__Group__0__Impl rule__ContentEncodingSchemaDefinition__Group__1 ;
     public final void rule__ContentEncodingSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6000:1: ( rule__ContentEncodingSchemaDefinition__Group__0__Impl rule__ContentEncodingSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6001:2: rule__ContentEncodingSchemaDefinition__Group__0__Impl rule__ContentEncodingSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:6332:1: ( rule__ContentEncodingSchemaDefinition__Group__0__Impl rule__ContentEncodingSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:6333:2: rule__ContentEncodingSchemaDefinition__Group__0__Impl rule__ContentEncodingSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__ContentEncodingSchemaDefinition__Group__0__Impl();
@@ -18215,20 +19365,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentEncodingSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6008:1: rule__ContentEncodingSchemaDefinition__Group__0__Impl : ( '\"contentEncoding\"' ) ;
+    // InternalJsonSchemaDsl.g:6340:1: rule__ContentEncodingSchemaDefinition__Group__0__Impl : ( '\"contentEncoding\"' ) ;
     public final void rule__ContentEncodingSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6012:1: ( ( '\"contentEncoding\"' ) )
-            // InternalJsonSchemaDsl.g:6013:1: ( '\"contentEncoding\"' )
+            // InternalJsonSchemaDsl.g:6344:1: ( ( '\"contentEncoding\"' ) )
+            // InternalJsonSchemaDsl.g:6345:1: ( '\"contentEncoding\"' )
             {
-            // InternalJsonSchemaDsl.g:6013:1: ( '\"contentEncoding\"' )
-            // InternalJsonSchemaDsl.g:6014:2: '\"contentEncoding\"'
+            // InternalJsonSchemaDsl.g:6345:1: ( '\"contentEncoding\"' )
+            // InternalJsonSchemaDsl.g:6346:2: '\"contentEncoding\"'
             {
              before(grammarAccess.getContentEncodingSchemaDefinitionAccess().getContentEncodingKeyword_0()); 
-            match(input,58,FOLLOW_2); 
+            match(input,48,FOLLOW_2); 
              after(grammarAccess.getContentEncodingSchemaDefinitionAccess().getContentEncodingKeyword_0()); 
 
             }
@@ -18252,16 +19402,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentEncodingSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6023:1: rule__ContentEncodingSchemaDefinition__Group__1 : rule__ContentEncodingSchemaDefinition__Group__1__Impl rule__ContentEncodingSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:6355:1: rule__ContentEncodingSchemaDefinition__Group__1 : rule__ContentEncodingSchemaDefinition__Group__1__Impl rule__ContentEncodingSchemaDefinition__Group__2 ;
     public final void rule__ContentEncodingSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6027:1: ( rule__ContentEncodingSchemaDefinition__Group__1__Impl rule__ContentEncodingSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6028:2: rule__ContentEncodingSchemaDefinition__Group__1__Impl rule__ContentEncodingSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:6359:1: ( rule__ContentEncodingSchemaDefinition__Group__1__Impl rule__ContentEncodingSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:6360:2: rule__ContentEncodingSchemaDefinition__Group__1__Impl rule__ContentEncodingSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__ContentEncodingSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -18290,20 +19440,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentEncodingSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6035:1: rule__ContentEncodingSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:6367:1: rule__ContentEncodingSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__ContentEncodingSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6039:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6040:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6371:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:6372:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6040:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6041:2: ':'
+            // InternalJsonSchemaDsl.g:6372:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6373:2: ':'
             {
              before(grammarAccess.getContentEncodingSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getContentEncodingSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -18327,14 +19477,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentEncodingSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6050:1: rule__ContentEncodingSchemaDefinition__Group__2 : rule__ContentEncodingSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:6382:1: rule__ContentEncodingSchemaDefinition__Group__2 : rule__ContentEncodingSchemaDefinition__Group__2__Impl ;
     public final void rule__ContentEncodingSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6054:1: ( rule__ContentEncodingSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:6055:2: rule__ContentEncodingSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:6386:1: ( rule__ContentEncodingSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:6387:2: rule__ContentEncodingSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ContentEncodingSchemaDefinition__Group__2__Impl();
@@ -18360,21 +19510,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentEncodingSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6061:1: rule__ContentEncodingSchemaDefinition__Group__2__Impl : ( ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:6393:1: rule__ContentEncodingSchemaDefinition__Group__2__Impl : ( ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 ) ) ;
     public final void rule__ContentEncodingSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6065:1: ( ( ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:6066:1: ( ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6397:1: ( ( ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:6398:1: ( ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:6066:1: ( ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:6067:2: ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 )
+            // InternalJsonSchemaDsl.g:6398:1: ( ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6399:2: ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 )
             {
              before(grammarAccess.getContentEncodingSchemaDefinitionAccess().getContentEncodingAssignment_2()); 
-            // InternalJsonSchemaDsl.g:6068:2: ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 )
-            // InternalJsonSchemaDsl.g:6068:3: rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2
+            // InternalJsonSchemaDsl.g:6400:2: ( rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 )
+            // InternalJsonSchemaDsl.g:6400:3: rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2();
@@ -18407,14 +19557,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MultipleOfSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:6077:1: rule__MultipleOfSchemaDefinition__Group__0 : rule__MultipleOfSchemaDefinition__Group__0__Impl rule__MultipleOfSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:6409:1: rule__MultipleOfSchemaDefinition__Group__0 : rule__MultipleOfSchemaDefinition__Group__0__Impl rule__MultipleOfSchemaDefinition__Group__1 ;
     public final void rule__MultipleOfSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6081:1: ( rule__MultipleOfSchemaDefinition__Group__0__Impl rule__MultipleOfSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6082:2: rule__MultipleOfSchemaDefinition__Group__0__Impl rule__MultipleOfSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:6413:1: ( rule__MultipleOfSchemaDefinition__Group__0__Impl rule__MultipleOfSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:6414:2: rule__MultipleOfSchemaDefinition__Group__0__Impl rule__MultipleOfSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__MultipleOfSchemaDefinition__Group__0__Impl();
@@ -18445,20 +19595,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MultipleOfSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6089:1: rule__MultipleOfSchemaDefinition__Group__0__Impl : ( '\"multipleOf\"' ) ;
+    // InternalJsonSchemaDsl.g:6421:1: rule__MultipleOfSchemaDefinition__Group__0__Impl : ( '\"multipleOf\"' ) ;
     public final void rule__MultipleOfSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6093:1: ( ( '\"multipleOf\"' ) )
-            // InternalJsonSchemaDsl.g:6094:1: ( '\"multipleOf\"' )
+            // InternalJsonSchemaDsl.g:6425:1: ( ( '\"multipleOf\"' ) )
+            // InternalJsonSchemaDsl.g:6426:1: ( '\"multipleOf\"' )
             {
-            // InternalJsonSchemaDsl.g:6094:1: ( '\"multipleOf\"' )
-            // InternalJsonSchemaDsl.g:6095:2: '\"multipleOf\"'
+            // InternalJsonSchemaDsl.g:6426:1: ( '\"multipleOf\"' )
+            // InternalJsonSchemaDsl.g:6427:2: '\"multipleOf\"'
             {
              before(grammarAccess.getMultipleOfSchemaDefinitionAccess().getMultipleOfKeyword_0()); 
-            match(input,59,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getMultipleOfSchemaDefinitionAccess().getMultipleOfKeyword_0()); 
 
             }
@@ -18482,14 +19632,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MultipleOfSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6104:1: rule__MultipleOfSchemaDefinition__Group__1 : rule__MultipleOfSchemaDefinition__Group__1__Impl rule__MultipleOfSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:6436:1: rule__MultipleOfSchemaDefinition__Group__1 : rule__MultipleOfSchemaDefinition__Group__1__Impl rule__MultipleOfSchemaDefinition__Group__2 ;
     public final void rule__MultipleOfSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6108:1: ( rule__MultipleOfSchemaDefinition__Group__1__Impl rule__MultipleOfSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6109:2: rule__MultipleOfSchemaDefinition__Group__1__Impl rule__MultipleOfSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:6440:1: ( rule__MultipleOfSchemaDefinition__Group__1__Impl rule__MultipleOfSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:6441:2: rule__MultipleOfSchemaDefinition__Group__1__Impl rule__MultipleOfSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__MultipleOfSchemaDefinition__Group__1__Impl();
@@ -18520,20 +19670,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MultipleOfSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6116:1: rule__MultipleOfSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:6448:1: rule__MultipleOfSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__MultipleOfSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6120:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6121:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6452:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:6453:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6121:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6122:2: ':'
+            // InternalJsonSchemaDsl.g:6453:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6454:2: ':'
             {
              before(grammarAccess.getMultipleOfSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getMultipleOfSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -18557,14 +19707,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MultipleOfSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6131:1: rule__MultipleOfSchemaDefinition__Group__2 : rule__MultipleOfSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:6463:1: rule__MultipleOfSchemaDefinition__Group__2 : rule__MultipleOfSchemaDefinition__Group__2__Impl ;
     public final void rule__MultipleOfSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6135:1: ( rule__MultipleOfSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:6136:2: rule__MultipleOfSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:6467:1: ( rule__MultipleOfSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:6468:2: rule__MultipleOfSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MultipleOfSchemaDefinition__Group__2__Impl();
@@ -18590,21 +19740,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MultipleOfSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6142:1: rule__MultipleOfSchemaDefinition__Group__2__Impl : ( ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:6474:1: rule__MultipleOfSchemaDefinition__Group__2__Impl : ( ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 ) ) ;
     public final void rule__MultipleOfSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6146:1: ( ( ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:6147:1: ( ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6478:1: ( ( ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:6479:1: ( ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:6147:1: ( ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:6148:2: ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 )
+            // InternalJsonSchemaDsl.g:6479:1: ( ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6480:2: ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 )
             {
              before(grammarAccess.getMultipleOfSchemaDefinitionAccess().getMultipleOfAssignment_2()); 
-            // InternalJsonSchemaDsl.g:6149:2: ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 )
-            // InternalJsonSchemaDsl.g:6149:3: rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2
+            // InternalJsonSchemaDsl.g:6481:2: ( rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 )
+            // InternalJsonSchemaDsl.g:6481:3: rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2();
@@ -18637,14 +19787,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:6158:1: rule__PatternSchemaDefinition__Group__0 : rule__PatternSchemaDefinition__Group__0__Impl rule__PatternSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:6490:1: rule__PatternSchemaDefinition__Group__0 : rule__PatternSchemaDefinition__Group__0__Impl rule__PatternSchemaDefinition__Group__1 ;
     public final void rule__PatternSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6162:1: ( rule__PatternSchemaDefinition__Group__0__Impl rule__PatternSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6163:2: rule__PatternSchemaDefinition__Group__0__Impl rule__PatternSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:6494:1: ( rule__PatternSchemaDefinition__Group__0__Impl rule__PatternSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:6495:2: rule__PatternSchemaDefinition__Group__0__Impl rule__PatternSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__PatternSchemaDefinition__Group__0__Impl();
@@ -18675,20 +19825,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6170:1: rule__PatternSchemaDefinition__Group__0__Impl : ( '\"pattern\"' ) ;
+    // InternalJsonSchemaDsl.g:6502:1: rule__PatternSchemaDefinition__Group__0__Impl : ( '\"pattern\"' ) ;
     public final void rule__PatternSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6174:1: ( ( '\"pattern\"' ) )
-            // InternalJsonSchemaDsl.g:6175:1: ( '\"pattern\"' )
+            // InternalJsonSchemaDsl.g:6506:1: ( ( '\"pattern\"' ) )
+            // InternalJsonSchemaDsl.g:6507:1: ( '\"pattern\"' )
             {
-            // InternalJsonSchemaDsl.g:6175:1: ( '\"pattern\"' )
-            // InternalJsonSchemaDsl.g:6176:2: '\"pattern\"'
+            // InternalJsonSchemaDsl.g:6507:1: ( '\"pattern\"' )
+            // InternalJsonSchemaDsl.g:6508:2: '\"pattern\"'
             {
              before(grammarAccess.getPatternSchemaDefinitionAccess().getPatternKeyword_0()); 
-            match(input,60,FOLLOW_2); 
+            match(input,29,FOLLOW_2); 
              after(grammarAccess.getPatternSchemaDefinitionAccess().getPatternKeyword_0()); 
 
             }
@@ -18712,16 +19862,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6185:1: rule__PatternSchemaDefinition__Group__1 : rule__PatternSchemaDefinition__Group__1__Impl rule__PatternSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:6517:1: rule__PatternSchemaDefinition__Group__1 : rule__PatternSchemaDefinition__Group__1__Impl rule__PatternSchemaDefinition__Group__2 ;
     public final void rule__PatternSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6189:1: ( rule__PatternSchemaDefinition__Group__1__Impl rule__PatternSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6190:2: rule__PatternSchemaDefinition__Group__1__Impl rule__PatternSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:6521:1: ( rule__PatternSchemaDefinition__Group__1__Impl rule__PatternSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:6522:2: rule__PatternSchemaDefinition__Group__1__Impl rule__PatternSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__PatternSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -18750,20 +19900,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6197:1: rule__PatternSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:6529:1: rule__PatternSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__PatternSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6201:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6202:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6533:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:6534:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6202:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6203:2: ':'
+            // InternalJsonSchemaDsl.g:6534:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6535:2: ':'
             {
              before(grammarAccess.getPatternSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getPatternSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -18787,14 +19937,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6212:1: rule__PatternSchemaDefinition__Group__2 : rule__PatternSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:6544:1: rule__PatternSchemaDefinition__Group__2 : rule__PatternSchemaDefinition__Group__2__Impl ;
     public final void rule__PatternSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6216:1: ( rule__PatternSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:6217:2: rule__PatternSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:6548:1: ( rule__PatternSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:6549:2: rule__PatternSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PatternSchemaDefinition__Group__2__Impl();
@@ -18820,21 +19970,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6223:1: rule__PatternSchemaDefinition__Group__2__Impl : ( ( rule__PatternSchemaDefinition__PatternAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:6555:1: rule__PatternSchemaDefinition__Group__2__Impl : ( ( rule__PatternSchemaDefinition__PatternAssignment_2 ) ) ;
     public final void rule__PatternSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6227:1: ( ( ( rule__PatternSchemaDefinition__PatternAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:6228:1: ( ( rule__PatternSchemaDefinition__PatternAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6559:1: ( ( ( rule__PatternSchemaDefinition__PatternAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:6560:1: ( ( rule__PatternSchemaDefinition__PatternAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:6228:1: ( ( rule__PatternSchemaDefinition__PatternAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:6229:2: ( rule__PatternSchemaDefinition__PatternAssignment_2 )
+            // InternalJsonSchemaDsl.g:6560:1: ( ( rule__PatternSchemaDefinition__PatternAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6561:2: ( rule__PatternSchemaDefinition__PatternAssignment_2 )
             {
              before(grammarAccess.getPatternSchemaDefinitionAccess().getPatternAssignment_2()); 
-            // InternalJsonSchemaDsl.g:6230:2: ( rule__PatternSchemaDefinition__PatternAssignment_2 )
-            // InternalJsonSchemaDsl.g:6230:3: rule__PatternSchemaDefinition__PatternAssignment_2
+            // InternalJsonSchemaDsl.g:6562:2: ( rule__PatternSchemaDefinition__PatternAssignment_2 )
+            // InternalJsonSchemaDsl.g:6562:3: rule__PatternSchemaDefinition__PatternAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__PatternSchemaDefinition__PatternAssignment_2();
@@ -18867,14 +20017,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContainsSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:6239:1: rule__ContainsSchemaDefinition__Group__0 : rule__ContainsSchemaDefinition__Group__0__Impl rule__ContainsSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:6571:1: rule__ContainsSchemaDefinition__Group__0 : rule__ContainsSchemaDefinition__Group__0__Impl rule__ContainsSchemaDefinition__Group__1 ;
     public final void rule__ContainsSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6243:1: ( rule__ContainsSchemaDefinition__Group__0__Impl rule__ContainsSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6244:2: rule__ContainsSchemaDefinition__Group__0__Impl rule__ContainsSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:6575:1: ( rule__ContainsSchemaDefinition__Group__0__Impl rule__ContainsSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:6576:2: rule__ContainsSchemaDefinition__Group__0__Impl rule__ContainsSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__ContainsSchemaDefinition__Group__0__Impl();
@@ -18905,20 +20055,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContainsSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6251:1: rule__ContainsSchemaDefinition__Group__0__Impl : ( '\"contains\"' ) ;
+    // InternalJsonSchemaDsl.g:6583:1: rule__ContainsSchemaDefinition__Group__0__Impl : ( '\"contains\"' ) ;
     public final void rule__ContainsSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6255:1: ( ( '\"contains\"' ) )
-            // InternalJsonSchemaDsl.g:6256:1: ( '\"contains\"' )
+            // InternalJsonSchemaDsl.g:6587:1: ( ( '\"contains\"' ) )
+            // InternalJsonSchemaDsl.g:6588:1: ( '\"contains\"' )
             {
-            // InternalJsonSchemaDsl.g:6256:1: ( '\"contains\"' )
-            // InternalJsonSchemaDsl.g:6257:2: '\"contains\"'
+            // InternalJsonSchemaDsl.g:6588:1: ( '\"contains\"' )
+            // InternalJsonSchemaDsl.g:6589:2: '\"contains\"'
             {
              before(grammarAccess.getContainsSchemaDefinitionAccess().getContainsKeyword_0()); 
-            match(input,61,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getContainsSchemaDefinitionAccess().getContainsKeyword_0()); 
 
             }
@@ -18942,14 +20092,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContainsSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6266:1: rule__ContainsSchemaDefinition__Group__1 : rule__ContainsSchemaDefinition__Group__1__Impl rule__ContainsSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:6598:1: rule__ContainsSchemaDefinition__Group__1 : rule__ContainsSchemaDefinition__Group__1__Impl rule__ContainsSchemaDefinition__Group__2 ;
     public final void rule__ContainsSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6270:1: ( rule__ContainsSchemaDefinition__Group__1__Impl rule__ContainsSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6271:2: rule__ContainsSchemaDefinition__Group__1__Impl rule__ContainsSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:6602:1: ( rule__ContainsSchemaDefinition__Group__1__Impl rule__ContainsSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:6603:2: rule__ContainsSchemaDefinition__Group__1__Impl rule__ContainsSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__ContainsSchemaDefinition__Group__1__Impl();
@@ -18980,20 +20130,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContainsSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6278:1: rule__ContainsSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:6610:1: rule__ContainsSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__ContainsSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6282:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6283:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6614:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:6615:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6283:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6284:2: ':'
+            // InternalJsonSchemaDsl.g:6615:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6616:2: ':'
             {
              before(grammarAccess.getContainsSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getContainsSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -19017,14 +20167,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContainsSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6293:1: rule__ContainsSchemaDefinition__Group__2 : rule__ContainsSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:6625:1: rule__ContainsSchemaDefinition__Group__2 : rule__ContainsSchemaDefinition__Group__2__Impl ;
     public final void rule__ContainsSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6297:1: ( rule__ContainsSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:6298:2: rule__ContainsSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:6629:1: ( rule__ContainsSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:6630:2: rule__ContainsSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ContainsSchemaDefinition__Group__2__Impl();
@@ -19050,21 +20200,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContainsSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6304:1: rule__ContainsSchemaDefinition__Group__2__Impl : ( ( rule__ContainsSchemaDefinition__ContainsAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:6636:1: rule__ContainsSchemaDefinition__Group__2__Impl : ( ( rule__ContainsSchemaDefinition__ContainsAssignment_2 ) ) ;
     public final void rule__ContainsSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6308:1: ( ( ( rule__ContainsSchemaDefinition__ContainsAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:6309:1: ( ( rule__ContainsSchemaDefinition__ContainsAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6640:1: ( ( ( rule__ContainsSchemaDefinition__ContainsAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:6641:1: ( ( rule__ContainsSchemaDefinition__ContainsAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:6309:1: ( ( rule__ContainsSchemaDefinition__ContainsAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:6310:2: ( rule__ContainsSchemaDefinition__ContainsAssignment_2 )
+            // InternalJsonSchemaDsl.g:6641:1: ( ( rule__ContainsSchemaDefinition__ContainsAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6642:2: ( rule__ContainsSchemaDefinition__ContainsAssignment_2 )
             {
              before(grammarAccess.getContainsSchemaDefinitionAccess().getContainsAssignment_2()); 
-            // InternalJsonSchemaDsl.g:6311:2: ( rule__ContainsSchemaDefinition__ContainsAssignment_2 )
-            // InternalJsonSchemaDsl.g:6311:3: rule__ContainsSchemaDefinition__ContainsAssignment_2
+            // InternalJsonSchemaDsl.g:6643:2: ( rule__ContainsSchemaDefinition__ContainsAssignment_2 )
+            // InternalJsonSchemaDsl.g:6643:3: rule__ContainsSchemaDefinition__ContainsAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ContainsSchemaDefinition__ContainsAssignment_2();
@@ -19097,14 +20247,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NotSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:6320:1: rule__NotSchemaDefinition__Group__0 : rule__NotSchemaDefinition__Group__0__Impl rule__NotSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:6652:1: rule__NotSchemaDefinition__Group__0 : rule__NotSchemaDefinition__Group__0__Impl rule__NotSchemaDefinition__Group__1 ;
     public final void rule__NotSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6324:1: ( rule__NotSchemaDefinition__Group__0__Impl rule__NotSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6325:2: rule__NotSchemaDefinition__Group__0__Impl rule__NotSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:6656:1: ( rule__NotSchemaDefinition__Group__0__Impl rule__NotSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:6657:2: rule__NotSchemaDefinition__Group__0__Impl rule__NotSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__NotSchemaDefinition__Group__0__Impl();
@@ -19135,20 +20285,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NotSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6332:1: rule__NotSchemaDefinition__Group__0__Impl : ( '\"not\"' ) ;
+    // InternalJsonSchemaDsl.g:6664:1: rule__NotSchemaDefinition__Group__0__Impl : ( '\"not\"' ) ;
     public final void rule__NotSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6336:1: ( ( '\"not\"' ) )
-            // InternalJsonSchemaDsl.g:6337:1: ( '\"not\"' )
+            // InternalJsonSchemaDsl.g:6668:1: ( ( '\"not\"' ) )
+            // InternalJsonSchemaDsl.g:6669:1: ( '\"not\"' )
             {
-            // InternalJsonSchemaDsl.g:6337:1: ( '\"not\"' )
-            // InternalJsonSchemaDsl.g:6338:2: '\"not\"'
+            // InternalJsonSchemaDsl.g:6669:1: ( '\"not\"' )
+            // InternalJsonSchemaDsl.g:6670:2: '\"not\"'
             {
              before(grammarAccess.getNotSchemaDefinitionAccess().getNotKeyword_0()); 
-            match(input,62,FOLLOW_2); 
+            match(input,55,FOLLOW_2); 
              after(grammarAccess.getNotSchemaDefinitionAccess().getNotKeyword_0()); 
 
             }
@@ -19172,14 +20322,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NotSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6347:1: rule__NotSchemaDefinition__Group__1 : rule__NotSchemaDefinition__Group__1__Impl rule__NotSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:6679:1: rule__NotSchemaDefinition__Group__1 : rule__NotSchemaDefinition__Group__1__Impl rule__NotSchemaDefinition__Group__2 ;
     public final void rule__NotSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6351:1: ( rule__NotSchemaDefinition__Group__1__Impl rule__NotSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6352:2: rule__NotSchemaDefinition__Group__1__Impl rule__NotSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:6683:1: ( rule__NotSchemaDefinition__Group__1__Impl rule__NotSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:6684:2: rule__NotSchemaDefinition__Group__1__Impl rule__NotSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__NotSchemaDefinition__Group__1__Impl();
@@ -19210,20 +20360,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NotSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6359:1: rule__NotSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:6691:1: rule__NotSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__NotSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6363:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6364:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6695:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:6696:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6364:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6365:2: ':'
+            // InternalJsonSchemaDsl.g:6696:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6697:2: ':'
             {
              before(grammarAccess.getNotSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getNotSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -19247,14 +20397,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NotSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6374:1: rule__NotSchemaDefinition__Group__2 : rule__NotSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:6706:1: rule__NotSchemaDefinition__Group__2 : rule__NotSchemaDefinition__Group__2__Impl ;
     public final void rule__NotSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6378:1: ( rule__NotSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:6379:2: rule__NotSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:6710:1: ( rule__NotSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:6711:2: rule__NotSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NotSchemaDefinition__Group__2__Impl();
@@ -19280,21 +20430,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NotSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6385:1: rule__NotSchemaDefinition__Group__2__Impl : ( ( rule__NotSchemaDefinition__NotAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:6717:1: rule__NotSchemaDefinition__Group__2__Impl : ( ( rule__NotSchemaDefinition__NotAssignment_2 ) ) ;
     public final void rule__NotSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6389:1: ( ( ( rule__NotSchemaDefinition__NotAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:6390:1: ( ( rule__NotSchemaDefinition__NotAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6721:1: ( ( ( rule__NotSchemaDefinition__NotAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:6722:1: ( ( rule__NotSchemaDefinition__NotAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:6390:1: ( ( rule__NotSchemaDefinition__NotAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:6391:2: ( rule__NotSchemaDefinition__NotAssignment_2 )
+            // InternalJsonSchemaDsl.g:6722:1: ( ( rule__NotSchemaDefinition__NotAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6723:2: ( rule__NotSchemaDefinition__NotAssignment_2 )
             {
              before(grammarAccess.getNotSchemaDefinitionAccess().getNotAssignment_2()); 
-            // InternalJsonSchemaDsl.g:6392:2: ( rule__NotSchemaDefinition__NotAssignment_2 )
-            // InternalJsonSchemaDsl.g:6392:3: rule__NotSchemaDefinition__NotAssignment_2
+            // InternalJsonSchemaDsl.g:6724:2: ( rule__NotSchemaDefinition__NotAssignment_2 )
+            // InternalJsonSchemaDsl.g:6724:3: rule__NotSchemaDefinition__NotAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__NotSchemaDefinition__NotAssignment_2();
@@ -19327,14 +20477,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMaximumSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:6401:1: rule__ExclusiveMaximumSchemaDefinition__Group__0 : rule__ExclusiveMaximumSchemaDefinition__Group__0__Impl rule__ExclusiveMaximumSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:6733:1: rule__ExclusiveMaximumSchemaDefinition__Group__0 : rule__ExclusiveMaximumSchemaDefinition__Group__0__Impl rule__ExclusiveMaximumSchemaDefinition__Group__1 ;
     public final void rule__ExclusiveMaximumSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6405:1: ( rule__ExclusiveMaximumSchemaDefinition__Group__0__Impl rule__ExclusiveMaximumSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6406:2: rule__ExclusiveMaximumSchemaDefinition__Group__0__Impl rule__ExclusiveMaximumSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:6737:1: ( rule__ExclusiveMaximumSchemaDefinition__Group__0__Impl rule__ExclusiveMaximumSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:6738:2: rule__ExclusiveMaximumSchemaDefinition__Group__0__Impl rule__ExclusiveMaximumSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__ExclusiveMaximumSchemaDefinition__Group__0__Impl();
@@ -19365,20 +20515,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMaximumSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6413:1: rule__ExclusiveMaximumSchemaDefinition__Group__0__Impl : ( '\"exclusiveMaximum\"' ) ;
+    // InternalJsonSchemaDsl.g:6745:1: rule__ExclusiveMaximumSchemaDefinition__Group__0__Impl : ( '\"exclusiveMaximum\"' ) ;
     public final void rule__ExclusiveMaximumSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6417:1: ( ( '\"exclusiveMaximum\"' ) )
-            // InternalJsonSchemaDsl.g:6418:1: ( '\"exclusiveMaximum\"' )
+            // InternalJsonSchemaDsl.g:6749:1: ( ( '\"exclusiveMaximum\"' ) )
+            // InternalJsonSchemaDsl.g:6750:1: ( '\"exclusiveMaximum\"' )
             {
-            // InternalJsonSchemaDsl.g:6418:1: ( '\"exclusiveMaximum\"' )
-            // InternalJsonSchemaDsl.g:6419:2: '\"exclusiveMaximum\"'
+            // InternalJsonSchemaDsl.g:6750:1: ( '\"exclusiveMaximum\"' )
+            // InternalJsonSchemaDsl.g:6751:2: '\"exclusiveMaximum\"'
             {
              before(grammarAccess.getExclusiveMaximumSchemaDefinitionAccess().getExclusiveMaximumKeyword_0()); 
-            match(input,63,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getExclusiveMaximumSchemaDefinitionAccess().getExclusiveMaximumKeyword_0()); 
 
             }
@@ -19402,14 +20552,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMaximumSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6428:1: rule__ExclusiveMaximumSchemaDefinition__Group__1 : rule__ExclusiveMaximumSchemaDefinition__Group__1__Impl rule__ExclusiveMaximumSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:6760:1: rule__ExclusiveMaximumSchemaDefinition__Group__1 : rule__ExclusiveMaximumSchemaDefinition__Group__1__Impl rule__ExclusiveMaximumSchemaDefinition__Group__2 ;
     public final void rule__ExclusiveMaximumSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6432:1: ( rule__ExclusiveMaximumSchemaDefinition__Group__1__Impl rule__ExclusiveMaximumSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6433:2: rule__ExclusiveMaximumSchemaDefinition__Group__1__Impl rule__ExclusiveMaximumSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:6764:1: ( rule__ExclusiveMaximumSchemaDefinition__Group__1__Impl rule__ExclusiveMaximumSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:6765:2: rule__ExclusiveMaximumSchemaDefinition__Group__1__Impl rule__ExclusiveMaximumSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__ExclusiveMaximumSchemaDefinition__Group__1__Impl();
@@ -19440,20 +20590,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMaximumSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6440:1: rule__ExclusiveMaximumSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:6772:1: rule__ExclusiveMaximumSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__ExclusiveMaximumSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6444:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6445:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6776:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:6777:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6445:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6446:2: ':'
+            // InternalJsonSchemaDsl.g:6777:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6778:2: ':'
             {
              before(grammarAccess.getExclusiveMaximumSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getExclusiveMaximumSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -19477,14 +20627,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMaximumSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6455:1: rule__ExclusiveMaximumSchemaDefinition__Group__2 : rule__ExclusiveMaximumSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:6787:1: rule__ExclusiveMaximumSchemaDefinition__Group__2 : rule__ExclusiveMaximumSchemaDefinition__Group__2__Impl ;
     public final void rule__ExclusiveMaximumSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6459:1: ( rule__ExclusiveMaximumSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:6460:2: rule__ExclusiveMaximumSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:6791:1: ( rule__ExclusiveMaximumSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:6792:2: rule__ExclusiveMaximumSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExclusiveMaximumSchemaDefinition__Group__2__Impl();
@@ -19510,21 +20660,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMaximumSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6466:1: rule__ExclusiveMaximumSchemaDefinition__Group__2__Impl : ( ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:6798:1: rule__ExclusiveMaximumSchemaDefinition__Group__2__Impl : ( ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 ) ) ;
     public final void rule__ExclusiveMaximumSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6470:1: ( ( ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:6471:1: ( ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6802:1: ( ( ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:6803:1: ( ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:6471:1: ( ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:6472:2: ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 )
+            // InternalJsonSchemaDsl.g:6803:1: ( ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6804:2: ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 )
             {
              before(grammarAccess.getExclusiveMaximumSchemaDefinitionAccess().getExclusiveMaximumAssignment_2()); 
-            // InternalJsonSchemaDsl.g:6473:2: ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 )
-            // InternalJsonSchemaDsl.g:6473:3: rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2
+            // InternalJsonSchemaDsl.g:6805:2: ( rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 )
+            // InternalJsonSchemaDsl.g:6805:3: rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2();
@@ -19557,14 +20707,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxLengthSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:6482:1: rule__MaxLengthSchemaDefinition__Group__0 : rule__MaxLengthSchemaDefinition__Group__0__Impl rule__MaxLengthSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:6814:1: rule__MaxLengthSchemaDefinition__Group__0 : rule__MaxLengthSchemaDefinition__Group__0__Impl rule__MaxLengthSchemaDefinition__Group__1 ;
     public final void rule__MaxLengthSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6486:1: ( rule__MaxLengthSchemaDefinition__Group__0__Impl rule__MaxLengthSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6487:2: rule__MaxLengthSchemaDefinition__Group__0__Impl rule__MaxLengthSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:6818:1: ( rule__MaxLengthSchemaDefinition__Group__0__Impl rule__MaxLengthSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:6819:2: rule__MaxLengthSchemaDefinition__Group__0__Impl rule__MaxLengthSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__MaxLengthSchemaDefinition__Group__0__Impl();
@@ -19595,20 +20745,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxLengthSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6494:1: rule__MaxLengthSchemaDefinition__Group__0__Impl : ( '\"maxLength\"' ) ;
+    // InternalJsonSchemaDsl.g:6826:1: rule__MaxLengthSchemaDefinition__Group__0__Impl : ( '\"maxLength\"' ) ;
     public final void rule__MaxLengthSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6498:1: ( ( '\"maxLength\"' ) )
-            // InternalJsonSchemaDsl.g:6499:1: ( '\"maxLength\"' )
+            // InternalJsonSchemaDsl.g:6830:1: ( ( '\"maxLength\"' ) )
+            // InternalJsonSchemaDsl.g:6831:1: ( '\"maxLength\"' )
             {
-            // InternalJsonSchemaDsl.g:6499:1: ( '\"maxLength\"' )
-            // InternalJsonSchemaDsl.g:6500:2: '\"maxLength\"'
+            // InternalJsonSchemaDsl.g:6831:1: ( '\"maxLength\"' )
+            // InternalJsonSchemaDsl.g:6832:2: '\"maxLength\"'
             {
              before(grammarAccess.getMaxLengthSchemaDefinitionAccess().getMaxLengthKeyword_0()); 
-            match(input,64,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getMaxLengthSchemaDefinitionAccess().getMaxLengthKeyword_0()); 
 
             }
@@ -19632,16 +20782,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxLengthSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6509:1: rule__MaxLengthSchemaDefinition__Group__1 : rule__MaxLengthSchemaDefinition__Group__1__Impl rule__MaxLengthSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:6841:1: rule__MaxLengthSchemaDefinition__Group__1 : rule__MaxLengthSchemaDefinition__Group__1__Impl rule__MaxLengthSchemaDefinition__Group__2 ;
     public final void rule__MaxLengthSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6513:1: ( rule__MaxLengthSchemaDefinition__Group__1__Impl rule__MaxLengthSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6514:2: rule__MaxLengthSchemaDefinition__Group__1__Impl rule__MaxLengthSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:6845:1: ( rule__MaxLengthSchemaDefinition__Group__1__Impl rule__MaxLengthSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:6846:2: rule__MaxLengthSchemaDefinition__Group__1__Impl rule__MaxLengthSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__MaxLengthSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -19670,20 +20820,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxLengthSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6521:1: rule__MaxLengthSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:6853:1: rule__MaxLengthSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__MaxLengthSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6525:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6526:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6857:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:6858:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6526:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6527:2: ':'
+            // InternalJsonSchemaDsl.g:6858:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6859:2: ':'
             {
              before(grammarAccess.getMaxLengthSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getMaxLengthSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -19707,14 +20857,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxLengthSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6536:1: rule__MaxLengthSchemaDefinition__Group__2 : rule__MaxLengthSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:6868:1: rule__MaxLengthSchemaDefinition__Group__2 : rule__MaxLengthSchemaDefinition__Group__2__Impl ;
     public final void rule__MaxLengthSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6540:1: ( rule__MaxLengthSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:6541:2: rule__MaxLengthSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:6872:1: ( rule__MaxLengthSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:6873:2: rule__MaxLengthSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MaxLengthSchemaDefinition__Group__2__Impl();
@@ -19740,21 +20890,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxLengthSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6547:1: rule__MaxLengthSchemaDefinition__Group__2__Impl : ( ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:6879:1: rule__MaxLengthSchemaDefinition__Group__2__Impl : ( ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 ) ) ;
     public final void rule__MaxLengthSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6551:1: ( ( ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:6552:1: ( ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6883:1: ( ( ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:6884:1: ( ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:6552:1: ( ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:6553:2: ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 )
+            // InternalJsonSchemaDsl.g:6884:1: ( ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6885:2: ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 )
             {
              before(grammarAccess.getMaxLengthSchemaDefinitionAccess().getMaxLengthAssignment_2()); 
-            // InternalJsonSchemaDsl.g:6554:2: ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 )
-            // InternalJsonSchemaDsl.g:6554:3: rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2
+            // InternalJsonSchemaDsl.g:6886:2: ( rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 )
+            // InternalJsonSchemaDsl.g:6886:3: rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2();
@@ -19787,14 +20937,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RefSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:6563:1: rule__RefSchemaDefinition__Group__0 : rule__RefSchemaDefinition__Group__0__Impl rule__RefSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:6895:1: rule__RefSchemaDefinition__Group__0 : rule__RefSchemaDefinition__Group__0__Impl rule__RefSchemaDefinition__Group__1 ;
     public final void rule__RefSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6567:1: ( rule__RefSchemaDefinition__Group__0__Impl rule__RefSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6568:2: rule__RefSchemaDefinition__Group__0__Impl rule__RefSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:6899:1: ( rule__RefSchemaDefinition__Group__0__Impl rule__RefSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:6900:2: rule__RefSchemaDefinition__Group__0__Impl rule__RefSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__RefSchemaDefinition__Group__0__Impl();
@@ -19825,20 +20975,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RefSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6575:1: rule__RefSchemaDefinition__Group__0__Impl : ( '\"$ref\"' ) ;
+    // InternalJsonSchemaDsl.g:6907:1: rule__RefSchemaDefinition__Group__0__Impl : ( '\"$ref\"' ) ;
     public final void rule__RefSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6579:1: ( ( '\"$ref\"' ) )
-            // InternalJsonSchemaDsl.g:6580:1: ( '\"$ref\"' )
+            // InternalJsonSchemaDsl.g:6911:1: ( ( '\"$ref\"' ) )
+            // InternalJsonSchemaDsl.g:6912:1: ( '\"$ref\"' )
             {
-            // InternalJsonSchemaDsl.g:6580:1: ( '\"$ref\"' )
-            // InternalJsonSchemaDsl.g:6581:2: '\"$ref\"'
+            // InternalJsonSchemaDsl.g:6912:1: ( '\"$ref\"' )
+            // InternalJsonSchemaDsl.g:6913:2: '\"$ref\"'
             {
              before(grammarAccess.getRefSchemaDefinitionAccess().getRefKeyword_0()); 
-            match(input,65,FOLLOW_2); 
+            match(input,16,FOLLOW_2); 
              after(grammarAccess.getRefSchemaDefinitionAccess().getRefKeyword_0()); 
 
             }
@@ -19862,16 +21012,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RefSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6590:1: rule__RefSchemaDefinition__Group__1 : rule__RefSchemaDefinition__Group__1__Impl rule__RefSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:6922:1: rule__RefSchemaDefinition__Group__1 : rule__RefSchemaDefinition__Group__1__Impl rule__RefSchemaDefinition__Group__2 ;
     public final void rule__RefSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6594:1: ( rule__RefSchemaDefinition__Group__1__Impl rule__RefSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6595:2: rule__RefSchemaDefinition__Group__1__Impl rule__RefSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:6926:1: ( rule__RefSchemaDefinition__Group__1__Impl rule__RefSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:6927:2: rule__RefSchemaDefinition__Group__1__Impl rule__RefSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__RefSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -19900,20 +21050,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RefSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6602:1: rule__RefSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:6934:1: rule__RefSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__RefSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6606:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6607:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6938:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:6939:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6607:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6608:2: ':'
+            // InternalJsonSchemaDsl.g:6939:1: ( ':' )
+            // InternalJsonSchemaDsl.g:6940:2: ':'
             {
              before(grammarAccess.getRefSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getRefSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -19937,14 +21087,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RefSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6617:1: rule__RefSchemaDefinition__Group__2 : rule__RefSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:6949:1: rule__RefSchemaDefinition__Group__2 : rule__RefSchemaDefinition__Group__2__Impl ;
     public final void rule__RefSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6621:1: ( rule__RefSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:6622:2: rule__RefSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:6953:1: ( rule__RefSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:6954:2: rule__RefSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__RefSchemaDefinition__Group__2__Impl();
@@ -19970,21 +21120,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RefSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6628:1: rule__RefSchemaDefinition__Group__2__Impl : ( ( rule__RefSchemaDefinition__RefAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:6960:1: rule__RefSchemaDefinition__Group__2__Impl : ( ( rule__RefSchemaDefinition__RefAssignment_2 ) ) ;
     public final void rule__RefSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6632:1: ( ( ( rule__RefSchemaDefinition__RefAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:6633:1: ( ( rule__RefSchemaDefinition__RefAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6964:1: ( ( ( rule__RefSchemaDefinition__RefAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:6965:1: ( ( rule__RefSchemaDefinition__RefAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:6633:1: ( ( rule__RefSchemaDefinition__RefAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:6634:2: ( rule__RefSchemaDefinition__RefAssignment_2 )
+            // InternalJsonSchemaDsl.g:6965:1: ( ( rule__RefSchemaDefinition__RefAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:6966:2: ( rule__RefSchemaDefinition__RefAssignment_2 )
             {
              before(grammarAccess.getRefSchemaDefinitionAccess().getRefAssignment_2()); 
-            // InternalJsonSchemaDsl.g:6635:2: ( rule__RefSchemaDefinition__RefAssignment_2 )
-            // InternalJsonSchemaDsl.g:6635:3: rule__RefSchemaDefinition__RefAssignment_2
+            // InternalJsonSchemaDsl.g:6967:2: ( rule__RefSchemaDefinition__RefAssignment_2 )
+            // InternalJsonSchemaDsl.g:6967:3: rule__RefSchemaDefinition__RefAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__RefSchemaDefinition__RefAssignment_2();
@@ -20017,14 +21167,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentMediaTypeSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:6644:1: rule__ContentMediaTypeSchemaDefinition__Group__0 : rule__ContentMediaTypeSchemaDefinition__Group__0__Impl rule__ContentMediaTypeSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:6976:1: rule__ContentMediaTypeSchemaDefinition__Group__0 : rule__ContentMediaTypeSchemaDefinition__Group__0__Impl rule__ContentMediaTypeSchemaDefinition__Group__1 ;
     public final void rule__ContentMediaTypeSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6648:1: ( rule__ContentMediaTypeSchemaDefinition__Group__0__Impl rule__ContentMediaTypeSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6649:2: rule__ContentMediaTypeSchemaDefinition__Group__0__Impl rule__ContentMediaTypeSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:6980:1: ( rule__ContentMediaTypeSchemaDefinition__Group__0__Impl rule__ContentMediaTypeSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:6981:2: rule__ContentMediaTypeSchemaDefinition__Group__0__Impl rule__ContentMediaTypeSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__ContentMediaTypeSchemaDefinition__Group__0__Impl();
@@ -20055,20 +21205,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentMediaTypeSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6656:1: rule__ContentMediaTypeSchemaDefinition__Group__0__Impl : ( '\"contentMediaType\"' ) ;
+    // InternalJsonSchemaDsl.g:6988:1: rule__ContentMediaTypeSchemaDefinition__Group__0__Impl : ( '\"contentMediaType\"' ) ;
     public final void rule__ContentMediaTypeSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6660:1: ( ( '\"contentMediaType\"' ) )
-            // InternalJsonSchemaDsl.g:6661:1: ( '\"contentMediaType\"' )
+            // InternalJsonSchemaDsl.g:6992:1: ( ( '\"contentMediaType\"' ) )
+            // InternalJsonSchemaDsl.g:6993:1: ( '\"contentMediaType\"' )
             {
-            // InternalJsonSchemaDsl.g:6661:1: ( '\"contentMediaType\"' )
-            // InternalJsonSchemaDsl.g:6662:2: '\"contentMediaType\"'
+            // InternalJsonSchemaDsl.g:6993:1: ( '\"contentMediaType\"' )
+            // InternalJsonSchemaDsl.g:6994:2: '\"contentMediaType\"'
             {
              before(grammarAccess.getContentMediaTypeSchemaDefinitionAccess().getContentMediaTypeKeyword_0()); 
-            match(input,66,FOLLOW_2); 
+            match(input,47,FOLLOW_2); 
              after(grammarAccess.getContentMediaTypeSchemaDefinitionAccess().getContentMediaTypeKeyword_0()); 
 
             }
@@ -20092,16 +21242,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentMediaTypeSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6671:1: rule__ContentMediaTypeSchemaDefinition__Group__1 : rule__ContentMediaTypeSchemaDefinition__Group__1__Impl rule__ContentMediaTypeSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:7003:1: rule__ContentMediaTypeSchemaDefinition__Group__1 : rule__ContentMediaTypeSchemaDefinition__Group__1__Impl rule__ContentMediaTypeSchemaDefinition__Group__2 ;
     public final void rule__ContentMediaTypeSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6675:1: ( rule__ContentMediaTypeSchemaDefinition__Group__1__Impl rule__ContentMediaTypeSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6676:2: rule__ContentMediaTypeSchemaDefinition__Group__1__Impl rule__ContentMediaTypeSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:7007:1: ( rule__ContentMediaTypeSchemaDefinition__Group__1__Impl rule__ContentMediaTypeSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:7008:2: rule__ContentMediaTypeSchemaDefinition__Group__1__Impl rule__ContentMediaTypeSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__ContentMediaTypeSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -20130,20 +21280,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentMediaTypeSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6683:1: rule__ContentMediaTypeSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:7015:1: rule__ContentMediaTypeSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__ContentMediaTypeSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6687:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6688:1: ( ':' )
+            // InternalJsonSchemaDsl.g:7019:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:7020:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6688:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6689:2: ':'
+            // InternalJsonSchemaDsl.g:7020:1: ( ':' )
+            // InternalJsonSchemaDsl.g:7021:2: ':'
             {
              before(grammarAccess.getContentMediaTypeSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getContentMediaTypeSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -20167,14 +21317,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentMediaTypeSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6698:1: rule__ContentMediaTypeSchemaDefinition__Group__2 : rule__ContentMediaTypeSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:7030:1: rule__ContentMediaTypeSchemaDefinition__Group__2 : rule__ContentMediaTypeSchemaDefinition__Group__2__Impl ;
     public final void rule__ContentMediaTypeSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6702:1: ( rule__ContentMediaTypeSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:6703:2: rule__ContentMediaTypeSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:7034:1: ( rule__ContentMediaTypeSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:7035:2: rule__ContentMediaTypeSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ContentMediaTypeSchemaDefinition__Group__2__Impl();
@@ -20200,21 +21350,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentMediaTypeSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6709:1: rule__ContentMediaTypeSchemaDefinition__Group__2__Impl : ( ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:7041:1: rule__ContentMediaTypeSchemaDefinition__Group__2__Impl : ( ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 ) ) ;
     public final void rule__ContentMediaTypeSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6713:1: ( ( ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:6714:1: ( ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:7045:1: ( ( ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:7046:1: ( ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:6714:1: ( ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:6715:2: ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 )
+            // InternalJsonSchemaDsl.g:7046:1: ( ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:7047:2: ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 )
             {
              before(grammarAccess.getContentMediaTypeSchemaDefinitionAccess().getContentMediaTypeAssignment_2()); 
-            // InternalJsonSchemaDsl.g:6716:2: ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 )
-            // InternalJsonSchemaDsl.g:6716:3: rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2
+            // InternalJsonSchemaDsl.g:7048:2: ( rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 )
+            // InternalJsonSchemaDsl.g:7048:3: rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2();
@@ -20247,14 +21397,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMinimumSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:6725:1: rule__ExclusiveMinimumSchemaDefinition__Group__0 : rule__ExclusiveMinimumSchemaDefinition__Group__0__Impl rule__ExclusiveMinimumSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:7057:1: rule__ExclusiveMinimumSchemaDefinition__Group__0 : rule__ExclusiveMinimumSchemaDefinition__Group__0__Impl rule__ExclusiveMinimumSchemaDefinition__Group__1 ;
     public final void rule__ExclusiveMinimumSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6729:1: ( rule__ExclusiveMinimumSchemaDefinition__Group__0__Impl rule__ExclusiveMinimumSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6730:2: rule__ExclusiveMinimumSchemaDefinition__Group__0__Impl rule__ExclusiveMinimumSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:7061:1: ( rule__ExclusiveMinimumSchemaDefinition__Group__0__Impl rule__ExclusiveMinimumSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:7062:2: rule__ExclusiveMinimumSchemaDefinition__Group__0__Impl rule__ExclusiveMinimumSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__ExclusiveMinimumSchemaDefinition__Group__0__Impl();
@@ -20285,20 +21435,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMinimumSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6737:1: rule__ExclusiveMinimumSchemaDefinition__Group__0__Impl : ( '\"exclusiveMinimum\"' ) ;
+    // InternalJsonSchemaDsl.g:7069:1: rule__ExclusiveMinimumSchemaDefinition__Group__0__Impl : ( '\"exclusiveMinimum\"' ) ;
     public final void rule__ExclusiveMinimumSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6741:1: ( ( '\"exclusiveMinimum\"' ) )
-            // InternalJsonSchemaDsl.g:6742:1: ( '\"exclusiveMinimum\"' )
+            // InternalJsonSchemaDsl.g:7073:1: ( ( '\"exclusiveMinimum\"' ) )
+            // InternalJsonSchemaDsl.g:7074:1: ( '\"exclusiveMinimum\"' )
             {
-            // InternalJsonSchemaDsl.g:6742:1: ( '\"exclusiveMinimum\"' )
-            // InternalJsonSchemaDsl.g:6743:2: '\"exclusiveMinimum\"'
+            // InternalJsonSchemaDsl.g:7074:1: ( '\"exclusiveMinimum\"' )
+            // InternalJsonSchemaDsl.g:7075:2: '\"exclusiveMinimum\"'
             {
              before(grammarAccess.getExclusiveMinimumSchemaDefinitionAccess().getExclusiveMinimumKeyword_0()); 
-            match(input,67,FOLLOW_2); 
+            match(input,70,FOLLOW_2); 
              after(grammarAccess.getExclusiveMinimumSchemaDefinitionAccess().getExclusiveMinimumKeyword_0()); 
 
             }
@@ -20322,14 +21472,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMinimumSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6752:1: rule__ExclusiveMinimumSchemaDefinition__Group__1 : rule__ExclusiveMinimumSchemaDefinition__Group__1__Impl rule__ExclusiveMinimumSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:7084:1: rule__ExclusiveMinimumSchemaDefinition__Group__1 : rule__ExclusiveMinimumSchemaDefinition__Group__1__Impl rule__ExclusiveMinimumSchemaDefinition__Group__2 ;
     public final void rule__ExclusiveMinimumSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6756:1: ( rule__ExclusiveMinimumSchemaDefinition__Group__1__Impl rule__ExclusiveMinimumSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6757:2: rule__ExclusiveMinimumSchemaDefinition__Group__1__Impl rule__ExclusiveMinimumSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:7088:1: ( rule__ExclusiveMinimumSchemaDefinition__Group__1__Impl rule__ExclusiveMinimumSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:7089:2: rule__ExclusiveMinimumSchemaDefinition__Group__1__Impl rule__ExclusiveMinimumSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_10);
             rule__ExclusiveMinimumSchemaDefinition__Group__1__Impl();
@@ -20360,20 +21510,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMinimumSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6764:1: rule__ExclusiveMinimumSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:7096:1: rule__ExclusiveMinimumSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__ExclusiveMinimumSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6768:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6769:1: ( ':' )
+            // InternalJsonSchemaDsl.g:7100:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:7101:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6769:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6770:2: ':'
+            // InternalJsonSchemaDsl.g:7101:1: ( ':' )
+            // InternalJsonSchemaDsl.g:7102:2: ':'
             {
              before(grammarAccess.getExclusiveMinimumSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getExclusiveMinimumSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -20397,14 +21547,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMinimumSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6779:1: rule__ExclusiveMinimumSchemaDefinition__Group__2 : rule__ExclusiveMinimumSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:7111:1: rule__ExclusiveMinimumSchemaDefinition__Group__2 : rule__ExclusiveMinimumSchemaDefinition__Group__2__Impl ;
     public final void rule__ExclusiveMinimumSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6783:1: ( rule__ExclusiveMinimumSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:6784:2: rule__ExclusiveMinimumSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:7115:1: ( rule__ExclusiveMinimumSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:7116:2: rule__ExclusiveMinimumSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExclusiveMinimumSchemaDefinition__Group__2__Impl();
@@ -20430,21 +21580,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMinimumSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6790:1: rule__ExclusiveMinimumSchemaDefinition__Group__2__Impl : ( ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:7122:1: rule__ExclusiveMinimumSchemaDefinition__Group__2__Impl : ( ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 ) ) ;
     public final void rule__ExclusiveMinimumSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6794:1: ( ( ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:6795:1: ( ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:7126:1: ( ( ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:7127:1: ( ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:6795:1: ( ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:6796:2: ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 )
+            // InternalJsonSchemaDsl.g:7127:1: ( ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:7128:2: ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 )
             {
              before(grammarAccess.getExclusiveMinimumSchemaDefinitionAccess().getExclusiveMinimumAssignment_2()); 
-            // InternalJsonSchemaDsl.g:6797:2: ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 )
-            // InternalJsonSchemaDsl.g:6797:3: rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2
+            // InternalJsonSchemaDsl.g:7129:2: ( rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 )
+            // InternalJsonSchemaDsl.g:7129:3: rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2();
@@ -20477,14 +21627,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:6806:1: rule__SchemaSchemaDefinition__Group__0 : rule__SchemaSchemaDefinition__Group__0__Impl rule__SchemaSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:7138:1: rule__SchemaSchemaDefinition__Group__0 : rule__SchemaSchemaDefinition__Group__0__Impl rule__SchemaSchemaDefinition__Group__1 ;
     public final void rule__SchemaSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6810:1: ( rule__SchemaSchemaDefinition__Group__0__Impl rule__SchemaSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6811:2: rule__SchemaSchemaDefinition__Group__0__Impl rule__SchemaSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:7142:1: ( rule__SchemaSchemaDefinition__Group__0__Impl rule__SchemaSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:7143:2: rule__SchemaSchemaDefinition__Group__0__Impl rule__SchemaSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__SchemaSchemaDefinition__Group__0__Impl();
@@ -20515,20 +21665,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6818:1: rule__SchemaSchemaDefinition__Group__0__Impl : ( '\"$schema\"' ) ;
+    // InternalJsonSchemaDsl.g:7150:1: rule__SchemaSchemaDefinition__Group__0__Impl : ( '\"$schema\"' ) ;
     public final void rule__SchemaSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6822:1: ( ( '\"$schema\"' ) )
-            // InternalJsonSchemaDsl.g:6823:1: ( '\"$schema\"' )
+            // InternalJsonSchemaDsl.g:7154:1: ( ( '\"$schema\"' ) )
+            // InternalJsonSchemaDsl.g:7155:1: ( '\"$schema\"' )
             {
-            // InternalJsonSchemaDsl.g:6823:1: ( '\"$schema\"' )
-            // InternalJsonSchemaDsl.g:6824:2: '\"$schema\"'
+            // InternalJsonSchemaDsl.g:7155:1: ( '\"$schema\"' )
+            // InternalJsonSchemaDsl.g:7156:2: '\"$schema\"'
             {
              before(grammarAccess.getSchemaSchemaDefinitionAccess().getSchemaKeyword_0()); 
-            match(input,68,FOLLOW_2); 
+            match(input,15,FOLLOW_2); 
              after(grammarAccess.getSchemaSchemaDefinitionAccess().getSchemaKeyword_0()); 
 
             }
@@ -20552,16 +21702,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6833:1: rule__SchemaSchemaDefinition__Group__1 : rule__SchemaSchemaDefinition__Group__1__Impl rule__SchemaSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:7165:1: rule__SchemaSchemaDefinition__Group__1 : rule__SchemaSchemaDefinition__Group__1__Impl rule__SchemaSchemaDefinition__Group__2 ;
     public final void rule__SchemaSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6837:1: ( rule__SchemaSchemaDefinition__Group__1__Impl rule__SchemaSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6838:2: rule__SchemaSchemaDefinition__Group__1__Impl rule__SchemaSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:7169:1: ( rule__SchemaSchemaDefinition__Group__1__Impl rule__SchemaSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:7170:2: rule__SchemaSchemaDefinition__Group__1__Impl rule__SchemaSchemaDefinition__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__SchemaSchemaDefinition__Group__1__Impl();
 
             state._fsp--;
@@ -20590,20 +21740,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6845:1: rule__SchemaSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:7177:1: rule__SchemaSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__SchemaSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6849:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6850:1: ( ':' )
+            // InternalJsonSchemaDsl.g:7181:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:7182:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6850:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6851:2: ':'
+            // InternalJsonSchemaDsl.g:7182:1: ( ':' )
+            // InternalJsonSchemaDsl.g:7183:2: ':'
             {
              before(grammarAccess.getSchemaSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getSchemaSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -20627,14 +21777,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6860:1: rule__SchemaSchemaDefinition__Group__2 : rule__SchemaSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:7192:1: rule__SchemaSchemaDefinition__Group__2 : rule__SchemaSchemaDefinition__Group__2__Impl ;
     public final void rule__SchemaSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6864:1: ( rule__SchemaSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:6865:2: rule__SchemaSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:7196:1: ( rule__SchemaSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:7197:2: rule__SchemaSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SchemaSchemaDefinition__Group__2__Impl();
@@ -20660,21 +21810,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6871:1: rule__SchemaSchemaDefinition__Group__2__Impl : ( ( rule__SchemaSchemaDefinition__SchemaAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:7203:1: rule__SchemaSchemaDefinition__Group__2__Impl : ( ( rule__SchemaSchemaDefinition__SchemaAssignment_2 ) ) ;
     public final void rule__SchemaSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6875:1: ( ( ( rule__SchemaSchemaDefinition__SchemaAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:6876:1: ( ( rule__SchemaSchemaDefinition__SchemaAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:7207:1: ( ( ( rule__SchemaSchemaDefinition__SchemaAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:7208:1: ( ( rule__SchemaSchemaDefinition__SchemaAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:6876:1: ( ( rule__SchemaSchemaDefinition__SchemaAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:6877:2: ( rule__SchemaSchemaDefinition__SchemaAssignment_2 )
+            // InternalJsonSchemaDsl.g:7208:1: ( ( rule__SchemaSchemaDefinition__SchemaAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:7209:2: ( rule__SchemaSchemaDefinition__SchemaAssignment_2 )
             {
              before(grammarAccess.getSchemaSchemaDefinitionAccess().getSchemaAssignment_2()); 
-            // InternalJsonSchemaDsl.g:6878:2: ( rule__SchemaSchemaDefinition__SchemaAssignment_2 )
-            // InternalJsonSchemaDsl.g:6878:3: rule__SchemaSchemaDefinition__SchemaAssignment_2
+            // InternalJsonSchemaDsl.g:7210:2: ( rule__SchemaSchemaDefinition__SchemaAssignment_2 )
+            // InternalJsonSchemaDsl.g:7210:3: rule__SchemaSchemaDefinition__SchemaAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__SchemaSchemaDefinition__SchemaAssignment_2();
@@ -20707,16 +21857,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:6887:1: rule__PropertiesSchemaDefinition__Group__0 : rule__PropertiesSchemaDefinition__Group__0__Impl rule__PropertiesSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:7219:1: rule__PropertiesSchemaDefinition__Group__0 : rule__PropertiesSchemaDefinition__Group__0__Impl rule__PropertiesSchemaDefinition__Group__1 ;
     public final void rule__PropertiesSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6891:1: ( rule__PropertiesSchemaDefinition__Group__0__Impl rule__PropertiesSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:6892:2: rule__PropertiesSchemaDefinition__Group__0__Impl rule__PropertiesSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:7223:1: ( rule__PropertiesSchemaDefinition__Group__0__Impl rule__PropertiesSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:7224:2: rule__PropertiesSchemaDefinition__Group__0__Impl rule__PropertiesSchemaDefinition__Group__1
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_25);
             rule__PropertiesSchemaDefinition__Group__0__Impl();
 
             state._fsp--;
@@ -20745,21 +21895,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:6899:1: rule__PropertiesSchemaDefinition__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:7231:1: rule__PropertiesSchemaDefinition__Group__0__Impl : ( () ) ;
     public final void rule__PropertiesSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6903:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:6904:1: ( () )
+            // InternalJsonSchemaDsl.g:7235:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:7236:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:6904:1: ( () )
-            // InternalJsonSchemaDsl.g:6905:2: ()
+            // InternalJsonSchemaDsl.g:7236:1: ( () )
+            // InternalJsonSchemaDsl.g:7237:2: ()
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getPropertiesSchemaDefinitionAction_0()); 
-            // InternalJsonSchemaDsl.g:6906:2: ()
-            // InternalJsonSchemaDsl.g:6906:3: 
+            // InternalJsonSchemaDsl.g:7238:2: ()
+            // InternalJsonSchemaDsl.g:7238:3: 
             {
             }
 
@@ -20782,14 +21932,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:6914:1: rule__PropertiesSchemaDefinition__Group__1 : rule__PropertiesSchemaDefinition__Group__1__Impl rule__PropertiesSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:7246:1: rule__PropertiesSchemaDefinition__Group__1 : rule__PropertiesSchemaDefinition__Group__1__Impl rule__PropertiesSchemaDefinition__Group__2 ;
     public final void rule__PropertiesSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6918:1: ( rule__PropertiesSchemaDefinition__Group__1__Impl rule__PropertiesSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:6919:2: rule__PropertiesSchemaDefinition__Group__1__Impl rule__PropertiesSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:7250:1: ( rule__PropertiesSchemaDefinition__Group__1__Impl rule__PropertiesSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:7251:2: rule__PropertiesSchemaDefinition__Group__1__Impl rule__PropertiesSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_9);
             rule__PropertiesSchemaDefinition__Group__1__Impl();
@@ -20820,20 +21970,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:6926:1: rule__PropertiesSchemaDefinition__Group__1__Impl : ( '\"properties\"' ) ;
+    // InternalJsonSchemaDsl.g:7258:1: rule__PropertiesSchemaDefinition__Group__1__Impl : ( '\"properties\"' ) ;
     public final void rule__PropertiesSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6930:1: ( ( '\"properties\"' ) )
-            // InternalJsonSchemaDsl.g:6931:1: ( '\"properties\"' )
+            // InternalJsonSchemaDsl.g:7262:1: ( ( '\"properties\"' ) )
+            // InternalJsonSchemaDsl.g:7263:1: ( '\"properties\"' )
             {
-            // InternalJsonSchemaDsl.g:6931:1: ( '\"properties\"' )
-            // InternalJsonSchemaDsl.g:6932:2: '\"properties\"'
+            // InternalJsonSchemaDsl.g:7263:1: ( '\"properties\"' )
+            // InternalJsonSchemaDsl.g:7264:2: '\"properties\"'
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getPropertiesKeyword_1()); 
-            match(input,69,FOLLOW_2); 
+            match(input,41,FOLLOW_2); 
              after(grammarAccess.getPropertiesSchemaDefinitionAccess().getPropertiesKeyword_1()); 
 
             }
@@ -20857,14 +22007,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:6941:1: rule__PropertiesSchemaDefinition__Group__2 : rule__PropertiesSchemaDefinition__Group__2__Impl rule__PropertiesSchemaDefinition__Group__3 ;
+    // InternalJsonSchemaDsl.g:7273:1: rule__PropertiesSchemaDefinition__Group__2 : rule__PropertiesSchemaDefinition__Group__2__Impl rule__PropertiesSchemaDefinition__Group__3 ;
     public final void rule__PropertiesSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6945:1: ( rule__PropertiesSchemaDefinition__Group__2__Impl rule__PropertiesSchemaDefinition__Group__3 )
-            // InternalJsonSchemaDsl.g:6946:2: rule__PropertiesSchemaDefinition__Group__2__Impl rule__PropertiesSchemaDefinition__Group__3
+            // InternalJsonSchemaDsl.g:7277:1: ( rule__PropertiesSchemaDefinition__Group__2__Impl rule__PropertiesSchemaDefinition__Group__3 )
+            // InternalJsonSchemaDsl.g:7278:2: rule__PropertiesSchemaDefinition__Group__2__Impl rule__PropertiesSchemaDefinition__Group__3
             {
             pushFollow(FOLLOW_4);
             rule__PropertiesSchemaDefinition__Group__2__Impl();
@@ -20895,20 +22045,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:6953:1: rule__PropertiesSchemaDefinition__Group__2__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:7285:1: rule__PropertiesSchemaDefinition__Group__2__Impl : ( ':' ) ;
     public final void rule__PropertiesSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6957:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:6958:1: ( ':' )
+            // InternalJsonSchemaDsl.g:7289:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:7290:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:6958:1: ( ':' )
-            // InternalJsonSchemaDsl.g:6959:2: ':'
+            // InternalJsonSchemaDsl.g:7290:1: ( ':' )
+            // InternalJsonSchemaDsl.g:7291:2: ':'
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getColonKeyword_2()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getPropertiesSchemaDefinitionAccess().getColonKeyword_2()); 
 
             }
@@ -20932,16 +22082,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__3"
-    // InternalJsonSchemaDsl.g:6968:1: rule__PropertiesSchemaDefinition__Group__3 : rule__PropertiesSchemaDefinition__Group__3__Impl rule__PropertiesSchemaDefinition__Group__4 ;
+    // InternalJsonSchemaDsl.g:7300:1: rule__PropertiesSchemaDefinition__Group__3 : rule__PropertiesSchemaDefinition__Group__3__Impl rule__PropertiesSchemaDefinition__Group__4 ;
     public final void rule__PropertiesSchemaDefinition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6972:1: ( rule__PropertiesSchemaDefinition__Group__3__Impl rule__PropertiesSchemaDefinition__Group__4 )
-            // InternalJsonSchemaDsl.g:6973:2: rule__PropertiesSchemaDefinition__Group__3__Impl rule__PropertiesSchemaDefinition__Group__4
+            // InternalJsonSchemaDsl.g:7304:1: ( rule__PropertiesSchemaDefinition__Group__3__Impl rule__PropertiesSchemaDefinition__Group__4 )
+            // InternalJsonSchemaDsl.g:7305:2: rule__PropertiesSchemaDefinition__Group__3__Impl rule__PropertiesSchemaDefinition__Group__4
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_19);
             rule__PropertiesSchemaDefinition__Group__3__Impl();
 
             state._fsp--;
@@ -20970,20 +22120,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:6980:1: rule__PropertiesSchemaDefinition__Group__3__Impl : ( '{' ) ;
+    // InternalJsonSchemaDsl.g:7312:1: rule__PropertiesSchemaDefinition__Group__3__Impl : ( '{' ) ;
     public final void rule__PropertiesSchemaDefinition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6984:1: ( ( '{' ) )
-            // InternalJsonSchemaDsl.g:6985:1: ( '{' )
+            // InternalJsonSchemaDsl.g:7316:1: ( ( '{' ) )
+            // InternalJsonSchemaDsl.g:7317:1: ( '{' )
             {
-            // InternalJsonSchemaDsl.g:6985:1: ( '{' )
-            // InternalJsonSchemaDsl.g:6986:2: '{'
+            // InternalJsonSchemaDsl.g:7317:1: ( '{' )
+            // InternalJsonSchemaDsl.g:7318:2: '{'
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getLeftCurlyBracketKeyword_3()); 
-            match(input,21,FOLLOW_2); 
+            match(input,63,FOLLOW_2); 
              after(grammarAccess.getPropertiesSchemaDefinitionAccess().getLeftCurlyBracketKeyword_3()); 
 
             }
@@ -21007,16 +22157,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__4"
-    // InternalJsonSchemaDsl.g:6995:1: rule__PropertiesSchemaDefinition__Group__4 : rule__PropertiesSchemaDefinition__Group__4__Impl rule__PropertiesSchemaDefinition__Group__5 ;
+    // InternalJsonSchemaDsl.g:7327:1: rule__PropertiesSchemaDefinition__Group__4 : rule__PropertiesSchemaDefinition__Group__4__Impl rule__PropertiesSchemaDefinition__Group__5 ;
     public final void rule__PropertiesSchemaDefinition__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:6999:1: ( rule__PropertiesSchemaDefinition__Group__4__Impl rule__PropertiesSchemaDefinition__Group__5 )
-            // InternalJsonSchemaDsl.g:7000:2: rule__PropertiesSchemaDefinition__Group__4__Impl rule__PropertiesSchemaDefinition__Group__5
+            // InternalJsonSchemaDsl.g:7331:1: ( rule__PropertiesSchemaDefinition__Group__4__Impl rule__PropertiesSchemaDefinition__Group__5 )
+            // InternalJsonSchemaDsl.g:7332:2: rule__PropertiesSchemaDefinition__Group__4__Impl rule__PropertiesSchemaDefinition__Group__5
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_19);
             rule__PropertiesSchemaDefinition__Group__4__Impl();
 
             state._fsp--;
@@ -21045,29 +22195,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__4__Impl"
-    // InternalJsonSchemaDsl.g:7007:1: rule__PropertiesSchemaDefinition__Group__4__Impl : ( ( rule__PropertiesSchemaDefinition__Group_4__0 )? ) ;
+    // InternalJsonSchemaDsl.g:7339:1: rule__PropertiesSchemaDefinition__Group__4__Impl : ( ( rule__PropertiesSchemaDefinition__Group_4__0 )? ) ;
     public final void rule__PropertiesSchemaDefinition__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7011:1: ( ( ( rule__PropertiesSchemaDefinition__Group_4__0 )? ) )
-            // InternalJsonSchemaDsl.g:7012:1: ( ( rule__PropertiesSchemaDefinition__Group_4__0 )? )
+            // InternalJsonSchemaDsl.g:7343:1: ( ( ( rule__PropertiesSchemaDefinition__Group_4__0 )? ) )
+            // InternalJsonSchemaDsl.g:7344:1: ( ( rule__PropertiesSchemaDefinition__Group_4__0 )? )
             {
-            // InternalJsonSchemaDsl.g:7012:1: ( ( rule__PropertiesSchemaDefinition__Group_4__0 )? )
-            // InternalJsonSchemaDsl.g:7013:2: ( rule__PropertiesSchemaDefinition__Group_4__0 )?
+            // InternalJsonSchemaDsl.g:7344:1: ( ( rule__PropertiesSchemaDefinition__Group_4__0 )? )
+            // InternalJsonSchemaDsl.g:7345:2: ( rule__PropertiesSchemaDefinition__Group_4__0 )?
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getGroup_4()); 
-            // InternalJsonSchemaDsl.g:7014:2: ( rule__PropertiesSchemaDefinition__Group_4__0 )?
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:7346:2: ( rule__PropertiesSchemaDefinition__Group_4__0 )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA20_0==RULE_STRING) ) {
-                alt20=1;
+            if ( (LA22_0==RULE_STRING||(LA22_0>=14 && LA22_0<=55)) ) {
+                alt22=1;
             }
-            switch (alt20) {
+            switch (alt22) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:7014:3: rule__PropertiesSchemaDefinition__Group_4__0
+                    // InternalJsonSchemaDsl.g:7346:3: rule__PropertiesSchemaDefinition__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__PropertiesSchemaDefinition__Group_4__0();
@@ -21103,14 +22253,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__5"
-    // InternalJsonSchemaDsl.g:7022:1: rule__PropertiesSchemaDefinition__Group__5 : rule__PropertiesSchemaDefinition__Group__5__Impl ;
+    // InternalJsonSchemaDsl.g:7354:1: rule__PropertiesSchemaDefinition__Group__5 : rule__PropertiesSchemaDefinition__Group__5__Impl ;
     public final void rule__PropertiesSchemaDefinition__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7026:1: ( rule__PropertiesSchemaDefinition__Group__5__Impl )
-            // InternalJsonSchemaDsl.g:7027:2: rule__PropertiesSchemaDefinition__Group__5__Impl
+            // InternalJsonSchemaDsl.g:7358:1: ( rule__PropertiesSchemaDefinition__Group__5__Impl )
+            // InternalJsonSchemaDsl.g:7359:2: rule__PropertiesSchemaDefinition__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PropertiesSchemaDefinition__Group__5__Impl();
@@ -21136,20 +22286,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group__5__Impl"
-    // InternalJsonSchemaDsl.g:7033:1: rule__PropertiesSchemaDefinition__Group__5__Impl : ( '}' ) ;
+    // InternalJsonSchemaDsl.g:7365:1: rule__PropertiesSchemaDefinition__Group__5__Impl : ( '}' ) ;
     public final void rule__PropertiesSchemaDefinition__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7037:1: ( ( '}' ) )
-            // InternalJsonSchemaDsl.g:7038:1: ( '}' )
+            // InternalJsonSchemaDsl.g:7369:1: ( ( '}' ) )
+            // InternalJsonSchemaDsl.g:7370:1: ( '}' )
             {
-            // InternalJsonSchemaDsl.g:7038:1: ( '}' )
-            // InternalJsonSchemaDsl.g:7039:2: '}'
+            // InternalJsonSchemaDsl.g:7370:1: ( '}' )
+            // InternalJsonSchemaDsl.g:7371:2: '}'
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getRightCurlyBracketKeyword_5()); 
-            match(input,22,FOLLOW_2); 
+            match(input,64,FOLLOW_2); 
              after(grammarAccess.getPropertiesSchemaDefinitionAccess().getRightCurlyBracketKeyword_5()); 
 
             }
@@ -21173,14 +22323,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group_4__0"
-    // InternalJsonSchemaDsl.g:7049:1: rule__PropertiesSchemaDefinition__Group_4__0 : rule__PropertiesSchemaDefinition__Group_4__0__Impl rule__PropertiesSchemaDefinition__Group_4__1 ;
+    // InternalJsonSchemaDsl.g:7381:1: rule__PropertiesSchemaDefinition__Group_4__0 : rule__PropertiesSchemaDefinition__Group_4__0__Impl rule__PropertiesSchemaDefinition__Group_4__1 ;
     public final void rule__PropertiesSchemaDefinition__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7053:1: ( rule__PropertiesSchemaDefinition__Group_4__0__Impl rule__PropertiesSchemaDefinition__Group_4__1 )
-            // InternalJsonSchemaDsl.g:7054:2: rule__PropertiesSchemaDefinition__Group_4__0__Impl rule__PropertiesSchemaDefinition__Group_4__1
+            // InternalJsonSchemaDsl.g:7385:1: ( rule__PropertiesSchemaDefinition__Group_4__0__Impl rule__PropertiesSchemaDefinition__Group_4__1 )
+            // InternalJsonSchemaDsl.g:7386:2: rule__PropertiesSchemaDefinition__Group_4__0__Impl rule__PropertiesSchemaDefinition__Group_4__1
             {
             pushFollow(FOLLOW_6);
             rule__PropertiesSchemaDefinition__Group_4__0__Impl();
@@ -21211,21 +22361,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group_4__0__Impl"
-    // InternalJsonSchemaDsl.g:7061:1: rule__PropertiesSchemaDefinition__Group_4__0__Impl : ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) ;
+    // InternalJsonSchemaDsl.g:7393:1: rule__PropertiesSchemaDefinition__Group_4__0__Impl : ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) ;
     public final void rule__PropertiesSchemaDefinition__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7065:1: ( ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) )
-            // InternalJsonSchemaDsl.g:7066:1: ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
+            // InternalJsonSchemaDsl.g:7397:1: ( ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) ) )
+            // InternalJsonSchemaDsl.g:7398:1: ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
             {
-            // InternalJsonSchemaDsl.g:7066:1: ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
-            // InternalJsonSchemaDsl.g:7067:2: ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 )
+            // InternalJsonSchemaDsl.g:7398:1: ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 ) )
+            // InternalJsonSchemaDsl.g:7399:2: ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 )
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getKeySchemaPairsAssignment_4_0()); 
-            // InternalJsonSchemaDsl.g:7068:2: ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 )
-            // InternalJsonSchemaDsl.g:7068:3: rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0
+            // InternalJsonSchemaDsl.g:7400:2: ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 )
+            // InternalJsonSchemaDsl.g:7400:3: rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0
             {
             pushFollow(FOLLOW_2);
             rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0();
@@ -21258,14 +22408,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group_4__1"
-    // InternalJsonSchemaDsl.g:7076:1: rule__PropertiesSchemaDefinition__Group_4__1 : rule__PropertiesSchemaDefinition__Group_4__1__Impl ;
+    // InternalJsonSchemaDsl.g:7408:1: rule__PropertiesSchemaDefinition__Group_4__1 : rule__PropertiesSchemaDefinition__Group_4__1__Impl ;
     public final void rule__PropertiesSchemaDefinition__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7080:1: ( rule__PropertiesSchemaDefinition__Group_4__1__Impl )
-            // InternalJsonSchemaDsl.g:7081:2: rule__PropertiesSchemaDefinition__Group_4__1__Impl
+            // InternalJsonSchemaDsl.g:7412:1: ( rule__PropertiesSchemaDefinition__Group_4__1__Impl )
+            // InternalJsonSchemaDsl.g:7413:2: rule__PropertiesSchemaDefinition__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PropertiesSchemaDefinition__Group_4__1__Impl();
@@ -21291,33 +22441,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group_4__1__Impl"
-    // InternalJsonSchemaDsl.g:7087:1: rule__PropertiesSchemaDefinition__Group_4__1__Impl : ( ( rule__PropertiesSchemaDefinition__Group_4_1__0 )* ) ;
+    // InternalJsonSchemaDsl.g:7419:1: rule__PropertiesSchemaDefinition__Group_4__1__Impl : ( ( rule__PropertiesSchemaDefinition__Group_4_1__0 )* ) ;
     public final void rule__PropertiesSchemaDefinition__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7091:1: ( ( ( rule__PropertiesSchemaDefinition__Group_4_1__0 )* ) )
-            // InternalJsonSchemaDsl.g:7092:1: ( ( rule__PropertiesSchemaDefinition__Group_4_1__0 )* )
+            // InternalJsonSchemaDsl.g:7423:1: ( ( ( rule__PropertiesSchemaDefinition__Group_4_1__0 )* ) )
+            // InternalJsonSchemaDsl.g:7424:1: ( ( rule__PropertiesSchemaDefinition__Group_4_1__0 )* )
             {
-            // InternalJsonSchemaDsl.g:7092:1: ( ( rule__PropertiesSchemaDefinition__Group_4_1__0 )* )
-            // InternalJsonSchemaDsl.g:7093:2: ( rule__PropertiesSchemaDefinition__Group_4_1__0 )*
+            // InternalJsonSchemaDsl.g:7424:1: ( ( rule__PropertiesSchemaDefinition__Group_4_1__0 )* )
+            // InternalJsonSchemaDsl.g:7425:2: ( rule__PropertiesSchemaDefinition__Group_4_1__0 )*
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getGroup_4_1()); 
-            // InternalJsonSchemaDsl.g:7094:2: ( rule__PropertiesSchemaDefinition__Group_4_1__0 )*
-            loop21:
+            // InternalJsonSchemaDsl.g:7426:2: ( rule__PropertiesSchemaDefinition__Group_4_1__0 )*
+            loop23:
             do {
-                int alt21=2;
-                int LA21_0 = input.LA(1);
+                int alt23=2;
+                int LA23_0 = input.LA(1);
 
-                if ( (LA21_0==23) ) {
-                    alt21=1;
+                if ( (LA23_0==65) ) {
+                    alt23=1;
                 }
 
 
-                switch (alt21) {
+                switch (alt23) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:7094:3: rule__PropertiesSchemaDefinition__Group_4_1__0
+            	    // InternalJsonSchemaDsl.g:7426:3: rule__PropertiesSchemaDefinition__Group_4_1__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__PropertiesSchemaDefinition__Group_4_1__0();
@@ -21329,7 +22479,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             	    break;
 
             	default :
-            	    break loop21;
+            	    break loop23;
                 }
             } while (true);
 
@@ -21356,16 +22506,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group_4_1__0"
-    // InternalJsonSchemaDsl.g:7103:1: rule__PropertiesSchemaDefinition__Group_4_1__0 : rule__PropertiesSchemaDefinition__Group_4_1__0__Impl rule__PropertiesSchemaDefinition__Group_4_1__1 ;
+    // InternalJsonSchemaDsl.g:7435:1: rule__PropertiesSchemaDefinition__Group_4_1__0 : rule__PropertiesSchemaDefinition__Group_4_1__0__Impl rule__PropertiesSchemaDefinition__Group_4_1__1 ;
     public final void rule__PropertiesSchemaDefinition__Group_4_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7107:1: ( rule__PropertiesSchemaDefinition__Group_4_1__0__Impl rule__PropertiesSchemaDefinition__Group_4_1__1 )
-            // InternalJsonSchemaDsl.g:7108:2: rule__PropertiesSchemaDefinition__Group_4_1__0__Impl rule__PropertiesSchemaDefinition__Group_4_1__1
+            // InternalJsonSchemaDsl.g:7439:1: ( rule__PropertiesSchemaDefinition__Group_4_1__0__Impl rule__PropertiesSchemaDefinition__Group_4_1__1 )
+            // InternalJsonSchemaDsl.g:7440:2: rule__PropertiesSchemaDefinition__Group_4_1__0__Impl rule__PropertiesSchemaDefinition__Group_4_1__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__PropertiesSchemaDefinition__Group_4_1__0__Impl();
 
             state._fsp--;
@@ -21394,20 +22544,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group_4_1__0__Impl"
-    // InternalJsonSchemaDsl.g:7115:1: rule__PropertiesSchemaDefinition__Group_4_1__0__Impl : ( ',' ) ;
+    // InternalJsonSchemaDsl.g:7447:1: rule__PropertiesSchemaDefinition__Group_4_1__0__Impl : ( ',' ) ;
     public final void rule__PropertiesSchemaDefinition__Group_4_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7119:1: ( ( ',' ) )
-            // InternalJsonSchemaDsl.g:7120:1: ( ',' )
+            // InternalJsonSchemaDsl.g:7451:1: ( ( ',' ) )
+            // InternalJsonSchemaDsl.g:7452:1: ( ',' )
             {
-            // InternalJsonSchemaDsl.g:7120:1: ( ',' )
-            // InternalJsonSchemaDsl.g:7121:2: ','
+            // InternalJsonSchemaDsl.g:7452:1: ( ',' )
+            // InternalJsonSchemaDsl.g:7453:2: ','
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getCommaKeyword_4_1_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getPropertiesSchemaDefinitionAccess().getCommaKeyword_4_1_0()); 
 
             }
@@ -21431,14 +22581,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group_4_1__1"
-    // InternalJsonSchemaDsl.g:7130:1: rule__PropertiesSchemaDefinition__Group_4_1__1 : rule__PropertiesSchemaDefinition__Group_4_1__1__Impl ;
+    // InternalJsonSchemaDsl.g:7462:1: rule__PropertiesSchemaDefinition__Group_4_1__1 : rule__PropertiesSchemaDefinition__Group_4_1__1__Impl ;
     public final void rule__PropertiesSchemaDefinition__Group_4_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7134:1: ( rule__PropertiesSchemaDefinition__Group_4_1__1__Impl )
-            // InternalJsonSchemaDsl.g:7135:2: rule__PropertiesSchemaDefinition__Group_4_1__1__Impl
+            // InternalJsonSchemaDsl.g:7466:1: ( rule__PropertiesSchemaDefinition__Group_4_1__1__Impl )
+            // InternalJsonSchemaDsl.g:7467:2: rule__PropertiesSchemaDefinition__Group_4_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PropertiesSchemaDefinition__Group_4_1__1__Impl();
@@ -21464,21 +22614,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__Group_4_1__1__Impl"
-    // InternalJsonSchemaDsl.g:7141:1: rule__PropertiesSchemaDefinition__Group_4_1__1__Impl : ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) ;
+    // InternalJsonSchemaDsl.g:7473:1: rule__PropertiesSchemaDefinition__Group_4_1__1__Impl : ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) ;
     public final void rule__PropertiesSchemaDefinition__Group_4_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7145:1: ( ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) )
-            // InternalJsonSchemaDsl.g:7146:1: ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
+            // InternalJsonSchemaDsl.g:7477:1: ( ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) ) )
+            // InternalJsonSchemaDsl.g:7478:1: ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
             {
-            // InternalJsonSchemaDsl.g:7146:1: ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
-            // InternalJsonSchemaDsl.g:7147:2: ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
+            // InternalJsonSchemaDsl.g:7478:1: ( ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 ) )
+            // InternalJsonSchemaDsl.g:7479:2: ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getKeySchemaPairsAssignment_4_1_1()); 
-            // InternalJsonSchemaDsl.g:7148:2: ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
-            // InternalJsonSchemaDsl.g:7148:3: rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1
+            // InternalJsonSchemaDsl.g:7480:2: ( rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 )
+            // InternalJsonSchemaDsl.g:7480:3: rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1
             {
             pushFollow(FOLLOW_2);
             rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1();
@@ -21511,14 +22661,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertyNamesSchemaDefinition__Group__0"
-    // InternalJsonSchemaDsl.g:7157:1: rule__PropertyNamesSchemaDefinition__Group__0 : rule__PropertyNamesSchemaDefinition__Group__0__Impl rule__PropertyNamesSchemaDefinition__Group__1 ;
+    // InternalJsonSchemaDsl.g:7489:1: rule__PropertyNamesSchemaDefinition__Group__0 : rule__PropertyNamesSchemaDefinition__Group__0__Impl rule__PropertyNamesSchemaDefinition__Group__1 ;
     public final void rule__PropertyNamesSchemaDefinition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7161:1: ( rule__PropertyNamesSchemaDefinition__Group__0__Impl rule__PropertyNamesSchemaDefinition__Group__1 )
-            // InternalJsonSchemaDsl.g:7162:2: rule__PropertyNamesSchemaDefinition__Group__0__Impl rule__PropertyNamesSchemaDefinition__Group__1
+            // InternalJsonSchemaDsl.g:7493:1: ( rule__PropertyNamesSchemaDefinition__Group__0__Impl rule__PropertyNamesSchemaDefinition__Group__1 )
+            // InternalJsonSchemaDsl.g:7494:2: rule__PropertyNamesSchemaDefinition__Group__0__Impl rule__PropertyNamesSchemaDefinition__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__PropertyNamesSchemaDefinition__Group__0__Impl();
@@ -21549,20 +22699,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertyNamesSchemaDefinition__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:7169:1: rule__PropertyNamesSchemaDefinition__Group__0__Impl : ( '\"propertyNames\"' ) ;
+    // InternalJsonSchemaDsl.g:7501:1: rule__PropertyNamesSchemaDefinition__Group__0__Impl : ( '\"propertyNames\"' ) ;
     public final void rule__PropertyNamesSchemaDefinition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7173:1: ( ( '\"propertyNames\"' ) )
-            // InternalJsonSchemaDsl.g:7174:1: ( '\"propertyNames\"' )
+            // InternalJsonSchemaDsl.g:7505:1: ( ( '\"propertyNames\"' ) )
+            // InternalJsonSchemaDsl.g:7506:1: ( '\"propertyNames\"' )
             {
-            // InternalJsonSchemaDsl.g:7174:1: ( '\"propertyNames\"' )
-            // InternalJsonSchemaDsl.g:7175:2: '\"propertyNames\"'
+            // InternalJsonSchemaDsl.g:7506:1: ( '\"propertyNames\"' )
+            // InternalJsonSchemaDsl.g:7507:2: '\"propertyNames\"'
             {
              before(grammarAccess.getPropertyNamesSchemaDefinitionAccess().getPropertyNamesKeyword_0()); 
-            match(input,70,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getPropertyNamesSchemaDefinitionAccess().getPropertyNamesKeyword_0()); 
 
             }
@@ -21586,14 +22736,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertyNamesSchemaDefinition__Group__1"
-    // InternalJsonSchemaDsl.g:7184:1: rule__PropertyNamesSchemaDefinition__Group__1 : rule__PropertyNamesSchemaDefinition__Group__1__Impl rule__PropertyNamesSchemaDefinition__Group__2 ;
+    // InternalJsonSchemaDsl.g:7516:1: rule__PropertyNamesSchemaDefinition__Group__1 : rule__PropertyNamesSchemaDefinition__Group__1__Impl rule__PropertyNamesSchemaDefinition__Group__2 ;
     public final void rule__PropertyNamesSchemaDefinition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7188:1: ( rule__PropertyNamesSchemaDefinition__Group__1__Impl rule__PropertyNamesSchemaDefinition__Group__2 )
-            // InternalJsonSchemaDsl.g:7189:2: rule__PropertyNamesSchemaDefinition__Group__1__Impl rule__PropertyNamesSchemaDefinition__Group__2
+            // InternalJsonSchemaDsl.g:7520:1: ( rule__PropertyNamesSchemaDefinition__Group__1__Impl rule__PropertyNamesSchemaDefinition__Group__2 )
+            // InternalJsonSchemaDsl.g:7521:2: rule__PropertyNamesSchemaDefinition__Group__1__Impl rule__PropertyNamesSchemaDefinition__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__PropertyNamesSchemaDefinition__Group__1__Impl();
@@ -21624,20 +22774,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertyNamesSchemaDefinition__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:7196:1: rule__PropertyNamesSchemaDefinition__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:7528:1: rule__PropertyNamesSchemaDefinition__Group__1__Impl : ( ':' ) ;
     public final void rule__PropertyNamesSchemaDefinition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7200:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:7201:1: ( ':' )
+            // InternalJsonSchemaDsl.g:7532:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:7533:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:7201:1: ( ':' )
-            // InternalJsonSchemaDsl.g:7202:2: ':'
+            // InternalJsonSchemaDsl.g:7533:1: ( ':' )
+            // InternalJsonSchemaDsl.g:7534:2: ':'
             {
              before(grammarAccess.getPropertyNamesSchemaDefinitionAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getPropertyNamesSchemaDefinitionAccess().getColonKeyword_1()); 
 
             }
@@ -21661,14 +22811,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertyNamesSchemaDefinition__Group__2"
-    // InternalJsonSchemaDsl.g:7211:1: rule__PropertyNamesSchemaDefinition__Group__2 : rule__PropertyNamesSchemaDefinition__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:7543:1: rule__PropertyNamesSchemaDefinition__Group__2 : rule__PropertyNamesSchemaDefinition__Group__2__Impl ;
     public final void rule__PropertyNamesSchemaDefinition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7215:1: ( rule__PropertyNamesSchemaDefinition__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:7216:2: rule__PropertyNamesSchemaDefinition__Group__2__Impl
+            // InternalJsonSchemaDsl.g:7547:1: ( rule__PropertyNamesSchemaDefinition__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:7548:2: rule__PropertyNamesSchemaDefinition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__PropertyNamesSchemaDefinition__Group__2__Impl();
@@ -21694,21 +22844,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertyNamesSchemaDefinition__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:7222:1: rule__PropertyNamesSchemaDefinition__Group__2__Impl : ( ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:7554:1: rule__PropertyNamesSchemaDefinition__Group__2__Impl : ( ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 ) ) ;
     public final void rule__PropertyNamesSchemaDefinition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7226:1: ( ( ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:7227:1: ( ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:7558:1: ( ( ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:7559:1: ( ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:7227:1: ( ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:7228:2: ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 )
+            // InternalJsonSchemaDsl.g:7559:1: ( ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:7560:2: ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 )
             {
              before(grammarAccess.getPropertyNamesSchemaDefinitionAccess().getPropertyNamesAssignment_2()); 
-            // InternalJsonSchemaDsl.g:7229:2: ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 )
-            // InternalJsonSchemaDsl.g:7229:3: rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2
+            // InternalJsonSchemaDsl.g:7561:2: ( rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 )
+            // InternalJsonSchemaDsl.g:7561:3: rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2();
@@ -21741,16 +22891,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NullValue__Group__0"
-    // InternalJsonSchemaDsl.g:7238:1: rule__NullValue__Group__0 : rule__NullValue__Group__0__Impl rule__NullValue__Group__1 ;
+    // InternalJsonSchemaDsl.g:7570:1: rule__NullValue__Group__0 : rule__NullValue__Group__0__Impl rule__NullValue__Group__1 ;
     public final void rule__NullValue__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7242:1: ( rule__NullValue__Group__0__Impl rule__NullValue__Group__1 )
-            // InternalJsonSchemaDsl.g:7243:2: rule__NullValue__Group__0__Impl rule__NullValue__Group__1
+            // InternalJsonSchemaDsl.g:7574:1: ( rule__NullValue__Group__0__Impl rule__NullValue__Group__1 )
+            // InternalJsonSchemaDsl.g:7575:2: rule__NullValue__Group__0__Impl rule__NullValue__Group__1
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_26);
             rule__NullValue__Group__0__Impl();
 
             state._fsp--;
@@ -21779,21 +22929,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NullValue__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:7250:1: rule__NullValue__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:7582:1: rule__NullValue__Group__0__Impl : ( () ) ;
     public final void rule__NullValue__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7254:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:7255:1: ( () )
+            // InternalJsonSchemaDsl.g:7586:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:7587:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:7255:1: ( () )
-            // InternalJsonSchemaDsl.g:7256:2: ()
+            // InternalJsonSchemaDsl.g:7587:1: ( () )
+            // InternalJsonSchemaDsl.g:7588:2: ()
             {
              before(grammarAccess.getNullValueAccess().getNullValueAction_0()); 
-            // InternalJsonSchemaDsl.g:7257:2: ()
-            // InternalJsonSchemaDsl.g:7257:3: 
+            // InternalJsonSchemaDsl.g:7589:2: ()
+            // InternalJsonSchemaDsl.g:7589:3: 
             {
             }
 
@@ -21816,14 +22966,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NullValue__Group__1"
-    // InternalJsonSchemaDsl.g:7265:1: rule__NullValue__Group__1 : rule__NullValue__Group__1__Impl ;
+    // InternalJsonSchemaDsl.g:7597:1: rule__NullValue__Group__1 : rule__NullValue__Group__1__Impl ;
     public final void rule__NullValue__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7269:1: ( rule__NullValue__Group__1__Impl )
-            // InternalJsonSchemaDsl.g:7270:2: rule__NullValue__Group__1__Impl
+            // InternalJsonSchemaDsl.g:7601:1: ( rule__NullValue__Group__1__Impl )
+            // InternalJsonSchemaDsl.g:7602:2: rule__NullValue__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NullValue__Group__1__Impl();
@@ -21849,17 +22999,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NullValue__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:7276:1: rule__NullValue__Group__1__Impl : ( 'null' ) ;
+    // InternalJsonSchemaDsl.g:7608:1: rule__NullValue__Group__1__Impl : ( 'null' ) ;
     public final void rule__NullValue__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7280:1: ( ( 'null' ) )
-            // InternalJsonSchemaDsl.g:7281:1: ( 'null' )
+            // InternalJsonSchemaDsl.g:7612:1: ( ( 'null' ) )
+            // InternalJsonSchemaDsl.g:7613:1: ( 'null' )
             {
-            // InternalJsonSchemaDsl.g:7281:1: ( 'null' )
-            // InternalJsonSchemaDsl.g:7282:2: 'null'
+            // InternalJsonSchemaDsl.g:7613:1: ( 'null' )
+            // InternalJsonSchemaDsl.g:7614:2: 'null'
             {
              before(grammarAccess.getNullValueAccess().getNullKeyword_1()); 
             match(input,71,FOLLOW_2); 
@@ -21886,14 +23036,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group__0"
-    // InternalJsonSchemaDsl.g:7292:1: rule__ObjectValue__Group__0 : rule__ObjectValue__Group__0__Impl rule__ObjectValue__Group__1 ;
+    // InternalJsonSchemaDsl.g:7624:1: rule__ObjectValue__Group__0 : rule__ObjectValue__Group__0__Impl rule__ObjectValue__Group__1 ;
     public final void rule__ObjectValue__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7296:1: ( rule__ObjectValue__Group__0__Impl rule__ObjectValue__Group__1 )
-            // InternalJsonSchemaDsl.g:7297:2: rule__ObjectValue__Group__0__Impl rule__ObjectValue__Group__1
+            // InternalJsonSchemaDsl.g:7628:1: ( rule__ObjectValue__Group__0__Impl rule__ObjectValue__Group__1 )
+            // InternalJsonSchemaDsl.g:7629:2: rule__ObjectValue__Group__0__Impl rule__ObjectValue__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__ObjectValue__Group__0__Impl();
@@ -21924,21 +23074,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:7304:1: rule__ObjectValue__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:7636:1: rule__ObjectValue__Group__0__Impl : ( () ) ;
     public final void rule__ObjectValue__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7308:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:7309:1: ( () )
+            // InternalJsonSchemaDsl.g:7640:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:7641:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:7309:1: ( () )
-            // InternalJsonSchemaDsl.g:7310:2: ()
+            // InternalJsonSchemaDsl.g:7641:1: ( () )
+            // InternalJsonSchemaDsl.g:7642:2: ()
             {
              before(grammarAccess.getObjectValueAccess().getObjectValueAction_0()); 
-            // InternalJsonSchemaDsl.g:7311:2: ()
-            // InternalJsonSchemaDsl.g:7311:3: 
+            // InternalJsonSchemaDsl.g:7643:2: ()
+            // InternalJsonSchemaDsl.g:7643:3: 
             {
             }
 
@@ -21961,14 +23111,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group__1"
-    // InternalJsonSchemaDsl.g:7319:1: rule__ObjectValue__Group__1 : rule__ObjectValue__Group__1__Impl rule__ObjectValue__Group__2 ;
+    // InternalJsonSchemaDsl.g:7651:1: rule__ObjectValue__Group__1 : rule__ObjectValue__Group__1__Impl rule__ObjectValue__Group__2 ;
     public final void rule__ObjectValue__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7323:1: ( rule__ObjectValue__Group__1__Impl rule__ObjectValue__Group__2 )
-            // InternalJsonSchemaDsl.g:7324:2: rule__ObjectValue__Group__1__Impl rule__ObjectValue__Group__2
+            // InternalJsonSchemaDsl.g:7655:1: ( rule__ObjectValue__Group__1__Impl rule__ObjectValue__Group__2 )
+            // InternalJsonSchemaDsl.g:7656:2: rule__ObjectValue__Group__1__Impl rule__ObjectValue__Group__2
             {
             pushFollow(FOLLOW_5);
             rule__ObjectValue__Group__1__Impl();
@@ -21999,20 +23149,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:7331:1: rule__ObjectValue__Group__1__Impl : ( '{' ) ;
+    // InternalJsonSchemaDsl.g:7663:1: rule__ObjectValue__Group__1__Impl : ( '{' ) ;
     public final void rule__ObjectValue__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7335:1: ( ( '{' ) )
-            // InternalJsonSchemaDsl.g:7336:1: ( '{' )
+            // InternalJsonSchemaDsl.g:7667:1: ( ( '{' ) )
+            // InternalJsonSchemaDsl.g:7668:1: ( '{' )
             {
-            // InternalJsonSchemaDsl.g:7336:1: ( '{' )
-            // InternalJsonSchemaDsl.g:7337:2: '{'
+            // InternalJsonSchemaDsl.g:7668:1: ( '{' )
+            // InternalJsonSchemaDsl.g:7669:2: '{'
             {
              before(grammarAccess.getObjectValueAccess().getLeftCurlyBracketKeyword_1()); 
-            match(input,21,FOLLOW_2); 
+            match(input,63,FOLLOW_2); 
              after(grammarAccess.getObjectValueAccess().getLeftCurlyBracketKeyword_1()); 
 
             }
@@ -22036,14 +23186,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group__2"
-    // InternalJsonSchemaDsl.g:7346:1: rule__ObjectValue__Group__2 : rule__ObjectValue__Group__2__Impl rule__ObjectValue__Group__3 ;
+    // InternalJsonSchemaDsl.g:7678:1: rule__ObjectValue__Group__2 : rule__ObjectValue__Group__2__Impl rule__ObjectValue__Group__3 ;
     public final void rule__ObjectValue__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7350:1: ( rule__ObjectValue__Group__2__Impl rule__ObjectValue__Group__3 )
-            // InternalJsonSchemaDsl.g:7351:2: rule__ObjectValue__Group__2__Impl rule__ObjectValue__Group__3
+            // InternalJsonSchemaDsl.g:7682:1: ( rule__ObjectValue__Group__2__Impl rule__ObjectValue__Group__3 )
+            // InternalJsonSchemaDsl.g:7683:2: rule__ObjectValue__Group__2__Impl rule__ObjectValue__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__ObjectValue__Group__2__Impl();
@@ -22074,29 +23224,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:7358:1: rule__ObjectValue__Group__2__Impl : ( ( rule__ObjectValue__Group_2__0 )? ) ;
+    // InternalJsonSchemaDsl.g:7690:1: rule__ObjectValue__Group__2__Impl : ( ( rule__ObjectValue__Group_2__0 )? ) ;
     public final void rule__ObjectValue__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7362:1: ( ( ( rule__ObjectValue__Group_2__0 )? ) )
-            // InternalJsonSchemaDsl.g:7363:1: ( ( rule__ObjectValue__Group_2__0 )? )
+            // InternalJsonSchemaDsl.g:7694:1: ( ( ( rule__ObjectValue__Group_2__0 )? ) )
+            // InternalJsonSchemaDsl.g:7695:1: ( ( rule__ObjectValue__Group_2__0 )? )
             {
-            // InternalJsonSchemaDsl.g:7363:1: ( ( rule__ObjectValue__Group_2__0 )? )
-            // InternalJsonSchemaDsl.g:7364:2: ( rule__ObjectValue__Group_2__0 )?
+            // InternalJsonSchemaDsl.g:7695:1: ( ( rule__ObjectValue__Group_2__0 )? )
+            // InternalJsonSchemaDsl.g:7696:2: ( rule__ObjectValue__Group_2__0 )?
             {
              before(grammarAccess.getObjectValueAccess().getGroup_2()); 
-            // InternalJsonSchemaDsl.g:7365:2: ( rule__ObjectValue__Group_2__0 )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:7697:2: ( rule__ObjectValue__Group_2__0 )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA22_0==RULE_STRING) ) {
-                alt22=1;
+            if ( (LA24_0==RULE_STRING) ) {
+                alt24=1;
             }
-            switch (alt22) {
+            switch (alt24) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:7365:3: rule__ObjectValue__Group_2__0
+                    // InternalJsonSchemaDsl.g:7697:3: rule__ObjectValue__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ObjectValue__Group_2__0();
@@ -22132,14 +23282,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group__3"
-    // InternalJsonSchemaDsl.g:7373:1: rule__ObjectValue__Group__3 : rule__ObjectValue__Group__3__Impl ;
+    // InternalJsonSchemaDsl.g:7705:1: rule__ObjectValue__Group__3 : rule__ObjectValue__Group__3__Impl ;
     public final void rule__ObjectValue__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7377:1: ( rule__ObjectValue__Group__3__Impl )
-            // InternalJsonSchemaDsl.g:7378:2: rule__ObjectValue__Group__3__Impl
+            // InternalJsonSchemaDsl.g:7709:1: ( rule__ObjectValue__Group__3__Impl )
+            // InternalJsonSchemaDsl.g:7710:2: rule__ObjectValue__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ObjectValue__Group__3__Impl();
@@ -22165,20 +23315,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:7384:1: rule__ObjectValue__Group__3__Impl : ( '}' ) ;
+    // InternalJsonSchemaDsl.g:7716:1: rule__ObjectValue__Group__3__Impl : ( '}' ) ;
     public final void rule__ObjectValue__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7388:1: ( ( '}' ) )
-            // InternalJsonSchemaDsl.g:7389:1: ( '}' )
+            // InternalJsonSchemaDsl.g:7720:1: ( ( '}' ) )
+            // InternalJsonSchemaDsl.g:7721:1: ( '}' )
             {
-            // InternalJsonSchemaDsl.g:7389:1: ( '}' )
-            // InternalJsonSchemaDsl.g:7390:2: '}'
+            // InternalJsonSchemaDsl.g:7721:1: ( '}' )
+            // InternalJsonSchemaDsl.g:7722:2: '}'
             {
              before(grammarAccess.getObjectValueAccess().getRightCurlyBracketKeyword_3()); 
-            match(input,22,FOLLOW_2); 
+            match(input,64,FOLLOW_2); 
              after(grammarAccess.getObjectValueAccess().getRightCurlyBracketKeyword_3()); 
 
             }
@@ -22202,14 +23352,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group_2__0"
-    // InternalJsonSchemaDsl.g:7400:1: rule__ObjectValue__Group_2__0 : rule__ObjectValue__Group_2__0__Impl rule__ObjectValue__Group_2__1 ;
+    // InternalJsonSchemaDsl.g:7732:1: rule__ObjectValue__Group_2__0 : rule__ObjectValue__Group_2__0__Impl rule__ObjectValue__Group_2__1 ;
     public final void rule__ObjectValue__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7404:1: ( rule__ObjectValue__Group_2__0__Impl rule__ObjectValue__Group_2__1 )
-            // InternalJsonSchemaDsl.g:7405:2: rule__ObjectValue__Group_2__0__Impl rule__ObjectValue__Group_2__1
+            // InternalJsonSchemaDsl.g:7736:1: ( rule__ObjectValue__Group_2__0__Impl rule__ObjectValue__Group_2__1 )
+            // InternalJsonSchemaDsl.g:7737:2: rule__ObjectValue__Group_2__0__Impl rule__ObjectValue__Group_2__1
             {
             pushFollow(FOLLOW_6);
             rule__ObjectValue__Group_2__0__Impl();
@@ -22240,21 +23390,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group_2__0__Impl"
-    // InternalJsonSchemaDsl.g:7412:1: rule__ObjectValue__Group_2__0__Impl : ( ( rule__ObjectValue__KeyvaluepairAssignment_2_0 ) ) ;
+    // InternalJsonSchemaDsl.g:7744:1: rule__ObjectValue__Group_2__0__Impl : ( ( rule__ObjectValue__KeyvaluepairAssignment_2_0 ) ) ;
     public final void rule__ObjectValue__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7416:1: ( ( ( rule__ObjectValue__KeyvaluepairAssignment_2_0 ) ) )
-            // InternalJsonSchemaDsl.g:7417:1: ( ( rule__ObjectValue__KeyvaluepairAssignment_2_0 ) )
+            // InternalJsonSchemaDsl.g:7748:1: ( ( ( rule__ObjectValue__KeyvaluepairAssignment_2_0 ) ) )
+            // InternalJsonSchemaDsl.g:7749:1: ( ( rule__ObjectValue__KeyvaluepairAssignment_2_0 ) )
             {
-            // InternalJsonSchemaDsl.g:7417:1: ( ( rule__ObjectValue__KeyvaluepairAssignment_2_0 ) )
-            // InternalJsonSchemaDsl.g:7418:2: ( rule__ObjectValue__KeyvaluepairAssignment_2_0 )
+            // InternalJsonSchemaDsl.g:7749:1: ( ( rule__ObjectValue__KeyvaluepairAssignment_2_0 ) )
+            // InternalJsonSchemaDsl.g:7750:2: ( rule__ObjectValue__KeyvaluepairAssignment_2_0 )
             {
              before(grammarAccess.getObjectValueAccess().getKeyvaluepairAssignment_2_0()); 
-            // InternalJsonSchemaDsl.g:7419:2: ( rule__ObjectValue__KeyvaluepairAssignment_2_0 )
-            // InternalJsonSchemaDsl.g:7419:3: rule__ObjectValue__KeyvaluepairAssignment_2_0
+            // InternalJsonSchemaDsl.g:7751:2: ( rule__ObjectValue__KeyvaluepairAssignment_2_0 )
+            // InternalJsonSchemaDsl.g:7751:3: rule__ObjectValue__KeyvaluepairAssignment_2_0
             {
             pushFollow(FOLLOW_2);
             rule__ObjectValue__KeyvaluepairAssignment_2_0();
@@ -22287,14 +23437,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group_2__1"
-    // InternalJsonSchemaDsl.g:7427:1: rule__ObjectValue__Group_2__1 : rule__ObjectValue__Group_2__1__Impl ;
+    // InternalJsonSchemaDsl.g:7759:1: rule__ObjectValue__Group_2__1 : rule__ObjectValue__Group_2__1__Impl ;
     public final void rule__ObjectValue__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7431:1: ( rule__ObjectValue__Group_2__1__Impl )
-            // InternalJsonSchemaDsl.g:7432:2: rule__ObjectValue__Group_2__1__Impl
+            // InternalJsonSchemaDsl.g:7763:1: ( rule__ObjectValue__Group_2__1__Impl )
+            // InternalJsonSchemaDsl.g:7764:2: rule__ObjectValue__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ObjectValue__Group_2__1__Impl();
@@ -22320,33 +23470,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group_2__1__Impl"
-    // InternalJsonSchemaDsl.g:7438:1: rule__ObjectValue__Group_2__1__Impl : ( ( rule__ObjectValue__Group_2_1__0 )* ) ;
+    // InternalJsonSchemaDsl.g:7770:1: rule__ObjectValue__Group_2__1__Impl : ( ( rule__ObjectValue__Group_2_1__0 )* ) ;
     public final void rule__ObjectValue__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7442:1: ( ( ( rule__ObjectValue__Group_2_1__0 )* ) )
-            // InternalJsonSchemaDsl.g:7443:1: ( ( rule__ObjectValue__Group_2_1__0 )* )
+            // InternalJsonSchemaDsl.g:7774:1: ( ( ( rule__ObjectValue__Group_2_1__0 )* ) )
+            // InternalJsonSchemaDsl.g:7775:1: ( ( rule__ObjectValue__Group_2_1__0 )* )
             {
-            // InternalJsonSchemaDsl.g:7443:1: ( ( rule__ObjectValue__Group_2_1__0 )* )
-            // InternalJsonSchemaDsl.g:7444:2: ( rule__ObjectValue__Group_2_1__0 )*
+            // InternalJsonSchemaDsl.g:7775:1: ( ( rule__ObjectValue__Group_2_1__0 )* )
+            // InternalJsonSchemaDsl.g:7776:2: ( rule__ObjectValue__Group_2_1__0 )*
             {
              before(grammarAccess.getObjectValueAccess().getGroup_2_1()); 
-            // InternalJsonSchemaDsl.g:7445:2: ( rule__ObjectValue__Group_2_1__0 )*
-            loop23:
+            // InternalJsonSchemaDsl.g:7777:2: ( rule__ObjectValue__Group_2_1__0 )*
+            loop25:
             do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
+                int alt25=2;
+                int LA25_0 = input.LA(1);
 
-                if ( (LA23_0==23) ) {
-                    alt23=1;
+                if ( (LA25_0==65) ) {
+                    alt25=1;
                 }
 
 
-                switch (alt23) {
+                switch (alt25) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:7445:3: rule__ObjectValue__Group_2_1__0
+            	    // InternalJsonSchemaDsl.g:7777:3: rule__ObjectValue__Group_2_1__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__ObjectValue__Group_2_1__0();
@@ -22358,7 +23508,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             	    break;
 
             	default :
-            	    break loop23;
+            	    break loop25;
                 }
             } while (true);
 
@@ -22385,14 +23535,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group_2_1__0"
-    // InternalJsonSchemaDsl.g:7454:1: rule__ObjectValue__Group_2_1__0 : rule__ObjectValue__Group_2_1__0__Impl rule__ObjectValue__Group_2_1__1 ;
+    // InternalJsonSchemaDsl.g:7786:1: rule__ObjectValue__Group_2_1__0 : rule__ObjectValue__Group_2_1__0__Impl rule__ObjectValue__Group_2_1__1 ;
     public final void rule__ObjectValue__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7458:1: ( rule__ObjectValue__Group_2_1__0__Impl rule__ObjectValue__Group_2_1__1 )
-            // InternalJsonSchemaDsl.g:7459:2: rule__ObjectValue__Group_2_1__0__Impl rule__ObjectValue__Group_2_1__1
+            // InternalJsonSchemaDsl.g:7790:1: ( rule__ObjectValue__Group_2_1__0__Impl rule__ObjectValue__Group_2_1__1 )
+            // InternalJsonSchemaDsl.g:7791:2: rule__ObjectValue__Group_2_1__0__Impl rule__ObjectValue__Group_2_1__1
             {
             pushFollow(FOLLOW_8);
             rule__ObjectValue__Group_2_1__0__Impl();
@@ -22423,20 +23573,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group_2_1__0__Impl"
-    // InternalJsonSchemaDsl.g:7466:1: rule__ObjectValue__Group_2_1__0__Impl : ( ',' ) ;
+    // InternalJsonSchemaDsl.g:7798:1: rule__ObjectValue__Group_2_1__0__Impl : ( ',' ) ;
     public final void rule__ObjectValue__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7470:1: ( ( ',' ) )
-            // InternalJsonSchemaDsl.g:7471:1: ( ',' )
+            // InternalJsonSchemaDsl.g:7802:1: ( ( ',' ) )
+            // InternalJsonSchemaDsl.g:7803:1: ( ',' )
             {
-            // InternalJsonSchemaDsl.g:7471:1: ( ',' )
-            // InternalJsonSchemaDsl.g:7472:2: ','
+            // InternalJsonSchemaDsl.g:7803:1: ( ',' )
+            // InternalJsonSchemaDsl.g:7804:2: ','
             {
              before(grammarAccess.getObjectValueAccess().getCommaKeyword_2_1_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getObjectValueAccess().getCommaKeyword_2_1_0()); 
 
             }
@@ -22460,14 +23610,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group_2_1__1"
-    // InternalJsonSchemaDsl.g:7481:1: rule__ObjectValue__Group_2_1__1 : rule__ObjectValue__Group_2_1__1__Impl ;
+    // InternalJsonSchemaDsl.g:7813:1: rule__ObjectValue__Group_2_1__1 : rule__ObjectValue__Group_2_1__1__Impl ;
     public final void rule__ObjectValue__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7485:1: ( rule__ObjectValue__Group_2_1__1__Impl )
-            // InternalJsonSchemaDsl.g:7486:2: rule__ObjectValue__Group_2_1__1__Impl
+            // InternalJsonSchemaDsl.g:7817:1: ( rule__ObjectValue__Group_2_1__1__Impl )
+            // InternalJsonSchemaDsl.g:7818:2: rule__ObjectValue__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ObjectValue__Group_2_1__1__Impl();
@@ -22493,21 +23643,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__Group_2_1__1__Impl"
-    // InternalJsonSchemaDsl.g:7492:1: rule__ObjectValue__Group_2_1__1__Impl : ( ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 ) ) ;
+    // InternalJsonSchemaDsl.g:7824:1: rule__ObjectValue__Group_2_1__1__Impl : ( ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 ) ) ;
     public final void rule__ObjectValue__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7496:1: ( ( ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 ) ) )
-            // InternalJsonSchemaDsl.g:7497:1: ( ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 ) )
+            // InternalJsonSchemaDsl.g:7828:1: ( ( ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 ) ) )
+            // InternalJsonSchemaDsl.g:7829:1: ( ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 ) )
             {
-            // InternalJsonSchemaDsl.g:7497:1: ( ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 ) )
-            // InternalJsonSchemaDsl.g:7498:2: ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 )
+            // InternalJsonSchemaDsl.g:7829:1: ( ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 ) )
+            // InternalJsonSchemaDsl.g:7830:2: ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 )
             {
              before(grammarAccess.getObjectValueAccess().getKeyvaluepairAssignment_2_1_1()); 
-            // InternalJsonSchemaDsl.g:7499:2: ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 )
-            // InternalJsonSchemaDsl.g:7499:3: rule__ObjectValue__KeyvaluepairAssignment_2_1_1
+            // InternalJsonSchemaDsl.g:7831:2: ( rule__ObjectValue__KeyvaluepairAssignment_2_1_1 )
+            // InternalJsonSchemaDsl.g:7831:3: rule__ObjectValue__KeyvaluepairAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__ObjectValue__KeyvaluepairAssignment_2_1_1();
@@ -22540,16 +23690,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group__0"
-    // InternalJsonSchemaDsl.g:7508:1: rule__ArrayValue__Group__0 : rule__ArrayValue__Group__0__Impl rule__ArrayValue__Group__1 ;
+    // InternalJsonSchemaDsl.g:7840:1: rule__ArrayValue__Group__0 : rule__ArrayValue__Group__0__Impl rule__ArrayValue__Group__1 ;
     public final void rule__ArrayValue__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7512:1: ( rule__ArrayValue__Group__0__Impl rule__ArrayValue__Group__1 )
-            // InternalJsonSchemaDsl.g:7513:2: rule__ArrayValue__Group__0__Impl rule__ArrayValue__Group__1
+            // InternalJsonSchemaDsl.g:7844:1: ( rule__ArrayValue__Group__0__Impl rule__ArrayValue__Group__1 )
+            // InternalJsonSchemaDsl.g:7845:2: rule__ArrayValue__Group__0__Impl rule__ArrayValue__Group__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__ArrayValue__Group__0__Impl();
 
             state._fsp--;
@@ -22578,21 +23728,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:7520:1: rule__ArrayValue__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:7852:1: rule__ArrayValue__Group__0__Impl : ( () ) ;
     public final void rule__ArrayValue__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7524:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:7525:1: ( () )
+            // InternalJsonSchemaDsl.g:7856:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:7857:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:7525:1: ( () )
-            // InternalJsonSchemaDsl.g:7526:2: ()
+            // InternalJsonSchemaDsl.g:7857:1: ( () )
+            // InternalJsonSchemaDsl.g:7858:2: ()
             {
              before(grammarAccess.getArrayValueAccess().getArrayValueAction_0()); 
-            // InternalJsonSchemaDsl.g:7527:2: ()
-            // InternalJsonSchemaDsl.g:7527:3: 
+            // InternalJsonSchemaDsl.g:7859:2: ()
+            // InternalJsonSchemaDsl.g:7859:3: 
             {
             }
 
@@ -22615,16 +23765,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group__1"
-    // InternalJsonSchemaDsl.g:7535:1: rule__ArrayValue__Group__1 : rule__ArrayValue__Group__1__Impl rule__ArrayValue__Group__2 ;
+    // InternalJsonSchemaDsl.g:7867:1: rule__ArrayValue__Group__1 : rule__ArrayValue__Group__1__Impl rule__ArrayValue__Group__2 ;
     public final void rule__ArrayValue__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7539:1: ( rule__ArrayValue__Group__1__Impl rule__ArrayValue__Group__2 )
-            // InternalJsonSchemaDsl.g:7540:2: rule__ArrayValue__Group__1__Impl rule__ArrayValue__Group__2
+            // InternalJsonSchemaDsl.g:7871:1: ( rule__ArrayValue__Group__1__Impl rule__ArrayValue__Group__2 )
+            // InternalJsonSchemaDsl.g:7872:2: rule__ArrayValue__Group__1__Impl rule__ArrayValue__Group__2
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_24);
             rule__ArrayValue__Group__1__Impl();
 
             state._fsp--;
@@ -22653,20 +23803,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:7547:1: rule__ArrayValue__Group__1__Impl : ( '[' ) ;
+    // InternalJsonSchemaDsl.g:7879:1: rule__ArrayValue__Group__1__Impl : ( '[' ) ;
     public final void rule__ArrayValue__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7551:1: ( ( '[' ) )
-            // InternalJsonSchemaDsl.g:7552:1: ( '[' )
+            // InternalJsonSchemaDsl.g:7883:1: ( ( '[' ) )
+            // InternalJsonSchemaDsl.g:7884:1: ( '[' )
             {
-            // InternalJsonSchemaDsl.g:7552:1: ( '[' )
-            // InternalJsonSchemaDsl.g:7553:2: '['
+            // InternalJsonSchemaDsl.g:7884:1: ( '[' )
+            // InternalJsonSchemaDsl.g:7885:2: '['
             {
              before(grammarAccess.getArrayValueAccess().getLeftSquareBracketKeyword_1()); 
-            match(input,28,FOLLOW_2); 
+            match(input,67,FOLLOW_2); 
              after(grammarAccess.getArrayValueAccess().getLeftSquareBracketKeyword_1()); 
 
             }
@@ -22690,16 +23840,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group__2"
-    // InternalJsonSchemaDsl.g:7562:1: rule__ArrayValue__Group__2 : rule__ArrayValue__Group__2__Impl rule__ArrayValue__Group__3 ;
+    // InternalJsonSchemaDsl.g:7894:1: rule__ArrayValue__Group__2 : rule__ArrayValue__Group__2__Impl rule__ArrayValue__Group__3 ;
     public final void rule__ArrayValue__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7566:1: ( rule__ArrayValue__Group__2__Impl rule__ArrayValue__Group__3 )
-            // InternalJsonSchemaDsl.g:7567:2: rule__ArrayValue__Group__2__Impl rule__ArrayValue__Group__3
+            // InternalJsonSchemaDsl.g:7898:1: ( rule__ArrayValue__Group__2__Impl rule__ArrayValue__Group__3 )
+            // InternalJsonSchemaDsl.g:7899:2: rule__ArrayValue__Group__2__Impl rule__ArrayValue__Group__3
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_24);
             rule__ArrayValue__Group__2__Impl();
 
             state._fsp--;
@@ -22728,29 +23878,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:7574:1: rule__ArrayValue__Group__2__Impl : ( ( rule__ArrayValue__Group_2__0 )? ) ;
+    // InternalJsonSchemaDsl.g:7906:1: rule__ArrayValue__Group__2__Impl : ( ( rule__ArrayValue__Group_2__0 )? ) ;
     public final void rule__ArrayValue__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7578:1: ( ( ( rule__ArrayValue__Group_2__0 )? ) )
-            // InternalJsonSchemaDsl.g:7579:1: ( ( rule__ArrayValue__Group_2__0 )? )
+            // InternalJsonSchemaDsl.g:7910:1: ( ( ( rule__ArrayValue__Group_2__0 )? ) )
+            // InternalJsonSchemaDsl.g:7911:1: ( ( rule__ArrayValue__Group_2__0 )? )
             {
-            // InternalJsonSchemaDsl.g:7579:1: ( ( rule__ArrayValue__Group_2__0 )? )
-            // InternalJsonSchemaDsl.g:7580:2: ( rule__ArrayValue__Group_2__0 )?
+            // InternalJsonSchemaDsl.g:7911:1: ( ( rule__ArrayValue__Group_2__0 )? )
+            // InternalJsonSchemaDsl.g:7912:2: ( rule__ArrayValue__Group_2__0 )?
             {
              before(grammarAccess.getArrayValueAccess().getGroup_2()); 
-            // InternalJsonSchemaDsl.g:7581:2: ( rule__ArrayValue__Group_2__0 )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:7913:2: ( rule__ArrayValue__Group_2__0 )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( ((LA24_0>=RULE_JSON_NUMBER && LA24_0<=RULE_INT)||(LA24_0>=12 && LA24_0<=13)||LA24_0==21||LA24_0==28||(LA24_0>=71 && LA24_0<=72)) ) {
-                alt24=1;
+            if ( ((LA26_0>=RULE_JSON_NUMBER && LA26_0<=RULE_INT)||(LA26_0>=12 && LA26_0<=55)||LA26_0==63||LA26_0==67||(LA26_0>=71 && LA26_0<=72)) ) {
+                alt26=1;
             }
-            switch (alt24) {
+            switch (alt26) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:7581:3: rule__ArrayValue__Group_2__0
+                    // InternalJsonSchemaDsl.g:7913:3: rule__ArrayValue__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__ArrayValue__Group_2__0();
@@ -22786,14 +23936,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group__3"
-    // InternalJsonSchemaDsl.g:7589:1: rule__ArrayValue__Group__3 : rule__ArrayValue__Group__3__Impl ;
+    // InternalJsonSchemaDsl.g:7921:1: rule__ArrayValue__Group__3 : rule__ArrayValue__Group__3__Impl ;
     public final void rule__ArrayValue__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7593:1: ( rule__ArrayValue__Group__3__Impl )
-            // InternalJsonSchemaDsl.g:7594:2: rule__ArrayValue__Group__3__Impl
+            // InternalJsonSchemaDsl.g:7925:1: ( rule__ArrayValue__Group__3__Impl )
+            // InternalJsonSchemaDsl.g:7926:2: rule__ArrayValue__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ArrayValue__Group__3__Impl();
@@ -22819,20 +23969,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:7600:1: rule__ArrayValue__Group__3__Impl : ( ']' ) ;
+    // InternalJsonSchemaDsl.g:7932:1: rule__ArrayValue__Group__3__Impl : ( ']' ) ;
     public final void rule__ArrayValue__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7604:1: ( ( ']' ) )
-            // InternalJsonSchemaDsl.g:7605:1: ( ']' )
+            // InternalJsonSchemaDsl.g:7936:1: ( ( ']' ) )
+            // InternalJsonSchemaDsl.g:7937:1: ( ']' )
             {
-            // InternalJsonSchemaDsl.g:7605:1: ( ']' )
-            // InternalJsonSchemaDsl.g:7606:2: ']'
+            // InternalJsonSchemaDsl.g:7937:1: ( ']' )
+            // InternalJsonSchemaDsl.g:7938:2: ']'
             {
              before(grammarAccess.getArrayValueAccess().getRightSquareBracketKeyword_3()); 
-            match(input,29,FOLLOW_2); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getArrayValueAccess().getRightSquareBracketKeyword_3()); 
 
             }
@@ -22856,14 +24006,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group_2__0"
-    // InternalJsonSchemaDsl.g:7616:1: rule__ArrayValue__Group_2__0 : rule__ArrayValue__Group_2__0__Impl rule__ArrayValue__Group_2__1 ;
+    // InternalJsonSchemaDsl.g:7948:1: rule__ArrayValue__Group_2__0 : rule__ArrayValue__Group_2__0__Impl rule__ArrayValue__Group_2__1 ;
     public final void rule__ArrayValue__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7620:1: ( rule__ArrayValue__Group_2__0__Impl rule__ArrayValue__Group_2__1 )
-            // InternalJsonSchemaDsl.g:7621:2: rule__ArrayValue__Group_2__0__Impl rule__ArrayValue__Group_2__1
+            // InternalJsonSchemaDsl.g:7952:1: ( rule__ArrayValue__Group_2__0__Impl rule__ArrayValue__Group_2__1 )
+            // InternalJsonSchemaDsl.g:7953:2: rule__ArrayValue__Group_2__0__Impl rule__ArrayValue__Group_2__1
             {
             pushFollow(FOLLOW_6);
             rule__ArrayValue__Group_2__0__Impl();
@@ -22894,21 +24044,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group_2__0__Impl"
-    // InternalJsonSchemaDsl.g:7628:1: rule__ArrayValue__Group_2__0__Impl : ( ( rule__ArrayValue__ValueAssignment_2_0 ) ) ;
+    // InternalJsonSchemaDsl.g:7960:1: rule__ArrayValue__Group_2__0__Impl : ( ( rule__ArrayValue__ValueAssignment_2_0 ) ) ;
     public final void rule__ArrayValue__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7632:1: ( ( ( rule__ArrayValue__ValueAssignment_2_0 ) ) )
-            // InternalJsonSchemaDsl.g:7633:1: ( ( rule__ArrayValue__ValueAssignment_2_0 ) )
+            // InternalJsonSchemaDsl.g:7964:1: ( ( ( rule__ArrayValue__ValueAssignment_2_0 ) ) )
+            // InternalJsonSchemaDsl.g:7965:1: ( ( rule__ArrayValue__ValueAssignment_2_0 ) )
             {
-            // InternalJsonSchemaDsl.g:7633:1: ( ( rule__ArrayValue__ValueAssignment_2_0 ) )
-            // InternalJsonSchemaDsl.g:7634:2: ( rule__ArrayValue__ValueAssignment_2_0 )
+            // InternalJsonSchemaDsl.g:7965:1: ( ( rule__ArrayValue__ValueAssignment_2_0 ) )
+            // InternalJsonSchemaDsl.g:7966:2: ( rule__ArrayValue__ValueAssignment_2_0 )
             {
              before(grammarAccess.getArrayValueAccess().getValueAssignment_2_0()); 
-            // InternalJsonSchemaDsl.g:7635:2: ( rule__ArrayValue__ValueAssignment_2_0 )
-            // InternalJsonSchemaDsl.g:7635:3: rule__ArrayValue__ValueAssignment_2_0
+            // InternalJsonSchemaDsl.g:7967:2: ( rule__ArrayValue__ValueAssignment_2_0 )
+            // InternalJsonSchemaDsl.g:7967:3: rule__ArrayValue__ValueAssignment_2_0
             {
             pushFollow(FOLLOW_2);
             rule__ArrayValue__ValueAssignment_2_0();
@@ -22941,14 +24091,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group_2__1"
-    // InternalJsonSchemaDsl.g:7643:1: rule__ArrayValue__Group_2__1 : rule__ArrayValue__Group_2__1__Impl ;
+    // InternalJsonSchemaDsl.g:7975:1: rule__ArrayValue__Group_2__1 : rule__ArrayValue__Group_2__1__Impl ;
     public final void rule__ArrayValue__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7647:1: ( rule__ArrayValue__Group_2__1__Impl )
-            // InternalJsonSchemaDsl.g:7648:2: rule__ArrayValue__Group_2__1__Impl
+            // InternalJsonSchemaDsl.g:7979:1: ( rule__ArrayValue__Group_2__1__Impl )
+            // InternalJsonSchemaDsl.g:7980:2: rule__ArrayValue__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ArrayValue__Group_2__1__Impl();
@@ -22974,33 +24124,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group_2__1__Impl"
-    // InternalJsonSchemaDsl.g:7654:1: rule__ArrayValue__Group_2__1__Impl : ( ( rule__ArrayValue__Group_2_1__0 )* ) ;
+    // InternalJsonSchemaDsl.g:7986:1: rule__ArrayValue__Group_2__1__Impl : ( ( rule__ArrayValue__Group_2_1__0 )* ) ;
     public final void rule__ArrayValue__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7658:1: ( ( ( rule__ArrayValue__Group_2_1__0 )* ) )
-            // InternalJsonSchemaDsl.g:7659:1: ( ( rule__ArrayValue__Group_2_1__0 )* )
+            // InternalJsonSchemaDsl.g:7990:1: ( ( ( rule__ArrayValue__Group_2_1__0 )* ) )
+            // InternalJsonSchemaDsl.g:7991:1: ( ( rule__ArrayValue__Group_2_1__0 )* )
             {
-            // InternalJsonSchemaDsl.g:7659:1: ( ( rule__ArrayValue__Group_2_1__0 )* )
-            // InternalJsonSchemaDsl.g:7660:2: ( rule__ArrayValue__Group_2_1__0 )*
+            // InternalJsonSchemaDsl.g:7991:1: ( ( rule__ArrayValue__Group_2_1__0 )* )
+            // InternalJsonSchemaDsl.g:7992:2: ( rule__ArrayValue__Group_2_1__0 )*
             {
              before(grammarAccess.getArrayValueAccess().getGroup_2_1()); 
-            // InternalJsonSchemaDsl.g:7661:2: ( rule__ArrayValue__Group_2_1__0 )*
-            loop25:
+            // InternalJsonSchemaDsl.g:7993:2: ( rule__ArrayValue__Group_2_1__0 )*
+            loop27:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt27=2;
+                int LA27_0 = input.LA(1);
 
-                if ( (LA25_0==23) ) {
-                    alt25=1;
+                if ( (LA27_0==65) ) {
+                    alt27=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt27) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:7661:3: rule__ArrayValue__Group_2_1__0
+            	    // InternalJsonSchemaDsl.g:7993:3: rule__ArrayValue__Group_2_1__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__ArrayValue__Group_2_1__0();
@@ -23012,7 +24162,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop27;
                 }
             } while (true);
 
@@ -23039,16 +24189,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group_2_1__0"
-    // InternalJsonSchemaDsl.g:7670:1: rule__ArrayValue__Group_2_1__0 : rule__ArrayValue__Group_2_1__0__Impl rule__ArrayValue__Group_2_1__1 ;
+    // InternalJsonSchemaDsl.g:8002:1: rule__ArrayValue__Group_2_1__0 : rule__ArrayValue__Group_2_1__0__Impl rule__ArrayValue__Group_2_1__1 ;
     public final void rule__ArrayValue__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7674:1: ( rule__ArrayValue__Group_2_1__0__Impl rule__ArrayValue__Group_2_1__1 )
-            // InternalJsonSchemaDsl.g:7675:2: rule__ArrayValue__Group_2_1__0__Impl rule__ArrayValue__Group_2_1__1
+            // InternalJsonSchemaDsl.g:8006:1: ( rule__ArrayValue__Group_2_1__0__Impl rule__ArrayValue__Group_2_1__1 )
+            // InternalJsonSchemaDsl.g:8007:2: rule__ArrayValue__Group_2_1__0__Impl rule__ArrayValue__Group_2_1__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__ArrayValue__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -23077,20 +24227,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group_2_1__0__Impl"
-    // InternalJsonSchemaDsl.g:7682:1: rule__ArrayValue__Group_2_1__0__Impl : ( ',' ) ;
+    // InternalJsonSchemaDsl.g:8014:1: rule__ArrayValue__Group_2_1__0__Impl : ( ',' ) ;
     public final void rule__ArrayValue__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7686:1: ( ( ',' ) )
-            // InternalJsonSchemaDsl.g:7687:1: ( ',' )
+            // InternalJsonSchemaDsl.g:8018:1: ( ( ',' ) )
+            // InternalJsonSchemaDsl.g:8019:1: ( ',' )
             {
-            // InternalJsonSchemaDsl.g:7687:1: ( ',' )
-            // InternalJsonSchemaDsl.g:7688:2: ','
+            // InternalJsonSchemaDsl.g:8019:1: ( ',' )
+            // InternalJsonSchemaDsl.g:8020:2: ','
             {
              before(grammarAccess.getArrayValueAccess().getCommaKeyword_2_1_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getArrayValueAccess().getCommaKeyword_2_1_0()); 
 
             }
@@ -23114,14 +24264,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group_2_1__1"
-    // InternalJsonSchemaDsl.g:7697:1: rule__ArrayValue__Group_2_1__1 : rule__ArrayValue__Group_2_1__1__Impl ;
+    // InternalJsonSchemaDsl.g:8029:1: rule__ArrayValue__Group_2_1__1 : rule__ArrayValue__Group_2_1__1__Impl ;
     public final void rule__ArrayValue__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7701:1: ( rule__ArrayValue__Group_2_1__1__Impl )
-            // InternalJsonSchemaDsl.g:7702:2: rule__ArrayValue__Group_2_1__1__Impl
+            // InternalJsonSchemaDsl.g:8033:1: ( rule__ArrayValue__Group_2_1__1__Impl )
+            // InternalJsonSchemaDsl.g:8034:2: rule__ArrayValue__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ArrayValue__Group_2_1__1__Impl();
@@ -23147,21 +24297,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__Group_2_1__1__Impl"
-    // InternalJsonSchemaDsl.g:7708:1: rule__ArrayValue__Group_2_1__1__Impl : ( ( rule__ArrayValue__ValueAssignment_2_1_1 ) ) ;
+    // InternalJsonSchemaDsl.g:8040:1: rule__ArrayValue__Group_2_1__1__Impl : ( ( rule__ArrayValue__ValueAssignment_2_1_1 ) ) ;
     public final void rule__ArrayValue__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7712:1: ( ( ( rule__ArrayValue__ValueAssignment_2_1_1 ) ) )
-            // InternalJsonSchemaDsl.g:7713:1: ( ( rule__ArrayValue__ValueAssignment_2_1_1 ) )
+            // InternalJsonSchemaDsl.g:8044:1: ( ( ( rule__ArrayValue__ValueAssignment_2_1_1 ) ) )
+            // InternalJsonSchemaDsl.g:8045:1: ( ( rule__ArrayValue__ValueAssignment_2_1_1 ) )
             {
-            // InternalJsonSchemaDsl.g:7713:1: ( ( rule__ArrayValue__ValueAssignment_2_1_1 ) )
-            // InternalJsonSchemaDsl.g:7714:2: ( rule__ArrayValue__ValueAssignment_2_1_1 )
+            // InternalJsonSchemaDsl.g:8045:1: ( ( rule__ArrayValue__ValueAssignment_2_1_1 ) )
+            // InternalJsonSchemaDsl.g:8046:2: ( rule__ArrayValue__ValueAssignment_2_1_1 )
             {
              before(grammarAccess.getArrayValueAccess().getValueAssignment_2_1_1()); 
-            // InternalJsonSchemaDsl.g:7715:2: ( rule__ArrayValue__ValueAssignment_2_1_1 )
-            // InternalJsonSchemaDsl.g:7715:3: rule__ArrayValue__ValueAssignment_2_1_1
+            // InternalJsonSchemaDsl.g:8047:2: ( rule__ArrayValue__ValueAssignment_2_1_1 )
+            // InternalJsonSchemaDsl.g:8047:3: rule__ArrayValue__ValueAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__ArrayValue__ValueAssignment_2_1_1();
@@ -23194,16 +24344,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EInt__Group__0"
-    // InternalJsonSchemaDsl.g:7724:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
+    // InternalJsonSchemaDsl.g:8056:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
     public final void rule__EInt__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7728:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
-            // InternalJsonSchemaDsl.g:7729:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
+            // InternalJsonSchemaDsl.g:8060:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
+            // InternalJsonSchemaDsl.g:8061:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__EInt__Group__0__Impl();
 
             state._fsp--;
@@ -23232,29 +24382,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EInt__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:7736:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalJsonSchemaDsl.g:8068:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EInt__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7740:1: ( ( ( '-' )? ) )
-            // InternalJsonSchemaDsl.g:7741:1: ( ( '-' )? )
+            // InternalJsonSchemaDsl.g:8072:1: ( ( ( '-' )? ) )
+            // InternalJsonSchemaDsl.g:8073:1: ( ( '-' )? )
             {
-            // InternalJsonSchemaDsl.g:7741:1: ( ( '-' )? )
-            // InternalJsonSchemaDsl.g:7742:2: ( '-' )?
+            // InternalJsonSchemaDsl.g:8073:1: ( ( '-' )? )
+            // InternalJsonSchemaDsl.g:8074:2: ( '-' )?
             {
              before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
-            // InternalJsonSchemaDsl.g:7743:2: ( '-' )?
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:8075:2: ( '-' )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA26_0==72) ) {
-                alt26=1;
+            if ( (LA28_0==72) ) {
+                alt28=1;
             }
-            switch (alt26) {
+            switch (alt28) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:7743:3: '-'
+                    // InternalJsonSchemaDsl.g:8075:3: '-'
                     {
                     match(input,72,FOLLOW_2); 
 
@@ -23286,14 +24436,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EInt__Group__1"
-    // InternalJsonSchemaDsl.g:7751:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
+    // InternalJsonSchemaDsl.g:8083:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
     public final void rule__EInt__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7755:1: ( rule__EInt__Group__1__Impl )
-            // InternalJsonSchemaDsl.g:7756:2: rule__EInt__Group__1__Impl
+            // InternalJsonSchemaDsl.g:8087:1: ( rule__EInt__Group__1__Impl )
+            // InternalJsonSchemaDsl.g:8088:2: rule__EInt__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EInt__Group__1__Impl();
@@ -23319,17 +24469,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EInt__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:7762:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
+    // InternalJsonSchemaDsl.g:8094:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__EInt__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7766:1: ( ( RULE_INT ) )
-            // InternalJsonSchemaDsl.g:7767:1: ( RULE_INT )
+            // InternalJsonSchemaDsl.g:8098:1: ( ( RULE_INT ) )
+            // InternalJsonSchemaDsl.g:8099:1: ( RULE_INT )
             {
-            // InternalJsonSchemaDsl.g:7767:1: ( RULE_INT )
-            // InternalJsonSchemaDsl.g:7768:2: RULE_INT
+            // InternalJsonSchemaDsl.g:8099:1: ( RULE_INT )
+            // InternalJsonSchemaDsl.g:8100:2: RULE_INT
             {
              before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -23356,14 +24506,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group__0"
-    // InternalJsonSchemaDsl.g:7778:1: rule__SchemaArray__Group__0 : rule__SchemaArray__Group__0__Impl rule__SchemaArray__Group__1 ;
+    // InternalJsonSchemaDsl.g:8110:1: rule__SchemaArray__Group__0 : rule__SchemaArray__Group__0__Impl rule__SchemaArray__Group__1 ;
     public final void rule__SchemaArray__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7782:1: ( rule__SchemaArray__Group__0__Impl rule__SchemaArray__Group__1 )
-            // InternalJsonSchemaDsl.g:7783:2: rule__SchemaArray__Group__0__Impl rule__SchemaArray__Group__1
+            // InternalJsonSchemaDsl.g:8114:1: ( rule__SchemaArray__Group__0__Impl rule__SchemaArray__Group__1 )
+            // InternalJsonSchemaDsl.g:8115:2: rule__SchemaArray__Group__0__Impl rule__SchemaArray__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__SchemaArray__Group__0__Impl();
@@ -23394,20 +24544,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:7790:1: rule__SchemaArray__Group__0__Impl : ( '[' ) ;
+    // InternalJsonSchemaDsl.g:8122:1: rule__SchemaArray__Group__0__Impl : ( '[' ) ;
     public final void rule__SchemaArray__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7794:1: ( ( '[' ) )
-            // InternalJsonSchemaDsl.g:7795:1: ( '[' )
+            // InternalJsonSchemaDsl.g:8126:1: ( ( '[' ) )
+            // InternalJsonSchemaDsl.g:8127:1: ( '[' )
             {
-            // InternalJsonSchemaDsl.g:7795:1: ( '[' )
-            // InternalJsonSchemaDsl.g:7796:2: '['
+            // InternalJsonSchemaDsl.g:8127:1: ( '[' )
+            // InternalJsonSchemaDsl.g:8128:2: '['
             {
              before(grammarAccess.getSchemaArrayAccess().getLeftSquareBracketKeyword_0()); 
-            match(input,28,FOLLOW_2); 
+            match(input,67,FOLLOW_2); 
              after(grammarAccess.getSchemaArrayAccess().getLeftSquareBracketKeyword_0()); 
 
             }
@@ -23431,16 +24581,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group__1"
-    // InternalJsonSchemaDsl.g:7805:1: rule__SchemaArray__Group__1 : rule__SchemaArray__Group__1__Impl rule__SchemaArray__Group__2 ;
+    // InternalJsonSchemaDsl.g:8137:1: rule__SchemaArray__Group__1 : rule__SchemaArray__Group__1__Impl rule__SchemaArray__Group__2 ;
     public final void rule__SchemaArray__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7809:1: ( rule__SchemaArray__Group__1__Impl rule__SchemaArray__Group__2 )
-            // InternalJsonSchemaDsl.g:7810:2: rule__SchemaArray__Group__1__Impl rule__SchemaArray__Group__2
+            // InternalJsonSchemaDsl.g:8141:1: ( rule__SchemaArray__Group__1__Impl rule__SchemaArray__Group__2 )
+            // InternalJsonSchemaDsl.g:8142:2: rule__SchemaArray__Group__1__Impl rule__SchemaArray__Group__2
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__SchemaArray__Group__1__Impl();
 
             state._fsp--;
@@ -23469,21 +24619,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:7817:1: rule__SchemaArray__Group__1__Impl : ( ( rule__SchemaArray__ItemsAssignment_1 ) ) ;
+    // InternalJsonSchemaDsl.g:8149:1: rule__SchemaArray__Group__1__Impl : ( ( rule__SchemaArray__ItemsAssignment_1 ) ) ;
     public final void rule__SchemaArray__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7821:1: ( ( ( rule__SchemaArray__ItemsAssignment_1 ) ) )
-            // InternalJsonSchemaDsl.g:7822:1: ( ( rule__SchemaArray__ItemsAssignment_1 ) )
+            // InternalJsonSchemaDsl.g:8153:1: ( ( ( rule__SchemaArray__ItemsAssignment_1 ) ) )
+            // InternalJsonSchemaDsl.g:8154:1: ( ( rule__SchemaArray__ItemsAssignment_1 ) )
             {
-            // InternalJsonSchemaDsl.g:7822:1: ( ( rule__SchemaArray__ItemsAssignment_1 ) )
-            // InternalJsonSchemaDsl.g:7823:2: ( rule__SchemaArray__ItemsAssignment_1 )
+            // InternalJsonSchemaDsl.g:8154:1: ( ( rule__SchemaArray__ItemsAssignment_1 ) )
+            // InternalJsonSchemaDsl.g:8155:2: ( rule__SchemaArray__ItemsAssignment_1 )
             {
              before(grammarAccess.getSchemaArrayAccess().getItemsAssignment_1()); 
-            // InternalJsonSchemaDsl.g:7824:2: ( rule__SchemaArray__ItemsAssignment_1 )
-            // InternalJsonSchemaDsl.g:7824:3: rule__SchemaArray__ItemsAssignment_1
+            // InternalJsonSchemaDsl.g:8156:2: ( rule__SchemaArray__ItemsAssignment_1 )
+            // InternalJsonSchemaDsl.g:8156:3: rule__SchemaArray__ItemsAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__SchemaArray__ItemsAssignment_1();
@@ -23516,16 +24666,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group__2"
-    // InternalJsonSchemaDsl.g:7832:1: rule__SchemaArray__Group__2 : rule__SchemaArray__Group__2__Impl rule__SchemaArray__Group__3 ;
+    // InternalJsonSchemaDsl.g:8164:1: rule__SchemaArray__Group__2 : rule__SchemaArray__Group__2__Impl rule__SchemaArray__Group__3 ;
     public final void rule__SchemaArray__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7836:1: ( rule__SchemaArray__Group__2__Impl rule__SchemaArray__Group__3 )
-            // InternalJsonSchemaDsl.g:7837:2: rule__SchemaArray__Group__2__Impl rule__SchemaArray__Group__3
+            // InternalJsonSchemaDsl.g:8168:1: ( rule__SchemaArray__Group__2__Impl rule__SchemaArray__Group__3 )
+            // InternalJsonSchemaDsl.g:8169:2: rule__SchemaArray__Group__2__Impl rule__SchemaArray__Group__3
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__SchemaArray__Group__2__Impl();
 
             state._fsp--;
@@ -23554,33 +24704,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:7844:1: rule__SchemaArray__Group__2__Impl : ( ( rule__SchemaArray__Group_2__0 )* ) ;
+    // InternalJsonSchemaDsl.g:8176:1: rule__SchemaArray__Group__2__Impl : ( ( rule__SchemaArray__Group_2__0 )* ) ;
     public final void rule__SchemaArray__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7848:1: ( ( ( rule__SchemaArray__Group_2__0 )* ) )
-            // InternalJsonSchemaDsl.g:7849:1: ( ( rule__SchemaArray__Group_2__0 )* )
+            // InternalJsonSchemaDsl.g:8180:1: ( ( ( rule__SchemaArray__Group_2__0 )* ) )
+            // InternalJsonSchemaDsl.g:8181:1: ( ( rule__SchemaArray__Group_2__0 )* )
             {
-            // InternalJsonSchemaDsl.g:7849:1: ( ( rule__SchemaArray__Group_2__0 )* )
-            // InternalJsonSchemaDsl.g:7850:2: ( rule__SchemaArray__Group_2__0 )*
+            // InternalJsonSchemaDsl.g:8181:1: ( ( rule__SchemaArray__Group_2__0 )* )
+            // InternalJsonSchemaDsl.g:8182:2: ( rule__SchemaArray__Group_2__0 )*
             {
              before(grammarAccess.getSchemaArrayAccess().getGroup_2()); 
-            // InternalJsonSchemaDsl.g:7851:2: ( rule__SchemaArray__Group_2__0 )*
-            loop27:
+            // InternalJsonSchemaDsl.g:8183:2: ( rule__SchemaArray__Group_2__0 )*
+            loop29:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-                if ( (LA27_0==23) ) {
-                    alt27=1;
+                if ( (LA29_0==65) ) {
+                    alt29=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt29) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:7851:3: rule__SchemaArray__Group_2__0
+            	    // InternalJsonSchemaDsl.g:8183:3: rule__SchemaArray__Group_2__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__SchemaArray__Group_2__0();
@@ -23592,7 +24742,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             	    break;
 
             	default :
-            	    break loop27;
+            	    break loop29;
                 }
             } while (true);
 
@@ -23619,14 +24769,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group__3"
-    // InternalJsonSchemaDsl.g:7859:1: rule__SchemaArray__Group__3 : rule__SchemaArray__Group__3__Impl ;
+    // InternalJsonSchemaDsl.g:8191:1: rule__SchemaArray__Group__3 : rule__SchemaArray__Group__3__Impl ;
     public final void rule__SchemaArray__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7863:1: ( rule__SchemaArray__Group__3__Impl )
-            // InternalJsonSchemaDsl.g:7864:2: rule__SchemaArray__Group__3__Impl
+            // InternalJsonSchemaDsl.g:8195:1: ( rule__SchemaArray__Group__3__Impl )
+            // InternalJsonSchemaDsl.g:8196:2: rule__SchemaArray__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SchemaArray__Group__3__Impl();
@@ -23652,20 +24802,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:7870:1: rule__SchemaArray__Group__3__Impl : ( ']' ) ;
+    // InternalJsonSchemaDsl.g:8202:1: rule__SchemaArray__Group__3__Impl : ( ']' ) ;
     public final void rule__SchemaArray__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7874:1: ( ( ']' ) )
-            // InternalJsonSchemaDsl.g:7875:1: ( ']' )
+            // InternalJsonSchemaDsl.g:8206:1: ( ( ']' ) )
+            // InternalJsonSchemaDsl.g:8207:1: ( ']' )
             {
-            // InternalJsonSchemaDsl.g:7875:1: ( ']' )
-            // InternalJsonSchemaDsl.g:7876:2: ']'
+            // InternalJsonSchemaDsl.g:8207:1: ( ']' )
+            // InternalJsonSchemaDsl.g:8208:2: ']'
             {
              before(grammarAccess.getSchemaArrayAccess().getRightSquareBracketKeyword_3()); 
-            match(input,29,FOLLOW_2); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getSchemaArrayAccess().getRightSquareBracketKeyword_3()); 
 
             }
@@ -23689,14 +24839,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group_2__0"
-    // InternalJsonSchemaDsl.g:7886:1: rule__SchemaArray__Group_2__0 : rule__SchemaArray__Group_2__0__Impl rule__SchemaArray__Group_2__1 ;
+    // InternalJsonSchemaDsl.g:8218:1: rule__SchemaArray__Group_2__0 : rule__SchemaArray__Group_2__0__Impl rule__SchemaArray__Group_2__1 ;
     public final void rule__SchemaArray__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7890:1: ( rule__SchemaArray__Group_2__0__Impl rule__SchemaArray__Group_2__1 )
-            // InternalJsonSchemaDsl.g:7891:2: rule__SchemaArray__Group_2__0__Impl rule__SchemaArray__Group_2__1
+            // InternalJsonSchemaDsl.g:8222:1: ( rule__SchemaArray__Group_2__0__Impl rule__SchemaArray__Group_2__1 )
+            // InternalJsonSchemaDsl.g:8223:2: rule__SchemaArray__Group_2__0__Impl rule__SchemaArray__Group_2__1
             {
             pushFollow(FOLLOW_3);
             rule__SchemaArray__Group_2__0__Impl();
@@ -23727,20 +24877,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group_2__0__Impl"
-    // InternalJsonSchemaDsl.g:7898:1: rule__SchemaArray__Group_2__0__Impl : ( ',' ) ;
+    // InternalJsonSchemaDsl.g:8230:1: rule__SchemaArray__Group_2__0__Impl : ( ',' ) ;
     public final void rule__SchemaArray__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7902:1: ( ( ',' ) )
-            // InternalJsonSchemaDsl.g:7903:1: ( ',' )
+            // InternalJsonSchemaDsl.g:8234:1: ( ( ',' ) )
+            // InternalJsonSchemaDsl.g:8235:1: ( ',' )
             {
-            // InternalJsonSchemaDsl.g:7903:1: ( ',' )
-            // InternalJsonSchemaDsl.g:7904:2: ','
+            // InternalJsonSchemaDsl.g:8235:1: ( ',' )
+            // InternalJsonSchemaDsl.g:8236:2: ','
             {
              before(grammarAccess.getSchemaArrayAccess().getCommaKeyword_2_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getSchemaArrayAccess().getCommaKeyword_2_0()); 
 
             }
@@ -23764,14 +24914,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group_2__1"
-    // InternalJsonSchemaDsl.g:7913:1: rule__SchemaArray__Group_2__1 : rule__SchemaArray__Group_2__1__Impl ;
+    // InternalJsonSchemaDsl.g:8245:1: rule__SchemaArray__Group_2__1 : rule__SchemaArray__Group_2__1__Impl ;
     public final void rule__SchemaArray__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7917:1: ( rule__SchemaArray__Group_2__1__Impl )
-            // InternalJsonSchemaDsl.g:7918:2: rule__SchemaArray__Group_2__1__Impl
+            // InternalJsonSchemaDsl.g:8249:1: ( rule__SchemaArray__Group_2__1__Impl )
+            // InternalJsonSchemaDsl.g:8250:2: rule__SchemaArray__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SchemaArray__Group_2__1__Impl();
@@ -23797,21 +24947,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__Group_2__1__Impl"
-    // InternalJsonSchemaDsl.g:7924:1: rule__SchemaArray__Group_2__1__Impl : ( ( rule__SchemaArray__ItemsAssignment_2_1 ) ) ;
+    // InternalJsonSchemaDsl.g:8256:1: rule__SchemaArray__Group_2__1__Impl : ( ( rule__SchemaArray__ItemsAssignment_2_1 ) ) ;
     public final void rule__SchemaArray__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7928:1: ( ( ( rule__SchemaArray__ItemsAssignment_2_1 ) ) )
-            // InternalJsonSchemaDsl.g:7929:1: ( ( rule__SchemaArray__ItemsAssignment_2_1 ) )
+            // InternalJsonSchemaDsl.g:8260:1: ( ( ( rule__SchemaArray__ItemsAssignment_2_1 ) ) )
+            // InternalJsonSchemaDsl.g:8261:1: ( ( rule__SchemaArray__ItemsAssignment_2_1 ) )
             {
-            // InternalJsonSchemaDsl.g:7929:1: ( ( rule__SchemaArray__ItemsAssignment_2_1 ) )
-            // InternalJsonSchemaDsl.g:7930:2: ( rule__SchemaArray__ItemsAssignment_2_1 )
+            // InternalJsonSchemaDsl.g:8261:1: ( ( rule__SchemaArray__ItemsAssignment_2_1 ) )
+            // InternalJsonSchemaDsl.g:8262:2: ( rule__SchemaArray__ItemsAssignment_2_1 )
             {
              before(grammarAccess.getSchemaArrayAccess().getItemsAssignment_2_1()); 
-            // InternalJsonSchemaDsl.g:7931:2: ( rule__SchemaArray__ItemsAssignment_2_1 )
-            // InternalJsonSchemaDsl.g:7931:3: rule__SchemaArray__ItemsAssignment_2_1
+            // InternalJsonSchemaDsl.g:8263:2: ( rule__SchemaArray__ItemsAssignment_2_1 )
+            // InternalJsonSchemaDsl.g:8263:3: rule__SchemaArray__ItemsAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__SchemaArray__ItemsAssignment_2_1();
@@ -23844,14 +24994,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeySchemaPair__Group__0"
-    // InternalJsonSchemaDsl.g:7940:1: rule__KeySchemaPair__Group__0 : rule__KeySchemaPair__Group__0__Impl rule__KeySchemaPair__Group__1 ;
+    // InternalJsonSchemaDsl.g:8272:1: rule__KeySchemaPair__Group__0 : rule__KeySchemaPair__Group__0__Impl rule__KeySchemaPair__Group__1 ;
     public final void rule__KeySchemaPair__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7944:1: ( rule__KeySchemaPair__Group__0__Impl rule__KeySchemaPair__Group__1 )
-            // InternalJsonSchemaDsl.g:7945:2: rule__KeySchemaPair__Group__0__Impl rule__KeySchemaPair__Group__1
+            // InternalJsonSchemaDsl.g:8276:1: ( rule__KeySchemaPair__Group__0__Impl rule__KeySchemaPair__Group__1 )
+            // InternalJsonSchemaDsl.g:8277:2: rule__KeySchemaPair__Group__0__Impl rule__KeySchemaPair__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__KeySchemaPair__Group__0__Impl();
@@ -23882,21 +25032,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeySchemaPair__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:7952:1: rule__KeySchemaPair__Group__0__Impl : ( ( rule__KeySchemaPair__KeyAssignment_0 ) ) ;
+    // InternalJsonSchemaDsl.g:8284:1: rule__KeySchemaPair__Group__0__Impl : ( ( rule__KeySchemaPair__KeyAssignment_0 ) ) ;
     public final void rule__KeySchemaPair__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7956:1: ( ( ( rule__KeySchemaPair__KeyAssignment_0 ) ) )
-            // InternalJsonSchemaDsl.g:7957:1: ( ( rule__KeySchemaPair__KeyAssignment_0 ) )
+            // InternalJsonSchemaDsl.g:8288:1: ( ( ( rule__KeySchemaPair__KeyAssignment_0 ) ) )
+            // InternalJsonSchemaDsl.g:8289:1: ( ( rule__KeySchemaPair__KeyAssignment_0 ) )
             {
-            // InternalJsonSchemaDsl.g:7957:1: ( ( rule__KeySchemaPair__KeyAssignment_0 ) )
-            // InternalJsonSchemaDsl.g:7958:2: ( rule__KeySchemaPair__KeyAssignment_0 )
+            // InternalJsonSchemaDsl.g:8289:1: ( ( rule__KeySchemaPair__KeyAssignment_0 ) )
+            // InternalJsonSchemaDsl.g:8290:2: ( rule__KeySchemaPair__KeyAssignment_0 )
             {
              before(grammarAccess.getKeySchemaPairAccess().getKeyAssignment_0()); 
-            // InternalJsonSchemaDsl.g:7959:2: ( rule__KeySchemaPair__KeyAssignment_0 )
-            // InternalJsonSchemaDsl.g:7959:3: rule__KeySchemaPair__KeyAssignment_0
+            // InternalJsonSchemaDsl.g:8291:2: ( rule__KeySchemaPair__KeyAssignment_0 )
+            // InternalJsonSchemaDsl.g:8291:3: rule__KeySchemaPair__KeyAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__KeySchemaPair__KeyAssignment_0();
@@ -23929,14 +25079,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeySchemaPair__Group__1"
-    // InternalJsonSchemaDsl.g:7967:1: rule__KeySchemaPair__Group__1 : rule__KeySchemaPair__Group__1__Impl rule__KeySchemaPair__Group__2 ;
+    // InternalJsonSchemaDsl.g:8299:1: rule__KeySchemaPair__Group__1 : rule__KeySchemaPair__Group__1__Impl rule__KeySchemaPair__Group__2 ;
     public final void rule__KeySchemaPair__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7971:1: ( rule__KeySchemaPair__Group__1__Impl rule__KeySchemaPair__Group__2 )
-            // InternalJsonSchemaDsl.g:7972:2: rule__KeySchemaPair__Group__1__Impl rule__KeySchemaPair__Group__2
+            // InternalJsonSchemaDsl.g:8303:1: ( rule__KeySchemaPair__Group__1__Impl rule__KeySchemaPair__Group__2 )
+            // InternalJsonSchemaDsl.g:8304:2: rule__KeySchemaPair__Group__1__Impl rule__KeySchemaPair__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__KeySchemaPair__Group__1__Impl();
@@ -23967,20 +25117,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeySchemaPair__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:7979:1: rule__KeySchemaPair__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:8311:1: rule__KeySchemaPair__Group__1__Impl : ( ':' ) ;
     public final void rule__KeySchemaPair__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7983:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:7984:1: ( ':' )
+            // InternalJsonSchemaDsl.g:8315:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:8316:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:7984:1: ( ':' )
-            // InternalJsonSchemaDsl.g:7985:2: ':'
+            // InternalJsonSchemaDsl.g:8316:1: ( ':' )
+            // InternalJsonSchemaDsl.g:8317:2: ':'
             {
              before(grammarAccess.getKeySchemaPairAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getKeySchemaPairAccess().getColonKeyword_1()); 
 
             }
@@ -24004,14 +25154,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeySchemaPair__Group__2"
-    // InternalJsonSchemaDsl.g:7994:1: rule__KeySchemaPair__Group__2 : rule__KeySchemaPair__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:8326:1: rule__KeySchemaPair__Group__2 : rule__KeySchemaPair__Group__2__Impl ;
     public final void rule__KeySchemaPair__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:7998:1: ( rule__KeySchemaPair__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:7999:2: rule__KeySchemaPair__Group__2__Impl
+            // InternalJsonSchemaDsl.g:8330:1: ( rule__KeySchemaPair__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:8331:2: rule__KeySchemaPair__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__KeySchemaPair__Group__2__Impl();
@@ -24037,21 +25187,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeySchemaPair__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:8005:1: rule__KeySchemaPair__Group__2__Impl : ( ( rule__KeySchemaPair__ValueAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:8337:1: rule__KeySchemaPair__Group__2__Impl : ( ( rule__KeySchemaPair__ValueAssignment_2 ) ) ;
     public final void rule__KeySchemaPair__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8009:1: ( ( ( rule__KeySchemaPair__ValueAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:8010:1: ( ( rule__KeySchemaPair__ValueAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:8341:1: ( ( ( rule__KeySchemaPair__ValueAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:8342:1: ( ( rule__KeySchemaPair__ValueAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:8010:1: ( ( rule__KeySchemaPair__ValueAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:8011:2: ( rule__KeySchemaPair__ValueAssignment_2 )
+            // InternalJsonSchemaDsl.g:8342:1: ( ( rule__KeySchemaPair__ValueAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:8343:2: ( rule__KeySchemaPair__ValueAssignment_2 )
             {
              before(grammarAccess.getKeySchemaPairAccess().getValueAssignment_2()); 
-            // InternalJsonSchemaDsl.g:8012:2: ( rule__KeySchemaPair__ValueAssignment_2 )
-            // InternalJsonSchemaDsl.g:8012:3: rule__KeySchemaPair__ValueAssignment_2
+            // InternalJsonSchemaDsl.g:8344:2: ( rule__KeySchemaPair__ValueAssignment_2 )
+            // InternalJsonSchemaDsl.g:8344:3: rule__KeySchemaPair__ValueAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__KeySchemaPair__ValueAssignment_2();
@@ -24084,16 +25234,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group__0"
-    // InternalJsonSchemaDsl.g:8021:1: rule__TypesAnyOf2__Group__0 : rule__TypesAnyOf2__Group__0__Impl rule__TypesAnyOf2__Group__1 ;
+    // InternalJsonSchemaDsl.g:8353:1: rule__TypesAnyOf2__Group__0 : rule__TypesAnyOf2__Group__0__Impl rule__TypesAnyOf2__Group__1 ;
     public final void rule__TypesAnyOf2__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8025:1: ( rule__TypesAnyOf2__Group__0__Impl rule__TypesAnyOf2__Group__1 )
-            // InternalJsonSchemaDsl.g:8026:2: rule__TypesAnyOf2__Group__0__Impl rule__TypesAnyOf2__Group__1
+            // InternalJsonSchemaDsl.g:8357:1: ( rule__TypesAnyOf2__Group__0__Impl rule__TypesAnyOf2__Group__1 )
+            // InternalJsonSchemaDsl.g:8358:2: rule__TypesAnyOf2__Group__0__Impl rule__TypesAnyOf2__Group__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_27);
             rule__TypesAnyOf2__Group__0__Impl();
 
             state._fsp--;
@@ -24122,20 +25272,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:8033:1: rule__TypesAnyOf2__Group__0__Impl : ( '[' ) ;
+    // InternalJsonSchemaDsl.g:8365:1: rule__TypesAnyOf2__Group__0__Impl : ( '[' ) ;
     public final void rule__TypesAnyOf2__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8037:1: ( ( '[' ) )
-            // InternalJsonSchemaDsl.g:8038:1: ( '[' )
+            // InternalJsonSchemaDsl.g:8369:1: ( ( '[' ) )
+            // InternalJsonSchemaDsl.g:8370:1: ( '[' )
             {
-            // InternalJsonSchemaDsl.g:8038:1: ( '[' )
-            // InternalJsonSchemaDsl.g:8039:2: '['
+            // InternalJsonSchemaDsl.g:8370:1: ( '[' )
+            // InternalJsonSchemaDsl.g:8371:2: '['
             {
              before(grammarAccess.getTypesAnyOf2Access().getLeftSquareBracketKeyword_0()); 
-            match(input,28,FOLLOW_2); 
+            match(input,67,FOLLOW_2); 
              after(grammarAccess.getTypesAnyOf2Access().getLeftSquareBracketKeyword_0()); 
 
             }
@@ -24159,16 +25309,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group__1"
-    // InternalJsonSchemaDsl.g:8048:1: rule__TypesAnyOf2__Group__1 : rule__TypesAnyOf2__Group__1__Impl rule__TypesAnyOf2__Group__2 ;
+    // InternalJsonSchemaDsl.g:8380:1: rule__TypesAnyOf2__Group__1 : rule__TypesAnyOf2__Group__1__Impl rule__TypesAnyOf2__Group__2 ;
     public final void rule__TypesAnyOf2__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8052:1: ( rule__TypesAnyOf2__Group__1__Impl rule__TypesAnyOf2__Group__2 )
-            // InternalJsonSchemaDsl.g:8053:2: rule__TypesAnyOf2__Group__1__Impl rule__TypesAnyOf2__Group__2
+            // InternalJsonSchemaDsl.g:8384:1: ( rule__TypesAnyOf2__Group__1__Impl rule__TypesAnyOf2__Group__2 )
+            // InternalJsonSchemaDsl.g:8385:2: rule__TypesAnyOf2__Group__1__Impl rule__TypesAnyOf2__Group__2
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__TypesAnyOf2__Group__1__Impl();
 
             state._fsp--;
@@ -24197,21 +25347,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:8060:1: rule__TypesAnyOf2__Group__1__Impl : ( ( rule__TypesAnyOf2__ItemsAssignment_1 ) ) ;
+    // InternalJsonSchemaDsl.g:8392:1: rule__TypesAnyOf2__Group__1__Impl : ( ( rule__TypesAnyOf2__ItemsAssignment_1 ) ) ;
     public final void rule__TypesAnyOf2__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8064:1: ( ( ( rule__TypesAnyOf2__ItemsAssignment_1 ) ) )
-            // InternalJsonSchemaDsl.g:8065:1: ( ( rule__TypesAnyOf2__ItemsAssignment_1 ) )
+            // InternalJsonSchemaDsl.g:8396:1: ( ( ( rule__TypesAnyOf2__ItemsAssignment_1 ) ) )
+            // InternalJsonSchemaDsl.g:8397:1: ( ( rule__TypesAnyOf2__ItemsAssignment_1 ) )
             {
-            // InternalJsonSchemaDsl.g:8065:1: ( ( rule__TypesAnyOf2__ItemsAssignment_1 ) )
-            // InternalJsonSchemaDsl.g:8066:2: ( rule__TypesAnyOf2__ItemsAssignment_1 )
+            // InternalJsonSchemaDsl.g:8397:1: ( ( rule__TypesAnyOf2__ItemsAssignment_1 ) )
+            // InternalJsonSchemaDsl.g:8398:2: ( rule__TypesAnyOf2__ItemsAssignment_1 )
             {
              before(grammarAccess.getTypesAnyOf2Access().getItemsAssignment_1()); 
-            // InternalJsonSchemaDsl.g:8067:2: ( rule__TypesAnyOf2__ItemsAssignment_1 )
-            // InternalJsonSchemaDsl.g:8067:3: rule__TypesAnyOf2__ItemsAssignment_1
+            // InternalJsonSchemaDsl.g:8399:2: ( rule__TypesAnyOf2__ItemsAssignment_1 )
+            // InternalJsonSchemaDsl.g:8399:3: rule__TypesAnyOf2__ItemsAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__TypesAnyOf2__ItemsAssignment_1();
@@ -24244,16 +25394,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group__2"
-    // InternalJsonSchemaDsl.g:8075:1: rule__TypesAnyOf2__Group__2 : rule__TypesAnyOf2__Group__2__Impl rule__TypesAnyOf2__Group__3 ;
+    // InternalJsonSchemaDsl.g:8407:1: rule__TypesAnyOf2__Group__2 : rule__TypesAnyOf2__Group__2__Impl rule__TypesAnyOf2__Group__3 ;
     public final void rule__TypesAnyOf2__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8079:1: ( rule__TypesAnyOf2__Group__2__Impl rule__TypesAnyOf2__Group__3 )
-            // InternalJsonSchemaDsl.g:8080:2: rule__TypesAnyOf2__Group__2__Impl rule__TypesAnyOf2__Group__3
+            // InternalJsonSchemaDsl.g:8411:1: ( rule__TypesAnyOf2__Group__2__Impl rule__TypesAnyOf2__Group__3 )
+            // InternalJsonSchemaDsl.g:8412:2: rule__TypesAnyOf2__Group__2__Impl rule__TypesAnyOf2__Group__3
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__TypesAnyOf2__Group__2__Impl();
 
             state._fsp--;
@@ -24282,33 +25432,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:8087:1: rule__TypesAnyOf2__Group__2__Impl : ( ( rule__TypesAnyOf2__Group_2__0 )* ) ;
+    // InternalJsonSchemaDsl.g:8419:1: rule__TypesAnyOf2__Group__2__Impl : ( ( rule__TypesAnyOf2__Group_2__0 )* ) ;
     public final void rule__TypesAnyOf2__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8091:1: ( ( ( rule__TypesAnyOf2__Group_2__0 )* ) )
-            // InternalJsonSchemaDsl.g:8092:1: ( ( rule__TypesAnyOf2__Group_2__0 )* )
+            // InternalJsonSchemaDsl.g:8423:1: ( ( ( rule__TypesAnyOf2__Group_2__0 )* ) )
+            // InternalJsonSchemaDsl.g:8424:1: ( ( rule__TypesAnyOf2__Group_2__0 )* )
             {
-            // InternalJsonSchemaDsl.g:8092:1: ( ( rule__TypesAnyOf2__Group_2__0 )* )
-            // InternalJsonSchemaDsl.g:8093:2: ( rule__TypesAnyOf2__Group_2__0 )*
+            // InternalJsonSchemaDsl.g:8424:1: ( ( rule__TypesAnyOf2__Group_2__0 )* )
+            // InternalJsonSchemaDsl.g:8425:2: ( rule__TypesAnyOf2__Group_2__0 )*
             {
              before(grammarAccess.getTypesAnyOf2Access().getGroup_2()); 
-            // InternalJsonSchemaDsl.g:8094:2: ( rule__TypesAnyOf2__Group_2__0 )*
-            loop28:
+            // InternalJsonSchemaDsl.g:8426:2: ( rule__TypesAnyOf2__Group_2__0 )*
+            loop30:
             do {
-                int alt28=2;
-                int LA28_0 = input.LA(1);
+                int alt30=2;
+                int LA30_0 = input.LA(1);
 
-                if ( (LA28_0==23) ) {
-                    alt28=1;
+                if ( (LA30_0==65) ) {
+                    alt30=1;
                 }
 
 
-                switch (alt28) {
+                switch (alt30) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:8094:3: rule__TypesAnyOf2__Group_2__0
+            	    // InternalJsonSchemaDsl.g:8426:3: rule__TypesAnyOf2__Group_2__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__TypesAnyOf2__Group_2__0();
@@ -24320,7 +25470,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             	    break;
 
             	default :
-            	    break loop28;
+            	    break loop30;
                 }
             } while (true);
 
@@ -24347,14 +25497,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group__3"
-    // InternalJsonSchemaDsl.g:8102:1: rule__TypesAnyOf2__Group__3 : rule__TypesAnyOf2__Group__3__Impl ;
+    // InternalJsonSchemaDsl.g:8434:1: rule__TypesAnyOf2__Group__3 : rule__TypesAnyOf2__Group__3__Impl ;
     public final void rule__TypesAnyOf2__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8106:1: ( rule__TypesAnyOf2__Group__3__Impl )
-            // InternalJsonSchemaDsl.g:8107:2: rule__TypesAnyOf2__Group__3__Impl
+            // InternalJsonSchemaDsl.g:8438:1: ( rule__TypesAnyOf2__Group__3__Impl )
+            // InternalJsonSchemaDsl.g:8439:2: rule__TypesAnyOf2__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TypesAnyOf2__Group__3__Impl();
@@ -24380,20 +25530,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:8113:1: rule__TypesAnyOf2__Group__3__Impl : ( ']' ) ;
+    // InternalJsonSchemaDsl.g:8445:1: rule__TypesAnyOf2__Group__3__Impl : ( ']' ) ;
     public final void rule__TypesAnyOf2__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8117:1: ( ( ']' ) )
-            // InternalJsonSchemaDsl.g:8118:1: ( ']' )
+            // InternalJsonSchemaDsl.g:8449:1: ( ( ']' ) )
+            // InternalJsonSchemaDsl.g:8450:1: ( ']' )
             {
-            // InternalJsonSchemaDsl.g:8118:1: ( ']' )
-            // InternalJsonSchemaDsl.g:8119:2: ']'
+            // InternalJsonSchemaDsl.g:8450:1: ( ']' )
+            // InternalJsonSchemaDsl.g:8451:2: ']'
             {
              before(grammarAccess.getTypesAnyOf2Access().getRightSquareBracketKeyword_3()); 
-            match(input,29,FOLLOW_2); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getTypesAnyOf2Access().getRightSquareBracketKeyword_3()); 
 
             }
@@ -24417,16 +25567,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group_2__0"
-    // InternalJsonSchemaDsl.g:8129:1: rule__TypesAnyOf2__Group_2__0 : rule__TypesAnyOf2__Group_2__0__Impl rule__TypesAnyOf2__Group_2__1 ;
+    // InternalJsonSchemaDsl.g:8461:1: rule__TypesAnyOf2__Group_2__0 : rule__TypesAnyOf2__Group_2__0__Impl rule__TypesAnyOf2__Group_2__1 ;
     public final void rule__TypesAnyOf2__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8133:1: ( rule__TypesAnyOf2__Group_2__0__Impl rule__TypesAnyOf2__Group_2__1 )
-            // InternalJsonSchemaDsl.g:8134:2: rule__TypesAnyOf2__Group_2__0__Impl rule__TypesAnyOf2__Group_2__1
+            // InternalJsonSchemaDsl.g:8465:1: ( rule__TypesAnyOf2__Group_2__0__Impl rule__TypesAnyOf2__Group_2__1 )
+            // InternalJsonSchemaDsl.g:8466:2: rule__TypesAnyOf2__Group_2__0__Impl rule__TypesAnyOf2__Group_2__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_27);
             rule__TypesAnyOf2__Group_2__0__Impl();
 
             state._fsp--;
@@ -24455,20 +25605,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group_2__0__Impl"
-    // InternalJsonSchemaDsl.g:8141:1: rule__TypesAnyOf2__Group_2__0__Impl : ( ',' ) ;
+    // InternalJsonSchemaDsl.g:8473:1: rule__TypesAnyOf2__Group_2__0__Impl : ( ',' ) ;
     public final void rule__TypesAnyOf2__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8145:1: ( ( ',' ) )
-            // InternalJsonSchemaDsl.g:8146:1: ( ',' )
+            // InternalJsonSchemaDsl.g:8477:1: ( ( ',' ) )
+            // InternalJsonSchemaDsl.g:8478:1: ( ',' )
             {
-            // InternalJsonSchemaDsl.g:8146:1: ( ',' )
-            // InternalJsonSchemaDsl.g:8147:2: ','
+            // InternalJsonSchemaDsl.g:8478:1: ( ',' )
+            // InternalJsonSchemaDsl.g:8479:2: ','
             {
              before(grammarAccess.getTypesAnyOf2Access().getCommaKeyword_2_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getTypesAnyOf2Access().getCommaKeyword_2_0()); 
 
             }
@@ -24492,14 +25642,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group_2__1"
-    // InternalJsonSchemaDsl.g:8156:1: rule__TypesAnyOf2__Group_2__1 : rule__TypesAnyOf2__Group_2__1__Impl ;
+    // InternalJsonSchemaDsl.g:8488:1: rule__TypesAnyOf2__Group_2__1 : rule__TypesAnyOf2__Group_2__1__Impl ;
     public final void rule__TypesAnyOf2__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8160:1: ( rule__TypesAnyOf2__Group_2__1__Impl )
-            // InternalJsonSchemaDsl.g:8161:2: rule__TypesAnyOf2__Group_2__1__Impl
+            // InternalJsonSchemaDsl.g:8492:1: ( rule__TypesAnyOf2__Group_2__1__Impl )
+            // InternalJsonSchemaDsl.g:8493:2: rule__TypesAnyOf2__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TypesAnyOf2__Group_2__1__Impl();
@@ -24525,21 +25675,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__Group_2__1__Impl"
-    // InternalJsonSchemaDsl.g:8167:1: rule__TypesAnyOf2__Group_2__1__Impl : ( ( rule__TypesAnyOf2__ItemsAssignment_2_1 ) ) ;
+    // InternalJsonSchemaDsl.g:8499:1: rule__TypesAnyOf2__Group_2__1__Impl : ( ( rule__TypesAnyOf2__ItemsAssignment_2_1 ) ) ;
     public final void rule__TypesAnyOf2__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8171:1: ( ( ( rule__TypesAnyOf2__ItemsAssignment_2_1 ) ) )
-            // InternalJsonSchemaDsl.g:8172:1: ( ( rule__TypesAnyOf2__ItemsAssignment_2_1 ) )
+            // InternalJsonSchemaDsl.g:8503:1: ( ( ( rule__TypesAnyOf2__ItemsAssignment_2_1 ) ) )
+            // InternalJsonSchemaDsl.g:8504:1: ( ( rule__TypesAnyOf2__ItemsAssignment_2_1 ) )
             {
-            // InternalJsonSchemaDsl.g:8172:1: ( ( rule__TypesAnyOf2__ItemsAssignment_2_1 ) )
-            // InternalJsonSchemaDsl.g:8173:2: ( rule__TypesAnyOf2__ItemsAssignment_2_1 )
+            // InternalJsonSchemaDsl.g:8504:1: ( ( rule__TypesAnyOf2__ItemsAssignment_2_1 ) )
+            // InternalJsonSchemaDsl.g:8505:2: ( rule__TypesAnyOf2__ItemsAssignment_2_1 )
             {
              before(grammarAccess.getTypesAnyOf2Access().getItemsAssignment_2_1()); 
-            // InternalJsonSchemaDsl.g:8174:2: ( rule__TypesAnyOf2__ItemsAssignment_2_1 )
-            // InternalJsonSchemaDsl.g:8174:3: rule__TypesAnyOf2__ItemsAssignment_2_1
+            // InternalJsonSchemaDsl.g:8506:2: ( rule__TypesAnyOf2__ItemsAssignment_2_1 )
+            // InternalJsonSchemaDsl.g:8506:3: rule__TypesAnyOf2__ItemsAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__TypesAnyOf2__ItemsAssignment_2_1();
@@ -24572,16 +25722,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DependenciesAnyOf__Group__0"
-    // InternalJsonSchemaDsl.g:8183:1: rule__DependenciesAnyOf__Group__0 : rule__DependenciesAnyOf__Group__0__Impl rule__DependenciesAnyOf__Group__1 ;
+    // InternalJsonSchemaDsl.g:8515:1: rule__DependenciesAnyOf__Group__0 : rule__DependenciesAnyOf__Group__0__Impl rule__DependenciesAnyOf__Group__1 ;
     public final void rule__DependenciesAnyOf__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8187:1: ( rule__DependenciesAnyOf__Group__0__Impl rule__DependenciesAnyOf__Group__1 )
-            // InternalJsonSchemaDsl.g:8188:2: rule__DependenciesAnyOf__Group__0__Impl rule__DependenciesAnyOf__Group__1
+            // InternalJsonSchemaDsl.g:8519:1: ( rule__DependenciesAnyOf__Group__0__Impl rule__DependenciesAnyOf__Group__1 )
+            // InternalJsonSchemaDsl.g:8520:2: rule__DependenciesAnyOf__Group__0__Impl rule__DependenciesAnyOf__Group__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__DependenciesAnyOf__Group__0__Impl();
 
             state._fsp--;
@@ -24610,21 +25760,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DependenciesAnyOf__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:8195:1: rule__DependenciesAnyOf__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:8527:1: rule__DependenciesAnyOf__Group__0__Impl : ( () ) ;
     public final void rule__DependenciesAnyOf__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8199:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:8200:1: ( () )
+            // InternalJsonSchemaDsl.g:8531:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:8532:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:8200:1: ( () )
-            // InternalJsonSchemaDsl.g:8201:2: ()
+            // InternalJsonSchemaDsl.g:8532:1: ( () )
+            // InternalJsonSchemaDsl.g:8533:2: ()
             {
              before(grammarAccess.getDependenciesAnyOfAccess().getDependenciesAnyOfAction_0()); 
-            // InternalJsonSchemaDsl.g:8202:2: ()
-            // InternalJsonSchemaDsl.g:8202:3: 
+            // InternalJsonSchemaDsl.g:8534:2: ()
+            // InternalJsonSchemaDsl.g:8534:3: 
             {
             }
 
@@ -24647,16 +25797,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DependenciesAnyOf__Group__1"
-    // InternalJsonSchemaDsl.g:8210:1: rule__DependenciesAnyOf__Group__1 : rule__DependenciesAnyOf__Group__1__Impl rule__DependenciesAnyOf__Group__2 ;
+    // InternalJsonSchemaDsl.g:8542:1: rule__DependenciesAnyOf__Group__1 : rule__DependenciesAnyOf__Group__1__Impl rule__DependenciesAnyOf__Group__2 ;
     public final void rule__DependenciesAnyOf__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8214:1: ( rule__DependenciesAnyOf__Group__1__Impl rule__DependenciesAnyOf__Group__2 )
-            // InternalJsonSchemaDsl.g:8215:2: rule__DependenciesAnyOf__Group__1__Impl rule__DependenciesAnyOf__Group__2
+            // InternalJsonSchemaDsl.g:8546:1: ( rule__DependenciesAnyOf__Group__1__Impl rule__DependenciesAnyOf__Group__2 )
+            // InternalJsonSchemaDsl.g:8547:2: rule__DependenciesAnyOf__Group__1__Impl rule__DependenciesAnyOf__Group__2
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__DependenciesAnyOf__Group__1__Impl();
 
             state._fsp--;
@@ -24685,37 +25835,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DependenciesAnyOf__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:8222:1: rule__DependenciesAnyOf__Group__1__Impl : ( ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )? ) ;
+    // InternalJsonSchemaDsl.g:8554:1: rule__DependenciesAnyOf__Group__1__Impl : ( ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )? ) ;
     public final void rule__DependenciesAnyOf__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8226:1: ( ( ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )? ) )
-            // InternalJsonSchemaDsl.g:8227:1: ( ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )? )
+            // InternalJsonSchemaDsl.g:8558:1: ( ( ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )? ) )
+            // InternalJsonSchemaDsl.g:8559:1: ( ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )? )
             {
-            // InternalJsonSchemaDsl.g:8227:1: ( ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )? )
-            // InternalJsonSchemaDsl.g:8228:2: ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )?
+            // InternalJsonSchemaDsl.g:8559:1: ( ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )? )
+            // InternalJsonSchemaDsl.g:8560:2: ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )?
             {
              before(grammarAccess.getDependenciesAnyOfAccess().getDependenciesAnyOf2Assignment_1()); 
-            // InternalJsonSchemaDsl.g:8229:2: ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
-
-            if ( (LA29_0==RULE_STRING) ) {
-                int LA29_1 = input.LA(2);
-
-                if ( (LA29_1==25) ) {
-                    int LA29_3 = input.LA(3);
-
-                    if ( (LA29_3==28) ) {
-                        alt29=1;
-                    }
-                }
-            }
-            switch (alt29) {
+            // InternalJsonSchemaDsl.g:8561:2: ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )?
+            int alt31=2;
+            alt31 = dfa31.predict(input);
+            switch (alt31) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:8229:3: rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1
+                    // InternalJsonSchemaDsl.g:8561:3: rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1();
@@ -24751,14 +25889,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DependenciesAnyOf__Group__2"
-    // InternalJsonSchemaDsl.g:8237:1: rule__DependenciesAnyOf__Group__2 : rule__DependenciesAnyOf__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:8569:1: rule__DependenciesAnyOf__Group__2 : rule__DependenciesAnyOf__Group__2__Impl ;
     public final void rule__DependenciesAnyOf__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8241:1: ( rule__DependenciesAnyOf__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:8242:2: rule__DependenciesAnyOf__Group__2__Impl
+            // InternalJsonSchemaDsl.g:8573:1: ( rule__DependenciesAnyOf__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:8574:2: rule__DependenciesAnyOf__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DependenciesAnyOf__Group__2__Impl();
@@ -24784,29 +25922,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DependenciesAnyOf__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:8248:1: rule__DependenciesAnyOf__Group__2__Impl : ( ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )? ) ;
+    // InternalJsonSchemaDsl.g:8580:1: rule__DependenciesAnyOf__Group__2__Impl : ( ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )? ) ;
     public final void rule__DependenciesAnyOf__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8252:1: ( ( ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )? ) )
-            // InternalJsonSchemaDsl.g:8253:1: ( ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )? )
+            // InternalJsonSchemaDsl.g:8584:1: ( ( ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )? ) )
+            // InternalJsonSchemaDsl.g:8585:1: ( ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )? )
             {
-            // InternalJsonSchemaDsl.g:8253:1: ( ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )? )
-            // InternalJsonSchemaDsl.g:8254:2: ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )?
+            // InternalJsonSchemaDsl.g:8585:1: ( ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )? )
+            // InternalJsonSchemaDsl.g:8586:2: ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )?
             {
              before(grammarAccess.getDependenciesAnyOfAccess().getDependenciesAnyOf1Assignment_2()); 
-            // InternalJsonSchemaDsl.g:8255:2: ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )?
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:8587:2: ( rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
 
-            if ( (LA30_0==RULE_STRING) ) {
-                alt30=1;
+            if ( (LA32_0==RULE_STRING||(LA32_0>=14 && LA32_0<=55)) ) {
+                alt32=1;
             }
-            switch (alt30) {
+            switch (alt32) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:8255:3: rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2
+                    // InternalJsonSchemaDsl.g:8587:3: rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2
                     {
                     pushFollow(FOLLOW_2);
                     rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2();
@@ -24842,14 +25980,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyStringArrayPair__Group__0"
-    // InternalJsonSchemaDsl.g:8264:1: rule__KeyStringArrayPair__Group__0 : rule__KeyStringArrayPair__Group__0__Impl rule__KeyStringArrayPair__Group__1 ;
+    // InternalJsonSchemaDsl.g:8596:1: rule__KeyStringArrayPair__Group__0 : rule__KeyStringArrayPair__Group__0__Impl rule__KeyStringArrayPair__Group__1 ;
     public final void rule__KeyStringArrayPair__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8268:1: ( rule__KeyStringArrayPair__Group__0__Impl rule__KeyStringArrayPair__Group__1 )
-            // InternalJsonSchemaDsl.g:8269:2: rule__KeyStringArrayPair__Group__0__Impl rule__KeyStringArrayPair__Group__1
+            // InternalJsonSchemaDsl.g:8600:1: ( rule__KeyStringArrayPair__Group__0__Impl rule__KeyStringArrayPair__Group__1 )
+            // InternalJsonSchemaDsl.g:8601:2: rule__KeyStringArrayPair__Group__0__Impl rule__KeyStringArrayPair__Group__1
             {
             pushFollow(FOLLOW_9);
             rule__KeyStringArrayPair__Group__0__Impl();
@@ -24880,21 +26018,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyStringArrayPair__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:8276:1: rule__KeyStringArrayPair__Group__0__Impl : ( ( rule__KeyStringArrayPair__KeyAssignment_0 ) ) ;
+    // InternalJsonSchemaDsl.g:8608:1: rule__KeyStringArrayPair__Group__0__Impl : ( ( rule__KeyStringArrayPair__KeyAssignment_0 ) ) ;
     public final void rule__KeyStringArrayPair__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8280:1: ( ( ( rule__KeyStringArrayPair__KeyAssignment_0 ) ) )
-            // InternalJsonSchemaDsl.g:8281:1: ( ( rule__KeyStringArrayPair__KeyAssignment_0 ) )
+            // InternalJsonSchemaDsl.g:8612:1: ( ( ( rule__KeyStringArrayPair__KeyAssignment_0 ) ) )
+            // InternalJsonSchemaDsl.g:8613:1: ( ( rule__KeyStringArrayPair__KeyAssignment_0 ) )
             {
-            // InternalJsonSchemaDsl.g:8281:1: ( ( rule__KeyStringArrayPair__KeyAssignment_0 ) )
-            // InternalJsonSchemaDsl.g:8282:2: ( rule__KeyStringArrayPair__KeyAssignment_0 )
+            // InternalJsonSchemaDsl.g:8613:1: ( ( rule__KeyStringArrayPair__KeyAssignment_0 ) )
+            // InternalJsonSchemaDsl.g:8614:2: ( rule__KeyStringArrayPair__KeyAssignment_0 )
             {
              before(grammarAccess.getKeyStringArrayPairAccess().getKeyAssignment_0()); 
-            // InternalJsonSchemaDsl.g:8283:2: ( rule__KeyStringArrayPair__KeyAssignment_0 )
-            // InternalJsonSchemaDsl.g:8283:3: rule__KeyStringArrayPair__KeyAssignment_0
+            // InternalJsonSchemaDsl.g:8615:2: ( rule__KeyStringArrayPair__KeyAssignment_0 )
+            // InternalJsonSchemaDsl.g:8615:3: rule__KeyStringArrayPair__KeyAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__KeyStringArrayPair__KeyAssignment_0();
@@ -24927,16 +26065,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyStringArrayPair__Group__1"
-    // InternalJsonSchemaDsl.g:8291:1: rule__KeyStringArrayPair__Group__1 : rule__KeyStringArrayPair__Group__1__Impl rule__KeyStringArrayPair__Group__2 ;
+    // InternalJsonSchemaDsl.g:8623:1: rule__KeyStringArrayPair__Group__1 : rule__KeyStringArrayPair__Group__1__Impl rule__KeyStringArrayPair__Group__2 ;
     public final void rule__KeyStringArrayPair__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8295:1: ( rule__KeyStringArrayPair__Group__1__Impl rule__KeyStringArrayPair__Group__2 )
-            // InternalJsonSchemaDsl.g:8296:2: rule__KeyStringArrayPair__Group__1__Impl rule__KeyStringArrayPair__Group__2
+            // InternalJsonSchemaDsl.g:8627:1: ( rule__KeyStringArrayPair__Group__1__Impl rule__KeyStringArrayPair__Group__2 )
+            // InternalJsonSchemaDsl.g:8628:2: rule__KeyStringArrayPair__Group__1__Impl rule__KeyStringArrayPair__Group__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__KeyStringArrayPair__Group__1__Impl();
 
             state._fsp--;
@@ -24965,20 +26103,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyStringArrayPair__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:8303:1: rule__KeyStringArrayPair__Group__1__Impl : ( ':' ) ;
+    // InternalJsonSchemaDsl.g:8635:1: rule__KeyStringArrayPair__Group__1__Impl : ( ':' ) ;
     public final void rule__KeyStringArrayPair__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8307:1: ( ( ':' ) )
-            // InternalJsonSchemaDsl.g:8308:1: ( ':' )
+            // InternalJsonSchemaDsl.g:8639:1: ( ( ':' ) )
+            // InternalJsonSchemaDsl.g:8640:1: ( ':' )
             {
-            // InternalJsonSchemaDsl.g:8308:1: ( ':' )
-            // InternalJsonSchemaDsl.g:8309:2: ':'
+            // InternalJsonSchemaDsl.g:8640:1: ( ':' )
+            // InternalJsonSchemaDsl.g:8641:2: ':'
             {
              before(grammarAccess.getKeyStringArrayPairAccess().getColonKeyword_1()); 
-            match(input,25,FOLLOW_2); 
+            match(input,66,FOLLOW_2); 
              after(grammarAccess.getKeyStringArrayPairAccess().getColonKeyword_1()); 
 
             }
@@ -25002,14 +26140,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyStringArrayPair__Group__2"
-    // InternalJsonSchemaDsl.g:8318:1: rule__KeyStringArrayPair__Group__2 : rule__KeyStringArrayPair__Group__2__Impl ;
+    // InternalJsonSchemaDsl.g:8650:1: rule__KeyStringArrayPair__Group__2 : rule__KeyStringArrayPair__Group__2__Impl ;
     public final void rule__KeyStringArrayPair__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8322:1: ( rule__KeyStringArrayPair__Group__2__Impl )
-            // InternalJsonSchemaDsl.g:8323:2: rule__KeyStringArrayPair__Group__2__Impl
+            // InternalJsonSchemaDsl.g:8654:1: ( rule__KeyStringArrayPair__Group__2__Impl )
+            // InternalJsonSchemaDsl.g:8655:2: rule__KeyStringArrayPair__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__KeyStringArrayPair__Group__2__Impl();
@@ -25035,21 +26173,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyStringArrayPair__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:8329:1: rule__KeyStringArrayPair__Group__2__Impl : ( ( rule__KeyStringArrayPair__ValueAssignment_2 ) ) ;
+    // InternalJsonSchemaDsl.g:8661:1: rule__KeyStringArrayPair__Group__2__Impl : ( ( rule__KeyStringArrayPair__ValueAssignment_2 ) ) ;
     public final void rule__KeyStringArrayPair__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8333:1: ( ( ( rule__KeyStringArrayPair__ValueAssignment_2 ) ) )
-            // InternalJsonSchemaDsl.g:8334:1: ( ( rule__KeyStringArrayPair__ValueAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:8665:1: ( ( ( rule__KeyStringArrayPair__ValueAssignment_2 ) ) )
+            // InternalJsonSchemaDsl.g:8666:1: ( ( rule__KeyStringArrayPair__ValueAssignment_2 ) )
             {
-            // InternalJsonSchemaDsl.g:8334:1: ( ( rule__KeyStringArrayPair__ValueAssignment_2 ) )
-            // InternalJsonSchemaDsl.g:8335:2: ( rule__KeyStringArrayPair__ValueAssignment_2 )
+            // InternalJsonSchemaDsl.g:8666:1: ( ( rule__KeyStringArrayPair__ValueAssignment_2 ) )
+            // InternalJsonSchemaDsl.g:8667:2: ( rule__KeyStringArrayPair__ValueAssignment_2 )
             {
              before(grammarAccess.getKeyStringArrayPairAccess().getValueAssignment_2()); 
-            // InternalJsonSchemaDsl.g:8336:2: ( rule__KeyStringArrayPair__ValueAssignment_2 )
-            // InternalJsonSchemaDsl.g:8336:3: rule__KeyStringArrayPair__ValueAssignment_2
+            // InternalJsonSchemaDsl.g:8668:2: ( rule__KeyStringArrayPair__ValueAssignment_2 )
+            // InternalJsonSchemaDsl.g:8668:3: rule__KeyStringArrayPair__ValueAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__KeyStringArrayPair__ValueAssignment_2();
@@ -25082,16 +26220,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group__0"
-    // InternalJsonSchemaDsl.g:8345:1: rule__StringArray__Group__0 : rule__StringArray__Group__0__Impl rule__StringArray__Group__1 ;
+    // InternalJsonSchemaDsl.g:8677:1: rule__StringArray__Group__0 : rule__StringArray__Group__0__Impl rule__StringArray__Group__1 ;
     public final void rule__StringArray__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8349:1: ( rule__StringArray__Group__0__Impl rule__StringArray__Group__1 )
-            // InternalJsonSchemaDsl.g:8350:2: rule__StringArray__Group__0__Impl rule__StringArray__Group__1
+            // InternalJsonSchemaDsl.g:8681:1: ( rule__StringArray__Group__0__Impl rule__StringArray__Group__1 )
+            // InternalJsonSchemaDsl.g:8682:2: rule__StringArray__Group__0__Impl rule__StringArray__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__StringArray__Group__0__Impl();
 
             state._fsp--;
@@ -25120,21 +26258,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group__0__Impl"
-    // InternalJsonSchemaDsl.g:8357:1: rule__StringArray__Group__0__Impl : ( () ) ;
+    // InternalJsonSchemaDsl.g:8689:1: rule__StringArray__Group__0__Impl : ( () ) ;
     public final void rule__StringArray__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8361:1: ( ( () ) )
-            // InternalJsonSchemaDsl.g:8362:1: ( () )
+            // InternalJsonSchemaDsl.g:8693:1: ( ( () ) )
+            // InternalJsonSchemaDsl.g:8694:1: ( () )
             {
-            // InternalJsonSchemaDsl.g:8362:1: ( () )
-            // InternalJsonSchemaDsl.g:8363:2: ()
+            // InternalJsonSchemaDsl.g:8694:1: ( () )
+            // InternalJsonSchemaDsl.g:8695:2: ()
             {
              before(grammarAccess.getStringArrayAccess().getStringArrayAction_0()); 
-            // InternalJsonSchemaDsl.g:8364:2: ()
-            // InternalJsonSchemaDsl.g:8364:3: 
+            // InternalJsonSchemaDsl.g:8696:2: ()
+            // InternalJsonSchemaDsl.g:8696:3: 
             {
             }
 
@@ -25157,16 +26295,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group__1"
-    // InternalJsonSchemaDsl.g:8372:1: rule__StringArray__Group__1 : rule__StringArray__Group__1__Impl rule__StringArray__Group__2 ;
+    // InternalJsonSchemaDsl.g:8704:1: rule__StringArray__Group__1 : rule__StringArray__Group__1__Impl rule__StringArray__Group__2 ;
     public final void rule__StringArray__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8376:1: ( rule__StringArray__Group__1__Impl rule__StringArray__Group__2 )
-            // InternalJsonSchemaDsl.g:8377:2: rule__StringArray__Group__1__Impl rule__StringArray__Group__2
+            // InternalJsonSchemaDsl.g:8708:1: ( rule__StringArray__Group__1__Impl rule__StringArray__Group__2 )
+            // InternalJsonSchemaDsl.g:8709:2: rule__StringArray__Group__1__Impl rule__StringArray__Group__2
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_28);
             rule__StringArray__Group__1__Impl();
 
             state._fsp--;
@@ -25195,20 +26333,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group__1__Impl"
-    // InternalJsonSchemaDsl.g:8384:1: rule__StringArray__Group__1__Impl : ( '[' ) ;
+    // InternalJsonSchemaDsl.g:8716:1: rule__StringArray__Group__1__Impl : ( '[' ) ;
     public final void rule__StringArray__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8388:1: ( ( '[' ) )
-            // InternalJsonSchemaDsl.g:8389:1: ( '[' )
+            // InternalJsonSchemaDsl.g:8720:1: ( ( '[' ) )
+            // InternalJsonSchemaDsl.g:8721:1: ( '[' )
             {
-            // InternalJsonSchemaDsl.g:8389:1: ( '[' )
-            // InternalJsonSchemaDsl.g:8390:2: '['
+            // InternalJsonSchemaDsl.g:8721:1: ( '[' )
+            // InternalJsonSchemaDsl.g:8722:2: '['
             {
              before(grammarAccess.getStringArrayAccess().getLeftSquareBracketKeyword_1()); 
-            match(input,28,FOLLOW_2); 
+            match(input,67,FOLLOW_2); 
              after(grammarAccess.getStringArrayAccess().getLeftSquareBracketKeyword_1()); 
 
             }
@@ -25232,16 +26370,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group__2"
-    // InternalJsonSchemaDsl.g:8399:1: rule__StringArray__Group__2 : rule__StringArray__Group__2__Impl rule__StringArray__Group__3 ;
+    // InternalJsonSchemaDsl.g:8731:1: rule__StringArray__Group__2 : rule__StringArray__Group__2__Impl rule__StringArray__Group__3 ;
     public final void rule__StringArray__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8403:1: ( rule__StringArray__Group__2__Impl rule__StringArray__Group__3 )
-            // InternalJsonSchemaDsl.g:8404:2: rule__StringArray__Group__2__Impl rule__StringArray__Group__3
+            // InternalJsonSchemaDsl.g:8735:1: ( rule__StringArray__Group__2__Impl rule__StringArray__Group__3 )
+            // InternalJsonSchemaDsl.g:8736:2: rule__StringArray__Group__2__Impl rule__StringArray__Group__3
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_28);
             rule__StringArray__Group__2__Impl();
 
             state._fsp--;
@@ -25270,29 +26408,29 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group__2__Impl"
-    // InternalJsonSchemaDsl.g:8411:1: rule__StringArray__Group__2__Impl : ( ( rule__StringArray__Group_2__0 )? ) ;
+    // InternalJsonSchemaDsl.g:8743:1: rule__StringArray__Group__2__Impl : ( ( rule__StringArray__Group_2__0 )? ) ;
     public final void rule__StringArray__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8415:1: ( ( ( rule__StringArray__Group_2__0 )? ) )
-            // InternalJsonSchemaDsl.g:8416:1: ( ( rule__StringArray__Group_2__0 )? )
+            // InternalJsonSchemaDsl.g:8747:1: ( ( ( rule__StringArray__Group_2__0 )? ) )
+            // InternalJsonSchemaDsl.g:8748:1: ( ( rule__StringArray__Group_2__0 )? )
             {
-            // InternalJsonSchemaDsl.g:8416:1: ( ( rule__StringArray__Group_2__0 )? )
-            // InternalJsonSchemaDsl.g:8417:2: ( rule__StringArray__Group_2__0 )?
+            // InternalJsonSchemaDsl.g:8748:1: ( ( rule__StringArray__Group_2__0 )? )
+            // InternalJsonSchemaDsl.g:8749:2: ( rule__StringArray__Group_2__0 )?
             {
              before(grammarAccess.getStringArrayAccess().getGroup_2()); 
-            // InternalJsonSchemaDsl.g:8418:2: ( rule__StringArray__Group_2__0 )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // InternalJsonSchemaDsl.g:8750:2: ( rule__StringArray__Group_2__0 )?
+            int alt33=2;
+            int LA33_0 = input.LA(1);
 
-            if ( (LA31_0==RULE_STRING) ) {
-                alt31=1;
+            if ( (LA33_0==RULE_STRING||(LA33_0>=14 && LA33_0<=55)) ) {
+                alt33=1;
             }
-            switch (alt31) {
+            switch (alt33) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:8418:3: rule__StringArray__Group_2__0
+                    // InternalJsonSchemaDsl.g:8750:3: rule__StringArray__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__StringArray__Group_2__0();
@@ -25328,14 +26466,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group__3"
-    // InternalJsonSchemaDsl.g:8426:1: rule__StringArray__Group__3 : rule__StringArray__Group__3__Impl ;
+    // InternalJsonSchemaDsl.g:8758:1: rule__StringArray__Group__3 : rule__StringArray__Group__3__Impl ;
     public final void rule__StringArray__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8430:1: ( rule__StringArray__Group__3__Impl )
-            // InternalJsonSchemaDsl.g:8431:2: rule__StringArray__Group__3__Impl
+            // InternalJsonSchemaDsl.g:8762:1: ( rule__StringArray__Group__3__Impl )
+            // InternalJsonSchemaDsl.g:8763:2: rule__StringArray__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__StringArray__Group__3__Impl();
@@ -25361,20 +26499,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group__3__Impl"
-    // InternalJsonSchemaDsl.g:8437:1: rule__StringArray__Group__3__Impl : ( ']' ) ;
+    // InternalJsonSchemaDsl.g:8769:1: rule__StringArray__Group__3__Impl : ( ']' ) ;
     public final void rule__StringArray__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8441:1: ( ( ']' ) )
-            // InternalJsonSchemaDsl.g:8442:1: ( ']' )
+            // InternalJsonSchemaDsl.g:8773:1: ( ( ']' ) )
+            // InternalJsonSchemaDsl.g:8774:1: ( ']' )
             {
-            // InternalJsonSchemaDsl.g:8442:1: ( ']' )
-            // InternalJsonSchemaDsl.g:8443:2: ']'
+            // InternalJsonSchemaDsl.g:8774:1: ( ']' )
+            // InternalJsonSchemaDsl.g:8775:2: ']'
             {
              before(grammarAccess.getStringArrayAccess().getRightSquareBracketKeyword_3()); 
-            match(input,29,FOLLOW_2); 
+            match(input,68,FOLLOW_2); 
              after(grammarAccess.getStringArrayAccess().getRightSquareBracketKeyword_3()); 
 
             }
@@ -25398,14 +26536,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group_2__0"
-    // InternalJsonSchemaDsl.g:8453:1: rule__StringArray__Group_2__0 : rule__StringArray__Group_2__0__Impl rule__StringArray__Group_2__1 ;
+    // InternalJsonSchemaDsl.g:8785:1: rule__StringArray__Group_2__0 : rule__StringArray__Group_2__0__Impl rule__StringArray__Group_2__1 ;
     public final void rule__StringArray__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8457:1: ( rule__StringArray__Group_2__0__Impl rule__StringArray__Group_2__1 )
-            // InternalJsonSchemaDsl.g:8458:2: rule__StringArray__Group_2__0__Impl rule__StringArray__Group_2__1
+            // InternalJsonSchemaDsl.g:8789:1: ( rule__StringArray__Group_2__0__Impl rule__StringArray__Group_2__1 )
+            // InternalJsonSchemaDsl.g:8790:2: rule__StringArray__Group_2__0__Impl rule__StringArray__Group_2__1
             {
             pushFollow(FOLLOW_6);
             rule__StringArray__Group_2__0__Impl();
@@ -25436,21 +26574,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group_2__0__Impl"
-    // InternalJsonSchemaDsl.g:8465:1: rule__StringArray__Group_2__0__Impl : ( ( rule__StringArray__ValuesAssignment_2_0 ) ) ;
+    // InternalJsonSchemaDsl.g:8797:1: rule__StringArray__Group_2__0__Impl : ( ( rule__StringArray__ValuesAssignment_2_0 ) ) ;
     public final void rule__StringArray__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8469:1: ( ( ( rule__StringArray__ValuesAssignment_2_0 ) ) )
-            // InternalJsonSchemaDsl.g:8470:1: ( ( rule__StringArray__ValuesAssignment_2_0 ) )
+            // InternalJsonSchemaDsl.g:8801:1: ( ( ( rule__StringArray__ValuesAssignment_2_0 ) ) )
+            // InternalJsonSchemaDsl.g:8802:1: ( ( rule__StringArray__ValuesAssignment_2_0 ) )
             {
-            // InternalJsonSchemaDsl.g:8470:1: ( ( rule__StringArray__ValuesAssignment_2_0 ) )
-            // InternalJsonSchemaDsl.g:8471:2: ( rule__StringArray__ValuesAssignment_2_0 )
+            // InternalJsonSchemaDsl.g:8802:1: ( ( rule__StringArray__ValuesAssignment_2_0 ) )
+            // InternalJsonSchemaDsl.g:8803:2: ( rule__StringArray__ValuesAssignment_2_0 )
             {
              before(grammarAccess.getStringArrayAccess().getValuesAssignment_2_0()); 
-            // InternalJsonSchemaDsl.g:8472:2: ( rule__StringArray__ValuesAssignment_2_0 )
-            // InternalJsonSchemaDsl.g:8472:3: rule__StringArray__ValuesAssignment_2_0
+            // InternalJsonSchemaDsl.g:8804:2: ( rule__StringArray__ValuesAssignment_2_0 )
+            // InternalJsonSchemaDsl.g:8804:3: rule__StringArray__ValuesAssignment_2_0
             {
             pushFollow(FOLLOW_2);
             rule__StringArray__ValuesAssignment_2_0();
@@ -25483,14 +26621,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group_2__1"
-    // InternalJsonSchemaDsl.g:8480:1: rule__StringArray__Group_2__1 : rule__StringArray__Group_2__1__Impl ;
+    // InternalJsonSchemaDsl.g:8812:1: rule__StringArray__Group_2__1 : rule__StringArray__Group_2__1__Impl ;
     public final void rule__StringArray__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8484:1: ( rule__StringArray__Group_2__1__Impl )
-            // InternalJsonSchemaDsl.g:8485:2: rule__StringArray__Group_2__1__Impl
+            // InternalJsonSchemaDsl.g:8816:1: ( rule__StringArray__Group_2__1__Impl )
+            // InternalJsonSchemaDsl.g:8817:2: rule__StringArray__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__StringArray__Group_2__1__Impl();
@@ -25516,33 +26654,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group_2__1__Impl"
-    // InternalJsonSchemaDsl.g:8491:1: rule__StringArray__Group_2__1__Impl : ( ( rule__StringArray__Group_2_1__0 )* ) ;
+    // InternalJsonSchemaDsl.g:8823:1: rule__StringArray__Group_2__1__Impl : ( ( rule__StringArray__Group_2_1__0 )* ) ;
     public final void rule__StringArray__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8495:1: ( ( ( rule__StringArray__Group_2_1__0 )* ) )
-            // InternalJsonSchemaDsl.g:8496:1: ( ( rule__StringArray__Group_2_1__0 )* )
+            // InternalJsonSchemaDsl.g:8827:1: ( ( ( rule__StringArray__Group_2_1__0 )* ) )
+            // InternalJsonSchemaDsl.g:8828:1: ( ( rule__StringArray__Group_2_1__0 )* )
             {
-            // InternalJsonSchemaDsl.g:8496:1: ( ( rule__StringArray__Group_2_1__0 )* )
-            // InternalJsonSchemaDsl.g:8497:2: ( rule__StringArray__Group_2_1__0 )*
+            // InternalJsonSchemaDsl.g:8828:1: ( ( rule__StringArray__Group_2_1__0 )* )
+            // InternalJsonSchemaDsl.g:8829:2: ( rule__StringArray__Group_2_1__0 )*
             {
              before(grammarAccess.getStringArrayAccess().getGroup_2_1()); 
-            // InternalJsonSchemaDsl.g:8498:2: ( rule__StringArray__Group_2_1__0 )*
-            loop32:
+            // InternalJsonSchemaDsl.g:8830:2: ( rule__StringArray__Group_2_1__0 )*
+            loop34:
             do {
-                int alt32=2;
-                int LA32_0 = input.LA(1);
+                int alt34=2;
+                int LA34_0 = input.LA(1);
 
-                if ( (LA32_0==23) ) {
-                    alt32=1;
+                if ( (LA34_0==65) ) {
+                    alt34=1;
                 }
 
 
-                switch (alt32) {
+                switch (alt34) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:8498:3: rule__StringArray__Group_2_1__0
+            	    // InternalJsonSchemaDsl.g:8830:3: rule__StringArray__Group_2_1__0
             	    {
             	    pushFollow(FOLLOW_7);
             	    rule__StringArray__Group_2_1__0();
@@ -25554,7 +26692,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
             	    break;
 
             	default :
-            	    break loop32;
+            	    break loop34;
                 }
             } while (true);
 
@@ -25581,16 +26719,16 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group_2_1__0"
-    // InternalJsonSchemaDsl.g:8507:1: rule__StringArray__Group_2_1__0 : rule__StringArray__Group_2_1__0__Impl rule__StringArray__Group_2_1__1 ;
+    // InternalJsonSchemaDsl.g:8839:1: rule__StringArray__Group_2_1__0 : rule__StringArray__Group_2_1__0__Impl rule__StringArray__Group_2_1__1 ;
     public final void rule__StringArray__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8511:1: ( rule__StringArray__Group_2_1__0__Impl rule__StringArray__Group_2_1__1 )
-            // InternalJsonSchemaDsl.g:8512:2: rule__StringArray__Group_2_1__0__Impl rule__StringArray__Group_2_1__1
+            // InternalJsonSchemaDsl.g:8843:1: ( rule__StringArray__Group_2_1__0__Impl rule__StringArray__Group_2_1__1 )
+            // InternalJsonSchemaDsl.g:8844:2: rule__StringArray__Group_2_1__0__Impl rule__StringArray__Group_2_1__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_11);
             rule__StringArray__Group_2_1__0__Impl();
 
             state._fsp--;
@@ -25619,20 +26757,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group_2_1__0__Impl"
-    // InternalJsonSchemaDsl.g:8519:1: rule__StringArray__Group_2_1__0__Impl : ( ',' ) ;
+    // InternalJsonSchemaDsl.g:8851:1: rule__StringArray__Group_2_1__0__Impl : ( ',' ) ;
     public final void rule__StringArray__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8523:1: ( ( ',' ) )
-            // InternalJsonSchemaDsl.g:8524:1: ( ',' )
+            // InternalJsonSchemaDsl.g:8855:1: ( ( ',' ) )
+            // InternalJsonSchemaDsl.g:8856:1: ( ',' )
             {
-            // InternalJsonSchemaDsl.g:8524:1: ( ',' )
-            // InternalJsonSchemaDsl.g:8525:2: ','
+            // InternalJsonSchemaDsl.g:8856:1: ( ',' )
+            // InternalJsonSchemaDsl.g:8857:2: ','
             {
              before(grammarAccess.getStringArrayAccess().getCommaKeyword_2_1_0()); 
-            match(input,23,FOLLOW_2); 
+            match(input,65,FOLLOW_2); 
              after(grammarAccess.getStringArrayAccess().getCommaKeyword_2_1_0()); 
 
             }
@@ -25656,14 +26794,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group_2_1__1"
-    // InternalJsonSchemaDsl.g:8534:1: rule__StringArray__Group_2_1__1 : rule__StringArray__Group_2_1__1__Impl ;
+    // InternalJsonSchemaDsl.g:8866:1: rule__StringArray__Group_2_1__1 : rule__StringArray__Group_2_1__1__Impl ;
     public final void rule__StringArray__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8538:1: ( rule__StringArray__Group_2_1__1__Impl )
-            // InternalJsonSchemaDsl.g:8539:2: rule__StringArray__Group_2_1__1__Impl
+            // InternalJsonSchemaDsl.g:8870:1: ( rule__StringArray__Group_2_1__1__Impl )
+            // InternalJsonSchemaDsl.g:8871:2: rule__StringArray__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__StringArray__Group_2_1__1__Impl();
@@ -25689,21 +26827,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__Group_2_1__1__Impl"
-    // InternalJsonSchemaDsl.g:8545:1: rule__StringArray__Group_2_1__1__Impl : ( ( rule__StringArray__ValuesAssignment_2_1_1 ) ) ;
+    // InternalJsonSchemaDsl.g:8877:1: rule__StringArray__Group_2_1__1__Impl : ( ( rule__StringArray__ValuesAssignment_2_1_1 ) ) ;
     public final void rule__StringArray__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8549:1: ( ( ( rule__StringArray__ValuesAssignment_2_1_1 ) ) )
-            // InternalJsonSchemaDsl.g:8550:1: ( ( rule__StringArray__ValuesAssignment_2_1_1 ) )
+            // InternalJsonSchemaDsl.g:8881:1: ( ( ( rule__StringArray__ValuesAssignment_2_1_1 ) ) )
+            // InternalJsonSchemaDsl.g:8882:1: ( ( rule__StringArray__ValuesAssignment_2_1_1 ) )
             {
-            // InternalJsonSchemaDsl.g:8550:1: ( ( rule__StringArray__ValuesAssignment_2_1_1 ) )
-            // InternalJsonSchemaDsl.g:8551:2: ( rule__StringArray__ValuesAssignment_2_1_1 )
+            // InternalJsonSchemaDsl.g:8882:1: ( ( rule__StringArray__ValuesAssignment_2_1_1 ) )
+            // InternalJsonSchemaDsl.g:8883:2: ( rule__StringArray__ValuesAssignment_2_1_1 )
             {
              before(grammarAccess.getStringArrayAccess().getValuesAssignment_2_1_1()); 
-            // InternalJsonSchemaDsl.g:8552:2: ( rule__StringArray__ValuesAssignment_2_1_1 )
-            // InternalJsonSchemaDsl.g:8552:3: rule__StringArray__ValuesAssignment_2_1_1
+            // InternalJsonSchemaDsl.g:8884:2: ( rule__StringArray__ValuesAssignment_2_1_1 )
+            // InternalJsonSchemaDsl.g:8884:3: rule__StringArray__ValuesAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__StringArray__ValuesAssignment_2_1_1();
@@ -25736,17 +26874,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__JsonSchema__SchemaAssignment_1"
-    // InternalJsonSchemaDsl.g:8561:1: rule__JsonSchema__SchemaAssignment_1 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:8893:1: rule__JsonSchema__SchemaAssignment_1 : ( ruleSchema ) ;
     public final void rule__JsonSchema__SchemaAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8565:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:8566:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:8897:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:8898:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:8566:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:8567:3: ruleSchema
+            // InternalJsonSchemaDsl.g:8898:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:8899:3: ruleSchema
             {
              before(grammarAccess.getJsonSchemaAccess().getSchemaSchemaParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -25777,17 +26915,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__KeywordDefinitionAssignment_2_0"
-    // InternalJsonSchemaDsl.g:8576:1: rule__ObjectSchema__KeywordDefinitionAssignment_2_0 : ( ruleKeywordDefinition ) ;
+    // InternalJsonSchemaDsl.g:8908:1: rule__ObjectSchema__KeywordDefinitionAssignment_2_0 : ( ruleKeywordDefinition ) ;
     public final void rule__ObjectSchema__KeywordDefinitionAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8580:1: ( ( ruleKeywordDefinition ) )
-            // InternalJsonSchemaDsl.g:8581:2: ( ruleKeywordDefinition )
+            // InternalJsonSchemaDsl.g:8912:1: ( ( ruleKeywordDefinition ) )
+            // InternalJsonSchemaDsl.g:8913:2: ( ruleKeywordDefinition )
             {
-            // InternalJsonSchemaDsl.g:8581:2: ( ruleKeywordDefinition )
-            // InternalJsonSchemaDsl.g:8582:3: ruleKeywordDefinition
+            // InternalJsonSchemaDsl.g:8913:2: ( ruleKeywordDefinition )
+            // InternalJsonSchemaDsl.g:8914:3: ruleKeywordDefinition
             {
              before(grammarAccess.getObjectSchemaAccess().getKeywordDefinitionKeywordDefinitionParserRuleCall_2_0_0()); 
             pushFollow(FOLLOW_2);
@@ -25818,17 +26956,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1"
-    // InternalJsonSchemaDsl.g:8591:1: rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 : ( ruleKeywordDefinition ) ;
+    // InternalJsonSchemaDsl.g:8923:1: rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1 : ( ruleKeywordDefinition ) ;
     public final void rule__ObjectSchema__KeywordDefinitionAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8595:1: ( ( ruleKeywordDefinition ) )
-            // InternalJsonSchemaDsl.g:8596:2: ( ruleKeywordDefinition )
+            // InternalJsonSchemaDsl.g:8927:1: ( ( ruleKeywordDefinition ) )
+            // InternalJsonSchemaDsl.g:8928:2: ( ruleKeywordDefinition )
             {
-            // InternalJsonSchemaDsl.g:8596:2: ( ruleKeywordDefinition )
-            // InternalJsonSchemaDsl.g:8597:3: ruleKeywordDefinition
+            // InternalJsonSchemaDsl.g:8928:2: ( ruleKeywordDefinition )
+            // InternalJsonSchemaDsl.g:8929:3: ruleKeywordDefinition
             {
              before(grammarAccess.getObjectSchemaAccess().getKeywordDefinitionKeywordDefinitionParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -25859,17 +26997,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__BooleanSchema__ValueAssignment"
-    // InternalJsonSchemaDsl.g:8606:1: rule__BooleanSchema__ValueAssignment : ( ruleEBoolean ) ;
+    // InternalJsonSchemaDsl.g:8938:1: rule__BooleanSchema__ValueAssignment : ( ruleEBoolean ) ;
     public final void rule__BooleanSchema__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8610:1: ( ( ruleEBoolean ) )
-            // InternalJsonSchemaDsl.g:8611:2: ( ruleEBoolean )
+            // InternalJsonSchemaDsl.g:8942:1: ( ( ruleEBoolean ) )
+            // InternalJsonSchemaDsl.g:8943:2: ( ruleEBoolean )
             {
-            // InternalJsonSchemaDsl.g:8611:2: ( ruleEBoolean )
-            // InternalJsonSchemaDsl.g:8612:3: ruleEBoolean
+            // InternalJsonSchemaDsl.g:8943:2: ( ruleEBoolean )
+            // InternalJsonSchemaDsl.g:8944:3: ruleEBoolean
             {
              before(grammarAccess.getBooleanSchemaAccess().getValueEBooleanParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -25900,17 +27038,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaximumSchemaDefinition__MaximumAssignment_2"
-    // InternalJsonSchemaDsl.g:8621:1: rule__MaximumSchemaDefinition__MaximumAssignment_2 : ( ruleEDouble ) ;
+    // InternalJsonSchemaDsl.g:8953:1: rule__MaximumSchemaDefinition__MaximumAssignment_2 : ( ruleEDouble ) ;
     public final void rule__MaximumSchemaDefinition__MaximumAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8625:1: ( ( ruleEDouble ) )
-            // InternalJsonSchemaDsl.g:8626:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:8957:1: ( ( ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:8958:2: ( ruleEDouble )
             {
-            // InternalJsonSchemaDsl.g:8626:2: ( ruleEDouble )
-            // InternalJsonSchemaDsl.g:8627:3: ruleEDouble
+            // InternalJsonSchemaDsl.g:8958:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:8959:3: ruleEDouble
             {
              before(grammarAccess.getMaximumSchemaDefinitionAccess().getMaximumEDoubleParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -25941,17 +27079,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2"
-    // InternalJsonSchemaDsl.g:8636:1: rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 : ( ruleEBoolean ) ;
+    // InternalJsonSchemaDsl.g:8968:1: rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2 : ( ruleEBoolean ) ;
     public final void rule__WriteOnlySchemaDefinition__WriteOnlyAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8640:1: ( ( ruleEBoolean ) )
-            // InternalJsonSchemaDsl.g:8641:2: ( ruleEBoolean )
+            // InternalJsonSchemaDsl.g:8972:1: ( ( ruleEBoolean ) )
+            // InternalJsonSchemaDsl.g:8973:2: ( ruleEBoolean )
             {
-            // InternalJsonSchemaDsl.g:8641:2: ( ruleEBoolean )
-            // InternalJsonSchemaDsl.g:8642:3: ruleEBoolean
+            // InternalJsonSchemaDsl.g:8973:2: ( ruleEBoolean )
+            // InternalJsonSchemaDsl.g:8974:3: ruleEBoolean
             {
              before(grammarAccess.getWriteOnlySchemaDefinitionAccess().getWriteOnlyEBooleanParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -25982,17 +27120,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__CommentSchemaDefinition__CommentAssignment_2"
-    // InternalJsonSchemaDsl.g:8651:1: rule__CommentSchemaDefinition__CommentAssignment_2 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:8983:1: rule__CommentSchemaDefinition__CommentAssignment_2 : ( ruleEString ) ;
     public final void rule__CommentSchemaDefinition__CommentAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8655:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:8656:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:8987:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:8988:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:8656:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:8657:3: ruleEString
+            // InternalJsonSchemaDsl.g:8988:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:8989:3: ruleEString
             {
              before(grammarAccess.getCommentSchemaDefinitionAccess().getCommentEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26023,17 +27161,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__ItemsAssignment_1"
-    // InternalJsonSchemaDsl.g:8666:1: rule__EnumSchemaDefinition__ItemsAssignment_1 : ( ruleJsonDocument ) ;
+    // InternalJsonSchemaDsl.g:8998:1: rule__EnumSchemaDefinition__ItemsAssignment_1 : ( ruleJsonDocument ) ;
     public final void rule__EnumSchemaDefinition__ItemsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8670:1: ( ( ruleJsonDocument ) )
-            // InternalJsonSchemaDsl.g:8671:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9002:1: ( ( ruleJsonDocument ) )
+            // InternalJsonSchemaDsl.g:9003:2: ( ruleJsonDocument )
             {
-            // InternalJsonSchemaDsl.g:8671:2: ( ruleJsonDocument )
-            // InternalJsonSchemaDsl.g:8672:3: ruleJsonDocument
+            // InternalJsonSchemaDsl.g:9003:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9004:3: ruleJsonDocument
             {
              before(grammarAccess.getEnumSchemaDefinitionAccess().getItemsJsonDocumentParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -26064,17 +27202,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__EnumSchemaDefinition__ItemsAssignment_2_1"
-    // InternalJsonSchemaDsl.g:8681:1: rule__EnumSchemaDefinition__ItemsAssignment_2_1 : ( ruleJsonDocument ) ;
+    // InternalJsonSchemaDsl.g:9013:1: rule__EnumSchemaDefinition__ItemsAssignment_2_1 : ( ruleJsonDocument ) ;
     public final void rule__EnumSchemaDefinition__ItemsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8685:1: ( ( ruleJsonDocument ) )
-            // InternalJsonSchemaDsl.g:8686:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9017:1: ( ( ruleJsonDocument ) )
+            // InternalJsonSchemaDsl.g:9018:2: ( ruleJsonDocument )
             {
-            // InternalJsonSchemaDsl.g:8686:2: ( ruleJsonDocument )
-            // InternalJsonSchemaDsl.g:8687:3: ruleJsonDocument
+            // InternalJsonSchemaDsl.g:9018:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9019:3: ruleJsonDocument
             {
              before(grammarAccess.getEnumSchemaDefinitionAccess().getItemsJsonDocumentParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -26105,17 +27243,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2"
-    // InternalJsonSchemaDsl.g:8696:1: rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 : ( ruleEBoolean ) ;
+    // InternalJsonSchemaDsl.g:9028:1: rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2 : ( ruleEBoolean ) ;
     public final void rule__UniqueItemsSchemaDefinition__UniqueItemsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8700:1: ( ( ruleEBoolean ) )
-            // InternalJsonSchemaDsl.g:8701:2: ( ruleEBoolean )
+            // InternalJsonSchemaDsl.g:9032:1: ( ( ruleEBoolean ) )
+            // InternalJsonSchemaDsl.g:9033:2: ( ruleEBoolean )
             {
-            // InternalJsonSchemaDsl.g:8701:2: ( ruleEBoolean )
-            // InternalJsonSchemaDsl.g:8702:3: ruleEBoolean
+            // InternalJsonSchemaDsl.g:9033:2: ( ruleEBoolean )
+            // InternalJsonSchemaDsl.g:9034:3: ruleEBoolean
             {
              before(grammarAccess.getUniqueItemsSchemaDefinitionAccess().getUniqueItemsEBooleanParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26146,17 +27284,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AnyOfSchemaDefinition__AnyOfAssignment_2"
-    // InternalJsonSchemaDsl.g:8711:1: rule__AnyOfSchemaDefinition__AnyOfAssignment_2 : ( ruleSchemaArray ) ;
+    // InternalJsonSchemaDsl.g:9043:1: rule__AnyOfSchemaDefinition__AnyOfAssignment_2 : ( ruleSchemaArray ) ;
     public final void rule__AnyOfSchemaDefinition__AnyOfAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8715:1: ( ( ruleSchemaArray ) )
-            // InternalJsonSchemaDsl.g:8716:2: ( ruleSchemaArray )
+            // InternalJsonSchemaDsl.g:9047:1: ( ( ruleSchemaArray ) )
+            // InternalJsonSchemaDsl.g:9048:2: ( ruleSchemaArray )
             {
-            // InternalJsonSchemaDsl.g:8716:2: ( ruleSchemaArray )
-            // InternalJsonSchemaDsl.g:8717:3: ruleSchemaArray
+            // InternalJsonSchemaDsl.g:9048:2: ( ruleSchemaArray )
+            // InternalJsonSchemaDsl.g:9049:3: ruleSchemaArray
             {
              before(grammarAccess.getAnyOfSchemaDefinitionAccess().getAnyOfSchemaArrayParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26187,17 +27325,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TitleSchemaDefinition__TitleAssignment_2"
-    // InternalJsonSchemaDsl.g:8726:1: rule__TitleSchemaDefinition__TitleAssignment_2 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:9058:1: rule__TitleSchemaDefinition__TitleAssignment_2 : ( ruleEString ) ;
     public final void rule__TitleSchemaDefinition__TitleAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8730:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:8731:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9062:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:9063:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:8731:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:8732:3: ruleEString
+            // InternalJsonSchemaDsl.g:9063:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9064:3: ruleEString
             {
              before(grammarAccess.getTitleSchemaDefinitionAccess().getTitleEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26228,17 +27366,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3"
-    // InternalJsonSchemaDsl.g:8741:1: rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9073:1: rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3 : ( ruleSchema ) ;
     public final void rule__ItemsSchemaDefinition__ItemsAnyOf1Assignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8745:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:8746:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9077:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9078:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:8746:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:8747:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9078:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9079:3: ruleSchema
             {
              before(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf1SchemaParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -26269,17 +27407,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4"
-    // InternalJsonSchemaDsl.g:8756:1: rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 : ( ruleSchemaArray ) ;
+    // InternalJsonSchemaDsl.g:9088:1: rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4 : ( ruleSchemaArray ) ;
     public final void rule__ItemsSchemaDefinition__ItemsAnyOf2Assignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8760:1: ( ( ruleSchemaArray ) )
-            // InternalJsonSchemaDsl.g:8761:2: ( ruleSchemaArray )
+            // InternalJsonSchemaDsl.g:9092:1: ( ( ruleSchemaArray ) )
+            // InternalJsonSchemaDsl.g:9093:2: ( ruleSchemaArray )
             {
-            // InternalJsonSchemaDsl.g:8761:2: ( ruleSchemaArray )
-            // InternalJsonSchemaDsl.g:8762:3: ruleSchemaArray
+            // InternalJsonSchemaDsl.g:9093:2: ( ruleSchemaArray )
+            // InternalJsonSchemaDsl.g:9094:3: ruleSchemaArray
             {
              before(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf2SchemaArrayParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -26310,17 +27448,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefaultSchemaDefinition__DefaultAssignment_2"
-    // InternalJsonSchemaDsl.g:8771:1: rule__DefaultSchemaDefinition__DefaultAssignment_2 : ( ruleJsonDocument ) ;
+    // InternalJsonSchemaDsl.g:9103:1: rule__DefaultSchemaDefinition__DefaultAssignment_2 : ( ruleJsonDocument ) ;
     public final void rule__DefaultSchemaDefinition__DefaultAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8775:1: ( ( ruleJsonDocument ) )
-            // InternalJsonSchemaDsl.g:8776:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9107:1: ( ( ruleJsonDocument ) )
+            // InternalJsonSchemaDsl.g:9108:2: ( ruleJsonDocument )
             {
-            // InternalJsonSchemaDsl.g:8776:2: ( ruleJsonDocument )
-            // InternalJsonSchemaDsl.g:8777:3: ruleJsonDocument
+            // InternalJsonSchemaDsl.g:9108:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9109:3: ruleJsonDocument
             {
              before(grammarAccess.getDefaultSchemaDefinitionAccess().getDefaultJsonDocumentParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26351,17 +27489,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ThenSchemaDefinition__ThenAssignment_2"
-    // InternalJsonSchemaDsl.g:8786:1: rule__ThenSchemaDefinition__ThenAssignment_2 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9118:1: rule__ThenSchemaDefinition__ThenAssignment_2 : ( ruleSchema ) ;
     public final void rule__ThenSchemaDefinition__ThenAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8790:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:8791:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9122:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9123:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:8791:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:8792:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9123:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9124:3: ruleSchema
             {
              before(grammarAccess.getThenSchemaDefinitionAccess().getThenSchemaParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26392,17 +27530,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinLengthSchemaDefinition__MinLengthAssignment_2"
-    // InternalJsonSchemaDsl.g:8801:1: rule__MinLengthSchemaDefinition__MinLengthAssignment_2 : ( ruleNonNegativeIntegerDefault0 ) ;
+    // InternalJsonSchemaDsl.g:9133:1: rule__MinLengthSchemaDefinition__MinLengthAssignment_2 : ( ruleNonNegativeIntegerDefault0 ) ;
     public final void rule__MinLengthSchemaDefinition__MinLengthAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8805:1: ( ( ruleNonNegativeIntegerDefault0 ) )
-            // InternalJsonSchemaDsl.g:8806:2: ( ruleNonNegativeIntegerDefault0 )
+            // InternalJsonSchemaDsl.g:9137:1: ( ( ruleNonNegativeIntegerDefault0 ) )
+            // InternalJsonSchemaDsl.g:9138:2: ( ruleNonNegativeIntegerDefault0 )
             {
-            // InternalJsonSchemaDsl.g:8806:2: ( ruleNonNegativeIntegerDefault0 )
-            // InternalJsonSchemaDsl.g:8807:3: ruleNonNegativeIntegerDefault0
+            // InternalJsonSchemaDsl.g:9138:2: ( ruleNonNegativeIntegerDefault0 )
+            // InternalJsonSchemaDsl.g:9139:3: ruleNonNegativeIntegerDefault0
             {
              before(grammarAccess.getMinLengthSchemaDefinitionAccess().getMinLengthNonNegativeIntegerDefault0ParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26433,17 +27571,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0"
-    // InternalJsonSchemaDsl.g:8816:1: rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 : ( ruleKeySchemaPair ) ;
+    // InternalJsonSchemaDsl.g:9148:1: rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0 : ( ruleKeySchemaPair ) ;
     public final void rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8820:1: ( ( ruleKeySchemaPair ) )
-            // InternalJsonSchemaDsl.g:8821:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9152:1: ( ( ruleKeySchemaPair ) )
+            // InternalJsonSchemaDsl.g:9153:2: ( ruleKeySchemaPair )
             {
-            // InternalJsonSchemaDsl.g:8821:2: ( ruleKeySchemaPair )
-            // InternalJsonSchemaDsl.g:8822:3: ruleKeySchemaPair
+            // InternalJsonSchemaDsl.g:9153:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9154:3: ruleKeySchemaPair
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getKeySchemaPairsKeySchemaPairParserRuleCall_4_0_0()); 
             pushFollow(FOLLOW_2);
@@ -26474,17 +27612,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1"
-    // InternalJsonSchemaDsl.g:8831:1: rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 : ( ruleKeySchemaPair ) ;
+    // InternalJsonSchemaDsl.g:9163:1: rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1 : ( ruleKeySchemaPair ) ;
     public final void rule__DefinitionsSchemaDefinition__KeySchemaPairsAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8835:1: ( ( ruleKeySchemaPair ) )
-            // InternalJsonSchemaDsl.g:8836:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9167:1: ( ( ruleKeySchemaPair ) )
+            // InternalJsonSchemaDsl.g:9168:2: ( ruleKeySchemaPair )
             {
-            // InternalJsonSchemaDsl.g:8836:2: ( ruleKeySchemaPair )
-            // InternalJsonSchemaDsl.g:8837:3: ruleKeySchemaPair
+            // InternalJsonSchemaDsl.g:9168:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9169:3: ruleKeySchemaPair
             {
              before(grammarAccess.getDefinitionsSchemaDefinitionAccess().getKeySchemaPairsKeySchemaPairParserRuleCall_4_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -26515,17 +27653,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinItemsSchemaDefinition__MinItemsAssignment_2"
-    // InternalJsonSchemaDsl.g:8846:1: rule__MinItemsSchemaDefinition__MinItemsAssignment_2 : ( ruleNonNegativeIntegerDefault0 ) ;
+    // InternalJsonSchemaDsl.g:9178:1: rule__MinItemsSchemaDefinition__MinItemsAssignment_2 : ( ruleNonNegativeIntegerDefault0 ) ;
     public final void rule__MinItemsSchemaDefinition__MinItemsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8850:1: ( ( ruleNonNegativeIntegerDefault0 ) )
-            // InternalJsonSchemaDsl.g:8851:2: ( ruleNonNegativeIntegerDefault0 )
+            // InternalJsonSchemaDsl.g:9182:1: ( ( ruleNonNegativeIntegerDefault0 ) )
+            // InternalJsonSchemaDsl.g:9183:2: ( ruleNonNegativeIntegerDefault0 )
             {
-            // InternalJsonSchemaDsl.g:8851:2: ( ruleNonNegativeIntegerDefault0 )
-            // InternalJsonSchemaDsl.g:8852:3: ruleNonNegativeIntegerDefault0
+            // InternalJsonSchemaDsl.g:9183:2: ( ruleNonNegativeIntegerDefault0 )
+            // InternalJsonSchemaDsl.g:9184:3: ruleNonNegativeIntegerDefault0
             {
              before(grammarAccess.getMinItemsSchemaDefinitionAccess().getMinItemsNonNegativeIntegerDefault0ParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26556,17 +27694,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__OneOfSchemaDefinition__OneOfAssignment_2"
-    // InternalJsonSchemaDsl.g:8861:1: rule__OneOfSchemaDefinition__OneOfAssignment_2 : ( ruleSchemaArray ) ;
+    // InternalJsonSchemaDsl.g:9193:1: rule__OneOfSchemaDefinition__OneOfAssignment_2 : ( ruleSchemaArray ) ;
     public final void rule__OneOfSchemaDefinition__OneOfAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8865:1: ( ( ruleSchemaArray ) )
-            // InternalJsonSchemaDsl.g:8866:2: ( ruleSchemaArray )
+            // InternalJsonSchemaDsl.g:9197:1: ( ( ruleSchemaArray ) )
+            // InternalJsonSchemaDsl.g:9198:2: ( ruleSchemaArray )
             {
-            // InternalJsonSchemaDsl.g:8866:2: ( ruleSchemaArray )
-            // InternalJsonSchemaDsl.g:8867:3: ruleSchemaArray
+            // InternalJsonSchemaDsl.g:9198:2: ( ruleSchemaArray )
+            // InternalJsonSchemaDsl.g:9199:3: ruleSchemaArray
             {
              before(grammarAccess.getOneOfSchemaDefinitionAccess().getOneOfSchemaArrayParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26597,17 +27735,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2"
-    // InternalJsonSchemaDsl.g:8876:1: rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 : ( ruleNonNegativeInteger ) ;
+    // InternalJsonSchemaDsl.g:9208:1: rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2 : ( ruleNonNegativeInteger ) ;
     public final void rule__MaxPropertiesSchemaDefinition__MaxPropertiesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8880:1: ( ( ruleNonNegativeInteger ) )
-            // InternalJsonSchemaDsl.g:8881:2: ( ruleNonNegativeInteger )
+            // InternalJsonSchemaDsl.g:9212:1: ( ( ruleNonNegativeInteger ) )
+            // InternalJsonSchemaDsl.g:9213:2: ( ruleNonNegativeInteger )
             {
-            // InternalJsonSchemaDsl.g:8881:2: ( ruleNonNegativeInteger )
-            // InternalJsonSchemaDsl.g:8882:3: ruleNonNegativeInteger
+            // InternalJsonSchemaDsl.g:9213:2: ( ruleNonNegativeInteger )
+            // InternalJsonSchemaDsl.g:9214:3: ruleNonNegativeInteger
             {
              before(grammarAccess.getMaxPropertiesSchemaDefinitionAccess().getMaxPropertiesNonNegativeIntegerParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26638,17 +27776,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinimumSchemaDefinition__MinimumAssignment_2"
-    // InternalJsonSchemaDsl.g:8891:1: rule__MinimumSchemaDefinition__MinimumAssignment_2 : ( ruleEDouble ) ;
+    // InternalJsonSchemaDsl.g:9223:1: rule__MinimumSchemaDefinition__MinimumAssignment_2 : ( ruleEDouble ) ;
     public final void rule__MinimumSchemaDefinition__MinimumAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8895:1: ( ( ruleEDouble ) )
-            // InternalJsonSchemaDsl.g:8896:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:9227:1: ( ( ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:9228:2: ( ruleEDouble )
             {
-            // InternalJsonSchemaDsl.g:8896:2: ( ruleEDouble )
-            // InternalJsonSchemaDsl.g:8897:3: ruleEDouble
+            // InternalJsonSchemaDsl.g:9228:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:9229:3: ruleEDouble
             {
              before(grammarAccess.getMinimumSchemaDefinitionAccess().getMinimumEDoubleParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26679,17 +27817,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2"
-    // InternalJsonSchemaDsl.g:8906:1: rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 : ( ruleNonNegativeInteger ) ;
+    // InternalJsonSchemaDsl.g:9238:1: rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2 : ( ruleNonNegativeInteger ) ;
     public final void rule__MaxItemsSchemaDefinition__MaxItemsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8910:1: ( ( ruleNonNegativeInteger ) )
-            // InternalJsonSchemaDsl.g:8911:2: ( ruleNonNegativeInteger )
+            // InternalJsonSchemaDsl.g:9242:1: ( ( ruleNonNegativeInteger ) )
+            // InternalJsonSchemaDsl.g:9243:2: ( ruleNonNegativeInteger )
             {
-            // InternalJsonSchemaDsl.g:8911:2: ( ruleNonNegativeInteger )
-            // InternalJsonSchemaDsl.g:8912:3: ruleNonNegativeInteger
+            // InternalJsonSchemaDsl.g:9243:2: ( ruleNonNegativeInteger )
+            // InternalJsonSchemaDsl.g:9244:3: ruleNonNegativeInteger
             {
              before(grammarAccess.getMaxItemsSchemaDefinitionAccess().getMaxItemsNonNegativeIntegerParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26720,17 +27858,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FormatSchemaDefinition__FormatAssignment_2"
-    // InternalJsonSchemaDsl.g:8921:1: rule__FormatSchemaDefinition__FormatAssignment_2 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:9253:1: rule__FormatSchemaDefinition__FormatAssignment_2 : ( ruleEString ) ;
     public final void rule__FormatSchemaDefinition__FormatAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8925:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:8926:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9257:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:9258:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:8926:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:8927:3: ruleEString
+            // InternalJsonSchemaDsl.g:9258:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9259:3: ruleEString
             {
              before(grammarAccess.getFormatSchemaDefinitionAccess().getFormatEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26761,17 +27899,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2"
-    // InternalJsonSchemaDsl.g:8936:1: rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 : ( ruleEBoolean ) ;
+    // InternalJsonSchemaDsl.g:9268:1: rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2 : ( ruleEBoolean ) ;
     public final void rule__ReadOnlySchemaDefinition__ReadOnlyAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8940:1: ( ( ruleEBoolean ) )
-            // InternalJsonSchemaDsl.g:8941:2: ( ruleEBoolean )
+            // InternalJsonSchemaDsl.g:9272:1: ( ( ruleEBoolean ) )
+            // InternalJsonSchemaDsl.g:9273:2: ( ruleEBoolean )
             {
-            // InternalJsonSchemaDsl.g:8941:2: ( ruleEBoolean )
-            // InternalJsonSchemaDsl.g:8942:3: ruleEBoolean
+            // InternalJsonSchemaDsl.g:9273:2: ( ruleEBoolean )
+            // InternalJsonSchemaDsl.g:9274:3: ruleEBoolean
             {
              before(grammarAccess.getReadOnlySchemaDefinitionAccess().getReadOnlyEBooleanParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26802,17 +27940,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3"
-    // InternalJsonSchemaDsl.g:8951:1: rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 : ( ruleSimpleTypes ) ;
+    // InternalJsonSchemaDsl.g:9283:1: rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3 : ( ruleSimpleTypes ) ;
     public final void rule__TypeSchemaDefinition__TypeAnyOf1Assignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8955:1: ( ( ruleSimpleTypes ) )
-            // InternalJsonSchemaDsl.g:8956:2: ( ruleSimpleTypes )
+            // InternalJsonSchemaDsl.g:9287:1: ( ( ruleSimpleTypes ) )
+            // InternalJsonSchemaDsl.g:9288:2: ( ruleSimpleTypes )
             {
-            // InternalJsonSchemaDsl.g:8956:2: ( ruleSimpleTypes )
-            // InternalJsonSchemaDsl.g:8957:3: ruleSimpleTypes
+            // InternalJsonSchemaDsl.g:9288:2: ( ruleSimpleTypes )
+            // InternalJsonSchemaDsl.g:9289:3: ruleSimpleTypes
             {
              before(grammarAccess.getTypeSchemaDefinitionAccess().getTypeAnyOf1SimpleTypesEnumRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -26843,17 +27981,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4"
-    // InternalJsonSchemaDsl.g:8966:1: rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 : ( ruleTypesAnyOf2 ) ;
+    // InternalJsonSchemaDsl.g:9298:1: rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4 : ( ruleTypesAnyOf2 ) ;
     public final void rule__TypeSchemaDefinition__TypesAnyOf2Assignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8970:1: ( ( ruleTypesAnyOf2 ) )
-            // InternalJsonSchemaDsl.g:8971:2: ( ruleTypesAnyOf2 )
+            // InternalJsonSchemaDsl.g:9302:1: ( ( ruleTypesAnyOf2 ) )
+            // InternalJsonSchemaDsl.g:9303:2: ( ruleTypesAnyOf2 )
             {
-            // InternalJsonSchemaDsl.g:8971:2: ( ruleTypesAnyOf2 )
-            // InternalJsonSchemaDsl.g:8972:3: ruleTypesAnyOf2
+            // InternalJsonSchemaDsl.g:9303:2: ( ruleTypesAnyOf2 )
+            // InternalJsonSchemaDsl.g:9304:3: ruleTypesAnyOf2
             {
              before(grammarAccess.getTypeSchemaDefinitionAccess().getTypesAnyOf2TypesAnyOf2ParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -26884,17 +28022,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2"
-    // InternalJsonSchemaDsl.g:8981:1: rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9313:1: rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2 : ( ruleSchema ) ;
     public final void rule__AdditionalPropertiesSchemaDefinition__AdditionalPropertiesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:8985:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:8986:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9317:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9318:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:8986:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:8987:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9318:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9319:3: ruleSchema
             {
              before(grammarAccess.getAdditionalPropertiesSchemaDefinitionAccess().getAdditionalPropertiesSchemaParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26925,17 +28063,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ElseSchemaDefinition__ElseAssignment_2"
-    // InternalJsonSchemaDsl.g:8996:1: rule__ElseSchemaDefinition__ElseAssignment_2 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9328:1: rule__ElseSchemaDefinition__ElseAssignment_2 : ( ruleSchema ) ;
     public final void rule__ElseSchemaDefinition__ElseAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9000:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:9001:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9332:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9333:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:9001:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:9002:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9333:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9334:3: ruleSchema
             {
              before(grammarAccess.getElseSchemaDefinitionAccess().getElseSchemaParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -26966,17 +28104,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IdSchemaDefinition__IdAssignment_2"
-    // InternalJsonSchemaDsl.g:9011:1: rule__IdSchemaDefinition__IdAssignment_2 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:9343:1: rule__IdSchemaDefinition__IdAssignment_2 : ( ruleEString ) ;
     public final void rule__IdSchemaDefinition__IdAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9015:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9016:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9347:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:9348:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:9016:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9017:3: ruleEString
+            // InternalJsonSchemaDsl.g:9348:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9349:3: ruleEString
             {
              before(grammarAccess.getIdSchemaDefinitionAccess().getIdEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27007,17 +28145,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ConstSchemaDefinition__ConstAssignment_2"
-    // InternalJsonSchemaDsl.g:9026:1: rule__ConstSchemaDefinition__ConstAssignment_2 : ( ruleJsonDocument ) ;
+    // InternalJsonSchemaDsl.g:9358:1: rule__ConstSchemaDefinition__ConstAssignment_2 : ( ruleJsonDocument ) ;
     public final void rule__ConstSchemaDefinition__ConstAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9030:1: ( ( ruleJsonDocument ) )
-            // InternalJsonSchemaDsl.g:9031:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9362:1: ( ( ruleJsonDocument ) )
+            // InternalJsonSchemaDsl.g:9363:2: ( ruleJsonDocument )
             {
-            // InternalJsonSchemaDsl.g:9031:2: ( ruleJsonDocument )
-            // InternalJsonSchemaDsl.g:9032:3: ruleJsonDocument
+            // InternalJsonSchemaDsl.g:9363:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9364:3: ruleJsonDocument
             {
              before(grammarAccess.getConstSchemaDefinitionAccess().getConstJsonDocumentParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27048,17 +28186,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RequiredSchemaDefinition__RequiredAssignment_2"
-    // InternalJsonSchemaDsl.g:9041:1: rule__RequiredSchemaDefinition__RequiredAssignment_2 : ( ruleStringArray ) ;
+    // InternalJsonSchemaDsl.g:9373:1: rule__RequiredSchemaDefinition__RequiredAssignment_2 : ( ruleStringArray ) ;
     public final void rule__RequiredSchemaDefinition__RequiredAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9045:1: ( ( ruleStringArray ) )
-            // InternalJsonSchemaDsl.g:9046:2: ( ruleStringArray )
+            // InternalJsonSchemaDsl.g:9377:1: ( ( ruleStringArray ) )
+            // InternalJsonSchemaDsl.g:9378:2: ( ruleStringArray )
             {
-            // InternalJsonSchemaDsl.g:9046:2: ( ruleStringArray )
-            // InternalJsonSchemaDsl.g:9047:3: ruleStringArray
+            // InternalJsonSchemaDsl.g:9378:2: ( ruleStringArray )
+            // InternalJsonSchemaDsl.g:9379:3: ruleStringArray
             {
              before(grammarAccess.getRequiredSchemaDefinitionAccess().getRequiredStringArrayParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27089,17 +28227,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DescriptionSchemaDefinition__DescriptionAssignment_2"
-    // InternalJsonSchemaDsl.g:9056:1: rule__DescriptionSchemaDefinition__DescriptionAssignment_2 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:9388:1: rule__DescriptionSchemaDefinition__DescriptionAssignment_2 : ( ruleEString ) ;
     public final void rule__DescriptionSchemaDefinition__DescriptionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9060:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9061:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9392:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:9393:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:9061:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9062:3: ruleEString
+            // InternalJsonSchemaDsl.g:9393:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9394:3: ruleEString
             {
              before(grammarAccess.getDescriptionSchemaDefinitionAccess().getDescriptionEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27130,17 +28268,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2"
-    // InternalJsonSchemaDsl.g:9071:1: rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 : ( ruleNonNegativeIntegerDefault0 ) ;
+    // InternalJsonSchemaDsl.g:9403:1: rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2 : ( ruleNonNegativeIntegerDefault0 ) ;
     public final void rule__MinPropertiesSchemaDefinition__MinPropertiesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9075:1: ( ( ruleNonNegativeIntegerDefault0 ) )
-            // InternalJsonSchemaDsl.g:9076:2: ( ruleNonNegativeIntegerDefault0 )
+            // InternalJsonSchemaDsl.g:9407:1: ( ( ruleNonNegativeIntegerDefault0 ) )
+            // InternalJsonSchemaDsl.g:9408:2: ( ruleNonNegativeIntegerDefault0 )
             {
-            // InternalJsonSchemaDsl.g:9076:2: ( ruleNonNegativeIntegerDefault0 )
-            // InternalJsonSchemaDsl.g:9077:3: ruleNonNegativeIntegerDefault0
+            // InternalJsonSchemaDsl.g:9408:2: ( ruleNonNegativeIntegerDefault0 )
+            // InternalJsonSchemaDsl.g:9409:3: ruleNonNegativeIntegerDefault0
             {
              before(grammarAccess.getMinPropertiesSchemaDefinitionAccess().getMinPropertiesNonNegativeIntegerDefault0ParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27171,17 +28309,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0"
-    // InternalJsonSchemaDsl.g:9086:1: rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 : ( ruleKeySchemaPair ) ;
+    // InternalJsonSchemaDsl.g:9418:1: rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 : ( ruleKeySchemaPair ) ;
     public final void rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9090:1: ( ( ruleKeySchemaPair ) )
-            // InternalJsonSchemaDsl.g:9091:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9422:1: ( ( ruleKeySchemaPair ) )
+            // InternalJsonSchemaDsl.g:9423:2: ( ruleKeySchemaPair )
             {
-            // InternalJsonSchemaDsl.g:9091:2: ( ruleKeySchemaPair )
-            // InternalJsonSchemaDsl.g:9092:3: ruleKeySchemaPair
+            // InternalJsonSchemaDsl.g:9423:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9424:3: ruleKeySchemaPair
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getKeySchemaPairsKeySchemaPairParserRuleCall_4_0_0()); 
             pushFollow(FOLLOW_2);
@@ -27212,17 +28350,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1"
-    // InternalJsonSchemaDsl.g:9101:1: rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 : ( ruleKeySchemaPair ) ;
+    // InternalJsonSchemaDsl.g:9433:1: rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 : ( ruleKeySchemaPair ) ;
     public final void rule__PatternPropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9105:1: ( ( ruleKeySchemaPair ) )
-            // InternalJsonSchemaDsl.g:9106:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9437:1: ( ( ruleKeySchemaPair ) )
+            // InternalJsonSchemaDsl.g:9438:2: ( ruleKeySchemaPair )
             {
-            // InternalJsonSchemaDsl.g:9106:2: ( ruleKeySchemaPair )
-            // InternalJsonSchemaDsl.g:9107:3: ruleKeySchemaPair
+            // InternalJsonSchemaDsl.g:9438:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9439:3: ruleKeySchemaPair
             {
              before(grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getKeySchemaPairsKeySchemaPairParserRuleCall_4_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27253,17 +28391,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2"
-    // InternalJsonSchemaDsl.g:9116:1: rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9448:1: rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2 : ( ruleSchema ) ;
     public final void rule__AdditionalItemsSchemaDefinition__AdditionalItemsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9120:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:9121:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9452:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9453:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:9121:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:9122:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9453:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9454:3: ruleSchema
             {
              before(grammarAccess.getAdditionalItemsSchemaDefinitionAccess().getAdditionalItemsSchemaParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27294,25 +28432,21 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyValuePair__KeyAssignment_0"
-    // InternalJsonSchemaDsl.g:9131:1: rule__KeyValuePair__KeyAssignment_0 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:9463:1: rule__KeyValuePair__KeyAssignment_0 : ( RULE_STRING ) ;
     public final void rule__KeyValuePair__KeyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9135:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9136:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9467:1: ( ( RULE_STRING ) )
+            // InternalJsonSchemaDsl.g:9468:2: ( RULE_STRING )
             {
-            // InternalJsonSchemaDsl.g:9136:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9137:3: ruleEString
+            // InternalJsonSchemaDsl.g:9468:2: ( RULE_STRING )
+            // InternalJsonSchemaDsl.g:9469:3: RULE_STRING
             {
-             before(grammarAccess.getKeyValuePairAccess().getKeyEStringParserRuleCall_0_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEString();
-
-            state._fsp--;
-
-             after(grammarAccess.getKeyValuePairAccess().getKeyEStringParserRuleCall_0_0()); 
+             before(grammarAccess.getKeyValuePairAccess().getKeySTRINGTerminalRuleCall_0_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getKeyValuePairAccess().getKeySTRINGTerminalRuleCall_0_0()); 
 
             }
 
@@ -27335,17 +28469,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyValuePair__ValueAssignment_2"
-    // InternalJsonSchemaDsl.g:9146:1: rule__KeyValuePair__ValueAssignment_2 : ( ruleValue ) ;
+    // InternalJsonSchemaDsl.g:9478:1: rule__KeyValuePair__ValueAssignment_2 : ( ruleValue ) ;
     public final void rule__KeyValuePair__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9150:1: ( ( ruleValue ) )
-            // InternalJsonSchemaDsl.g:9151:2: ( ruleValue )
+            // InternalJsonSchemaDsl.g:9482:1: ( ( ruleValue ) )
+            // InternalJsonSchemaDsl.g:9483:2: ( ruleValue )
             {
-            // InternalJsonSchemaDsl.g:9151:2: ( ruleValue )
-            // InternalJsonSchemaDsl.g:9152:3: ruleValue
+            // InternalJsonSchemaDsl.g:9483:2: ( ruleValue )
+            // InternalJsonSchemaDsl.g:9484:3: ruleValue
             {
              before(grammarAccess.getKeyValuePairAccess().getValueValueParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27376,17 +28510,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0"
-    // InternalJsonSchemaDsl.g:9161:1: rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 : ( ruleJsonDocument ) ;
+    // InternalJsonSchemaDsl.g:9493:1: rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0 : ( ruleJsonDocument ) ;
     public final void rule__ExamplesSchemaDefinition__ExamplesAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9165:1: ( ( ruleJsonDocument ) )
-            // InternalJsonSchemaDsl.g:9166:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9497:1: ( ( ruleJsonDocument ) )
+            // InternalJsonSchemaDsl.g:9498:2: ( ruleJsonDocument )
             {
-            // InternalJsonSchemaDsl.g:9166:2: ( ruleJsonDocument )
-            // InternalJsonSchemaDsl.g:9167:3: ruleJsonDocument
+            // InternalJsonSchemaDsl.g:9498:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9499:3: ruleJsonDocument
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getExamplesJsonDocumentParserRuleCall_4_0_0()); 
             pushFollow(FOLLOW_2);
@@ -27417,17 +28551,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1"
-    // InternalJsonSchemaDsl.g:9176:1: rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 : ( ruleJsonDocument ) ;
+    // InternalJsonSchemaDsl.g:9508:1: rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1 : ( ruleJsonDocument ) ;
     public final void rule__ExamplesSchemaDefinition__ExamplesAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9180:1: ( ( ruleJsonDocument ) )
-            // InternalJsonSchemaDsl.g:9181:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9512:1: ( ( ruleJsonDocument ) )
+            // InternalJsonSchemaDsl.g:9513:2: ( ruleJsonDocument )
             {
-            // InternalJsonSchemaDsl.g:9181:2: ( ruleJsonDocument )
-            // InternalJsonSchemaDsl.g:9182:3: ruleJsonDocument
+            // InternalJsonSchemaDsl.g:9513:2: ( ruleJsonDocument )
+            // InternalJsonSchemaDsl.g:9514:3: ruleJsonDocument
             {
              before(grammarAccess.getExamplesSchemaDefinitionAccess().getExamplesJsonDocumentParserRuleCall_4_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -27458,17 +28592,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IfSchemaDefinition__IfAssignment_2"
-    // InternalJsonSchemaDsl.g:9191:1: rule__IfSchemaDefinition__IfAssignment_2 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9523:1: rule__IfSchemaDefinition__IfAssignment_2 : ( ruleSchema ) ;
     public final void rule__IfSchemaDefinition__IfAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9195:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:9196:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9527:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9528:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:9196:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:9197:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9528:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9529:3: ruleSchema
             {
              before(grammarAccess.getIfSchemaDefinitionAccess().getIfSchemaParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27499,17 +28633,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__AllOfSchemaDefinition__AllOfAssignment_2"
-    // InternalJsonSchemaDsl.g:9206:1: rule__AllOfSchemaDefinition__AllOfAssignment_2 : ( ruleSchemaArray ) ;
+    // InternalJsonSchemaDsl.g:9538:1: rule__AllOfSchemaDefinition__AllOfAssignment_2 : ( ruleSchemaArray ) ;
     public final void rule__AllOfSchemaDefinition__AllOfAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9210:1: ( ( ruleSchemaArray ) )
-            // InternalJsonSchemaDsl.g:9211:2: ( ruleSchemaArray )
+            // InternalJsonSchemaDsl.g:9542:1: ( ( ruleSchemaArray ) )
+            // InternalJsonSchemaDsl.g:9543:2: ( ruleSchemaArray )
             {
-            // InternalJsonSchemaDsl.g:9211:2: ( ruleSchemaArray )
-            // InternalJsonSchemaDsl.g:9212:3: ruleSchemaArray
+            // InternalJsonSchemaDsl.g:9543:2: ( ruleSchemaArray )
+            // InternalJsonSchemaDsl.g:9544:3: ruleSchemaArray
             {
              before(grammarAccess.getAllOfSchemaDefinitionAccess().getAllOfSchemaArrayParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27540,17 +28674,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2"
-    // InternalJsonSchemaDsl.g:9221:1: rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:9553:1: rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2 : ( ruleEString ) ;
     public final void rule__ContentEncodingSchemaDefinition__ContentEncodingAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9225:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9226:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9557:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:9558:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:9226:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9227:3: ruleEString
+            // InternalJsonSchemaDsl.g:9558:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9559:3: ruleEString
             {
              before(grammarAccess.getContentEncodingSchemaDefinitionAccess().getContentEncodingEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27581,17 +28715,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2"
-    // InternalJsonSchemaDsl.g:9236:1: rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 : ( ruleEDouble ) ;
+    // InternalJsonSchemaDsl.g:9568:1: rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2 : ( ruleEDouble ) ;
     public final void rule__MultipleOfSchemaDefinition__MultipleOfAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9240:1: ( ( ruleEDouble ) )
-            // InternalJsonSchemaDsl.g:9241:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:9572:1: ( ( ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:9573:2: ( ruleEDouble )
             {
-            // InternalJsonSchemaDsl.g:9241:2: ( ruleEDouble )
-            // InternalJsonSchemaDsl.g:9242:3: ruleEDouble
+            // InternalJsonSchemaDsl.g:9573:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:9574:3: ruleEDouble
             {
              before(grammarAccess.getMultipleOfSchemaDefinitionAccess().getMultipleOfEDoubleParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27622,17 +28756,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PatternSchemaDefinition__PatternAssignment_2"
-    // InternalJsonSchemaDsl.g:9251:1: rule__PatternSchemaDefinition__PatternAssignment_2 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:9583:1: rule__PatternSchemaDefinition__PatternAssignment_2 : ( ruleEString ) ;
     public final void rule__PatternSchemaDefinition__PatternAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9255:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9256:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9587:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:9588:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:9256:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9257:3: ruleEString
+            // InternalJsonSchemaDsl.g:9588:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9589:3: ruleEString
             {
              before(grammarAccess.getPatternSchemaDefinitionAccess().getPatternEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27663,17 +28797,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContainsSchemaDefinition__ContainsAssignment_2"
-    // InternalJsonSchemaDsl.g:9266:1: rule__ContainsSchemaDefinition__ContainsAssignment_2 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9598:1: rule__ContainsSchemaDefinition__ContainsAssignment_2 : ( ruleSchema ) ;
     public final void rule__ContainsSchemaDefinition__ContainsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9270:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:9271:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9602:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9603:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:9271:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:9272:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9603:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9604:3: ruleSchema
             {
              before(grammarAccess.getContainsSchemaDefinitionAccess().getContainsSchemaParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27704,17 +28838,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NotSchemaDefinition__NotAssignment_2"
-    // InternalJsonSchemaDsl.g:9281:1: rule__NotSchemaDefinition__NotAssignment_2 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9613:1: rule__NotSchemaDefinition__NotAssignment_2 : ( ruleSchema ) ;
     public final void rule__NotSchemaDefinition__NotAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9285:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:9286:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9617:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9618:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:9286:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:9287:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9618:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9619:3: ruleSchema
             {
              before(grammarAccess.getNotSchemaDefinitionAccess().getNotSchemaParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27745,17 +28879,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2"
-    // InternalJsonSchemaDsl.g:9296:1: rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 : ( ruleEDouble ) ;
+    // InternalJsonSchemaDsl.g:9628:1: rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2 : ( ruleEDouble ) ;
     public final void rule__ExclusiveMaximumSchemaDefinition__ExclusiveMaximumAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9300:1: ( ( ruleEDouble ) )
-            // InternalJsonSchemaDsl.g:9301:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:9632:1: ( ( ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:9633:2: ( ruleEDouble )
             {
-            // InternalJsonSchemaDsl.g:9301:2: ( ruleEDouble )
-            // InternalJsonSchemaDsl.g:9302:3: ruleEDouble
+            // InternalJsonSchemaDsl.g:9633:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:9634:3: ruleEDouble
             {
              before(grammarAccess.getExclusiveMaximumSchemaDefinitionAccess().getExclusiveMaximumEDoubleParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27786,17 +28920,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2"
-    // InternalJsonSchemaDsl.g:9311:1: rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 : ( ruleNonNegativeInteger ) ;
+    // InternalJsonSchemaDsl.g:9643:1: rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2 : ( ruleNonNegativeInteger ) ;
     public final void rule__MaxLengthSchemaDefinition__MaxLengthAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9315:1: ( ( ruleNonNegativeInteger ) )
-            // InternalJsonSchemaDsl.g:9316:2: ( ruleNonNegativeInteger )
+            // InternalJsonSchemaDsl.g:9647:1: ( ( ruleNonNegativeInteger ) )
+            // InternalJsonSchemaDsl.g:9648:2: ( ruleNonNegativeInteger )
             {
-            // InternalJsonSchemaDsl.g:9316:2: ( ruleNonNegativeInteger )
-            // InternalJsonSchemaDsl.g:9317:3: ruleNonNegativeInteger
+            // InternalJsonSchemaDsl.g:9648:2: ( ruleNonNegativeInteger )
+            // InternalJsonSchemaDsl.g:9649:3: ruleNonNegativeInteger
             {
              before(grammarAccess.getMaxLengthSchemaDefinitionAccess().getMaxLengthNonNegativeIntegerParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27827,17 +28961,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__RefSchemaDefinition__RefAssignment_2"
-    // InternalJsonSchemaDsl.g:9326:1: rule__RefSchemaDefinition__RefAssignment_2 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:9658:1: rule__RefSchemaDefinition__RefAssignment_2 : ( ruleEString ) ;
     public final void rule__RefSchemaDefinition__RefAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9330:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9331:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9662:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:9663:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:9331:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9332:3: ruleEString
+            // InternalJsonSchemaDsl.g:9663:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9664:3: ruleEString
             {
              before(grammarAccess.getRefSchemaDefinitionAccess().getRefEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27868,17 +29002,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2"
-    // InternalJsonSchemaDsl.g:9341:1: rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:9673:1: rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2 : ( ruleEString ) ;
     public final void rule__ContentMediaTypeSchemaDefinition__ContentMediaTypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9345:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9346:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9677:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:9678:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:9346:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9347:3: ruleEString
+            // InternalJsonSchemaDsl.g:9678:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9679:3: ruleEString
             {
              before(grammarAccess.getContentMediaTypeSchemaDefinitionAccess().getContentMediaTypeEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27909,17 +29043,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2"
-    // InternalJsonSchemaDsl.g:9356:1: rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 : ( ruleEDouble ) ;
+    // InternalJsonSchemaDsl.g:9688:1: rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2 : ( ruleEDouble ) ;
     public final void rule__ExclusiveMinimumSchemaDefinition__ExclusiveMinimumAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9360:1: ( ( ruleEDouble ) )
-            // InternalJsonSchemaDsl.g:9361:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:9692:1: ( ( ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:9693:2: ( ruleEDouble )
             {
-            // InternalJsonSchemaDsl.g:9361:2: ( ruleEDouble )
-            // InternalJsonSchemaDsl.g:9362:3: ruleEDouble
+            // InternalJsonSchemaDsl.g:9693:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:9694:3: ruleEDouble
             {
              before(grammarAccess.getExclusiveMinimumSchemaDefinitionAccess().getExclusiveMinimumEDoubleParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27950,17 +29084,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaSchemaDefinition__SchemaAssignment_2"
-    // InternalJsonSchemaDsl.g:9371:1: rule__SchemaSchemaDefinition__SchemaAssignment_2 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:9703:1: rule__SchemaSchemaDefinition__SchemaAssignment_2 : ( ruleEString ) ;
     public final void rule__SchemaSchemaDefinition__SchemaAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9375:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9376:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9707:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:9708:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:9376:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9377:3: ruleEString
+            // InternalJsonSchemaDsl.g:9708:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9709:3: ruleEString
             {
              before(grammarAccess.getSchemaSchemaDefinitionAccess().getSchemaEStringParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -27991,17 +29125,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0"
-    // InternalJsonSchemaDsl.g:9386:1: rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 : ( ruleKeySchemaPair ) ;
+    // InternalJsonSchemaDsl.g:9718:1: rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0 : ( ruleKeySchemaPair ) ;
     public final void rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9390:1: ( ( ruleKeySchemaPair ) )
-            // InternalJsonSchemaDsl.g:9391:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9722:1: ( ( ruleKeySchemaPair ) )
+            // InternalJsonSchemaDsl.g:9723:2: ( ruleKeySchemaPair )
             {
-            // InternalJsonSchemaDsl.g:9391:2: ( ruleKeySchemaPair )
-            // InternalJsonSchemaDsl.g:9392:3: ruleKeySchemaPair
+            // InternalJsonSchemaDsl.g:9723:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9724:3: ruleKeySchemaPair
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getKeySchemaPairsKeySchemaPairParserRuleCall_4_0_0()); 
             pushFollow(FOLLOW_2);
@@ -28032,17 +29166,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1"
-    // InternalJsonSchemaDsl.g:9401:1: rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 : ( ruleKeySchemaPair ) ;
+    // InternalJsonSchemaDsl.g:9733:1: rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1 : ( ruleKeySchemaPair ) ;
     public final void rule__PropertiesSchemaDefinition__KeySchemaPairsAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9405:1: ( ( ruleKeySchemaPair ) )
-            // InternalJsonSchemaDsl.g:9406:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9737:1: ( ( ruleKeySchemaPair ) )
+            // InternalJsonSchemaDsl.g:9738:2: ( ruleKeySchemaPair )
             {
-            // InternalJsonSchemaDsl.g:9406:2: ( ruleKeySchemaPair )
-            // InternalJsonSchemaDsl.g:9407:3: ruleKeySchemaPair
+            // InternalJsonSchemaDsl.g:9738:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:9739:3: ruleKeySchemaPair
             {
              before(grammarAccess.getPropertiesSchemaDefinitionAccess().getKeySchemaPairsKeySchemaPairParserRuleCall_4_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28073,17 +29207,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2"
-    // InternalJsonSchemaDsl.g:9416:1: rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9748:1: rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2 : ( ruleSchema ) ;
     public final void rule__PropertyNamesSchemaDefinition__PropertyNamesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9420:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:9421:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9752:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9753:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:9421:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:9422:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9753:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9754:3: ruleSchema
             {
              before(grammarAccess.getPropertyNamesSchemaDefinitionAccess().getPropertyNamesSchemaParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -28114,17 +29248,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__JsonDocument__ValueAssignment"
-    // InternalJsonSchemaDsl.g:9431:1: rule__JsonDocument__ValueAssignment : ( ruleValue ) ;
+    // InternalJsonSchemaDsl.g:9763:1: rule__JsonDocument__ValueAssignment : ( ruleValue ) ;
     public final void rule__JsonDocument__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9435:1: ( ( ruleValue ) )
-            // InternalJsonSchemaDsl.g:9436:2: ( ruleValue )
+            // InternalJsonSchemaDsl.g:9767:1: ( ( ruleValue ) )
+            // InternalJsonSchemaDsl.g:9768:2: ( ruleValue )
             {
-            // InternalJsonSchemaDsl.g:9436:2: ( ruleValue )
-            // InternalJsonSchemaDsl.g:9437:3: ruleValue
+            // InternalJsonSchemaDsl.g:9768:2: ( ruleValue )
+            // InternalJsonSchemaDsl.g:9769:3: ruleValue
             {
              before(grammarAccess.getJsonDocumentAccess().getValueValueParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -28155,17 +29289,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__IntegerValue__ValueAssignment"
-    // InternalJsonSchemaDsl.g:9446:1: rule__IntegerValue__ValueAssignment : ( ruleEInt ) ;
+    // InternalJsonSchemaDsl.g:9778:1: rule__IntegerValue__ValueAssignment : ( ruleEInt ) ;
     public final void rule__IntegerValue__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9450:1: ( ( ruleEInt ) )
-            // InternalJsonSchemaDsl.g:9451:2: ( ruleEInt )
+            // InternalJsonSchemaDsl.g:9782:1: ( ( ruleEInt ) )
+            // InternalJsonSchemaDsl.g:9783:2: ( ruleEInt )
             {
-            // InternalJsonSchemaDsl.g:9451:2: ( ruleEInt )
-            // InternalJsonSchemaDsl.g:9452:3: ruleEInt
+            // InternalJsonSchemaDsl.g:9783:2: ( ruleEInt )
+            // InternalJsonSchemaDsl.g:9784:3: ruleEInt
             {
              before(grammarAccess.getIntegerValueAccess().getValueEIntParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -28196,17 +29330,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__BooleanValue__ValueAssignment"
-    // InternalJsonSchemaDsl.g:9461:1: rule__BooleanValue__ValueAssignment : ( ruleEBoolean ) ;
+    // InternalJsonSchemaDsl.g:9793:1: rule__BooleanValue__ValueAssignment : ( ruleEBoolean ) ;
     public final void rule__BooleanValue__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9465:1: ( ( ruleEBoolean ) )
-            // InternalJsonSchemaDsl.g:9466:2: ( ruleEBoolean )
+            // InternalJsonSchemaDsl.g:9797:1: ( ( ruleEBoolean ) )
+            // InternalJsonSchemaDsl.g:9798:2: ( ruleEBoolean )
             {
-            // InternalJsonSchemaDsl.g:9466:2: ( ruleEBoolean )
-            // InternalJsonSchemaDsl.g:9467:3: ruleEBoolean
+            // InternalJsonSchemaDsl.g:9798:2: ( ruleEBoolean )
+            // InternalJsonSchemaDsl.g:9799:3: ruleEBoolean
             {
              before(grammarAccess.getBooleanValueAccess().getValueEBooleanParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -28237,21 +29371,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringValue__ValueAssignment"
-    // InternalJsonSchemaDsl.g:9476:1: rule__StringValue__ValueAssignment : ( RULE_STRING ) ;
+    // InternalJsonSchemaDsl.g:9808:1: rule__StringValue__ValueAssignment : ( ruleVALID_STRING ) ;
     public final void rule__StringValue__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9480:1: ( ( RULE_STRING ) )
-            // InternalJsonSchemaDsl.g:9481:2: ( RULE_STRING )
+            // InternalJsonSchemaDsl.g:9812:1: ( ( ruleVALID_STRING ) )
+            // InternalJsonSchemaDsl.g:9813:2: ( ruleVALID_STRING )
             {
-            // InternalJsonSchemaDsl.g:9481:2: ( RULE_STRING )
-            // InternalJsonSchemaDsl.g:9482:3: RULE_STRING
+            // InternalJsonSchemaDsl.g:9813:2: ( ruleVALID_STRING )
+            // InternalJsonSchemaDsl.g:9814:3: ruleVALID_STRING
             {
-             before(grammarAccess.getStringValueAccess().getValueSTRINGTerminalRuleCall_0()); 
-            match(input,RULE_STRING,FOLLOW_2); 
-             after(grammarAccess.getStringValueAccess().getValueSTRINGTerminalRuleCall_0()); 
+             before(grammarAccess.getStringValueAccess().getValueVALID_STRINGParserRuleCall_0()); 
+            pushFollow(FOLLOW_2);
+            ruleVALID_STRING();
+
+            state._fsp--;
+
+             after(grammarAccess.getStringValueAccess().getValueVALID_STRINGParserRuleCall_0()); 
 
             }
 
@@ -28274,17 +29412,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__KeyvaluepairAssignment_2_0"
-    // InternalJsonSchemaDsl.g:9491:1: rule__ObjectValue__KeyvaluepairAssignment_2_0 : ( ruleKeyValuePair ) ;
+    // InternalJsonSchemaDsl.g:9823:1: rule__ObjectValue__KeyvaluepairAssignment_2_0 : ( ruleKeyValuePair ) ;
     public final void rule__ObjectValue__KeyvaluepairAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9495:1: ( ( ruleKeyValuePair ) )
-            // InternalJsonSchemaDsl.g:9496:2: ( ruleKeyValuePair )
+            // InternalJsonSchemaDsl.g:9827:1: ( ( ruleKeyValuePair ) )
+            // InternalJsonSchemaDsl.g:9828:2: ( ruleKeyValuePair )
             {
-            // InternalJsonSchemaDsl.g:9496:2: ( ruleKeyValuePair )
-            // InternalJsonSchemaDsl.g:9497:3: ruleKeyValuePair
+            // InternalJsonSchemaDsl.g:9828:2: ( ruleKeyValuePair )
+            // InternalJsonSchemaDsl.g:9829:3: ruleKeyValuePair
             {
              before(grammarAccess.getObjectValueAccess().getKeyvaluepairKeyValuePairParserRuleCall_2_0_0()); 
             pushFollow(FOLLOW_2);
@@ -28315,17 +29453,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ObjectValue__KeyvaluepairAssignment_2_1_1"
-    // InternalJsonSchemaDsl.g:9506:1: rule__ObjectValue__KeyvaluepairAssignment_2_1_1 : ( ruleKeyValuePair ) ;
+    // InternalJsonSchemaDsl.g:9838:1: rule__ObjectValue__KeyvaluepairAssignment_2_1_1 : ( ruleKeyValuePair ) ;
     public final void rule__ObjectValue__KeyvaluepairAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9510:1: ( ( ruleKeyValuePair ) )
-            // InternalJsonSchemaDsl.g:9511:2: ( ruleKeyValuePair )
+            // InternalJsonSchemaDsl.g:9842:1: ( ( ruleKeyValuePair ) )
+            // InternalJsonSchemaDsl.g:9843:2: ( ruleKeyValuePair )
             {
-            // InternalJsonSchemaDsl.g:9511:2: ( ruleKeyValuePair )
-            // InternalJsonSchemaDsl.g:9512:3: ruleKeyValuePair
+            // InternalJsonSchemaDsl.g:9843:2: ( ruleKeyValuePair )
+            // InternalJsonSchemaDsl.g:9844:3: ruleKeyValuePair
             {
              before(grammarAccess.getObjectValueAccess().getKeyvaluepairKeyValuePairParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28356,17 +29494,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NumberValue__ValueAssignment"
-    // InternalJsonSchemaDsl.g:9521:1: rule__NumberValue__ValueAssignment : ( ruleEDouble ) ;
+    // InternalJsonSchemaDsl.g:9853:1: rule__NumberValue__ValueAssignment : ( ruleEDouble ) ;
     public final void rule__NumberValue__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9525:1: ( ( ruleEDouble ) )
-            // InternalJsonSchemaDsl.g:9526:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:9857:1: ( ( ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:9858:2: ( ruleEDouble )
             {
-            // InternalJsonSchemaDsl.g:9526:2: ( ruleEDouble )
-            // InternalJsonSchemaDsl.g:9527:3: ruleEDouble
+            // InternalJsonSchemaDsl.g:9858:2: ( ruleEDouble )
+            // InternalJsonSchemaDsl.g:9859:3: ruleEDouble
             {
              before(grammarAccess.getNumberValueAccess().getValueEDoubleParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -28397,17 +29535,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__ValueAssignment_2_0"
-    // InternalJsonSchemaDsl.g:9536:1: rule__ArrayValue__ValueAssignment_2_0 : ( ruleValue ) ;
+    // InternalJsonSchemaDsl.g:9868:1: rule__ArrayValue__ValueAssignment_2_0 : ( ruleValue ) ;
     public final void rule__ArrayValue__ValueAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9540:1: ( ( ruleValue ) )
-            // InternalJsonSchemaDsl.g:9541:2: ( ruleValue )
+            // InternalJsonSchemaDsl.g:9872:1: ( ( ruleValue ) )
+            // InternalJsonSchemaDsl.g:9873:2: ( ruleValue )
             {
-            // InternalJsonSchemaDsl.g:9541:2: ( ruleValue )
-            // InternalJsonSchemaDsl.g:9542:3: ruleValue
+            // InternalJsonSchemaDsl.g:9873:2: ( ruleValue )
+            // InternalJsonSchemaDsl.g:9874:3: ruleValue
             {
              before(grammarAccess.getArrayValueAccess().getValueValueParserRuleCall_2_0_0()); 
             pushFollow(FOLLOW_2);
@@ -28438,17 +29576,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__ArrayValue__ValueAssignment_2_1_1"
-    // InternalJsonSchemaDsl.g:9551:1: rule__ArrayValue__ValueAssignment_2_1_1 : ( ruleValue ) ;
+    // InternalJsonSchemaDsl.g:9883:1: rule__ArrayValue__ValueAssignment_2_1_1 : ( ruleValue ) ;
     public final void rule__ArrayValue__ValueAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9555:1: ( ( ruleValue ) )
-            // InternalJsonSchemaDsl.g:9556:2: ( ruleValue )
+            // InternalJsonSchemaDsl.g:9887:1: ( ( ruleValue ) )
+            // InternalJsonSchemaDsl.g:9888:2: ( ruleValue )
             {
-            // InternalJsonSchemaDsl.g:9556:2: ( ruleValue )
-            // InternalJsonSchemaDsl.g:9557:3: ruleValue
+            // InternalJsonSchemaDsl.g:9888:2: ( ruleValue )
+            // InternalJsonSchemaDsl.g:9889:3: ruleValue
             {
              before(grammarAccess.getArrayValueAccess().getValueValueParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28479,17 +29617,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__ItemsAssignment_1"
-    // InternalJsonSchemaDsl.g:9566:1: rule__SchemaArray__ItemsAssignment_1 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9898:1: rule__SchemaArray__ItemsAssignment_1 : ( ruleSchema ) ;
     public final void rule__SchemaArray__ItemsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9570:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:9571:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9902:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9903:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:9571:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:9572:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9903:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9904:3: ruleSchema
             {
              before(grammarAccess.getSchemaArrayAccess().getItemsSchemaParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28520,17 +29658,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__SchemaArray__ItemsAssignment_2_1"
-    // InternalJsonSchemaDsl.g:9581:1: rule__SchemaArray__ItemsAssignment_2_1 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9913:1: rule__SchemaArray__ItemsAssignment_2_1 : ( ruleSchema ) ;
     public final void rule__SchemaArray__ItemsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9585:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:9586:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9917:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9918:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:9586:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:9587:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9918:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9919:3: ruleSchema
             {
              before(grammarAccess.getSchemaArrayAccess().getItemsSchemaParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28561,17 +29699,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NonNegativeIntegerDefault0__ValueAssignment"
-    // InternalJsonSchemaDsl.g:9596:1: rule__NonNegativeIntegerDefault0__ValueAssignment : ( ruleEInt ) ;
+    // InternalJsonSchemaDsl.g:9928:1: rule__NonNegativeIntegerDefault0__ValueAssignment : ( ruleEInt ) ;
     public final void rule__NonNegativeIntegerDefault0__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9600:1: ( ( ruleEInt ) )
-            // InternalJsonSchemaDsl.g:9601:2: ( ruleEInt )
+            // InternalJsonSchemaDsl.g:9932:1: ( ( ruleEInt ) )
+            // InternalJsonSchemaDsl.g:9933:2: ( ruleEInt )
             {
-            // InternalJsonSchemaDsl.g:9601:2: ( ruleEInt )
-            // InternalJsonSchemaDsl.g:9602:3: ruleEInt
+            // InternalJsonSchemaDsl.g:9933:2: ( ruleEInt )
+            // InternalJsonSchemaDsl.g:9934:3: ruleEInt
             {
              before(grammarAccess.getNonNegativeIntegerDefault0Access().getValueEIntParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -28602,17 +29740,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeySchemaPair__KeyAssignment_0"
-    // InternalJsonSchemaDsl.g:9611:1: rule__KeySchemaPair__KeyAssignment_0 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:9943:1: rule__KeySchemaPair__KeyAssignment_0 : ( ruleEString ) ;
     public final void rule__KeySchemaPair__KeyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9615:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9616:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9947:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:9948:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:9616:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9617:3: ruleEString
+            // InternalJsonSchemaDsl.g:9948:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:9949:3: ruleEString
             {
              before(grammarAccess.getKeySchemaPairAccess().getKeyEStringParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -28643,17 +29781,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeySchemaPair__ValueAssignment_2"
-    // InternalJsonSchemaDsl.g:9626:1: rule__KeySchemaPair__ValueAssignment_2 : ( ruleSchema ) ;
+    // InternalJsonSchemaDsl.g:9958:1: rule__KeySchemaPair__ValueAssignment_2 : ( ruleSchema ) ;
     public final void rule__KeySchemaPair__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9630:1: ( ( ruleSchema ) )
-            // InternalJsonSchemaDsl.g:9631:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9962:1: ( ( ruleSchema ) )
+            // InternalJsonSchemaDsl.g:9963:2: ( ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:9631:2: ( ruleSchema )
-            // InternalJsonSchemaDsl.g:9632:3: ruleSchema
+            // InternalJsonSchemaDsl.g:9963:2: ( ruleSchema )
+            // InternalJsonSchemaDsl.g:9964:3: ruleSchema
             {
              before(grammarAccess.getKeySchemaPairAccess().getValueSchemaParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -28684,17 +29822,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__NonNegativeInteger__ValueAssignment"
-    // InternalJsonSchemaDsl.g:9641:1: rule__NonNegativeInteger__ValueAssignment : ( ruleEInt ) ;
+    // InternalJsonSchemaDsl.g:9973:1: rule__NonNegativeInteger__ValueAssignment : ( ruleEInt ) ;
     public final void rule__NonNegativeInteger__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9645:1: ( ( ruleEInt ) )
-            // InternalJsonSchemaDsl.g:9646:2: ( ruleEInt )
+            // InternalJsonSchemaDsl.g:9977:1: ( ( ruleEInt ) )
+            // InternalJsonSchemaDsl.g:9978:2: ( ruleEInt )
             {
-            // InternalJsonSchemaDsl.g:9646:2: ( ruleEInt )
-            // InternalJsonSchemaDsl.g:9647:3: ruleEInt
+            // InternalJsonSchemaDsl.g:9978:2: ( ruleEInt )
+            // InternalJsonSchemaDsl.g:9979:3: ruleEInt
             {
              before(grammarAccess.getNonNegativeIntegerAccess().getValueEIntParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -28725,17 +29863,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__ItemsAssignment_1"
-    // InternalJsonSchemaDsl.g:9656:1: rule__TypesAnyOf2__ItemsAssignment_1 : ( ruleSimpleTypes ) ;
+    // InternalJsonSchemaDsl.g:9988:1: rule__TypesAnyOf2__ItemsAssignment_1 : ( ruleSimpleTypes ) ;
     public final void rule__TypesAnyOf2__ItemsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9660:1: ( ( ruleSimpleTypes ) )
-            // InternalJsonSchemaDsl.g:9661:2: ( ruleSimpleTypes )
+            // InternalJsonSchemaDsl.g:9992:1: ( ( ruleSimpleTypes ) )
+            // InternalJsonSchemaDsl.g:9993:2: ( ruleSimpleTypes )
             {
-            // InternalJsonSchemaDsl.g:9661:2: ( ruleSimpleTypes )
-            // InternalJsonSchemaDsl.g:9662:3: ruleSimpleTypes
+            // InternalJsonSchemaDsl.g:9993:2: ( ruleSimpleTypes )
+            // InternalJsonSchemaDsl.g:9994:3: ruleSimpleTypes
             {
              before(grammarAccess.getTypesAnyOf2Access().getItemsSimpleTypesEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28766,17 +29904,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__TypesAnyOf2__ItemsAssignment_2_1"
-    // InternalJsonSchemaDsl.g:9671:1: rule__TypesAnyOf2__ItemsAssignment_2_1 : ( ruleSimpleTypes ) ;
+    // InternalJsonSchemaDsl.g:10003:1: rule__TypesAnyOf2__ItemsAssignment_2_1 : ( ruleSimpleTypes ) ;
     public final void rule__TypesAnyOf2__ItemsAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9675:1: ( ( ruleSimpleTypes ) )
-            // InternalJsonSchemaDsl.g:9676:2: ( ruleSimpleTypes )
+            // InternalJsonSchemaDsl.g:10007:1: ( ( ruleSimpleTypes ) )
+            // InternalJsonSchemaDsl.g:10008:2: ( ruleSimpleTypes )
             {
-            // InternalJsonSchemaDsl.g:9676:2: ( ruleSimpleTypes )
-            // InternalJsonSchemaDsl.g:9677:3: ruleSimpleTypes
+            // InternalJsonSchemaDsl.g:10008:2: ( ruleSimpleTypes )
+            // InternalJsonSchemaDsl.g:10009:3: ruleSimpleTypes
             {
              before(grammarAccess.getTypesAnyOf2Access().getItemsSimpleTypesEnumRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28807,17 +29945,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1"
-    // InternalJsonSchemaDsl.g:9686:1: rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 : ( ruleKeyStringArrayPair ) ;
+    // InternalJsonSchemaDsl.g:10018:1: rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 : ( ruleKeyStringArrayPair ) ;
     public final void rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9690:1: ( ( ruleKeyStringArrayPair ) )
-            // InternalJsonSchemaDsl.g:9691:2: ( ruleKeyStringArrayPair )
+            // InternalJsonSchemaDsl.g:10022:1: ( ( ruleKeyStringArrayPair ) )
+            // InternalJsonSchemaDsl.g:10023:2: ( ruleKeyStringArrayPair )
             {
-            // InternalJsonSchemaDsl.g:9691:2: ( ruleKeyStringArrayPair )
-            // InternalJsonSchemaDsl.g:9692:3: ruleKeyStringArrayPair
+            // InternalJsonSchemaDsl.g:10023:2: ( ruleKeyStringArrayPair )
+            // InternalJsonSchemaDsl.g:10024:3: ruleKeyStringArrayPair
             {
              before(grammarAccess.getDependenciesAnyOfAccess().getDependenciesAnyOf2KeyStringArrayPairParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -28848,17 +29986,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2"
-    // InternalJsonSchemaDsl.g:9701:1: rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 : ( ruleKeySchemaPair ) ;
+    // InternalJsonSchemaDsl.g:10033:1: rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2 : ( ruleKeySchemaPair ) ;
     public final void rule__DependenciesAnyOf__DependenciesAnyOf1Assignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9705:1: ( ( ruleKeySchemaPair ) )
-            // InternalJsonSchemaDsl.g:9706:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:10037:1: ( ( ruleKeySchemaPair ) )
+            // InternalJsonSchemaDsl.g:10038:2: ( ruleKeySchemaPair )
             {
-            // InternalJsonSchemaDsl.g:9706:2: ( ruleKeySchemaPair )
-            // InternalJsonSchemaDsl.g:9707:3: ruleKeySchemaPair
+            // InternalJsonSchemaDsl.g:10038:2: ( ruleKeySchemaPair )
+            // InternalJsonSchemaDsl.g:10039:3: ruleKeySchemaPair
             {
              before(grammarAccess.getDependenciesAnyOfAccess().getDependenciesAnyOf1KeySchemaPairParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -28889,17 +30027,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyStringArrayPair__KeyAssignment_0"
-    // InternalJsonSchemaDsl.g:9716:1: rule__KeyStringArrayPair__KeyAssignment_0 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:10048:1: rule__KeyStringArrayPair__KeyAssignment_0 : ( ruleEString ) ;
     public final void rule__KeyStringArrayPair__KeyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9720:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9721:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:10052:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:10053:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:9721:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9722:3: ruleEString
+            // InternalJsonSchemaDsl.g:10053:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:10054:3: ruleEString
             {
              before(grammarAccess.getKeyStringArrayPairAccess().getKeyEStringParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -28930,17 +30068,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__KeyStringArrayPair__ValueAssignment_2"
-    // InternalJsonSchemaDsl.g:9731:1: rule__KeyStringArrayPair__ValueAssignment_2 : ( ruleStringArray ) ;
+    // InternalJsonSchemaDsl.g:10063:1: rule__KeyStringArrayPair__ValueAssignment_2 : ( ruleStringArray ) ;
     public final void rule__KeyStringArrayPair__ValueAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9735:1: ( ( ruleStringArray ) )
-            // InternalJsonSchemaDsl.g:9736:2: ( ruleStringArray )
+            // InternalJsonSchemaDsl.g:10067:1: ( ( ruleStringArray ) )
+            // InternalJsonSchemaDsl.g:10068:2: ( ruleStringArray )
             {
-            // InternalJsonSchemaDsl.g:9736:2: ( ruleStringArray )
-            // InternalJsonSchemaDsl.g:9737:3: ruleStringArray
+            // InternalJsonSchemaDsl.g:10068:2: ( ruleStringArray )
+            // InternalJsonSchemaDsl.g:10069:3: ruleStringArray
             {
              before(grammarAccess.getKeyStringArrayPairAccess().getValueStringArrayParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -28971,17 +30109,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__ValuesAssignment_2_0"
-    // InternalJsonSchemaDsl.g:9746:1: rule__StringArray__ValuesAssignment_2_0 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:10078:1: rule__StringArray__ValuesAssignment_2_0 : ( ruleEString ) ;
     public final void rule__StringArray__ValuesAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9750:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9751:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:10082:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:10083:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:9751:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9752:3: ruleEString
+            // InternalJsonSchemaDsl.g:10083:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:10084:3: ruleEString
             {
              before(grammarAccess.getStringArrayAccess().getValuesEStringParserRuleCall_2_0_0()); 
             pushFollow(FOLLOW_2);
@@ -29012,17 +30150,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__StringArray__ValuesAssignment_2_1_1"
-    // InternalJsonSchemaDsl.g:9761:1: rule__StringArray__ValuesAssignment_2_1_1 : ( ruleEString ) ;
+    // InternalJsonSchemaDsl.g:10093:1: rule__StringArray__ValuesAssignment_2_1_1 : ( ruleEString ) ;
     public final void rule__StringArray__ValuesAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalJsonSchemaDsl.g:9765:1: ( ( ruleEString ) )
-            // InternalJsonSchemaDsl.g:9766:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:10097:1: ( ( ruleEString ) )
+            // InternalJsonSchemaDsl.g:10098:2: ( ruleEString )
             {
-            // InternalJsonSchemaDsl.g:9766:2: ( ruleEString )
-            // InternalJsonSchemaDsl.g:9767:3: ruleEString
+            // InternalJsonSchemaDsl.g:10098:2: ( ruleEString )
+            // InternalJsonSchemaDsl.g:10099:3: ruleEString
             {
              before(grammarAccess.getStringArrayAccess().getValuesEStringParserRuleCall_2_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -29054,33 +30192,117 @@ public class InternalJsonSchemaDslParser extends AbstractInternalContentAssistPa
     // Delegated rules
 
 
+    protected DFA31 dfa31 = new DFA31(this);
+    static final String dfa_1s = "\57\uffff";
+    static final String dfa_2s = "\1\54\56\uffff";
+    static final String dfa_3s = "\1\5\53\102\1\uffff\1\14\1\uffff";
+    static final String dfa_4s = "\1\67\53\102\1\uffff\1\103\1\uffff";
+    static final String dfa_5s = "\54\uffff\1\2\1\uffff\1\1";
+    static final String dfa_6s = "\57\uffff}>";
+    static final String[] dfa_7s = {
+            "\1\1\10\uffff\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43\1\44\1\45\1\46\1\47\1\50\1\51\1\52\1\53",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "",
+            "\2\54\61\uffff\1\54\3\uffff\1\56",
+            ""
+    };
+
+    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
+    static final short[] dfa_2 = DFA.unpackEncodedString(dfa_2s);
+    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
+    static final char[] dfa_4 = DFA.unpackEncodedStringToUnsignedChars(dfa_4s);
+    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
+    static final short[] dfa_6 = DFA.unpackEncodedString(dfa_6s);
+    static final short[][] dfa_7 = unpackEncodedStringArray(dfa_7s);
+
+    class DFA31 extends DFA {
+
+        public DFA31(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 31;
+            this.eot = dfa_1;
+            this.eof = dfa_2;
+            this.min = dfa_3;
+            this.max = dfa_4;
+            this.accept = dfa_5;
+            this.special = dfa_6;
+            this.transition = dfa_7;
+        }
+        public String getDescription() {
+            return "8561:2: ( rule__DependenciesAnyOf__DependenciesAnyOf2Assignment_1 )?";
+        }
+    }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000203000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0xFFFFFFFFDD400020L,0x000000000000007FL});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0xFFFFFFFFDD000020L,0x000000000000007FL});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x8000000000003000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x00FFFFFFFFFFC020L,0x0000000000000069L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00FFFFFFFFFFC020L,0x0000000000000068L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000010203070L,0x0000000000000180L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000020800000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000010203000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000100L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000002000000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x00000000101FC000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000030203070L,0x0000000000000180L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x00000000001FC000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0xFFFFFFFFFD000020L,0x000000000000007FL});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00FFFFFFFFFFC020L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x80FFFFFFFFFFF070L,0x0000000000000188L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000012L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x8000000000003000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000100L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x00FFFFFFFFFFC020L,0x0000000000000001L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x7F00000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x80FFFFFFFFFFF070L,0x0000000000000198L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000080L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x7F00000000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x00FFFFFFFFFFC020L,0x0000000000000010L});
 
 }

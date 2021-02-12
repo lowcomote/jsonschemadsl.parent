@@ -22,13 +22,13 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_JSON_NUMBER", "RULE_STRING", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "','", "'}'", "'\"maximum\"'", "':'", "'\"writeOnly\"'", "'\"$comment\"'", "'['", "']'", "'\"uniqueItems\"'", "'\"anyOf\"'", "'\"title\"'", "'\"items\"'", "'\"default\"'", "'\"then\"'", "'\"minLength\"'", "'\"definitions\"'", "'\"minItems\"'", "'\"oneOf\"'", "'\"maxProperties\"'", "'\"minimum\"'", "'\"maxItems\"'", "'\"format\"'", "'\"readOnly\"'", "'\"type\"'", "'\"additionalProperties\"'", "'\"else\"'", "'\"$id\"'", "'\"const\"'", "'\"required\"'", "'\"description\"'", "'\"minProperties\"'", "'\"patternProperties\"'", "'\"additionalItems\"'", "'\"examples\"'", "'\"if\"'", "'\"allOf\"'", "'\"contentEncoding\"'", "'\"multipleOf\"'", "'\"pattern\"'", "'\"contains\"'", "'\"not\"'", "'\"exclusiveMaximum\"'", "'\"maxLength\"'", "'\"$ref\"'", "'\"contentMediaType\"'", "'\"exclusiveMinimum\"'", "'\"$schema\"'", "'\"properties\"'", "'\"propertyNames\"'", "'true'", "'false'", "'null'", "'-'", "'\"array\"'", "'\"boolean\"'", "'\"integer\"'", "'\"null\"'", "'\"number\"'", "'\"object\"'", "'\"string\"'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_JSON_NUMBER", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "','", "'}'", "'\"maximum\"'", "':'", "'\"writeOnly\"'", "'\"$comment\"'", "'['", "']'", "'\"uniqueItems\"'", "'\"anyOf\"'", "'\"title\"'", "'\"items\"'", "'\"default\"'", "'\"then\"'", "'\"minLength\"'", "'\"definitions\"'", "'\"minItems\"'", "'\"oneOf\"'", "'\"maxProperties\"'", "'\"minimum\"'", "'\"maxItems\"'", "'\"format\"'", "'\"readOnly\"'", "'\"type\"'", "'\"additionalProperties\"'", "'\"else\"'", "'\"$id\"'", "'\"const\"'", "'\"required\"'", "'\"description\"'", "'\"minProperties\"'", "'\"patternProperties\"'", "'\"additionalItems\"'", "'\"examples\"'", "'\"if\"'", "'\"allOf\"'", "'\"contentEncoding\"'", "'\"multipleOf\"'", "'\"pattern\"'", "'\"contains\"'", "'\"not\"'", "'\"exclusiveMaximum\"'", "'\"maxLength\"'", "'\"$ref\"'", "'\"contentMediaType\"'", "'\"exclusiveMinimum\"'", "'\"$schema\"'", "'\"properties\"'", "'\"propertyNames\"'", "'true'", "'false'", "'null'", "'-'", "'\"array\"'", "'\"boolean\"'", "'\"integer\"'", "'\"null\"'", "'\"number\"'", "'\"object\"'", "'\"string\"'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__59=59;
-    public static final int RULE_JSON_NUMBER=4;
+    public static final int RULE_JSON_NUMBER=5;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
@@ -69,7 +69,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
     public static final int T__70=70;
     public static final int T__71=71;
     public static final int T__72=72;
-    public static final int RULE_STRING=5;
+    public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=9;
     public static final int T__37=37;
     public static final int T__38=38;
@@ -1707,6 +1707,48 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                 }
                 break;
             case RULE_STRING:
+            case 15:
+            case 17:
+            case 18:
+            case 21:
+            case 22:
+            case 23:
+            case 24:
+            case 25:
+            case 26:
+            case 27:
+            case 28:
+            case 29:
+            case 30:
+            case 31:
+            case 33:
+            case 34:
+            case 35:
+            case 36:
+            case 37:
+            case 38:
+            case 39:
+            case 40:
+            case 41:
+            case 42:
+            case 43:
+            case 44:
+            case 45:
+            case 46:
+            case 47:
+            case 48:
+            case 49:
+            case 50:
+            case 51:
+            case 52:
+            case 53:
+            case 54:
+            case 55:
+            case 56:
+            case 57:
+            case 59:
+            case 60:
+            case 61:
                 {
                 alt4=4;
                 }
@@ -2484,7 +2526,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getCommentSchemaDefinitionAccess().getCommentKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_5); 
+            otherlv_1=(Token)match(input,16,FOLLOW_9); 
 
             			newLeafNode(otherlv_1, grammarAccess.getCommentSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -2600,7 +2642,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             // InternalJsonSchemaDsl.g:927:2: (otherlv_0= '[' ( (lv_items_1_0= ruleJsonDocument ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleJsonDocument ) ) )* otherlv_4= ']' )
             // InternalJsonSchemaDsl.g:928:3: otherlv_0= '[' ( (lv_items_1_0= ruleJsonDocument ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleJsonDocument ) ) )* otherlv_4= ']'
             {
-            otherlv_0=(Token)match(input,19,FOLLOW_9); 
+            otherlv_0=(Token)match(input,19,FOLLOW_10); 
 
             			newLeafNode(otherlv_0, grammarAccess.getEnumSchemaDefinitionAccess().getLeftSquareBracketKeyword_0());
             		
@@ -2613,7 +2655,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getEnumSchemaDefinitionAccess().getItemsJsonDocumentParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_11);
             lv_items_1_0=ruleJsonDocument();
 
             state._fsp--;
@@ -2650,7 +2692,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             	case 1 :
             	    // InternalJsonSchemaDsl.g:952:4: otherlv_2= ',' ( (lv_items_3_0= ruleJsonDocument ) )
             	    {
-            	    otherlv_2=(Token)match(input,13,FOLLOW_9); 
+            	    otherlv_2=(Token)match(input,13,FOLLOW_10); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getEnumSchemaDefinitionAccess().getCommaKeyword_2_0());
             	    			
@@ -2663,7 +2705,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             	    						newCompositeNode(grammarAccess.getEnumSchemaDefinitionAccess().getItemsJsonDocumentParserRuleCall_2_1_0());
             	    					
-            	    pushFollow(FOLLOW_10);
+            	    pushFollow(FOLLOW_11);
             	    lv_items_3_0=ruleJsonDocument();
 
             	    state._fsp--;
@@ -2897,7 +2939,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getAnyOfSchemaDefinitionAccess().getAnyOfKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_11); 
+            otherlv_1=(Token)match(input,16,FOLLOW_12); 
 
             			newLeafNode(otherlv_1, grammarAccess.getAnyOfSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -3014,7 +3056,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getTitleSchemaDefinitionAccess().getTitleKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_5); 
+            otherlv_1=(Token)match(input,16,FOLLOW_9); 
 
             			newLeafNode(otherlv_1, grammarAccess.getTitleSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -3144,7 +3186,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getItemsSchemaDefinitionAccess().getItemsKeyword_1());
             		
-            otherlv_2=(Token)match(input,16,FOLLOW_12); 
+            otherlv_2=(Token)match(input,16,FOLLOW_13); 
 
             			newLeafNode(otherlv_2, grammarAccess.getItemsSchemaDefinitionAccess().getColonKeyword_2());
             		
@@ -3165,7 +3207,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                     					newCompositeNode(grammarAccess.getItemsSchemaDefinitionAccess().getItemsAnyOf1SchemaParserRuleCall_3_0());
                     				
-                    pushFollow(FOLLOW_13);
+                    pushFollow(FOLLOW_14);
                     lv_itemsAnyOf1_3_0=ruleSchema();
 
                     state._fsp--;
@@ -3314,7 +3356,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getDefaultSchemaDefinitionAccess().getDefaultKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_9); 
+            otherlv_1=(Token)match(input,16,FOLLOW_10); 
 
             			newLeafNode(otherlv_1, grammarAccess.getDefaultSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -3431,7 +3473,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getThenSchemaDefinitionAccess().getThenKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_14); 
+            otherlv_1=(Token)match(input,16,FOLLOW_15); 
 
             			newLeafNode(otherlv_1, grammarAccess.getThenSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -3548,7 +3590,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getMinLengthSchemaDefinitionAccess().getMinLengthKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_15); 
+            otherlv_1=(Token)match(input,16,FOLLOW_16); 
 
             			newLeafNode(otherlv_1, grammarAccess.getMinLengthSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -3681,11 +3723,11 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getDefinitionsSchemaDefinitionAccess().getDefinitionsKeyword_1());
             		
-            otherlv_2=(Token)match(input,16,FOLLOW_16); 
+            otherlv_2=(Token)match(input,16,FOLLOW_17); 
 
             			newLeafNode(otherlv_2, grammarAccess.getDefinitionsSchemaDefinitionAccess().getColonKeyword_2());
             		
-            otherlv_3=(Token)match(input,12,FOLLOW_3); 
+            otherlv_3=(Token)match(input,12,FOLLOW_18); 
 
             			newLeafNode(otherlv_3, grammarAccess.getDefinitionsSchemaDefinitionAccess().getLeftCurlyBracketKeyword_3());
             		
@@ -3693,7 +3735,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==RULE_STRING) ) {
+            if ( (LA11_0==RULE_STRING||LA11_0==15||(LA11_0>=17 && LA11_0<=18)||(LA11_0>=21 && LA11_0<=31)||(LA11_0>=33 && LA11_0<=57)||(LA11_0>=59 && LA11_0<=61)) ) {
                 alt11=1;
             }
             switch (alt11) {
@@ -3746,7 +3788,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalJsonSchemaDsl.g:1387:5: otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) )
                     	    {
-                    	    otherlv_5=(Token)match(input,13,FOLLOW_5); 
+                    	    otherlv_5=(Token)match(input,13,FOLLOW_9); 
 
                     	    					newLeafNode(otherlv_5, grammarAccess.getDefinitionsSchemaDefinitionAccess().getCommaKeyword_4_1_0());
                     	    				
@@ -3882,7 +3924,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getMinItemsSchemaDefinitionAccess().getMinItemsKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_15); 
+            otherlv_1=(Token)match(input,16,FOLLOW_16); 
 
             			newLeafNode(otherlv_1, grammarAccess.getMinItemsSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -3999,7 +4041,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getOneOfSchemaDefinitionAccess().getOneOfKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_11); 
+            otherlv_1=(Token)match(input,16,FOLLOW_12); 
 
             			newLeafNode(otherlv_1, grammarAccess.getOneOfSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -4116,7 +4158,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getMaxPropertiesSchemaDefinitionAccess().getMaxPropertiesKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_15); 
+            otherlv_1=(Token)match(input,16,FOLLOW_16); 
 
             			newLeafNode(otherlv_1, grammarAccess.getMaxPropertiesSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -4350,7 +4392,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getMaxItemsSchemaDefinitionAccess().getMaxItemsKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_15); 
+            otherlv_1=(Token)match(input,16,FOLLOW_16); 
 
             			newLeafNode(otherlv_1, grammarAccess.getMaxItemsSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -4467,7 +4509,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getFormatSchemaDefinitionAccess().getFormatKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_5); 
+            otherlv_1=(Token)match(input,16,FOLLOW_9); 
 
             			newLeafNode(otherlv_1, grammarAccess.getFormatSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -4714,7 +4756,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getTypeSchemaDefinitionAccess().getTypeKeyword_1());
             		
-            otherlv_2=(Token)match(input,16,FOLLOW_17); 
+            otherlv_2=(Token)match(input,16,FOLLOW_19); 
 
             			newLeafNode(otherlv_2, grammarAccess.getTypeSchemaDefinitionAccess().getColonKeyword_2());
             		
@@ -4735,7 +4777,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                     					newCompositeNode(grammarAccess.getTypeSchemaDefinitionAccess().getTypeAnyOf1SimpleTypesEnumRuleCall_3_0());
                     				
-                    pushFollow(FOLLOW_13);
+                    pushFollow(FOLLOW_14);
                     lv_typeAnyOf1_3_0=ruleSimpleTypes();
 
                     state._fsp--;
@@ -4884,7 +4926,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getAdditionalPropertiesSchemaDefinitionAccess().getAdditionalPropertiesKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_14); 
+            otherlv_1=(Token)match(input,16,FOLLOW_15); 
 
             			newLeafNode(otherlv_1, grammarAccess.getAdditionalPropertiesSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -5001,7 +5043,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getElseSchemaDefinitionAccess().getElseKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_14); 
+            otherlv_1=(Token)match(input,16,FOLLOW_15); 
 
             			newLeafNode(otherlv_1, grammarAccess.getElseSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -5118,7 +5160,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getIdSchemaDefinitionAccess().getIdKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_5); 
+            otherlv_1=(Token)match(input,16,FOLLOW_9); 
 
             			newLeafNode(otherlv_1, grammarAccess.getIdSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -5235,7 +5277,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getConstSchemaDefinitionAccess().getConstKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_9); 
+            otherlv_1=(Token)match(input,16,FOLLOW_10); 
 
             			newLeafNode(otherlv_1, grammarAccess.getConstSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -5352,7 +5394,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getRequiredSchemaDefinitionAccess().getRequiredKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_11); 
+            otherlv_1=(Token)match(input,16,FOLLOW_12); 
 
             			newLeafNode(otherlv_1, grammarAccess.getRequiredSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -5469,7 +5511,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getDescriptionSchemaDefinitionAccess().getDescriptionKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_5); 
+            otherlv_1=(Token)match(input,16,FOLLOW_9); 
 
             			newLeafNode(otherlv_1, grammarAccess.getDescriptionSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -5586,7 +5628,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getMinPropertiesSchemaDefinitionAccess().getMinPropertiesKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_15); 
+            otherlv_1=(Token)match(input,16,FOLLOW_16); 
 
             			newLeafNode(otherlv_1, grammarAccess.getMinPropertiesSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -5719,11 +5761,11 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getPatternPropertiesKeyword_1());
             		
-            otherlv_2=(Token)match(input,16,FOLLOW_16); 
+            otherlv_2=(Token)match(input,16,FOLLOW_17); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getColonKeyword_2());
             		
-            otherlv_3=(Token)match(input,12,FOLLOW_3); 
+            otherlv_3=(Token)match(input,12,FOLLOW_18); 
 
             			newLeafNode(otherlv_3, grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getLeftCurlyBracketKeyword_3());
             		
@@ -5731,7 +5773,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==RULE_STRING) ) {
+            if ( (LA15_0==RULE_STRING||LA15_0==15||(LA15_0>=17 && LA15_0<=18)||(LA15_0>=21 && LA15_0<=31)||(LA15_0>=33 && LA15_0<=57)||(LA15_0>=59 && LA15_0<=61)) ) {
                 alt15=1;
             }
             switch (alt15) {
@@ -5784,7 +5826,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // InternalJsonSchemaDsl.g:2191:5: otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) )
                     	    {
-                    	    otherlv_5=(Token)match(input,13,FOLLOW_5); 
+                    	    otherlv_5=(Token)match(input,13,FOLLOW_9); 
 
                     	    					newLeafNode(otherlv_5, grammarAccess.getPatternPropertiesSchemaDefinitionAccess().getCommaKeyword_4_1_0());
                     	    				
@@ -5920,7 +5962,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_0, grammarAccess.getAdditionalItemsSchemaDefinitionAccess().getAdditionalItemsKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_14); 
+            otherlv_1=(Token)match(input,16,FOLLOW_15); 
 
             			newLeafNode(otherlv_1, grammarAccess.getAdditionalItemsSchemaDefinitionAccess().getColonKeyword_1());
             		
@@ -6014,13 +6056,12 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleKeyValuePair"
-    // InternalJsonSchemaDsl.g:2277:1: ruleKeyValuePair returns [EObject current=null] : ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleValue ) ) ) ;
+    // InternalJsonSchemaDsl.g:2277:1: ruleKeyValuePair returns [EObject current=null] : ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= ':' ( (lv_value_2_0= ruleValue ) ) ) ;
     public final EObject ruleKeyValuePair() throws RecognitionException {
         EObject current = null;
 
+        Token lv_key_0_0=null;
         Token otherlv_1=null;
-        AntlrDatatypeRuleToken lv_key_0_0 = null;
-
         EObject lv_value_2_0 = null;
 
 
@@ -6028,36 +6069,31 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2283:2: ( ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleValue ) ) ) )
-            // InternalJsonSchemaDsl.g:2284:2: ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleValue ) ) )
+            // InternalJsonSchemaDsl.g:2283:2: ( ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= ':' ( (lv_value_2_0= ruleValue ) ) ) )
+            // InternalJsonSchemaDsl.g:2284:2: ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= ':' ( (lv_value_2_0= ruleValue ) ) )
             {
-            // InternalJsonSchemaDsl.g:2284:2: ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleValue ) ) )
-            // InternalJsonSchemaDsl.g:2285:3: ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleValue ) )
+            // InternalJsonSchemaDsl.g:2284:2: ( ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= ':' ( (lv_value_2_0= ruleValue ) ) )
+            // InternalJsonSchemaDsl.g:2285:3: ( (lv_key_0_0= RULE_STRING ) ) otherlv_1= ':' ( (lv_value_2_0= ruleValue ) )
             {
-            // InternalJsonSchemaDsl.g:2285:3: ( (lv_key_0_0= ruleEString ) )
-            // InternalJsonSchemaDsl.g:2286:4: (lv_key_0_0= ruleEString )
+            // InternalJsonSchemaDsl.g:2285:3: ( (lv_key_0_0= RULE_STRING ) )
+            // InternalJsonSchemaDsl.g:2286:4: (lv_key_0_0= RULE_STRING )
             {
-            // InternalJsonSchemaDsl.g:2286:4: (lv_key_0_0= ruleEString )
-            // InternalJsonSchemaDsl.g:2287:5: lv_key_0_0= ruleEString
+            // InternalJsonSchemaDsl.g:2286:4: (lv_key_0_0= RULE_STRING )
+            // InternalJsonSchemaDsl.g:2287:5: lv_key_0_0= RULE_STRING
             {
+            lv_key_0_0=(Token)match(input,RULE_STRING,FOLLOW_6); 
 
-            					newCompositeNode(grammarAccess.getKeyValuePairAccess().getKeyEStringParserRuleCall_0_0());
+            					newLeafNode(lv_key_0_0, grammarAccess.getKeyValuePairAccess().getKeySTRINGTerminalRuleCall_0_0());
             				
-            pushFollow(FOLLOW_6);
-            lv_key_0_0=ruleEString();
-
-            state._fsp--;
-
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getKeyValuePairRule());
+            						current = createModelElement(grammarAccess.getKeyValuePairRule());
             					}
-            					set(
+            					setWithLastConsumed(
             						current,
             						"key",
             						lv_key_0_0,
-            						"at.jku.bise.JsonSchemaDsl.EString");
-            					afterParserOrEnumRuleCall();
+            						"at.jku.bise.JsonSchemaDsl.STRING");
             				
 
             }
@@ -6065,15 +6101,15 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_9); 
+            otherlv_1=(Token)match(input,16,FOLLOW_10); 
 
             			newLeafNode(otherlv_1, grammarAccess.getKeyValuePairAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2308:3: ( (lv_value_2_0= ruleValue ) )
-            // InternalJsonSchemaDsl.g:2309:4: (lv_value_2_0= ruleValue )
+            // InternalJsonSchemaDsl.g:2307:3: ( (lv_value_2_0= ruleValue ) )
+            // InternalJsonSchemaDsl.g:2308:4: (lv_value_2_0= ruleValue )
             {
-            // InternalJsonSchemaDsl.g:2309:4: (lv_value_2_0= ruleValue )
-            // InternalJsonSchemaDsl.g:2310:5: lv_value_2_0= ruleValue
+            // InternalJsonSchemaDsl.g:2308:4: (lv_value_2_0= ruleValue )
+            // InternalJsonSchemaDsl.g:2309:5: lv_value_2_0= ruleValue
             {
 
             					newCompositeNode(grammarAccess.getKeyValuePairAccess().getValueValueParserRuleCall_2_0());
@@ -6123,7 +6159,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExamplesSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2331:1: entryRuleExamplesSchemaDefinition returns [EObject current=null] : iv_ruleExamplesSchemaDefinition= ruleExamplesSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2330:1: entryRuleExamplesSchemaDefinition returns [EObject current=null] : iv_ruleExamplesSchemaDefinition= ruleExamplesSchemaDefinition EOF ;
     public final EObject entryRuleExamplesSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6131,8 +6167,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2331:65: (iv_ruleExamplesSchemaDefinition= ruleExamplesSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2332:2: iv_ruleExamplesSchemaDefinition= ruleExamplesSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2330:65: (iv_ruleExamplesSchemaDefinition= ruleExamplesSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2331:2: iv_ruleExamplesSchemaDefinition= ruleExamplesSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getExamplesSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -6159,7 +6195,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExamplesSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2338:1: ruleExamplesSchemaDefinition returns [EObject current=null] : ( () otherlv_1= '\"examples\"' otherlv_2= ':' otherlv_3= '[' ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )? otherlv_7= ']' ) ;
+    // InternalJsonSchemaDsl.g:2337:1: ruleExamplesSchemaDefinition returns [EObject current=null] : ( () otherlv_1= '\"examples\"' otherlv_2= ':' otherlv_3= '[' ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )? otherlv_7= ']' ) ;
     public final EObject ruleExamplesSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6177,14 +6213,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2344:2: ( ( () otherlv_1= '\"examples\"' otherlv_2= ':' otherlv_3= '[' ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )? otherlv_7= ']' ) )
-            // InternalJsonSchemaDsl.g:2345:2: ( () otherlv_1= '\"examples\"' otherlv_2= ':' otherlv_3= '[' ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )? otherlv_7= ']' )
+            // InternalJsonSchemaDsl.g:2343:2: ( ( () otherlv_1= '\"examples\"' otherlv_2= ':' otherlv_3= '[' ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )? otherlv_7= ']' ) )
+            // InternalJsonSchemaDsl.g:2344:2: ( () otherlv_1= '\"examples\"' otherlv_2= ':' otherlv_3= '[' ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )? otherlv_7= ']' )
             {
-            // InternalJsonSchemaDsl.g:2345:2: ( () otherlv_1= '\"examples\"' otherlv_2= ':' otherlv_3= '[' ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )? otherlv_7= ']' )
-            // InternalJsonSchemaDsl.g:2346:3: () otherlv_1= '\"examples\"' otherlv_2= ':' otherlv_3= '[' ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )? otherlv_7= ']'
+            // InternalJsonSchemaDsl.g:2344:2: ( () otherlv_1= '\"examples\"' otherlv_2= ':' otherlv_3= '[' ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )? otherlv_7= ']' )
+            // InternalJsonSchemaDsl.g:2345:3: () otherlv_1= '\"examples\"' otherlv_2= ':' otherlv_3= '[' ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )? otherlv_7= ']'
             {
-            // InternalJsonSchemaDsl.g:2346:3: ()
-            // InternalJsonSchemaDsl.g:2347:4: 
+            // InternalJsonSchemaDsl.g:2345:3: ()
+            // InternalJsonSchemaDsl.g:2346:4: 
             {
 
             				current = forceCreateModelElement(
@@ -6198,35 +6234,35 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getExamplesSchemaDefinitionAccess().getExamplesKeyword_1());
             		
-            otherlv_2=(Token)match(input,16,FOLLOW_11); 
+            otherlv_2=(Token)match(input,16,FOLLOW_12); 
 
             			newLeafNode(otherlv_2, grammarAccess.getExamplesSchemaDefinitionAccess().getColonKeyword_2());
             		
-            otherlv_3=(Token)match(input,19,FOLLOW_18); 
+            otherlv_3=(Token)match(input,19,FOLLOW_20); 
 
             			newLeafNode(otherlv_3, grammarAccess.getExamplesSchemaDefinitionAccess().getLeftSquareBracketKeyword_3());
             		
-            // InternalJsonSchemaDsl.g:2365:3: ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )?
+            // InternalJsonSchemaDsl.g:2364:3: ( ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )* )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
-            if ( ((LA17_0>=RULE_JSON_NUMBER && LA17_0<=RULE_INT)||LA17_0==12||LA17_0==19||(LA17_0>=62 && LA17_0<=65)) ) {
+            if ( ((LA17_0>=RULE_STRING && LA17_0<=RULE_INT)||LA17_0==12||LA17_0==15||(LA17_0>=17 && LA17_0<=19)||(LA17_0>=21 && LA17_0<=31)||(LA17_0>=33 && LA17_0<=57)||(LA17_0>=59 && LA17_0<=65)) ) {
                 alt17=1;
             }
             switch (alt17) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:2366:4: ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )*
+                    // InternalJsonSchemaDsl.g:2365:4: ( (lv_examples_4_0= ruleJsonDocument ) ) (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )*
                     {
-                    // InternalJsonSchemaDsl.g:2366:4: ( (lv_examples_4_0= ruleJsonDocument ) )
-                    // InternalJsonSchemaDsl.g:2367:5: (lv_examples_4_0= ruleJsonDocument )
+                    // InternalJsonSchemaDsl.g:2365:4: ( (lv_examples_4_0= ruleJsonDocument ) )
+                    // InternalJsonSchemaDsl.g:2366:5: (lv_examples_4_0= ruleJsonDocument )
                     {
-                    // InternalJsonSchemaDsl.g:2367:5: (lv_examples_4_0= ruleJsonDocument )
-                    // InternalJsonSchemaDsl.g:2368:6: lv_examples_4_0= ruleJsonDocument
+                    // InternalJsonSchemaDsl.g:2366:5: (lv_examples_4_0= ruleJsonDocument )
+                    // InternalJsonSchemaDsl.g:2367:6: lv_examples_4_0= ruleJsonDocument
                     {
 
                     						newCompositeNode(grammarAccess.getExamplesSchemaDefinitionAccess().getExamplesJsonDocumentParserRuleCall_4_0_0());
                     					
-                    pushFollow(FOLLOW_10);
+                    pushFollow(FOLLOW_11);
                     lv_examples_4_0=ruleJsonDocument();
 
                     state._fsp--;
@@ -6248,7 +6284,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJsonSchemaDsl.g:2385:4: (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )*
+                    // InternalJsonSchemaDsl.g:2384:4: (otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) ) )*
                     loop16:
                     do {
                         int alt16=2;
@@ -6261,22 +6297,22 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                         switch (alt16) {
                     	case 1 :
-                    	    // InternalJsonSchemaDsl.g:2386:5: otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) )
+                    	    // InternalJsonSchemaDsl.g:2385:5: otherlv_5= ',' ( (lv_examples_6_0= ruleJsonDocument ) )
                     	    {
-                    	    otherlv_5=(Token)match(input,13,FOLLOW_9); 
+                    	    otherlv_5=(Token)match(input,13,FOLLOW_10); 
 
                     	    					newLeafNode(otherlv_5, grammarAccess.getExamplesSchemaDefinitionAccess().getCommaKeyword_4_1_0());
                     	    				
-                    	    // InternalJsonSchemaDsl.g:2390:5: ( (lv_examples_6_0= ruleJsonDocument ) )
-                    	    // InternalJsonSchemaDsl.g:2391:6: (lv_examples_6_0= ruleJsonDocument )
+                    	    // InternalJsonSchemaDsl.g:2389:5: ( (lv_examples_6_0= ruleJsonDocument ) )
+                    	    // InternalJsonSchemaDsl.g:2390:6: (lv_examples_6_0= ruleJsonDocument )
                     	    {
-                    	    // InternalJsonSchemaDsl.g:2391:6: (lv_examples_6_0= ruleJsonDocument )
-                    	    // InternalJsonSchemaDsl.g:2392:7: lv_examples_6_0= ruleJsonDocument
+                    	    // InternalJsonSchemaDsl.g:2390:6: (lv_examples_6_0= ruleJsonDocument )
+                    	    // InternalJsonSchemaDsl.g:2391:7: lv_examples_6_0= ruleJsonDocument
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getExamplesSchemaDefinitionAccess().getExamplesJsonDocumentParserRuleCall_4_1_1_0());
                     	    						
-                    	    pushFollow(FOLLOW_10);
+                    	    pushFollow(FOLLOW_11);
                     	    lv_examples_6_0=ruleJsonDocument();
 
                     	    state._fsp--;
@@ -6340,7 +6376,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIfSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2419:1: entryRuleIfSchemaDefinition returns [EObject current=null] : iv_ruleIfSchemaDefinition= ruleIfSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2418:1: entryRuleIfSchemaDefinition returns [EObject current=null] : iv_ruleIfSchemaDefinition= ruleIfSchemaDefinition EOF ;
     public final EObject entryRuleIfSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6348,8 +6384,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2419:59: (iv_ruleIfSchemaDefinition= ruleIfSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2420:2: iv_ruleIfSchemaDefinition= ruleIfSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2418:59: (iv_ruleIfSchemaDefinition= ruleIfSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2419:2: iv_ruleIfSchemaDefinition= ruleIfSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getIfSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -6376,7 +6412,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIfSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2426:1: ruleIfSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"if\"' otherlv_1= ':' ( (lv_if_2_0= ruleSchema ) ) ) ;
+    // InternalJsonSchemaDsl.g:2425:1: ruleIfSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"if\"' otherlv_1= ':' ( (lv_if_2_0= ruleSchema ) ) ) ;
     public final EObject ruleIfSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6389,25 +6425,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2432:2: ( (otherlv_0= '\"if\"' otherlv_1= ':' ( (lv_if_2_0= ruleSchema ) ) ) )
-            // InternalJsonSchemaDsl.g:2433:2: (otherlv_0= '\"if\"' otherlv_1= ':' ( (lv_if_2_0= ruleSchema ) ) )
+            // InternalJsonSchemaDsl.g:2431:2: ( (otherlv_0= '\"if\"' otherlv_1= ':' ( (lv_if_2_0= ruleSchema ) ) ) )
+            // InternalJsonSchemaDsl.g:2432:2: (otherlv_0= '\"if\"' otherlv_1= ':' ( (lv_if_2_0= ruleSchema ) ) )
             {
-            // InternalJsonSchemaDsl.g:2433:2: (otherlv_0= '\"if\"' otherlv_1= ':' ( (lv_if_2_0= ruleSchema ) ) )
-            // InternalJsonSchemaDsl.g:2434:3: otherlv_0= '\"if\"' otherlv_1= ':' ( (lv_if_2_0= ruleSchema ) )
+            // InternalJsonSchemaDsl.g:2432:2: (otherlv_0= '\"if\"' otherlv_1= ':' ( (lv_if_2_0= ruleSchema ) ) )
+            // InternalJsonSchemaDsl.g:2433:3: otherlv_0= '\"if\"' otherlv_1= ':' ( (lv_if_2_0= ruleSchema ) )
             {
             otherlv_0=(Token)match(input,47,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getIfSchemaDefinitionAccess().getIfKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_14); 
+            otherlv_1=(Token)match(input,16,FOLLOW_15); 
 
             			newLeafNode(otherlv_1, grammarAccess.getIfSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2442:3: ( (lv_if_2_0= ruleSchema ) )
-            // InternalJsonSchemaDsl.g:2443:4: (lv_if_2_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:2441:3: ( (lv_if_2_0= ruleSchema ) )
+            // InternalJsonSchemaDsl.g:2442:4: (lv_if_2_0= ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:2443:4: (lv_if_2_0= ruleSchema )
-            // InternalJsonSchemaDsl.g:2444:5: lv_if_2_0= ruleSchema
+            // InternalJsonSchemaDsl.g:2442:4: (lv_if_2_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:2443:5: lv_if_2_0= ruleSchema
             {
 
             					newCompositeNode(grammarAccess.getIfSchemaDefinitionAccess().getIfSchemaParserRuleCall_2_0());
@@ -6457,7 +6493,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAllOfSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2465:1: entryRuleAllOfSchemaDefinition returns [EObject current=null] : iv_ruleAllOfSchemaDefinition= ruleAllOfSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2464:1: entryRuleAllOfSchemaDefinition returns [EObject current=null] : iv_ruleAllOfSchemaDefinition= ruleAllOfSchemaDefinition EOF ;
     public final EObject entryRuleAllOfSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6465,8 +6501,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2465:62: (iv_ruleAllOfSchemaDefinition= ruleAllOfSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2466:2: iv_ruleAllOfSchemaDefinition= ruleAllOfSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2464:62: (iv_ruleAllOfSchemaDefinition= ruleAllOfSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2465:2: iv_ruleAllOfSchemaDefinition= ruleAllOfSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getAllOfSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -6493,7 +6529,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAllOfSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2472:1: ruleAllOfSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"allOf\"' otherlv_1= ':' ( (lv_allOf_2_0= ruleSchemaArray ) ) ) ;
+    // InternalJsonSchemaDsl.g:2471:1: ruleAllOfSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"allOf\"' otherlv_1= ':' ( (lv_allOf_2_0= ruleSchemaArray ) ) ) ;
     public final EObject ruleAllOfSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6506,25 +6542,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2478:2: ( (otherlv_0= '\"allOf\"' otherlv_1= ':' ( (lv_allOf_2_0= ruleSchemaArray ) ) ) )
-            // InternalJsonSchemaDsl.g:2479:2: (otherlv_0= '\"allOf\"' otherlv_1= ':' ( (lv_allOf_2_0= ruleSchemaArray ) ) )
+            // InternalJsonSchemaDsl.g:2477:2: ( (otherlv_0= '\"allOf\"' otherlv_1= ':' ( (lv_allOf_2_0= ruleSchemaArray ) ) ) )
+            // InternalJsonSchemaDsl.g:2478:2: (otherlv_0= '\"allOf\"' otherlv_1= ':' ( (lv_allOf_2_0= ruleSchemaArray ) ) )
             {
-            // InternalJsonSchemaDsl.g:2479:2: (otherlv_0= '\"allOf\"' otherlv_1= ':' ( (lv_allOf_2_0= ruleSchemaArray ) ) )
-            // InternalJsonSchemaDsl.g:2480:3: otherlv_0= '\"allOf\"' otherlv_1= ':' ( (lv_allOf_2_0= ruleSchemaArray ) )
+            // InternalJsonSchemaDsl.g:2478:2: (otherlv_0= '\"allOf\"' otherlv_1= ':' ( (lv_allOf_2_0= ruleSchemaArray ) ) )
+            // InternalJsonSchemaDsl.g:2479:3: otherlv_0= '\"allOf\"' otherlv_1= ':' ( (lv_allOf_2_0= ruleSchemaArray ) )
             {
             otherlv_0=(Token)match(input,48,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getAllOfSchemaDefinitionAccess().getAllOfKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_11); 
+            otherlv_1=(Token)match(input,16,FOLLOW_12); 
 
             			newLeafNode(otherlv_1, grammarAccess.getAllOfSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2488:3: ( (lv_allOf_2_0= ruleSchemaArray ) )
-            // InternalJsonSchemaDsl.g:2489:4: (lv_allOf_2_0= ruleSchemaArray )
+            // InternalJsonSchemaDsl.g:2487:3: ( (lv_allOf_2_0= ruleSchemaArray ) )
+            // InternalJsonSchemaDsl.g:2488:4: (lv_allOf_2_0= ruleSchemaArray )
             {
-            // InternalJsonSchemaDsl.g:2489:4: (lv_allOf_2_0= ruleSchemaArray )
-            // InternalJsonSchemaDsl.g:2490:5: lv_allOf_2_0= ruleSchemaArray
+            // InternalJsonSchemaDsl.g:2488:4: (lv_allOf_2_0= ruleSchemaArray )
+            // InternalJsonSchemaDsl.g:2489:5: lv_allOf_2_0= ruleSchemaArray
             {
 
             					newCompositeNode(grammarAccess.getAllOfSchemaDefinitionAccess().getAllOfSchemaArrayParserRuleCall_2_0());
@@ -6574,7 +6610,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleContentEncodingSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2511:1: entryRuleContentEncodingSchemaDefinition returns [EObject current=null] : iv_ruleContentEncodingSchemaDefinition= ruleContentEncodingSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2510:1: entryRuleContentEncodingSchemaDefinition returns [EObject current=null] : iv_ruleContentEncodingSchemaDefinition= ruleContentEncodingSchemaDefinition EOF ;
     public final EObject entryRuleContentEncodingSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6582,8 +6618,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2511:72: (iv_ruleContentEncodingSchemaDefinition= ruleContentEncodingSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2512:2: iv_ruleContentEncodingSchemaDefinition= ruleContentEncodingSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2510:72: (iv_ruleContentEncodingSchemaDefinition= ruleContentEncodingSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2511:2: iv_ruleContentEncodingSchemaDefinition= ruleContentEncodingSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getContentEncodingSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -6610,7 +6646,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleContentEncodingSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2518:1: ruleContentEncodingSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"contentEncoding\"' otherlv_1= ':' ( (lv_contentEncoding_2_0= ruleEString ) ) ) ;
+    // InternalJsonSchemaDsl.g:2517:1: ruleContentEncodingSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"contentEncoding\"' otherlv_1= ':' ( (lv_contentEncoding_2_0= ruleEString ) ) ) ;
     public final EObject ruleContentEncodingSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6623,25 +6659,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2524:2: ( (otherlv_0= '\"contentEncoding\"' otherlv_1= ':' ( (lv_contentEncoding_2_0= ruleEString ) ) ) )
-            // InternalJsonSchemaDsl.g:2525:2: (otherlv_0= '\"contentEncoding\"' otherlv_1= ':' ( (lv_contentEncoding_2_0= ruleEString ) ) )
+            // InternalJsonSchemaDsl.g:2523:2: ( (otherlv_0= '\"contentEncoding\"' otherlv_1= ':' ( (lv_contentEncoding_2_0= ruleEString ) ) ) )
+            // InternalJsonSchemaDsl.g:2524:2: (otherlv_0= '\"contentEncoding\"' otherlv_1= ':' ( (lv_contentEncoding_2_0= ruleEString ) ) )
             {
-            // InternalJsonSchemaDsl.g:2525:2: (otherlv_0= '\"contentEncoding\"' otherlv_1= ':' ( (lv_contentEncoding_2_0= ruleEString ) ) )
-            // InternalJsonSchemaDsl.g:2526:3: otherlv_0= '\"contentEncoding\"' otherlv_1= ':' ( (lv_contentEncoding_2_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:2524:2: (otherlv_0= '\"contentEncoding\"' otherlv_1= ':' ( (lv_contentEncoding_2_0= ruleEString ) ) )
+            // InternalJsonSchemaDsl.g:2525:3: otherlv_0= '\"contentEncoding\"' otherlv_1= ':' ( (lv_contentEncoding_2_0= ruleEString ) )
             {
             otherlv_0=(Token)match(input,49,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getContentEncodingSchemaDefinitionAccess().getContentEncodingKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_5); 
+            otherlv_1=(Token)match(input,16,FOLLOW_9); 
 
             			newLeafNode(otherlv_1, grammarAccess.getContentEncodingSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2534:3: ( (lv_contentEncoding_2_0= ruleEString ) )
-            // InternalJsonSchemaDsl.g:2535:4: (lv_contentEncoding_2_0= ruleEString )
+            // InternalJsonSchemaDsl.g:2533:3: ( (lv_contentEncoding_2_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:2534:4: (lv_contentEncoding_2_0= ruleEString )
             {
-            // InternalJsonSchemaDsl.g:2535:4: (lv_contentEncoding_2_0= ruleEString )
-            // InternalJsonSchemaDsl.g:2536:5: lv_contentEncoding_2_0= ruleEString
+            // InternalJsonSchemaDsl.g:2534:4: (lv_contentEncoding_2_0= ruleEString )
+            // InternalJsonSchemaDsl.g:2535:5: lv_contentEncoding_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getContentEncodingSchemaDefinitionAccess().getContentEncodingEStringParserRuleCall_2_0());
@@ -6691,7 +6727,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMultipleOfSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2557:1: entryRuleMultipleOfSchemaDefinition returns [EObject current=null] : iv_ruleMultipleOfSchemaDefinition= ruleMultipleOfSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2556:1: entryRuleMultipleOfSchemaDefinition returns [EObject current=null] : iv_ruleMultipleOfSchemaDefinition= ruleMultipleOfSchemaDefinition EOF ;
     public final EObject entryRuleMultipleOfSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6699,8 +6735,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2557:67: (iv_ruleMultipleOfSchemaDefinition= ruleMultipleOfSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2558:2: iv_ruleMultipleOfSchemaDefinition= ruleMultipleOfSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2556:67: (iv_ruleMultipleOfSchemaDefinition= ruleMultipleOfSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2557:2: iv_ruleMultipleOfSchemaDefinition= ruleMultipleOfSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getMultipleOfSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -6727,7 +6763,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMultipleOfSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2564:1: ruleMultipleOfSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"multipleOf\"' otherlv_1= ':' ( (lv_multipleOf_2_0= ruleEDouble ) ) ) ;
+    // InternalJsonSchemaDsl.g:2563:1: ruleMultipleOfSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"multipleOf\"' otherlv_1= ':' ( (lv_multipleOf_2_0= ruleEDouble ) ) ) ;
     public final EObject ruleMultipleOfSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6740,11 +6776,11 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2570:2: ( (otherlv_0= '\"multipleOf\"' otherlv_1= ':' ( (lv_multipleOf_2_0= ruleEDouble ) ) ) )
-            // InternalJsonSchemaDsl.g:2571:2: (otherlv_0= '\"multipleOf\"' otherlv_1= ':' ( (lv_multipleOf_2_0= ruleEDouble ) ) )
+            // InternalJsonSchemaDsl.g:2569:2: ( (otherlv_0= '\"multipleOf\"' otherlv_1= ':' ( (lv_multipleOf_2_0= ruleEDouble ) ) ) )
+            // InternalJsonSchemaDsl.g:2570:2: (otherlv_0= '\"multipleOf\"' otherlv_1= ':' ( (lv_multipleOf_2_0= ruleEDouble ) ) )
             {
-            // InternalJsonSchemaDsl.g:2571:2: (otherlv_0= '\"multipleOf\"' otherlv_1= ':' ( (lv_multipleOf_2_0= ruleEDouble ) ) )
-            // InternalJsonSchemaDsl.g:2572:3: otherlv_0= '\"multipleOf\"' otherlv_1= ':' ( (lv_multipleOf_2_0= ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:2570:2: (otherlv_0= '\"multipleOf\"' otherlv_1= ':' ( (lv_multipleOf_2_0= ruleEDouble ) ) )
+            // InternalJsonSchemaDsl.g:2571:3: otherlv_0= '\"multipleOf\"' otherlv_1= ':' ( (lv_multipleOf_2_0= ruleEDouble ) )
             {
             otherlv_0=(Token)match(input,50,FOLLOW_6); 
 
@@ -6754,11 +6790,11 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getMultipleOfSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2580:3: ( (lv_multipleOf_2_0= ruleEDouble ) )
-            // InternalJsonSchemaDsl.g:2581:4: (lv_multipleOf_2_0= ruleEDouble )
+            // InternalJsonSchemaDsl.g:2579:3: ( (lv_multipleOf_2_0= ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:2580:4: (lv_multipleOf_2_0= ruleEDouble )
             {
-            // InternalJsonSchemaDsl.g:2581:4: (lv_multipleOf_2_0= ruleEDouble )
-            // InternalJsonSchemaDsl.g:2582:5: lv_multipleOf_2_0= ruleEDouble
+            // InternalJsonSchemaDsl.g:2580:4: (lv_multipleOf_2_0= ruleEDouble )
+            // InternalJsonSchemaDsl.g:2581:5: lv_multipleOf_2_0= ruleEDouble
             {
 
             					newCompositeNode(grammarAccess.getMultipleOfSchemaDefinitionAccess().getMultipleOfEDoubleParserRuleCall_2_0());
@@ -6808,7 +6844,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePatternSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2603:1: entryRulePatternSchemaDefinition returns [EObject current=null] : iv_rulePatternSchemaDefinition= rulePatternSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2602:1: entryRulePatternSchemaDefinition returns [EObject current=null] : iv_rulePatternSchemaDefinition= rulePatternSchemaDefinition EOF ;
     public final EObject entryRulePatternSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6816,8 +6852,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2603:64: (iv_rulePatternSchemaDefinition= rulePatternSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2604:2: iv_rulePatternSchemaDefinition= rulePatternSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2602:64: (iv_rulePatternSchemaDefinition= rulePatternSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2603:2: iv_rulePatternSchemaDefinition= rulePatternSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getPatternSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -6844,7 +6880,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePatternSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2610:1: rulePatternSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"pattern\"' otherlv_1= ':' ( (lv_pattern_2_0= ruleEString ) ) ) ;
+    // InternalJsonSchemaDsl.g:2609:1: rulePatternSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"pattern\"' otherlv_1= ':' ( (lv_pattern_2_0= ruleEString ) ) ) ;
     public final EObject rulePatternSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6857,25 +6893,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2616:2: ( (otherlv_0= '\"pattern\"' otherlv_1= ':' ( (lv_pattern_2_0= ruleEString ) ) ) )
-            // InternalJsonSchemaDsl.g:2617:2: (otherlv_0= '\"pattern\"' otherlv_1= ':' ( (lv_pattern_2_0= ruleEString ) ) )
+            // InternalJsonSchemaDsl.g:2615:2: ( (otherlv_0= '\"pattern\"' otherlv_1= ':' ( (lv_pattern_2_0= ruleEString ) ) ) )
+            // InternalJsonSchemaDsl.g:2616:2: (otherlv_0= '\"pattern\"' otherlv_1= ':' ( (lv_pattern_2_0= ruleEString ) ) )
             {
-            // InternalJsonSchemaDsl.g:2617:2: (otherlv_0= '\"pattern\"' otherlv_1= ':' ( (lv_pattern_2_0= ruleEString ) ) )
-            // InternalJsonSchemaDsl.g:2618:3: otherlv_0= '\"pattern\"' otherlv_1= ':' ( (lv_pattern_2_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:2616:2: (otherlv_0= '\"pattern\"' otherlv_1= ':' ( (lv_pattern_2_0= ruleEString ) ) )
+            // InternalJsonSchemaDsl.g:2617:3: otherlv_0= '\"pattern\"' otherlv_1= ':' ( (lv_pattern_2_0= ruleEString ) )
             {
             otherlv_0=(Token)match(input,51,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPatternSchemaDefinitionAccess().getPatternKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_5); 
+            otherlv_1=(Token)match(input,16,FOLLOW_9); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPatternSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2626:3: ( (lv_pattern_2_0= ruleEString ) )
-            // InternalJsonSchemaDsl.g:2627:4: (lv_pattern_2_0= ruleEString )
+            // InternalJsonSchemaDsl.g:2625:3: ( (lv_pattern_2_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:2626:4: (lv_pattern_2_0= ruleEString )
             {
-            // InternalJsonSchemaDsl.g:2627:4: (lv_pattern_2_0= ruleEString )
-            // InternalJsonSchemaDsl.g:2628:5: lv_pattern_2_0= ruleEString
+            // InternalJsonSchemaDsl.g:2626:4: (lv_pattern_2_0= ruleEString )
+            // InternalJsonSchemaDsl.g:2627:5: lv_pattern_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getPatternSchemaDefinitionAccess().getPatternEStringParserRuleCall_2_0());
@@ -6925,7 +6961,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleContainsSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2649:1: entryRuleContainsSchemaDefinition returns [EObject current=null] : iv_ruleContainsSchemaDefinition= ruleContainsSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2648:1: entryRuleContainsSchemaDefinition returns [EObject current=null] : iv_ruleContainsSchemaDefinition= ruleContainsSchemaDefinition EOF ;
     public final EObject entryRuleContainsSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6933,8 +6969,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2649:65: (iv_ruleContainsSchemaDefinition= ruleContainsSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2650:2: iv_ruleContainsSchemaDefinition= ruleContainsSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2648:65: (iv_ruleContainsSchemaDefinition= ruleContainsSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2649:2: iv_ruleContainsSchemaDefinition= ruleContainsSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getContainsSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -6961,7 +6997,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleContainsSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2656:1: ruleContainsSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"contains\"' otherlv_1= ':' ( (lv_contains_2_0= ruleSchema ) ) ) ;
+    // InternalJsonSchemaDsl.g:2655:1: ruleContainsSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"contains\"' otherlv_1= ':' ( (lv_contains_2_0= ruleSchema ) ) ) ;
     public final EObject ruleContainsSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -6974,25 +7010,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2662:2: ( (otherlv_0= '\"contains\"' otherlv_1= ':' ( (lv_contains_2_0= ruleSchema ) ) ) )
-            // InternalJsonSchemaDsl.g:2663:2: (otherlv_0= '\"contains\"' otherlv_1= ':' ( (lv_contains_2_0= ruleSchema ) ) )
+            // InternalJsonSchemaDsl.g:2661:2: ( (otherlv_0= '\"contains\"' otherlv_1= ':' ( (lv_contains_2_0= ruleSchema ) ) ) )
+            // InternalJsonSchemaDsl.g:2662:2: (otherlv_0= '\"contains\"' otherlv_1= ':' ( (lv_contains_2_0= ruleSchema ) ) )
             {
-            // InternalJsonSchemaDsl.g:2663:2: (otherlv_0= '\"contains\"' otherlv_1= ':' ( (lv_contains_2_0= ruleSchema ) ) )
-            // InternalJsonSchemaDsl.g:2664:3: otherlv_0= '\"contains\"' otherlv_1= ':' ( (lv_contains_2_0= ruleSchema ) )
+            // InternalJsonSchemaDsl.g:2662:2: (otherlv_0= '\"contains\"' otherlv_1= ':' ( (lv_contains_2_0= ruleSchema ) ) )
+            // InternalJsonSchemaDsl.g:2663:3: otherlv_0= '\"contains\"' otherlv_1= ':' ( (lv_contains_2_0= ruleSchema ) )
             {
             otherlv_0=(Token)match(input,52,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getContainsSchemaDefinitionAccess().getContainsKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_14); 
+            otherlv_1=(Token)match(input,16,FOLLOW_15); 
 
             			newLeafNode(otherlv_1, grammarAccess.getContainsSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2672:3: ( (lv_contains_2_0= ruleSchema ) )
-            // InternalJsonSchemaDsl.g:2673:4: (lv_contains_2_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:2671:3: ( (lv_contains_2_0= ruleSchema ) )
+            // InternalJsonSchemaDsl.g:2672:4: (lv_contains_2_0= ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:2673:4: (lv_contains_2_0= ruleSchema )
-            // InternalJsonSchemaDsl.g:2674:5: lv_contains_2_0= ruleSchema
+            // InternalJsonSchemaDsl.g:2672:4: (lv_contains_2_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:2673:5: lv_contains_2_0= ruleSchema
             {
 
             					newCompositeNode(grammarAccess.getContainsSchemaDefinitionAccess().getContainsSchemaParserRuleCall_2_0());
@@ -7042,7 +7078,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNotSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2695:1: entryRuleNotSchemaDefinition returns [EObject current=null] : iv_ruleNotSchemaDefinition= ruleNotSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2694:1: entryRuleNotSchemaDefinition returns [EObject current=null] : iv_ruleNotSchemaDefinition= ruleNotSchemaDefinition EOF ;
     public final EObject entryRuleNotSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7050,8 +7086,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2695:60: (iv_ruleNotSchemaDefinition= ruleNotSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2696:2: iv_ruleNotSchemaDefinition= ruleNotSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2694:60: (iv_ruleNotSchemaDefinition= ruleNotSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2695:2: iv_ruleNotSchemaDefinition= ruleNotSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getNotSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -7078,7 +7114,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNotSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2702:1: ruleNotSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"not\"' otherlv_1= ':' ( (lv_not_2_0= ruleSchema ) ) ) ;
+    // InternalJsonSchemaDsl.g:2701:1: ruleNotSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"not\"' otherlv_1= ':' ( (lv_not_2_0= ruleSchema ) ) ) ;
     public final EObject ruleNotSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7091,25 +7127,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2708:2: ( (otherlv_0= '\"not\"' otherlv_1= ':' ( (lv_not_2_0= ruleSchema ) ) ) )
-            // InternalJsonSchemaDsl.g:2709:2: (otherlv_0= '\"not\"' otherlv_1= ':' ( (lv_not_2_0= ruleSchema ) ) )
+            // InternalJsonSchemaDsl.g:2707:2: ( (otherlv_0= '\"not\"' otherlv_1= ':' ( (lv_not_2_0= ruleSchema ) ) ) )
+            // InternalJsonSchemaDsl.g:2708:2: (otherlv_0= '\"not\"' otherlv_1= ':' ( (lv_not_2_0= ruleSchema ) ) )
             {
-            // InternalJsonSchemaDsl.g:2709:2: (otherlv_0= '\"not\"' otherlv_1= ':' ( (lv_not_2_0= ruleSchema ) ) )
-            // InternalJsonSchemaDsl.g:2710:3: otherlv_0= '\"not\"' otherlv_1= ':' ( (lv_not_2_0= ruleSchema ) )
+            // InternalJsonSchemaDsl.g:2708:2: (otherlv_0= '\"not\"' otherlv_1= ':' ( (lv_not_2_0= ruleSchema ) ) )
+            // InternalJsonSchemaDsl.g:2709:3: otherlv_0= '\"not\"' otherlv_1= ':' ( (lv_not_2_0= ruleSchema ) )
             {
             otherlv_0=(Token)match(input,53,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getNotSchemaDefinitionAccess().getNotKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_14); 
+            otherlv_1=(Token)match(input,16,FOLLOW_15); 
 
             			newLeafNode(otherlv_1, grammarAccess.getNotSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2718:3: ( (lv_not_2_0= ruleSchema ) )
-            // InternalJsonSchemaDsl.g:2719:4: (lv_not_2_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:2717:3: ( (lv_not_2_0= ruleSchema ) )
+            // InternalJsonSchemaDsl.g:2718:4: (lv_not_2_0= ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:2719:4: (lv_not_2_0= ruleSchema )
-            // InternalJsonSchemaDsl.g:2720:5: lv_not_2_0= ruleSchema
+            // InternalJsonSchemaDsl.g:2718:4: (lv_not_2_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:2719:5: lv_not_2_0= ruleSchema
             {
 
             					newCompositeNode(grammarAccess.getNotSchemaDefinitionAccess().getNotSchemaParserRuleCall_2_0());
@@ -7159,7 +7195,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExclusiveMaximumSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2741:1: entryRuleExclusiveMaximumSchemaDefinition returns [EObject current=null] : iv_ruleExclusiveMaximumSchemaDefinition= ruleExclusiveMaximumSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2740:1: entryRuleExclusiveMaximumSchemaDefinition returns [EObject current=null] : iv_ruleExclusiveMaximumSchemaDefinition= ruleExclusiveMaximumSchemaDefinition EOF ;
     public final EObject entryRuleExclusiveMaximumSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7167,8 +7203,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2741:73: (iv_ruleExclusiveMaximumSchemaDefinition= ruleExclusiveMaximumSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2742:2: iv_ruleExclusiveMaximumSchemaDefinition= ruleExclusiveMaximumSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2740:73: (iv_ruleExclusiveMaximumSchemaDefinition= ruleExclusiveMaximumSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2741:2: iv_ruleExclusiveMaximumSchemaDefinition= ruleExclusiveMaximumSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getExclusiveMaximumSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -7195,7 +7231,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExclusiveMaximumSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2748:1: ruleExclusiveMaximumSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"exclusiveMaximum\"' otherlv_1= ':' ( (lv_exclusiveMaximum_2_0= ruleEDouble ) ) ) ;
+    // InternalJsonSchemaDsl.g:2747:1: ruleExclusiveMaximumSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"exclusiveMaximum\"' otherlv_1= ':' ( (lv_exclusiveMaximum_2_0= ruleEDouble ) ) ) ;
     public final EObject ruleExclusiveMaximumSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7208,11 +7244,11 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2754:2: ( (otherlv_0= '\"exclusiveMaximum\"' otherlv_1= ':' ( (lv_exclusiveMaximum_2_0= ruleEDouble ) ) ) )
-            // InternalJsonSchemaDsl.g:2755:2: (otherlv_0= '\"exclusiveMaximum\"' otherlv_1= ':' ( (lv_exclusiveMaximum_2_0= ruleEDouble ) ) )
+            // InternalJsonSchemaDsl.g:2753:2: ( (otherlv_0= '\"exclusiveMaximum\"' otherlv_1= ':' ( (lv_exclusiveMaximum_2_0= ruleEDouble ) ) ) )
+            // InternalJsonSchemaDsl.g:2754:2: (otherlv_0= '\"exclusiveMaximum\"' otherlv_1= ':' ( (lv_exclusiveMaximum_2_0= ruleEDouble ) ) )
             {
-            // InternalJsonSchemaDsl.g:2755:2: (otherlv_0= '\"exclusiveMaximum\"' otherlv_1= ':' ( (lv_exclusiveMaximum_2_0= ruleEDouble ) ) )
-            // InternalJsonSchemaDsl.g:2756:3: otherlv_0= '\"exclusiveMaximum\"' otherlv_1= ':' ( (lv_exclusiveMaximum_2_0= ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:2754:2: (otherlv_0= '\"exclusiveMaximum\"' otherlv_1= ':' ( (lv_exclusiveMaximum_2_0= ruleEDouble ) ) )
+            // InternalJsonSchemaDsl.g:2755:3: otherlv_0= '\"exclusiveMaximum\"' otherlv_1= ':' ( (lv_exclusiveMaximum_2_0= ruleEDouble ) )
             {
             otherlv_0=(Token)match(input,54,FOLLOW_6); 
 
@@ -7222,11 +7258,11 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getExclusiveMaximumSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2764:3: ( (lv_exclusiveMaximum_2_0= ruleEDouble ) )
-            // InternalJsonSchemaDsl.g:2765:4: (lv_exclusiveMaximum_2_0= ruleEDouble )
+            // InternalJsonSchemaDsl.g:2763:3: ( (lv_exclusiveMaximum_2_0= ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:2764:4: (lv_exclusiveMaximum_2_0= ruleEDouble )
             {
-            // InternalJsonSchemaDsl.g:2765:4: (lv_exclusiveMaximum_2_0= ruleEDouble )
-            // InternalJsonSchemaDsl.g:2766:5: lv_exclusiveMaximum_2_0= ruleEDouble
+            // InternalJsonSchemaDsl.g:2764:4: (lv_exclusiveMaximum_2_0= ruleEDouble )
+            // InternalJsonSchemaDsl.g:2765:5: lv_exclusiveMaximum_2_0= ruleEDouble
             {
 
             					newCompositeNode(grammarAccess.getExclusiveMaximumSchemaDefinitionAccess().getExclusiveMaximumEDoubleParserRuleCall_2_0());
@@ -7276,7 +7312,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMaxLengthSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2787:1: entryRuleMaxLengthSchemaDefinition returns [EObject current=null] : iv_ruleMaxLengthSchemaDefinition= ruleMaxLengthSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2786:1: entryRuleMaxLengthSchemaDefinition returns [EObject current=null] : iv_ruleMaxLengthSchemaDefinition= ruleMaxLengthSchemaDefinition EOF ;
     public final EObject entryRuleMaxLengthSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7284,8 +7320,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2787:66: (iv_ruleMaxLengthSchemaDefinition= ruleMaxLengthSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2788:2: iv_ruleMaxLengthSchemaDefinition= ruleMaxLengthSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2786:66: (iv_ruleMaxLengthSchemaDefinition= ruleMaxLengthSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2787:2: iv_ruleMaxLengthSchemaDefinition= ruleMaxLengthSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getMaxLengthSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -7312,7 +7348,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMaxLengthSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2794:1: ruleMaxLengthSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"maxLength\"' otherlv_1= ':' ( (lv_maxLength_2_0= ruleNonNegativeInteger ) ) ) ;
+    // InternalJsonSchemaDsl.g:2793:1: ruleMaxLengthSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"maxLength\"' otherlv_1= ':' ( (lv_maxLength_2_0= ruleNonNegativeInteger ) ) ) ;
     public final EObject ruleMaxLengthSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7325,25 +7361,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2800:2: ( (otherlv_0= '\"maxLength\"' otherlv_1= ':' ( (lv_maxLength_2_0= ruleNonNegativeInteger ) ) ) )
-            // InternalJsonSchemaDsl.g:2801:2: (otherlv_0= '\"maxLength\"' otherlv_1= ':' ( (lv_maxLength_2_0= ruleNonNegativeInteger ) ) )
+            // InternalJsonSchemaDsl.g:2799:2: ( (otherlv_0= '\"maxLength\"' otherlv_1= ':' ( (lv_maxLength_2_0= ruleNonNegativeInteger ) ) ) )
+            // InternalJsonSchemaDsl.g:2800:2: (otherlv_0= '\"maxLength\"' otherlv_1= ':' ( (lv_maxLength_2_0= ruleNonNegativeInteger ) ) )
             {
-            // InternalJsonSchemaDsl.g:2801:2: (otherlv_0= '\"maxLength\"' otherlv_1= ':' ( (lv_maxLength_2_0= ruleNonNegativeInteger ) ) )
-            // InternalJsonSchemaDsl.g:2802:3: otherlv_0= '\"maxLength\"' otherlv_1= ':' ( (lv_maxLength_2_0= ruleNonNegativeInteger ) )
+            // InternalJsonSchemaDsl.g:2800:2: (otherlv_0= '\"maxLength\"' otherlv_1= ':' ( (lv_maxLength_2_0= ruleNonNegativeInteger ) ) )
+            // InternalJsonSchemaDsl.g:2801:3: otherlv_0= '\"maxLength\"' otherlv_1= ':' ( (lv_maxLength_2_0= ruleNonNegativeInteger ) )
             {
             otherlv_0=(Token)match(input,55,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getMaxLengthSchemaDefinitionAccess().getMaxLengthKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_15); 
+            otherlv_1=(Token)match(input,16,FOLLOW_16); 
 
             			newLeafNode(otherlv_1, grammarAccess.getMaxLengthSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2810:3: ( (lv_maxLength_2_0= ruleNonNegativeInteger ) )
-            // InternalJsonSchemaDsl.g:2811:4: (lv_maxLength_2_0= ruleNonNegativeInteger )
+            // InternalJsonSchemaDsl.g:2809:3: ( (lv_maxLength_2_0= ruleNonNegativeInteger ) )
+            // InternalJsonSchemaDsl.g:2810:4: (lv_maxLength_2_0= ruleNonNegativeInteger )
             {
-            // InternalJsonSchemaDsl.g:2811:4: (lv_maxLength_2_0= ruleNonNegativeInteger )
-            // InternalJsonSchemaDsl.g:2812:5: lv_maxLength_2_0= ruleNonNegativeInteger
+            // InternalJsonSchemaDsl.g:2810:4: (lv_maxLength_2_0= ruleNonNegativeInteger )
+            // InternalJsonSchemaDsl.g:2811:5: lv_maxLength_2_0= ruleNonNegativeInteger
             {
 
             					newCompositeNode(grammarAccess.getMaxLengthSchemaDefinitionAccess().getMaxLengthNonNegativeIntegerParserRuleCall_2_0());
@@ -7393,7 +7429,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRefSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2833:1: entryRuleRefSchemaDefinition returns [EObject current=null] : iv_ruleRefSchemaDefinition= ruleRefSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2832:1: entryRuleRefSchemaDefinition returns [EObject current=null] : iv_ruleRefSchemaDefinition= ruleRefSchemaDefinition EOF ;
     public final EObject entryRuleRefSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7401,8 +7437,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2833:60: (iv_ruleRefSchemaDefinition= ruleRefSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2834:2: iv_ruleRefSchemaDefinition= ruleRefSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2832:60: (iv_ruleRefSchemaDefinition= ruleRefSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2833:2: iv_ruleRefSchemaDefinition= ruleRefSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getRefSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -7429,7 +7465,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRefSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2840:1: ruleRefSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"$ref\"' otherlv_1= ':' ( (lv_ref_2_0= ruleEString ) ) ) ;
+    // InternalJsonSchemaDsl.g:2839:1: ruleRefSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"$ref\"' otherlv_1= ':' ( (lv_ref_2_0= ruleEString ) ) ) ;
     public final EObject ruleRefSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7442,25 +7478,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2846:2: ( (otherlv_0= '\"$ref\"' otherlv_1= ':' ( (lv_ref_2_0= ruleEString ) ) ) )
-            // InternalJsonSchemaDsl.g:2847:2: (otherlv_0= '\"$ref\"' otherlv_1= ':' ( (lv_ref_2_0= ruleEString ) ) )
+            // InternalJsonSchemaDsl.g:2845:2: ( (otherlv_0= '\"$ref\"' otherlv_1= ':' ( (lv_ref_2_0= ruleEString ) ) ) )
+            // InternalJsonSchemaDsl.g:2846:2: (otherlv_0= '\"$ref\"' otherlv_1= ':' ( (lv_ref_2_0= ruleEString ) ) )
             {
-            // InternalJsonSchemaDsl.g:2847:2: (otherlv_0= '\"$ref\"' otherlv_1= ':' ( (lv_ref_2_0= ruleEString ) ) )
-            // InternalJsonSchemaDsl.g:2848:3: otherlv_0= '\"$ref\"' otherlv_1= ':' ( (lv_ref_2_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:2846:2: (otherlv_0= '\"$ref\"' otherlv_1= ':' ( (lv_ref_2_0= ruleEString ) ) )
+            // InternalJsonSchemaDsl.g:2847:3: otherlv_0= '\"$ref\"' otherlv_1= ':' ( (lv_ref_2_0= ruleEString ) )
             {
             otherlv_0=(Token)match(input,56,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getRefSchemaDefinitionAccess().getRefKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_5); 
+            otherlv_1=(Token)match(input,16,FOLLOW_9); 
 
             			newLeafNode(otherlv_1, grammarAccess.getRefSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2856:3: ( (lv_ref_2_0= ruleEString ) )
-            // InternalJsonSchemaDsl.g:2857:4: (lv_ref_2_0= ruleEString )
+            // InternalJsonSchemaDsl.g:2855:3: ( (lv_ref_2_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:2856:4: (lv_ref_2_0= ruleEString )
             {
-            // InternalJsonSchemaDsl.g:2857:4: (lv_ref_2_0= ruleEString )
-            // InternalJsonSchemaDsl.g:2858:5: lv_ref_2_0= ruleEString
+            // InternalJsonSchemaDsl.g:2856:4: (lv_ref_2_0= ruleEString )
+            // InternalJsonSchemaDsl.g:2857:5: lv_ref_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getRefSchemaDefinitionAccess().getRefEStringParserRuleCall_2_0());
@@ -7510,7 +7546,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleContentMediaTypeSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2879:1: entryRuleContentMediaTypeSchemaDefinition returns [EObject current=null] : iv_ruleContentMediaTypeSchemaDefinition= ruleContentMediaTypeSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2878:1: entryRuleContentMediaTypeSchemaDefinition returns [EObject current=null] : iv_ruleContentMediaTypeSchemaDefinition= ruleContentMediaTypeSchemaDefinition EOF ;
     public final EObject entryRuleContentMediaTypeSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7518,8 +7554,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2879:73: (iv_ruleContentMediaTypeSchemaDefinition= ruleContentMediaTypeSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2880:2: iv_ruleContentMediaTypeSchemaDefinition= ruleContentMediaTypeSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2878:73: (iv_ruleContentMediaTypeSchemaDefinition= ruleContentMediaTypeSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2879:2: iv_ruleContentMediaTypeSchemaDefinition= ruleContentMediaTypeSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getContentMediaTypeSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -7546,7 +7582,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleContentMediaTypeSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2886:1: ruleContentMediaTypeSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"contentMediaType\"' otherlv_1= ':' ( (lv_contentMediaType_2_0= ruleEString ) ) ) ;
+    // InternalJsonSchemaDsl.g:2885:1: ruleContentMediaTypeSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"contentMediaType\"' otherlv_1= ':' ( (lv_contentMediaType_2_0= ruleEString ) ) ) ;
     public final EObject ruleContentMediaTypeSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7559,25 +7595,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2892:2: ( (otherlv_0= '\"contentMediaType\"' otherlv_1= ':' ( (lv_contentMediaType_2_0= ruleEString ) ) ) )
-            // InternalJsonSchemaDsl.g:2893:2: (otherlv_0= '\"contentMediaType\"' otherlv_1= ':' ( (lv_contentMediaType_2_0= ruleEString ) ) )
+            // InternalJsonSchemaDsl.g:2891:2: ( (otherlv_0= '\"contentMediaType\"' otherlv_1= ':' ( (lv_contentMediaType_2_0= ruleEString ) ) ) )
+            // InternalJsonSchemaDsl.g:2892:2: (otherlv_0= '\"contentMediaType\"' otherlv_1= ':' ( (lv_contentMediaType_2_0= ruleEString ) ) )
             {
-            // InternalJsonSchemaDsl.g:2893:2: (otherlv_0= '\"contentMediaType\"' otherlv_1= ':' ( (lv_contentMediaType_2_0= ruleEString ) ) )
-            // InternalJsonSchemaDsl.g:2894:3: otherlv_0= '\"contentMediaType\"' otherlv_1= ':' ( (lv_contentMediaType_2_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:2892:2: (otherlv_0= '\"contentMediaType\"' otherlv_1= ':' ( (lv_contentMediaType_2_0= ruleEString ) ) )
+            // InternalJsonSchemaDsl.g:2893:3: otherlv_0= '\"contentMediaType\"' otherlv_1= ':' ( (lv_contentMediaType_2_0= ruleEString ) )
             {
             otherlv_0=(Token)match(input,57,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getContentMediaTypeSchemaDefinitionAccess().getContentMediaTypeKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_5); 
+            otherlv_1=(Token)match(input,16,FOLLOW_9); 
 
             			newLeafNode(otherlv_1, grammarAccess.getContentMediaTypeSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2902:3: ( (lv_contentMediaType_2_0= ruleEString ) )
-            // InternalJsonSchemaDsl.g:2903:4: (lv_contentMediaType_2_0= ruleEString )
+            // InternalJsonSchemaDsl.g:2901:3: ( (lv_contentMediaType_2_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:2902:4: (lv_contentMediaType_2_0= ruleEString )
             {
-            // InternalJsonSchemaDsl.g:2903:4: (lv_contentMediaType_2_0= ruleEString )
-            // InternalJsonSchemaDsl.g:2904:5: lv_contentMediaType_2_0= ruleEString
+            // InternalJsonSchemaDsl.g:2902:4: (lv_contentMediaType_2_0= ruleEString )
+            // InternalJsonSchemaDsl.g:2903:5: lv_contentMediaType_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getContentMediaTypeSchemaDefinitionAccess().getContentMediaTypeEStringParserRuleCall_2_0());
@@ -7627,7 +7663,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExclusiveMinimumSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2925:1: entryRuleExclusiveMinimumSchemaDefinition returns [EObject current=null] : iv_ruleExclusiveMinimumSchemaDefinition= ruleExclusiveMinimumSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2924:1: entryRuleExclusiveMinimumSchemaDefinition returns [EObject current=null] : iv_ruleExclusiveMinimumSchemaDefinition= ruleExclusiveMinimumSchemaDefinition EOF ;
     public final EObject entryRuleExclusiveMinimumSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7635,8 +7671,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2925:73: (iv_ruleExclusiveMinimumSchemaDefinition= ruleExclusiveMinimumSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2926:2: iv_ruleExclusiveMinimumSchemaDefinition= ruleExclusiveMinimumSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2924:73: (iv_ruleExclusiveMinimumSchemaDefinition= ruleExclusiveMinimumSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2925:2: iv_ruleExclusiveMinimumSchemaDefinition= ruleExclusiveMinimumSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getExclusiveMinimumSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -7663,7 +7699,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExclusiveMinimumSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2932:1: ruleExclusiveMinimumSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"exclusiveMinimum\"' otherlv_1= ':' ( (lv_exclusiveMinimum_2_0= ruleEDouble ) ) ) ;
+    // InternalJsonSchemaDsl.g:2931:1: ruleExclusiveMinimumSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"exclusiveMinimum\"' otherlv_1= ':' ( (lv_exclusiveMinimum_2_0= ruleEDouble ) ) ) ;
     public final EObject ruleExclusiveMinimumSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7676,11 +7712,11 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2938:2: ( (otherlv_0= '\"exclusiveMinimum\"' otherlv_1= ':' ( (lv_exclusiveMinimum_2_0= ruleEDouble ) ) ) )
-            // InternalJsonSchemaDsl.g:2939:2: (otherlv_0= '\"exclusiveMinimum\"' otherlv_1= ':' ( (lv_exclusiveMinimum_2_0= ruleEDouble ) ) )
+            // InternalJsonSchemaDsl.g:2937:2: ( (otherlv_0= '\"exclusiveMinimum\"' otherlv_1= ':' ( (lv_exclusiveMinimum_2_0= ruleEDouble ) ) ) )
+            // InternalJsonSchemaDsl.g:2938:2: (otherlv_0= '\"exclusiveMinimum\"' otherlv_1= ':' ( (lv_exclusiveMinimum_2_0= ruleEDouble ) ) )
             {
-            // InternalJsonSchemaDsl.g:2939:2: (otherlv_0= '\"exclusiveMinimum\"' otherlv_1= ':' ( (lv_exclusiveMinimum_2_0= ruleEDouble ) ) )
-            // InternalJsonSchemaDsl.g:2940:3: otherlv_0= '\"exclusiveMinimum\"' otherlv_1= ':' ( (lv_exclusiveMinimum_2_0= ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:2938:2: (otherlv_0= '\"exclusiveMinimum\"' otherlv_1= ':' ( (lv_exclusiveMinimum_2_0= ruleEDouble ) ) )
+            // InternalJsonSchemaDsl.g:2939:3: otherlv_0= '\"exclusiveMinimum\"' otherlv_1= ':' ( (lv_exclusiveMinimum_2_0= ruleEDouble ) )
             {
             otherlv_0=(Token)match(input,58,FOLLOW_6); 
 
@@ -7690,11 +7726,11 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getExclusiveMinimumSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2948:3: ( (lv_exclusiveMinimum_2_0= ruleEDouble ) )
-            // InternalJsonSchemaDsl.g:2949:4: (lv_exclusiveMinimum_2_0= ruleEDouble )
+            // InternalJsonSchemaDsl.g:2947:3: ( (lv_exclusiveMinimum_2_0= ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:2948:4: (lv_exclusiveMinimum_2_0= ruleEDouble )
             {
-            // InternalJsonSchemaDsl.g:2949:4: (lv_exclusiveMinimum_2_0= ruleEDouble )
-            // InternalJsonSchemaDsl.g:2950:5: lv_exclusiveMinimum_2_0= ruleEDouble
+            // InternalJsonSchemaDsl.g:2948:4: (lv_exclusiveMinimum_2_0= ruleEDouble )
+            // InternalJsonSchemaDsl.g:2949:5: lv_exclusiveMinimum_2_0= ruleEDouble
             {
 
             					newCompositeNode(grammarAccess.getExclusiveMinimumSchemaDefinitionAccess().getExclusiveMinimumEDoubleParserRuleCall_2_0());
@@ -7744,7 +7780,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSchemaSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2971:1: entryRuleSchemaSchemaDefinition returns [EObject current=null] : iv_ruleSchemaSchemaDefinition= ruleSchemaSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:2970:1: entryRuleSchemaSchemaDefinition returns [EObject current=null] : iv_ruleSchemaSchemaDefinition= ruleSchemaSchemaDefinition EOF ;
     public final EObject entryRuleSchemaSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7752,8 +7788,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:2971:63: (iv_ruleSchemaSchemaDefinition= ruleSchemaSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:2972:2: iv_ruleSchemaSchemaDefinition= ruleSchemaSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:2970:63: (iv_ruleSchemaSchemaDefinition= ruleSchemaSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:2971:2: iv_ruleSchemaSchemaDefinition= ruleSchemaSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getSchemaSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -7780,7 +7816,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchemaSchemaDefinition"
-    // InternalJsonSchemaDsl.g:2978:1: ruleSchemaSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"$schema\"' otherlv_1= ':' ( (lv_schema_2_0= ruleEString ) ) ) ;
+    // InternalJsonSchemaDsl.g:2977:1: ruleSchemaSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"$schema\"' otherlv_1= ':' ( (lv_schema_2_0= ruleEString ) ) ) ;
     public final EObject ruleSchemaSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7793,25 +7829,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:2984:2: ( (otherlv_0= '\"$schema\"' otherlv_1= ':' ( (lv_schema_2_0= ruleEString ) ) ) )
-            // InternalJsonSchemaDsl.g:2985:2: (otherlv_0= '\"$schema\"' otherlv_1= ':' ( (lv_schema_2_0= ruleEString ) ) )
+            // InternalJsonSchemaDsl.g:2983:2: ( (otherlv_0= '\"$schema\"' otherlv_1= ':' ( (lv_schema_2_0= ruleEString ) ) ) )
+            // InternalJsonSchemaDsl.g:2984:2: (otherlv_0= '\"$schema\"' otherlv_1= ':' ( (lv_schema_2_0= ruleEString ) ) )
             {
-            // InternalJsonSchemaDsl.g:2985:2: (otherlv_0= '\"$schema\"' otherlv_1= ':' ( (lv_schema_2_0= ruleEString ) ) )
-            // InternalJsonSchemaDsl.g:2986:3: otherlv_0= '\"$schema\"' otherlv_1= ':' ( (lv_schema_2_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:2984:2: (otherlv_0= '\"$schema\"' otherlv_1= ':' ( (lv_schema_2_0= ruleEString ) ) )
+            // InternalJsonSchemaDsl.g:2985:3: otherlv_0= '\"$schema\"' otherlv_1= ':' ( (lv_schema_2_0= ruleEString ) )
             {
             otherlv_0=(Token)match(input,59,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSchemaSchemaDefinitionAccess().getSchemaKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_5); 
+            otherlv_1=(Token)match(input,16,FOLLOW_9); 
 
             			newLeafNode(otherlv_1, grammarAccess.getSchemaSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:2994:3: ( (lv_schema_2_0= ruleEString ) )
-            // InternalJsonSchemaDsl.g:2995:4: (lv_schema_2_0= ruleEString )
+            // InternalJsonSchemaDsl.g:2993:3: ( (lv_schema_2_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:2994:4: (lv_schema_2_0= ruleEString )
             {
-            // InternalJsonSchemaDsl.g:2995:4: (lv_schema_2_0= ruleEString )
-            // InternalJsonSchemaDsl.g:2996:5: lv_schema_2_0= ruleEString
+            // InternalJsonSchemaDsl.g:2994:4: (lv_schema_2_0= ruleEString )
+            // InternalJsonSchemaDsl.g:2995:5: lv_schema_2_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getSchemaSchemaDefinitionAccess().getSchemaEStringParserRuleCall_2_0());
@@ -7861,7 +7897,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePropertiesSchemaDefinition"
-    // InternalJsonSchemaDsl.g:3017:1: entryRulePropertiesSchemaDefinition returns [EObject current=null] : iv_rulePropertiesSchemaDefinition= rulePropertiesSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:3016:1: entryRulePropertiesSchemaDefinition returns [EObject current=null] : iv_rulePropertiesSchemaDefinition= rulePropertiesSchemaDefinition EOF ;
     public final EObject entryRulePropertiesSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7869,8 +7905,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3017:67: (iv_rulePropertiesSchemaDefinition= rulePropertiesSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:3018:2: iv_rulePropertiesSchemaDefinition= rulePropertiesSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:3016:67: (iv_rulePropertiesSchemaDefinition= rulePropertiesSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:3017:2: iv_rulePropertiesSchemaDefinition= rulePropertiesSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getPropertiesSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -7897,7 +7933,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePropertiesSchemaDefinition"
-    // InternalJsonSchemaDsl.g:3024:1: rulePropertiesSchemaDefinition returns [EObject current=null] : ( () otherlv_1= '\"properties\"' otherlv_2= ':' otherlv_3= '{' ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )? otherlv_7= '}' ) ;
+    // InternalJsonSchemaDsl.g:3023:1: rulePropertiesSchemaDefinition returns [EObject current=null] : ( () otherlv_1= '\"properties\"' otherlv_2= ':' otherlv_3= '{' ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )? otherlv_7= '}' ) ;
     public final EObject rulePropertiesSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -7915,14 +7951,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3030:2: ( ( () otherlv_1= '\"properties\"' otherlv_2= ':' otherlv_3= '{' ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )? otherlv_7= '}' ) )
-            // InternalJsonSchemaDsl.g:3031:2: ( () otherlv_1= '\"properties\"' otherlv_2= ':' otherlv_3= '{' ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )? otherlv_7= '}' )
+            // InternalJsonSchemaDsl.g:3029:2: ( ( () otherlv_1= '\"properties\"' otherlv_2= ':' otherlv_3= '{' ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )? otherlv_7= '}' ) )
+            // InternalJsonSchemaDsl.g:3030:2: ( () otherlv_1= '\"properties\"' otherlv_2= ':' otherlv_3= '{' ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )? otherlv_7= '}' )
             {
-            // InternalJsonSchemaDsl.g:3031:2: ( () otherlv_1= '\"properties\"' otherlv_2= ':' otherlv_3= '{' ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )? otherlv_7= '}' )
-            // InternalJsonSchemaDsl.g:3032:3: () otherlv_1= '\"properties\"' otherlv_2= ':' otherlv_3= '{' ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )? otherlv_7= '}'
+            // InternalJsonSchemaDsl.g:3030:2: ( () otherlv_1= '\"properties\"' otherlv_2= ':' otherlv_3= '{' ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )? otherlv_7= '}' )
+            // InternalJsonSchemaDsl.g:3031:3: () otherlv_1= '\"properties\"' otherlv_2= ':' otherlv_3= '{' ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )? otherlv_7= '}'
             {
-            // InternalJsonSchemaDsl.g:3032:3: ()
-            // InternalJsonSchemaDsl.g:3033:4: 
+            // InternalJsonSchemaDsl.g:3031:3: ()
+            // InternalJsonSchemaDsl.g:3032:4: 
             {
 
             				current = forceCreateModelElement(
@@ -7936,30 +7972,30 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getPropertiesSchemaDefinitionAccess().getPropertiesKeyword_1());
             		
-            otherlv_2=(Token)match(input,16,FOLLOW_16); 
+            otherlv_2=(Token)match(input,16,FOLLOW_17); 
 
             			newLeafNode(otherlv_2, grammarAccess.getPropertiesSchemaDefinitionAccess().getColonKeyword_2());
             		
-            otherlv_3=(Token)match(input,12,FOLLOW_3); 
+            otherlv_3=(Token)match(input,12,FOLLOW_18); 
 
             			newLeafNode(otherlv_3, grammarAccess.getPropertiesSchemaDefinitionAccess().getLeftCurlyBracketKeyword_3());
             		
-            // InternalJsonSchemaDsl.g:3051:3: ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )?
+            // InternalJsonSchemaDsl.g:3050:3: ( ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )* )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
-            if ( (LA19_0==RULE_STRING) ) {
+            if ( (LA19_0==RULE_STRING||LA19_0==15||(LA19_0>=17 && LA19_0<=18)||(LA19_0>=21 && LA19_0<=31)||(LA19_0>=33 && LA19_0<=57)||(LA19_0>=59 && LA19_0<=61)) ) {
                 alt19=1;
             }
             switch (alt19) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:3052:4: ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )*
+                    // InternalJsonSchemaDsl.g:3051:4: ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) ) (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )*
                     {
-                    // InternalJsonSchemaDsl.g:3052:4: ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) )
-                    // InternalJsonSchemaDsl.g:3053:5: (lv_keySchemaPairs_4_0= ruleKeySchemaPair )
+                    // InternalJsonSchemaDsl.g:3051:4: ( (lv_keySchemaPairs_4_0= ruleKeySchemaPair ) )
+                    // InternalJsonSchemaDsl.g:3052:5: (lv_keySchemaPairs_4_0= ruleKeySchemaPair )
                     {
-                    // InternalJsonSchemaDsl.g:3053:5: (lv_keySchemaPairs_4_0= ruleKeySchemaPair )
-                    // InternalJsonSchemaDsl.g:3054:6: lv_keySchemaPairs_4_0= ruleKeySchemaPair
+                    // InternalJsonSchemaDsl.g:3052:5: (lv_keySchemaPairs_4_0= ruleKeySchemaPair )
+                    // InternalJsonSchemaDsl.g:3053:6: lv_keySchemaPairs_4_0= ruleKeySchemaPair
                     {
 
                     						newCompositeNode(grammarAccess.getPropertiesSchemaDefinitionAccess().getKeySchemaPairsKeySchemaPairParserRuleCall_4_0_0());
@@ -7986,7 +8022,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJsonSchemaDsl.g:3071:4: (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )*
+                    // InternalJsonSchemaDsl.g:3070:4: (otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) ) )*
                     loop18:
                     do {
                         int alt18=2;
@@ -7999,17 +8035,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                         switch (alt18) {
                     	case 1 :
-                    	    // InternalJsonSchemaDsl.g:3072:5: otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) )
+                    	    // InternalJsonSchemaDsl.g:3071:5: otherlv_5= ',' ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) )
                     	    {
-                    	    otherlv_5=(Token)match(input,13,FOLLOW_5); 
+                    	    otherlv_5=(Token)match(input,13,FOLLOW_9); 
 
                     	    					newLeafNode(otherlv_5, grammarAccess.getPropertiesSchemaDefinitionAccess().getCommaKeyword_4_1_0());
                     	    				
-                    	    // InternalJsonSchemaDsl.g:3076:5: ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) )
-                    	    // InternalJsonSchemaDsl.g:3077:6: (lv_keySchemaPairs_6_0= ruleKeySchemaPair )
+                    	    // InternalJsonSchemaDsl.g:3075:5: ( (lv_keySchemaPairs_6_0= ruleKeySchemaPair ) )
+                    	    // InternalJsonSchemaDsl.g:3076:6: (lv_keySchemaPairs_6_0= ruleKeySchemaPair )
                     	    {
-                    	    // InternalJsonSchemaDsl.g:3077:6: (lv_keySchemaPairs_6_0= ruleKeySchemaPair )
-                    	    // InternalJsonSchemaDsl.g:3078:7: lv_keySchemaPairs_6_0= ruleKeySchemaPair
+                    	    // InternalJsonSchemaDsl.g:3076:6: (lv_keySchemaPairs_6_0= ruleKeySchemaPair )
+                    	    // InternalJsonSchemaDsl.g:3077:7: lv_keySchemaPairs_6_0= ruleKeySchemaPair
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getPropertiesSchemaDefinitionAccess().getKeySchemaPairsKeySchemaPairParserRuleCall_4_1_1_0());
@@ -8078,7 +8114,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePropertyNamesSchemaDefinition"
-    // InternalJsonSchemaDsl.g:3105:1: entryRulePropertyNamesSchemaDefinition returns [EObject current=null] : iv_rulePropertyNamesSchemaDefinition= rulePropertyNamesSchemaDefinition EOF ;
+    // InternalJsonSchemaDsl.g:3104:1: entryRulePropertyNamesSchemaDefinition returns [EObject current=null] : iv_rulePropertyNamesSchemaDefinition= rulePropertyNamesSchemaDefinition EOF ;
     public final EObject entryRulePropertyNamesSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -8086,8 +8122,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3105:70: (iv_rulePropertyNamesSchemaDefinition= rulePropertyNamesSchemaDefinition EOF )
-            // InternalJsonSchemaDsl.g:3106:2: iv_rulePropertyNamesSchemaDefinition= rulePropertyNamesSchemaDefinition EOF
+            // InternalJsonSchemaDsl.g:3104:70: (iv_rulePropertyNamesSchemaDefinition= rulePropertyNamesSchemaDefinition EOF )
+            // InternalJsonSchemaDsl.g:3105:2: iv_rulePropertyNamesSchemaDefinition= rulePropertyNamesSchemaDefinition EOF
             {
              newCompositeNode(grammarAccess.getPropertyNamesSchemaDefinitionRule()); 
             pushFollow(FOLLOW_1);
@@ -8114,7 +8150,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePropertyNamesSchemaDefinition"
-    // InternalJsonSchemaDsl.g:3112:1: rulePropertyNamesSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"propertyNames\"' otherlv_1= ':' ( (lv_propertyNames_2_0= ruleSchema ) ) ) ;
+    // InternalJsonSchemaDsl.g:3111:1: rulePropertyNamesSchemaDefinition returns [EObject current=null] : (otherlv_0= '\"propertyNames\"' otherlv_1= ':' ( (lv_propertyNames_2_0= ruleSchema ) ) ) ;
     public final EObject rulePropertyNamesSchemaDefinition() throws RecognitionException {
         EObject current = null;
 
@@ -8127,25 +8163,25 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3118:2: ( (otherlv_0= '\"propertyNames\"' otherlv_1= ':' ( (lv_propertyNames_2_0= ruleSchema ) ) ) )
-            // InternalJsonSchemaDsl.g:3119:2: (otherlv_0= '\"propertyNames\"' otherlv_1= ':' ( (lv_propertyNames_2_0= ruleSchema ) ) )
+            // InternalJsonSchemaDsl.g:3117:2: ( (otherlv_0= '\"propertyNames\"' otherlv_1= ':' ( (lv_propertyNames_2_0= ruleSchema ) ) ) )
+            // InternalJsonSchemaDsl.g:3118:2: (otherlv_0= '\"propertyNames\"' otherlv_1= ':' ( (lv_propertyNames_2_0= ruleSchema ) ) )
             {
-            // InternalJsonSchemaDsl.g:3119:2: (otherlv_0= '\"propertyNames\"' otherlv_1= ':' ( (lv_propertyNames_2_0= ruleSchema ) ) )
-            // InternalJsonSchemaDsl.g:3120:3: otherlv_0= '\"propertyNames\"' otherlv_1= ':' ( (lv_propertyNames_2_0= ruleSchema ) )
+            // InternalJsonSchemaDsl.g:3118:2: (otherlv_0= '\"propertyNames\"' otherlv_1= ':' ( (lv_propertyNames_2_0= ruleSchema ) ) )
+            // InternalJsonSchemaDsl.g:3119:3: otherlv_0= '\"propertyNames\"' otherlv_1= ':' ( (lv_propertyNames_2_0= ruleSchema ) )
             {
             otherlv_0=(Token)match(input,61,FOLLOW_6); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPropertyNamesSchemaDefinitionAccess().getPropertyNamesKeyword_0());
             		
-            otherlv_1=(Token)match(input,16,FOLLOW_14); 
+            otherlv_1=(Token)match(input,16,FOLLOW_15); 
 
             			newLeafNode(otherlv_1, grammarAccess.getPropertyNamesSchemaDefinitionAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:3128:3: ( (lv_propertyNames_2_0= ruleSchema ) )
-            // InternalJsonSchemaDsl.g:3129:4: (lv_propertyNames_2_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:3127:3: ( (lv_propertyNames_2_0= ruleSchema ) )
+            // InternalJsonSchemaDsl.g:3128:4: (lv_propertyNames_2_0= ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:3129:4: (lv_propertyNames_2_0= ruleSchema )
-            // InternalJsonSchemaDsl.g:3130:5: lv_propertyNames_2_0= ruleSchema
+            // InternalJsonSchemaDsl.g:3128:4: (lv_propertyNames_2_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:3129:5: lv_propertyNames_2_0= ruleSchema
             {
 
             					newCompositeNode(grammarAccess.getPropertyNamesSchemaDefinitionAccess().getPropertyNamesSchemaParserRuleCall_2_0());
@@ -8195,7 +8231,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEDouble"
-    // InternalJsonSchemaDsl.g:3151:1: entryRuleEDouble returns [String current=null] : iv_ruleEDouble= ruleEDouble EOF ;
+    // InternalJsonSchemaDsl.g:3150:1: entryRuleEDouble returns [String current=null] : iv_ruleEDouble= ruleEDouble EOF ;
     public final String entryRuleEDouble() throws RecognitionException {
         String current = null;
 
@@ -8203,8 +8239,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3151:47: (iv_ruleEDouble= ruleEDouble EOF )
-            // InternalJsonSchemaDsl.g:3152:2: iv_ruleEDouble= ruleEDouble EOF
+            // InternalJsonSchemaDsl.g:3150:47: (iv_ruleEDouble= ruleEDouble EOF )
+            // InternalJsonSchemaDsl.g:3151:2: iv_ruleEDouble= ruleEDouble EOF
             {
              newCompositeNode(grammarAccess.getEDoubleRule()); 
             pushFollow(FOLLOW_1);
@@ -8231,7 +8267,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEDouble"
-    // InternalJsonSchemaDsl.g:3158:1: ruleEDouble returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_JSON_NUMBER_0= RULE_JSON_NUMBER ;
+    // InternalJsonSchemaDsl.g:3157:1: ruleEDouble returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_JSON_NUMBER_0= RULE_JSON_NUMBER ;
     public final AntlrDatatypeRuleToken ruleEDouble() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -8241,8 +8277,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3164:2: (this_JSON_NUMBER_0= RULE_JSON_NUMBER )
-            // InternalJsonSchemaDsl.g:3165:2: this_JSON_NUMBER_0= RULE_JSON_NUMBER
+            // InternalJsonSchemaDsl.g:3163:2: (this_JSON_NUMBER_0= RULE_JSON_NUMBER )
+            // InternalJsonSchemaDsl.g:3164:2: this_JSON_NUMBER_0= RULE_JSON_NUMBER
             {
             this_JSON_NUMBER_0=(Token)match(input,RULE_JSON_NUMBER,FOLLOW_2); 
 
@@ -8271,7 +8307,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEBoolean"
-    // InternalJsonSchemaDsl.g:3175:1: entryRuleEBoolean returns [String current=null] : iv_ruleEBoolean= ruleEBoolean EOF ;
+    // InternalJsonSchemaDsl.g:3174:1: entryRuleEBoolean returns [String current=null] : iv_ruleEBoolean= ruleEBoolean EOF ;
     public final String entryRuleEBoolean() throws RecognitionException {
         String current = null;
 
@@ -8279,8 +8315,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3175:48: (iv_ruleEBoolean= ruleEBoolean EOF )
-            // InternalJsonSchemaDsl.g:3176:2: iv_ruleEBoolean= ruleEBoolean EOF
+            // InternalJsonSchemaDsl.g:3174:48: (iv_ruleEBoolean= ruleEBoolean EOF )
+            // InternalJsonSchemaDsl.g:3175:2: iv_ruleEBoolean= ruleEBoolean EOF
             {
              newCompositeNode(grammarAccess.getEBooleanRule()); 
             pushFollow(FOLLOW_1);
@@ -8307,7 +8343,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEBoolean"
-    // InternalJsonSchemaDsl.g:3182:1: ruleEBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'true' | kw= 'false' ) ;
+    // InternalJsonSchemaDsl.g:3181:1: ruleEBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'true' | kw= 'false' ) ;
     public final AntlrDatatypeRuleToken ruleEBoolean() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -8317,10 +8353,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3188:2: ( (kw= 'true' | kw= 'false' ) )
-            // InternalJsonSchemaDsl.g:3189:2: (kw= 'true' | kw= 'false' )
+            // InternalJsonSchemaDsl.g:3187:2: ( (kw= 'true' | kw= 'false' ) )
+            // InternalJsonSchemaDsl.g:3188:2: (kw= 'true' | kw= 'false' )
             {
-            // InternalJsonSchemaDsl.g:3189:2: (kw= 'true' | kw= 'false' )
+            // InternalJsonSchemaDsl.g:3188:2: (kw= 'true' | kw= 'false' )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -8338,7 +8374,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             }
             switch (alt20) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:3190:3: kw= 'true'
+                    // InternalJsonSchemaDsl.g:3189:3: kw= 'true'
                     {
                     kw=(Token)match(input,62,FOLLOW_2); 
 
@@ -8349,7 +8385,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonSchemaDsl.g:3196:3: kw= 'false'
+                    // InternalJsonSchemaDsl.g:3195:3: kw= 'false'
                     {
                     kw=(Token)match(input,63,FOLLOW_2); 
 
@@ -8382,7 +8418,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEString"
-    // InternalJsonSchemaDsl.g:3205:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
+    // InternalJsonSchemaDsl.g:3204:1: entryRuleEString returns [String current=null] : iv_ruleEString= ruleEString EOF ;
     public final String entryRuleEString() throws RecognitionException {
         String current = null;
 
@@ -8390,8 +8426,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3205:47: (iv_ruleEString= ruleEString EOF )
-            // InternalJsonSchemaDsl.g:3206:2: iv_ruleEString= ruleEString EOF
+            // InternalJsonSchemaDsl.g:3204:47: (iv_ruleEString= ruleEString EOF )
+            // InternalJsonSchemaDsl.g:3205:2: iv_ruleEString= ruleEString EOF
             {
              newCompositeNode(grammarAccess.getEStringRule()); 
             pushFollow(FOLLOW_1);
@@ -8418,25 +8454,33 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEString"
-    // InternalJsonSchemaDsl.g:3212:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_STRING_0= RULE_STRING ;
+    // InternalJsonSchemaDsl.g:3211:1: ruleEString returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_VALID_STRING_0= ruleVALID_STRING ;
     public final AntlrDatatypeRuleToken ruleEString() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        Token this_STRING_0=null;
+        AntlrDatatypeRuleToken this_VALID_STRING_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3218:2: (this_STRING_0= RULE_STRING )
-            // InternalJsonSchemaDsl.g:3219:2: this_STRING_0= RULE_STRING
+            // InternalJsonSchemaDsl.g:3217:2: (this_VALID_STRING_0= ruleVALID_STRING )
+            // InternalJsonSchemaDsl.g:3218:2: this_VALID_STRING_0= ruleVALID_STRING
             {
-            this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-            		current.merge(this_STRING_0);
+            		newCompositeNode(grammarAccess.getEStringAccess().getVALID_STRINGParserRuleCall());
+            	
+            pushFollow(FOLLOW_2);
+            this_VALID_STRING_0=ruleVALID_STRING();
+
+            state._fsp--;
+
+
+            		current.merge(this_VALID_STRING_0);
             	
 
-            		newLeafNode(this_STRING_0, grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall());
+            		afterParserOrEnumRuleCall();
             	
 
             }
@@ -8458,7 +8502,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleJsonDocument"
-    // InternalJsonSchemaDsl.g:3229:1: entryRuleJsonDocument returns [EObject current=null] : iv_ruleJsonDocument= ruleJsonDocument EOF ;
+    // InternalJsonSchemaDsl.g:3231:1: entryRuleJsonDocument returns [EObject current=null] : iv_ruleJsonDocument= ruleJsonDocument EOF ;
     public final EObject entryRuleJsonDocument() throws RecognitionException {
         EObject current = null;
 
@@ -8466,8 +8510,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3229:53: (iv_ruleJsonDocument= ruleJsonDocument EOF )
-            // InternalJsonSchemaDsl.g:3230:2: iv_ruleJsonDocument= ruleJsonDocument EOF
+            // InternalJsonSchemaDsl.g:3231:53: (iv_ruleJsonDocument= ruleJsonDocument EOF )
+            // InternalJsonSchemaDsl.g:3232:2: iv_ruleJsonDocument= ruleJsonDocument EOF
             {
              newCompositeNode(grammarAccess.getJsonDocumentRule()); 
             pushFollow(FOLLOW_1);
@@ -8494,7 +8538,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleJsonDocument"
-    // InternalJsonSchemaDsl.g:3236:1: ruleJsonDocument returns [EObject current=null] : ( (lv_value_0_0= ruleValue ) ) ;
+    // InternalJsonSchemaDsl.g:3238:1: ruleJsonDocument returns [EObject current=null] : ( (lv_value_0_0= ruleValue ) ) ;
     public final EObject ruleJsonDocument() throws RecognitionException {
         EObject current = null;
 
@@ -8505,14 +8549,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3242:2: ( ( (lv_value_0_0= ruleValue ) ) )
-            // InternalJsonSchemaDsl.g:3243:2: ( (lv_value_0_0= ruleValue ) )
+            // InternalJsonSchemaDsl.g:3244:2: ( ( (lv_value_0_0= ruleValue ) ) )
+            // InternalJsonSchemaDsl.g:3245:2: ( (lv_value_0_0= ruleValue ) )
             {
-            // InternalJsonSchemaDsl.g:3243:2: ( (lv_value_0_0= ruleValue ) )
-            // InternalJsonSchemaDsl.g:3244:3: (lv_value_0_0= ruleValue )
+            // InternalJsonSchemaDsl.g:3245:2: ( (lv_value_0_0= ruleValue ) )
+            // InternalJsonSchemaDsl.g:3246:3: (lv_value_0_0= ruleValue )
             {
-            // InternalJsonSchemaDsl.g:3244:3: (lv_value_0_0= ruleValue )
-            // InternalJsonSchemaDsl.g:3245:4: lv_value_0_0= ruleValue
+            // InternalJsonSchemaDsl.g:3246:3: (lv_value_0_0= ruleValue )
+            // InternalJsonSchemaDsl.g:3247:4: lv_value_0_0= ruleValue
             {
 
             				newCompositeNode(grammarAccess.getJsonDocumentAccess().getValueValueParserRuleCall_0());
@@ -8559,7 +8603,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIntegerValue"
-    // InternalJsonSchemaDsl.g:3265:1: entryRuleIntegerValue returns [EObject current=null] : iv_ruleIntegerValue= ruleIntegerValue EOF ;
+    // InternalJsonSchemaDsl.g:3267:1: entryRuleIntegerValue returns [EObject current=null] : iv_ruleIntegerValue= ruleIntegerValue EOF ;
     public final EObject entryRuleIntegerValue() throws RecognitionException {
         EObject current = null;
 
@@ -8567,8 +8611,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3265:53: (iv_ruleIntegerValue= ruleIntegerValue EOF )
-            // InternalJsonSchemaDsl.g:3266:2: iv_ruleIntegerValue= ruleIntegerValue EOF
+            // InternalJsonSchemaDsl.g:3267:53: (iv_ruleIntegerValue= ruleIntegerValue EOF )
+            // InternalJsonSchemaDsl.g:3268:2: iv_ruleIntegerValue= ruleIntegerValue EOF
             {
              newCompositeNode(grammarAccess.getIntegerValueRule()); 
             pushFollow(FOLLOW_1);
@@ -8595,7 +8639,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIntegerValue"
-    // InternalJsonSchemaDsl.g:3272:1: ruleIntegerValue returns [EObject current=null] : ( (lv_value_0_0= ruleEInt ) ) ;
+    // InternalJsonSchemaDsl.g:3274:1: ruleIntegerValue returns [EObject current=null] : ( (lv_value_0_0= ruleEInt ) ) ;
     public final EObject ruleIntegerValue() throws RecognitionException {
         EObject current = null;
 
@@ -8606,14 +8650,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3278:2: ( ( (lv_value_0_0= ruleEInt ) ) )
-            // InternalJsonSchemaDsl.g:3279:2: ( (lv_value_0_0= ruleEInt ) )
+            // InternalJsonSchemaDsl.g:3280:2: ( ( (lv_value_0_0= ruleEInt ) ) )
+            // InternalJsonSchemaDsl.g:3281:2: ( (lv_value_0_0= ruleEInt ) )
             {
-            // InternalJsonSchemaDsl.g:3279:2: ( (lv_value_0_0= ruleEInt ) )
-            // InternalJsonSchemaDsl.g:3280:3: (lv_value_0_0= ruleEInt )
+            // InternalJsonSchemaDsl.g:3281:2: ( (lv_value_0_0= ruleEInt ) )
+            // InternalJsonSchemaDsl.g:3282:3: (lv_value_0_0= ruleEInt )
             {
-            // InternalJsonSchemaDsl.g:3280:3: (lv_value_0_0= ruleEInt )
-            // InternalJsonSchemaDsl.g:3281:4: lv_value_0_0= ruleEInt
+            // InternalJsonSchemaDsl.g:3282:3: (lv_value_0_0= ruleEInt )
+            // InternalJsonSchemaDsl.g:3283:4: lv_value_0_0= ruleEInt
             {
 
             				newCompositeNode(grammarAccess.getIntegerValueAccess().getValueEIntParserRuleCall_0());
@@ -8660,7 +8704,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBooleanValue"
-    // InternalJsonSchemaDsl.g:3301:1: entryRuleBooleanValue returns [EObject current=null] : iv_ruleBooleanValue= ruleBooleanValue EOF ;
+    // InternalJsonSchemaDsl.g:3303:1: entryRuleBooleanValue returns [EObject current=null] : iv_ruleBooleanValue= ruleBooleanValue EOF ;
     public final EObject entryRuleBooleanValue() throws RecognitionException {
         EObject current = null;
 
@@ -8668,8 +8712,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3301:53: (iv_ruleBooleanValue= ruleBooleanValue EOF )
-            // InternalJsonSchemaDsl.g:3302:2: iv_ruleBooleanValue= ruleBooleanValue EOF
+            // InternalJsonSchemaDsl.g:3303:53: (iv_ruleBooleanValue= ruleBooleanValue EOF )
+            // InternalJsonSchemaDsl.g:3304:2: iv_ruleBooleanValue= ruleBooleanValue EOF
             {
              newCompositeNode(grammarAccess.getBooleanValueRule()); 
             pushFollow(FOLLOW_1);
@@ -8696,7 +8740,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanValue"
-    // InternalJsonSchemaDsl.g:3308:1: ruleBooleanValue returns [EObject current=null] : ( (lv_value_0_0= ruleEBoolean ) ) ;
+    // InternalJsonSchemaDsl.g:3310:1: ruleBooleanValue returns [EObject current=null] : ( (lv_value_0_0= ruleEBoolean ) ) ;
     public final EObject ruleBooleanValue() throws RecognitionException {
         EObject current = null;
 
@@ -8707,14 +8751,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3314:2: ( ( (lv_value_0_0= ruleEBoolean ) ) )
-            // InternalJsonSchemaDsl.g:3315:2: ( (lv_value_0_0= ruleEBoolean ) )
+            // InternalJsonSchemaDsl.g:3316:2: ( ( (lv_value_0_0= ruleEBoolean ) ) )
+            // InternalJsonSchemaDsl.g:3317:2: ( (lv_value_0_0= ruleEBoolean ) )
             {
-            // InternalJsonSchemaDsl.g:3315:2: ( (lv_value_0_0= ruleEBoolean ) )
-            // InternalJsonSchemaDsl.g:3316:3: (lv_value_0_0= ruleEBoolean )
+            // InternalJsonSchemaDsl.g:3317:2: ( (lv_value_0_0= ruleEBoolean ) )
+            // InternalJsonSchemaDsl.g:3318:3: (lv_value_0_0= ruleEBoolean )
             {
-            // InternalJsonSchemaDsl.g:3316:3: (lv_value_0_0= ruleEBoolean )
-            // InternalJsonSchemaDsl.g:3317:4: lv_value_0_0= ruleEBoolean
+            // InternalJsonSchemaDsl.g:3318:3: (lv_value_0_0= ruleEBoolean )
+            // InternalJsonSchemaDsl.g:3319:4: lv_value_0_0= ruleEBoolean
             {
 
             				newCompositeNode(grammarAccess.getBooleanValueAccess().getValueEBooleanParserRuleCall_0());
@@ -8761,7 +8805,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNullValue"
-    // InternalJsonSchemaDsl.g:3337:1: entryRuleNullValue returns [EObject current=null] : iv_ruleNullValue= ruleNullValue EOF ;
+    // InternalJsonSchemaDsl.g:3339:1: entryRuleNullValue returns [EObject current=null] : iv_ruleNullValue= ruleNullValue EOF ;
     public final EObject entryRuleNullValue() throws RecognitionException {
         EObject current = null;
 
@@ -8769,8 +8813,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3337:50: (iv_ruleNullValue= ruleNullValue EOF )
-            // InternalJsonSchemaDsl.g:3338:2: iv_ruleNullValue= ruleNullValue EOF
+            // InternalJsonSchemaDsl.g:3339:50: (iv_ruleNullValue= ruleNullValue EOF )
+            // InternalJsonSchemaDsl.g:3340:2: iv_ruleNullValue= ruleNullValue EOF
             {
              newCompositeNode(grammarAccess.getNullValueRule()); 
             pushFollow(FOLLOW_1);
@@ -8797,7 +8841,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNullValue"
-    // InternalJsonSchemaDsl.g:3344:1: ruleNullValue returns [EObject current=null] : ( () otherlv_1= 'null' ) ;
+    // InternalJsonSchemaDsl.g:3346:1: ruleNullValue returns [EObject current=null] : ( () otherlv_1= 'null' ) ;
     public final EObject ruleNullValue() throws RecognitionException {
         EObject current = null;
 
@@ -8807,14 +8851,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3350:2: ( ( () otherlv_1= 'null' ) )
-            // InternalJsonSchemaDsl.g:3351:2: ( () otherlv_1= 'null' )
+            // InternalJsonSchemaDsl.g:3352:2: ( ( () otherlv_1= 'null' ) )
+            // InternalJsonSchemaDsl.g:3353:2: ( () otherlv_1= 'null' )
             {
-            // InternalJsonSchemaDsl.g:3351:2: ( () otherlv_1= 'null' )
-            // InternalJsonSchemaDsl.g:3352:3: () otherlv_1= 'null'
+            // InternalJsonSchemaDsl.g:3353:2: ( () otherlv_1= 'null' )
+            // InternalJsonSchemaDsl.g:3354:3: () otherlv_1= 'null'
             {
-            // InternalJsonSchemaDsl.g:3352:3: ()
-            // InternalJsonSchemaDsl.g:3353:4: 
+            // InternalJsonSchemaDsl.g:3354:3: ()
+            // InternalJsonSchemaDsl.g:3355:4: 
             {
 
             				current = forceCreateModelElement(
@@ -8851,7 +8895,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringValue"
-    // InternalJsonSchemaDsl.g:3367:1: entryRuleStringValue returns [EObject current=null] : iv_ruleStringValue= ruleStringValue EOF ;
+    // InternalJsonSchemaDsl.g:3369:1: entryRuleStringValue returns [EObject current=null] : iv_ruleStringValue= ruleStringValue EOF ;
     public final EObject entryRuleStringValue() throws RecognitionException {
         EObject current = null;
 
@@ -8859,8 +8903,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3367:52: (iv_ruleStringValue= ruleStringValue EOF )
-            // InternalJsonSchemaDsl.g:3368:2: iv_ruleStringValue= ruleStringValue EOF
+            // InternalJsonSchemaDsl.g:3369:52: (iv_ruleStringValue= ruleStringValue EOF )
+            // InternalJsonSchemaDsl.g:3370:2: iv_ruleStringValue= ruleStringValue EOF
             {
              newCompositeNode(grammarAccess.getStringValueRule()); 
             pushFollow(FOLLOW_1);
@@ -8887,38 +8931,44 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringValue"
-    // InternalJsonSchemaDsl.g:3374:1: ruleStringValue returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
+    // InternalJsonSchemaDsl.g:3376:1: ruleStringValue returns [EObject current=null] : ( (lv_value_0_0= ruleVALID_STRING ) ) ;
     public final EObject ruleStringValue() throws RecognitionException {
         EObject current = null;
 
-        Token lv_value_0_0=null;
+        AntlrDatatypeRuleToken lv_value_0_0 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3380:2: ( ( (lv_value_0_0= RULE_STRING ) ) )
-            // InternalJsonSchemaDsl.g:3381:2: ( (lv_value_0_0= RULE_STRING ) )
+            // InternalJsonSchemaDsl.g:3382:2: ( ( (lv_value_0_0= ruleVALID_STRING ) ) )
+            // InternalJsonSchemaDsl.g:3383:2: ( (lv_value_0_0= ruleVALID_STRING ) )
             {
-            // InternalJsonSchemaDsl.g:3381:2: ( (lv_value_0_0= RULE_STRING ) )
-            // InternalJsonSchemaDsl.g:3382:3: (lv_value_0_0= RULE_STRING )
+            // InternalJsonSchemaDsl.g:3383:2: ( (lv_value_0_0= ruleVALID_STRING ) )
+            // InternalJsonSchemaDsl.g:3384:3: (lv_value_0_0= ruleVALID_STRING )
             {
-            // InternalJsonSchemaDsl.g:3382:3: (lv_value_0_0= RULE_STRING )
-            // InternalJsonSchemaDsl.g:3383:4: lv_value_0_0= RULE_STRING
+            // InternalJsonSchemaDsl.g:3384:3: (lv_value_0_0= ruleVALID_STRING )
+            // InternalJsonSchemaDsl.g:3385:4: lv_value_0_0= ruleVALID_STRING
             {
-            lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-            				newLeafNode(lv_value_0_0, grammarAccess.getStringValueAccess().getValueSTRINGTerminalRuleCall_0());
+            				newCompositeNode(grammarAccess.getStringValueAccess().getValueVALID_STRINGParserRuleCall_0());
             			
+            pushFollow(FOLLOW_2);
+            lv_value_0_0=ruleVALID_STRING();
+
+            state._fsp--;
+
 
             				if (current==null) {
-            					current = createModelElement(grammarAccess.getStringValueRule());
+            					current = createModelElementForParent(grammarAccess.getStringValueRule());
             				}
-            				setWithLastConsumed(
+            				set(
             					current,
             					"value",
             					lv_value_0_0,
-            					"at.jku.bise.JsonSchemaDsl.STRING");
+            					"at.jku.bise.JsonSchemaDsl.VALID_STRING");
+            				afterParserOrEnumRuleCall();
             			
 
             }
@@ -8946,7 +8996,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleObjectValue"
-    // InternalJsonSchemaDsl.g:3402:1: entryRuleObjectValue returns [EObject current=null] : iv_ruleObjectValue= ruleObjectValue EOF ;
+    // InternalJsonSchemaDsl.g:3405:1: entryRuleObjectValue returns [EObject current=null] : iv_ruleObjectValue= ruleObjectValue EOF ;
     public final EObject entryRuleObjectValue() throws RecognitionException {
         EObject current = null;
 
@@ -8954,8 +9004,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3402:52: (iv_ruleObjectValue= ruleObjectValue EOF )
-            // InternalJsonSchemaDsl.g:3403:2: iv_ruleObjectValue= ruleObjectValue EOF
+            // InternalJsonSchemaDsl.g:3405:52: (iv_ruleObjectValue= ruleObjectValue EOF )
+            // InternalJsonSchemaDsl.g:3406:2: iv_ruleObjectValue= ruleObjectValue EOF
             {
              newCompositeNode(grammarAccess.getObjectValueRule()); 
             pushFollow(FOLLOW_1);
@@ -8982,7 +9032,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleObjectValue"
-    // InternalJsonSchemaDsl.g:3409:1: ruleObjectValue returns [EObject current=null] : ( () otherlv_1= '{' ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )? otherlv_5= '}' ) ;
+    // InternalJsonSchemaDsl.g:3412:1: ruleObjectValue returns [EObject current=null] : ( () otherlv_1= '{' ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )? otherlv_5= '}' ) ;
     public final EObject ruleObjectValue() throws RecognitionException {
         EObject current = null;
 
@@ -8998,14 +9048,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3415:2: ( ( () otherlv_1= '{' ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )? otherlv_5= '}' ) )
-            // InternalJsonSchemaDsl.g:3416:2: ( () otherlv_1= '{' ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )? otherlv_5= '}' )
+            // InternalJsonSchemaDsl.g:3418:2: ( ( () otherlv_1= '{' ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )? otherlv_5= '}' ) )
+            // InternalJsonSchemaDsl.g:3419:2: ( () otherlv_1= '{' ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )? otherlv_5= '}' )
             {
-            // InternalJsonSchemaDsl.g:3416:2: ( () otherlv_1= '{' ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )? otherlv_5= '}' )
-            // InternalJsonSchemaDsl.g:3417:3: () otherlv_1= '{' ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )? otherlv_5= '}'
+            // InternalJsonSchemaDsl.g:3419:2: ( () otherlv_1= '{' ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )? otherlv_5= '}' )
+            // InternalJsonSchemaDsl.g:3420:3: () otherlv_1= '{' ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )? otherlv_5= '}'
             {
-            // InternalJsonSchemaDsl.g:3417:3: ()
-            // InternalJsonSchemaDsl.g:3418:4: 
+            // InternalJsonSchemaDsl.g:3420:3: ()
+            // InternalJsonSchemaDsl.g:3421:4: 
             {
 
             				current = forceCreateModelElement(
@@ -9019,7 +9069,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getObjectValueAccess().getLeftCurlyBracketKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:3428:3: ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )?
+            // InternalJsonSchemaDsl.g:3431:3: ( ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )* )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -9028,13 +9078,13 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             }
             switch (alt22) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:3429:4: ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )*
+                    // InternalJsonSchemaDsl.g:3432:4: ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) ) (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )*
                     {
-                    // InternalJsonSchemaDsl.g:3429:4: ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) )
-                    // InternalJsonSchemaDsl.g:3430:5: (lv_keyvaluepair_2_0= ruleKeyValuePair )
+                    // InternalJsonSchemaDsl.g:3432:4: ( (lv_keyvaluepair_2_0= ruleKeyValuePair ) )
+                    // InternalJsonSchemaDsl.g:3433:5: (lv_keyvaluepair_2_0= ruleKeyValuePair )
                     {
-                    // InternalJsonSchemaDsl.g:3430:5: (lv_keyvaluepair_2_0= ruleKeyValuePair )
-                    // InternalJsonSchemaDsl.g:3431:6: lv_keyvaluepair_2_0= ruleKeyValuePair
+                    // InternalJsonSchemaDsl.g:3433:5: (lv_keyvaluepair_2_0= ruleKeyValuePair )
+                    // InternalJsonSchemaDsl.g:3434:6: lv_keyvaluepair_2_0= ruleKeyValuePair
                     {
 
                     						newCompositeNode(grammarAccess.getObjectValueAccess().getKeyvaluepairKeyValuePairParserRuleCall_2_0_0());
@@ -9061,7 +9111,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJsonSchemaDsl.g:3448:4: (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )*
+                    // InternalJsonSchemaDsl.g:3451:4: (otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) ) )*
                     loop21:
                     do {
                         int alt21=2;
@@ -9074,17 +9124,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                         switch (alt21) {
                     	case 1 :
-                    	    // InternalJsonSchemaDsl.g:3449:5: otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) )
+                    	    // InternalJsonSchemaDsl.g:3452:5: otherlv_3= ',' ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) )
                     	    {
                     	    otherlv_3=(Token)match(input,13,FOLLOW_5); 
 
                     	    					newLeafNode(otherlv_3, grammarAccess.getObjectValueAccess().getCommaKeyword_2_1_0());
                     	    				
-                    	    // InternalJsonSchemaDsl.g:3453:5: ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) )
-                    	    // InternalJsonSchemaDsl.g:3454:6: (lv_keyvaluepair_4_0= ruleKeyValuePair )
+                    	    // InternalJsonSchemaDsl.g:3456:5: ( (lv_keyvaluepair_4_0= ruleKeyValuePair ) )
+                    	    // InternalJsonSchemaDsl.g:3457:6: (lv_keyvaluepair_4_0= ruleKeyValuePair )
                     	    {
-                    	    // InternalJsonSchemaDsl.g:3454:6: (lv_keyvaluepair_4_0= ruleKeyValuePair )
-                    	    // InternalJsonSchemaDsl.g:3455:7: lv_keyvaluepair_4_0= ruleKeyValuePair
+                    	    // InternalJsonSchemaDsl.g:3457:6: (lv_keyvaluepair_4_0= ruleKeyValuePair )
+                    	    // InternalJsonSchemaDsl.g:3458:7: lv_keyvaluepair_4_0= ruleKeyValuePair
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getObjectValueAccess().getKeyvaluepairKeyValuePairParserRuleCall_2_1_1_0());
@@ -9153,7 +9203,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNumberValue"
-    // InternalJsonSchemaDsl.g:3482:1: entryRuleNumberValue returns [EObject current=null] : iv_ruleNumberValue= ruleNumberValue EOF ;
+    // InternalJsonSchemaDsl.g:3485:1: entryRuleNumberValue returns [EObject current=null] : iv_ruleNumberValue= ruleNumberValue EOF ;
     public final EObject entryRuleNumberValue() throws RecognitionException {
         EObject current = null;
 
@@ -9161,8 +9211,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3482:52: (iv_ruleNumberValue= ruleNumberValue EOF )
-            // InternalJsonSchemaDsl.g:3483:2: iv_ruleNumberValue= ruleNumberValue EOF
+            // InternalJsonSchemaDsl.g:3485:52: (iv_ruleNumberValue= ruleNumberValue EOF )
+            // InternalJsonSchemaDsl.g:3486:2: iv_ruleNumberValue= ruleNumberValue EOF
             {
              newCompositeNode(grammarAccess.getNumberValueRule()); 
             pushFollow(FOLLOW_1);
@@ -9189,7 +9239,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNumberValue"
-    // InternalJsonSchemaDsl.g:3489:1: ruleNumberValue returns [EObject current=null] : ( (lv_value_0_0= ruleEDouble ) ) ;
+    // InternalJsonSchemaDsl.g:3492:1: ruleNumberValue returns [EObject current=null] : ( (lv_value_0_0= ruleEDouble ) ) ;
     public final EObject ruleNumberValue() throws RecognitionException {
         EObject current = null;
 
@@ -9200,14 +9250,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3495:2: ( ( (lv_value_0_0= ruleEDouble ) ) )
-            // InternalJsonSchemaDsl.g:3496:2: ( (lv_value_0_0= ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:3498:2: ( ( (lv_value_0_0= ruleEDouble ) ) )
+            // InternalJsonSchemaDsl.g:3499:2: ( (lv_value_0_0= ruleEDouble ) )
             {
-            // InternalJsonSchemaDsl.g:3496:2: ( (lv_value_0_0= ruleEDouble ) )
-            // InternalJsonSchemaDsl.g:3497:3: (lv_value_0_0= ruleEDouble )
+            // InternalJsonSchemaDsl.g:3499:2: ( (lv_value_0_0= ruleEDouble ) )
+            // InternalJsonSchemaDsl.g:3500:3: (lv_value_0_0= ruleEDouble )
             {
-            // InternalJsonSchemaDsl.g:3497:3: (lv_value_0_0= ruleEDouble )
-            // InternalJsonSchemaDsl.g:3498:4: lv_value_0_0= ruleEDouble
+            // InternalJsonSchemaDsl.g:3500:3: (lv_value_0_0= ruleEDouble )
+            // InternalJsonSchemaDsl.g:3501:4: lv_value_0_0= ruleEDouble
             {
 
             				newCompositeNode(grammarAccess.getNumberValueAccess().getValueEDoubleParserRuleCall_0());
@@ -9254,7 +9304,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleArrayValue"
-    // InternalJsonSchemaDsl.g:3518:1: entryRuleArrayValue returns [EObject current=null] : iv_ruleArrayValue= ruleArrayValue EOF ;
+    // InternalJsonSchemaDsl.g:3521:1: entryRuleArrayValue returns [EObject current=null] : iv_ruleArrayValue= ruleArrayValue EOF ;
     public final EObject entryRuleArrayValue() throws RecognitionException {
         EObject current = null;
 
@@ -9262,8 +9312,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3518:51: (iv_ruleArrayValue= ruleArrayValue EOF )
-            // InternalJsonSchemaDsl.g:3519:2: iv_ruleArrayValue= ruleArrayValue EOF
+            // InternalJsonSchemaDsl.g:3521:51: (iv_ruleArrayValue= ruleArrayValue EOF )
+            // InternalJsonSchemaDsl.g:3522:2: iv_ruleArrayValue= ruleArrayValue EOF
             {
              newCompositeNode(grammarAccess.getArrayValueRule()); 
             pushFollow(FOLLOW_1);
@@ -9290,7 +9340,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleArrayValue"
-    // InternalJsonSchemaDsl.g:3525:1: ruleArrayValue returns [EObject current=null] : ( () otherlv_1= '[' ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )? otherlv_5= ']' ) ;
+    // InternalJsonSchemaDsl.g:3528:1: ruleArrayValue returns [EObject current=null] : ( () otherlv_1= '[' ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )? otherlv_5= ']' ) ;
     public final EObject ruleArrayValue() throws RecognitionException {
         EObject current = null;
 
@@ -9306,14 +9356,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3531:2: ( ( () otherlv_1= '[' ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )? otherlv_5= ']' ) )
-            // InternalJsonSchemaDsl.g:3532:2: ( () otherlv_1= '[' ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )? otherlv_5= ']' )
+            // InternalJsonSchemaDsl.g:3534:2: ( ( () otherlv_1= '[' ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )? otherlv_5= ']' ) )
+            // InternalJsonSchemaDsl.g:3535:2: ( () otherlv_1= '[' ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )? otherlv_5= ']' )
             {
-            // InternalJsonSchemaDsl.g:3532:2: ( () otherlv_1= '[' ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )? otherlv_5= ']' )
-            // InternalJsonSchemaDsl.g:3533:3: () otherlv_1= '[' ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )? otherlv_5= ']'
+            // InternalJsonSchemaDsl.g:3535:2: ( () otherlv_1= '[' ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )? otherlv_5= ']' )
+            // InternalJsonSchemaDsl.g:3536:3: () otherlv_1= '[' ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )? otherlv_5= ']'
             {
-            // InternalJsonSchemaDsl.g:3533:3: ()
-            // InternalJsonSchemaDsl.g:3534:4: 
+            // InternalJsonSchemaDsl.g:3536:3: ()
+            // InternalJsonSchemaDsl.g:3537:4: 
             {
 
             				current = forceCreateModelElement(
@@ -9323,31 +9373,31 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,19,FOLLOW_18); 
+            otherlv_1=(Token)match(input,19,FOLLOW_20); 
 
             			newLeafNode(otherlv_1, grammarAccess.getArrayValueAccess().getLeftSquareBracketKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:3544:3: ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )?
+            // InternalJsonSchemaDsl.g:3547:3: ( ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )* )?
             int alt24=2;
             int LA24_0 = input.LA(1);
 
-            if ( ((LA24_0>=RULE_JSON_NUMBER && LA24_0<=RULE_INT)||LA24_0==12||LA24_0==19||(LA24_0>=62 && LA24_0<=65)) ) {
+            if ( ((LA24_0>=RULE_STRING && LA24_0<=RULE_INT)||LA24_0==12||LA24_0==15||(LA24_0>=17 && LA24_0<=19)||(LA24_0>=21 && LA24_0<=31)||(LA24_0>=33 && LA24_0<=57)||(LA24_0>=59 && LA24_0<=65)) ) {
                 alt24=1;
             }
             switch (alt24) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:3545:4: ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )*
+                    // InternalJsonSchemaDsl.g:3548:4: ( (lv_value_2_0= ruleValue ) ) (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )*
                     {
-                    // InternalJsonSchemaDsl.g:3545:4: ( (lv_value_2_0= ruleValue ) )
-                    // InternalJsonSchemaDsl.g:3546:5: (lv_value_2_0= ruleValue )
+                    // InternalJsonSchemaDsl.g:3548:4: ( (lv_value_2_0= ruleValue ) )
+                    // InternalJsonSchemaDsl.g:3549:5: (lv_value_2_0= ruleValue )
                     {
-                    // InternalJsonSchemaDsl.g:3546:5: (lv_value_2_0= ruleValue )
-                    // InternalJsonSchemaDsl.g:3547:6: lv_value_2_0= ruleValue
+                    // InternalJsonSchemaDsl.g:3549:5: (lv_value_2_0= ruleValue )
+                    // InternalJsonSchemaDsl.g:3550:6: lv_value_2_0= ruleValue
                     {
 
                     						newCompositeNode(grammarAccess.getArrayValueAccess().getValueValueParserRuleCall_2_0_0());
                     					
-                    pushFollow(FOLLOW_10);
+                    pushFollow(FOLLOW_11);
                     lv_value_2_0=ruleValue();
 
                     state._fsp--;
@@ -9369,7 +9419,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJsonSchemaDsl.g:3564:4: (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )*
+                    // InternalJsonSchemaDsl.g:3567:4: (otherlv_3= ',' ( (lv_value_4_0= ruleValue ) ) )*
                     loop23:
                     do {
                         int alt23=2;
@@ -9382,22 +9432,22 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                         switch (alt23) {
                     	case 1 :
-                    	    // InternalJsonSchemaDsl.g:3565:5: otherlv_3= ',' ( (lv_value_4_0= ruleValue ) )
+                    	    // InternalJsonSchemaDsl.g:3568:5: otherlv_3= ',' ( (lv_value_4_0= ruleValue ) )
                     	    {
-                    	    otherlv_3=(Token)match(input,13,FOLLOW_9); 
+                    	    otherlv_3=(Token)match(input,13,FOLLOW_10); 
 
                     	    					newLeafNode(otherlv_3, grammarAccess.getArrayValueAccess().getCommaKeyword_2_1_0());
                     	    				
-                    	    // InternalJsonSchemaDsl.g:3569:5: ( (lv_value_4_0= ruleValue ) )
-                    	    // InternalJsonSchemaDsl.g:3570:6: (lv_value_4_0= ruleValue )
+                    	    // InternalJsonSchemaDsl.g:3572:5: ( (lv_value_4_0= ruleValue ) )
+                    	    // InternalJsonSchemaDsl.g:3573:6: (lv_value_4_0= ruleValue )
                     	    {
-                    	    // InternalJsonSchemaDsl.g:3570:6: (lv_value_4_0= ruleValue )
-                    	    // InternalJsonSchemaDsl.g:3571:7: lv_value_4_0= ruleValue
+                    	    // InternalJsonSchemaDsl.g:3573:6: (lv_value_4_0= ruleValue )
+                    	    // InternalJsonSchemaDsl.g:3574:7: lv_value_4_0= ruleValue
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getArrayValueAccess().getValueValueParserRuleCall_2_1_1_0());
                     	    						
-                    	    pushFollow(FOLLOW_10);
+                    	    pushFollow(FOLLOW_11);
                     	    lv_value_4_0=ruleValue();
 
                     	    state._fsp--;
@@ -9461,7 +9511,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleEInt"
-    // InternalJsonSchemaDsl.g:3598:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    // InternalJsonSchemaDsl.g:3601:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
     public final String entryRuleEInt() throws RecognitionException {
         String current = null;
 
@@ -9469,8 +9519,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3598:44: (iv_ruleEInt= ruleEInt EOF )
-            // InternalJsonSchemaDsl.g:3599:2: iv_ruleEInt= ruleEInt EOF
+            // InternalJsonSchemaDsl.g:3601:44: (iv_ruleEInt= ruleEInt EOF )
+            // InternalJsonSchemaDsl.g:3602:2: iv_ruleEInt= ruleEInt EOF
             {
              newCompositeNode(grammarAccess.getEIntRule()); 
             pushFollow(FOLLOW_1);
@@ -9497,7 +9547,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleEInt"
-    // InternalJsonSchemaDsl.g:3605:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    // InternalJsonSchemaDsl.g:3608:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -9508,13 +9558,13 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3611:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
-            // InternalJsonSchemaDsl.g:3612:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalJsonSchemaDsl.g:3614:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // InternalJsonSchemaDsl.g:3615:2: ( (kw= '-' )? this_INT_1= RULE_INT )
             {
-            // InternalJsonSchemaDsl.g:3612:2: ( (kw= '-' )? this_INT_1= RULE_INT )
-            // InternalJsonSchemaDsl.g:3613:3: (kw= '-' )? this_INT_1= RULE_INT
+            // InternalJsonSchemaDsl.g:3615:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalJsonSchemaDsl.g:3616:3: (kw= '-' )? this_INT_1= RULE_INT
             {
-            // InternalJsonSchemaDsl.g:3613:3: (kw= '-' )?
+            // InternalJsonSchemaDsl.g:3616:3: (kw= '-' )?
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -9523,9 +9573,9 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             }
             switch (alt25) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:3614:4: kw= '-'
+                    // InternalJsonSchemaDsl.g:3617:4: kw= '-'
                     {
-                    kw=(Token)match(input,65,FOLLOW_19); 
+                    kw=(Token)match(input,65,FOLLOW_21); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
@@ -9566,7 +9616,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSchemaArray"
-    // InternalJsonSchemaDsl.g:3631:1: entryRuleSchemaArray returns [EObject current=null] : iv_ruleSchemaArray= ruleSchemaArray EOF ;
+    // InternalJsonSchemaDsl.g:3634:1: entryRuleSchemaArray returns [EObject current=null] : iv_ruleSchemaArray= ruleSchemaArray EOF ;
     public final EObject entryRuleSchemaArray() throws RecognitionException {
         EObject current = null;
 
@@ -9574,8 +9624,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3631:52: (iv_ruleSchemaArray= ruleSchemaArray EOF )
-            // InternalJsonSchemaDsl.g:3632:2: iv_ruleSchemaArray= ruleSchemaArray EOF
+            // InternalJsonSchemaDsl.g:3634:52: (iv_ruleSchemaArray= ruleSchemaArray EOF )
+            // InternalJsonSchemaDsl.g:3635:2: iv_ruleSchemaArray= ruleSchemaArray EOF
             {
              newCompositeNode(grammarAccess.getSchemaArrayRule()); 
             pushFollow(FOLLOW_1);
@@ -9602,7 +9652,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchemaArray"
-    // InternalJsonSchemaDsl.g:3638:1: ruleSchemaArray returns [EObject current=null] : (otherlv_0= '[' ( (lv_items_1_0= ruleSchema ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )* otherlv_4= ']' ) ;
+    // InternalJsonSchemaDsl.g:3641:1: ruleSchemaArray returns [EObject current=null] : (otherlv_0= '[' ( (lv_items_1_0= ruleSchema ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )* otherlv_4= ']' ) ;
     public final EObject ruleSchemaArray() throws RecognitionException {
         EObject current = null;
 
@@ -9618,26 +9668,26 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3644:2: ( (otherlv_0= '[' ( (lv_items_1_0= ruleSchema ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )* otherlv_4= ']' ) )
-            // InternalJsonSchemaDsl.g:3645:2: (otherlv_0= '[' ( (lv_items_1_0= ruleSchema ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )* otherlv_4= ']' )
+            // InternalJsonSchemaDsl.g:3647:2: ( (otherlv_0= '[' ( (lv_items_1_0= ruleSchema ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )* otherlv_4= ']' ) )
+            // InternalJsonSchemaDsl.g:3648:2: (otherlv_0= '[' ( (lv_items_1_0= ruleSchema ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )* otherlv_4= ']' )
             {
-            // InternalJsonSchemaDsl.g:3645:2: (otherlv_0= '[' ( (lv_items_1_0= ruleSchema ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )* otherlv_4= ']' )
-            // InternalJsonSchemaDsl.g:3646:3: otherlv_0= '[' ( (lv_items_1_0= ruleSchema ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )* otherlv_4= ']'
+            // InternalJsonSchemaDsl.g:3648:2: (otherlv_0= '[' ( (lv_items_1_0= ruleSchema ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )* otherlv_4= ']' )
+            // InternalJsonSchemaDsl.g:3649:3: otherlv_0= '[' ( (lv_items_1_0= ruleSchema ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )* otherlv_4= ']'
             {
-            otherlv_0=(Token)match(input,19,FOLLOW_14); 
+            otherlv_0=(Token)match(input,19,FOLLOW_15); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSchemaArrayAccess().getLeftSquareBracketKeyword_0());
             		
-            // InternalJsonSchemaDsl.g:3650:3: ( (lv_items_1_0= ruleSchema ) )
-            // InternalJsonSchemaDsl.g:3651:4: (lv_items_1_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:3653:3: ( (lv_items_1_0= ruleSchema ) )
+            // InternalJsonSchemaDsl.g:3654:4: (lv_items_1_0= ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:3651:4: (lv_items_1_0= ruleSchema )
-            // InternalJsonSchemaDsl.g:3652:5: lv_items_1_0= ruleSchema
+            // InternalJsonSchemaDsl.g:3654:4: (lv_items_1_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:3655:5: lv_items_1_0= ruleSchema
             {
 
             					newCompositeNode(grammarAccess.getSchemaArrayAccess().getItemsSchemaParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_11);
             lv_items_1_0=ruleSchema();
 
             state._fsp--;
@@ -9659,7 +9709,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalJsonSchemaDsl.g:3669:3: (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )*
+            // InternalJsonSchemaDsl.g:3672:3: (otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) ) )*
             loop26:
             do {
                 int alt26=2;
@@ -9672,22 +9722,22 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                 switch (alt26) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:3670:4: otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) )
+            	    // InternalJsonSchemaDsl.g:3673:4: otherlv_2= ',' ( (lv_items_3_0= ruleSchema ) )
             	    {
-            	    otherlv_2=(Token)match(input,13,FOLLOW_14); 
+            	    otherlv_2=(Token)match(input,13,FOLLOW_15); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getSchemaArrayAccess().getCommaKeyword_2_0());
             	    			
-            	    // InternalJsonSchemaDsl.g:3674:4: ( (lv_items_3_0= ruleSchema ) )
-            	    // InternalJsonSchemaDsl.g:3675:5: (lv_items_3_0= ruleSchema )
+            	    // InternalJsonSchemaDsl.g:3677:4: ( (lv_items_3_0= ruleSchema ) )
+            	    // InternalJsonSchemaDsl.g:3678:5: (lv_items_3_0= ruleSchema )
             	    {
-            	    // InternalJsonSchemaDsl.g:3675:5: (lv_items_3_0= ruleSchema )
-            	    // InternalJsonSchemaDsl.g:3676:6: lv_items_3_0= ruleSchema
+            	    // InternalJsonSchemaDsl.g:3678:5: (lv_items_3_0= ruleSchema )
+            	    // InternalJsonSchemaDsl.g:3679:6: lv_items_3_0= ruleSchema
             	    {
 
             	    						newCompositeNode(grammarAccess.getSchemaArrayAccess().getItemsSchemaParserRuleCall_2_1_0());
             	    					
-            	    pushFollow(FOLLOW_10);
+            	    pushFollow(FOLLOW_11);
             	    lv_items_3_0=ruleSchema();
 
             	    state._fsp--;
@@ -9745,7 +9795,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNonNegativeIntegerDefault0"
-    // InternalJsonSchemaDsl.g:3702:1: entryRuleNonNegativeIntegerDefault0 returns [EObject current=null] : iv_ruleNonNegativeIntegerDefault0= ruleNonNegativeIntegerDefault0 EOF ;
+    // InternalJsonSchemaDsl.g:3705:1: entryRuleNonNegativeIntegerDefault0 returns [EObject current=null] : iv_ruleNonNegativeIntegerDefault0= ruleNonNegativeIntegerDefault0 EOF ;
     public final EObject entryRuleNonNegativeIntegerDefault0() throws RecognitionException {
         EObject current = null;
 
@@ -9753,8 +9803,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3702:67: (iv_ruleNonNegativeIntegerDefault0= ruleNonNegativeIntegerDefault0 EOF )
-            // InternalJsonSchemaDsl.g:3703:2: iv_ruleNonNegativeIntegerDefault0= ruleNonNegativeIntegerDefault0 EOF
+            // InternalJsonSchemaDsl.g:3705:67: (iv_ruleNonNegativeIntegerDefault0= ruleNonNegativeIntegerDefault0 EOF )
+            // InternalJsonSchemaDsl.g:3706:2: iv_ruleNonNegativeIntegerDefault0= ruleNonNegativeIntegerDefault0 EOF
             {
              newCompositeNode(grammarAccess.getNonNegativeIntegerDefault0Rule()); 
             pushFollow(FOLLOW_1);
@@ -9781,7 +9831,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNonNegativeIntegerDefault0"
-    // InternalJsonSchemaDsl.g:3709:1: ruleNonNegativeIntegerDefault0 returns [EObject current=null] : ( (lv_value_0_0= ruleEInt ) ) ;
+    // InternalJsonSchemaDsl.g:3712:1: ruleNonNegativeIntegerDefault0 returns [EObject current=null] : ( (lv_value_0_0= ruleEInt ) ) ;
     public final EObject ruleNonNegativeIntegerDefault0() throws RecognitionException {
         EObject current = null;
 
@@ -9792,14 +9842,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3715:2: ( ( (lv_value_0_0= ruleEInt ) ) )
-            // InternalJsonSchemaDsl.g:3716:2: ( (lv_value_0_0= ruleEInt ) )
+            // InternalJsonSchemaDsl.g:3718:2: ( ( (lv_value_0_0= ruleEInt ) ) )
+            // InternalJsonSchemaDsl.g:3719:2: ( (lv_value_0_0= ruleEInt ) )
             {
-            // InternalJsonSchemaDsl.g:3716:2: ( (lv_value_0_0= ruleEInt ) )
-            // InternalJsonSchemaDsl.g:3717:3: (lv_value_0_0= ruleEInt )
+            // InternalJsonSchemaDsl.g:3719:2: ( (lv_value_0_0= ruleEInt ) )
+            // InternalJsonSchemaDsl.g:3720:3: (lv_value_0_0= ruleEInt )
             {
-            // InternalJsonSchemaDsl.g:3717:3: (lv_value_0_0= ruleEInt )
-            // InternalJsonSchemaDsl.g:3718:4: lv_value_0_0= ruleEInt
+            // InternalJsonSchemaDsl.g:3720:3: (lv_value_0_0= ruleEInt )
+            // InternalJsonSchemaDsl.g:3721:4: lv_value_0_0= ruleEInt
             {
 
             				newCompositeNode(grammarAccess.getNonNegativeIntegerDefault0Access().getValueEIntParserRuleCall_0());
@@ -9846,7 +9896,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleKeySchemaPair"
-    // InternalJsonSchemaDsl.g:3738:1: entryRuleKeySchemaPair returns [EObject current=null] : iv_ruleKeySchemaPair= ruleKeySchemaPair EOF ;
+    // InternalJsonSchemaDsl.g:3741:1: entryRuleKeySchemaPair returns [EObject current=null] : iv_ruleKeySchemaPair= ruleKeySchemaPair EOF ;
     public final EObject entryRuleKeySchemaPair() throws RecognitionException {
         EObject current = null;
 
@@ -9854,8 +9904,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3738:54: (iv_ruleKeySchemaPair= ruleKeySchemaPair EOF )
-            // InternalJsonSchemaDsl.g:3739:2: iv_ruleKeySchemaPair= ruleKeySchemaPair EOF
+            // InternalJsonSchemaDsl.g:3741:54: (iv_ruleKeySchemaPair= ruleKeySchemaPair EOF )
+            // InternalJsonSchemaDsl.g:3742:2: iv_ruleKeySchemaPair= ruleKeySchemaPair EOF
             {
              newCompositeNode(grammarAccess.getKeySchemaPairRule()); 
             pushFollow(FOLLOW_1);
@@ -9882,7 +9932,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleKeySchemaPair"
-    // InternalJsonSchemaDsl.g:3745:1: ruleKeySchemaPair returns [EObject current=null] : ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleSchema ) ) ) ;
+    // InternalJsonSchemaDsl.g:3748:1: ruleKeySchemaPair returns [EObject current=null] : ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleSchema ) ) ) ;
     public final EObject ruleKeySchemaPair() throws RecognitionException {
         EObject current = null;
 
@@ -9896,17 +9946,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3751:2: ( ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleSchema ) ) ) )
-            // InternalJsonSchemaDsl.g:3752:2: ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleSchema ) ) )
+            // InternalJsonSchemaDsl.g:3754:2: ( ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleSchema ) ) ) )
+            // InternalJsonSchemaDsl.g:3755:2: ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleSchema ) ) )
             {
-            // InternalJsonSchemaDsl.g:3752:2: ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleSchema ) ) )
-            // InternalJsonSchemaDsl.g:3753:3: ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleSchema ) )
+            // InternalJsonSchemaDsl.g:3755:2: ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleSchema ) ) )
+            // InternalJsonSchemaDsl.g:3756:3: ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleSchema ) )
             {
-            // InternalJsonSchemaDsl.g:3753:3: ( (lv_key_0_0= ruleEString ) )
-            // InternalJsonSchemaDsl.g:3754:4: (lv_key_0_0= ruleEString )
+            // InternalJsonSchemaDsl.g:3756:3: ( (lv_key_0_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:3757:4: (lv_key_0_0= ruleEString )
             {
-            // InternalJsonSchemaDsl.g:3754:4: (lv_key_0_0= ruleEString )
-            // InternalJsonSchemaDsl.g:3755:5: lv_key_0_0= ruleEString
+            // InternalJsonSchemaDsl.g:3757:4: (lv_key_0_0= ruleEString )
+            // InternalJsonSchemaDsl.g:3758:5: lv_key_0_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getKeySchemaPairAccess().getKeyEStringParserRuleCall_0_0());
@@ -9933,15 +9983,15 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_14); 
+            otherlv_1=(Token)match(input,16,FOLLOW_15); 
 
             			newLeafNode(otherlv_1, grammarAccess.getKeySchemaPairAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:3776:3: ( (lv_value_2_0= ruleSchema ) )
-            // InternalJsonSchemaDsl.g:3777:4: (lv_value_2_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:3779:3: ( (lv_value_2_0= ruleSchema ) )
+            // InternalJsonSchemaDsl.g:3780:4: (lv_value_2_0= ruleSchema )
             {
-            // InternalJsonSchemaDsl.g:3777:4: (lv_value_2_0= ruleSchema )
-            // InternalJsonSchemaDsl.g:3778:5: lv_value_2_0= ruleSchema
+            // InternalJsonSchemaDsl.g:3780:4: (lv_value_2_0= ruleSchema )
+            // InternalJsonSchemaDsl.g:3781:5: lv_value_2_0= ruleSchema
             {
 
             					newCompositeNode(grammarAccess.getKeySchemaPairAccess().getValueSchemaParserRuleCall_2_0());
@@ -9991,7 +10041,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNonNegativeInteger"
-    // InternalJsonSchemaDsl.g:3799:1: entryRuleNonNegativeInteger returns [EObject current=null] : iv_ruleNonNegativeInteger= ruleNonNegativeInteger EOF ;
+    // InternalJsonSchemaDsl.g:3802:1: entryRuleNonNegativeInteger returns [EObject current=null] : iv_ruleNonNegativeInteger= ruleNonNegativeInteger EOF ;
     public final EObject entryRuleNonNegativeInteger() throws RecognitionException {
         EObject current = null;
 
@@ -9999,8 +10049,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3799:59: (iv_ruleNonNegativeInteger= ruleNonNegativeInteger EOF )
-            // InternalJsonSchemaDsl.g:3800:2: iv_ruleNonNegativeInteger= ruleNonNegativeInteger EOF
+            // InternalJsonSchemaDsl.g:3802:59: (iv_ruleNonNegativeInteger= ruleNonNegativeInteger EOF )
+            // InternalJsonSchemaDsl.g:3803:2: iv_ruleNonNegativeInteger= ruleNonNegativeInteger EOF
             {
              newCompositeNode(grammarAccess.getNonNegativeIntegerRule()); 
             pushFollow(FOLLOW_1);
@@ -10027,7 +10077,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNonNegativeInteger"
-    // InternalJsonSchemaDsl.g:3806:1: ruleNonNegativeInteger returns [EObject current=null] : ( (lv_value_0_0= ruleEInt ) ) ;
+    // InternalJsonSchemaDsl.g:3809:1: ruleNonNegativeInteger returns [EObject current=null] : ( (lv_value_0_0= ruleEInt ) ) ;
     public final EObject ruleNonNegativeInteger() throws RecognitionException {
         EObject current = null;
 
@@ -10038,14 +10088,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3812:2: ( ( (lv_value_0_0= ruleEInt ) ) )
-            // InternalJsonSchemaDsl.g:3813:2: ( (lv_value_0_0= ruleEInt ) )
+            // InternalJsonSchemaDsl.g:3815:2: ( ( (lv_value_0_0= ruleEInt ) ) )
+            // InternalJsonSchemaDsl.g:3816:2: ( (lv_value_0_0= ruleEInt ) )
             {
-            // InternalJsonSchemaDsl.g:3813:2: ( (lv_value_0_0= ruleEInt ) )
-            // InternalJsonSchemaDsl.g:3814:3: (lv_value_0_0= ruleEInt )
+            // InternalJsonSchemaDsl.g:3816:2: ( (lv_value_0_0= ruleEInt ) )
+            // InternalJsonSchemaDsl.g:3817:3: (lv_value_0_0= ruleEInt )
             {
-            // InternalJsonSchemaDsl.g:3814:3: (lv_value_0_0= ruleEInt )
-            // InternalJsonSchemaDsl.g:3815:4: lv_value_0_0= ruleEInt
+            // InternalJsonSchemaDsl.g:3817:3: (lv_value_0_0= ruleEInt )
+            // InternalJsonSchemaDsl.g:3818:4: lv_value_0_0= ruleEInt
             {
 
             				newCompositeNode(grammarAccess.getNonNegativeIntegerAccess().getValueEIntParserRuleCall_0());
@@ -10092,7 +10142,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTypesAnyOf2"
-    // InternalJsonSchemaDsl.g:3835:1: entryRuleTypesAnyOf2 returns [EObject current=null] : iv_ruleTypesAnyOf2= ruleTypesAnyOf2 EOF ;
+    // InternalJsonSchemaDsl.g:3838:1: entryRuleTypesAnyOf2 returns [EObject current=null] : iv_ruleTypesAnyOf2= ruleTypesAnyOf2 EOF ;
     public final EObject entryRuleTypesAnyOf2() throws RecognitionException {
         EObject current = null;
 
@@ -10100,8 +10150,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3835:52: (iv_ruleTypesAnyOf2= ruleTypesAnyOf2 EOF )
-            // InternalJsonSchemaDsl.g:3836:2: iv_ruleTypesAnyOf2= ruleTypesAnyOf2 EOF
+            // InternalJsonSchemaDsl.g:3838:52: (iv_ruleTypesAnyOf2= ruleTypesAnyOf2 EOF )
+            // InternalJsonSchemaDsl.g:3839:2: iv_ruleTypesAnyOf2= ruleTypesAnyOf2 EOF
             {
              newCompositeNode(grammarAccess.getTypesAnyOf2Rule()); 
             pushFollow(FOLLOW_1);
@@ -10128,7 +10178,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypesAnyOf2"
-    // InternalJsonSchemaDsl.g:3842:1: ruleTypesAnyOf2 returns [EObject current=null] : (otherlv_0= '[' ( (lv_items_1_0= ruleSimpleTypes ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )* otherlv_4= ']' ) ;
+    // InternalJsonSchemaDsl.g:3845:1: ruleTypesAnyOf2 returns [EObject current=null] : (otherlv_0= '[' ( (lv_items_1_0= ruleSimpleTypes ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )* otherlv_4= ']' ) ;
     public final EObject ruleTypesAnyOf2() throws RecognitionException {
         EObject current = null;
 
@@ -10144,26 +10194,26 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3848:2: ( (otherlv_0= '[' ( (lv_items_1_0= ruleSimpleTypes ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )* otherlv_4= ']' ) )
-            // InternalJsonSchemaDsl.g:3849:2: (otherlv_0= '[' ( (lv_items_1_0= ruleSimpleTypes ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )* otherlv_4= ']' )
+            // InternalJsonSchemaDsl.g:3851:2: ( (otherlv_0= '[' ( (lv_items_1_0= ruleSimpleTypes ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )* otherlv_4= ']' ) )
+            // InternalJsonSchemaDsl.g:3852:2: (otherlv_0= '[' ( (lv_items_1_0= ruleSimpleTypes ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )* otherlv_4= ']' )
             {
-            // InternalJsonSchemaDsl.g:3849:2: (otherlv_0= '[' ( (lv_items_1_0= ruleSimpleTypes ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )* otherlv_4= ']' )
-            // InternalJsonSchemaDsl.g:3850:3: otherlv_0= '[' ( (lv_items_1_0= ruleSimpleTypes ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )* otherlv_4= ']'
+            // InternalJsonSchemaDsl.g:3852:2: (otherlv_0= '[' ( (lv_items_1_0= ruleSimpleTypes ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )* otherlv_4= ']' )
+            // InternalJsonSchemaDsl.g:3853:3: otherlv_0= '[' ( (lv_items_1_0= ruleSimpleTypes ) ) (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )* otherlv_4= ']'
             {
-            otherlv_0=(Token)match(input,19,FOLLOW_20); 
+            otherlv_0=(Token)match(input,19,FOLLOW_22); 
 
             			newLeafNode(otherlv_0, grammarAccess.getTypesAnyOf2Access().getLeftSquareBracketKeyword_0());
             		
-            // InternalJsonSchemaDsl.g:3854:3: ( (lv_items_1_0= ruleSimpleTypes ) )
-            // InternalJsonSchemaDsl.g:3855:4: (lv_items_1_0= ruleSimpleTypes )
+            // InternalJsonSchemaDsl.g:3857:3: ( (lv_items_1_0= ruleSimpleTypes ) )
+            // InternalJsonSchemaDsl.g:3858:4: (lv_items_1_0= ruleSimpleTypes )
             {
-            // InternalJsonSchemaDsl.g:3855:4: (lv_items_1_0= ruleSimpleTypes )
-            // InternalJsonSchemaDsl.g:3856:5: lv_items_1_0= ruleSimpleTypes
+            // InternalJsonSchemaDsl.g:3858:4: (lv_items_1_0= ruleSimpleTypes )
+            // InternalJsonSchemaDsl.g:3859:5: lv_items_1_0= ruleSimpleTypes
             {
 
             					newCompositeNode(grammarAccess.getTypesAnyOf2Access().getItemsSimpleTypesEnumRuleCall_1_0());
             				
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_11);
             lv_items_1_0=ruleSimpleTypes();
 
             state._fsp--;
@@ -10185,7 +10235,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalJsonSchemaDsl.g:3873:3: (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )*
+            // InternalJsonSchemaDsl.g:3876:3: (otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) ) )*
             loop27:
             do {
                 int alt27=2;
@@ -10198,22 +10248,22 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                 switch (alt27) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:3874:4: otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) )
+            	    // InternalJsonSchemaDsl.g:3877:4: otherlv_2= ',' ( (lv_items_3_0= ruleSimpleTypes ) )
             	    {
-            	    otherlv_2=(Token)match(input,13,FOLLOW_20); 
+            	    otherlv_2=(Token)match(input,13,FOLLOW_22); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getTypesAnyOf2Access().getCommaKeyword_2_0());
             	    			
-            	    // InternalJsonSchemaDsl.g:3878:4: ( (lv_items_3_0= ruleSimpleTypes ) )
-            	    // InternalJsonSchemaDsl.g:3879:5: (lv_items_3_0= ruleSimpleTypes )
+            	    // InternalJsonSchemaDsl.g:3881:4: ( (lv_items_3_0= ruleSimpleTypes ) )
+            	    // InternalJsonSchemaDsl.g:3882:5: (lv_items_3_0= ruleSimpleTypes )
             	    {
-            	    // InternalJsonSchemaDsl.g:3879:5: (lv_items_3_0= ruleSimpleTypes )
-            	    // InternalJsonSchemaDsl.g:3880:6: lv_items_3_0= ruleSimpleTypes
+            	    // InternalJsonSchemaDsl.g:3882:5: (lv_items_3_0= ruleSimpleTypes )
+            	    // InternalJsonSchemaDsl.g:3883:6: lv_items_3_0= ruleSimpleTypes
             	    {
 
             	    						newCompositeNode(grammarAccess.getTypesAnyOf2Access().getItemsSimpleTypesEnumRuleCall_2_1_0());
             	    					
-            	    pushFollow(FOLLOW_10);
+            	    pushFollow(FOLLOW_11);
             	    lv_items_3_0=ruleSimpleTypes();
 
             	    state._fsp--;
@@ -10271,7 +10321,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDependenciesAnyOf"
-    // InternalJsonSchemaDsl.g:3906:1: entryRuleDependenciesAnyOf returns [EObject current=null] : iv_ruleDependenciesAnyOf= ruleDependenciesAnyOf EOF ;
+    // InternalJsonSchemaDsl.g:3909:1: entryRuleDependenciesAnyOf returns [EObject current=null] : iv_ruleDependenciesAnyOf= ruleDependenciesAnyOf EOF ;
     public final EObject entryRuleDependenciesAnyOf() throws RecognitionException {
         EObject current = null;
 
@@ -10279,8 +10329,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3906:58: (iv_ruleDependenciesAnyOf= ruleDependenciesAnyOf EOF )
-            // InternalJsonSchemaDsl.g:3907:2: iv_ruleDependenciesAnyOf= ruleDependenciesAnyOf EOF
+            // InternalJsonSchemaDsl.g:3909:58: (iv_ruleDependenciesAnyOf= ruleDependenciesAnyOf EOF )
+            // InternalJsonSchemaDsl.g:3910:2: iv_ruleDependenciesAnyOf= ruleDependenciesAnyOf EOF
             {
              newCompositeNode(grammarAccess.getDependenciesAnyOfRule()); 
             pushFollow(FOLLOW_1);
@@ -10307,7 +10357,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDependenciesAnyOf"
-    // InternalJsonSchemaDsl.g:3913:1: ruleDependenciesAnyOf returns [EObject current=null] : ( () ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )? ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )? ) ;
+    // InternalJsonSchemaDsl.g:3916:1: ruleDependenciesAnyOf returns [EObject current=null] : ( () ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )? ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )? ) ;
     public final EObject ruleDependenciesAnyOf() throws RecognitionException {
         EObject current = null;
 
@@ -10320,14 +10370,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3919:2: ( ( () ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )? ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )? ) )
-            // InternalJsonSchemaDsl.g:3920:2: ( () ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )? ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )? )
+            // InternalJsonSchemaDsl.g:3922:2: ( ( () ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )? ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )? ) )
+            // InternalJsonSchemaDsl.g:3923:2: ( () ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )? ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )? )
             {
-            // InternalJsonSchemaDsl.g:3920:2: ( () ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )? ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )? )
-            // InternalJsonSchemaDsl.g:3921:3: () ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )? ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )?
+            // InternalJsonSchemaDsl.g:3923:2: ( () ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )? ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )? )
+            // InternalJsonSchemaDsl.g:3924:3: () ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )? ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )?
             {
-            // InternalJsonSchemaDsl.g:3921:3: ()
-            // InternalJsonSchemaDsl.g:3922:4: 
+            // InternalJsonSchemaDsl.g:3924:3: ()
+            // InternalJsonSchemaDsl.g:3925:4: 
             {
 
             				current = forceCreateModelElement(
@@ -10337,32 +10387,20 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalJsonSchemaDsl.g:3928:3: ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )?
+            // InternalJsonSchemaDsl.g:3931:3: ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )?
             int alt28=2;
-            int LA28_0 = input.LA(1);
-
-            if ( (LA28_0==RULE_STRING) ) {
-                int LA28_1 = input.LA(2);
-
-                if ( (LA28_1==16) ) {
-                    int LA28_3 = input.LA(3);
-
-                    if ( (LA28_3==19) ) {
-                        alt28=1;
-                    }
-                }
-            }
+            alt28 = dfa28.predict(input);
             switch (alt28) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:3929:4: (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair )
+                    // InternalJsonSchemaDsl.g:3932:4: (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair )
                     {
-                    // InternalJsonSchemaDsl.g:3929:4: (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair )
-                    // InternalJsonSchemaDsl.g:3930:5: lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair
+                    // InternalJsonSchemaDsl.g:3932:4: (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair )
+                    // InternalJsonSchemaDsl.g:3933:5: lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair
                     {
 
                     					newCompositeNode(grammarAccess.getDependenciesAnyOfAccess().getDependenciesAnyOf2KeyStringArrayPairParserRuleCall_1_0());
                     				
-                    pushFollow(FOLLOW_21);
+                    pushFollow(FOLLOW_23);
                     lv_dependenciesAnyOf2_1_0=ruleKeyStringArrayPair();
 
                     state._fsp--;
@@ -10387,19 +10425,19 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalJsonSchemaDsl.g:3947:3: ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )?
+            // InternalJsonSchemaDsl.g:3950:3: ( (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair ) )?
             int alt29=2;
             int LA29_0 = input.LA(1);
 
-            if ( (LA29_0==RULE_STRING) ) {
+            if ( (LA29_0==RULE_STRING||LA29_0==15||(LA29_0>=17 && LA29_0<=18)||(LA29_0>=21 && LA29_0<=31)||(LA29_0>=33 && LA29_0<=57)||(LA29_0>=59 && LA29_0<=61)) ) {
                 alt29=1;
             }
             switch (alt29) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:3948:4: (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair )
+                    // InternalJsonSchemaDsl.g:3951:4: (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair )
                     {
-                    // InternalJsonSchemaDsl.g:3948:4: (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair )
-                    // InternalJsonSchemaDsl.g:3949:5: lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair
+                    // InternalJsonSchemaDsl.g:3951:4: (lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair )
+                    // InternalJsonSchemaDsl.g:3952:5: lv_dependenciesAnyOf1_2_0= ruleKeySchemaPair
                     {
 
                     					newCompositeNode(grammarAccess.getDependenciesAnyOfAccess().getDependenciesAnyOf1KeySchemaPairParserRuleCall_2_0());
@@ -10452,7 +10490,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleKeyStringArrayPair"
-    // InternalJsonSchemaDsl.g:3970:1: entryRuleKeyStringArrayPair returns [EObject current=null] : iv_ruleKeyStringArrayPair= ruleKeyStringArrayPair EOF ;
+    // InternalJsonSchemaDsl.g:3973:1: entryRuleKeyStringArrayPair returns [EObject current=null] : iv_ruleKeyStringArrayPair= ruleKeyStringArrayPair EOF ;
     public final EObject entryRuleKeyStringArrayPair() throws RecognitionException {
         EObject current = null;
 
@@ -10460,8 +10498,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:3970:59: (iv_ruleKeyStringArrayPair= ruleKeyStringArrayPair EOF )
-            // InternalJsonSchemaDsl.g:3971:2: iv_ruleKeyStringArrayPair= ruleKeyStringArrayPair EOF
+            // InternalJsonSchemaDsl.g:3973:59: (iv_ruleKeyStringArrayPair= ruleKeyStringArrayPair EOF )
+            // InternalJsonSchemaDsl.g:3974:2: iv_ruleKeyStringArrayPair= ruleKeyStringArrayPair EOF
             {
              newCompositeNode(grammarAccess.getKeyStringArrayPairRule()); 
             pushFollow(FOLLOW_1);
@@ -10488,7 +10526,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleKeyStringArrayPair"
-    // InternalJsonSchemaDsl.g:3977:1: ruleKeyStringArrayPair returns [EObject current=null] : ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleStringArray ) ) ) ;
+    // InternalJsonSchemaDsl.g:3980:1: ruleKeyStringArrayPair returns [EObject current=null] : ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleStringArray ) ) ) ;
     public final EObject ruleKeyStringArrayPair() throws RecognitionException {
         EObject current = null;
 
@@ -10502,17 +10540,17 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:3983:2: ( ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleStringArray ) ) ) )
-            // InternalJsonSchemaDsl.g:3984:2: ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleStringArray ) ) )
+            // InternalJsonSchemaDsl.g:3986:2: ( ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleStringArray ) ) ) )
+            // InternalJsonSchemaDsl.g:3987:2: ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleStringArray ) ) )
             {
-            // InternalJsonSchemaDsl.g:3984:2: ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleStringArray ) ) )
-            // InternalJsonSchemaDsl.g:3985:3: ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleStringArray ) )
+            // InternalJsonSchemaDsl.g:3987:2: ( ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleStringArray ) ) )
+            // InternalJsonSchemaDsl.g:3988:3: ( (lv_key_0_0= ruleEString ) ) otherlv_1= ':' ( (lv_value_2_0= ruleStringArray ) )
             {
-            // InternalJsonSchemaDsl.g:3985:3: ( (lv_key_0_0= ruleEString ) )
-            // InternalJsonSchemaDsl.g:3986:4: (lv_key_0_0= ruleEString )
+            // InternalJsonSchemaDsl.g:3988:3: ( (lv_key_0_0= ruleEString ) )
+            // InternalJsonSchemaDsl.g:3989:4: (lv_key_0_0= ruleEString )
             {
-            // InternalJsonSchemaDsl.g:3986:4: (lv_key_0_0= ruleEString )
-            // InternalJsonSchemaDsl.g:3987:5: lv_key_0_0= ruleEString
+            // InternalJsonSchemaDsl.g:3989:4: (lv_key_0_0= ruleEString )
+            // InternalJsonSchemaDsl.g:3990:5: lv_key_0_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getKeyStringArrayPairAccess().getKeyEStringParserRuleCall_0_0());
@@ -10539,15 +10577,15 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,16,FOLLOW_11); 
+            otherlv_1=(Token)match(input,16,FOLLOW_12); 
 
             			newLeafNode(otherlv_1, grammarAccess.getKeyStringArrayPairAccess().getColonKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:4008:3: ( (lv_value_2_0= ruleStringArray ) )
-            // InternalJsonSchemaDsl.g:4009:4: (lv_value_2_0= ruleStringArray )
+            // InternalJsonSchemaDsl.g:4011:3: ( (lv_value_2_0= ruleStringArray ) )
+            // InternalJsonSchemaDsl.g:4012:4: (lv_value_2_0= ruleStringArray )
             {
-            // InternalJsonSchemaDsl.g:4009:4: (lv_value_2_0= ruleStringArray )
-            // InternalJsonSchemaDsl.g:4010:5: lv_value_2_0= ruleStringArray
+            // InternalJsonSchemaDsl.g:4012:4: (lv_value_2_0= ruleStringArray )
+            // InternalJsonSchemaDsl.g:4013:5: lv_value_2_0= ruleStringArray
             {
 
             					newCompositeNode(grammarAccess.getKeyStringArrayPairAccess().getValueStringArrayParserRuleCall_2_0());
@@ -10597,7 +10635,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringArray"
-    // InternalJsonSchemaDsl.g:4031:1: entryRuleStringArray returns [EObject current=null] : iv_ruleStringArray= ruleStringArray EOF ;
+    // InternalJsonSchemaDsl.g:4034:1: entryRuleStringArray returns [EObject current=null] : iv_ruleStringArray= ruleStringArray EOF ;
     public final EObject entryRuleStringArray() throws RecognitionException {
         EObject current = null;
 
@@ -10605,8 +10643,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalJsonSchemaDsl.g:4031:52: (iv_ruleStringArray= ruleStringArray EOF )
-            // InternalJsonSchemaDsl.g:4032:2: iv_ruleStringArray= ruleStringArray EOF
+            // InternalJsonSchemaDsl.g:4034:52: (iv_ruleStringArray= ruleStringArray EOF )
+            // InternalJsonSchemaDsl.g:4035:2: iv_ruleStringArray= ruleStringArray EOF
             {
              newCompositeNode(grammarAccess.getStringArrayRule()); 
             pushFollow(FOLLOW_1);
@@ -10633,7 +10671,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringArray"
-    // InternalJsonSchemaDsl.g:4038:1: ruleStringArray returns [EObject current=null] : ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )? otherlv_5= ']' ) ;
+    // InternalJsonSchemaDsl.g:4041:1: ruleStringArray returns [EObject current=null] : ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )? otherlv_5= ']' ) ;
     public final EObject ruleStringArray() throws RecognitionException {
         EObject current = null;
 
@@ -10649,14 +10687,14 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:4044:2: ( ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )? otherlv_5= ']' ) )
-            // InternalJsonSchemaDsl.g:4045:2: ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )? otherlv_5= ']' )
+            // InternalJsonSchemaDsl.g:4047:2: ( ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )? otherlv_5= ']' ) )
+            // InternalJsonSchemaDsl.g:4048:2: ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )? otherlv_5= ']' )
             {
-            // InternalJsonSchemaDsl.g:4045:2: ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )? otherlv_5= ']' )
-            // InternalJsonSchemaDsl.g:4046:3: () otherlv_1= '[' ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )? otherlv_5= ']'
+            // InternalJsonSchemaDsl.g:4048:2: ( () otherlv_1= '[' ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )? otherlv_5= ']' )
+            // InternalJsonSchemaDsl.g:4049:3: () otherlv_1= '[' ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )? otherlv_5= ']'
             {
-            // InternalJsonSchemaDsl.g:4046:3: ()
-            // InternalJsonSchemaDsl.g:4047:4: 
+            // InternalJsonSchemaDsl.g:4049:3: ()
+            // InternalJsonSchemaDsl.g:4050:4: 
             {
 
             				current = forceCreateModelElement(
@@ -10666,31 +10704,31 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,19,FOLLOW_22); 
+            otherlv_1=(Token)match(input,19,FOLLOW_24); 
 
             			newLeafNode(otherlv_1, grammarAccess.getStringArrayAccess().getLeftSquareBracketKeyword_1());
             		
-            // InternalJsonSchemaDsl.g:4057:3: ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )?
+            // InternalJsonSchemaDsl.g:4060:3: ( ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )* )?
             int alt31=2;
             int LA31_0 = input.LA(1);
 
-            if ( (LA31_0==RULE_STRING) ) {
+            if ( (LA31_0==RULE_STRING||LA31_0==15||(LA31_0>=17 && LA31_0<=18)||(LA31_0>=21 && LA31_0<=31)||(LA31_0>=33 && LA31_0<=57)||(LA31_0>=59 && LA31_0<=61)) ) {
                 alt31=1;
             }
             switch (alt31) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:4058:4: ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )*
+                    // InternalJsonSchemaDsl.g:4061:4: ( (lv_values_2_0= ruleEString ) ) (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )*
                     {
-                    // InternalJsonSchemaDsl.g:4058:4: ( (lv_values_2_0= ruleEString ) )
-                    // InternalJsonSchemaDsl.g:4059:5: (lv_values_2_0= ruleEString )
+                    // InternalJsonSchemaDsl.g:4061:4: ( (lv_values_2_0= ruleEString ) )
+                    // InternalJsonSchemaDsl.g:4062:5: (lv_values_2_0= ruleEString )
                     {
-                    // InternalJsonSchemaDsl.g:4059:5: (lv_values_2_0= ruleEString )
-                    // InternalJsonSchemaDsl.g:4060:6: lv_values_2_0= ruleEString
+                    // InternalJsonSchemaDsl.g:4062:5: (lv_values_2_0= ruleEString )
+                    // InternalJsonSchemaDsl.g:4063:6: lv_values_2_0= ruleEString
                     {
 
                     						newCompositeNode(grammarAccess.getStringArrayAccess().getValuesEStringParserRuleCall_2_0_0());
                     					
-                    pushFollow(FOLLOW_10);
+                    pushFollow(FOLLOW_11);
                     lv_values_2_0=ruleEString();
 
                     state._fsp--;
@@ -10712,7 +10750,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalJsonSchemaDsl.g:4077:4: (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )*
+                    // InternalJsonSchemaDsl.g:4080:4: (otherlv_3= ',' ( (lv_values_4_0= ruleEString ) ) )*
                     loop30:
                     do {
                         int alt30=2;
@@ -10725,22 +10763,22 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
                         switch (alt30) {
                     	case 1 :
-                    	    // InternalJsonSchemaDsl.g:4078:5: otherlv_3= ',' ( (lv_values_4_0= ruleEString ) )
+                    	    // InternalJsonSchemaDsl.g:4081:5: otherlv_3= ',' ( (lv_values_4_0= ruleEString ) )
                     	    {
-                    	    otherlv_3=(Token)match(input,13,FOLLOW_5); 
+                    	    otherlv_3=(Token)match(input,13,FOLLOW_9); 
 
                     	    					newLeafNode(otherlv_3, grammarAccess.getStringArrayAccess().getCommaKeyword_2_1_0());
                     	    				
-                    	    // InternalJsonSchemaDsl.g:4082:5: ( (lv_values_4_0= ruleEString ) )
-                    	    // InternalJsonSchemaDsl.g:4083:6: (lv_values_4_0= ruleEString )
+                    	    // InternalJsonSchemaDsl.g:4085:5: ( (lv_values_4_0= ruleEString ) )
+                    	    // InternalJsonSchemaDsl.g:4086:6: (lv_values_4_0= ruleEString )
                     	    {
-                    	    // InternalJsonSchemaDsl.g:4083:6: (lv_values_4_0= ruleEString )
-                    	    // InternalJsonSchemaDsl.g:4084:7: lv_values_4_0= ruleEString
+                    	    // InternalJsonSchemaDsl.g:4086:6: (lv_values_4_0= ruleEString )
+                    	    // InternalJsonSchemaDsl.g:4087:7: lv_values_4_0= ruleEString
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getStringArrayAccess().getValuesEStringParserRuleCall_2_1_1_0());
                     	    						
-                    	    pushFollow(FOLLOW_10);
+                    	    pushFollow(FOLLOW_11);
                     	    lv_values_4_0=ruleEString();
 
                     	    state._fsp--;
@@ -10803,8 +10841,887 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleStringArray"
 
 
+    // $ANTLR start "entryRuleVALID_STRING"
+    // InternalJsonSchemaDsl.g:4114:1: entryRuleVALID_STRING returns [String current=null] : iv_ruleVALID_STRING= ruleVALID_STRING EOF ;
+    public final String entryRuleVALID_STRING() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleVALID_STRING = null;
+
+
+        try {
+            // InternalJsonSchemaDsl.g:4114:52: (iv_ruleVALID_STRING= ruleVALID_STRING EOF )
+            // InternalJsonSchemaDsl.g:4115:2: iv_ruleVALID_STRING= ruleVALID_STRING EOF
+            {
+             newCompositeNode(grammarAccess.getVALID_STRINGRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleVALID_STRING=ruleVALID_STRING();
+
+            state._fsp--;
+
+             current =iv_ruleVALID_STRING.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleVALID_STRING"
+
+
+    // $ANTLR start "ruleVALID_STRING"
+    // InternalJsonSchemaDsl.g:4121:1: ruleVALID_STRING returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_STRING_0= RULE_STRING | this_KEYWORD_1= ruleKEYWORD ) ;
+    public final AntlrDatatypeRuleToken ruleVALID_STRING() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_STRING_0=null;
+        AntlrDatatypeRuleToken this_KEYWORD_1 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalJsonSchemaDsl.g:4127:2: ( (this_STRING_0= RULE_STRING | this_KEYWORD_1= ruleKEYWORD ) )
+            // InternalJsonSchemaDsl.g:4128:2: (this_STRING_0= RULE_STRING | this_KEYWORD_1= ruleKEYWORD )
+            {
+            // InternalJsonSchemaDsl.g:4128:2: (this_STRING_0= RULE_STRING | this_KEYWORD_1= ruleKEYWORD )
+            int alt32=2;
+            int LA32_0 = input.LA(1);
+
+            if ( (LA32_0==RULE_STRING) ) {
+                alt32=1;
+            }
+            else if ( (LA32_0==15||(LA32_0>=17 && LA32_0<=18)||(LA32_0>=21 && LA32_0<=31)||(LA32_0>=33 && LA32_0<=57)||(LA32_0>=59 && LA32_0<=61)) ) {
+                alt32=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 32, 0, input);
+
+                throw nvae;
+            }
+            switch (alt32) {
+                case 1 :
+                    // InternalJsonSchemaDsl.g:4129:3: this_STRING_0= RULE_STRING
+                    {
+                    this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+
+                    			current.merge(this_STRING_0);
+                    		
+
+                    			newLeafNode(this_STRING_0, grammarAccess.getVALID_STRINGAccess().getSTRINGTerminalRuleCall_0());
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalJsonSchemaDsl.g:4137:3: this_KEYWORD_1= ruleKEYWORD
+                    {
+
+                    			newCompositeNode(grammarAccess.getVALID_STRINGAccess().getKEYWORDParserRuleCall_1());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_KEYWORD_1=ruleKEYWORD();
+
+                    state._fsp--;
+
+
+                    			current.merge(this_KEYWORD_1);
+                    		
+
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleVALID_STRING"
+
+
+    // $ANTLR start "entryRuleKEYWORD"
+    // InternalJsonSchemaDsl.g:4151:1: entryRuleKEYWORD returns [String current=null] : iv_ruleKEYWORD= ruleKEYWORD EOF ;
+    public final String entryRuleKEYWORD() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleKEYWORD = null;
+
+
+        try {
+            // InternalJsonSchemaDsl.g:4151:47: (iv_ruleKEYWORD= ruleKEYWORD EOF )
+            // InternalJsonSchemaDsl.g:4152:2: iv_ruleKEYWORD= ruleKEYWORD EOF
+            {
+             newCompositeNode(grammarAccess.getKEYWORDRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleKEYWORD=ruleKEYWORD();
+
+            state._fsp--;
+
+             current =iv_ruleKEYWORD.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleKEYWORD"
+
+
+    // $ANTLR start "ruleKEYWORD"
+    // InternalJsonSchemaDsl.g:4158:1: ruleKEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' ) ;
+    public final AntlrDatatypeRuleToken ruleKEYWORD() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalJsonSchemaDsl.g:4164:2: ( (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' ) )
+            // InternalJsonSchemaDsl.g:4165:2: (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' )
+            {
+            // InternalJsonSchemaDsl.g:4165:2: (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' )
+            int alt33=42;
+            switch ( input.LA(1) ) {
+            case 39:
+                {
+                alt33=1;
+                }
+                break;
+            case 59:
+                {
+                alt33=2;
+                }
+                break;
+            case 56:
+                {
+                alt33=3;
+                }
+                break;
+            case 18:
+                {
+                alt33=4;
+                }
+                break;
+            case 23:
+                {
+                alt33=5;
+                }
+                break;
+            case 42:
+                {
+                alt33=6;
+                }
+                break;
+            case 25:
+                {
+                alt33=7;
+                }
+                break;
+            case 35:
+                {
+                alt33=8;
+                }
+                break;
+            case 17:
+                {
+                alt33=9;
+                }
+                break;
+            case 46:
+                {
+                alt33=10;
+                }
+                break;
+            case 50:
+                {
+                alt33=11;
+                }
+                break;
+            case 15:
+                {
+                alt33=12;
+                }
+                break;
+            case 54:
+                {
+                alt33=13;
+                }
+                break;
+            case 55:
+                {
+                alt33=14;
+                }
+                break;
+            case 27:
+                {
+                alt33=15;
+                }
+                break;
+            case 51:
+                {
+                alt33=16;
+                }
+                break;
+            case 45:
+                {
+                alt33=17;
+                }
+                break;
+            case 24:
+                {
+                alt33=18;
+                }
+                break;
+            case 33:
+                {
+                alt33=19;
+                }
+                break;
+            case 29:
+                {
+                alt33=20;
+                }
+                break;
+            case 21:
+                {
+                alt33=21;
+                }
+                break;
+            case 52:
+                {
+                alt33=22;
+                }
+                break;
+            case 31:
+                {
+                alt33=23;
+                }
+                break;
+            case 43:
+                {
+                alt33=24;
+                }
+                break;
+            case 41:
+                {
+                alt33=25;
+                }
+                break;
+            case 37:
+                {
+                alt33=26;
+                }
+                break;
+            case 28:
+                {
+                alt33=27;
+                }
+                break;
+            case 60:
+                {
+                alt33=28;
+                }
+                break;
+            case 44:
+                {
+                alt33=29;
+                }
+                break;
+            case 61:
+                {
+                alt33=30;
+                }
+                break;
+            case 40:
+                {
+                alt33=31;
+                }
+                break;
+            case 36:
+                {
+                alt33=32;
+                }
+                break;
+            case 34:
+                {
+                alt33=33;
+                }
+                break;
+            case 57:
+                {
+                alt33=34;
+                }
+                break;
+            case 49:
+                {
+                alt33=35;
+                }
+                break;
+            case 47:
+                {
+                alt33=36;
+                }
+                break;
+            case 26:
+                {
+                alt33=37;
+                }
+                break;
+            case 38:
+                {
+                alt33=38;
+                }
+                break;
+            case 48:
+                {
+                alt33=39;
+                }
+                break;
+            case 22:
+                {
+                alt33=40;
+                }
+                break;
+            case 30:
+                {
+                alt33=41;
+                }
+                break;
+            case 53:
+                {
+                alt33=42;
+                }
+                break;
+            default:
+                NoViableAltException nvae =
+                    new NoViableAltException("", 33, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt33) {
+                case 1 :
+                    // InternalJsonSchemaDsl.g:4166:3: kw= '\"$id\"'
+                    {
+                    kw=(Token)match(input,39,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getIdKeyword_0());
+                    		
+
+                    }
+                    break;
+                case 2 :
+                    // InternalJsonSchemaDsl.g:4172:3: kw= '\"$schema\"'
+                    {
+                    kw=(Token)match(input,59,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getSchemaKeyword_1());
+                    		
+
+                    }
+                    break;
+                case 3 :
+                    // InternalJsonSchemaDsl.g:4178:3: kw= '\"$ref\"'
+                    {
+                    kw=(Token)match(input,56,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getRefKeyword_2());
+                    		
+
+                    }
+                    break;
+                case 4 :
+                    // InternalJsonSchemaDsl.g:4184:3: kw= '\"$comment\"'
+                    {
+                    kw=(Token)match(input,18,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getCommentKeyword_3());
+                    		
+
+                    }
+                    break;
+                case 5 :
+                    // InternalJsonSchemaDsl.g:4190:3: kw= '\"title\"'
+                    {
+                    kw=(Token)match(input,23,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getTitleKeyword_4());
+                    		
+
+                    }
+                    break;
+                case 6 :
+                    // InternalJsonSchemaDsl.g:4196:3: kw= '\"description\"'
+                    {
+                    kw=(Token)match(input,42,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDescriptionKeyword_5());
+                    		
+
+                    }
+                    break;
+                case 7 :
+                    // InternalJsonSchemaDsl.g:4202:3: kw= '\"default\"'
+                    {
+                    kw=(Token)match(input,25,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDefaultKeyword_6());
+                    		
+
+                    }
+                    break;
+                case 8 :
+                    // InternalJsonSchemaDsl.g:4208:3: kw= '\"readOnly\"'
+                    {
+                    kw=(Token)match(input,35,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getReadOnlyKeyword_7());
+                    		
+
+                    }
+                    break;
+                case 9 :
+                    // InternalJsonSchemaDsl.g:4214:3: kw= '\"writeOnly\"'
+                    {
+                    kw=(Token)match(input,17,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getWriteOnlyKeyword_8());
+                    		
+
+                    }
+                    break;
+                case 10 :
+                    // InternalJsonSchemaDsl.g:4220:3: kw= '\"examples\"'
+                    {
+                    kw=(Token)match(input,46,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getExamplesKeyword_9());
+                    		
+
+                    }
+                    break;
+                case 11 :
+                    // InternalJsonSchemaDsl.g:4226:3: kw= '\"multipleOf\"'
+                    {
+                    kw=(Token)match(input,50,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMultipleOfKeyword_10());
+                    		
+
+                    }
+                    break;
+                case 12 :
+                    // InternalJsonSchemaDsl.g:4232:3: kw= '\"maximum\"'
+                    {
+                    kw=(Token)match(input,15,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaximumKeyword_11());
+                    		
+
+                    }
+                    break;
+                case 13 :
+                    // InternalJsonSchemaDsl.g:4238:3: kw= '\"exclusiveMaximum\"'
+                    {
+                    kw=(Token)match(input,54,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getExclusiveMaximumKeyword_12());
+                    		
+
+                    }
+                    break;
+                case 14 :
+                    // InternalJsonSchemaDsl.g:4244:3: kw= '\"maxLength\"'
+                    {
+                    kw=(Token)match(input,55,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxLengthKeyword_13());
+                    		
+
+                    }
+                    break;
+                case 15 :
+                    // InternalJsonSchemaDsl.g:4250:3: kw= '\"minLength\"'
+                    {
+                    kw=(Token)match(input,27,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinLengthKeyword_14());
+                    		
+
+                    }
+                    break;
+                case 16 :
+                    // InternalJsonSchemaDsl.g:4256:3: kw= '\"pattern\"'
+                    {
+                    kw=(Token)match(input,51,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPatternKeyword_15());
+                    		
+
+                    }
+                    break;
+                case 17 :
+                    // InternalJsonSchemaDsl.g:4262:3: kw= '\"additionalItems\"'
+                    {
+                    kw=(Token)match(input,45,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAdditionalItemsKeyword_16());
+                    		
+
+                    }
+                    break;
+                case 18 :
+                    // InternalJsonSchemaDsl.g:4268:3: kw= '\"items\"'
+                    {
+                    kw=(Token)match(input,24,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getItemsKeyword_17());
+                    		
+
+                    }
+                    break;
+                case 19 :
+                    // InternalJsonSchemaDsl.g:4274:3: kw= '\"maxItems\"'
+                    {
+                    kw=(Token)match(input,33,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxItemsKeyword_18());
+                    		
+
+                    }
+                    break;
+                case 20 :
+                    // InternalJsonSchemaDsl.g:4280:3: kw= '\"minItems\"'
+                    {
+                    kw=(Token)match(input,29,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinItemsKeyword_19());
+                    		
+
+                    }
+                    break;
+                case 21 :
+                    // InternalJsonSchemaDsl.g:4286:3: kw= '\"uniqueItems\"'
+                    {
+                    kw=(Token)match(input,21,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getUniqueItemsKeyword_20());
+                    		
+
+                    }
+                    break;
+                case 22 :
+                    // InternalJsonSchemaDsl.g:4292:3: kw= '\"contains\"'
+                    {
+                    kw=(Token)match(input,52,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContainsKeyword_21());
+                    		
+
+                    }
+                    break;
+                case 23 :
+                    // InternalJsonSchemaDsl.g:4298:3: kw= '\"maxProperties\"'
+                    {
+                    kw=(Token)match(input,31,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxPropertiesKeyword_22());
+                    		
+
+                    }
+                    break;
+                case 24 :
+                    // InternalJsonSchemaDsl.g:4304:3: kw= '\"minProperties\"'
+                    {
+                    kw=(Token)match(input,43,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinPropertiesKeyword_23());
+                    		
+
+                    }
+                    break;
+                case 25 :
+                    // InternalJsonSchemaDsl.g:4310:3: kw= '\"required\"'
+                    {
+                    kw=(Token)match(input,41,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getRequiredKeyword_24());
+                    		
+
+                    }
+                    break;
+                case 26 :
+                    // InternalJsonSchemaDsl.g:4316:3: kw= '\"additionalProperties\"'
+                    {
+                    kw=(Token)match(input,37,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAdditionalPropertiesKeyword_25());
+                    		
+
+                    }
+                    break;
+                case 27 :
+                    // InternalJsonSchemaDsl.g:4322:3: kw= '\"definitions\"'
+                    {
+                    kw=(Token)match(input,28,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDefinitionsKeyword_26());
+                    		
+
+                    }
+                    break;
+                case 28 :
+                    // InternalJsonSchemaDsl.g:4328:3: kw= '\"properties\"'
+                    {
+                    kw=(Token)match(input,60,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPropertiesKeyword_27());
+                    		
+
+                    }
+                    break;
+                case 29 :
+                    // InternalJsonSchemaDsl.g:4334:3: kw= '\"patternProperties\"'
+                    {
+                    kw=(Token)match(input,44,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPatternPropertiesKeyword_28());
+                    		
+
+                    }
+                    break;
+                case 30 :
+                    // InternalJsonSchemaDsl.g:4340:3: kw= '\"propertyNames\"'
+                    {
+                    kw=(Token)match(input,61,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPropertyNamesKeyword_29());
+                    		
+
+                    }
+                    break;
+                case 31 :
+                    // InternalJsonSchemaDsl.g:4346:3: kw= '\"const\"'
+                    {
+                    kw=(Token)match(input,40,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getConstKeyword_30());
+                    		
+
+                    }
+                    break;
+                case 32 :
+                    // InternalJsonSchemaDsl.g:4352:3: kw= '\"type\"'
+                    {
+                    kw=(Token)match(input,36,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getTypeKeyword_31());
+                    		
+
+                    }
+                    break;
+                case 33 :
+                    // InternalJsonSchemaDsl.g:4358:3: kw= '\"format\"'
+                    {
+                    kw=(Token)match(input,34,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getFormatKeyword_32());
+                    		
+
+                    }
+                    break;
+                case 34 :
+                    // InternalJsonSchemaDsl.g:4364:3: kw= '\"contentMediaType\"'
+                    {
+                    kw=(Token)match(input,57,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContentMediaTypeKeyword_33());
+                    		
+
+                    }
+                    break;
+                case 35 :
+                    // InternalJsonSchemaDsl.g:4370:3: kw= '\"contentEncoding\"'
+                    {
+                    kw=(Token)match(input,49,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContentEncodingKeyword_34());
+                    		
+
+                    }
+                    break;
+                case 36 :
+                    // InternalJsonSchemaDsl.g:4376:3: kw= '\"if\"'
+                    {
+                    kw=(Token)match(input,47,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getIfKeyword_35());
+                    		
+
+                    }
+                    break;
+                case 37 :
+                    // InternalJsonSchemaDsl.g:4382:3: kw= '\"then\"'
+                    {
+                    kw=(Token)match(input,26,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getThenKeyword_36());
+                    		
+
+                    }
+                    break;
+                case 38 :
+                    // InternalJsonSchemaDsl.g:4388:3: kw= '\"else\"'
+                    {
+                    kw=(Token)match(input,38,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getElseKeyword_37());
+                    		
+
+                    }
+                    break;
+                case 39 :
+                    // InternalJsonSchemaDsl.g:4394:3: kw= '\"allOf\"'
+                    {
+                    kw=(Token)match(input,48,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAllOfKeyword_38());
+                    		
+
+                    }
+                    break;
+                case 40 :
+                    // InternalJsonSchemaDsl.g:4400:3: kw= '\"anyOf\"'
+                    {
+                    kw=(Token)match(input,22,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAnyOfKeyword_39());
+                    		
+
+                    }
+                    break;
+                case 41 :
+                    // InternalJsonSchemaDsl.g:4406:3: kw= '\"oneOf\"'
+                    {
+                    kw=(Token)match(input,30,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getOneOfKeyword_40());
+                    		
+
+                    }
+                    break;
+                case 42 :
+                    // InternalJsonSchemaDsl.g:4412:3: kw= '\"not\"'
+                    {
+                    kw=(Token)match(input,53,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getNotKeyword_41());
+                    		
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleKEYWORD"
+
+
     // $ANTLR start "ruleSimpleTypes"
-    // InternalJsonSchemaDsl.g:4111:1: ruleSimpleTypes returns [Enumerator current=null] : ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) ) ;
+    // InternalJsonSchemaDsl.g:4421:1: ruleSimpleTypes returns [Enumerator current=null] : ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) ) ;
     public final Enumerator ruleSimpleTypes() throws RecognitionException {
         Enumerator current = null;
 
@@ -10820,60 +11737,60 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:4117:2: ( ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) ) )
-            // InternalJsonSchemaDsl.g:4118:2: ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) )
+            // InternalJsonSchemaDsl.g:4427:2: ( ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) ) )
+            // InternalJsonSchemaDsl.g:4428:2: ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) )
             {
-            // InternalJsonSchemaDsl.g:4118:2: ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) )
-            int alt32=7;
+            // InternalJsonSchemaDsl.g:4428:2: ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) )
+            int alt34=7;
             switch ( input.LA(1) ) {
             case 66:
                 {
-                alt32=1;
+                alt34=1;
                 }
                 break;
             case 67:
                 {
-                alt32=2;
+                alt34=2;
                 }
                 break;
             case 68:
                 {
-                alt32=3;
+                alt34=3;
                 }
                 break;
             case 69:
                 {
-                alt32=4;
+                alt34=4;
                 }
                 break;
             case 70:
                 {
-                alt32=5;
+                alt34=5;
                 }
                 break;
             case 71:
                 {
-                alt32=6;
+                alt34=6;
                 }
                 break;
             case 72:
                 {
-                alt32=7;
+                alt34=7;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 32, 0, input);
+                    new NoViableAltException("", 34, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt32) {
+            switch (alt34) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:4119:3: (enumLiteral_0= '\"array\"' )
+                    // InternalJsonSchemaDsl.g:4429:3: (enumLiteral_0= '\"array\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4119:3: (enumLiteral_0= '\"array\"' )
-                    // InternalJsonSchemaDsl.g:4120:4: enumLiteral_0= '\"array\"'
+                    // InternalJsonSchemaDsl.g:4429:3: (enumLiteral_0= '\"array\"' )
+                    // InternalJsonSchemaDsl.g:4430:4: enumLiteral_0= '\"array\"'
                     {
                     enumLiteral_0=(Token)match(input,66,FOLLOW_2); 
 
@@ -10887,10 +11804,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonSchemaDsl.g:4127:3: (enumLiteral_1= '\"boolean\"' )
+                    // InternalJsonSchemaDsl.g:4437:3: (enumLiteral_1= '\"boolean\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4127:3: (enumLiteral_1= '\"boolean\"' )
-                    // InternalJsonSchemaDsl.g:4128:4: enumLiteral_1= '\"boolean\"'
+                    // InternalJsonSchemaDsl.g:4437:3: (enumLiteral_1= '\"boolean\"' )
+                    // InternalJsonSchemaDsl.g:4438:4: enumLiteral_1= '\"boolean\"'
                     {
                     enumLiteral_1=(Token)match(input,67,FOLLOW_2); 
 
@@ -10904,10 +11821,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJsonSchemaDsl.g:4135:3: (enumLiteral_2= '\"integer\"' )
+                    // InternalJsonSchemaDsl.g:4445:3: (enumLiteral_2= '\"integer\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4135:3: (enumLiteral_2= '\"integer\"' )
-                    // InternalJsonSchemaDsl.g:4136:4: enumLiteral_2= '\"integer\"'
+                    // InternalJsonSchemaDsl.g:4445:3: (enumLiteral_2= '\"integer\"' )
+                    // InternalJsonSchemaDsl.g:4446:4: enumLiteral_2= '\"integer\"'
                     {
                     enumLiteral_2=(Token)match(input,68,FOLLOW_2); 
 
@@ -10921,10 +11838,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalJsonSchemaDsl.g:4143:3: (enumLiteral_3= '\"null\"' )
+                    // InternalJsonSchemaDsl.g:4453:3: (enumLiteral_3= '\"null\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4143:3: (enumLiteral_3= '\"null\"' )
-                    // InternalJsonSchemaDsl.g:4144:4: enumLiteral_3= '\"null\"'
+                    // InternalJsonSchemaDsl.g:4453:3: (enumLiteral_3= '\"null\"' )
+                    // InternalJsonSchemaDsl.g:4454:4: enumLiteral_3= '\"null\"'
                     {
                     enumLiteral_3=(Token)match(input,69,FOLLOW_2); 
 
@@ -10938,10 +11855,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalJsonSchemaDsl.g:4151:3: (enumLiteral_4= '\"number\"' )
+                    // InternalJsonSchemaDsl.g:4461:3: (enumLiteral_4= '\"number\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4151:3: (enumLiteral_4= '\"number\"' )
-                    // InternalJsonSchemaDsl.g:4152:4: enumLiteral_4= '\"number\"'
+                    // InternalJsonSchemaDsl.g:4461:3: (enumLiteral_4= '\"number\"' )
+                    // InternalJsonSchemaDsl.g:4462:4: enumLiteral_4= '\"number\"'
                     {
                     enumLiteral_4=(Token)match(input,70,FOLLOW_2); 
 
@@ -10955,10 +11872,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalJsonSchemaDsl.g:4159:3: (enumLiteral_5= '\"object\"' )
+                    // InternalJsonSchemaDsl.g:4469:3: (enumLiteral_5= '\"object\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4159:3: (enumLiteral_5= '\"object\"' )
-                    // InternalJsonSchemaDsl.g:4160:4: enumLiteral_5= '\"object\"'
+                    // InternalJsonSchemaDsl.g:4469:3: (enumLiteral_5= '\"object\"' )
+                    // InternalJsonSchemaDsl.g:4470:4: enumLiteral_5= '\"object\"'
                     {
                     enumLiteral_5=(Token)match(input,71,FOLLOW_2); 
 
@@ -10972,10 +11889,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalJsonSchemaDsl.g:4167:3: (enumLiteral_6= '\"string\"' )
+                    // InternalJsonSchemaDsl.g:4477:3: (enumLiteral_6= '\"string\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4167:3: (enumLiteral_6= '\"string\"' )
-                    // InternalJsonSchemaDsl.g:4168:4: enumLiteral_6= '\"string\"'
+                    // InternalJsonSchemaDsl.g:4477:3: (enumLiteral_6= '\"string\"' )
+                    // InternalJsonSchemaDsl.g:4478:4: enumLiteral_6= '\"string\"'
                     {
                     enumLiteral_6=(Token)match(input,72,FOLLOW_2); 
 
@@ -11012,29 +11929,113 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
     // Delegated rules
 
 
+    protected DFA28 dfa28 = new DFA28(this);
+    static final String dfa_1s = "\57\uffff";
+    static final String dfa_2s = "\1\54\56\uffff";
+    static final String dfa_3s = "\1\4\53\20\1\uffff\1\14\1\uffff";
+    static final String dfa_4s = "\1\75\53\20\1\uffff\1\77\1\uffff";
+    static final String dfa_5s = "\54\uffff\1\2\1\uffff\1\1";
+    static final String dfa_6s = "\57\uffff}>";
+    static final String[] dfa_7s = {
+            "\1\1\12\uffff\1\15\1\uffff\1\12\1\5\2\uffff\1\26\1\51\1\6\1\23\1\10\1\46\1\20\1\34\1\25\1\52\1\30\1\uffff\1\24\1\42\1\11\1\41\1\33\1\47\1\2\1\40\1\32\1\7\1\31\1\36\1\22\1\13\1\45\1\50\1\44\1\14\1\21\1\27\1\53\1\16\1\17\1\4\1\43\1\uffff\1\3\1\35\1\37",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "\1\55",
+            "",
+            "\1\54\6\uffff\1\56\52\uffff\2\54",
+            ""
+    };
+
+    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
+    static final short[] dfa_2 = DFA.unpackEncodedString(dfa_2s);
+    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
+    static final char[] dfa_4 = DFA.unpackEncodedStringToUnsignedChars(dfa_4s);
+    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
+    static final short[] dfa_6 = DFA.unpackEncodedString(dfa_6s);
+    static final short[][] dfa_7 = unpackEncodedStringArray(dfa_7s);
+
+    class DFA28 extends DFA {
+
+        public DFA28(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 28;
+            this.eot = dfa_1;
+            this.eof = dfa_2;
+            this.min = dfa_3;
+            this.max = dfa_4;
+            this.accept = dfa_5;
+            this.special = dfa_6;
+            this.transition = dfa_7;
+        }
+        public String getDescription() {
+            return "3931:3: ( (lv_dependenciesAnyOf2_1_0= ruleKeyStringArrayPair ) )?";
+        }
+    }
  
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x3FFFFFFFFFEEC020L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x3FFFFFFFFFEEC010L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x3FFFFFFFFFEE8020L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x3FFFFFFFFFEE8010L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0xC000000000000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0xC000000000081070L,0x0000000000000003L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000102000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0xC000000000081002L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080002L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0xC000000000001000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000002L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000080002L,0x00000000000001FCL});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0xC000000000181070L,0x0000000000000003L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000000000000L,0x00000000000001FCL});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x3FFFFFFFFFEE8022L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x3FFFFFFFFFFE8020L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x3BFFFFFEFFE68010L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0xFBFFFFFEFFEE9070L,0x0000000000000003L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000102000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0xC000000000081002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080002L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0xC000000000001000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000002L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x3BFFFFFEFFE6C010L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000080002L,0x00000000000001FCL});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0xFBFFFFFEFFFE9070L,0x0000000000000003L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000000L,0x00000000000001FCL});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x3BFFFFFEFFE68012L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x3BFFFFFEFFF68010L});
 
 }
