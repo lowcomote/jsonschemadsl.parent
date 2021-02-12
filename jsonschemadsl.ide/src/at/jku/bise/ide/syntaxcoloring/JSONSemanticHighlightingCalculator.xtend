@@ -21,7 +21,7 @@ class JSONSemanticHighlightingCalculator extends DefaultSemanticHighlightingCalc
 				highlightFeature(acceptor, object, JsonMetaschemaMMPackage.eINSTANCE.keySchemaPair_Key, HighlightingStyles.DEFAULT_ID)				
 				return false;
 			}
-			//TODO String Array I do not know how to do it 
+			//TODO String Array I think that we need to change the meta-model
 			//StringArray:{
 			//	println(object.toString)
 			//	highlightFeature(acceptor, object, JsonMetaschemaMMPackage.eINSTANCE.stringArray_Values, HighlightingStyles.STRING_ID)
