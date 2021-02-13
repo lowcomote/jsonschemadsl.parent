@@ -98,8 +98,12 @@ rule createEClass (className:String, objectSchema: MM!ObjectSchema){
 --			eStructuralFeatures <- distinct MM1!EAttribute foreach(keySchemaPair in keySchemaPair.value.findInPropertiesKeySchemaPairsWithType(#"\"string\""))(
 --			)
 			eStructuralFeatures <- objectSchema.findInPropertiesKeySchemaPairsWithType(#"\"string\""),
-			eStructuralFeatures <- objectSchema.findInPropertiesKeySchemaPairsWithType(#"\"object\"")
+			eStructuralFeatures <- objectSchema.findInPropertiesKeySchemaPairsWithType(#"\"object\""),
+			eAnnotations <- eAnnotation
 			
+		),
+		eAnnotation : MM1!EAnnotation(
+			source <-objectSchema.buildPointer()
 		)
 
 	do {

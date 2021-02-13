@@ -12,12 +12,7 @@ helper context MM!Schema def: isObjectSchema() : Boolean =
 helper context MM!KeySchemaPair def: isProperty():Boolean =
 	self.refImmediateComposite().oclIsTypeOf(MM!PropertiesSchemaDefinition);
 
-helper context MM!KeySchemaPair def: getObjectSchema : MM!ObjectSchema =
-	if(self.value.oclIsTypeOf(MM!ObjectSchema)) then
-		self.value
-	else
-		OclAny
-	endif;
+
 
 helper context MM!ObjectSchema def: hasType(type:String) : Boolean =
 	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
@@ -45,6 +40,69 @@ helper context MM!ObjectSchema def : findInPropertiesSchemasWithType(type:String
 helper context MM!PropertiesSchemaDefinition def:  getAllSchemasWithType(type:String): Set(MM!ObjectSchema)=
 	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);	
 
+
+--------------------KeywordDefinition
+--
+	
+helper context	MM!ObjectSchema def : buildPointer():String=
+	if self.isRootSchema() then '#'
+	else
+		if self.refImmediateComposite().oclIsTypeOf(MM!SchemaArray) then
+			self.refImmediateComposite().buildPointer(self)
+		else
+			self.refImmediateComposite().buildPointer()
+		endif	
+	endif;
+helper context MM!KeySchemaPair def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/'+self.key;
+	
+helper context MM!AdditionalItemsSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/additionalItems';	
+
+helper context MM!ItemsSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/items';	
+
+helper context MM!SchemaArray def:buildPointer(schema:MM!ObjectSchema):String=
+	self.refImmediateComposite().buildPointer()+'/'+self.indexOf(schema).toString;	
+
+helper context MM!AdditionalPropertiesSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/additionalProperties';	
+
+helper context MM!ContainsSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/contains';
+
+helper context MM!DefinitionsSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/definitions';
+
+helper context MM!PropertiesSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/properties';
+
+helper context MM!PatternPropertiesSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/patternProperties';
+
+helper context MM!PropertyNamesSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/propertyNames';
+
+helper context MM!IfSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/if';
+	
+helper context MM!ThenSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/then';	
+
+helper context MM!ElseSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/else';
+
+helper context MM!AllOfSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/allOf';
+
+helper context MM!AnyOfSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/anyOf';
+
+helper context MM!OneOfSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/oneOf';
+
+helper context MM!NotSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/not';
 --------------------------
 helper context MM!ObjectSchema def: isTypeObject() : Boolean =
 	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
