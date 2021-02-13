@@ -2,21 +2,22 @@ library JsonSchema2EcoreUtils;
 
 helper context String def : toCamelCase() : String=
 	self.substring(1, 1).toUpperCase() + self.substring(2,self.size());
---	self.substring(0, 1).toUpperCase() + self.substring(1,5);
---	self.toUpperCase();
 
 helper context MM!Schema def: isRootSchema() :Boolean =
 	self.refImmediateComposite().oclIsTypeOf(MM!JsonSchema);
 	
---helper context MM!KeySchemaPair def: isObjectSchemaWithType(type:String) : Boolean =
---	
---	if (self.value.oclIsTypeOf(MM!ObjectSchema)) then
-----	if (self.value.oclIsKindOf(MM!ObjectSchema)) then
---		
---		self.value.hasType(type)
---	else
---		false
---	endif;
+helper context MM!Schema def: isObjectSchema() : Boolean =
+	self.oclIsTypeOf(MM!ObjectSchema);
+
+helper context MM!KeySchemaPair def: isProperty():Boolean =
+	self.refImmediateComposite().oclIsTypeOf(MM!PropertiesSchemaDefinition);
+
+helper context MM!KeySchemaPair def: getObjectSchema : MM!ObjectSchema =
+	if(self.value.oclIsTypeOf(MM!ObjectSchema)) then
+		self.value
+	else
+		OclAny
+	endif;
 
 helper context MM!ObjectSchema def: hasType(type:String) : Boolean =
 	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
@@ -26,8 +27,7 @@ helper context MM!ObjectSchema def: hasType(type:String) : Boolean =
 --		->exists(keyword | keyword.typeAnyOf1 = #"\"object\"");
 
 
---helper context MM!Schema def: isObjectSchema() : Boolean =
---	self.oclIsTypeOf(MM!ObjectSchema);
+
 
 helper context MM!ObjectSchema def: findInPropertiesKeySchemaPairsWithType(type:String) : Set(MM!KeySchemaPair)=
 	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
