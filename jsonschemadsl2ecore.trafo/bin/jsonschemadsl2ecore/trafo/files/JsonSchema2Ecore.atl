@@ -6,11 +6,162 @@ create OUT : MM1 from IN : MM;
 
 uses JsonSchema2EcoreUtils;
 
+helper def: rootEPackage : MM1!EPackage = OclUndefined;
+--helper def: rootEClass : MM1!EClass= OclUndefined;
+
 rule JsonSchemaToEPackage {
 	from
+--		jsonSchema : MM!JsonSchema, schema : MM!Schema (jsonSchema.schema=schema and schema.isObjectSchema() and schema.isTypeObject())
 		jsonSchema : MM!JsonSchema
 	to 
-		package : MM1!EPackage (
-			name <- 'test'			
+		ePackage : MM1!EPackage (
+			name <- 'test1'			
+		)
+	do{
+		thisModule.rootEPackage <- ePackage;
+	}
+}
+
+rule SchemaToRootEClass {
+	from 
+		rootSchema : MM!Schema (rootSchema.isRootSchema() and rootSchema.isObjectSchema())
+--	to thisModule.createEClass('TestRoot', rootSchema)
+--		eClass : MM1!EClass(
+--			name <- 'TestRoot'	
+--		)
+
+	do {
+--		thisModule.rootEPackage.eClassifiers <-eClass;
+		thisModule.createEClass('TestRoot', rootSchema);
+	}	
+}
+
+rule KeySchemaPairWithObjectToEClass{
+	from
+--		keySchemaPair : MM!KeySchemaPair (keySchemaPair.isObjectSchemaWithType('\"object\"'))
+--		keySchemaPair : MM!KeySchemaPair (keySchemaPair.value.isTypeObject())
+		keySchemaPair : MM!KeySchemaPair (
+			not keySchemaPair.isProperty() 
+			and keySchemaPair.value.hasType(#"\"object\""))
+--	to
+--		eClass : MM1!EClass(
+--			name <- keySchemaPair.key.toCamelCase(),
+----			eStructuralFeatures <- keySchemaPair.value.findInPropertiesSchemasWithType(#"\"object\""),
+--			--eStructuralFeatures <- keySchemaPair.value.findInPropertiesSchemasWithType(#"\"string\"")
+----			eStructuralFeatures <- distinct MM1!EAttribute foreach(keySchemaPair in keySchemaPair.value.findInPropertiesKeySchemaPairsWithType(#"\"string\""))(
+----			)
+--			eStructuralFeatures <- keySchemaPair.value.findInPropertiesKeySchemaPairsWithType(#"\"string\""),
+--			eStructuralFeatures <- keySchemaPair.value.findInPropertiesKeySchemaPairsWithType(#"\"object\"")
+--			
+--		)
+----		,
+----		eReference :MM1!EReference ( --TODO move in a separated rule to check if refImmediateComposite is ProperiesSchemaDefinition 
+----			name <- keySchemaPair.key,
+----			eType <-eClass,
+----			containment <- true,
+----			-- TODO set lower bound conditioned to required
+----			upperBound <- 1
+----			
+----		)
+	do {
+--		thisModule.rootEPackage.eClassifiers <-eClass;
+		thisModule.createEClass(keySchemaPair.key.toCamelCase(), keySchemaPair.value);
+	}		
+}
+
+
+rule  KeySchemaPairWithRefToEReference{--TODO TO BE FINISHED
+	from
+		keySchemaPair : MM!KeySchemaPair (
+			keySchemaPair.isProperty() 
+			and keySchemaPair.value.hasRef()
+		)
+	to 
+		eReference :MM1!EReference ( 
+			name <- keySchemaPair.key,
+--			eType <- thisModule.rootEPackage.findEClassByRef(keySchemaPair.value.keywordDefinition 
+--						-> select(keyword |  keyword.oclIsTypeOf(MM!RefSchemaDefinition)).first().ref),
+			eType <- thisModule.rootEPackage.findEClassByRef(keySchemaPair.value.keywordDefinition 
+						-> select(keyword |  keyword.oclIsTypeOf(MM!RefSchemaDefinition)).first().ref),
+			containment <- true,
+			-- TODO set lower bound conditioned to required
+			upperBound <- 1
+			
+		)	
+}
+rule KeySchemaPairWithTypeObjectToEReference{
+	from 
+		keySchemaPair : MM!KeySchemaPair (
+			keySchemaPair.isProperty() 
+			and not keySchemaPair.value.hasRef()	
+			and keySchemaPair.value.hasType(#"\"object\"")
+		)
+	to 
+		eReference :MM1!EReference ( 
+			name <- keySchemaPair.key,
+--			eType <- keySchemaPair.value,
+--			eType <- keySchemaPair.getObjectSchema,
+			eType <- thisModule.createEClass(keySchemaPair.key.toCamelCase(), keySchemaPair.value),
+			containment <- true,
+			-- TODO set lower bound conditioned to required
+			upperBound <- 1
+			
+		)
+--	do 	{
+--		thisModule.createEClass(keySchemaPair.key.toCamelCase(), keySchemaPair.value);
+--	}
+		
+}
+
+rule createEClass (className:String, objectSchema: MM!ObjectSchema){
+	to
+		eClass : MM1!EClass(
+			name <- className,
+--			eStructuralFeatures <- keySchemaPair.value.findInPropertiesSchemasWithType(#"\"object\""),
+			--eStructuralFeatures <- keySchemaPair.value.findInPropertiesSchemasWithType(#"\"string\"")
+--			eStructuralFeatures <- distinct MM1!EAttribute foreach(keySchemaPair in keySchemaPair.value.findInPropertiesKeySchemaPairsWithType(#"\"string\""))(
+--			)
+			eStructuralFeatures <- objectSchema.findInPropertiesKeySchemaPairsWithType(#"\"string\""),
+			eStructuralFeatures <- objectSchema.findInPropertiesKeySchemaPairsWithType(#"\"object\""),
+			eAnnotations <- eAnnotation
+			
+		),
+		eAnnotation : MM1!EAnnotation(
+			source <-objectSchema.buildPointer()
+		)
+
+	do {
+		
+		thisModule.rootEPackage.eClassifiers <-eClass;
+		eClass;
+	}		
+}
+
+rule KeySchemaPairWithTypeStringToEAttribute{
+	from
+		keySchemaPair : MM!KeySchemaPair (keySchemaPair.value.hasType(#"\"string\""))
+	to 	
+		eAttribute : MM1!EAttribute(  --EcorePackage ecorePackage.getEString();
+			name <- keySchemaPair.key,
+			-- TODO set lower bound conditioned to required
+			upperBound <- 1,
+--			eType <- String TODO put EString someway!!!!
+			eType <- MM1!EString
 		)
 }
+
+
+-------------------------------------------
+
+
+
+--rule ObjectSchemaToEClass {
+--	from
+----		objectSchema : MM!ObjectSchema(objectSchema.isTypeObject())
+--		objectSchema : MM!ObjectSchema(objectSchema.hasType('\"object\"'))
+--	to
+--		eClass : MM1!EClass
+--	do {
+--		thisModule.rootEPackage.eClassifiers <-eClass;
+--	}	
+--}

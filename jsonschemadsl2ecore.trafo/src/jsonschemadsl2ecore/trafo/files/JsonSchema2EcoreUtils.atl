@@ -1,5 +1,61 @@
 library JsonSchema2EcoreUtils;
 
+
+helper def: keywordDefinitionMap : Map (String, OclAny) =
+	Map{
+		('additionalItems',MM!AdditionalItemsSchemaDefinition), 
+		('items',MM!ItemsSchemaDefinition),
+		('additionalProperties',MM!AdditionalPropertiesSchemaDefinition),
+		('contains',MM!ContainsSchemaDefinition),
+		('definitions',MM!DefinitionsSchemaDefinition),
+		('properties',MM!PropertiesSchemaDefinition),
+		('patternProperties',MM!PatternPropertiesSchemaDefinition),
+		('propertyNames',MM!PropertyNamesSchemaDefinition),
+		('if',MM!IfSchemaDefinition),
+		('then',MM!ThenSchemaDefinition),
+		('else',MM!ElseSchemaDefinition),
+		('allOf',MM!AllOfSchemaDefinition),
+		('anyOf',MM!AnyOfSchemaDefinition),
+		('oneOf',MM!OneOfSchemaDefinition),
+		('not',MM!NotSchemaDefinition)
+	};
+
+--  the initial input will be JsonSchema.schema
+--helper context OclAny def: findKeySchemaPairByJsonPointer(jsonPointer:Sequence(String)): MM!KeySchemaPair =
+helper context OclAny def: findKeySchemaPairByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
+	if jsonPointer ->notEmpty() 
+	then
+		if jsonPointer.first() = '#' -- OclAny is MM!JsonSchema
+			then
+				self.schema.findKeySchemaPairByJsonPointer(thisModule.popFirst(jsonPointer))
+			else
+				if not thisModule.keywordDefinitionMap.get(jsonPointer.first()).oclIsUndefined()
+					then --is schemadefinition and self is objectschema
+						self.keywordDefinition
+							->select(
+								keywordDefinition | keywordDefinition.oclIsTypeOf(thisModule.keywordDefinitionMap.get(jsonPointer.first()))
+							).first().findKeySchemaPairByJsonPointer(thisModule.popFirst(jsonPointer))
+					else -- is key, we look for a KeySchema with that key
+						self.keySchemaPairs->select(
+							keySchemaPair | keySchemaPair.key=jsonPointer.first()
+						).first().findKeySchemaPairByJsonPointer(thisModule.popFirst(jsonPointer))
+				endif
+		endif
+	else
+		self
+	endif
+;
+
+helper  def: popFirst(jsonPointer:Sequence(String)): Sequence(String)=
+	if jsonPointer.size() = 0
+		then jsonPointer
+		else
+			if jsonPointer.size() = 1
+				then Sequence{}
+				else jsonPointer.subSequence(2, self.size())
+			endif		
+	endif;		
+
 helper context String def : toCamelCase() : String=
 	self.substring(1, 1).toUpperCase() + self.substring(2,self.size());
 

@@ -1,3 +1,39 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="test"/>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="test1">
+    <eClassifiers xsi:type="ecore:EClass" name="TestRoot">
+      <eAnnotations source="#"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiVersion"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Metadata">
+      <eAnnotations source="#/definitions/Metadata"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nestedObject" eType="/0/NestedObject"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ShipyardSpec">
+      <eAnnotations source="#/definitions/ShipyardSpec"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Stage">
+      <eAnnotations source="#/definitions/Stage"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Sequence">
+      <eAnnotations source="#/definitions/Sequence"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Task">
+      <eAnnotations source="#/definitions/Task"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NestedObject">
+      <eAnnotations source="#/definitions/Metadata/properties/nestedObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EReference name="metadata" eType="/0/Metadata" containment="true"/>
+  <ecore:EReference name="spec" eType="/0/ShipyardSpec" containment="true"/>
+</xmi:XMI>

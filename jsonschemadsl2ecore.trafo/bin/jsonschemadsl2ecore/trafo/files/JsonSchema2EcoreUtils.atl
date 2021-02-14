@@ -1,2 +1,171 @@
 library JsonSchema2EcoreUtils;
 
+
+helper def: keywordDefinitionMap : Map (String, OclAny) =
+	Map{
+		('additionalItems',MM!AdditionalItemsSchemaDefinition), 
+		('items',MM!ItemsSchemaDefinition),
+		('additionalProperties',MM!AdditionalPropertiesSchemaDefinition),
+		('contains',MM!ContainsSchemaDefinition),
+		('definitions',MM!DefinitionsSchemaDefinition),
+		('properties',MM!PropertiesSchemaDefinition),
+		('patternProperties',MM!PatternPropertiesSchemaDefinition),
+		('propertyNames',MM!PropertyNamesSchemaDefinition),
+		('if',MM!IfSchemaDefinition),
+		('then',MM!ThenSchemaDefinition),
+		('else',MM!ElseSchemaDefinition),
+		('allOf',MM!AllOfSchemaDefinition),
+		('anyOf',MM!AnyOfSchemaDefinition),
+		('oneOf',MM!OneOfSchemaDefinition),
+		('not',MM!NotSchemaDefinition)
+	};
+
+--  the initial input will be JsonSchema.schema
+--helper context OclAny def: findKeySchemaPairByJsonPointer(jsonPointer:Sequence(String)): MM!KeySchemaPair =
+helper context OclAny def: findKeySchemaPairByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
+	if jsonPointer ->notEmpty() 
+	then
+		if jsonPointer.first() = '#' -- OclAny is MM!JsonSchema
+			then
+				self.schema.findKeySchemaPairByJsonPointer(thisModule.popFirst(jsonPointer))
+			else
+				if not thisModule.keywordDefinitionMap.get(jsonPointer.first()).oclIsUndefined()
+					then --is schemadefinition and self is objectschema
+						self.keywordDefinition
+							->select(
+								keywordDefinition | keywordDefinition.oclIsTypeOf(thisModule.keywordDefinitionMap.get(jsonPointer.first()))
+							).first().findKeySchemaPairByJsonPointer(thisModule.popFirst(jsonPointer))
+					else -- is key, we look for a KeySchema with that key
+						self.keySchemaPairs->select(
+							keySchemaPair | keySchemaPair.key=jsonPointer.first()
+						).first().findKeySchemaPairByJsonPointer(thisModule.popFirst(jsonPointer))
+				endif
+		endif
+	else
+		self
+	endif
+;
+
+helper  def: popFirst(jsonPointer:Sequence(String)): Sequence(String)=
+	if jsonPointer.size() = 0
+		then jsonPointer
+		else
+			if jsonPointer.size() = 1
+				then Sequence{}
+				else jsonPointer.subSequence(2, self.size())
+			endif		
+	endif;		
+
+helper context String def : toCamelCase() : String=
+	self.substring(1, 1).toUpperCase() + self.substring(2,self.size());
+
+helper context MM!Schema def: isRootSchema() :Boolean =
+	self.refImmediateComposite().oclIsTypeOf(MM!JsonSchema);
+	
+helper context MM!Schema def: isObjectSchema() : Boolean =
+	self.oclIsTypeOf(MM!ObjectSchema);
+
+helper context MM!KeySchemaPair def: isProperty():Boolean =
+	self.refImmediateComposite().oclIsTypeOf(MM!PropertiesSchemaDefinition);
+
+helper context MM!ObjectSchema def: hasType(type:String) : Boolean =
+	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
+		->select(keyword | not keyword.typeAnyOf1.oclIsUndefined())
+		->exists(keyword | keyword.typeAnyOf1 = type);
+--		->exists(keyword | keyword.typeAnyOf1 = #type);
+--		->exists(keyword | keyword.typeAnyOf1 = #"\"object\"");
+
+
+helper context MM!ObjectSchema def: hasRef() : Boolean =
+	self.keywordDefinition->exists(keyword  | keyword.oclIsTypeOf(MM!RefSchemaDefinition));
+
+
+
+
+
+helper context MM!ObjectSchema def: findInPropertiesKeySchemaPairsWithType(type:String) : Set(MM!KeySchemaPair)=
+	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
+	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type)))
+;
+
+
+ 
+
+helper context MM!ObjectSchema def : findInPropertiesSchemasWithType(type:String) : Set(MM!ObjectSchema)=
+	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
+	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.getAllSchemasWithType(type));
+
+
+helper context MM!PropertiesSchemaDefinition def:  getAllSchemasWithType(type:String): Set(MM!ObjectSchema)=
+	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);	
+
+helper context MM1!EPackage def: findEClassByRef(ref:String) : MM1!EClass=
+	self.eClassifiers->select(eClass | eClass.eAnnotations -> exists(eAnnotation | eAnnotation.source = ref)).first()
+	;
+--------------------KeywordDefinition
+--
+	
+helper context	MM!ObjectSchema def : buildPointer():String=
+	if self.isRootSchema() then '#'
+	else
+		if self.refImmediateComposite().oclIsTypeOf(MM!SchemaArray) then
+			self.refImmediateComposite().buildPointer(self)
+		else
+			self.refImmediateComposite().buildPointer()
+		endif	
+	endif;
+helper context MM!KeySchemaPair def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/'+self.key;
+	
+helper context MM!AdditionalItemsSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/additionalItems';	
+
+helper context MM!ItemsSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/items';	
+
+helper context MM!SchemaArray def:buildPointer(schema:MM!ObjectSchema):String=
+	self.refImmediateComposite().buildPointer()+'/'+self.indexOf(schema).toString;	
+
+helper context MM!AdditionalPropertiesSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/additionalProperties';	
+
+helper context MM!ContainsSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/contains';
+
+helper context MM!DefinitionsSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/definitions';
+
+helper context MM!PropertiesSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/properties';
+
+helper context MM!PatternPropertiesSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/patternProperties';
+
+helper context MM!PropertyNamesSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/propertyNames';
+
+helper context MM!IfSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/if';
+	
+helper context MM!ThenSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/then';	
+
+helper context MM!ElseSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/else';
+
+helper context MM!AllOfSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/allOf';
+
+helper context MM!AnyOfSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/anyOf';
+
+helper context MM!OneOfSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/oneOf';
+
+helper context MM!NotSchemaDefinition def:buildPointer():String=
+	self.refImmediateComposite().buildPointer()+'/not';
+--------------------------
+helper context MM!ObjectSchema def: isTypeObject() : Boolean =
+	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
+		->select(keyword | not keyword.typeAnyOf1.oclIsUndefined())
+		->exists(keyword | keyword.typeAnyOf1 = #"\"object\"");

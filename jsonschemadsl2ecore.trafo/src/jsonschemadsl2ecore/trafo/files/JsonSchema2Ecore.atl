@@ -7,7 +7,7 @@ create OUT : MM1 from IN : MM;
 uses JsonSchema2EcoreUtils;
 
 helper def: rootEPackage : MM1!EPackage = OclUndefined;
-
+--helper def: rootEClass : MM1!EClass= OclUndefined;
 
 rule JsonSchemaToEPackage {
 	from
@@ -79,6 +79,8 @@ rule  KeySchemaPairWithRefToEReference{--TODO TO BE FINISHED
 	to 
 		eReference :MM1!EReference ( 
 			name <- keySchemaPair.key,
+--			eType <- thisModule.rootEPackage.findEClassByRef(keySchemaPair.value.keywordDefinition 
+--						-> select(keyword |  keyword.oclIsTypeOf(MM!RefSchemaDefinition)).first().ref),
 			eType <- thisModule.rootEPackage.findEClassByRef(keySchemaPair.value.keywordDefinition 
 						-> select(keyword |  keyword.oclIsTypeOf(MM!RefSchemaDefinition)).first().ref),
 			containment <- true,
