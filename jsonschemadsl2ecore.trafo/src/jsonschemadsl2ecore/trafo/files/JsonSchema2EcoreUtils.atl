@@ -12,14 +12,17 @@ helper context MM!Schema def: isObjectSchema() : Boolean =
 helper context MM!KeySchemaPair def: isProperty():Boolean =
 	self.refImmediateComposite().oclIsTypeOf(MM!PropertiesSchemaDefinition);
 
-
-
 helper context MM!ObjectSchema def: hasType(type:String) : Boolean =
 	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
 		->select(keyword | not keyword.typeAnyOf1.oclIsUndefined())
 		->exists(keyword | keyword.typeAnyOf1 = type);
 --		->exists(keyword | keyword.typeAnyOf1 = #type);
 --		->exists(keyword | keyword.typeAnyOf1 = #"\"object\"");
+
+
+helper context MM!ObjectSchema def: hasRef() : Boolean =
+	self.keywordDefinition->exists(keyword  | keyword.oclIsTypeOf(MM!RefSchemaDefinition));
+
 
 
 
@@ -40,7 +43,9 @@ helper context MM!ObjectSchema def : findInPropertiesSchemasWithType(type:String
 helper context MM!PropertiesSchemaDefinition def:  getAllSchemasWithType(type:String): Set(MM!ObjectSchema)=
 	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);	
 
-
+helper context MM1!EPackage def: findEClassByRef(ref:String) : MM1!EClass=
+	self.eClassifiers->select(eClass | eClass.eAnnotations -> exists(eAnnotation | eAnnotation.source = ref)).first()
+	;
 --------------------KeywordDefinition
 --
 	

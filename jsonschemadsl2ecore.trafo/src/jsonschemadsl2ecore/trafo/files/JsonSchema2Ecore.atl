@@ -40,7 +40,9 @@ rule KeySchemaPairWithObjectToEClass{
 	from
 --		keySchemaPair : MM!KeySchemaPair (keySchemaPair.isObjectSchemaWithType('\"object\"'))
 --		keySchemaPair : MM!KeySchemaPair (keySchemaPair.value.isTypeObject())
-		keySchemaPair : MM!KeySchemaPair (not keySchemaPair.isProperty() and keySchemaPair.value.hasType(#"\"object\""))
+		keySchemaPair : MM!KeySchemaPair (
+			not keySchemaPair.isProperty() 
+			and keySchemaPair.value.hasType(#"\"object\""))
 --	to
 --		eClass : MM1!EClass(
 --			name <- keySchemaPair.key.toCamelCase(),
@@ -68,10 +70,30 @@ rule KeySchemaPairWithObjectToEClass{
 }
 
 
-
+rule  KeySchemaPairWithRefToEReference{--TODO TO BE FINISHED
+	from
+		keySchemaPair : MM!KeySchemaPair (
+			keySchemaPair.isProperty() 
+			and keySchemaPair.value.hasRef()
+		)
+	to 
+		eReference :MM1!EReference ( 
+			name <- keySchemaPair.key,
+			eType <- thisModule.rootEPackage.findEClassByRef(keySchemaPair.value.keywordDefinition 
+						-> select(keyword |  keyword.oclIsTypeOf(MM!RefSchemaDefinition)).first().ref),
+			containment <- true,
+			-- TODO set lower bound conditioned to required
+			upperBound <- 1
+			
+		)	
+}
 rule KeySchemaPairWithTypeObjectToEReference{
 	from 
-		keySchemaPair : MM!KeySchemaPair (keySchemaPair.isProperty() and keySchemaPair.value.hasType(#"\"object\""))
+		keySchemaPair : MM!KeySchemaPair (
+			keySchemaPair.isProperty() 
+			and not keySchemaPair.value.hasRef()	
+			and keySchemaPair.value.hasType(#"\"object\"")
+		)
 	to 
 		eReference :MM1!EReference ( 
 			name <- keySchemaPair.key,
@@ -120,8 +142,9 @@ rule KeySchemaPairWithTypeStringToEAttribute{
 		eAttribute : MM1!EAttribute(  --EcorePackage ecorePackage.getEString();
 			name <- keySchemaPair.key,
 			-- TODO set lower bound conditioned to required
-			upperBound <- 1
+			upperBound <- 1,
 --			eType <- String TODO put EString someway!!!!
+			eType <- MM1!EString
 		)
 }
 
