@@ -863,10 +863,10 @@ terminal STRING:
 
 // TODO please @Alessandro review that all keywords are defined here. Thanks!
 KEYWORD: '"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
-	'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"maxLength"' | '"minLength"' |
+	'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"minimum"' | '"exclusiveMinimum"' | '"maxLength"' | '"minLength"' |
 	'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |  
 	'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
-	'"patternProperties"' | '"propertyNames"' | '"const"' | '"type"' | '"format"' | '"contentMediaType"' | '"contentEncoding"' |
+	'"patternProperties"' | '"dependencies"' | '"propertyNames"' | '"const"' | '"enum"' | '"type"' | '"format"' | '"contentMediaType"' | '"contentEncoding"' |
 	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"'
 ;
 

@@ -2870,53 +2870,59 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final Keyword cMultipleOfKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
 		private final Keyword cMaximumKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
 		private final Keyword cExclusiveMaximumKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
-		private final Keyword cMaxLengthKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
-		private final Keyword cMinLengthKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
-		private final Keyword cPatternKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
-		private final Keyword cAdditionalItemsKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
-		private final Keyword cItemsKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
-		private final Keyword cMaxItemsKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
-		private final Keyword cMinItemsKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
-		private final Keyword cUniqueItemsKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
-		private final Keyword cContainsKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
-		private final Keyword cMaxPropertiesKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
-		private final Keyword cMinPropertiesKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
-		private final Keyword cRequiredKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
-		private final Keyword cAdditionalPropertiesKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
-		private final Keyword cDefinitionsKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
-		private final Keyword cPropertiesKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
-		private final Keyword cPatternPropertiesKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
-		private final Keyword cPropertyNamesKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
-		private final Keyword cConstKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
-		private final Keyword cTypeKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
-		private final Keyword cFormatKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
-		private final Keyword cContentMediaTypeKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
-		private final Keyword cContentEncodingKeyword_34 = (Keyword)cAlternatives.eContents().get(34);
-		private final Keyword cIfKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
-		private final Keyword cThenKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
-		private final Keyword cElseKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
-		private final Keyword cAllOfKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
-		private final Keyword cAnyOfKeyword_39 = (Keyword)cAlternatives.eContents().get(39);
-		private final Keyword cOneOfKeyword_40 = (Keyword)cAlternatives.eContents().get(40);
-		private final Keyword cNotKeyword_41 = (Keyword)cAlternatives.eContents().get(41);
+		private final Keyword cMinimumKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cExclusiveMinimumKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final Keyword cMaxLengthKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
+		private final Keyword cMinLengthKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
+		private final Keyword cPatternKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
+		private final Keyword cAdditionalItemsKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
+		private final Keyword cItemsKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
+		private final Keyword cMaxItemsKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
+		private final Keyword cMinItemsKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
+		private final Keyword cUniqueItemsKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
+		private final Keyword cContainsKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
+		private final Keyword cMaxPropertiesKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
+		private final Keyword cMinPropertiesKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
+		private final Keyword cRequiredKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
+		private final Keyword cAdditionalPropertiesKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
+		private final Keyword cDefinitionsKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
+		private final Keyword cPropertiesKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
+		private final Keyword cPatternPropertiesKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
+		private final Keyword cDependenciesKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
+		private final Keyword cPropertyNamesKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
+		private final Keyword cConstKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
+		private final Keyword cEnumKeyword_34 = (Keyword)cAlternatives.eContents().get(34);
+		private final Keyword cTypeKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
+		private final Keyword cFormatKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
+		private final Keyword cContentMediaTypeKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
+		private final Keyword cContentEncodingKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
+		private final Keyword cIfKeyword_39 = (Keyword)cAlternatives.eContents().get(39);
+		private final Keyword cThenKeyword_40 = (Keyword)cAlternatives.eContents().get(40);
+		private final Keyword cElseKeyword_41 = (Keyword)cAlternatives.eContents().get(41);
+		private final Keyword cAllOfKeyword_42 = (Keyword)cAlternatives.eContents().get(42);
+		private final Keyword cAnyOfKeyword_43 = (Keyword)cAlternatives.eContents().get(43);
+		private final Keyword cOneOfKeyword_44 = (Keyword)cAlternatives.eContents().get(44);
+		private final Keyword cNotKeyword_45 = (Keyword)cAlternatives.eContents().get(45);
 		
 		//// TODO please @Alessandro review that all keywords are defined here. Thanks!
 		//KEYWORD:
 		//	'"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
-		//	'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"maxLength"' | '"minLength"' |
+		//	'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"minimum"' |
+		//	'"exclusiveMinimum"' | '"maxLength"' | '"minLength"' |
 		//	'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |
 		//	'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
-		//	'"patternProperties"' | '"propertyNames"' | '"const"' | '"type"' | '"format"' | '"contentMediaType"' |
-		//	'"contentEncoding"' |
+		//	'"patternProperties"' | '"dependencies"' | '"propertyNames"' | '"const"' | '"enum"' | '"type"' | '"format"' |
+		//	'"contentMediaType"' | '"contentEncoding"' |
 		//	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
-		//'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"maxLength"' | '"minLength"' |
-		//'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |
-		//'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
-		//'"patternProperties"' | '"propertyNames"' | '"const"' | '"type"' | '"format"' | '"contentMediaType"' |
-		//'"contentEncoding"' | '"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"'
+		//'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"minimum"' |
+		//'"exclusiveMinimum"' | '"maxLength"' | '"minLength"' | '"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' |
+		//'"minItems"' | '"uniqueItems"' | '"contains"' | '"maxProperties"' | '"minProperties"' | '"required"' |
+		//'"additionalProperties"' | '"definitions"' | '"properties"' | '"patternProperties"' | '"dependencies"' |
+		//'"propertyNames"' | '"const"' | '"enum"' | '"type"' | '"format"' | '"contentMediaType"' | '"contentEncoding"' | '"if"'
+		//| '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//'"$id"'
@@ -2958,92 +2964,104 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 		//'"exclusiveMaximum"'
 		public Keyword getExclusiveMaximumKeyword_12() { return cExclusiveMaximumKeyword_12; }
 		
+		//'"minimum"'
+		public Keyword getMinimumKeyword_13() { return cMinimumKeyword_13; }
+		
+		//'"exclusiveMinimum"'
+		public Keyword getExclusiveMinimumKeyword_14() { return cExclusiveMinimumKeyword_14; }
+		
 		//'"maxLength"'
-		public Keyword getMaxLengthKeyword_13() { return cMaxLengthKeyword_13; }
+		public Keyword getMaxLengthKeyword_15() { return cMaxLengthKeyword_15; }
 		
 		//'"minLength"'
-		public Keyword getMinLengthKeyword_14() { return cMinLengthKeyword_14; }
+		public Keyword getMinLengthKeyword_16() { return cMinLengthKeyword_16; }
 		
 		//'"pattern"'
-		public Keyword getPatternKeyword_15() { return cPatternKeyword_15; }
+		public Keyword getPatternKeyword_17() { return cPatternKeyword_17; }
 		
 		//'"additionalItems"'
-		public Keyword getAdditionalItemsKeyword_16() { return cAdditionalItemsKeyword_16; }
+		public Keyword getAdditionalItemsKeyword_18() { return cAdditionalItemsKeyword_18; }
 		
 		//'"items"'
-		public Keyword getItemsKeyword_17() { return cItemsKeyword_17; }
+		public Keyword getItemsKeyword_19() { return cItemsKeyword_19; }
 		
 		//'"maxItems"'
-		public Keyword getMaxItemsKeyword_18() { return cMaxItemsKeyword_18; }
+		public Keyword getMaxItemsKeyword_20() { return cMaxItemsKeyword_20; }
 		
 		//'"minItems"'
-		public Keyword getMinItemsKeyword_19() { return cMinItemsKeyword_19; }
+		public Keyword getMinItemsKeyword_21() { return cMinItemsKeyword_21; }
 		
 		//'"uniqueItems"'
-		public Keyword getUniqueItemsKeyword_20() { return cUniqueItemsKeyword_20; }
+		public Keyword getUniqueItemsKeyword_22() { return cUniqueItemsKeyword_22; }
 		
 		//'"contains"'
-		public Keyword getContainsKeyword_21() { return cContainsKeyword_21; }
+		public Keyword getContainsKeyword_23() { return cContainsKeyword_23; }
 		
 		//'"maxProperties"'
-		public Keyword getMaxPropertiesKeyword_22() { return cMaxPropertiesKeyword_22; }
+		public Keyword getMaxPropertiesKeyword_24() { return cMaxPropertiesKeyword_24; }
 		
 		//'"minProperties"'
-		public Keyword getMinPropertiesKeyword_23() { return cMinPropertiesKeyword_23; }
+		public Keyword getMinPropertiesKeyword_25() { return cMinPropertiesKeyword_25; }
 		
 		//'"required"'
-		public Keyword getRequiredKeyword_24() { return cRequiredKeyword_24; }
+		public Keyword getRequiredKeyword_26() { return cRequiredKeyword_26; }
 		
 		//'"additionalProperties"'
-		public Keyword getAdditionalPropertiesKeyword_25() { return cAdditionalPropertiesKeyword_25; }
+		public Keyword getAdditionalPropertiesKeyword_27() { return cAdditionalPropertiesKeyword_27; }
 		
 		//'"definitions"'
-		public Keyword getDefinitionsKeyword_26() { return cDefinitionsKeyword_26; }
+		public Keyword getDefinitionsKeyword_28() { return cDefinitionsKeyword_28; }
 		
 		//'"properties"'
-		public Keyword getPropertiesKeyword_27() { return cPropertiesKeyword_27; }
+		public Keyword getPropertiesKeyword_29() { return cPropertiesKeyword_29; }
 		
 		//'"patternProperties"'
-		public Keyword getPatternPropertiesKeyword_28() { return cPatternPropertiesKeyword_28; }
+		public Keyword getPatternPropertiesKeyword_30() { return cPatternPropertiesKeyword_30; }
+		
+		//'"dependencies"'
+		public Keyword getDependenciesKeyword_31() { return cDependenciesKeyword_31; }
 		
 		//'"propertyNames"'
-		public Keyword getPropertyNamesKeyword_29() { return cPropertyNamesKeyword_29; }
+		public Keyword getPropertyNamesKeyword_32() { return cPropertyNamesKeyword_32; }
 		
 		//'"const"'
-		public Keyword getConstKeyword_30() { return cConstKeyword_30; }
+		public Keyword getConstKeyword_33() { return cConstKeyword_33; }
+		
+		//'"enum"'
+		public Keyword getEnumKeyword_34() { return cEnumKeyword_34; }
 		
 		//'"type"'
-		public Keyword getTypeKeyword_31() { return cTypeKeyword_31; }
+		public Keyword getTypeKeyword_35() { return cTypeKeyword_35; }
 		
 		//'"format"'
-		public Keyword getFormatKeyword_32() { return cFormatKeyword_32; }
+		public Keyword getFormatKeyword_36() { return cFormatKeyword_36; }
 		
 		//'"contentMediaType"'
-		public Keyword getContentMediaTypeKeyword_33() { return cContentMediaTypeKeyword_33; }
+		public Keyword getContentMediaTypeKeyword_37() { return cContentMediaTypeKeyword_37; }
 		
 		//'"contentEncoding"'
-		public Keyword getContentEncodingKeyword_34() { return cContentEncodingKeyword_34; }
+		public Keyword getContentEncodingKeyword_38() { return cContentEncodingKeyword_38; }
 		
 		//'"if"'
-		public Keyword getIfKeyword_35() { return cIfKeyword_35; }
+		public Keyword getIfKeyword_39() { return cIfKeyword_39; }
 		
 		//'"then"'
-		public Keyword getThenKeyword_36() { return cThenKeyword_36; }
+		public Keyword getThenKeyword_40() { return cThenKeyword_40; }
 		
 		//'"else"'
-		public Keyword getElseKeyword_37() { return cElseKeyword_37; }
+		public Keyword getElseKeyword_41() { return cElseKeyword_41; }
 		
 		//'"allOf"'
-		public Keyword getAllOfKeyword_38() { return cAllOfKeyword_38; }
+		public Keyword getAllOfKeyword_42() { return cAllOfKeyword_42; }
 		
 		//'"anyOf"'
-		public Keyword getAnyOfKeyword_39() { return cAnyOfKeyword_39; }
+		public Keyword getAnyOfKeyword_43() { return cAnyOfKeyword_43; }
 		
 		//'"oneOf"'
-		public Keyword getOneOfKeyword_40() { return cOneOfKeyword_40; }
+		public Keyword getOneOfKeyword_44() { return cOneOfKeyword_44; }
 		
 		//'"not"'
-		public Keyword getNotKeyword_41() { return cNotKeyword_41; }
+		public Keyword getNotKeyword_45() { return cNotKeyword_45; }
 	}
 	
 	public class SimpleTypesElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
@@ -4537,11 +4555,12 @@ public class JsonSchemaDslGrammarAccess extends AbstractElementFinder.AbstractGr
 	//// TODO please @Alessandro review that all keywords are defined here. Thanks!
 	//KEYWORD:
 	//	'"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
-	//	'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"maxLength"' | '"minLength"' |
+	//	'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"minimum"' |
+	//	'"exclusiveMinimum"' | '"maxLength"' | '"minLength"' |
 	//	'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |
 	//	'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
-	//	'"patternProperties"' | '"propertyNames"' | '"const"' | '"type"' | '"format"' | '"contentMediaType"' |
-	//	'"contentEncoding"' |
+	//	'"patternProperties"' | '"dependencies"' | '"propertyNames"' | '"const"' | '"enum"' | '"type"' | '"format"' |
+	//	'"contentMediaType"' | '"contentEncoding"' |
 	//	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"';
 	public KEYWORDElements getKEYWORDAccess() {
 		return pKEYWORD;
