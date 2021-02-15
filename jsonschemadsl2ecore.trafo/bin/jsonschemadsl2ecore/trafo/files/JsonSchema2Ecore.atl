@@ -154,7 +154,9 @@ rule ObjectSchemaWithTypeObjectToEClass {
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"string\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"number\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"integer\""),
-			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"boolean\"")
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"boolean\""),
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"object\"")
+										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject))
 		),
 		eAnnotation : MM1!EAnnotation(
 			source <-objectSchema.buildPointer()
@@ -164,15 +166,21 @@ rule ObjectSchemaWithTypeObjectToEClass {
 	}	
 }
 
-
---TODO do the same for boolean, integer, number
---rule ObjectSchemaWithTypeStringToEAttribute{
---	from objectSchema : MM!ObjectSchema (objectSchema.hasType(#"\"string\""))
---	do {
---		thisModule.ObjectSchemaWithPrimitiveTypeToEAttribute(objectSchema, objectSchema.findPropertyName(), MM1!EString);
---
---	}
---}
+lazy rule createNestedObjectEReference {
+	from
+		objectSchema : MM!ObjectSchema 
+	to 
+		eReference :MM1!EReference ( 
+			name <- objectSchema.findPropertyName(),
+			eType <- objectSchema,
+--			eType <-objectSchema.findParentObjectSchema(),
+--			eType <- thisModule.createEClass(keySchemaPair.key.toCamelCase(), keySchemaPair.value),
+			containment <- true,
+			-- TODO set lower bound conditioned to required
+			upperBound <- 1
+			
+		)
+}
 
 rule ObjectSchemaWithTypeStringToEAttribute{
 	from objectSchema : MM!ObjectSchema (
@@ -197,34 +205,19 @@ rule ObjectSchemaWithTypeStringToEAttribute{
 }
 
 
-rule ObjectSchemaWithPrimitiveTypeToEAttribute( objectSchema : MM!ObjectSchema, attributeName : String  , eDataType :MM1!EDataType){
-	to 
-		eAttribute : MM1!EAttribute(
-			name<-attributeName,
-			lowerBound <-objectSchema.calculateLowerBound(attributeName),
-			upperBound <- objectSchema.calculateUpperBound(),
-			eType <-eDataType
-		)	
-		do{
-			eAttribute;
-		}
-}
---rule StringTypeSchemaDefinitionToEAttribute{
---	from type : MM!TypeSchemaDefinition (type.typeAnyOf1 = #"\"string\"")
---	do {
---		thisModule.PrimitiveTypeSchemaDefinitionToEAttribute(type, type.findPropertyName(), MM1!EString);
---	}
---}
-
---rule PrimitiveTypeSchemaDefinitionToEAttribute( type : MM!TypeSchemaDefinition, attributeName : String  , eDataType :MM1!EDataType){
+--rule ObjectSchemaWithPrimitiveTypeToEAttribute( objectSchema : MM!ObjectSchema, attributeName : String  , eDataType :MM1!EDataType){
 --	to 
 --		eAttribute : MM1!EAttribute(
 --			name<-attributeName,
---			lowerBound <-type.calculateLowerBound(attributeName),
---			upperBound <- type.calculateUpperBound(),
+--			lowerBound <-objectSchema.calculateLowerBound(attributeName),
+--			upperBound <- objectSchema.calculateUpperBound(),
 --			eType <-eDataType
 --		)	
+--		do{
+--			eAttribute;
+--		}
 --}
+
 
 -------------------------------------------
 

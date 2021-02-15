@@ -206,8 +206,7 @@ helper context OclAny def: findObjectSchemaWithTypeArrayFromObjectSchemaInItems(
 				else OclUndefined
 				endif;
 		 
-
--- TODO do we use this?
+ 
 helper context OclAny def: findParentObjectSchema() : MM!ObjectSchema=
 	let parent : OclAny = self.refImmediateComposite()
 	in 
@@ -228,8 +227,21 @@ helper context MM!Schema def: isRootSchema() :Boolean =
 helper context MM!Schema def: isObjectSchema() : Boolean =
 	self.oclIsTypeOf(MM!ObjectSchema);
 
+
 helper context MM!KeySchemaPair def: isProperty():Boolean =
 	self.refImmediateComposite().oclIsTypeOf(MM!PropertiesSchemaDefinition);
+
+helper context MM!ObjectSchema def: isProperty():Boolean =
+	let parent : OclAny = self.refImmediateComposite()
+	in 
+		if parent.oclIsTypeOf(MM!KeySchemaPair)
+		then 
+			parent.isProperty() -- it calls MM!KeySchemaPair def: isProperty()
+		else
+			false
+		endif	;
+--	self.refImmediateComposite().oclIsTypeOf(MM!PropertiesSchemaDefinition);
+
 
 helper context MM!ObjectSchema def: hasType(type:String) : Boolean =
 	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
@@ -271,7 +283,7 @@ helper context MM!ObjectSchema def: findInPropertiesKeySchemaPairsWithType(type:
 ;
 
 
-
+----- TODO do we use this? 
 helper context MM!ObjectSchema def: findInPropertiesObjectSchemaWithType(type:String) : Set(MM!TypeSchemaDefinition)=
 	let inPropertiesSchemasWithType : Set(MM!ObjectSchema) = self.findInPropertiesSchemasWithType(type)
 	in  
@@ -302,7 +314,7 @@ helper context MM!ObjectSchema def : findInPropertiesSchemasWithType(type:String
 --		else Set{}
 --		endif;
 	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
-	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.getAllSchemasWithType(type));
+	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.getAllSchemasWithType(type)).flatten();
 
 
 

@@ -25,6 +25,8 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
         <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nestedObject" eType="/0/NestedObject"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NestedObject">
       <eAnnotations source="#/definitions/Metadata/properties/nestedObject"/>
