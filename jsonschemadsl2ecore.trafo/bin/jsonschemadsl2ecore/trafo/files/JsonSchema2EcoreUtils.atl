@@ -266,28 +266,22 @@ helper context MM!ObjectSchema def: findInPropertiesObjectSchemaWithType(type:St
  
 
 helper context MM!ObjectSchema def : findInPropertiesSchemasWithType(type:String) : Set(MM!ObjectSchema)=
-	let propertiesSchemaDefinition : MM!PropertiesSchemaDefinition=
-		self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
-	in 
-		if not propertiesSchemaDefinition.isEmpty() 
-		then propertiesSchemaDefinition.first().getAllSchemasWithType(type)
-		else Set{}
-		endif;
---	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
---	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.getAllSchemasWithType(type));
+--	let propertiesSchemaDefinition : MM!PropertiesSchemaDefinition=
+--		self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
+--	in 
+--		if not propertiesSchemaDefinition.isEmpty() 
+--		then propertiesSchemaDefinition.first().getAllSchemasWithType(type) 
+--		else Set{}
+--		endif;
+	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
+	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.getAllSchemasWithType(type));
 
 
-helper context MM!PropertiesSchemaDefinition def:  getAllSchemasWithType(type:String): Set(MM!Schema)=
---	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);
-	let keySchemaPairsWithType :MM!KeySchemaPair = self.keySchemaPairs->debug()->select(keySchemaPair | keySchemaPair.value->debug().hasType(type))
-	in 
-		if not keySchemaPairsWithType->debug().isEmpty() 
-		then 
---			keySchemaPairsWithType->debug()
-			keySchemaPairsWithType -> collect(keySchemaPair | keySchemaPair.value)->flatten()->debug()->asSet()
---			Set{}
-		else Set{}
-		endif;
+
+helper context MM!PropertiesSchemaDefinition def:  getAllSchemasWithType(type:String): Set(MM!ObjectSchema)=
+--	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.oclIsTypeOf(MM!ObjectSchema) and keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);
+	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);
+
 
 
 helper context MM1!EPackage def: findEClassByRef(ref:String) : MM1!EClass=
