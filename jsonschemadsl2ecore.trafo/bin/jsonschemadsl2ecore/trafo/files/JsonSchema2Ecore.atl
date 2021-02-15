@@ -156,7 +156,8 @@ rule ObjectSchemaWithTypeObjectToEClass {
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"integer\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"boolean\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"object\"")
-										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject))
+										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject)),
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemas()
 		),
 		eAnnotation : MM1!EAnnotation(
 			source <-objectSchema.buildPointer()
@@ -173,10 +174,8 @@ lazy rule createNestedObjectEReference {
 		eReference :MM1!EReference ( 
 			name <- objectSchema.findPropertyName(),
 			eType <- objectSchema,
---			eType <-objectSchema.findParentObjectSchema(),
---			eType <- thisModule.createEClass(keySchemaPair.key.toCamelCase(), keySchemaPair.value),
 			containment <- true,
-			-- TODO set lower bound conditioned to required
+			----- TODO set lower bound conditioned to required
 			upperBound <- 1
 			
 		)
@@ -194,29 +193,15 @@ rule ObjectSchemaWithTypeStringToEAttribute{
 	}
 	to 
 		eAttribute : MM1!EAttribute(
---			name<-objectSchema.findPropertyName(),
 			name<-attributeName,
---			lowerBound <-objectSchema.calculateLowerBound(objectSchema.findPropertyName()),
 			lowerBound <-objectSchema.calculateLowerBound(attributeName),
 			upperBound <- objectSchema.calculateUpperBound(),
---			eType <- MM1!EString  --helperFunction ()
 			eType <- objectSchema.getEDataType()
 		)
 }
 
 
---rule ObjectSchemaWithPrimitiveTypeToEAttribute( objectSchema : MM!ObjectSchema, attributeName : String  , eDataType :MM1!EDataType){
---	to 
---		eAttribute : MM1!EAttribute(
---			name<-attributeName,
---			lowerBound <-objectSchema.calculateLowerBound(attributeName),
---			upperBound <- objectSchema.calculateUpperBound(),
---			eType <-eDataType
---		)	
---		do{
---			eAttribute;
---		}
---}
+
 
 
 -------------------------------------------

@@ -276,7 +276,7 @@ helper context MM!ObjectSchema def: hasRef() : Boolean =
 
 
 
-
+------------TODO do we need this?
 helper context MM!ObjectSchema def: findInPropertiesKeySchemaPairsWithType(type:String) : Set(MM!KeySchemaPair)=
 	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
 	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type)))
@@ -304,7 +304,20 @@ helper context MM!ObjectSchema def: findInPropertiesObjectSchemaWithType(type:St
 		endif
 ;
  
+--helper context MM!ObjectSchema def: hasType(type:String) : Boolean =
+--	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
+--		->select(keyword | not keyword.typeAnyOf1.oclIsUndefined())
+--		->exists(keyword | keyword.typeAnyOf1 = type);
+helper context MM!ObjectSchema def : findInPropertiesSchemasArrayItemsSchemas() : Set(MM!ObjectSchema)=		
+	let withTypeArraySchemas :Set(MM!ObjectSchema) = self.findInPropertiesSchemasWithType(#"\"array\"")
+	in
+		withTypeArraySchemas->collect( withTypeArraySchema | withTypeArraySchema.keywordDefinition
+			->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!ItemsSchemaDefinition))
+			->select(keywordDefinition | keywordDefinition.itemsAnyOf1.oclIsTypeOf(MM!ObjectSchema))
+			->collect(keywordDefinition | keywordDefinition.itemsAnyOf1).flatten()
+			);
 
+	
 helper context MM!ObjectSchema def : findInPropertiesSchemasWithType(type:String) : Set(MM!ObjectSchema)=
 --	let propertiesSchemaDefinition : MM!PropertiesSchemaDefinition=
 --		self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
