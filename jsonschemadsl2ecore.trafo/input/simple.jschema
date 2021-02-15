@@ -105,6 +105,27 @@
       
       "type": "array"
     },
+    "testArrayInteger": {
+      "items": {
+        "type": "integer"
+      },
+      
+      "type": "array"
+    },
+    "testArrayNumber": {
+      "items": {
+        "type": "number"
+      },
+      
+      "type": "array"
+    },
+    "testArrayBoolean": {
+      "items": {
+        "type": "boolean"
+      },
+      
+      "type": "array"
+    },
     "tasks": {
       "items": {
         "$ref": "#/definitions/Task"

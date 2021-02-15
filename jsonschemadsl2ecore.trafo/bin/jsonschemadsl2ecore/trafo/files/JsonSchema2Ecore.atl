@@ -157,7 +157,13 @@ rule ObjectSchemaWithTypeObjectToEClass {
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"boolean\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"object\"")
 										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject)),
-			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemas()
+--			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemas()
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"string\""),
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"number\""),
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"integer\""),
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"boolean\"")
+			
+			
 		),
 		eAnnotation : MM1!EAnnotation(
 			source <-objectSchema.buildPointer()
