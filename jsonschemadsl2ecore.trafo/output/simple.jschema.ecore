@@ -1,3 +1,17 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="test"/>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
+  <ecore:EPackage name="test1">
+    <eClassifiers xsi:type="ecore:EClass" name="TestRoot">
+      <eAnnotations source="#"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiVersion">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind">
+        <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EReference name="metadata" containment="true"/>
+  <ecore:EReference name="spec" containment="true"/>
+</xmi:XMI>
