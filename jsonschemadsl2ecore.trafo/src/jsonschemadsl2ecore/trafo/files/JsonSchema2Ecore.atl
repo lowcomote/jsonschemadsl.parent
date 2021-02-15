@@ -151,10 +151,10 @@ rule ObjectSchemaWithTypeObjectToEClass {
 		eClass : MM1!EClass(
 			name <- objectSchema.findPropertyName().toCamelCase(),
 			eAnnotations <- eAnnotation,
-			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"string\"")
---			,
---			eStructuralFeatures <-objectSchema.findInPropertiesTypeSchemaDefinitionWithType(#"\"string\"")
-			
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"string\""),
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"number\""),
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"integer\""),
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"boolean\"")
 		),
 		eAnnotation : MM1!EAnnotation(
 			source <-objectSchema.buildPointer()
@@ -175,7 +175,12 @@ rule ObjectSchemaWithTypeObjectToEClass {
 --}
 
 rule ObjectSchemaWithTypeStringToEAttribute{
-	from objectSchema : MM!ObjectSchema (objectSchema.hasType(#"\"string\""))
+	from objectSchema : MM!ObjectSchema (
+			objectSchema.hasType(#"\"string\"") or
+			objectSchema.hasType(#"\"integer\"") or
+			objectSchema.hasType(#"\"number\"") or
+			objectSchema.hasType(#"\"boolean\"") 
+	)
 	using {
 		attributeName : String =  objectSchema.findPropertyName();
 	}
@@ -186,7 +191,8 @@ rule ObjectSchemaWithTypeStringToEAttribute{
 --			lowerBound <-objectSchema.calculateLowerBound(objectSchema.findPropertyName()),
 			lowerBound <-objectSchema.calculateLowerBound(attributeName),
 			upperBound <- objectSchema.calculateUpperBound(),
-			eType <- MM1!EString
+--			eType <- MM1!EString  --helperFunction ()
+			eType <- objectSchema.getEDataType()
 		)
 }
 

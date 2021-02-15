@@ -20,6 +20,15 @@ helper def: keywordDefinitionMap : Map (String, OclAny) =
 		('not',MM!NotSchemaDefinition)
 	};
 
+helper def : simpleTypeMapping : Map(String, MM1!EDatatype) =
+	Map{
+		(#"\"string\"", MM1!EString),
+		(#"\"integer\"", MM1!EInt),
+		(#"\"number\"", MM1!EDouble),
+		(#"\"boolean\"", MM1!EBoolean)
+	};
+	
+	
 --  the initial input will be JsonSchema.schema
 --helper context OclAny def: findKeySchemaPairByJsonPointer(jsonPointer:Sequence(String)): MM!KeySchemaPair =
 helper context OclAny def: findKeySchemaPairByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
@@ -229,7 +238,26 @@ helper context MM!ObjectSchema def: hasType(type:String) : Boolean =
 --		->exists(keyword | keyword.typeAnyOf1 = #type);
 --		->exists(keyword | keyword.typeAnyOf1 = #"\"object\"");
 
-
+helper context MM!ObjectSchema def: findSimpleType() :String=
+	let simpleType: String =
+		self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
+			->select(keyword | not keyword.typeAnyOf1.oclIsUndefined())
+			->collect(keyword | keyword.typeAnyOf1)
+	in 
+		if not simpleType.isEmpty()
+		then simpleType.first()
+		else OclUndefined
+		endif;
+--simpleTypeMapping
+helper context MM!ObjectSchema def: getEDataType() : MM1!EDatatype=
+	let simpleType : String = self.findSimpleType()
+	in
+		if simpleType.oclIsUndefined()
+		then OclUndefined
+		else thisModule.simpleTypeMapping.get(simpleType)
+		endif;
+	
+	
 helper context MM!ObjectSchema def: hasRef() : Boolean =
 	self.keywordDefinition->exists(keyword  | keyword.oclIsTypeOf(MM!RefSchemaDefinition));
 
@@ -287,9 +315,10 @@ helper context MM!PropertiesSchemaDefinition def:  getAllSchemasWithType(type:St
 helper context MM1!EPackage def: findEClassByRef(ref:String) : MM1!EClass=
 	self.eClassifiers->select(eClass | eClass.eAnnotations -> exists(eAnnotation | eAnnotation.source = ref)).first()
 	;
+
+
+
 --------------------KeywordDefinition
---
-	
 helper context	MM!ObjectSchema def : buildPointer():String=
 	if self.isRootSchema() then '#'
 	else

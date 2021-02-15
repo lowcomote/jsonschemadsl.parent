@@ -12,6 +12,15 @@
     "kind": {
       "type": "string"
     },
+    "testint":{
+      "type":"integer"
+    },
+    "testnum":{
+      "type":"number"
+    },
+    "testbool":{
+      "type":"boolean"
+    },
     "metadata": {
       "$ref": "#/definitions/Metadata"
     },
