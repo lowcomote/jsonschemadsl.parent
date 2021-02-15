@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_JSON_NUMBER", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "','", "'}'", "'\"maximum\"'", "':'", "'\"writeOnly\"'", "'\"$comment\"'", "'['", "']'", "'\"uniqueItems\"'", "'\"anyOf\"'", "'\"title\"'", "'\"items\"'", "'\"default\"'", "'\"then\"'", "'\"minLength\"'", "'\"definitions\"'", "'\"minItems\"'", "'\"oneOf\"'", "'\"maxProperties\"'", "'\"minimum\"'", "'\"maxItems\"'", "'\"format\"'", "'\"readOnly\"'", "'\"type\"'", "'\"additionalProperties\"'", "'\"else\"'", "'\"$id\"'", "'\"const\"'", "'\"required\"'", "'\"description\"'", "'\"minProperties\"'", "'\"patternProperties\"'", "'\"additionalItems\"'", "'\"examples\"'", "'\"if\"'", "'\"allOf\"'", "'\"contentEncoding\"'", "'\"multipleOf\"'", "'\"pattern\"'", "'\"contains\"'", "'\"not\"'", "'\"exclusiveMaximum\"'", "'\"maxLength\"'", "'\"$ref\"'", "'\"contentMediaType\"'", "'\"exclusiveMinimum\"'", "'\"$schema\"'", "'\"properties\"'", "'\"propertyNames\"'", "'true'", "'false'", "'null'", "'-'", "'\"array\"'", "'\"boolean\"'", "'\"integer\"'", "'\"null\"'", "'\"number\"'", "'\"object\"'", "'\"string\"'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_JSON_NUMBER", "RULE_INT", "RULE_ID", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'{'", "','", "'}'", "'\"maximum\"'", "':'", "'\"writeOnly\"'", "'\"$comment\"'", "'['", "']'", "'\"uniqueItems\"'", "'\"anyOf\"'", "'\"title\"'", "'\"items\"'", "'\"default\"'", "'\"then\"'", "'\"minLength\"'", "'\"definitions\"'", "'\"minItems\"'", "'\"oneOf\"'", "'\"maxProperties\"'", "'\"minimum\"'", "'\"maxItems\"'", "'\"format\"'", "'\"readOnly\"'", "'\"type\"'", "'\"additionalProperties\"'", "'\"else\"'", "'\"$id\"'", "'\"const\"'", "'\"required\"'", "'\"description\"'", "'\"minProperties\"'", "'\"patternProperties\"'", "'\"additionalItems\"'", "'\"examples\"'", "'\"if\"'", "'\"allOf\"'", "'\"contentEncoding\"'", "'\"multipleOf\"'", "'\"pattern\"'", "'\"contains\"'", "'\"not\"'", "'\"exclusiveMaximum\"'", "'\"maxLength\"'", "'\"$ref\"'", "'\"contentMediaType\"'", "'\"exclusiveMinimum\"'", "'\"$schema\"'", "'\"properties\"'", "'\"propertyNames\"'", "'true'", "'false'", "'null'", "'-'", "'\"dependencies\"'", "'\"enum\"'", "'\"array\"'", "'\"boolean\"'", "'\"integer\"'", "'\"null\"'", "'\"number\"'", "'\"object\"'", "'\"string\"'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -78,8 +78,10 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
     public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
+    public static final int T__73=73;
     public static final int EOF=-1;
     public static final int T__30=30;
+    public static final int T__74=74;
     public static final int T__31=31;
     public static final int T__32=32;
     public static final int RULE_WS=10;
@@ -1721,6 +1723,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             case 29:
             case 30:
             case 31:
+            case 32:
             case 33:
             case 34:
             case 35:
@@ -1746,9 +1749,12 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             case 55:
             case 56:
             case 57:
+            case 58:
             case 59:
             case 60:
             case 61:
+            case 66:
+            case 67:
                 {
                 alt4=4;
                 }
@@ -3735,7 +3741,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==RULE_STRING||LA11_0==15||(LA11_0>=17 && LA11_0<=18)||(LA11_0>=21 && LA11_0<=31)||(LA11_0>=33 && LA11_0<=57)||(LA11_0>=59 && LA11_0<=61)) ) {
+            if ( (LA11_0==RULE_STRING||LA11_0==15||(LA11_0>=17 && LA11_0<=18)||(LA11_0>=21 && LA11_0<=61)||(LA11_0>=66 && LA11_0<=67)) ) {
                 alt11=1;
             }
             switch (alt11) {
@@ -4764,7 +4770,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( ((LA12_0>=66 && LA12_0<=72)) ) {
+            if ( ((LA12_0>=68 && LA12_0<=74)) ) {
                 alt12=1;
             }
             switch (alt12) {
@@ -5773,7 +5779,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( (LA15_0==RULE_STRING||LA15_0==15||(LA15_0>=17 && LA15_0<=18)||(LA15_0>=21 && LA15_0<=31)||(LA15_0>=33 && LA15_0<=57)||(LA15_0>=59 && LA15_0<=61)) ) {
+            if ( (LA15_0==RULE_STRING||LA15_0==15||(LA15_0>=17 && LA15_0<=18)||(LA15_0>=21 && LA15_0<=61)||(LA15_0>=66 && LA15_0<=67)) ) {
                 alt15=1;
             }
             switch (alt15) {
@@ -6246,7 +6252,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             int alt17=2;
             int LA17_0 = input.LA(1);
 
-            if ( ((LA17_0>=RULE_STRING && LA17_0<=RULE_INT)||LA17_0==12||LA17_0==15||(LA17_0>=17 && LA17_0<=19)||(LA17_0>=21 && LA17_0<=31)||(LA17_0>=33 && LA17_0<=57)||(LA17_0>=59 && LA17_0<=65)) ) {
+            if ( ((LA17_0>=RULE_STRING && LA17_0<=RULE_INT)||LA17_0==12||LA17_0==15||(LA17_0>=17 && LA17_0<=19)||(LA17_0>=21 && LA17_0<=67)) ) {
                 alt17=1;
             }
             switch (alt17) {
@@ -7984,7 +7990,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             int alt19=2;
             int LA19_0 = input.LA(1);
 
-            if ( (LA19_0==RULE_STRING||LA19_0==15||(LA19_0>=17 && LA19_0<=18)||(LA19_0>=21 && LA19_0<=31)||(LA19_0>=33 && LA19_0<=57)||(LA19_0>=59 && LA19_0<=61)) ) {
+            if ( (LA19_0==RULE_STRING||LA19_0==15||(LA19_0>=17 && LA19_0<=18)||(LA19_0>=21 && LA19_0<=61)||(LA19_0>=66 && LA19_0<=67)) ) {
                 alt19=1;
             }
             switch (alt19) {
@@ -9381,7 +9387,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             int alt24=2;
             int LA24_0 = input.LA(1);
 
-            if ( ((LA24_0>=RULE_STRING && LA24_0<=RULE_INT)||LA24_0==12||LA24_0==15||(LA24_0>=17 && LA24_0<=19)||(LA24_0>=21 && LA24_0<=31)||(LA24_0>=33 && LA24_0<=57)||(LA24_0>=59 && LA24_0<=65)) ) {
+            if ( ((LA24_0>=RULE_STRING && LA24_0<=RULE_INT)||LA24_0==12||LA24_0==15||(LA24_0>=17 && LA24_0<=19)||(LA24_0>=21 && LA24_0<=67)) ) {
                 alt24=1;
             }
             switch (alt24) {
@@ -10429,7 +10435,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             int alt29=2;
             int LA29_0 = input.LA(1);
 
-            if ( (LA29_0==RULE_STRING||LA29_0==15||(LA29_0>=17 && LA29_0<=18)||(LA29_0>=21 && LA29_0<=31)||(LA29_0>=33 && LA29_0<=57)||(LA29_0>=59 && LA29_0<=61)) ) {
+            if ( (LA29_0==RULE_STRING||LA29_0==15||(LA29_0>=17 && LA29_0<=18)||(LA29_0>=21 && LA29_0<=61)||(LA29_0>=66 && LA29_0<=67)) ) {
                 alt29=1;
             }
             switch (alt29) {
@@ -10712,7 +10718,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             int alt31=2;
             int LA31_0 = input.LA(1);
 
-            if ( (LA31_0==RULE_STRING||LA31_0==15||(LA31_0>=17 && LA31_0<=18)||(LA31_0>=21 && LA31_0<=31)||(LA31_0>=33 && LA31_0<=57)||(LA31_0>=59 && LA31_0<=61)) ) {
+            if ( (LA31_0==RULE_STRING||LA31_0==15||(LA31_0>=17 && LA31_0<=18)||(LA31_0>=21 && LA31_0<=61)||(LA31_0>=66 && LA31_0<=67)) ) {
                 alt31=1;
             }
             switch (alt31) {
@@ -10900,7 +10906,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
             if ( (LA32_0==RULE_STRING) ) {
                 alt32=1;
             }
-            else if ( (LA32_0==15||(LA32_0>=17 && LA32_0<=18)||(LA32_0>=21 && LA32_0<=31)||(LA32_0>=33 && LA32_0<=57)||(LA32_0>=59 && LA32_0<=61)) ) {
+            else if ( (LA32_0==15||(LA32_0>=17 && LA32_0<=18)||(LA32_0>=21 && LA32_0<=61)||(LA32_0>=66 && LA32_0<=67)) ) {
                 alt32=2;
             }
             else {
@@ -11002,7 +11008,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleKEYWORD"
-    // InternalJsonSchemaDsl.g:4158:1: ruleKEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' ) ;
+    // InternalJsonSchemaDsl.g:4158:1: ruleKEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"minimum\"' | kw= '\"exclusiveMinimum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"dependencies\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"enum\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' ) ;
     public final AntlrDatatypeRuleToken ruleKEYWORD() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -11012,11 +11018,11 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:4164:2: ( (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' ) )
-            // InternalJsonSchemaDsl.g:4165:2: (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' )
+            // InternalJsonSchemaDsl.g:4164:2: ( (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"minimum\"' | kw= '\"exclusiveMinimum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"dependencies\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"enum\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' ) )
+            // InternalJsonSchemaDsl.g:4165:2: (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"minimum\"' | kw= '\"exclusiveMinimum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"dependencies\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"enum\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' )
             {
-            // InternalJsonSchemaDsl.g:4165:2: (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' )
-            int alt33=42;
+            // InternalJsonSchemaDsl.g:4165:2: (kw= '\"$id\"' | kw= '\"$schema\"' | kw= '\"$ref\"' | kw= '\"$comment\"' | kw= '\"title\"' | kw= '\"description\"' | kw= '\"default\"' | kw= '\"readOnly\"' | kw= '\"writeOnly\"' | kw= '\"examples\"' | kw= '\"multipleOf\"' | kw= '\"maximum\"' | kw= '\"exclusiveMaximum\"' | kw= '\"minimum\"' | kw= '\"exclusiveMinimum\"' | kw= '\"maxLength\"' | kw= '\"minLength\"' | kw= '\"pattern\"' | kw= '\"additionalItems\"' | kw= '\"items\"' | kw= '\"maxItems\"' | kw= '\"minItems\"' | kw= '\"uniqueItems\"' | kw= '\"contains\"' | kw= '\"maxProperties\"' | kw= '\"minProperties\"' | kw= '\"required\"' | kw= '\"additionalProperties\"' | kw= '\"definitions\"' | kw= '\"properties\"' | kw= '\"patternProperties\"' | kw= '\"dependencies\"' | kw= '\"propertyNames\"' | kw= '\"const\"' | kw= '\"enum\"' | kw= '\"type\"' | kw= '\"format\"' | kw= '\"contentMediaType\"' | kw= '\"contentEncoding\"' | kw= '\"if\"' | kw= '\"then\"' | kw= '\"else\"' | kw= '\"allOf\"' | kw= '\"anyOf\"' | kw= '\"oneOf\"' | kw= '\"not\"' )
+            int alt33=46;
             switch ( input.LA(1) ) {
             case 39:
                 {
@@ -11083,149 +11089,169 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                 alt33=13;
                 }
                 break;
-            case 55:
+            case 32:
                 {
                 alt33=14;
                 }
                 break;
-            case 27:
+            case 58:
                 {
                 alt33=15;
                 }
                 break;
-            case 51:
+            case 55:
                 {
                 alt33=16;
                 }
                 break;
-            case 45:
+            case 27:
                 {
                 alt33=17;
                 }
                 break;
-            case 24:
+            case 51:
                 {
                 alt33=18;
                 }
                 break;
-            case 33:
+            case 45:
                 {
                 alt33=19;
                 }
                 break;
-            case 29:
+            case 24:
                 {
                 alt33=20;
                 }
                 break;
-            case 21:
+            case 33:
                 {
                 alt33=21;
                 }
                 break;
-            case 52:
+            case 29:
                 {
                 alt33=22;
                 }
                 break;
-            case 31:
+            case 21:
                 {
                 alt33=23;
                 }
                 break;
-            case 43:
+            case 52:
                 {
                 alt33=24;
                 }
                 break;
-            case 41:
+            case 31:
                 {
                 alt33=25;
                 }
                 break;
-            case 37:
+            case 43:
                 {
                 alt33=26;
                 }
                 break;
-            case 28:
+            case 41:
                 {
                 alt33=27;
                 }
                 break;
-            case 60:
+            case 37:
                 {
                 alt33=28;
                 }
                 break;
-            case 44:
+            case 28:
                 {
                 alt33=29;
                 }
                 break;
-            case 61:
+            case 60:
                 {
                 alt33=30;
                 }
                 break;
-            case 40:
+            case 44:
                 {
                 alt33=31;
                 }
                 break;
-            case 36:
+            case 66:
                 {
                 alt33=32;
                 }
                 break;
-            case 34:
+            case 61:
                 {
                 alt33=33;
                 }
                 break;
-            case 57:
+            case 40:
                 {
                 alt33=34;
                 }
                 break;
-            case 49:
+            case 67:
                 {
                 alt33=35;
                 }
                 break;
-            case 47:
+            case 36:
                 {
                 alt33=36;
                 }
                 break;
-            case 26:
+            case 34:
                 {
                 alt33=37;
                 }
                 break;
-            case 38:
+            case 57:
                 {
                 alt33=38;
                 }
                 break;
-            case 48:
+            case 49:
                 {
                 alt33=39;
                 }
                 break;
-            case 22:
+            case 47:
                 {
                 alt33=40;
                 }
                 break;
-            case 30:
+            case 26:
                 {
                 alt33=41;
                 }
                 break;
-            case 53:
+            case 38:
                 {
                 alt33=42;
+                }
+                break;
+            case 48:
+                {
+                alt33=43;
+                }
+                break;
+            case 22:
+                {
+                alt33=44;
+                }
+                break;
+            case 30:
+                {
+                alt33=45;
+                }
+                break;
+            case 53:
+                {
+                alt33=46;
                 }
                 break;
             default:
@@ -11380,320 +11406,364 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 14 :
-                    // InternalJsonSchemaDsl.g:4244:3: kw= '\"maxLength\"'
+                    // InternalJsonSchemaDsl.g:4244:3: kw= '\"minimum\"'
                     {
-                    kw=(Token)match(input,55,FOLLOW_2); 
+                    kw=(Token)match(input,32,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxLengthKeyword_13());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinimumKeyword_13());
                     		
 
                     }
                     break;
                 case 15 :
-                    // InternalJsonSchemaDsl.g:4250:3: kw= '\"minLength\"'
+                    // InternalJsonSchemaDsl.g:4250:3: kw= '\"exclusiveMinimum\"'
                     {
-                    kw=(Token)match(input,27,FOLLOW_2); 
+                    kw=(Token)match(input,58,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinLengthKeyword_14());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getExclusiveMinimumKeyword_14());
                     		
 
                     }
                     break;
                 case 16 :
-                    // InternalJsonSchemaDsl.g:4256:3: kw= '\"pattern\"'
+                    // InternalJsonSchemaDsl.g:4256:3: kw= '\"maxLength\"'
                     {
-                    kw=(Token)match(input,51,FOLLOW_2); 
+                    kw=(Token)match(input,55,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPatternKeyword_15());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxLengthKeyword_15());
                     		
 
                     }
                     break;
                 case 17 :
-                    // InternalJsonSchemaDsl.g:4262:3: kw= '\"additionalItems\"'
+                    // InternalJsonSchemaDsl.g:4262:3: kw= '\"minLength\"'
                     {
-                    kw=(Token)match(input,45,FOLLOW_2); 
+                    kw=(Token)match(input,27,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAdditionalItemsKeyword_16());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinLengthKeyword_16());
                     		
 
                     }
                     break;
                 case 18 :
-                    // InternalJsonSchemaDsl.g:4268:3: kw= '\"items\"'
+                    // InternalJsonSchemaDsl.g:4268:3: kw= '\"pattern\"'
                     {
-                    kw=(Token)match(input,24,FOLLOW_2); 
+                    kw=(Token)match(input,51,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getItemsKeyword_17());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPatternKeyword_17());
                     		
 
                     }
                     break;
                 case 19 :
-                    // InternalJsonSchemaDsl.g:4274:3: kw= '\"maxItems\"'
+                    // InternalJsonSchemaDsl.g:4274:3: kw= '\"additionalItems\"'
                     {
-                    kw=(Token)match(input,33,FOLLOW_2); 
+                    kw=(Token)match(input,45,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxItemsKeyword_18());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAdditionalItemsKeyword_18());
                     		
 
                     }
                     break;
                 case 20 :
-                    // InternalJsonSchemaDsl.g:4280:3: kw= '\"minItems\"'
+                    // InternalJsonSchemaDsl.g:4280:3: kw= '\"items\"'
                     {
-                    kw=(Token)match(input,29,FOLLOW_2); 
+                    kw=(Token)match(input,24,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinItemsKeyword_19());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getItemsKeyword_19());
                     		
 
                     }
                     break;
                 case 21 :
-                    // InternalJsonSchemaDsl.g:4286:3: kw= '\"uniqueItems\"'
+                    // InternalJsonSchemaDsl.g:4286:3: kw= '\"maxItems\"'
                     {
-                    kw=(Token)match(input,21,FOLLOW_2); 
+                    kw=(Token)match(input,33,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getUniqueItemsKeyword_20());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxItemsKeyword_20());
                     		
 
                     }
                     break;
                 case 22 :
-                    // InternalJsonSchemaDsl.g:4292:3: kw= '\"contains\"'
+                    // InternalJsonSchemaDsl.g:4292:3: kw= '\"minItems\"'
                     {
-                    kw=(Token)match(input,52,FOLLOW_2); 
+                    kw=(Token)match(input,29,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContainsKeyword_21());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinItemsKeyword_21());
                     		
 
                     }
                     break;
                 case 23 :
-                    // InternalJsonSchemaDsl.g:4298:3: kw= '\"maxProperties\"'
+                    // InternalJsonSchemaDsl.g:4298:3: kw= '\"uniqueItems\"'
                     {
-                    kw=(Token)match(input,31,FOLLOW_2); 
+                    kw=(Token)match(input,21,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxPropertiesKeyword_22());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getUniqueItemsKeyword_22());
                     		
 
                     }
                     break;
                 case 24 :
-                    // InternalJsonSchemaDsl.g:4304:3: kw= '\"minProperties\"'
+                    // InternalJsonSchemaDsl.g:4304:3: kw= '\"contains\"'
                     {
-                    kw=(Token)match(input,43,FOLLOW_2); 
+                    kw=(Token)match(input,52,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinPropertiesKeyword_23());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContainsKeyword_23());
                     		
 
                     }
                     break;
                 case 25 :
-                    // InternalJsonSchemaDsl.g:4310:3: kw= '\"required\"'
+                    // InternalJsonSchemaDsl.g:4310:3: kw= '\"maxProperties\"'
                     {
-                    kw=(Token)match(input,41,FOLLOW_2); 
+                    kw=(Token)match(input,31,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getRequiredKeyword_24());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxPropertiesKeyword_24());
                     		
 
                     }
                     break;
                 case 26 :
-                    // InternalJsonSchemaDsl.g:4316:3: kw= '\"additionalProperties\"'
+                    // InternalJsonSchemaDsl.g:4316:3: kw= '\"minProperties\"'
                     {
-                    kw=(Token)match(input,37,FOLLOW_2); 
+                    kw=(Token)match(input,43,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAdditionalPropertiesKeyword_25());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinPropertiesKeyword_25());
                     		
 
                     }
                     break;
                 case 27 :
-                    // InternalJsonSchemaDsl.g:4322:3: kw= '\"definitions\"'
+                    // InternalJsonSchemaDsl.g:4322:3: kw= '\"required\"'
                     {
-                    kw=(Token)match(input,28,FOLLOW_2); 
+                    kw=(Token)match(input,41,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDefinitionsKeyword_26());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getRequiredKeyword_26());
                     		
 
                     }
                     break;
                 case 28 :
-                    // InternalJsonSchemaDsl.g:4328:3: kw= '\"properties\"'
+                    // InternalJsonSchemaDsl.g:4328:3: kw= '\"additionalProperties\"'
                     {
-                    kw=(Token)match(input,60,FOLLOW_2); 
+                    kw=(Token)match(input,37,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPropertiesKeyword_27());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAdditionalPropertiesKeyword_27());
                     		
 
                     }
                     break;
                 case 29 :
-                    // InternalJsonSchemaDsl.g:4334:3: kw= '\"patternProperties\"'
+                    // InternalJsonSchemaDsl.g:4334:3: kw= '\"definitions\"'
                     {
-                    kw=(Token)match(input,44,FOLLOW_2); 
+                    kw=(Token)match(input,28,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPatternPropertiesKeyword_28());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDefinitionsKeyword_28());
                     		
 
                     }
                     break;
                 case 30 :
-                    // InternalJsonSchemaDsl.g:4340:3: kw= '\"propertyNames\"'
+                    // InternalJsonSchemaDsl.g:4340:3: kw= '\"properties\"'
                     {
-                    kw=(Token)match(input,61,FOLLOW_2); 
+                    kw=(Token)match(input,60,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPropertyNamesKeyword_29());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPropertiesKeyword_29());
                     		
 
                     }
                     break;
                 case 31 :
-                    // InternalJsonSchemaDsl.g:4346:3: kw= '\"const\"'
+                    // InternalJsonSchemaDsl.g:4346:3: kw= '\"patternProperties\"'
                     {
-                    kw=(Token)match(input,40,FOLLOW_2); 
+                    kw=(Token)match(input,44,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getConstKeyword_30());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPatternPropertiesKeyword_30());
                     		
 
                     }
                     break;
                 case 32 :
-                    // InternalJsonSchemaDsl.g:4352:3: kw= '\"type\"'
+                    // InternalJsonSchemaDsl.g:4352:3: kw= '\"dependencies\"'
                     {
-                    kw=(Token)match(input,36,FOLLOW_2); 
+                    kw=(Token)match(input,66,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getTypeKeyword_31());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDependenciesKeyword_31());
                     		
 
                     }
                     break;
                 case 33 :
-                    // InternalJsonSchemaDsl.g:4358:3: kw= '\"format\"'
+                    // InternalJsonSchemaDsl.g:4358:3: kw= '\"propertyNames\"'
                     {
-                    kw=(Token)match(input,34,FOLLOW_2); 
+                    kw=(Token)match(input,61,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getFormatKeyword_32());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPropertyNamesKeyword_32());
                     		
 
                     }
                     break;
                 case 34 :
-                    // InternalJsonSchemaDsl.g:4364:3: kw= '\"contentMediaType\"'
+                    // InternalJsonSchemaDsl.g:4364:3: kw= '\"const\"'
                     {
-                    kw=(Token)match(input,57,FOLLOW_2); 
+                    kw=(Token)match(input,40,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContentMediaTypeKeyword_33());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getConstKeyword_33());
                     		
 
                     }
                     break;
                 case 35 :
-                    // InternalJsonSchemaDsl.g:4370:3: kw= '\"contentEncoding\"'
+                    // InternalJsonSchemaDsl.g:4370:3: kw= '\"enum\"'
                     {
-                    kw=(Token)match(input,49,FOLLOW_2); 
+                    kw=(Token)match(input,67,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContentEncodingKeyword_34());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getEnumKeyword_34());
                     		
 
                     }
                     break;
                 case 36 :
-                    // InternalJsonSchemaDsl.g:4376:3: kw= '\"if\"'
+                    // InternalJsonSchemaDsl.g:4376:3: kw= '\"type\"'
                     {
-                    kw=(Token)match(input,47,FOLLOW_2); 
+                    kw=(Token)match(input,36,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getIfKeyword_35());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getTypeKeyword_35());
                     		
 
                     }
                     break;
                 case 37 :
-                    // InternalJsonSchemaDsl.g:4382:3: kw= '\"then\"'
+                    // InternalJsonSchemaDsl.g:4382:3: kw= '\"format\"'
                     {
-                    kw=(Token)match(input,26,FOLLOW_2); 
+                    kw=(Token)match(input,34,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getThenKeyword_36());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getFormatKeyword_36());
                     		
 
                     }
                     break;
                 case 38 :
-                    // InternalJsonSchemaDsl.g:4388:3: kw= '\"else\"'
+                    // InternalJsonSchemaDsl.g:4388:3: kw= '\"contentMediaType\"'
                     {
-                    kw=(Token)match(input,38,FOLLOW_2); 
+                    kw=(Token)match(input,57,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getElseKeyword_37());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContentMediaTypeKeyword_37());
                     		
 
                     }
                     break;
                 case 39 :
-                    // InternalJsonSchemaDsl.g:4394:3: kw= '\"allOf\"'
+                    // InternalJsonSchemaDsl.g:4394:3: kw= '\"contentEncoding\"'
                     {
-                    kw=(Token)match(input,48,FOLLOW_2); 
+                    kw=(Token)match(input,49,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAllOfKeyword_38());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContentEncodingKeyword_38());
                     		
 
                     }
                     break;
                 case 40 :
-                    // InternalJsonSchemaDsl.g:4400:3: kw= '\"anyOf\"'
+                    // InternalJsonSchemaDsl.g:4400:3: kw= '\"if\"'
                     {
-                    kw=(Token)match(input,22,FOLLOW_2); 
+                    kw=(Token)match(input,47,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAnyOfKeyword_39());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getIfKeyword_39());
                     		
 
                     }
                     break;
                 case 41 :
-                    // InternalJsonSchemaDsl.g:4406:3: kw= '\"oneOf\"'
+                    // InternalJsonSchemaDsl.g:4406:3: kw= '\"then\"'
                     {
-                    kw=(Token)match(input,30,FOLLOW_2); 
+                    kw=(Token)match(input,26,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getOneOfKeyword_40());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getThenKeyword_40());
                     		
 
                     }
                     break;
                 case 42 :
-                    // InternalJsonSchemaDsl.g:4412:3: kw= '\"not\"'
+                    // InternalJsonSchemaDsl.g:4412:3: kw= '\"else\"'
+                    {
+                    kw=(Token)match(input,38,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getElseKeyword_41());
+                    		
+
+                    }
+                    break;
+                case 43 :
+                    // InternalJsonSchemaDsl.g:4418:3: kw= '\"allOf\"'
+                    {
+                    kw=(Token)match(input,48,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAllOfKeyword_42());
+                    		
+
+                    }
+                    break;
+                case 44 :
+                    // InternalJsonSchemaDsl.g:4424:3: kw= '\"anyOf\"'
+                    {
+                    kw=(Token)match(input,22,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAnyOfKeyword_43());
+                    		
+
+                    }
+                    break;
+                case 45 :
+                    // InternalJsonSchemaDsl.g:4430:3: kw= '\"oneOf\"'
+                    {
+                    kw=(Token)match(input,30,FOLLOW_2); 
+
+                    			current.merge(kw);
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getOneOfKeyword_44());
+                    		
+
+                    }
+                    break;
+                case 46 :
+                    // InternalJsonSchemaDsl.g:4436:3: kw= '\"not\"'
                     {
                     kw=(Token)match(input,53,FOLLOW_2); 
 
                     			current.merge(kw);
-                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getNotKeyword_41());
+                    			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getNotKeyword_45());
                     		
 
                     }
@@ -11721,7 +11791,7 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSimpleTypes"
-    // InternalJsonSchemaDsl.g:4421:1: ruleSimpleTypes returns [Enumerator current=null] : ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) ) ;
+    // InternalJsonSchemaDsl.g:4445:1: ruleSimpleTypes returns [Enumerator current=null] : ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) ) ;
     public final Enumerator ruleSimpleTypes() throws RecognitionException {
         Enumerator current = null;
 
@@ -11737,43 +11807,43 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalJsonSchemaDsl.g:4427:2: ( ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) ) )
-            // InternalJsonSchemaDsl.g:4428:2: ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) )
+            // InternalJsonSchemaDsl.g:4451:2: ( ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) ) )
+            // InternalJsonSchemaDsl.g:4452:2: ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) )
             {
-            // InternalJsonSchemaDsl.g:4428:2: ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) )
+            // InternalJsonSchemaDsl.g:4452:2: ( (enumLiteral_0= '\"array\"' ) | (enumLiteral_1= '\"boolean\"' ) | (enumLiteral_2= '\"integer\"' ) | (enumLiteral_3= '\"null\"' ) | (enumLiteral_4= '\"number\"' ) | (enumLiteral_5= '\"object\"' ) | (enumLiteral_6= '\"string\"' ) )
             int alt34=7;
             switch ( input.LA(1) ) {
-            case 66:
+            case 68:
                 {
                 alt34=1;
                 }
                 break;
-            case 67:
+            case 69:
                 {
                 alt34=2;
                 }
                 break;
-            case 68:
+            case 70:
                 {
                 alt34=3;
                 }
                 break;
-            case 69:
+            case 71:
                 {
                 alt34=4;
                 }
                 break;
-            case 70:
+            case 72:
                 {
                 alt34=5;
                 }
                 break;
-            case 71:
+            case 73:
                 {
                 alt34=6;
                 }
                 break;
-            case 72:
+            case 74:
                 {
                 alt34=7;
                 }
@@ -11787,12 +11857,12 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
             switch (alt34) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:4429:3: (enumLiteral_0= '\"array\"' )
+                    // InternalJsonSchemaDsl.g:4453:3: (enumLiteral_0= '\"array\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4429:3: (enumLiteral_0= '\"array\"' )
-                    // InternalJsonSchemaDsl.g:4430:4: enumLiteral_0= '\"array\"'
+                    // InternalJsonSchemaDsl.g:4453:3: (enumLiteral_0= '\"array\"' )
+                    // InternalJsonSchemaDsl.g:4454:4: enumLiteral_0= '\"array\"'
                     {
-                    enumLiteral_0=(Token)match(input,66,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,68,FOLLOW_2); 
 
                     				current = grammarAccess.getSimpleTypesAccess().getArrayEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getSimpleTypesAccess().getArrayEnumLiteralDeclaration_0());
@@ -11804,12 +11874,12 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalJsonSchemaDsl.g:4437:3: (enumLiteral_1= '\"boolean\"' )
+                    // InternalJsonSchemaDsl.g:4461:3: (enumLiteral_1= '\"boolean\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4437:3: (enumLiteral_1= '\"boolean\"' )
-                    // InternalJsonSchemaDsl.g:4438:4: enumLiteral_1= '\"boolean\"'
+                    // InternalJsonSchemaDsl.g:4461:3: (enumLiteral_1= '\"boolean\"' )
+                    // InternalJsonSchemaDsl.g:4462:4: enumLiteral_1= '\"boolean\"'
                     {
-                    enumLiteral_1=(Token)match(input,67,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,69,FOLLOW_2); 
 
                     				current = grammarAccess.getSimpleTypesAccess().getBooleanEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getSimpleTypesAccess().getBooleanEnumLiteralDeclaration_1());
@@ -11821,12 +11891,12 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalJsonSchemaDsl.g:4445:3: (enumLiteral_2= '\"integer\"' )
+                    // InternalJsonSchemaDsl.g:4469:3: (enumLiteral_2= '\"integer\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4445:3: (enumLiteral_2= '\"integer\"' )
-                    // InternalJsonSchemaDsl.g:4446:4: enumLiteral_2= '\"integer\"'
+                    // InternalJsonSchemaDsl.g:4469:3: (enumLiteral_2= '\"integer\"' )
+                    // InternalJsonSchemaDsl.g:4470:4: enumLiteral_2= '\"integer\"'
                     {
-                    enumLiteral_2=(Token)match(input,68,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,70,FOLLOW_2); 
 
                     				current = grammarAccess.getSimpleTypesAccess().getIntegerEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getSimpleTypesAccess().getIntegerEnumLiteralDeclaration_2());
@@ -11838,12 +11908,12 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalJsonSchemaDsl.g:4453:3: (enumLiteral_3= '\"null\"' )
+                    // InternalJsonSchemaDsl.g:4477:3: (enumLiteral_3= '\"null\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4453:3: (enumLiteral_3= '\"null\"' )
-                    // InternalJsonSchemaDsl.g:4454:4: enumLiteral_3= '\"null\"'
+                    // InternalJsonSchemaDsl.g:4477:3: (enumLiteral_3= '\"null\"' )
+                    // InternalJsonSchemaDsl.g:4478:4: enumLiteral_3= '\"null\"'
                     {
-                    enumLiteral_3=(Token)match(input,69,FOLLOW_2); 
+                    enumLiteral_3=(Token)match(input,71,FOLLOW_2); 
 
                     				current = grammarAccess.getSimpleTypesAccess().getNullEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_3, grammarAccess.getSimpleTypesAccess().getNullEnumLiteralDeclaration_3());
@@ -11855,12 +11925,12 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalJsonSchemaDsl.g:4461:3: (enumLiteral_4= '\"number\"' )
+                    // InternalJsonSchemaDsl.g:4485:3: (enumLiteral_4= '\"number\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4461:3: (enumLiteral_4= '\"number\"' )
-                    // InternalJsonSchemaDsl.g:4462:4: enumLiteral_4= '\"number\"'
+                    // InternalJsonSchemaDsl.g:4485:3: (enumLiteral_4= '\"number\"' )
+                    // InternalJsonSchemaDsl.g:4486:4: enumLiteral_4= '\"number\"'
                     {
-                    enumLiteral_4=(Token)match(input,70,FOLLOW_2); 
+                    enumLiteral_4=(Token)match(input,72,FOLLOW_2); 
 
                     				current = grammarAccess.getSimpleTypesAccess().getNumberEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_4, grammarAccess.getSimpleTypesAccess().getNumberEnumLiteralDeclaration_4());
@@ -11872,12 +11942,12 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalJsonSchemaDsl.g:4469:3: (enumLiteral_5= '\"object\"' )
+                    // InternalJsonSchemaDsl.g:4493:3: (enumLiteral_5= '\"object\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4469:3: (enumLiteral_5= '\"object\"' )
-                    // InternalJsonSchemaDsl.g:4470:4: enumLiteral_5= '\"object\"'
+                    // InternalJsonSchemaDsl.g:4493:3: (enumLiteral_5= '\"object\"' )
+                    // InternalJsonSchemaDsl.g:4494:4: enumLiteral_5= '\"object\"'
                     {
-                    enumLiteral_5=(Token)match(input,71,FOLLOW_2); 
+                    enumLiteral_5=(Token)match(input,73,FOLLOW_2); 
 
                     				current = grammarAccess.getSimpleTypesAccess().getObjectEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_5, grammarAccess.getSimpleTypesAccess().getObjectEnumLiteralDeclaration_5());
@@ -11889,12 +11959,12 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalJsonSchemaDsl.g:4477:3: (enumLiteral_6= '\"string\"' )
+                    // InternalJsonSchemaDsl.g:4501:3: (enumLiteral_6= '\"string\"' )
                     {
-                    // InternalJsonSchemaDsl.g:4477:3: (enumLiteral_6= '\"string\"' )
-                    // InternalJsonSchemaDsl.g:4478:4: enumLiteral_6= '\"string\"'
+                    // InternalJsonSchemaDsl.g:4501:3: (enumLiteral_6= '\"string\"' )
+                    // InternalJsonSchemaDsl.g:4502:4: enumLiteral_6= '\"string\"'
                     {
-                    enumLiteral_6=(Token)match(input,72,FOLLOW_2); 
+                    enumLiteral_6=(Token)match(input,74,FOLLOW_2); 
 
                     				current = grammarAccess.getSimpleTypesAccess().getStringEnumLiteralDeclaration_6().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_6, grammarAccess.getSimpleTypesAccess().getStringEnumLiteralDeclaration_6());
@@ -11930,59 +12000,63 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
 
 
     protected DFA28 dfa28 = new DFA28(this);
-    static final String dfa_1s = "\57\uffff";
-    static final String dfa_2s = "\1\54\56\uffff";
-    static final String dfa_3s = "\1\4\53\20\1\uffff\1\14\1\uffff";
-    static final String dfa_4s = "\1\75\53\20\1\uffff\1\77\1\uffff";
-    static final String dfa_5s = "\54\uffff\1\2\1\uffff\1\1";
-    static final String dfa_6s = "\57\uffff}>";
+    static final String dfa_1s = "\63\uffff";
+    static final String dfa_2s = "\1\60\62\uffff";
+    static final String dfa_3s = "\1\4\57\20\1\uffff\1\14\1\uffff";
+    static final String dfa_4s = "\1\103\57\20\1\uffff\1\77\1\uffff";
+    static final String dfa_5s = "\60\uffff\1\2\1\uffff\1\1";
+    static final String dfa_6s = "\63\uffff}>";
     static final String[] dfa_7s = {
-            "\1\1\12\uffff\1\15\1\uffff\1\12\1\5\2\uffff\1\26\1\51\1\6\1\23\1\10\1\46\1\20\1\34\1\25\1\52\1\30\1\uffff\1\24\1\42\1\11\1\41\1\33\1\47\1\2\1\40\1\32\1\7\1\31\1\36\1\22\1\13\1\45\1\50\1\44\1\14\1\21\1\27\1\53\1\16\1\17\1\4\1\43\1\uffff\1\3\1\35\1\37",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
-            "\1\55",
+            "\1\1\12\uffff\1\15\1\uffff\1\12\1\5\2\uffff\1\30\1\55\1\6\1\25\1\10\1\52\1\22\1\36\1\27\1\56\1\32\1\17\1\26\1\46\1\11\1\45\1\35\1\53\1\2\1\43\1\34\1\7\1\33\1\40\1\24\1\13\1\51\1\54\1\50\1\14\1\23\1\31\1\57\1\16\1\21\1\4\1\47\1\20\1\3\1\37\1\42\4\uffff\1\41\1\44",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
+            "\1\61",
             "",
-            "\1\54\6\uffff\1\56\52\uffff\2\54",
+            "\1\60\6\uffff\1\62\52\uffff\2\60",
             ""
     };
 
@@ -12021,8 +12095,8 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000010000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0xC000000000000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x3BFFFFFEFFE68010L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0xFBFFFFFEFFEE9070L,0x0000000000000003L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x3FFFFFFFFFE68010L,0x000000000000000CL});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0xFFFFFFFFFFEE9070L,0x000000000000000FL});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000102000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0xC000000000081002L});
@@ -12030,12 +12104,12 @@ public class InternalJsonSchemaDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0xC000000000001000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000040L,0x0000000000000002L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x3BFFFFFEFFE6C010L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000080002L,0x00000000000001FCL});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0xFBFFFFFEFFFE9070L,0x0000000000000003L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x3FFFFFFFFFE6C010L,0x000000000000000CL});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000000080002L,0x00000000000007F0L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0xFFFFFFFFFFFE9070L,0x000000000000000FL});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000000L,0x00000000000001FCL});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x3BFFFFFEFFE68012L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x3BFFFFFEFFF68010L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000000000L,0x00000000000007F0L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x3FFFFFFFFFE68012L,0x000000000000000CL});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x3FFFFFFFFFF68010L,0x000000000000000CL});
 
 }

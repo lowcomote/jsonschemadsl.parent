@@ -4241,178 +4241,202 @@ ruleKEYWORD returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getExclusiveMaximumKeyword_12());
 		}
 		    |
+		kw='"minimum"'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinimumKeyword_13());
+		}
+		    |
+		kw='"exclusiveMinimum"'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getExclusiveMinimumKeyword_14());
+		}
+		    |
 		kw='"maxLength"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxLengthKeyword_13());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxLengthKeyword_15());
 		}
 		    |
 		kw='"minLength"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinLengthKeyword_14());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinLengthKeyword_16());
 		}
 		    |
 		kw='"pattern"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPatternKeyword_15());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPatternKeyword_17());
 		}
 		    |
 		kw='"additionalItems"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAdditionalItemsKeyword_16());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAdditionalItemsKeyword_18());
 		}
 		    |
 		kw='"items"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getItemsKeyword_17());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getItemsKeyword_19());
 		}
 		    |
 		kw='"maxItems"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxItemsKeyword_18());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxItemsKeyword_20());
 		}
 		    |
 		kw='"minItems"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinItemsKeyword_19());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinItemsKeyword_21());
 		}
 		    |
 		kw='"uniqueItems"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getUniqueItemsKeyword_20());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getUniqueItemsKeyword_22());
 		}
 		    |
 		kw='"contains"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContainsKeyword_21());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContainsKeyword_23());
 		}
 		    |
 		kw='"maxProperties"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxPropertiesKeyword_22());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMaxPropertiesKeyword_24());
 		}
 		    |
 		kw='"minProperties"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinPropertiesKeyword_23());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getMinPropertiesKeyword_25());
 		}
 		    |
 		kw='"required"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getRequiredKeyword_24());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getRequiredKeyword_26());
 		}
 		    |
 		kw='"additionalProperties"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAdditionalPropertiesKeyword_25());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAdditionalPropertiesKeyword_27());
 		}
 		    |
 		kw='"definitions"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDefinitionsKeyword_26());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDefinitionsKeyword_28());
 		}
 		    |
 		kw='"properties"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPropertiesKeyword_27());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPropertiesKeyword_29());
 		}
 		    |
 		kw='"patternProperties"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPatternPropertiesKeyword_28());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPatternPropertiesKeyword_30());
+		}
+		    |
+		kw='"dependencies"'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getDependenciesKeyword_31());
 		}
 		    |
 		kw='"propertyNames"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPropertyNamesKeyword_29());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getPropertyNamesKeyword_32());
 		}
 		    |
 		kw='"const"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getConstKeyword_30());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getConstKeyword_33());
+		}
+		    |
+		kw='"enum"'
+		{
+			$current.merge(kw);
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getEnumKeyword_34());
 		}
 		    |
 		kw='"type"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getTypeKeyword_31());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getTypeKeyword_35());
 		}
 		    |
 		kw='"format"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getFormatKeyword_32());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getFormatKeyword_36());
 		}
 		    |
 		kw='"contentMediaType"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContentMediaTypeKeyword_33());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContentMediaTypeKeyword_37());
 		}
 		    |
 		kw='"contentEncoding"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContentEncodingKeyword_34());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getContentEncodingKeyword_38());
 		}
 		    |
 		kw='"if"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getIfKeyword_35());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getIfKeyword_39());
 		}
 		    |
 		kw='"then"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getThenKeyword_36());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getThenKeyword_40());
 		}
 		    |
 		kw='"else"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getElseKeyword_37());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getElseKeyword_41());
 		}
 		    |
 		kw='"allOf"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAllOfKeyword_38());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAllOfKeyword_42());
 		}
 		    |
 		kw='"anyOf"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAnyOfKeyword_39());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getAnyOfKeyword_43());
 		}
 		    |
 		kw='"oneOf"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getOneOfKeyword_40());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getOneOfKeyword_44());
 		}
 		    |
 		kw='"not"'
 		{
 			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getNotKeyword_41());
+			newLeafNode(kw, grammarAccess.getKEYWORDAccess().getNotKeyword_45());
 		}
 	)
 ;
