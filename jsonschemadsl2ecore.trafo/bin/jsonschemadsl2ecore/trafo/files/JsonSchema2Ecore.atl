@@ -22,19 +22,13 @@ rule JsonSchemaToEPackage {
 	}
 }
 
-rule SchemaToRootEClass {
-	from 
-		rootSchema : MM!Schema (rootSchema.isRootSchema() and rootSchema.isObjectSchema())
---	to thisModule.createEClass('TestRoot', rootSchema)
---		eClass : MM1!EClass(
---			name <- 'TestRoot'	
---		)
-
-	do {
---		thisModule.rootEPackage.eClassifiers <-eClass;
-		thisModule.createEClass('TestRoot', rootSchema);
-	}	
-}
+--rule SchemaToRootEClass {
+--	from 
+--		rootSchema : MM!Schema (rootSchema.isRootSchema() and rootSchema.isObjectSchema())
+--	do {
+--		thisModule.createEClass('TestRoot', rootSchema);
+--	}	
+--}
 
 rule KeySchemaPairWithObjectToEClass{
 	from
@@ -141,15 +135,67 @@ rule KeySchemaPairWithTypeStringToEAttribute{
 	from
 		keySchemaPair : MM!KeySchemaPair (keySchemaPair.value.hasType(#"\"string\""))
 	to 	
-		eAttribute : MM1!EAttribute(  --EcorePackage ecorePackage.getEString();
+		eAttribute : MM1!EAttribute(  
 			name <- keySchemaPair.key,
-			-- TODO set lower bound conditioned to required
 			upperBound <- 1,
---			eType <- String TODO put EString someway!!!!
 			eType <- MM1!EString
 		)
 }
 
+rule ObjectSchemaWithTypeObjectToEClass {
+	from
+		objectSchema : MM!ObjectSchema(objectSchema.hasType(#"\"object\""))
+	to
+		eClass : MM1!EClass(
+			name <- objectSchema.findPropertyName().toCamelCase(),
+			eAnnotations <- eAnnotation,
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"string\"")
+--			,
+--			eStructuralFeatures <-objectSchema.findInPropertiesTypeSchemaDefinitionWithType(#"\"string\"")
+			
+		),
+		eAnnotation : MM1!EAnnotation(
+			source <-objectSchema.buildPointer()
+		)
+	do {
+		thisModule.rootEPackage.eClassifiers <-eClass;
+	}	
+}
+
+
+--TODO do the same for boolean, integer, number
+rule ObjectSchemaWithTypeStringToEAttribute{
+	from objectSchema : MM!ObjectSchema (objectSchema.hasType(#"\"string\""))
+	do {
+		thisModule.ObjectSchemaWithPrimitiveTypeToEAttribute(objectSchema, objectSchema.findPropertyName(), MM1!EString);
+	}
+}
+
+rule ObjectSchemaWithPrimitiveTypeToEAttribute( objectSchema : MM!ObjectSchema, attributeName : String  , eDataType :MM1!EDataType){
+	to 
+		eAttribute : MM1!EAttribute(
+			name<-attributeName,
+			lowerBound <-objectSchema.calculateLowerBound(attributeName),
+			upperBound <- objectSchema.calculateUpperBound(),
+			eType <-eDataType
+		)	
+}
+--rule StringTypeSchemaDefinitionToEAttribute{
+--	from type : MM!TypeSchemaDefinition (type.typeAnyOf1 = #"\"string\"")
+--	do {
+--		thisModule.PrimitiveTypeSchemaDefinitionToEAttribute(type, type.findPropertyName(), MM1!EString);
+--	}
+--}
+
+--rule PrimitiveTypeSchemaDefinitionToEAttribute( type : MM!TypeSchemaDefinition, attributeName : String  , eDataType :MM1!EDataType){
+--	to 
+--		eAttribute : MM1!EAttribute(
+--			name<-attributeName,
+--			lowerBound <-type.calculateLowerBound(attributeName),
+--			upperBound <- type.calculateUpperBound(),
+--			eType <-eDataType
+--		)	
+--}
 
 -------------------------------------------
 

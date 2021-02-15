@@ -55,6 +55,160 @@ helper  def: popFirst(jsonPointer:Sequence(String)): Sequence(String)=
 				else jsonPointer.subSequence(2, self.size())
 			endif		
 	endif;		
+-----------------------------
+helper context OclAny def: findPropertyName() : String=
+	let parent : OclAny = self.refImmediateComposite()
+	in 
+		if parent.oclIsUndefined()
+		then 'Root'
+		else
+			if parent.oclIsTypeOf(MM!KeySchemaPair)
+			then parent.key
+			else parent.findPropertyName()
+			endif
+		endif;
+
+
+
+
+helper context MM!ObjectSchema def: calculateLowerBound(name:String) : Integer =
+	let arrayLowerBound : Integer = self.calculateLowerBoundForArray()
+	in
+		let parentPropertiesSchemaDefinition :  MM!PropertiesSchemaDefinition =  self.findParentPropertiesSchemaDefinition()
+		in
+			if parentPropertiesSchemaDefinition.oclIsUndefined()
+			then arrayLowerBound
+			else
+				let requiredSchemaDefinition :  MM!RequiredSchemaDefinition = parentPropertiesSchemaDefinition.findRequiredSchemaDefinition()
+				in
+					if requiredSchemaDefinition.oclIsUndefined()
+					then arrayLowerBound
+					else 
+						if requiredSchemaDefinition.required.values.includes(name)
+						then --1 
+							if arrayLowerBound>1
+							then arrayLowerBound
+							else 1
+							endif
+						else arrayLowerBound
+						endif
+					endif
+		endif;	
+
+helper context MM!ObjectSchema def: calculateLowerBoundForArray() : Integer =
+	let objectSchemaWithTypeArrayFromObjectSchemaInItems: OclAny = self.findObjectSchemaWithTypeArrayFromObjectSchemaInItems()
+--	let objectSchemaWithTypeArrayFromTypeInItems: OclAny = self.findObjectSchemaWithTypeArrayFromTypeInItems()
+	in 
+		if objectSchemaWithTypeArrayFromObjectSchemaInItems.oclIsUndefined()
+		then 0
+		else
+			let minItemsSchemaDefinition : MM!KeywordDefinition = 
+				objectSchemaWithTypeArrayFromObjectSchemaInItems.keywordDefinition 
+				-> select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!MinItemsSchemaDefinition))
+			in 
+				if minItemsSchemaDefinition.isEmpty() 
+				then 0
+				else minItemsSchemaDefinition.first().minItems.value
+				endif
+		endif;
+			
+helper context MM!ObjectSchema def: calculateUpperBound() : Integer =
+	
+	let objectSchemaWithTypeArrayFromObjectSchemaInItems: OclAny = self.findObjectSchemaWithTypeArrayFromObjectSchemaInItems()
+	in
+		if objectSchemaWithTypeArrayFromObjectSchemaInItems.oclIsUndefined()
+		then 1
+		else
+			
+			let maxItemsSchemaDefinition : MM!KeywordDefinition = 
+				objectSchemaWithTypeArrayFromObjectSchemaInItems.keywordDefinition 
+				-> select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!MaxItemsSchemaDefinition))
+			in 
+				if maxItemsSchemaDefinition.isEmpty() 
+				then -1
+				else maxItemsSchemaDefinition.first().maxItems.value
+				endif 
+				
+		endif;			
+		
+			
+			
+			
+helper context MM!PropertiesSchemaDefinition def: findRequiredSchemaDefinition() : MM!RequiredSchemaDefinition=
+	self.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!RequiredSchemaDefinition)).first();
+
+helper context OclAny def: findParentPropertiesSchemaDefinition() : MM!PropertiesSchemaDefinition =
+	if self.oclIsTypeOf(MM!PropertiesSchemaDefinition)
+	then self
+	else 
+		if not self.refImmediateComposite().oclIsUndefined()
+		then self.refImmediateComposite().findParentPropertiesSchemaDefinition()
+		else OclUndefined
+		endif
+	endif;	
+
+
+
+helper context OclAny def: findObjectSchemaWithTypeArrayFromTypeInItems(): MM!ObjectSchema=
+	let parentObjectSchema : OclAny = self.refImmediateComposite()
+	in
+		if parentObjectSchema.oclIsTypeOf(MM!ObjectSchema)
+		then
+			let itemsSchemaDefinition : OclAny = parentObjectSchema.refImmediateComposite()
+			in 
+				if itemsSchemaDefinition.oclIsTypeOf(MM!ItemsSchemaDefinition)
+				then
+					let parentParentObjectSchema : OclAny = itemsSchemaDefinition.refImmediateComposite()
+					in
+						if parentParentObjectSchema.oclIsTypeOf(MM!ObjectSchema)
+						then
+							if parentParentObjectSchema.hasType(#"\"array\"")
+							then parentParentObjectSchema
+							else OclUndefined
+							endif
+						else OclUndefined
+						endif
+				else OclUndefined
+				endif
+		else OclUndefined
+		endif;
+
+
+
+helper context OclAny def: findObjectSchemaWithTypeArrayFromObjectSchemaInItems(): MM!ObjectSchema=
+--	let parentObjectSchema : OclAny = self.refImmediateComposite()
+--	in
+--		 
+--			let itemsSchemaDefinition : OclAny = parentObjectSchema.refImmediateComposite()
+			let itemsSchemaDefinition : OclAny = self.refImmediateComposite()
+			in 
+				if itemsSchemaDefinition.oclIsTypeOf(MM!ItemsSchemaDefinition)
+				then
+					let parentParentObjectSchema : OclAny = itemsSchemaDefinition.refImmediateComposite()
+					in
+						if parentParentObjectSchema.oclIsTypeOf(MM!ObjectSchema)
+						then
+							if parentParentObjectSchema.hasType(#"\"array\"")
+							then parentParentObjectSchema
+							else OclUndefined
+							endif
+						else OclUndefined
+						endif
+				else OclUndefined
+				endif;
+		 
+
+-- TODO do we use this?
+helper context OclAny def: findParentObjectSchema() : MM!ObjectSchema=
+	let parent : OclAny = self.refImmediateComposite()
+	in 
+		if parent.oclIsUndefined() or parent.oclIsTypeOf(MM!ObjectSchema)
+		then parent
+		else
+			parent.findParentObjectSchema()
+		endif;
+------------------------------
+
 
 helper context String def : toCamelCase() : String=
 	self.substring(1, 1).toUpperCase() + self.substring(2,self.size());
@@ -89,15 +243,56 @@ helper context MM!ObjectSchema def: findInPropertiesKeySchemaPairsWithType(type:
 ;
 
 
+
+helper context MM!ObjectSchema def: findInPropertiesObjectSchemaWithType(type:String) : Set(MM!TypeSchemaDefinition)=
+	let inPropertiesSchemasWithType : Set(MM!ObjectSchema) = self.findInPropertiesSchemasWithType(type)
+	in  
+		if inPropertiesSchemasWithType.isEmpty() 
+		then Set{}
+		else
+			
+			inPropertiesSchemasWithType->iterate(iterator; keywordDefinitionSet: MM!KeywordDefinition = Set{} |
+				keywordDefinitionSet.union(iterator.keywordDefinition)
+			)
+--		inPropertiesSchemasWithType
+--			->collect(objectSchema | objectSchema->iterate(iterator; var_name: var_type = init_exp |
+--	body
+--)))
+--			->collect(objectSchema | objectSchema.keywordDefinition.first())
+--				->collect(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!TypeSchemaDefinition))
+--		Set{}
+		endif
+;
  
 
 helper context MM!ObjectSchema def : findInPropertiesSchemasWithType(type:String) : Set(MM!ObjectSchema)=
-	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
-	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.getAllSchemasWithType(type));
+	let propertiesSchemaDefinition : MM!PropertiesSchemaDefinition=
+		self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
+	in 
+		if not propertiesSchemaDefinition.isEmpty() 
+		then propertiesSchemaDefinition.first().getAllSchemasWithType(type)
+		else Set{}
+		endif;
+--	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
+--	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.getAllSchemasWithType(type));
 
 
-helper context MM!PropertiesSchemaDefinition def:  getAllSchemasWithType(type:String): Set(MM!ObjectSchema)=
-	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);	
+---------------------------------------------------
+-------------------------------------------------
+------------------------------------------------
+-------------TODO--------------------------
+helper context MM!PropertiesSchemaDefinition def:  getAllSchemasWithType(type:String): Set(MM!Schema)=
+--	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);
+	let keySchemaPairsWithType :MM!KeySchemaPair = self.keySchemaPairs->debug()->select(keySchemaPair | keySchemaPair.value->debug().hasType(type))
+	in 
+		if not keySchemaPairsWithType->debug().isEmpty() 
+		then 
+--			keySchemaPairsWithType->debug()
+--			keySchemaPairsWithType -> collect(keySchemaPair | keySchemaPair.value)->flatten()->debug()->asSet()
+			Set{}
+		else Set{}
+		endif;
+
 
 helper context MM1!EPackage def: findEClassByRef(ref:String) : MM1!EClass=
 	self.eClassifiers->select(eClass | eClass.eAnnotations -> exists(eAnnotation | eAnnotation.source = ref)).first()
