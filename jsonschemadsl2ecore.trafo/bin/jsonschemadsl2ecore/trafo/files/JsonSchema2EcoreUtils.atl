@@ -325,7 +325,7 @@ helper context MM!ObjectSchema def : findInPropertiesSchemasArrayItemsSchemasWit
 			->select(keywordDefinition | keywordDefinition.itemsAnyOf1.oclIsTypeOf(MM!ObjectSchema))
 			->collect(keywordDefinition | keywordDefinition.itemsAnyOf1).flatten()
 			->select(itemsAnyOf1 | itemsAnyOf1.hasType(type))
-			);
+			)->flatten();
 
 	
 helper context MM!ObjectSchema def : findInPropertiesSchemasWithType(type:String) : Set(MM!ObjectSchema)=

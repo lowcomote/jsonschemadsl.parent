@@ -157,11 +157,12 @@ rule ObjectSchemaWithTypeObjectToEClass {
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"boolean\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"object\"")
 										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject)),
---			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemas()
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"string\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"number\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"integer\""),
-			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"boolean\"")
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"boolean\""),
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"object\"")
+			-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject))
 			
 			
 		),
@@ -185,9 +186,10 @@ lazy rule createNestedObjectEReference {
 			name <- referenceName,
 			eType <- objectSchema,
 			containment <- true,
-			----- TODO set lower bound conditioned to required
 			lowerBound <-objectSchema.calculateLowerBound(referenceName),
-			upperBound <- 1
+			----- TODO set upper bound for arrays
+--			upperBound <- 1
+			upperBound <- objectSchema.calculateUpperBound()
 			
 		)
 }

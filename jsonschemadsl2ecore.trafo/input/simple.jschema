@@ -34,7 +34,7 @@
 "definitions":{
 "Metadata": {
   "required": [
-    "name","nestedObjectRequired"
+    "name","nestedObjectRequired","nestedObjectArrayRequired"
   ],
   "properties": {
     "name": {
@@ -50,8 +50,28 @@
     "nestedObjectRequired":{
     	"type":"object",
     	"properties":{
-    		"prop1":{"type": "integer"},
-    		"prop2":{"type": "boolean"}
+    		"prop3":{"type": "integer"},
+    		"prop4":{"type": "boolean"}
+    	}
+    },
+    "nestedObjectArray":{
+    	"type":"array",
+    	"items":{
+    		"type":"object",
+	    	"properties":{
+	    		"prop5":{"type": "integer"},
+	    		"prop6":{"type": "boolean"}
+	    	}
+    	}
+    },
+    "nestedObjectArrayRequired":{
+    	"type":"array",
+    	"items":{
+    		"type":"object",
+	    	"properties":{
+	    		"prop7":{"type": "integer"},
+	    		"prop8":{"type": "boolean"}
+	    	}
     	}
     }
   },

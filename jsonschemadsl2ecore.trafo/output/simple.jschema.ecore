@@ -28,6 +28,10 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nestedObjectRequired" lowerBound="1"
         eType="//NestedObjectRequired" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedObjectArray" upperBound="-1"
+        eType="//NestedObjectArray" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedObjectArrayRequired"
+        lowerBound="1" upperBound="-1" eType="//NestedObjectArrayRequired" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NestedObject">
     <eAnnotations source="#/definitions/Metadata/properties/nestedObject"/>
@@ -40,10 +44,28 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NestedObjectRequired">
     <eAnnotations source="#/definitions/Metadata/properties/nestedObjectRequired"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop3">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop4">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NestedObjectArray">
+    <eAnnotations source="#/definitions/Metadata/properties/nestedObjectArray/items"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop5">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop6">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NestedObjectArrayRequired">
+    <eAnnotations source="#/definitions/Metadata/properties/nestedObjectArrayRequired/items"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop7">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop8">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eStructuralFeatures>
   </eClassifiers>
