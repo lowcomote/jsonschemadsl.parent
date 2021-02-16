@@ -9,15 +9,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="testnum">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="testint">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="testbool">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" lowerBound="1"
         eType="//Metadata" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="spec" lowerBound="1" eType="//ShipyardSpec"
@@ -27,50 +18,6 @@
     <eAnnotations source="#/definitions/Metadata"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedObject" eType="//NestedObject"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedObjectRequired" lowerBound="1"
-        eType="//NestedObjectRequired" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedObjectArray" upperBound="-1"
-        eType="//NestedObjectArray" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedObjectArrayRequired"
-        lowerBound="1" upperBound="-1" eType="//NestedObjectArrayRequired" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NestedObject">
-    <eAnnotations source="#/definitions/Metadata/properties/nestedObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NestedObjectRequired">
-    <eAnnotations source="#/definitions/Metadata/properties/nestedObjectRequired"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop3">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop4">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NestedObjectArray">
-    <eAnnotations source="#/definitions/Metadata/properties/nestedObjectArray/items"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop5">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop6">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NestedObjectArrayRequired">
-    <eAnnotations source="#/definitions/Metadata/properties/nestedObjectArrayRequired/items"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop7">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop8">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShipyardSpec">
@@ -94,15 +41,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggers" lowerBound="1"
         upperBound="-1">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="testArrayNumber" upperBound="-1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="testArrayInteger" upperBound="-1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="testArrayBoolean" upperBound="-1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" lowerBound="1" upperBound="-1"
         eType="//Task" containment="true"/>
