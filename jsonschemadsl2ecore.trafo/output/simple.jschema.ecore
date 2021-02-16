@@ -18,9 +18,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="testbool">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Metadata" eType="//Metadata"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" eType="//Metadata"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ShipyardSpec" eType="//ShipyardSpec"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="spec" eType="//ShipyardSpec"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Metadata">

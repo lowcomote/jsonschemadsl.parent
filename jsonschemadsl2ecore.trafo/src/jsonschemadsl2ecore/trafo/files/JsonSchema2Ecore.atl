@@ -156,13 +156,13 @@ rule ObjectSchemaWithTypeObjectToEClass {
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"integer\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"boolean\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"object\"")
-										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject)),
+										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject, nestedObject.findPropertyName())),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"string\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"number\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"integer\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"boolean\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"object\"")
-										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject)),
+										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject, nestedObject.findPropertyName())),
 										
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithRef()
 										-> collect(schemaWithRef | 
@@ -170,7 +170,7 @@ rule ObjectSchemaWithTypeObjectToEClass {
 													objectSchema.retrieveRootSchema().findSchemaByJsonPointerFromRoot(schemaWithRef.getRef())
 											in 
 												if not foundReferredSchema.oclIsUndefined()
-												then	thisModule.createNestedObjectEReference(foundReferredSchema)
+												then	thisModule.createNestedObjectEReference(foundReferredSchema,schemaWithRef.findPropertyName())
 												else 'No reference found for '+schemaWithRef.getRef()+''.println()
 												endif
 											) ---------TODO use an other rule because of the name
@@ -186,10 +186,10 @@ rule ObjectSchemaWithTypeObjectToEClass {
 
 lazy rule createNestedObjectEReference {
 	from
-		objectSchema : MM!ObjectSchema 
-	using {
-		referenceName : String =  objectSchema.findPropertyName();
-	}	
+		objectSchema : MM!ObjectSchema , referenceName : String
+--	using {
+--		referenceName : String =  objectSchema.findPropertyName();
+--	}	
 	to 
 		eReference :MM1!EReference ( 
 --			name <- objectSchema.findPropertyName(),
