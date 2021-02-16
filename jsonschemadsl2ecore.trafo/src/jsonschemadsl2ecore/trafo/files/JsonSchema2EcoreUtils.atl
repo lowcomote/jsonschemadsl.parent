@@ -115,7 +115,9 @@ helper context OclAny def: findPropertyName() : String=
 
 
 helper context MM!ObjectSchema def: calculateLowerBound(name:String) : Integer =
-	let arrayLowerBound : Integer = self.calculateLowerBoundForArray()
+	let test:String = name->debug()
+	in
+	let arrayLowerBound : Integer = self.calculateLowerBoundForArray()->debug()
 	in
 		let parentPropertiesSchemaDefinition :  MM!PropertiesSchemaDefinition =  self.findParentPropertiesSchemaDefinition()
 		in
@@ -367,7 +369,7 @@ helper 	context MM!ObjectSchema def : findInPropertiesSchemasArrayItemsSchemasWi
 			->select(keywordDefinition | keywordDefinition.itemsAnyOf1.oclIsTypeOf(MM!ObjectSchema))
 			->collect(keywordDefinition | keywordDefinition.itemsAnyOf1).flatten()
 			->select(itemsAnyOf1 | itemsAnyOf1.hasRef())
-			)->flatten()->debug();
+			)->flatten();
 
 	
 helper context MM!ObjectSchema def : findInPropertiesSchemasWithRef() : Set(MM!ObjectSchema)=

@@ -36,7 +36,7 @@ rule ObjectSchemaWithTypeObjectToEClass {
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"integer\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"boolean\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithType(#"\"object\"")
-										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject, nestedObject.findPropertyName())),
+										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject)),
 			
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithRef()
 										-> collect(schemaWithRef | 
@@ -45,7 +45,7 @@ rule ObjectSchemaWithTypeObjectToEClass {
 													thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(schemaWithRef.getRef())
 											in 
 												if not foundReferredSchema.oclIsUndefined()
-												then	thisModule.createNestedObjectEReference(foundReferredSchema,schemaWithRef.findPropertyName())
+												then	thisModule.createReferenceEReference(foundReferredSchema,schemaWithRef)
 												else 'No reference found for '+schemaWithRef.getRef()+''.println()
 												endif
 											),							
@@ -55,20 +55,21 @@ rule ObjectSchemaWithTypeObjectToEClass {
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"integer\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"boolean\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"object\"")
-										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject, nestedObject.findPropertyName())),
+										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject)),
 			
 										
 										
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithRef()
 										-> collect(schemaWithRef |
-											let schema :String = schemaWithRef.getRef()->debug()
-											in
+--											let schema :String = schemaWithRef.getRef()->debug()
+--											in
 											let foundReferredSchema : MM!Schema =
 --													objectSchema.retrieveRootSchema().findSchemaByJsonPointerFromRoot(schemaWithRef.getRef()->debug())
-													thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(schemaWithRef.getRef()->debug())
+													thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(schemaWithRef.getRef())
 											in 
 												if not foundReferredSchema.oclIsUndefined()
-												then	thisModule.createNestedObjectEReference(foundReferredSchema,schemaWithRef.findPropertyName())
+--												then	thisModule.createNestedObjectEReference(foundReferredSchema,schemaWithRef.findPropertyName())
+												then	thisModule.createReferenceEReference(foundReferredSchema,schemaWithRef)
 												else 'No reference found for '+schemaWithRef.getRef()+''.println()
 												endif
 											)
@@ -84,9 +85,29 @@ rule ObjectSchemaWithTypeObjectToEClass {
 	}	
 }
 
+lazy rule createReferenceEReference{
+	from 
+		child : MM!ObjectSchema, parent : MM!ObjectSchema
+	using {
+		parentName : String =  parent.findPropertyName();
+	}	
+	to 
+		eReference :MM1!EReference ( 
+			name <- parentName,
+			eType <- child,
+			containment <- true,
+			lowerBound <-parent.calculateLowerBound(parentName),
+			upperBound <- parent.calculateUpperBound()
+			
+		) 	
+}
+
 lazy rule createNestedObjectEReference {
 	from
-		objectSchema : MM!ObjectSchema , referenceName : String
+		objectSchema : MM!ObjectSchema --, referenceName : String
+	using {
+		referenceName : String =  objectSchema.findPropertyName();
+	}	
 	to 
 		eReference :MM1!EReference ( 
 			name <- referenceName,
