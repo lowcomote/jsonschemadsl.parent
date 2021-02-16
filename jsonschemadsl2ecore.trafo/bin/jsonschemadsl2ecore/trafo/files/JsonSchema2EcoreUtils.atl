@@ -115,9 +115,7 @@ helper context OclAny def: findPropertyName() : String=
 
 
 helper context MM!ObjectSchema def: calculateLowerBound(name:String) : Integer =
-	let test:String = name->debug()
-	in
-	let arrayLowerBound : Integer = self.calculateLowerBoundForArray()->debug()
+	let arrayLowerBound : Integer = self.calculateLowerBoundForArray()
 	in
 		let parentPropertiesSchemaDefinition :  MM!PropertiesSchemaDefinition =  self.findParentPropertiesSchemaDefinition()
 		in
