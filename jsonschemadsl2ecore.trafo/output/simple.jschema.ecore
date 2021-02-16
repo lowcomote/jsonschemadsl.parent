@@ -75,12 +75,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShipyardSpec">
     <eAnnotations source="#/definitions/ShipyardSpec"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stages" eType="//Stage"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Stage">
     <eAnnotations source="#/definitions/Stage"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" eType="//Sequence"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sequence">
     <eAnnotations source="#/definitions/Sequence"/>
@@ -100,6 +104,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="testArrayBoolean" upperBound="-1">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" eType="//Task" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task">
     <eAnnotations source="#/definitions/Task"/>

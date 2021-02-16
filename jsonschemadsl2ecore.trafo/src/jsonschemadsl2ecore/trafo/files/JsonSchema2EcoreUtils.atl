@@ -32,11 +32,15 @@ helper def : simpleTypeMapping : Map(String, MM1!EDatatype) =
 --helper def: retrieveJsonSchema() : MM!JsonSchema=
 --	MM!JsonSchema->debug().allInstances().first()->debug();
 
-helper context MM!Schema def: retrieveRootSchema() : MM!JsonSchema=
-	if self.isRootSchema()
-	then self
-	else self.refImmediateComposite().retrieveRootSchema()
-	endif;
+--helper context MM!Schema def: retrieveRootSchema() : MM!JsonSchema=
+--helper context OclAny def: retrieveRootSchema() : MM!JsonSchema=
+--	if self.isRootSchema()
+--	then self
+--	else self->debug().refImmediateComposite().retrieveRootSchema()
+--	endif;
+
+helper def: retrieveRootSchema() : MM!Schema=
+	MM!JsonSchema.allInstancesFrom('IN').first().schema;
 
 helper context MM!Schema def:findSchemaByJsonPointerFromRoot(jsonPointer:String):  MM!Schema=
 	self.findSchemaByJsonPointer(jsonPointer.split('/'));
@@ -44,7 +48,6 @@ helper context MM!Schema def:findSchemaByJsonPointerFromRoot(jsonPointer:String)
 
 
 --  the initial input will be JsonSchema.schema
---helper context OclAny def: findKeySchemaPairByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
 helper context OclAny def: findSchemaByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
 	if jsonPointer ->notEmpty() 
 	then
@@ -95,7 +98,7 @@ helper  def: popFirst(jsonPointer:Sequence(String)): Sequence(String)=
 				else jsonPointer.subSequence(2, jsonPointer.size())
 			endif		
 	endif;		
------------------------------
+
 helper context OclAny def: findPropertyName() : String=
 	let parent : OclAny = self.refImmediateComposite()
 	in 
@@ -252,6 +255,7 @@ helper context OclAny def: findParentObjectSchema() : MM!ObjectSchema=
 helper context String def : toCamelCase() : String=
 	self.substring(1, 1).toUpperCase() + self.substring(2,self.size());
 
+--helper context OclAny def: isRootSchema() :Boolean =
 helper context MM!Schema def: isRootSchema() :Boolean =
 	self.refImmediateComposite().oclIsTypeOf(MM!JsonSchema);
 	
@@ -302,26 +306,26 @@ helper context MM!ObjectSchema def: getEDataType() : MM1!EDatatype=
 	
 
 
-------------TODO do we need this?
-helper context MM!ObjectSchema def: findInPropertiesKeySchemaPairsWithType(type:String) : Set(MM!KeySchemaPair)=
-	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
-	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type)))
-;
+--------------TODO do we need this?
+--helper context MM!ObjectSchema def: findInPropertiesKeySchemaPairsWithType(type:String) : Set(MM!KeySchemaPair)=
+--	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
+--	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type)))
+--;
 
 
------ TODO do we use this? 
-helper context MM!ObjectSchema def: findInPropertiesObjectSchemaWithType(type:String) : Set(MM!TypeSchemaDefinition)=
-	let inPropertiesSchemasWithType : Set(MM!ObjectSchema) = self.findInPropertiesSchemasWithType(type)
-	in  
-		if inPropertiesSchemasWithType.isEmpty() 
-		then Set{}
-		else
-			
-			inPropertiesSchemasWithType->iterate(iterator; keywordDefinitionSet: MM!KeywordDefinition = Set{} |
-				keywordDefinitionSet.union(iterator.keywordDefinition)
-			)
-		endif
-;
+------- TODO do we use this? 
+--helper context MM!ObjectSchema def: findInPropertiesObjectSchemaWithType(type:String) : Set(MM!TypeSchemaDefinition)=
+--	let inPropertiesSchemasWithType : Set(MM!ObjectSchema) = self.findInPropertiesSchemasWithType(type)
+--	in  
+--		if inPropertiesSchemasWithType.isEmpty() 
+--		then Set{}
+--		else
+--			
+--			inPropertiesSchemasWithType->iterate(iterator; keywordDefinitionSet: MM!KeywordDefinition = Set{} |
+--				keywordDefinitionSet.union(iterator.keywordDefinition)
+--			)
+--		endif
+--;
  
 
 helper context MM!ObjectSchema def : findInPropertiesSchemasArrayItemsSchemas() : Set(MM!ObjectSchema)=		
@@ -345,13 +349,6 @@ helper context MM!ObjectSchema def : findInPropertiesSchemasArrayItemsSchemasWit
 
 	
 helper context MM!ObjectSchema def : findInPropertiesSchemasWithType(type:String) : Set(MM!ObjectSchema)=
---	let propertiesSchemaDefinition : MM!PropertiesSchemaDefinition=
---		self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
---	in 
---		if not propertiesSchemaDefinition.isEmpty() 
---		then propertiesSchemaDefinition.first().getAllSchemasWithType(type) 
---		else Set{}
---		endif;
 	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
 	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.getAllSchemasWithType(type)).flatten();
 
@@ -361,7 +358,18 @@ helper context MM!PropertiesSchemaDefinition def:  getAllSchemasWithType(type:St
 --	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.oclIsTypeOf(MM!ObjectSchema) and keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);
 	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);
 
----------  TODO to be finished
+-----TODO to be finished
+helper 	context MM!ObjectSchema def : findInPropertiesSchemasArrayItemsSchemasWithRef(): Set(MM!ObjectSchema)=
+	let withTypeArraySchemas :Set(MM!ObjectSchema) = self.findInPropertiesSchemasWithType(#"\"array\"")
+	in
+		withTypeArraySchemas->collect( withTypeArraySchema | withTypeArraySchema.keywordDefinition
+			->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!ItemsSchemaDefinition))
+			->select(keywordDefinition | keywordDefinition.itemsAnyOf1.oclIsTypeOf(MM!ObjectSchema))
+			->collect(keywordDefinition | keywordDefinition.itemsAnyOf1).flatten()
+			->select(itemsAnyOf1 | itemsAnyOf1.hasRef())
+			)->flatten()->debug();
+
+	
 helper context MM!ObjectSchema def : findInPropertiesSchemasWithRef() : Set(MM!ObjectSchema)=
 	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
 	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.keySchemaPairs
