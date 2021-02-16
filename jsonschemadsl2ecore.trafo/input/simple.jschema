@@ -34,7 +34,7 @@
 "definitions":{
 "Metadata": {
   "required": [
-    "name"
+    "name","nestedObjectRequired"
   ],
   "properties": {
     "name": {
@@ -45,6 +45,13 @@
     	"properties":{
     		"prop1":{"type": "string"},
     		"prop2":{"type": "string"}
+    	}
+    },
+    "nestedObjectRequired":{
+    	"type":"object",
+    	"properties":{
+    		"prop1":{"type": "integer"},
+    		"prop2":{"type": "boolean"}
     	}
     }
   },

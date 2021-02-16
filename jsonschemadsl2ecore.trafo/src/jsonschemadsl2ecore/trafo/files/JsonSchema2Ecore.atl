@@ -176,12 +176,17 @@ rule ObjectSchemaWithTypeObjectToEClass {
 lazy rule createNestedObjectEReference {
 	from
 		objectSchema : MM!ObjectSchema 
+	using {
+		referenceName : String =  objectSchema.findPropertyName();
+	}	
 	to 
 		eReference :MM1!EReference ( 
-			name <- objectSchema.findPropertyName(),
+--			name <- objectSchema.findPropertyName(),
+			name <- referenceName,
 			eType <- objectSchema,
 			containment <- true,
 			----- TODO set lower bound conditioned to required
+			lowerBound <-objectSchema.calculateLowerBound(referenceName),
 			upperBound <- 1
 			
 		)

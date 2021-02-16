@@ -26,6 +26,8 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nestedObject" eType="//NestedObject"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nestedObjectRequired" lowerBound="1"
+        eType="//NestedObjectRequired" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NestedObject">
     <eAnnotations source="#/definitions/Metadata/properties/nestedObject"/>
@@ -34,6 +36,15 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NestedObjectRequired">
+    <eAnnotations source="#/definitions/Metadata/properties/nestedObjectRequired"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ShipyardSpec">
