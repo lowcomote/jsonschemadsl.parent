@@ -18,6 +18,9 @@ public class JsonSchemaToEcore implements IApplication {
 
 	public Object start(IApplicationContext context) throws Exception {
 		JsonSchema2Ecore transformToEcore = new JsonSchema2Ecore();
+	
+		
+		
 		transformToEcore.loadModels(getModelFile(JSON_SCHEMA_MODEL));
 		transformToEcore.doJsonSchema2Ecore(new NullProgressMonitor());
 		transformToEcore.saveModels(getModelFile(ECORE_MM));		

@@ -10,6 +10,11 @@ import at.jku.bise.services.JsonSchemaDslGrammarAccess
 import jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage
 import jsonMetaschemaMM.jsonMetaschemaMM.KeySchemaPair
 import jsonMetaschemaMM.jsonMetaschemaMM.StringArray
+import org.eclipse.xtext.resource.XtextResource
+import java.util.Iterator
+import org.eclipse.xtext.nodemodel.INode
+import org.eclipse.xtext.TerminalRule
+import org.eclipse.xtext.RuleCall
 
 class JSONSemanticHighlightingCalculator extends DefaultSemanticHighlightingCalculator {
 	
@@ -32,4 +37,22 @@ class JSONSemanticHighlightingCalculator extends DefaultSemanticHighlightingCalc
 			}			
 		}	
 	}	
+	//TODO a ver si funciona!	
+	override provideHighlightingFor(XtextResource resource, IHighlightedPositionAcceptor acceptor, CancelIndicator cancelIndicator) {
+		var Iterator<INode> allNodes = resource.getParseResult().getRootNode().getAsTreeIterable().iterator();
+		while(allNodes.hasNext()) {
+			var INode node = allNodes.next
+			println("object" + node.grammarElement)
+			if (node.grammarElement instanceof TerminalRule) {
+				var TerminalRule tRule = node.grammarElement as TerminalRule;				
+				println("object" + tRule.name)
+			}		 
+			if 	(node.grammarElement instanceof RuleCall) {
+				var RuleCall tRuleCall = node.grammarElement as RuleCall;				
+				println("object" + tRuleCall.arguments)
+			}
+		}
+		super.doProvideHighlightingFor(resource, acceptor, cancelIndicator);
+	}
+	
 }
