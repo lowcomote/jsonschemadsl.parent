@@ -1,7 +1,7 @@
 library JsonSchema2EcoreUtils;
 
 
-helper def: keywordDefinitionMap : Map (String, OclAny) =
+helper def: keywordDefinitionMap : Map (String, OclAny) = ------ TODO should it be OclType????
 	Map{
 		('additionalItems',MM!AdditionalItemsSchemaDefinition), 
 		('items',MM!ItemsSchemaDefinition),
@@ -27,30 +27,61 @@ helper def : simpleTypeMapping : Map(String, MM1!EDatatype) =
 		(#"\"number\"", MM1!EDouble),
 		(#"\"boolean\"", MM1!EBoolean)
 	};
+
 	
-	
+--helper def: retrieveJsonSchema() : MM!JsonSchema=
+--	MM!JsonSchema->debug().allInstances().first()->debug();
+
+helper context MM!Schema def: retrieveRootSchema() : MM!JsonSchema=
+	if self.isRootSchema()
+	then self
+	else self.refImmediateComposite().retrieveRootSchema()
+	endif;
+
+helper context MM!Schema def:findSchemaByJsonPointerFromRoot(jsonPointer:String):  MM!Schema=
+	self.findSchemaByJsonPointer(jsonPointer.split('/'));
+
+
+
 --  the initial input will be JsonSchema.schema
---helper context OclAny def: findKeySchemaPairByJsonPointer(jsonPointer:Sequence(String)): MM!KeySchemaPair =
-helper context OclAny def: findKeySchemaPairByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
+--helper context OclAny def: findKeySchemaPairByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
+helper context OclAny def: findSchemaByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
 	if jsonPointer ->notEmpty() 
 	then
-		if jsonPointer.first() = '#' -- OclAny is MM!JsonSchema
+		if jsonPointer.first() = '#' -- OclAny is MM!JsonSchema.schema
 			then
-				self.schema.findKeySchemaPairByJsonPointer(thisModule.popFirst(jsonPointer))
+				self.findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
 			else
-				if not thisModule.keywordDefinitionMap.get(jsonPointer.first()).oclIsUndefined()
-					then --is schemadefinition and self is objectschema
-						self.keywordDefinition
-							->select(
-								keywordDefinition | keywordDefinition.oclIsTypeOf(thisModule.keywordDefinitionMap.get(jsonPointer.first()))
-							).first().findKeySchemaPairByJsonPointer(thisModule.popFirst(jsonPointer))
-					else -- is key, we look for a KeySchema with that key
-						self.keySchemaPairs->select(
-							keySchemaPair | keySchemaPair.key=jsonPointer.first()
-						).first().findKeySchemaPairByJsonPointer(thisModule.popFirst(jsonPointer))
-				endif
-		endif
-	else
+				let keywordDefinitionType : OclAny = thisModule.keywordDefinitionMap.get(jsonPointer.first())
+				in
+					if not keywordDefinitionType.oclIsUndefined()
+					then --In the jsonPointer navigation we are on a keywordDefinition and self is an objectschema
+						let foundKeywordDefinition : MM!KeywordDefinition = 
+							self.keywordDefinition->select(
+								keywordDefinition | keywordDefinition.oclIsTypeOf(keywordDefinitionType)
+							)
+						in 
+							if foundKeywordDefinition.isEmpty()	
+							then OclUndefined
+							else
+								foundKeywordDefinition.first().findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
+							endif
+
+					else -- In the jsonPointer navigation we are on a key , we look for a KeySchema with that key
+						 ------ TODO (we could be on an array index, not supported yet)
+						 ------ TODO it could also be a keyValue pair , not supported yet to hold definitions
+						let foundKeySchemaPair : MM!KeySchemaPair =
+							self.keySchemaPairs->select(keySchemaPair | keySchemaPair.key=jsonPointer.first())
+						in 
+							if foundKeySchemaPair.isEmpty()
+							then OclUndefined	
+							else
+								foundKeySchemaPair.first().value.findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
+							endif
+						 
+					endif
+			endif
+		else
 		self
 	endif
 ;
@@ -61,7 +92,7 @@ helper  def: popFirst(jsonPointer:Sequence(String)): Sequence(String)=
 		else
 			if jsonPointer.size() = 1
 				then Sequence{}
-				else jsonPointer.subSequence(2, self.size())
+				else jsonPointer.subSequence(2, jsonPointer.size())
 			endif		
 	endif;		
 -----------------------------
@@ -260,7 +291,7 @@ helper context MM!ObjectSchema def: findSimpleType() :String=
 		then simpleType.first()
 		else OclUndefined
 		endif;
---simpleTypeMapping
+
 helper context MM!ObjectSchema def: getEDataType() : MM1!EDatatype=
 	let simpleType : String = self.findSimpleType()
 	in
@@ -269,11 +300,6 @@ helper context MM!ObjectSchema def: getEDataType() : MM1!EDatatype=
 		else thisModule.simpleTypeMapping.get(simpleType)
 		endif;
 	
-	
-helper context MM!ObjectSchema def: hasRef() : Boolean =
-	self.keywordDefinition->exists(keyword  | keyword.oclIsTypeOf(MM!RefSchemaDefinition));
-
-
 
 
 ------------TODO do we need this?
@@ -294,20 +320,10 @@ helper context MM!ObjectSchema def: findInPropertiesObjectSchemaWithType(type:St
 			inPropertiesSchemasWithType->iterate(iterator; keywordDefinitionSet: MM!KeywordDefinition = Set{} |
 				keywordDefinitionSet.union(iterator.keywordDefinition)
 			)
---		inPropertiesSchemasWithType
---			->collect(objectSchema | objectSchema->iterate(iterator; var_name: var_type = init_exp |
---	body
---)))
---			->collect(objectSchema | objectSchema.keywordDefinition.first())
---				->collect(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!TypeSchemaDefinition))
---		Set{}
 		endif
 ;
  
---helper context MM!ObjectSchema def: hasType(type:String) : Boolean =
---	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
---		->select(keyword | not keyword.typeAnyOf1.oclIsUndefined())
---		->exists(keyword | keyword.typeAnyOf1 = type);
+
 helper context MM!ObjectSchema def : findInPropertiesSchemasArrayItemsSchemas() : Set(MM!ObjectSchema)=		
 	let withTypeArraySchemas :Set(MM!ObjectSchema) = self.findInPropertiesSchemasWithType(#"\"array\"")
 	in
@@ -345,8 +361,31 @@ helper context MM!PropertiesSchemaDefinition def:  getAllSchemasWithType(type:St
 --	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.oclIsTypeOf(MM!ObjectSchema) and keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);
 	self.keySchemaPairs->select(keySchemaPair | keySchemaPair.value.hasType(type))->collect(keySchemaPair | keySchemaPair.value);
 
+---------  TODO to be finished
+helper context MM!ObjectSchema def : findInPropertiesSchemasWithRef() : Set(MM!ObjectSchema)=
+	self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
+	->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.keySchemaPairs
+		->select(keySchemaPair | keySchemaPair.value.hasRef())->collect(keySchemaPair | keySchemaPair.value)			
+	).flatten();
+	
+helper context MM!ObjectSchema def: hasRef() : Boolean =
+	self.keywordDefinition->exists(keyword  | keyword.oclIsTypeOf(MM!RefSchemaDefinition));
 
 
+helper context MM!ObjectSchema def: getRef():String =
+	let refSchemaDefinition : MM!RefSchemaDefinition =
+		self.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!RefSchemaDefinition))
+	in
+		if not refSchemaDefinition.isEmpty()
+		then
+			refSchemaDefinition.first().ref
+		else
+			OclUndefined
+		endif;
+
+
+
+----- TODO delete
 helper context MM1!EPackage def: findEClassByRef(ref:String) : MM1!EClass=
 	self.eClassifiers->select(eClass | eClass.eAnnotations -> exists(eAnnotation | eAnnotation.source = ref)).first()
 	;

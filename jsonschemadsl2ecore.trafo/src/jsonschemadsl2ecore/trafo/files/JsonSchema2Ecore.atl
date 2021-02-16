@@ -162,8 +162,18 @@ rule ObjectSchemaWithTypeObjectToEClass {
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"integer\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"boolean\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"object\"")
-			-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject))
-			
+										-> collect(nestedObject | thisModule.createNestedObjectEReference(nestedObject)),
+										
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasWithRef()
+										-> collect(schemaWithRef | 
+											let foundReferredSchema : MM!Schema =
+													objectSchema.retrieveRootSchema().findSchemaByJsonPointerFromRoot(schemaWithRef.getRef())
+											in 
+												if not foundReferredSchema.oclIsUndefined()
+												then	thisModule.createNestedObjectEReference(foundReferredSchema)
+												else 'No reference found for '+schemaWithRef.getRef()+''.println()
+												endif
+											) ---------TODO use an other rule because of the name
 			
 		),
 		eAnnotation : MM1!EAnnotation(
