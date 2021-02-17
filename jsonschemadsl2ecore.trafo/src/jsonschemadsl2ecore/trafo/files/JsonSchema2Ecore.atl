@@ -11,7 +11,6 @@ helper def: rootEPackage : MM1!EPackage = OclUndefined;
 
 rule JsonSchemaToEPackage {
 	from
---		jsonSchema : MM!JsonSchema, schema : MM!Schema (jsonSchema.schema=schema and schema.isObjectSchema() and schema.isTypeObject())
 		jsonSchema : MM!JsonSchema
 	to 
 		ePackage : MM1!EPackage (
@@ -50,6 +49,11 @@ rule ObjectSchemaWithTypeObjectToEClass {
 												endif
 											),							
 			
+											
+			eStructuralFeatures <- objectSchema.findInPropertiesWithBooleanSchemaTrue()
+										->collect(booleanSchemaTrue | thisModule.BooleanSchemaTrueToEReference(booleanSchemaTrue)),
+			
+			-------------------Arrays-----------------------
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"string\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"number\""),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"integer\""),
@@ -72,7 +76,9 @@ rule ObjectSchemaWithTypeObjectToEClass {
 												then	thisModule.createReferenceEReference(foundReferredSchema,schemaWithRef)
 												else 'No reference found for '+schemaWithRef.getRef()+''.println()
 												endif
-											)
+											),
+			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithBooleanSchemaTrue()
+										->collect(booleanSchemaTrue | thisModule.BooleanSchemaTrueToEReference(booleanSchemaTrue))
 										
 			
 			
@@ -138,6 +144,157 @@ rule ObjectSchemaWithTypeStringToEAttribute{
 		)
 }
 
+lazy rule BooleanSchemaTrueToEReference {
+	from booleanSchema : MM!BooleanSchema (booleanSchema.value = true)
+	using {
+		referenceName : String =  booleanSchema.findPropertyName();
+	}
+	to 
+		eReference :MM1!EReference ( 
+			name <- referenceName,
+--			eType <- thisModule.createJsonDocument(booleanSchema),
+			eType <- thisModule.createJsonDocument(thisModule.rootEPackage),
+			containment <- true,
+			lowerBound <-booleanSchema.calculateLowerBound(referenceName),
+			upperBound <- booleanSchema.calculateUpperBound()
+			
+		)
+}
 
+unique lazy rule createJsonDocument{
+--	from booleanSchema : MM!BooleanSchema (booleanSchema.value = true)
+	from rootEPackage : MM1!EPackage
+--	using {
+--		JsonDocument : MM!JsonDocument.allInstancesFrom('IN').first();
+--	}
+	to
+--		jsonDocument : MM!JsonDocument
+		jsonDocument : MM1!EClass(
+			name <- 'JsonDocument',
+			eStructuralFeatures <-value
+		),
+		value :MM1!EReference ( 
+			name<-'value',
+			containment <- true,
+			eType <- thisModule.createValue(thisModule.rootEPackage),
+			lowerBound <- 1,
+			upperBound <- 1
+		)
+		
+}
 
+unique lazy rule createValue{
+	from rootEPackage : MM1!EPackage
+	to
+		value  : MM1!EClass(
+			name <- 'Value',
+			abstract<- true
+		)
+	do {
+		thisModule.createConcreteValues(thisModule.rootEPackage);
+	}	
+}
+
+unique lazy rule createConcreteValues{
+	from rootEPackage : MM1!EPackage
+	to 
+		arrayValue :  MM1!EClass(
+			name<-'ArrayValue',
+			eSuperTypes <- thisModule.createValue(thisModule.rootEPackage),
+			eStructuralFeatures <-arrayToValueReference
+		),	
+		arrayToValueReference :MM1!EReference ( 
+			name<-'value',
+			containment <- true,
+			eType <- thisModule.createValue(thisModule.rootEPackage),
+			lowerBound <- 0,
+			upperBound <- -1
+		),
+		booleanValue :  MM1!EClass(
+			name<-'BooleanValue',
+			eSuperTypes <- thisModule.createValue(thisModule.rootEPackage),
+			eStructuralFeatures <- booleanValueEattribute
+		),
+		booleanValueEattribute :  MM1!EAttribute(
+			name<-'value',
+			eType <-MM1!EBoolean,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		integerValue :  MM1!EClass(
+			name<-'IntegerValue',
+			eSuperTypes <- thisModule.createValue(thisModule.rootEPackage),
+			eStructuralFeatures <- integerValueEattribute
+		),
+		integerValueEattribute :  MM1!EAttribute(
+			name<-'value',
+			eType <-MM1!EInt,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		nullValue : MM1!EClass(
+			name<-'NullValue',
+			eSuperTypes <- thisModule.createValue(thisModule.rootEPackage)
+		),
+		numberValue : MM1!EClass(
+			name<-'NumberValue',
+			eSuperTypes <- thisModule.createValue(thisModule.rootEPackage),
+			eStructuralFeatures <- numberValueEattribute
+		),
+		numberValueEattribute :  MM1!EAttribute(
+			name<-'value',
+			eType <-MM1!EDouble,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		
+		stringValue : MM1!EClass(
+			name<-'StringValue',
+			eSuperTypes <- thisModule.createValue(thisModule.rootEPackage),
+			eStructuralFeatures <- stringValueEattribute
+		),
+		stringValueEattribute :  MM1!EAttribute(
+			name<-'value',
+			eType <-MM1!EString,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		objectValue : MM1!EClass(
+			name<-'ObjectValue',
+			eSuperTypes <- thisModule.createValue(thisModule.rootEPackage),
+			eStructuralFeatures <- objectKeyValuePair
+		),
+		objectKeyValuePair : MM1!EReference ( 
+			name<-'keyvaluepair',
+			containment <- true,
+			eType <- thisModule.createkeyValuePair(thisModule.rootEPackage),
+			lowerBound <- 0,
+			upperBound <- -1
+		)
+		
+		
+}
+
+unique lazy rule createkeyValuePair{
+	from rootEPackage : MM1!EPackage
+	to 
+		keyValuePair :  MM1!EClass(
+			name<-'KeyValuePair',
+			eStructuralFeatures <- key,
+			eStructuralFeatures <- value
+		),
+		key : MM1!EAttribute(
+			name<-'key',
+			eType <-MM1!EString,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		value :MM1!EReference ( 
+			name<-'value',
+			containment <- true,
+			eType <- thisModule.createValue(thisModule.rootEPackage),
+			lowerBound <- 1,
+			upperBound <- 1
+		)
+}
 
