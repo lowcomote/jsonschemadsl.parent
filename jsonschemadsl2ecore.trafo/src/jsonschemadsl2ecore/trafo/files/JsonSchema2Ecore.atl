@@ -152,8 +152,8 @@ lazy rule BooleanSchemaTrueToEReference {
 	to 
 		eReference :MM1!EReference ( 
 			name <- referenceName,
---			eType <- thisModule.createJsonDocument(booleanSchema),
 			eType <- thisModule.createJsonDocument(thisModule.rootEPackage),
+--			eType <-  MM!JsonDocument, ------ TODO Antonio
 			containment <- true,
 			lowerBound <-booleanSchema.calculateLowerBound(referenceName),
 			upperBound <- booleanSchema.calculateUpperBound()
