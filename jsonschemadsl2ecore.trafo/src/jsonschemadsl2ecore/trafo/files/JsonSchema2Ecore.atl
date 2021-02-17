@@ -45,13 +45,26 @@ rule ObjectSchemaWithTypeObjectToEClass {
 											in 
 												if not foundReferredSchema.oclIsUndefined()
 												then	thisModule.createReferenceEReference(foundReferredSchema,schemaWithRef)
-												else 'No reference found for '+schemaWithRef.getRef()+''.println()
+--												else 'No reference found for '+schemaWithRef.getRef()+''.println()
+												else Set{}
 												endif
 											),							
 			
 											
 			eStructuralFeatures <- objectSchema.findInPropertiesWithBooleanSchemaTrue()
 										->collect(booleanSchemaTrue | thisModule.BooleanSchemaTrueToEReference(booleanSchemaTrue)),
+			
+--			eStructuralFeatures <- thisModule.createReferenceTokeyValuePair(objectSchema.findAdditionalPropertiesSchemaDefinitionBooleanSchemaValue()->debug()),
+			eStructuralFeatures <- objectSchema.findAdditionalPropertiesSchemaDefinitionBooleanSchemaValue()
+										->collect(booleanValue | 
+											if booleanValue
+											then thisModule.createReferenceTokeyValuePair(booleanValue) 	
+--											else 'additionalProperties = false'.println()
+											else Set{}
+											endif
+										),
+			
+
 			
 			-------------------Arrays-----------------------
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithType(#"\"string\""),
@@ -74,7 +87,8 @@ rule ObjectSchemaWithTypeObjectToEClass {
 												if not foundReferredSchema.oclIsUndefined()
 --												then	thisModule.createNestedObjectEReference(foundReferredSchema,schemaWithRef.findPropertyName())
 												then	thisModule.createReferenceEReference(foundReferredSchema,schemaWithRef)
-												else 'No reference found for '+schemaWithRef.getRef()+''.println()
+--												else 'No reference found for '+schemaWithRef.getRef()+''.println()
+												else Set{}
 												endif
 											),
 			eStructuralFeatures <- objectSchema.findInPropertiesSchemasArrayItemsSchemasWithBooleanSchemaTrue()
@@ -180,6 +194,9 @@ unique lazy rule createJsonDocument{
 			lowerBound <- 1,
 			upperBound <- 1
 		)
+	do {
+		thisModule.rootEPackage.eClassifiers <-jsonDocument;
+	}
 		
 }
 
@@ -192,6 +209,7 @@ unique lazy rule createValue{
 		)
 	do {
 		thisModule.createConcreteValues(thisModule.rootEPackage);
+		thisModule.rootEPackage.eClassifiers <- value;
 	}	
 }
 
@@ -271,6 +289,15 @@ unique lazy rule createConcreteValues{
 			lowerBound <- 0,
 			upperBound <- -1
 		)
+	do {
+		thisModule.rootEPackage.eClassifiers <- arrayValue;
+		thisModule.rootEPackage.eClassifiers <- booleanValue;
+		thisModule.rootEPackage.eClassifiers <- integerValue;
+		thisModule.rootEPackage.eClassifiers <- nullValue;
+		thisModule.rootEPackage.eClassifiers <- numberValue;
+		thisModule.rootEPackage.eClassifiers <- stringValue;
+		thisModule.rootEPackage.eClassifiers <- objectValue;
+	}	
 		
 		
 }
@@ -295,6 +322,22 @@ unique lazy rule createkeyValuePair{
 			eType <- thisModule.createValue(thisModule.rootEPackage),
 			lowerBound <- 1,
 			upperBound <- 1
+		)
+	do {
+		thisModule.rootEPackage.eClassifiers <-keyValuePair;
+	}		
+}
+
+lazy rule createReferenceTokeyValuePair{
+--	from rootEPackage : MM1!EPackage
+	from boolean :Boolean (boolean = true)
+	to 
+		reference :MM1!EReference ( 
+			name<-'additionalProperties',
+			containment <- true,
+			eType <- thisModule.createkeyValuePair(thisModule.rootEPackage),
+			lowerBound <- 0,
+			upperBound <- -1
 		)
 }
 

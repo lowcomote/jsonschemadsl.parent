@@ -181,7 +181,8 @@
       "type": "string"
     },
     "properties": {
-      "additionalProperties": true
+    	"type": "object",
+      	"additionalProperties": true
     }
   },
   "additionalProperties": false,

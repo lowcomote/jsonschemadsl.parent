@@ -228,7 +228,8 @@ helper context OclAny def: findObjectSchemaWithTypeArrayFromObjectSchemaInItems(
 				endif
 		else OclUndefined
 		endif;
-		 
+
+
 ---- TODO do we use this?
 helper context OclAny def: findParentObjectSchema() : MM!ObjectSchema=
 	let parent : OclAny = self.refImmediateComposite()
@@ -361,7 +362,7 @@ helper context MM!ObjectSchema def: getRef():String =
 		endif;
 
 
-----------TODO to be finished
+
 helper context MM!ObjectSchema def : findInPropertiesSchemasArrayItemsSchemasWithBooleanSchemaTrue(): Set(MM!BooleanSchema)=
 	let withTypeArraySchemas :Set(MM!ObjectSchema) = self.findInPropertiesSchemasWithType(#"\"array\"")
 	in
@@ -380,10 +381,37 @@ helper context MM!ObjectSchema def : findInPropertiesWithBooleanSchemaTrue() : S
 		->collect(keySchemaPair | keySchemaPair.value)	
 		->select(booleanSchema | booleanSchema.value = true)
 	).flatten();
------ TODO delete
---helper context MM1!EPackage def: findEClassByRef(ref:String) : MM1!EClass=
---	self.eClassifiers->select(eClass | eClass.eAnnotations -> exists(eAnnotation | eAnnotation.source = ref)).first()
---	;
+
+--- TODO not very useful!
+helper context MM!ObjectSchema def:findAdditionalPropertiesSchemaDefinition() : MM!AdditionalPropertiesSchemaDefinition =
+	let additionalPropertiesSchemaDefinition : Set(MM!AdditionalPropertiesSchemaDefinition) = 
+		self.keywordDefinition
+			->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!AdditionalPropertiesSchemaDefinition))
+	in
+		if additionalPropertiesSchemaDefinition.isEmpty()
+		then OclUndefined
+		else additionalPropertiesSchemaDefinition.first()
+		endif;
+
+helper context MM!ObjectSchema def:findAdditionalPropertiesSchemaDefinitionBooleanSchemaValue() :Set(Boolean) =
+	let value : Set(Boolean) = 
+		self.keywordDefinition
+			->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!AdditionalPropertiesSchemaDefinition))
+			->collect(additionalPropertiesSchemaDefinition | additionalPropertiesSchemaDefinition.additionalProperties)
+			->select(additionalProperties | additionalProperties.oclIsTypeOf(MM!BooleanSchema))
+			->collect(additionalProperties | additionalProperties.value)
+			->flatten()
+	in
+		if value.isEmpty()
+		then Set{true}
+		else value.subSequence(1,1)
+--		then true
+--		else value.first()
+		endif;
+	
+--helper context MM!ObjectSchema def:findAdditionalPropertiesSchemaDefinition() : Set(MM!AdditionalPropertiesSchemaDefinition)
+--	self.keywordDefinition
+--			->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!AdditionalPropertiesSchemaDefinition))
 
 
 
