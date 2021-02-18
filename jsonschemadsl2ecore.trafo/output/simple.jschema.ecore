@@ -169,6 +169,10 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" lowerBound="1"
         eType="//Properties" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties2" eType="//Properties2ArrayOfTypes"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties3" lowerBound="1"
+        upperBound="-1" eType="//Properties3ArrayOfTypes" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Properties">
     <eAnnotations source="#/definitions/Task/properties/properties"/>
@@ -185,8 +189,16 @@
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Properties2Object" eSuperTypes="//Properties2ArrayOfTypes">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Properties2ArrayOfTypes" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Properties3Number" eSuperTypes="//Properties3ArrayOfTypes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Properties3Boolean" eSuperTypes="//Properties3ArrayOfTypes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Properties3ArrayOfTypes" abstract="true"/>
 </ecore:EPackage>

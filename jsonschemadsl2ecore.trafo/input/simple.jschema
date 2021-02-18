@@ -174,7 +174,8 @@
 "Task": {
   "required": [
     "name",
-    "properties"
+    "properties",
+    "properties3"
   ],
   "properties": {
     "name": {
@@ -186,6 +187,14 @@
     },
     "properties2": {
     	"type": ["integer","string"]
+      	 
+    },
+    "properties3": {
+    	"items": {
+        	"type": ["number","boolean"]
+      	},
+      	"type": "array"
+    	
       	 
     }
     

@@ -296,9 +296,9 @@ helper context MM!ObjectSchema def: getEDataType() : MM1!EDatatype=
 
 
 helper context MM!ObjectSchema def: hasArrayOfTypes() : Boolean =
-	let typeSchemaDefinition : MM!KeywordDefinition = self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
+	let typeSchemaDefinition : Set(MM!KeywordDefinition) = self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
 	in 
-		if typeSchemaDefinition.isEmpty
+		if typeSchemaDefinition.isEmpty()
 		then false
 		else
 			not typeSchemaDefinition.first().typesAnyOf2.oclIsUndefined()
@@ -386,6 +386,28 @@ helper context MM!ObjectSchema def: getRef():String =
 
 
 
+helper context MM!ObjectSchema def : findInPropertiesSchemasWithArrayOfTypes() : Set(MM!ObjectSchema)=
+	self.keywordDefinition
+		->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!PropertiesSchemaDefinition))
+		->collect(propertiesSchemaDefinition | propertiesSchemaDefinition.keySchemaPairs
+			->select(keySchemaPair | keySchemaPair.value.oclIsTypeOf(MM!ObjectSchema))
+			->select(keySchemaPair | keySchemaPair.value.hasArrayOfTypes())
+			->collect(keySchemaPair | keySchemaPair.value)
+		).flatten();
+
+
+helper 	context MM!ObjectSchema def : findInPropertiesSchemasArrayItemsSchemasArrayOfTypes(): Set(MM!ObjectSchema)=
+	let withTypeArraySchemas :Set(MM!ObjectSchema) = self.findInPropertiesSchemasWithType(#"\"array\"")
+	in
+		withTypeArraySchemas->collect( withTypeArraySchema | withTypeArraySchema.keywordDefinition
+			->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!ItemsSchemaDefinition))
+			->select(keywordDefinition | keywordDefinition.itemsAnyOf1.oclIsTypeOf(MM!ObjectSchema))
+			->collect(keywordDefinition | keywordDefinition.itemsAnyOf1).flatten()
+			->select(itemsAnyOf1 | itemsAnyOf1.hasArrayOfTypes())
+			)->flatten();
+
+
+
 helper context MM!ObjectSchema def : findInPropertiesSchemasArrayItemsSchemasWithBooleanSchemaTrue(): Set(MM!BooleanSchema)=
 	let withTypeArraySchemas :Set(MM!ObjectSchema) = self.findInPropertiesSchemasWithType(#"\"array\"")
 	in
@@ -406,15 +428,15 @@ helper context MM!ObjectSchema def : findInPropertiesWithBooleanSchemaTrue() : S
 	).flatten();
 
 --- TODO not very useful!
-helper context MM!ObjectSchema def:findAdditionalPropertiesSchemaDefinition() : MM!AdditionalPropertiesSchemaDefinition =
-	let additionalPropertiesSchemaDefinition : Set(MM!AdditionalPropertiesSchemaDefinition) = 
-		self.keywordDefinition
-			->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!AdditionalPropertiesSchemaDefinition))
-	in
-		if additionalPropertiesSchemaDefinition.isEmpty()
-		then OclUndefined
-		else additionalPropertiesSchemaDefinition.first()
-		endif;
+--helper context MM!ObjectSchema def:findAdditionalPropertiesSchemaDefinition() : MM!AdditionalPropertiesSchemaDefinition =
+--	let additionalPropertiesSchemaDefinition : Set(MM!AdditionalPropertiesSchemaDefinition) = 
+--		self.keywordDefinition
+--			->select(keywordDefinition | keywordDefinition.oclIsTypeOf(MM!AdditionalPropertiesSchemaDefinition))
+--	in
+--		if additionalPropertiesSchemaDefinition.isEmpty()
+--		then OclUndefined
+--		else additionalPropertiesSchemaDefinition.first()
+--		endif;
 
 helper context MM!ObjectSchema def:findAdditionalPropertiesSchemaDefinitionBooleanSchemaValue() :Set(Boolean) =
 	let value : Set(Boolean) = 
