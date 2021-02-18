@@ -139,7 +139,7 @@ lazy rule createNestedObjectEReference {
 		)
 }
 
-rule ObjectSchemaWithTypeStringToEAttribute{
+rule ObjectSchemaWithTypePrimitiveToEAttribute{
 	from objectSchema : MM!ObjectSchema (
 			objectSchema.hasType(#"\"string\"") or
 			objectSchema.hasType(#"\"integer\"") or
@@ -158,6 +158,123 @@ rule ObjectSchemaWithTypeStringToEAttribute{
 		)
 }
 
+
+--------------------------  Array Of Types ------
+rule ObjectSchemaWithArrayOfTypes{
+	from objectSchema : MM!ObjectSchema (
+		not objectSchema.findArrayOfTypes().oclIsUndefined()
+	)
+	using {
+		className : String =  objectSchema.findPropertyName().toCamelCase();
+	}
+	to
+		arrayOfTypes  : MM1!EClass(
+			name <- className+'ArrayOfTypes',
+			abstract<- true
+		)
+	do{
+		thisModule.rootEPackage.eClassifiers <- objectSchema.findArrayOfTypes().typesAnyOf2.items ->collect(item | thisModule.createConcreteTypesAnyOf2Class(item, objectSchema.findArrayOfTypes().typesAnyOf2));
+		thisModule.rootEPackage.eClassifiers <-arrayOfTypes;
+	}	
+}
+
+--lazy rule TypesAnyOf2IncludingStringToConcreteClass{
+--	from 
+--		simpleType:String
+----		simpleType:MM!SimpleTypes,
+----		typesAnyOf2: MM!TypesAnyOf2 (typesAnyOf2.items.includes(simpleType))
+----		typesAnyOf2: MM!TypesAnyOf2 (typesAnyOf2.items.includes(#"\"string\""))
+--		
+--		typesAnyOf2: MM!TypesAnyOf2
+--	using {
+--		abstractParent : MM!ObjectSchema =  typesAnyOf2.refImmediateComposite().refImmediateComposite();
+--	}
+--	to 
+--		 
+--		concreteClass: MM1!EClass (
+--			name <-  abstractParent.findPropertyName().toCamelCase()+simpleType.name.substring(2,simpleType.name.size()-1).toCamelCase(),
+--			eSuperTypes <-abstractParent,
+--			eStructuralFeatures <- valueEattribute
+--		),
+--		valueEattribute :  MM1!EAttribute(
+--			name<-'value',
+--			eType <- thisModule.simpleTypeMapping.get(simpleType),
+--			lowerBound <- 1,
+--			upperBound <- 1
+--		)	
+----		simpleTypeConcreteClass : distinct MM1!EClass <-thisModule.createConcreteTypesAnyOf2Class(#"\"string\"",typesAnyOf2)
+--
+--		
+----		simpleTypeConcreteClass: distinct MM1!EClass foreach( simpleType in typesAnyOf2.items)
+----			(thisModule.createConcreteTypesAnyOf2Class(simpleType,typesAnyOf2))
+----			->collect(simpleType | thisModule.createConcreteTypesAnyOf2Class(simpleType,typesAnyOf2))
+----		concreteClass: distinct MM1!EClass foreach (simpleType in typesAnyOf2.items)(
+----			name <-  abstractParent.findPropertyName().toCamelCase()+simpleType.name.substring(2,simpleType.name.size()-1).toCamelCase(),
+----			eSuperTypes <-abstractParent,
+----			eStructuralFeatures <- valueEattribute
+----		),
+----		valueEattribute :  MM1!EAttribute(
+----			name<-'value',
+----			eType <- MM1!EString,
+----			lowerBound <- 1,
+----			upperBound <- 1
+----		)	
+--}
+
+lazy rule createConcreteTypesAnyOf2Class{
+	from simpleType:MM!SimpleTypes , typesAnyOf2: MM!TypesAnyOf2
+	using {
+		abstractParent : MM!ObjectSchema =  typesAnyOf2.refImmediateComposite().refImmediateComposite();
+	}
+	to 
+		concreteClass: MM1!EClass (
+			name <-  abstractParent.findPropertyName().toCamelCase()+simpleType.name.substring(2,simpleType.name.size()-1).toCamelCase(),
+			eSuperTypes <-abstractParent,
+			eStructuralFeatures <- valueEattribute
+		),
+		valueEattribute :  MM1!EAttribute(
+			name<-'value',
+			eType <- thisModule.simpleTypeMapping.get(simpleType),
+			lowerBound <- 1,
+			upperBound <- 1
+		)	
+}
+
+----lazy rule createConcreteClassForArrayOfTypes{
+--rule createConcreteClassForArrayOfTypes{
+--	from 
+----		simpleType:MM!SimpleTypes ,
+----		simpleType:String,
+----		simpleType:MM!EnumLiteral,
+--		objectSchema : MM!ObjectSchema (
+--			not objectSchema.findArrayOfTypes().oclIsUndefined()
+--			and objectSchema.findArrayOfTypes().typesAnyOf2.items->debug().includes(#"\"string\"")
+--		)
+--		
+----	from simpleType:String, parentObjectSchema: MM!ObjectSchema
+--	--from simpleType:MM!SimpleTypes, parentObjectSchema: MM!ObjectSchema
+--	using {
+----		parentClassName : String =  parentObjectSchema.findPropertyName().toCamelCase();
+--		parentClassName : String =  objectSchema.findPropertyName().toCamelCase();
+--	}
+--	to 
+--		concreteClass: MM1!EClass(
+----			name <-  parentClassName+simpleType.literal.toCamelCase(),
+--			name <-  parentClassName+'String',
+----			eSuperTypes <-parentObjectSchema
+--			eSuperTypes <-objectSchema,
+--			eStructuralFeatures <- valueEattribute
+--		),
+--		valueEattribute :  MM1!EAttribute(
+--			name<-'value',
+----			eType <-thisModule.simpleTypeMapping.get(simpleType),
+--			eType <- MM1!EString,
+--			lowerBound <- 1,
+--			upperBound <- 1
+--		)
+--	
+--}
+
 lazy rule BooleanSchemaTrueToEReference {
 	from booleanSchema : MM!BooleanSchema (booleanSchema.value = true)
 	using {
@@ -175,6 +292,9 @@ lazy rule BooleanSchemaTrueToEReference {
 		)
 }
 
+
+
+----------------------    rules for Json Document ---------------------------
 unique lazy rule createJsonDocument{
 --	from booleanSchema : MM!BooleanSchema (booleanSchema.value = true)
 	from rootEPackage : MM1!EPackage

@@ -183,7 +183,12 @@
     "properties": {
     	"type": "object",
       	"additionalProperties": true
+    },
+    "properties2": {
+    	"type": ["integer","string"]
+      	 
     }
+    
   },
   "additionalProperties": false,
   "type": "object"

@@ -175,4 +175,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" upperBound="-1"
         eType="//KeyValuePair" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Properties2Integer" eSuperTypes="//Properties2ArrayOfTypes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Properties2String" eSuperTypes="//Properties2ArrayOfTypes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Properties2Object" eSuperTypes="//Properties2ArrayOfTypes">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Properties2ArrayOfTypes" abstract="true"/>
 </ecore:EPackage>

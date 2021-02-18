@@ -271,8 +271,9 @@ helper context MM!ObjectSchema def: hasType(type:String) : Boolean =
 	self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
 		->select(keyword | not keyword.typeAnyOf1.oclIsUndefined())
 		->exists(keyword | keyword.typeAnyOf1 = type);
---		->exists(keyword | keyword.typeAnyOf1 = #type);
---		->exists(keyword | keyword.typeAnyOf1 = #"\"object\"");
+
+
+
 
 helper context MM!ObjectSchema def: findSimpleType() :String=
 	let simpleType: String =
@@ -292,7 +293,29 @@ helper context MM!ObjectSchema def: getEDataType() : MM1!EDatatype=
 		then OclUndefined
 		else thisModule.simpleTypeMapping.get(simpleType)
 		endif;
- 
+
+
+helper context MM!ObjectSchema def: hasArrayOfTypes() : Boolean =
+	let typeSchemaDefinition : MM!KeywordDefinition = self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
+	in 
+		if typeSchemaDefinition.isEmpty
+		then false
+		else
+			not typeSchemaDefinition.first().typesAnyOf2.oclIsUndefined()
+		endif;
+
+helper context MM!ObjectSchema def: findArrayOfTypes() : MM!TypeSchemaDefinition=
+	let typeSchemaDefinition : Set(MM!KeywordDefinition) = self.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(MM!TypeSchemaDefinition))
+	in 
+		if typeSchemaDefinition.isEmpty()
+		then OclUndefined
+		else
+			if not typeSchemaDefinition.first().typesAnyOf2.oclIsUndefined()
+			then typeSchemaDefinition.first()
+			else OclUndefined
+			endif
+		endif;
+
 
 helper context MM!ObjectSchema def : findInPropertiesSchemasArrayItemsSchemas() : Set(MM!ObjectSchema)=		
 	let withTypeArraySchemas :Set(MM!ObjectSchema) = self.findInPropertiesSchemasWithType(#"\"array\"")
