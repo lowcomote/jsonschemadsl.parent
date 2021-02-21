@@ -13,8 +13,11 @@ rule JsonSchemaToEPackage {
 	from
 		jsonSchema : MM!JsonSchema
 	to 
+		-------TODO read this info from file name
 		ePackage : MM1!EPackage (
-			name <- 'test1'			
+			name <- 'Shipyard',
+			nsPrefix <- 'Shipyard',
+			nsURI <- 'http://jku.bise.at/Shipyard'
 		)
 	do{
 		thisModule.rootEPackage <- ePackage;

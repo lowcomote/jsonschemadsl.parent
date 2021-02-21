@@ -3,9 +3,16 @@
     "apiVersion",
     "kind",
     "metadata",
-    "spec"
+    "spec",
+    "testBooleanSchema"
   ],
   "properties": {
+  	"testBooleanSchema":true,
+  	"testBooleanSchema1":true,
+  	"testBooleanSchemaArray":{
+  		"type":"array",
+  		"items":true
+  	},
     "apiVersion": {
       "type": "string"
     },
@@ -167,15 +174,30 @@
 "Task": {
   "required": [
     "name",
-    "properties"
+    "properties",
+    "properties3"
   ],
   "properties": {
     "name": {
       "type": "string"
     },
     "properties": {
-      "additionalProperties": true
+    	"type": "object",
+      	"additionalProperties": true
+    },
+    "properties2": {
+    	"type": ["integer","string"]
+      	 
+    },
+    "properties3": {
+    	"items": {
+        	"type": ["number","boolean"]
+      	},
+      	"type": "array"
+    	
+      	 
     }
+    
   },
   "additionalProperties": false,
   "type": "object"
