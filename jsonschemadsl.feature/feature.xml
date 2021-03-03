@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="jsonschemadsl.feature"
 	label="JsonSchemaDsl Feature "
-	version="1.0.0.qualifier">
+	version="0.1.0">
 	<plugin
 			id="jsonschemadsl"
 			download-size="0"
