@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="arraytuple" nsURI="http://at.jku.bise/jschema/mapping/example/arraytuple"
+    nsPrefix="arraytuple">
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootProperty"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootProperty" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddresses" eSuperTypes="#//RootProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items1" eType="#//RootAddressesItems1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" eType="#//RootAddressesItems2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items3" eType="#//RootAddressesItems3"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items4" eType="#//RootAddressesItems4"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" upperBound="-1"
+        eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressesItems1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items1" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressesItems2">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items2" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressesItems3">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items3" lowerBound="1"
+        eType="#//RootAddressesItems3Enum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RootAddressesItems3Enum">
+    <eLiterals name="Street" literal="&quot;Street&quot;"/>
+    <eLiterals name="Avenue" value="1" literal="&quot;Avenue&quot;"/>
+    <eLiterals name="Boulevard" value="2" literal="&quot;Boulevard&quot;"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressesItems4">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items4" lowerBound="1"
+        eType="#//RootAddressesItems4Enum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RootAddressesItems4Enum">
+    <eLiterals name="NW" literal="&quot;NW&quot;"/>
+    <eLiterals name="NE" value="1" literal="&quot;NE&quot;"/>
+    <eLiterals name="SW" value="2" literal="&quot;SW&quot;"/>
+    <eLiterals name="SE" value="3" literal="&quot;SE&quot;"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFamilyMembers" eSuperTypes="#//RootProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items1" lowerBound="1"
+        eType="#//RootFamilyMembersItems1" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" lowerBound="1"
+        eType="#//RootFamilyMembersItems2" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" upperBound="-1"
+        eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFamilyMembersItems1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootFamilyMembersItems1Property" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFamilyMembersItems1Property"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFamilyMembersItems1Name" eSuperTypes="#//RootFamilyMembersItems1Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFamilyMembersItems1Surname" eSuperTypes="#//RootFamilyMembersItems1Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFamilyMembersItems2">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items2" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,34 @@
+{
+	"type":"object",
+	"properties":{
+		"fullPerson":{
+			"type": "array",
+			"items":[
+				{
+					"description": "basic information",
+					"type": "object",
+					"properties":{
+						"name": {"type":"string"},
+						"surname": {"type":"string"}
+					}
+				},
+				{
+					"description": "address information",
+					"type": "object",
+					"properties":{
+						"street": {"type":"string"},
+						"city": {"type":"string"}
+					}
+				}
+			],
+			"contains":{
+				"type": "object",
+					"properties":{
+						"emergencyNumber": {"type":"string"}
+					}
+			}
+		}
+		
+	}
+	
+}

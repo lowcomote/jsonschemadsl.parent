@@ -18,4 +18,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="RootAge" eSuperTypes="#//RootProperty">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAdditionalProperties" eSuperTypes="#//RootProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -1,0 +1,26 @@
+{
+	"type":"object",
+	"properties":{
+		"employeesWithManagers":{
+			"type":"array",
+			"items":{
+				"description":"generic employee",
+				"type":"object",
+				"properties": {
+					"name":{"type":"string"},
+					"surname":{"type":"string"},
+					"seniority":{"type":"integer"}
+				}
+			},
+			"contains":{
+				"description":"some employee must be a manager",
+				"type":"object",
+				"properties": {
+					"name":{"type":"string"},
+					"surname":{"type":"string"},
+					"peopleOnCharge":{"type":"integer"}
+				}
+			}
+		}
+	}
+}

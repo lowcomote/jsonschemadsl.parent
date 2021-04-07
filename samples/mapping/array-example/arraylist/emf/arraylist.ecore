@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="arraylist" nsURI="http://at.jku.bise/jschema/mapping/example/arraylist"
+    nsPrefix="arraylist">
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootProperty" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootChildrenNames" eSuperTypes="#//RootProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//RootChildrenNamesItems"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootChildrenNamesItems">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootWivesAndHusbands" eSuperTypes="#//RootProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//RootWivesAndHusbandsItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootWivesAndHusbandsItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootWivesAndHusbandsItemsProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootWivesAndHusbandsItemsProperty" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootWivesAndHusbandsItemsName" eSuperTypes="#//RootWivesAndHusbandsItemsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootWivesAndHusbandsItemsSurname" eSuperTypes="#//RootWivesAndHusbandsItemsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootWivesAndHusbandsItemsAge" eSuperTypes="#//RootWivesAndHusbandsItemsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+</ecore:EPackage>
