@@ -31,7 +31,8 @@
 					"properties":{
 			      		"name":{"type": "string"},
 			      		"surName":{"type": "string"}
-			      	}
+			      	},
+			      	"additionalProperties":false
 			    },
 			    {
 			    	"description":"relationship kind with the family member, e.g., oncle, father, son...",

@@ -4,7 +4,7 @@
     nsPrefix="arraytuple">
   <eClassifiers xsi:type="ecore:EClass" name="Root">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//RootProperty"/>
+        eType="#//RootProperty" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RootProperty" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="RootAddresses" eSuperTypes="#//RootProperty">
@@ -60,7 +60,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//RootFamilyMembersItems1Property" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RootFamilyMembersItems1Property"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFamilyMembersItems1Property" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="RootFamilyMembersItems1Name" eSuperTypes="#//RootFamilyMembersItems1Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
