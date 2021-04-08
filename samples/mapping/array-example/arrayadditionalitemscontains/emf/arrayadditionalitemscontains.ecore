@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="arrayadditionalitemscontains" nsURI="http://at.jku.bise/jschema/mapping/example/arrayadditionalitemscontains"
+    nsPrefix="arrayadditionalitemscontains">
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootProperty" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartment" eSuperTypes="#//RootProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items1" eType="#//RootDepartmentItems1Abstract"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" ordered="false"
+        upperBound="-1" eType="#//RootDepartmentAdditionalItemsAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1Abstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1" eSuperTypes="#//RootDepartmentItems1Abstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootDepartmentItems1Property" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1Property" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1DepartmentName"
+      eSuperTypes="#//RootDepartmentItems1Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="departmentName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1UnitName" eSuperTypes="#//RootDepartmentItems1Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1Contains" eSuperTypes="#//RootDepartmentItems1Abstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootDepartmentItems1ContainsProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1ContainsProperty"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1ContainsDepartmentName"
+      eSuperTypes="#//RootDepartmentItems1ContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="departmentName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1ContainsUnitName"
+      eSuperTypes="#//RootDepartmentItems1ContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1ContainsChiefId"
+      eSuperTypes="#//RootDepartmentItems1ContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chiefId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1AdditionalProperties"
+      eSuperTypes="#//RootDepartmentItems1Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentItems1ContainsAdditionalProperties"
+      eSuperTypes="#//RootDepartmentItems1ContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItems" eSuperTypes="#//RootDepartmentAdditionalItemsAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootDepartmentAdditionalItemsProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsProperty"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsId" eSuperTypes="#//RootDepartmentAdditionalItemsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsName" eSuperTypes="#//RootDepartmentAdditionalItemsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsSurname"
+      eSuperTypes="#//RootDepartmentAdditionalItemsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsAdditionalProperties"
+      eSuperTypes="#//RootDepartmentAdditionalItemsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsContains"
+      eSuperTypes="#//RootDepartmentAdditionalItemsAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootDepartmentAdditionalItemsContainsProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsContainsProperty"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsContainsId"
+      eSuperTypes="#//RootDepartmentAdditionalItemsContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsContainsName"
+      eSuperTypes="#//RootDepartmentAdditionalItemsContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsContainsSurname"
+      eSuperTypes="#//RootDepartmentAdditionalItemsContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsContainsChiefId"
+      eSuperTypes="#//RootDepartmentAdditionalItemsContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="chiefId" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootDepartmentAdditionalItemsContainsAdditionalProperties"
+      eSuperTypes="#//RootDepartmentAdditionalItemsContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
