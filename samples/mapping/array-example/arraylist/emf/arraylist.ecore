@@ -9,7 +9,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="RootProperty" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="RootChildrenNames" eSuperTypes="#//RootProperty">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//RootChildrenNamesItems"/>
+        eType="#//RootChildrenNamesItems" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RootChildrenNamesItems">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

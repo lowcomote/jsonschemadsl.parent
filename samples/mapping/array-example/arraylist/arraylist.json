@@ -14,8 +14,11 @@
 					"name":{"type":"string"},
 					"surname":{"type":"string"},
 					"age":{"type":"integer"}
-				}
+				},
+				"additionalProperties":false
+				
 			}
 		}
-	}
+	},
+	"additionalProperties":false
 }
