@@ -1,6 +1,4 @@
 {
- "definitions": {
-      "a": {"$ref": "#/definitions/a"}
-     },
-   "$ref": "#/definitions/a"
+  "minimum":3,
+  "minLength":3
 }
