@@ -10,7 +10,8 @@
 					"properties":{
 						"name": {"type":"string"},
 						"surname": {"type":"string"}
-					}
+					},
+					"additionalProperties":true
 				},
 				{
 					"description": "address information",
@@ -21,6 +22,7 @@
 					}
 				}
 			],
+			"additionalItems":true,
 			"contains":{
 				"type": "object",
 					"properties":{

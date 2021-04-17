@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/jsonschemadsl.parent/samples/mapping/array-example/arraytuplecontains/emf/src"
+    editDirectory="/jsonschemadsl.parent/samples/mapping/array-example/arraytuplecontains/emf/.edit/src"
+    editorDirectory="/jsonschemadsl.parent/samples/mapping/array-example/arraytuplecontains/emf/.editor/src"
+    modelPluginID="arraytuplecontains" modelName="Arraytuplecontains" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/jsonschemadsl.parent/samples/mapping/array-example/arraytuplecontains/emf/test/src"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    editPluginID="arraytuplecontains" editorPluginID="arraytuplecontains" usedGenPackages="../../../../../../jsonMM/model/jsonMM.genmodel#//jsonMM"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>arraytuplecontains.ecore</foreignModel>
+  <genPackages prefix="Arraytuplecontains" disposableProviderFactory="true" ecorePackage="arraytuplecontains.ecore#/">
+    <genClasses ecoreClass="arraytuplecontains.ecore#//Root">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//Root/properties"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="arraytuplecontains.ecore#//RootProperty"/>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPerson">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPerson/items1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPerson/items2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPerson/additionalItems"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonAdditionalItems">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPersonAdditionalItems/additionalItems"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="arraytuplecontains.ecore#//RootFullPersonAdditionalItemsAbstract"/>
+    <genClasses image="false" ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1Abstract"/>
+    <genClasses image="false" ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2Abstract"/>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPersonItems1/properties"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1Property"/>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1Name">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems1Name/name"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1Surname">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems1Surname/surname"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1Contains">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPersonItems1Contains/properties"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1ContainsProperty"/>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1ContainsName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems1ContainsName/name"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1ContainsSurame">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems1ContainsSurame/surname"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1ContainsEmergencyNumber">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems1ContainsEmergencyNumber/emergencyNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPersonItems2/properties"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2Property"/>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2Street">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems2Street/street"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2City">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems2City/city"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2Contains">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPersonItems2Contains/properties"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2ContainsProperty"/>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2ContainsStreet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems2ContainsStreet/street"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2ContainsCity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems2ContainsCity/city"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2ContainsEmergencyNumber">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems2ContainsEmergencyNumber/emergencyNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonAdditionalItemsContains">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPersonAdditionalItemsContains/properties"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="arraytuplecontains.ecore#//RootFullPersonAdditionalItemsContainsProperty"/>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonAdditionalItemsContainsEmergencyNumber">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonAdditionalItemsContainsEmergencyNumber/emergencyNumber"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1AdditionalProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems1AdditionalProperties/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPersonItems1AdditionalProperties/value"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems1ContainsAdditionalProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems1ContainsAdditionalProperties/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPersonItems1ContainsAdditionalProperties/value"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2AdditionalProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems2AdditionalProperties/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPersonItems2AdditionalProperties/value"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonItems2ContainsAdditionalProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonItems2ContainsAdditionalProperties/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPersonItems2ContainsAdditionalProperties/value"/>
+    </genClasses>
+    <genClasses ecoreClass="arraytuplecontains.ecore#//RootFullPersonAdditionalItemsContainsAdditionalProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute arraytuplecontains.ecore#//RootFullPersonAdditionalItemsContainsAdditionalProperties/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference arraytuplecontains.ecore#//RootFullPersonAdditionalItemsContainsAdditionalProperties/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
