@@ -1,0 +1,7 @@
+{
+	"definitions":{
+		"myProp1":{"type":"string"}
+	},
+	
+	"$ref":"#/definitions/myProp1/"
+}

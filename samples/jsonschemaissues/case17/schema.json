@@ -1,0 +1,8 @@
+{
+  "type": "object",
+  "patternProperties": {
+    "^S_|^I_": { "type": "string" },
+    "^I_": { "type": "integer" }
+  },
+  "additionalProperties": true
+}

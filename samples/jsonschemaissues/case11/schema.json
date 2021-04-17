@@ -1,0 +1,8 @@
+{
+	"definitions":{
+       "myProp":{"type":"integer"}
+   	},
+
+	"$ref" : "#/definitions"
+    
+}

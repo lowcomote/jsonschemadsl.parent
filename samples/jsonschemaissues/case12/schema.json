@@ -1,0 +1,4 @@
+{
+	"myProp":"some value",
+	"$ref":"#/myProp"
+}
