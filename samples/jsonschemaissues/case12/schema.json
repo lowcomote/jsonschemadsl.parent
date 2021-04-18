@@ -1,4 +1,3 @@
 {
-	"myProp":"some value",
-	"$ref":"#/myProp"
+	"myprop":1
 }

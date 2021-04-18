@@ -1,5 +1,4 @@
 {
-	"definitions":{
-       "type":"integer" 
-   	}
+	"myProp":"some value",
+	"$ref":"#/myProp"
 }

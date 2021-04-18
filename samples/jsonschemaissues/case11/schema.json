@@ -1,8 +1,10 @@
 {
-	"definitions":{
-       "myProp":{"type":"integer"}
-   	},
+  	
+    "definitions":{
+        "prop1":{"type":"string"},
+    	"prop1":{"type":"integer"}
+     },
+     
+     "$ref":"#/definitions/prop1"
 
-	"$ref" : "#/definitions"
-    
 }

@@ -1,7 +1,4 @@
 {
-	"definitions":{
-		"myProp1":{"type":"string"}
-	},
-	
-	"$ref":"#/definitions/myProp1/"
+  "type": "string",
+  "enum":[1,2,3,4]
 }
