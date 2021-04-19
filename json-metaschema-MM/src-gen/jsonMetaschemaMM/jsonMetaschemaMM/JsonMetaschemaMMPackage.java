@@ -1647,7 +1647,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PAIR__KEY = KEYWORD_DEFINITION_FEATURE_COUNT + 0;
+	int KEY_VALUE_PAIR__KEY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1656,7 +1656,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PAIR__VALUE = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
+	int KEY_VALUE_PAIR__VALUE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Key Value Pair</em>' class.
@@ -1665,7 +1665,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PAIR_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 2;
+	int KEY_VALUE_PAIR_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Key Value Pair</em>' class.
@@ -1674,7 +1674,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PAIR_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int KEY_VALUE_PAIR_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.DependenciesAnyOfImpl <em>Dependencies Any Of</em>}' class.
@@ -2183,7 +2183,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_SCHEMA_PAIR__KEY = 0;
+	int KEY_SCHEMA_PAIR__KEY = KEYWORD_DEFINITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -2192,7 +2192,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_SCHEMA_PAIR__VALUE = 1;
+	int KEY_SCHEMA_PAIR__VALUE = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Key Schema Pair</em>' class.
@@ -2201,7 +2201,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_SCHEMA_PAIR_FEATURE_COUNT = 2;
+	int KEY_SCHEMA_PAIR_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Key Schema Pair</em>' class.
@@ -2210,7 +2210,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_SCHEMA_PAIR_OPERATION_COUNT = 0;
+	int KEY_SCHEMA_PAIR_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.ContentMediaTypeSchemaDefinitionImpl <em>Content Media Type Schema Definition</em>}' class.

@@ -26,7 +26,7 @@ public interface ConstSchemaDefinition extends KeywordDefinition {
 	 * @return the value of the '<em>Const</em>' containment reference.
 	 * @see #setConst(JsonDocument)
 	 * @see jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage#getConstSchemaDefinition_Const()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	JsonDocument getConst();

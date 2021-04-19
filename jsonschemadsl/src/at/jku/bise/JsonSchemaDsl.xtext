@@ -16,7 +16,58 @@ JsonSchema returns JsonSchema:
 
 Schema returns Schema:
 	ObjectSchema | BooleanSchema;
-
+/*
+KeywordDefinition returns KeywordDefinition:
+	(->KEYWORD IdSchemaDefinition) |
+	(->KEYWORD SchemaSchemaDefinition) |
+	(->KEYWORD RefSchemaDefinition) |
+	(->KEYWORD CommentSchemaDefinition) | 
+	(->KEYWORD TitleSchemaDefinition) |
+	(->KEYWORD DescriptionSchemaDefinition) | 
+//	DefaultSchemaDefinition | 
+//	ReadOnlySchemaDefinition |
+//	WriteOnlySchemaDefinition |
+	(->KEYWORD ExamplesSchemaDefinition) |
+	(->KEYWORD MultipleOfSchemaDefinition )| 
+	(->KEYWORD MaximumSchemaDefinition) | 
+	(->KEYWORD ExclusiveMaximumSchemaDefinition) |
+	(->KEYWORD MinimumSchemaDefinition) |
+	(->KEYWORD ExclusiveMinimumSchemaDefinition) | 
+	(->KEYWORD MaxLengthSchemaDefinition) |
+	(->KEYWORD MinLengthSchemaDefinition) | 
+	(->KEYWORD PatternSchemaDefinition )|
+	(->KEYWORD AdditionalItemsSchemaDefinition) |
+	(->KEYWORD ItemsSchemaDefinition )|
+	(->KEYWORD MaxItemsSchemaDefinition )|
+	(->KEYWORD MinItemsSchemaDefinition )|
+	(->KEYWORD UniqueItemsSchemaDefinition)|
+	(->KEYWORD ContainsSchemaDefinition)|
+	(->KEYWORD MaxPropertiesSchemaDefinition)|
+	(->KEYWORD MinPropertiesSchemaDefinition)|
+	(->KEYWORD RequiredSchemaDefinition)|
+	(->KEYWORD AdditionalPropertiesSchemaDefinition)|
+	(->KEYWORD DefinitionsSchemaDefinition)|
+	(->KEYWORD PropertiesSchemaDefinition)|
+	(->KEYWORD PatternPropertiesSchemaDefinition)|
+	//DependenciesSchemaDefinition| //TODO add OCL validation otherwise it crashes
+	(->KEYWORD PropertyNamesSchemaDefinition)|
+	(->KEYWORD ConstSchemaDefinition)|
+	(->KEYWORD EnumSchemaDefinition)|
+	(->KEYWORD TypeSchemaDefinition)|
+	(->KEYWORD FormatSchemaDefinition)|
+	(->KEYWORD ContentMediaTypeSchemaDefinition)|
+	(->KEYWORD ContentEncodingSchemaDefinition)|
+	(->KEYWORD IfSchemaDefinition)|
+	(->KEYWORD ThenSchemaDefinition)|
+	(->KEYWORD ElseSchemaDefinition)|
+	(->KEYWORD AllOfSchemaDefinition)|
+	(->KEYWORD AnyOfSchemaDefinition)|
+	(->KEYWORD OneOfSchemaDefinition)|
+	(->KEYWORD NotSchemaDefinition) //|
+	//KeySchemaPair
+//	KeyValuePair
+* 
+*/
 KeywordDefinition returns KeywordDefinition:
 	IdSchemaDefinition |
 	SchemaSchemaDefinition |
@@ -24,9 +75,9 @@ KeywordDefinition returns KeywordDefinition:
 	CommentSchemaDefinition | 
 	TitleSchemaDefinition |
 	DescriptionSchemaDefinition | 
-	DefaultSchemaDefinition | 
-	ReadOnlySchemaDefinition |
-	WriteOnlySchemaDefinition |
+//	DefaultSchemaDefinition | 
+//	ReadOnlySchemaDefinition |
+//	WriteOnlySchemaDefinition |
 	ExamplesSchemaDefinition |
 	MultipleOfSchemaDefinition | 
 	MaximumSchemaDefinition | 
@@ -63,8 +114,9 @@ KeywordDefinition returns KeywordDefinition:
 	AllOfSchemaDefinition|
 	AnyOfSchemaDefinition|
 	OneOfSchemaDefinition|
-	NotSchemaDefinition|
-	KeyValuePair
+	NotSchemaDefinition |
+	KeySchemaPair
+//	KeyValuePair
 ;
 
 Value returns Value:
@@ -777,7 +829,11 @@ NonNegativeIntegerDefault0 returns NonNegativeIntegerDefault0:
 //	'}';
 
 KeySchemaPair returns KeySchemaPair:
-	key=EString ':' value=Schema
+	//'gino' key=EString ':' value=Schema
+	//key=VALID_STRING ':' value=Schema
+	//key=EString 'gino' value=Schema
+	key=STRING ':' value=Schema
+	
 ;
 //	'KeySchemaPair'
 //	'{'
@@ -852,6 +908,10 @@ StringArray returns StringArray:
 //	'}';
 
 VALID_STRING: STRING  | KEYWORD;
+
+
+
+
 /**
  * In Json the single quote for String is not admitted
  */
@@ -859,7 +919,6 @@ VALID_STRING: STRING  | KEYWORD;
 terminal STRING:
 	'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"'
 ;	
-
 
 // TODO please @Alessandro review that all keywords are defined here. Thanks!
 KEYWORD: '"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
@@ -869,4 +928,9 @@ KEYWORD: '"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"descrip
 	'"patternProperties"' | '"dependencies"' | '"propertyNames"' | '"const"' | '"enum"' | '"type"' | '"format"' | '"contentMediaType"' | '"contentEncoding"' |
 	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"'
 ;
+
+//terminal NOT_KEYWORD : !KEYWORD;
+//NOT_KEYWORD : KEYWORD;
+
+
 

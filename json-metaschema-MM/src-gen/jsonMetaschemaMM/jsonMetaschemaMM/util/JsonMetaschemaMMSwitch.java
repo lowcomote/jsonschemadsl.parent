@@ -431,8 +431,6 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 			KeyValuePair keyValuePair = (KeyValuePair) theEObject;
 			T result = caseKeyValuePair(keyValuePair);
 			if (result == null)
-				result = caseKeywordDefinition(keyValuePair);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -559,6 +557,8 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 		case JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR: {
 			KeySchemaPair keySchemaPair = (KeySchemaPair) theEObject;
 			T result = caseKeySchemaPair(keySchemaPair);
+			if (result == null)
+				result = caseKeywordDefinition(keySchemaPair);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;

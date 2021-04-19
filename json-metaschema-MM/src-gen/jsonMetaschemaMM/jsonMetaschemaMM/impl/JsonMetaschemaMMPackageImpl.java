@@ -2226,7 +2226,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		minPropertiesSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		patternPropertiesSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		additionalItemsSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
-		keyValuePairEClass.getESuperTypes().add(this.getKeywordDefinition());
 		examplesSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		ifSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		allOfSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
@@ -2238,6 +2237,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		exclusiveMaximumSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		maxLengthSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		refSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
+		keySchemaPairEClass.getESuperTypes().add(this.getKeywordDefinition());
 		contentMediaTypeSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		exclusiveMinimumSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		schemaSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
@@ -2316,7 +2316,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(defaultSchemaDefinitionEClass, DefaultSchemaDefinition.class, "DefaultSchemaDefinition",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDefaultSchemaDefinition_Default(), this.getJsonDocument(), null, "default", null, 0, 1,
+		initEReference(getDefaultSchemaDefinition_Default(), this.getJsonDocument(), null, "default", null, 1, 1,
 				DefaultSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2443,7 +2443,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(constSchemaDefinitionEClass, ConstSchemaDefinition.class, "ConstSchemaDefinition", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConstSchemaDefinition_Const(), this.getJsonDocument(), null, "const", null, 0, 1,
+		initEReference(getConstSchemaDefinition_Const(), this.getJsonDocument(), null, "const", null, 1, 1,
 				ConstSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

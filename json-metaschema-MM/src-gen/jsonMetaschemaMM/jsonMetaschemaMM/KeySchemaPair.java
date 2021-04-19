@@ -2,8 +2,6 @@
  */
 package jsonMetaschemaMM.jsonMetaschemaMM;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Key Schema Pair</b></em>'.
@@ -21,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface KeySchemaPair extends EObject {
+public interface KeySchemaPair extends KeywordDefinition {
 	/**
 	 * Returns the value of the '<em><b>Key</b></em>' attribute.
 	 * <!-- begin-user-doc -->
