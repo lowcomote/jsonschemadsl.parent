@@ -616,6 +616,15 @@ public interface JsonMetaschemaMMFactory extends EFactory {
 	NonNegativeIntegerDefault0 createNonNegativeIntegerDefault0();
 
 	/**
+	 * Returns a new object of class '<em>Schema Object Additional Properties</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schema Object Additional Properties</em>'.
+	 * @generated
+	 */
+	SchemaObjectAdditionalProperties createSchemaObjectAdditionalProperties();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

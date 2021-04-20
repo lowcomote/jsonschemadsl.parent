@@ -412,6 +412,11 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseSchemaObjectAdditionalProperties(SchemaObjectAdditionalProperties object) {
+			return createSchemaObjectAdditionalPropertiesAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -1393,6 +1398,20 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNonNegativeIntegerDefault0Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectAdditionalProperties
+	 * @generated
+	 */
+	public Adapter createSchemaObjectAdditionalPropertiesAdapter() {
 		return null;
 	}
 

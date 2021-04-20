@@ -224,5 +224,9 @@
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//NonNegativeIntegerDefault0">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//NonNegativeIntegerDefault0/value"/>
     </genClasses>
+    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//SchemaObjectAdditionalProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//SchemaObjectAdditionalProperties/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//SchemaObjectAdditionalProperties/additionalProperties"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

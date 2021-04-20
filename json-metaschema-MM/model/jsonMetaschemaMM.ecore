@@ -227,7 +227,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="schema" eType="#//Schema"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="KeySchemaPair" eSuperTypes="#//KeywordDefinition">
+  <eClassifiers xsi:type="ecore:EClass" name="KeySchemaPair">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Schema"
         containment="true"/>
@@ -275,5 +275,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="NonNegativeIntegerDefault0">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaObjectAdditionalProperties" eSuperTypes="#//KeywordDefinition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="#//Schema" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -189,6 +189,8 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 			return createNonNegativeInteger();
 		case JsonMetaschemaMMPackage.NON_NEGATIVE_INTEGER_DEFAULT0:
 			return createNonNegativeIntegerDefault0();
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES:
+			return createSchemaObjectAdditionalProperties();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -882,6 +884,16 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	public NonNegativeIntegerDefault0 createNonNegativeIntegerDefault0() {
 		NonNegativeIntegerDefault0Impl nonNegativeIntegerDefault0 = new NonNegativeIntegerDefault0Impl();
 		return nonNegativeIntegerDefault0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchemaObjectAdditionalProperties createSchemaObjectAdditionalProperties() {
+		SchemaObjectAdditionalPropertiesImpl schemaObjectAdditionalProperties = new SchemaObjectAdditionalPropertiesImpl();
+		return schemaObjectAdditionalProperties;
 	}
 
 	/**

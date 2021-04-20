@@ -558,8 +558,6 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 			KeySchemaPair keySchemaPair = (KeySchemaPair) theEObject;
 			T result = caseKeySchemaPair(keySchemaPair);
 			if (result == null)
-				result = caseKeywordDefinition(keySchemaPair);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
@@ -657,6 +655,15 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 		case JsonMetaschemaMMPackage.NON_NEGATIVE_INTEGER_DEFAULT0: {
 			NonNegativeIntegerDefault0 nonNegativeIntegerDefault0 = (NonNegativeIntegerDefault0) theEObject;
 			T result = caseNonNegativeIntegerDefault0(nonNegativeIntegerDefault0);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES: {
+			SchemaObjectAdditionalProperties schemaObjectAdditionalProperties = (SchemaObjectAdditionalProperties) theEObject;
+			T result = caseSchemaObjectAdditionalProperties(schemaObjectAdditionalProperties);
+			if (result == null)
+				result = caseKeywordDefinition(schemaObjectAdditionalProperties);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -1698,6 +1705,21 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNonNegativeIntegerDefault0(NonNegativeIntegerDefault0 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Schema Object Additional Properties</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Schema Object Additional Properties</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchemaObjectAdditionalProperties(SchemaObjectAdditionalProperties object) {
 		return null;
 	}
 

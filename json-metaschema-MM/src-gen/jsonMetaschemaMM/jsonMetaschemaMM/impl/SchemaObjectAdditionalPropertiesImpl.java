@@ -3,8 +3,8 @@
 package jsonMetaschemaMM.jsonMetaschemaMM.impl;
 
 import jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage;
-import jsonMetaschemaMM.jsonMetaschemaMM.KeySchemaPair;
 import jsonMetaschemaMM.jsonMetaschemaMM.Schema;
+import jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectAdditionalProperties;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,23 +13,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Key Schema Pair</b></em>'.
+ * An implementation of the model object '<em><b>Schema Object Additional Properties</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.KeySchemaPairImpl#getKey <em>Key</em>}</li>
- *   <li>{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.KeySchemaPairImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.SchemaObjectAdditionalPropertiesImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.SchemaObjectAdditionalPropertiesImpl#getAdditionalProperties <em>Additional Properties</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements KeySchemaPair {
+public class SchemaObjectAdditionalPropertiesImpl extends KeywordDefinitionImpl
+		implements SchemaObjectAdditionalProperties {
 	/**
 	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -51,21 +51,21 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	protected String key = KEY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
+	 * The cached value of the '{@link #getAdditionalProperties() <em>Additional Properties</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getAdditionalProperties()
 	 * @generated
 	 * @ordered
 	 */
-	protected Schema value;
+	protected Schema additionalProperties;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected KeySchemaPairImpl() {
+	protected SchemaObjectAdditionalPropertiesImpl() {
 		super();
 	}
 
@@ -76,7 +76,7 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JsonMetaschemaMMPackage.Literals.KEY_SCHEMA_PAIR;
+		return JsonMetaschemaMMPackage.Literals.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES;
 	}
 
 	/**
@@ -97,8 +97,8 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 		String oldKey = key;
 		key = newKey;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__KEY, oldKey,
-					key));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__KEY, oldKey, key));
 	}
 
 	/**
@@ -106,8 +106,8 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Schema getValue() {
-		return value;
+	public Schema getAdditionalProperties() {
+		return additionalProperties;
 	}
 
 	/**
@@ -115,12 +115,13 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValue(Schema newValue, NotificationChain msgs) {
-		Schema oldValue = value;
-		value = newValue;
+	public NotificationChain basicSetAdditionalProperties(Schema newAdditionalProperties, NotificationChain msgs) {
+		Schema oldAdditionalProperties = additionalProperties;
+		additionalProperties = newAdditionalProperties;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__VALUE, oldValue, newValue);
+					JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__ADDITIONAL_PROPERTIES,
+					oldAdditionalProperties, newAdditionalProperties);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -134,21 +135,26 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(Schema newValue) {
-		if (newValue != value) {
+	public void setAdditionalProperties(Schema newAdditionalProperties) {
+		if (newAdditionalProperties != additionalProperties) {
 			NotificationChain msgs = null;
-			if (value != null)
-				msgs = ((InternalEObject) value).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__VALUE, null, msgs);
-			if (newValue != null)
-				msgs = ((InternalEObject) newValue).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__VALUE, null, msgs);
-			msgs = basicSetValue(newValue, msgs);
+			if (additionalProperties != null)
+				msgs = ((InternalEObject) additionalProperties).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE
+								- JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__ADDITIONAL_PROPERTIES,
+						null, msgs);
+			if (newAdditionalProperties != null)
+				msgs = ((InternalEObject) newAdditionalProperties).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE
+								- JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__ADDITIONAL_PROPERTIES,
+						null, msgs);
+			msgs = basicSetAdditionalProperties(newAdditionalProperties, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__VALUE,
-					newValue, newValue));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__ADDITIONAL_PROPERTIES,
+					newAdditionalProperties, newAdditionalProperties));
 	}
 
 	/**
@@ -159,8 +165,8 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__VALUE:
-			return basicSetValue(null, msgs);
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__ADDITIONAL_PROPERTIES:
+			return basicSetAdditionalProperties(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -173,10 +179,10 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__KEY:
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__KEY:
 			return getKey();
-		case JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__VALUE:
-			return getValue();
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__ADDITIONAL_PROPERTIES:
+			return getAdditionalProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -189,11 +195,11 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__KEY:
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__KEY:
 			setKey((String) newValue);
 			return;
-		case JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__VALUE:
-			setValue((Schema) newValue);
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__ADDITIONAL_PROPERTIES:
+			setAdditionalProperties((Schema) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -207,11 +213,11 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__KEY:
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__KEY:
 			setKey(KEY_EDEFAULT);
 			return;
-		case JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__VALUE:
-			setValue((Schema) null);
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__ADDITIONAL_PROPERTIES:
+			setAdditionalProperties((Schema) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -225,10 +231,10 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__KEY:
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__KEY:
 			return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
-		case JsonMetaschemaMMPackage.KEY_SCHEMA_PAIR__VALUE:
-			return value != null;
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__ADDITIONAL_PROPERTIES:
+			return additionalProperties != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -250,4 +256,4 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 		return result.toString();
 	}
 
-} //KeySchemaPairImpl
+} //SchemaObjectAdditionalPropertiesImpl
