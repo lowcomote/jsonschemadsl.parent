@@ -1,1 +1,10 @@
 /.README.md.html
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Jar Files #
+*.jar
