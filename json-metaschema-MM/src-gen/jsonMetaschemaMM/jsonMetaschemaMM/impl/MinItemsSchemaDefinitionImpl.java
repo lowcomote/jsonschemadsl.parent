@@ -5,13 +5,10 @@ package jsonMetaschemaMM.jsonMetaschemaMM.impl;
 import jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.jsonMetaschemaMM.MinItemsSchemaDefinition;
 import jsonMetaschemaMM.jsonMetaschemaMM.NonNegativeIntegerDefault0;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**

@@ -1647,7 +1647,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PAIR__KEY = KEYWORD_DEFINITION_FEATURE_COUNT + 0;
+	int KEY_VALUE_PAIR__KEY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1656,7 +1656,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PAIR__VALUE = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
+	int KEY_VALUE_PAIR__VALUE = 1;
 
 	/**
 	 * The number of structural features of the '<em>Key Value Pair</em>' class.
@@ -1665,7 +1665,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PAIR_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 2;
+	int KEY_VALUE_PAIR_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Key Value Pair</em>' class.
@@ -1674,7 +1674,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PAIR_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int KEY_VALUE_PAIR_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.DependenciesAnyOfImpl <em>Dependencies Any Of</em>}' class.
@@ -2629,6 +2629,52 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int NON_NEGATIVE_INTEGER_DEFAULT0_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.SchemaObjectAdditionalPropertiesImpl <em>Schema Object Additional Properties</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.impl.SchemaObjectAdditionalPropertiesImpl
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSchemaObjectAdditionalProperties()
+	 * @generated
+	 */
+	int SCHEMA_OBJECT_ADDITIONAL_PROPERTIES = 69;
+
+	/**
+	 * The feature id for the '<em><b>Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__KEY = KEYWORD_DEFINITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Additional Properties</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__ADDITIONAL_PROPERTIES = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Schema Object Additional Properties</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_OBJECT_ADDITIONAL_PROPERTIES_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Schema Object Additional Properties</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_OBJECT_ADDITIONAL_PROPERTIES_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2636,7 +2682,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSimpleTypes()
 	 * @generated
 	 */
-	int SIMPLE_TYPES = 69;
+	int SIMPLE_TYPES = 70;
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.jsonMetaschemaMM.ObjectSchema <em>Object Schema</em>}'.
@@ -4110,6 +4156,38 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EAttribute getNonNegativeIntegerDefault0_Value();
 
 	/**
+	 * Returns the meta object for class '{@link jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Schema Object Additional Properties</em>'.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectAdditionalProperties
+	 * @generated
+	 */
+	EClass getSchemaObjectAdditionalProperties();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectAdditionalProperties#getKey <em>Key</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Key</em>'.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectAdditionalProperties#getKey()
+	 * @see #getSchemaObjectAdditionalProperties()
+	 * @generated
+	 */
+	EAttribute getSchemaObjectAdditionalProperties_Key();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectAdditionalProperties#getAdditionalProperties <em>Additional Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Additional Properties</em>'.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectAdditionalProperties#getAdditionalProperties()
+	 * @see #getSchemaObjectAdditionalProperties()
+	 * @generated
+	 */
+	EReference getSchemaObjectAdditionalProperties_AdditionalProperties();
+
+	/**
 	 * Returns the meta object for enum '{@link jsonMetaschemaMM.jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5413,6 +5491,33 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NON_NEGATIVE_INTEGER_DEFAULT0__VALUE = eINSTANCE.getNonNegativeIntegerDefault0_Value();
+
+		/**
+		 * The meta object literal for the '{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.SchemaObjectAdditionalPropertiesImpl <em>Schema Object Additional Properties</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jsonMetaschemaMM.jsonMetaschemaMM.impl.SchemaObjectAdditionalPropertiesImpl
+		 * @see jsonMetaschemaMM.jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSchemaObjectAdditionalProperties()
+		 * @generated
+		 */
+		EClass SCHEMA_OBJECT_ADDITIONAL_PROPERTIES = eINSTANCE.getSchemaObjectAdditionalProperties();
+
+		/**
+		 * The meta object literal for the '<em><b>Key</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__KEY = eINSTANCE.getSchemaObjectAdditionalProperties_Key();
+
+		/**
+		 * The meta object literal for the '<em><b>Additional Properties</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCHEMA_OBJECT_ADDITIONAL_PROPERTIES__ADDITIONAL_PROPERTIES = eINSTANCE
+				.getSchemaObjectAdditionalProperties_AdditionalProperties();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}' enum.

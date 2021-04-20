@@ -18,6 +18,7 @@ Schema returns Schema:
 	ObjectSchema | BooleanSchema;
 
 KeywordDefinition returns KeywordDefinition:
+	 
 	IdSchemaDefinition |
 	SchemaSchemaDefinition |
 	RefSchemaDefinition |
@@ -63,13 +64,17 @@ KeywordDefinition returns KeywordDefinition:
 	AllOfSchemaDefinition|
 	AnyOfSchemaDefinition|
 	OneOfSchemaDefinition|
-	NotSchemaDefinition|
-	KeyValuePair
+	NotSchemaDefinition |
+	SchemaObjectAdditionalProperties
+//	KeySchemaPair
+//	KeyValuePair
 ;
 
 Value returns Value:
-//	Value_Impl | IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue;
-IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue;
+	IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
+//	BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
+//	IntegerValue | BooleanValue
+;
 
 
 
@@ -93,7 +98,7 @@ BooleanSchema returns BooleanSchema:
 //	;
 
 MaximumSchemaDefinition returns MaximumSchemaDefinition:
-	'"maximum"' ':' maximum=EDouble
+	'"maximum"' ':' maximum=EDOUBLE
 ;
 //	'MaximumSchemaDefinition'
 //	'{'
@@ -220,8 +225,10 @@ ThenSchemaDefinition returns ThenSchemaDefinition:
  * "minLength": { "$ref": "#/definitions/nonNegativeIntegerDefault0" }
  */
 MinLengthSchemaDefinition returns MinLengthSchemaDefinition:
-	'"minLength"' ':' minLength=NonNegativeIntegerDefault0
-;
+	'"minLength"' ':' minLength = NonNegativeIntegerDefault0
+//	'"minLength"' ':' minLength=EInt
+//	'"minLength"' ':' minLength=PositiveEInt
+;	
 //	'MinLengthSchemaDefinition'
 //	'{'
 //		'minLength' minLength=NonNegativeIntegerDefault0
@@ -271,7 +278,7 @@ MaxPropertiesSchemaDefinition returns MaxPropertiesSchemaDefinition:
 //	'}';
 
 MinimumSchemaDefinition returns MinimumSchemaDefinition:
-	'"minimum"' ':' minimum=EDouble
+	'"minimum"' ':' minimum=EDOUBLE
 ;
 //	'MinimumSchemaDefinition'
 //	'{'
@@ -513,7 +520,7 @@ ContentEncodingSchemaDefinition returns ContentEncodingSchemaDefinition:
 //	'}';
 
 MultipleOfSchemaDefinition returns MultipleOfSchemaDefinition:
-	'"multipleOf"' ':' multipleOf=EDouble
+	'"multipleOf"' ':' multipleOf=EDOUBLE
 ;
 //	'MultipleOfSchemaDefinition'
 //	'{'
@@ -552,7 +559,7 @@ NotSchemaDefinition returns NotSchemaDefinition:
 //	'}';
 
 ExclusiveMaximumSchemaDefinition returns ExclusiveMaximumSchemaDefinition:
-	'"exclusiveMaximum"' ':' exclusiveMaximum=EDouble
+	'"exclusiveMaximum"' ':' exclusiveMaximum=EDOUBLE
 ;
 //	'ExclusiveMaximumSchemaDefinition'
 //	'{'
@@ -596,7 +603,7 @@ ContentMediaTypeSchemaDefinition returns ContentMediaTypeSchemaDefinition:
 //	'}';
 
 ExclusiveMinimumSchemaDefinition returns ExclusiveMinimumSchemaDefinition:
-	'"exclusiveMinimum"' ':' exclusiveMinimum=EDouble
+	'"exclusiveMinimum"' ':' exclusiveMinimum=EDOUBLE
 ;
 //	'ExclusiveMinimumSchemaDefinition'
 //	'{'
@@ -640,24 +647,7 @@ PropertyNamesSchemaDefinition returns PropertyNamesSchemaDefinition:
 //		'propertyNames' propertyNames=Schema
 //	'}';
 
-/**
- * Not auto generated. Manually introduced
- */
-terminal JSON_NUMBER returns ecore::EFloat:
-	'-'? ('0'|'1'..'9' ('0'..'9')*) ('.' ('0'..'9')+)? (('E'|'e')('+'|'-')('0'..'9')+)?
-;
 
-EDouble returns ecore::EDouble:
-	JSON_NUMBER
-;
-//	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
-
-EBoolean returns ecore::EBoolean:
-	'true' | 'false';
-
-EString returns ecore::EString:
-	VALID_STRING 
-;
 //	STRING | ID;
 
 /**
@@ -688,7 +678,7 @@ Value_Impl returns Value:
 	;
  */
 IntegerValue returns IntegerValue:
-	value=EInt
+	value=EINT
 ;
 //	'IntegerValue'
 //	'{'
@@ -731,7 +721,7 @@ ObjectValue returns ObjectValue:
 //	'}';
 
 NumberValue returns NumberValue:
-	value=EDouble
+	value=EDOUBLE
 ;
 //	'NumberValue'
 //	'{'
@@ -748,8 +738,7 @@ ArrayValue returns ArrayValue:
 //		('value' '{' value+=Value ( "," value+=Value)* '}' )?
 //	'}';
 
-EInt returns ecore::EInt:
-	'-'? INT;
+
 
 SchemaArray returns SchemaArray:
 	'[' items+=Schema ( "," items+=Schema)* ']'
@@ -769,15 +758,24 @@ SchemaArray returns SchemaArray:
 	}
  */
 NonNegativeIntegerDefault0 returns NonNegativeIntegerDefault0:
-	value=EInt
+	value=EINT
 ;
 //	'NonNegativeIntegerDefault0'
 //	'{'
 //		'value' value=EInt
 //	'}';
 
+SchemaObjectAdditionalProperties returns SchemaObjectAdditionalProperties:
+	key=  STRING  ':' additionalProperties=Schema
+;
+
 KeySchemaPair returns KeySchemaPair:
-	key=EString ':' value=Schema
+	//'gino' key=EString ':' value=Schema
+	key=VALID_STRING ':' value=Schema
+	//key=EString 'gino' value=Schema
+//	(key=  STRING)| (key=  KEYWORD)  ':' value=Schema
+//	key=  STRING  ':' value=Schema
+	
 ;
 //	'KeySchemaPair'
 //	'{'
@@ -793,7 +791,7 @@ KeySchemaPair returns KeySchemaPair:
 	}
  */
 NonNegativeInteger returns NonNegativeInteger:
-	value=EInt
+	value=EINT
 ;
 //	'NonNegativeInteger'
 //	'{'
@@ -851,15 +849,58 @@ StringArray returns StringArray:
 //		('values' '{' values+=EString ( "," values+=EString)* '}' )?
 //	'}';
 
-VALID_STRING: STRING  | KEYWORD;
+
+
 /**
- * In Json the single quote for String is not admitted
+ * Not auto generated. Manually introduced
+ */
+//terminal JSON_NUMBER returns ecore::EFloat:
+//	'-'? ('0'|'1'..'9' ('0'..'9')*) ('.' ('0'..'9')+)? (('E'|'e')('+'|'-')('0'..'9')+)?
+//;
+//EDouble returns ecore::EDouble:
+//	JSON_NUMBER
+//;
+
+terminal EINT returns ecore::EInt:
+	'-'? INT;
+
+
+terminal EDOUBLE returns ecore::EDouble:
+	'-'? INT ('.' INT+)? (('E'|'e') ('+'|'-')? INT)?
+
+;
+	
+	
+
+ 
+
+
+
+EBoolean returns ecore::EBoolean:
+	'true' | 'false';
+
+EString returns ecore::EString:
+	VALID_STRING 
+;
+
+VALID_STRING: STRING  | KEYWORD;
+
+
+/**
+ * In JSON the single quote for String is not admitted
  */
 @Override 
 terminal STRING:
 	'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"'
 ;	
 
+/**
+ * In JSON the first digit of an integer can not be 0, unless it is 0 itself.
+ */
+@Override 
+terminal INT returns ecore::EInt: 
+	('0' |  (('1'..'9') ('0'..'9')*))
+;
 
 // TODO please @Alessandro review that all keywords are defined here. Thanks!
 KEYWORD: '"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
@@ -869,4 +910,9 @@ KEYWORD: '"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"descrip
 	'"patternProperties"' | '"dependencies"' | '"propertyNames"' | '"const"' | '"enum"' | '"type"' | '"format"' | '"contentMediaType"' | '"contentEncoding"' |
 	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"'
 ;
+
+//terminal NOT_KEYWORD : !KEYWORD;
+//NOT_KEYWORD : KEYWORD;
+
+
 

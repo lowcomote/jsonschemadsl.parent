@@ -26,7 +26,7 @@ public interface DefaultSchemaDefinition extends KeywordDefinition {
 	 * @return the value of the '<em>Default</em>' containment reference.
 	 * @see #setDefault(JsonDocument)
 	 * @see jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage#getDefaultSchemaDefinition_Default()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	JsonDocument getDefault();
