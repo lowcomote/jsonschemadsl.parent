@@ -1,0 +1,7 @@
+{
+	"maxLength" :-3, 
+	"minLength":-4, 
+	"minItems" :1,
+	"maxItems" :1 
+	 
+} 
