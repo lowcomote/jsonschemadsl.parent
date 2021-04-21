@@ -140,7 +140,7 @@ CommentSchemaDefinition returns CommentSchemaDefinition:
         }
  */
 EnumSchemaDefinition returns EnumSchemaDefinition:
-	'[' items+=JsonDocument ( "," items+=JsonDocument)* ']'
+	'"enum"' ':' '[' items+=JsonDocument ( "," items+=JsonDocument)* ']'
 ;
 //	'"enum"' ':' enumeration=Enum;
 //	{EnumSchemaDefinition}
