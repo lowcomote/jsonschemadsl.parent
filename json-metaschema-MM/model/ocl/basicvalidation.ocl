@@ -1,0 +1,23 @@
+import 'http://at.jku.bise/jsonMetaschemaMM'
+
+package jsonMetaschemaMM
+
+--context ObjectSchema
+--
+-- example invariant with a custom error message to verify that
+-- the 'keywordDefinition' property of all 'jsonMetaschemaMM::ObjectSchema' instances is non-null
+--
+--inv NonNull_keywordDefinition('The \'keywordDefinition\' property of "' + self.toString() + '" is null'):
+--	keywordDefinition <> null
+
+context NonNegativeInteger
+inv Minimum0 ('The value must be >= 0'):
+value >=0
+
+context NonNegativeIntegerDefault0
+inv MinimumDefault0 ('The value must be >= 0'):
+value >=0
+
+
+
+endpackage
