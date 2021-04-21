@@ -133,8 +133,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DependenciesSchemaDefinition" eSuperTypes="#//KeywordDefinition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"
-        eType="#//DependenciesAnyOf" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//SchemaObjectDependenciesProperties" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NumberValue" eSuperTypes="#//Value">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -172,12 +172,6 @@
     <eLiterals name="number" value="4" literal="&quot;number&quot;"/>
     <eLiterals name="object" value="5" literal="&quot;object&quot;"/>
     <eLiterals name="string" value="6" literal="&quot;string&quot;"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DependenciesAnyOf">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependenciesAnyOf2" eType="#//KeyStringArrayPair"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependenciesAnyOf1" eType="#//KeySchemaPair"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExamplesSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="examples" upperBound="-1"
@@ -256,11 +250,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
         eType="#//Value" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="KeyStringArrayPair">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//StringArray"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="TypesAnyOf2">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" upperBound="-1"
@@ -281,4 +270,24 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
         eType="#//Schema" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaObjectDependenciesProperties"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaObjectDependenciesAdditionalProperties"
+      eSuperTypes="#//SchemaObjectDependenciesProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="#//SchemaObjectDependenciesAdditionalPropertiesAnyOf" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaObjectDependenciesAdditionalPropertiesAnyOf1"
+      eSuperTypes="#//SchemaObjectDependenciesAdditionalPropertiesAnyOf">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf1" lowerBound="1"
+        eType="#//Schema" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaObjectDependenciesAdditionalPropertiesAnyOf2"
+      eSuperTypes="#//SchemaObjectDependenciesAdditionalPropertiesAnyOf">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf2" lowerBound="1"
+        eType="#//StringArray" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemaObjectDependenciesAdditionalPropertiesAnyOf"
+      abstract="true"/>
 </ecore:EPackage>

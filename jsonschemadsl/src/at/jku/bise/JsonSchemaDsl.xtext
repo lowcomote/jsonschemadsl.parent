@@ -50,7 +50,7 @@ KeywordDefinition returns KeywordDefinition:
 	DefinitionsSchemaDefinition|
 	PropertiesSchemaDefinition|
 	PatternPropertiesSchemaDefinition|
-	//DependenciesSchemaDefinition| //TODO add OCL validation otherwise it crashes
+	DependenciesSchemaDefinition| 
 	PropertyNamesSchemaDefinition|
 	ConstSchemaDefinition|
 	EnumSchemaDefinition|
@@ -381,24 +381,50 @@ IdSchemaDefinition returns IdSchemaDefinition:
 ConstSchemaDefinition returns ConstSchemaDefinition:
 	'"const"' ':' const=JsonDocument
 ;
-//	{ConstSchemaDefinition}
-//	'ConstSchemaDefinition'
-//	'{'
-//		('const' const=JsonDocument)?
-//	'}';
 
+/**
+ * "dependencies": {
+        "type": "object",
+        "additionalProperties": {
+            "anyOf": [
+                { "$ref": "#" },
+                { "$ref": "#/definitions/stringArray" }
+            ]
+        }
+    },
+ */
 DependenciesSchemaDefinition returns DependenciesSchemaDefinition:
 	{DependenciesSchemaDefinition} 
 	'"dependencies"' ':'
 	'{'
-		(dependencies+=DependenciesAnyOf ("," dependencies+=DependenciesAnyOf)*)?
+		(properties+=SchemaObjectDependenciesProperties ("," properties+=SchemaObjectDependenciesProperties)*)?
 	'}'
 ;
-//	{DependenciesSchemaDefinition}
-//	'DependenciesSchemaDefinition'
-//	'{'
-//		('dependencies' '{' dependencies+=DependenciesAnyOf ( "," dependencies+=DependenciesAnyOf)* '}' )?
-//	'}';
+
+SchemaObjectDependenciesProperties returns  SchemaObjectDependenciesProperties:
+	SchemaObjectDependenciesAdditionalProperties
+;
+
+
+SchemaObjectDependenciesAdditionalProperties returns SchemaObjectDependenciesAdditionalProperties:
+	key=VALID_STRING
+	':' additionalProperties=SchemaObjectDependenciesAdditionalPropertiesAnyOf
+;
+
+
+SchemaObjectDependenciesAdditionalPropertiesAnyOf returns SchemaObjectDependenciesAdditionalPropertiesAnyOf:
+	SchemaObjectDependenciesAdditionalPropertiesAnyOf1 | SchemaObjectDependenciesAdditionalPropertiesAnyOf2
+;
+
+SchemaObjectDependenciesAdditionalPropertiesAnyOf1 returns SchemaObjectDependenciesAdditionalPropertiesAnyOf1:
+	anyOf1=Schema
+;
+
+SchemaObjectDependenciesAdditionalPropertiesAnyOf2 returns SchemaObjectDependenciesAdditionalPropertiesAnyOf2:
+	anyOf2=StringArray
+;
+
+
 
 /*
  * TODO in ecore put RequiredSchemaDefinition.required has to be [1..1]
@@ -468,7 +494,8 @@ AdditionalItemsSchemaDefinition returns AdditionalItemsSchemaDefinition:
 //	'}';
 
 KeyValuePair returns KeyValuePair:
-	key=STRING//EString 
+	//key=STRING//EString 
+	key=VALID_STRING 
 	':' value=Value
 ;
 //	{KeyValuePair}
@@ -714,11 +741,7 @@ ObjectValue returns ObjectValue:
 		(keyvaluepair+=KeyValuePair ( "," keyvaluepair+=KeyValuePair)*  )?
 	'}'
 ;
-//	{ObjectValue}
-//	'ObjectValue'
-//	'{'
-//		('keyvaluepair' '{' keyvaluepair+=KeyValuePair ( "," keyvaluepair+=KeyValuePair)* '}' )?
-//	'}';
+
 
 NumberValue returns NumberValue:
 	value=EDOUBLE
@@ -777,11 +800,7 @@ KeySchemaPair returns KeySchemaPair:
 //	key=  STRING  ':' value=Schema
 	
 ;
-//	'KeySchemaPair'
-//	'{'
-//		'key' key=EString
-//		'value' value=Schema
-//	'}';
+
 
 /**
  * TODO put validation value >=0
@@ -793,15 +812,11 @@ KeySchemaPair returns KeySchemaPair:
 NonNegativeInteger returns NonNegativeInteger:
 	value=EINT
 ;
-//	'NonNegativeInteger'
-//	'{'
-//		'value' value=EInt
-//	'}';
+
 
 enum SimpleTypes returns SimpleTypes:
 	array = '"array"' | boolean = '"boolean"' | integer = '"integer"' | null = '"null"' | number = '"number"' | object = '"object"' | string = '"string"'
 ;
-//	array = 'array' | boolean = 'boolean' | integer = 'integer' | null = 'null' | number = 'number' | object = 'object' | string = 'string';
 
 TypesAnyOf2 returns TypesAnyOf2:
 	'[' items+=SimpleTypes ( "," items+=SimpleTypes)* ']' 
@@ -811,30 +826,9 @@ TypesAnyOf2 returns TypesAnyOf2:
 //		'items' '{' items+=SimpleTypes ( "," items+=SimpleTypes)* '}' 
 //	'}';
 
-/**
- * TODO validation that at least one of anyOf1 and anyOf2 must exist 
- */
-DependenciesAnyOf returns DependenciesAnyOf:
-		{DependenciesAnyOf} 
-		(dependenciesAnyOf2=KeyStringArrayPair)? 
-		(dependenciesAnyOf1=KeySchemaPair)?
-;
-//	{DependenciesAnyOf}
-//	'DependenciesAnyOf'
-//	'{'
-//		('dependenciesAnyOf2' dependenciesAnyOf2=KeyStringArrayPair)?
-//		('dependenciesAnyOf1' dependenciesAnyOf1=KeySchemaPair)?
-//	'}';
 
-KeyStringArrayPair returns KeyStringArrayPair:
-	key=EString ':' value=StringArray
-;
 
-//	'KeyStringArrayPair'
-//	'{'
-//		'key' key=EString
-//		'value' value=StringArray
-//	'}';
+
 
 /**
  * TODO uniqueness validation
@@ -883,7 +877,28 @@ EString returns ecore::EString:
 	VALID_STRING 
 ;
 
+
 VALID_STRING: STRING  | KEYWORD;
+
+
+
+
+/**
+ * In JSON the first digit of an integer can not be 0, unless it is 0 itself.
+ */
+@Override 
+terminal INT returns ecore::EInt: 
+	('0' |  (('1'..'9') ('0'..'9')*))
+;
+
+
+KEYWORD: '"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
+	'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"minimum"' | '"exclusiveMinimum"' | '"maxLength"' | '"minLength"' |
+	'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |  
+	'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
+	'"patternProperties"' | '"dependencies"' | '"propertyNames"' | '"const"' | '"enum"' | '"type"' | '"format"' | '"contentMediaType"' | '"contentEncoding"' |
+	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"'
+;
 
 
 /**
@@ -894,25 +909,7 @@ terminal STRING:
 	'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"'
 ;	
 
-/**
- * In JSON the first digit of an integer can not be 0, unless it is 0 itself.
- */
-@Override 
-terminal INT returns ecore::EInt: 
-	('0' |  (('1'..'9') ('0'..'9')*))
-;
 
-// TODO please @Alessandro review that all keywords are defined here. Thanks!
-KEYWORD: '"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"description"' | '"default"' | '"readOnly"' |
-	'"writeOnly"' | '"examples"' | '"multipleOf"' | '"maximum"' | '"exclusiveMaximum"' | '"minimum"' | '"exclusiveMinimum"' | '"maxLength"' | '"minLength"' |
-	'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |  
-	'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
-	'"patternProperties"' | '"dependencies"' | '"propertyNames"' | '"const"' | '"enum"' | '"type"' | '"format"' | '"contentMediaType"' | '"contentEncoding"' |
-	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"'
-;
-
-//terminal NOT_KEYWORD : !KEYWORD;
-//NOT_KEYWORD : KEYWORD;
 
 
 

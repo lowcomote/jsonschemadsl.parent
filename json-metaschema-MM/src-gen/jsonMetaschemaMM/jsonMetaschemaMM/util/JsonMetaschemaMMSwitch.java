@@ -434,13 +434,6 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JsonMetaschemaMMPackage.DEPENDENCIES_ANY_OF: {
-			DependenciesAnyOf dependenciesAnyOf = (DependenciesAnyOf) theEObject;
-			T result = caseDependenciesAnyOf(dependenciesAnyOf);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case JsonMetaschemaMMPackage.EXAMPLES_SCHEMA_DEFINITION: {
 			ExamplesSchemaDefinition examplesSchemaDefinition = (ExamplesSchemaDefinition) theEObject;
 			T result = caseExamplesSchemaDefinition(examplesSchemaDefinition);
@@ -615,13 +608,6 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JsonMetaschemaMMPackage.KEY_STRING_ARRAY_PAIR: {
-			KeyStringArrayPair keyStringArrayPair = (KeyStringArrayPair) theEObject;
-			T result = caseKeyStringArrayPair(keyStringArrayPair);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case JsonMetaschemaMMPackage.VALUE: {
 			Value value = (Value) theEObject;
 			T result = caseValue(value);
@@ -664,6 +650,52 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 			T result = caseSchemaObjectAdditionalProperties(schemaObjectAdditionalProperties);
 			if (result == null)
 				result = caseKeywordDefinition(schemaObjectAdditionalProperties);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_PROPERTIES: {
+			SchemaObjectDependenciesProperties schemaObjectDependenciesProperties = (SchemaObjectDependenciesProperties) theEObject;
+			T result = caseSchemaObjectDependenciesProperties(schemaObjectDependenciesProperties);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES: {
+			SchemaObjectDependenciesAdditionalProperties schemaObjectDependenciesAdditionalProperties = (SchemaObjectDependenciesAdditionalProperties) theEObject;
+			T result = caseSchemaObjectDependenciesAdditionalProperties(schemaObjectDependenciesAdditionalProperties);
+			if (result == null)
+				result = caseSchemaObjectDependenciesProperties(schemaObjectDependenciesAdditionalProperties);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF1: {
+			SchemaObjectDependenciesAdditionalPropertiesAnyOf1 schemaObjectDependenciesAdditionalPropertiesAnyOf1 = (SchemaObjectDependenciesAdditionalPropertiesAnyOf1) theEObject;
+			T result = caseSchemaObjectDependenciesAdditionalPropertiesAnyOf1(
+					schemaObjectDependenciesAdditionalPropertiesAnyOf1);
+			if (result == null)
+				result = caseSchemaObjectDependenciesAdditionalPropertiesAnyOf(
+						schemaObjectDependenciesAdditionalPropertiesAnyOf1);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF2: {
+			SchemaObjectDependenciesAdditionalPropertiesAnyOf2 schemaObjectDependenciesAdditionalPropertiesAnyOf2 = (SchemaObjectDependenciesAdditionalPropertiesAnyOf2) theEObject;
+			T result = caseSchemaObjectDependenciesAdditionalPropertiesAnyOf2(
+					schemaObjectDependenciesAdditionalPropertiesAnyOf2);
+			if (result == null)
+				result = caseSchemaObjectDependenciesAdditionalPropertiesAnyOf(
+						schemaObjectDependenciesAdditionalPropertiesAnyOf2);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF: {
+			SchemaObjectDependenciesAdditionalPropertiesAnyOf schemaObjectDependenciesAdditionalPropertiesAnyOf = (SchemaObjectDependenciesAdditionalPropertiesAnyOf) theEObject;
+			T result = caseSchemaObjectDependenciesAdditionalPropertiesAnyOf(
+					schemaObjectDependenciesAdditionalPropertiesAnyOf);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -1304,21 +1336,6 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dependencies Any Of</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dependencies Any Of</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseDependenciesAnyOf(DependenciesAnyOf object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Examples Schema Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1619,21 +1636,6 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Key String Array Pair</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Key String Array Pair</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseKeyStringArrayPair(KeyStringArrayPair object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1720,6 +1722,84 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSchemaObjectAdditionalProperties(SchemaObjectAdditionalProperties object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Schema Object Dependencies Properties</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Schema Object Dependencies Properties</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchemaObjectDependenciesProperties(SchemaObjectDependenciesProperties object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Schema Object Dependencies Additional Properties</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Schema Object Dependencies Additional Properties</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchemaObjectDependenciesAdditionalProperties(SchemaObjectDependenciesAdditionalProperties object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Schema Object Dependencies Additional Properties Any Of1</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Schema Object Dependencies Additional Properties Any Of1</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchemaObjectDependenciesAdditionalPropertiesAnyOf1(
+			SchemaObjectDependenciesAdditionalPropertiesAnyOf1 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Schema Object Dependencies Additional Properties Any Of2</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Schema Object Dependencies Additional Properties Any Of2</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchemaObjectDependenciesAdditionalPropertiesAnyOf2(
+			SchemaObjectDependenciesAdditionalPropertiesAnyOf2 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Schema Object Dependencies Additional Properties Any Of</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Schema Object Dependencies Additional Properties Any Of</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSchemaObjectDependenciesAdditionalPropertiesAnyOf(
+			SchemaObjectDependenciesAdditionalPropertiesAnyOf object) {
 		return null;
 	}
 

@@ -277,11 +277,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseDependenciesAnyOf(DependenciesAnyOf object) {
-			return createDependenciesAnyOfAdapter();
-		}
-
-		@Override
 		public Adapter caseExamplesSchemaDefinition(ExamplesSchemaDefinition object) {
 			return createExamplesSchemaDefinitionAdapter();
 		}
@@ -382,11 +377,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseKeyStringArrayPair(KeyStringArrayPair object) {
-			return createKeyStringArrayPairAdapter();
-		}
-
-		@Override
 		public Adapter caseValue(Value object) {
 			return createValueAdapter();
 		}
@@ -414,6 +404,35 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseSchemaObjectAdditionalProperties(SchemaObjectAdditionalProperties object) {
 			return createSchemaObjectAdditionalPropertiesAdapter();
+		}
+
+		@Override
+		public Adapter caseSchemaObjectDependenciesProperties(SchemaObjectDependenciesProperties object) {
+			return createSchemaObjectDependenciesPropertiesAdapter();
+		}
+
+		@Override
+		public Adapter caseSchemaObjectDependenciesAdditionalProperties(
+				SchemaObjectDependenciesAdditionalProperties object) {
+			return createSchemaObjectDependenciesAdditionalPropertiesAdapter();
+		}
+
+		@Override
+		public Adapter caseSchemaObjectDependenciesAdditionalPropertiesAnyOf1(
+				SchemaObjectDependenciesAdditionalPropertiesAnyOf1 object) {
+			return createSchemaObjectDependenciesAdditionalPropertiesAnyOf1Adapter();
+		}
+
+		@Override
+		public Adapter caseSchemaObjectDependenciesAdditionalPropertiesAnyOf2(
+				SchemaObjectDependenciesAdditionalPropertiesAnyOf2 object) {
+			return createSchemaObjectDependenciesAdditionalPropertiesAnyOf2Adapter();
+		}
+
+		@Override
+		public Adapter caseSchemaObjectDependenciesAdditionalPropertiesAnyOf(
+				SchemaObjectDependenciesAdditionalPropertiesAnyOf object) {
+			return createSchemaObjectDependenciesAdditionalPropertiesAnyOfAdapter();
 		}
 
 		@Override
@@ -1024,20 +1043,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.jsonMetaschemaMM.DependenciesAnyOf <em>Dependencies Any Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.jsonMetaschemaMM.DependenciesAnyOf
-	 * @generated
-	 */
-	public Adapter createDependenciesAnyOfAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.jsonMetaschemaMM.ExamplesSchemaDefinition <em>Examples Schema Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1318,20 +1323,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.jsonMetaschemaMM.KeyStringArrayPair <em>Key String Array Pair</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.jsonMetaschemaMM.KeyStringArrayPair
-	 * @generated
-	 */
-	public Adapter createKeyStringArrayPairAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.jsonMetaschemaMM.Value <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1412,6 +1403,76 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSchemaObjectAdditionalPropertiesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesProperties <em>Schema Object Dependencies Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesProperties
+	 * @generated
+	 */
+	public Adapter createSchemaObjectDependenciesPropertiesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties <em>Schema Object Dependencies Additional Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties
+	 * @generated
+	 */
+	public Adapter createSchemaObjectDependenciesAdditionalPropertiesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf1 <em>Schema Object Dependencies Additional Properties Any Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf1
+	 * @generated
+	 */
+	public Adapter createSchemaObjectDependenciesAdditionalPropertiesAnyOf1Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf2 <em>Schema Object Dependencies Additional Properties Any Of2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf2
+	 * @generated
+	 */
+	public Adapter createSchemaObjectDependenciesAdditionalPropertiesAnyOf2Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf <em>Schema Object Dependencies Additional Properties Any Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf
+	 * @generated
+	 */
+	public Adapter createSchemaObjectDependenciesAdditionalPropertiesAnyOfAdapter() {
 		return null;
 	}
 

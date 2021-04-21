@@ -139,8 +139,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 			return createAdditionalItemsSchemaDefinition();
 		case JsonMetaschemaMMPackage.KEY_VALUE_PAIR:
 			return createKeyValuePair();
-		case JsonMetaschemaMMPackage.DEPENDENCIES_ANY_OF:
-			return createDependenciesAnyOf();
 		case JsonMetaschemaMMPackage.EXAMPLES_SCHEMA_DEFINITION:
 			return createExamplesSchemaDefinition();
 		case JsonMetaschemaMMPackage.IF_SCHEMA_DEFINITION:
@@ -179,8 +177,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 			return createPropertyNamesSchemaDefinition();
 		case JsonMetaschemaMMPackage.ARRAY_VALUE:
 			return createArrayValue();
-		case JsonMetaschemaMMPackage.KEY_STRING_ARRAY_PAIR:
-			return createKeyStringArrayPair();
 		case JsonMetaschemaMMPackage.TYPES_ANY_OF2:
 			return createTypesAnyOf2();
 		case JsonMetaschemaMMPackage.BOOLEAN_SCHEMA:
@@ -191,6 +187,12 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 			return createNonNegativeIntegerDefault0();
 		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_ADDITIONAL_PROPERTIES:
 			return createSchemaObjectAdditionalProperties();
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES:
+			return createSchemaObjectDependenciesAdditionalProperties();
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF1:
+			return createSchemaObjectDependenciesAdditionalPropertiesAnyOf1();
+		case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF2:
+			return createSchemaObjectDependenciesAdditionalPropertiesAnyOf2();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -641,16 +643,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DependenciesAnyOf createDependenciesAnyOf() {
-		DependenciesAnyOfImpl dependenciesAnyOf = new DependenciesAnyOfImpl();
-		return dependenciesAnyOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public ExamplesSchemaDefinition createExamplesSchemaDefinition() {
 		ExamplesSchemaDefinitionImpl examplesSchemaDefinition = new ExamplesSchemaDefinitionImpl();
 		return examplesSchemaDefinition;
@@ -841,16 +833,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public KeyStringArrayPair createKeyStringArrayPair() {
-		KeyStringArrayPairImpl keyStringArrayPair = new KeyStringArrayPairImpl();
-		return keyStringArrayPair;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public TypesAnyOf2 createTypesAnyOf2() {
 		TypesAnyOf2Impl typesAnyOf2 = new TypesAnyOf2Impl();
 		return typesAnyOf2;
@@ -894,6 +876,36 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	public SchemaObjectAdditionalProperties createSchemaObjectAdditionalProperties() {
 		SchemaObjectAdditionalPropertiesImpl schemaObjectAdditionalProperties = new SchemaObjectAdditionalPropertiesImpl();
 		return schemaObjectAdditionalProperties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchemaObjectDependenciesAdditionalProperties createSchemaObjectDependenciesAdditionalProperties() {
+		SchemaObjectDependenciesAdditionalPropertiesImpl schemaObjectDependenciesAdditionalProperties = new SchemaObjectDependenciesAdditionalPropertiesImpl();
+		return schemaObjectDependenciesAdditionalProperties;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchemaObjectDependenciesAdditionalPropertiesAnyOf1 createSchemaObjectDependenciesAdditionalPropertiesAnyOf1() {
+		SchemaObjectDependenciesAdditionalPropertiesAnyOf1Impl schemaObjectDependenciesAdditionalPropertiesAnyOf1 = new SchemaObjectDependenciesAdditionalPropertiesAnyOf1Impl();
+		return schemaObjectDependenciesAdditionalPropertiesAnyOf1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchemaObjectDependenciesAdditionalPropertiesAnyOf2 createSchemaObjectDependenciesAdditionalPropertiesAnyOf2() {
+		SchemaObjectDependenciesAdditionalPropertiesAnyOf2Impl schemaObjectDependenciesAdditionalPropertiesAnyOf2 = new SchemaObjectDependenciesAdditionalPropertiesAnyOf2Impl();
+		return schemaObjectDependenciesAdditionalPropertiesAnyOf2;
 	}
 
 	/**

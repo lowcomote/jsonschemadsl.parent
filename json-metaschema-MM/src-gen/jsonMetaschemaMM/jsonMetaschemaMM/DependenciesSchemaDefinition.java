@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link jsonMetaschemaMM.jsonMetaschemaMM.DependenciesSchemaDefinition#getDependencies <em>Dependencies</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.jsonMetaschemaMM.DependenciesSchemaDefinition#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @see jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage#getDependenciesSchemaDefinition()
@@ -22,15 +22,15 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DependenciesSchemaDefinition extends KeywordDefinition {
 	/**
-	 * Returns the value of the '<em><b>Dependencies</b></em>' containment reference list.
-	 * The list contents are of type {@link jsonMetaschemaMM.jsonMetaschemaMM.DependenciesAnyOf}.
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesProperties}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependencies</em>' containment reference list.
-	 * @see jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage#getDependenciesSchemaDefinition_Dependencies()
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage#getDependenciesSchemaDefinition_Properties()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<DependenciesAnyOf> getDependencies();
+	EList<SchemaObjectDependenciesProperties> getProperties();
 
 } // DependenciesSchemaDefinition

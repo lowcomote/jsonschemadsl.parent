@@ -391,15 +391,6 @@ public interface JsonMetaschemaMMFactory extends EFactory {
 	KeyValuePair createKeyValuePair();
 
 	/**
-	 * Returns a new object of class '<em>Dependencies Any Of</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dependencies Any Of</em>'.
-	 * @generated
-	 */
-	DependenciesAnyOf createDependenciesAnyOf();
-
-	/**
 	 * Returns a new object of class '<em>Examples Schema Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -571,15 +562,6 @@ public interface JsonMetaschemaMMFactory extends EFactory {
 	ArrayValue createArrayValue();
 
 	/**
-	 * Returns a new object of class '<em>Key String Array Pair</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Key String Array Pair</em>'.
-	 * @generated
-	 */
-	KeyStringArrayPair createKeyStringArrayPair();
-
-	/**
 	 * Returns a new object of class '<em>Types Any Of2</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -623,6 +605,33 @@ public interface JsonMetaschemaMMFactory extends EFactory {
 	 * @generated
 	 */
 	SchemaObjectAdditionalProperties createSchemaObjectAdditionalProperties();
+
+	/**
+	 * Returns a new object of class '<em>Schema Object Dependencies Additional Properties</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schema Object Dependencies Additional Properties</em>'.
+	 * @generated
+	 */
+	SchemaObjectDependenciesAdditionalProperties createSchemaObjectDependenciesAdditionalProperties();
+
+	/**
+	 * Returns a new object of class '<em>Schema Object Dependencies Additional Properties Any Of1</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schema Object Dependencies Additional Properties Any Of1</em>'.
+	 * @generated
+	 */
+	SchemaObjectDependenciesAdditionalPropertiesAnyOf1 createSchemaObjectDependenciesAdditionalPropertiesAnyOf1();
+
+	/**
+	 * Returns a new object of class '<em>Schema Object Dependencies Additional Properties Any Of2</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Schema Object Dependencies Additional Properties Any Of2</em>'.
+	 * @generated
+	 */
+	SchemaObjectDependenciesAdditionalPropertiesAnyOf2 createSchemaObjectDependenciesAdditionalPropertiesAnyOf2();
 
 	/**
 	 * Returns the package supported by this factory.

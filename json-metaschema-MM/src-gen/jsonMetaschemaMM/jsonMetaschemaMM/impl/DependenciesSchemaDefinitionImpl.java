@@ -3,11 +3,10 @@
 package jsonMetaschemaMM.jsonMetaschemaMM.impl;
 
 import java.util.Collection;
-
-import jsonMetaschemaMM.jsonMetaschemaMM.DependenciesAnyOf;
 import jsonMetaschemaMM.jsonMetaschemaMM.DependenciesSchemaDefinition;
 import jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage;
 
+import jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesProperties;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -26,21 +25,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.DependenciesSchemaDefinitionImpl#getDependencies <em>Dependencies</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.DependenciesSchemaDefinitionImpl#getProperties <em>Properties</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DependenciesSchemaDefinitionImpl extends KeywordDefinitionImpl implements DependenciesSchemaDefinition {
 	/**
-	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference list.
+	 * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDependencies()
+	 * @see #getProperties()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DependenciesAnyOf> dependencies;
+	protected EList<SchemaObjectDependenciesProperties> properties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -66,12 +65,13 @@ public class DependenciesSchemaDefinitionImpl extends KeywordDefinitionImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DependenciesAnyOf> getDependencies() {
-		if (dependencies == null) {
-			dependencies = new EObjectContainmentEList<DependenciesAnyOf>(DependenciesAnyOf.class, this,
-					JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__DEPENDENCIES);
+	public EList<SchemaObjectDependenciesProperties> getProperties() {
+		if (properties == null) {
+			properties = new EObjectContainmentEList<SchemaObjectDependenciesProperties>(
+					SchemaObjectDependenciesProperties.class, this,
+					JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES);
 		}
-		return dependencies;
+		return properties;
 	}
 
 	/**
@@ -82,8 +82,8 @@ public class DependenciesSchemaDefinitionImpl extends KeywordDefinitionImpl impl
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__DEPENDENCIES:
-			return ((InternalEList<?>) getDependencies()).basicRemove(otherEnd, msgs);
+		case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES:
+			return ((InternalEList<?>) getProperties()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -96,8 +96,8 @@ public class DependenciesSchemaDefinitionImpl extends KeywordDefinitionImpl impl
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__DEPENDENCIES:
-			return getDependencies();
+		case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES:
+			return getProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -111,9 +111,9 @@ public class DependenciesSchemaDefinitionImpl extends KeywordDefinitionImpl impl
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__DEPENDENCIES:
-			getDependencies().clear();
-			getDependencies().addAll((Collection<? extends DependenciesAnyOf>) newValue);
+		case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES:
+			getProperties().clear();
+			getProperties().addAll((Collection<? extends SchemaObjectDependenciesProperties>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -127,8 +127,8 @@ public class DependenciesSchemaDefinitionImpl extends KeywordDefinitionImpl impl
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__DEPENDENCIES:
-			getDependencies().clear();
+		case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES:
+			getProperties().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -142,8 +142,8 @@ public class DependenciesSchemaDefinitionImpl extends KeywordDefinitionImpl impl
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__DEPENDENCIES:
-			return dependencies != null && !dependencies.isEmpty();
+		case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES:
+			return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
