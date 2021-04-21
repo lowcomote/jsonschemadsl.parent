@@ -12,11 +12,11 @@ package jsonMetaschemaMM
 
 context NonNegativeInteger
 inv Minimum0 ('The value must be >= 0'):
-value >=0
+if value <0 then null else true endif
 
 context NonNegativeIntegerDefault0
 inv MinimumDefault0 ('The value must be >= 0'):
-value >=0
+if value <0 then null else true endif
 
 
 

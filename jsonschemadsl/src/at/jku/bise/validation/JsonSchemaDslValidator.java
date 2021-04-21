@@ -3,6 +3,12 @@
  */
 package at.jku.bise.validation;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.ocl.xtext.completeocl.validation.CompleteOCLEObjectValidator;
+import org.eclipse.xtext.validation.EValidatorRegistrar;
+
+
+import jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage;
 
 /**
  * This class contains custom validation rules. 
@@ -21,5 +27,21 @@ public class JsonSchemaDslValidator extends AbstractJsonSchemaDslValidator {
 //					INVALID_NAME);
 //		}
 //	}
+	//JsonMetaschemaMMPackage
 	
+	 @Override
+	    public void register(EValidatorRegistrar registrar) {
+	        super.register(registrar);
+	        JsonMetaschemaMMPackage ePackage = JsonMetaschemaMMPackage.eINSTANCE;
+	        
+//	        OCL ocl0 = OCL.newInstance();
+//	        URI oclURI = URI.createPlatformResourceURI(
+	        URI oclURI = URI.createPlatformPluginURI(
+//	            "/StatesProject/model/States.ocl", true);
+//	        	"/jsonschemadsl.parent/json-metaschema-MM/model/ocl/basicvalidation.ocl", true);
+	        		"/json-metaschema-MM/model/ocl/basicvalidation.ocl", true);	
+	        registrar.register(ePackage,
+	            new CompleteOCLEObjectValidator(ePackage, oclURI));
+//	        		new CompleteOCLEObjectValidator(ePackage, oclURI,ocl0.getEnvironmentFactory()));
+	    }
 }
