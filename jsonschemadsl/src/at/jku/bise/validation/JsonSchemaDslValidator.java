@@ -36,12 +36,16 @@ public class JsonSchemaDslValidator extends AbstractJsonSchemaDslValidator {
 	        
 //	        OCL ocl0 = OCL.newInstance();
 //	        URI oclURI = URI.createPlatformResourceURI(
-	        URI oclURI = URI.createPlatformPluginURI(
-//	            "/StatesProject/model/States.ocl", true);
-//	        	"/jsonschemadsl.parent/json-metaschema-MM/model/ocl/basicvalidation.ocl", true);
-	        		"/json-metaschema-MM/model/ocl/basicvalidation.ocl", true);	
-	        registrar.register(ePackage,
-	            new CompleteOCLEObjectValidator(ePackage, oclURI));
-//	        		new CompleteOCLEObjectValidator(ePackage, oclURI,ocl0.getEnvironmentFactory()));
-	    }
+	        
+	        URI basicOclURI = URI.createPlatformPluginURI("/json-metaschema-MM/model/ocl/fullvalidation.ocl", true);	
+	        registrar.register(ePackage, new CompleteOCLEObjectValidator(ePackage, basicOclURI));
+	        
+	       
+
+	        
+//	        new CompleteOCLEObjectValidator(ePackage, oclURI,ocl0.getEnvironmentFactory()));
+	        
+	        
+	        
+	 }
 }

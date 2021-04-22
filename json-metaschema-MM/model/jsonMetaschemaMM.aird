@@ -9,6 +9,11 @@
     <semanticResources>http://at.jku.bise/jsonMetaschemaMM.oclas</semanticResources>
     <semanticResources>http://www.eclipse.org/ocl/2015/Orphanage.oclas</semanticResources>
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore.oclas</semanticResources>
+    <semanticResources>ocl/trafovalidation.col.ocl</semanticResources>
+    <semanticResources>ocl/trafovalidation.ocl</semanticResources>
+    <semanticResources>ocl/trafovalidation.ocl.oclas</semanticResources>
+    <semanticResources>ocl/fullvalidation.ocl.oclas</semanticResources>
+    <semanticResources>ocl/fullvalidation.ocl</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_SBu5YGjDEeutyv0gtBO7yg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_SCd5MWjDEeutyv0gtBO7yg" name="jsonMetaschemaMM" repPath="#_SCZnwGjDEeutyv0gtBO7yg" changeId="49bf94d5-be46-47f5-adbb-e7a90779f6d7">
