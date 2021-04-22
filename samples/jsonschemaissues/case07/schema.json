@@ -1,8 +1,17 @@
 {
-  	"type":"object",
+	"type" :"object",
 	"properties":{
-    	"prop1":{"type":"string"},
-    	"prop1":{"type":"integer"}
-  	}
-
+		"prop1": {"type":"string"},
+		"prop1": {"type":"integer"}
+	},
+	
+	"patternProperties":{
+		"^S_": { "type": "integer" },
+		"^S_": { "type": "string" } 
+	},
+	
+	"definitions":{
+		"age": { "type": "integer" }, 
+		"age": { "type": "string" }
+	}
 }

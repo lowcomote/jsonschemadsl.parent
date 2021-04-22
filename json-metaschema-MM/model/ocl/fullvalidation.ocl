@@ -23,6 +23,17 @@ context ObjectSchema
 inv RepeatedKeywords ('Keywords can not be repeated at the same nested level'):
 if keywordDefinition->isUnique(k|k.oclType()) then true  else null endif
 
+context PropertiesSchemaDefinition
+inv RepeatedKeysInProperties ('The same key cannot be repeated under the same properties keyword'):
+if keySchemaPairs->isUnique(k | k.key) then true  else null endif
+
+context PatternPropertiesSchemaDefinition
+inv RepeatedKeysInPatternProperties ('The same key cannot be repeated under the same patternProperties keyword'):
+if keySchemaPairs->isUnique(k | k.key) then true  else null endif
+
+context DefinitionsSchemaDefinition
+inv RepeatedKeysInDefinitions ('The same key cannot be repeated under the same definitions keyword'):
+if keySchemaPairs->isUnique(k | k.key) then true  else null endif
 
 
 endpackage
