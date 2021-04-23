@@ -1,0 +1,6 @@
+-- @atlcompiler emftvm
+
+library JsonSchema2EcoreOptUtils;
+
+
+

@@ -9,6 +9,7 @@ import jsonMM.JsonDocument;
 import jsonMM.JsonMMFactory;
 import jsonMM.JsonMMPackage;
 import jsonMM.KeyValuePair;
+import jsonMM.NullEnum;
 import jsonMM.NullValue;
 import jsonMM.NumberValue;
 import jsonMM.ObjectValue;
@@ -17,6 +18,7 @@ import jsonMM.Value;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -98,6 +100,13 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 * @generated
 	 */
 	private EClass keyValuePairEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum nullEnumEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -231,6 +240,15 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getNullValue_Value() {
+		return (EAttribute) nullValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNumberValue() {
 		return numberValueEClass;
 	}
@@ -339,6 +357,15 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getNullEnum() {
+		return nullEnumEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JsonMMFactory getJsonMMFactory() {
 		return (JsonMMFactory) getEFactoryInstance();
 	}
@@ -373,6 +400,7 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 		createEReference(arrayValueEClass, ARRAY_VALUE__VALUE);
 
 		nullValueEClass = createEClass(NULL_VALUE);
+		createEAttribute(nullValueEClass, NULL_VALUE__VALUE);
 
 		numberValueEClass = createEClass(NUMBER_VALUE);
 		createEAttribute(numberValueEClass, NUMBER_VALUE__VALUE);
@@ -391,6 +419,9 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 		keyValuePairEClass = createEClass(KEY_VALUE_PAIR);
 		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__KEY);
 		createEReference(keyValuePairEClass, KEY_VALUE_PAIR__VALUE);
+
+		// Create enums
+		nullEnumEEnum = createEEnum(NULL_ENUM);
 	}
 
 	/**
@@ -449,6 +480,8 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 
 		initEClass(nullValueEClass, NullValue.class, "NullValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNullValue_Value(), this.getNullEnum(), "value", null, 1, 1, NullValue.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(numberValueEClass, NumberValue.class, "NumberValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -478,9 +511,13 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKeyValuePair_Key(), ecorePackage.getEString(), "key", null, 1, 1, KeyValuePair.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getKeyValuePair_Value(), this.getValue(), null, "value", null, 0, 1, KeyValuePair.class,
+		initEReference(getKeyValuePair_Value(), this.getValue(), null, "value", null, 1, 1, KeyValuePair.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(nullEnumEEnum, NullEnum.class, "NullEnum");
+		addEEnumLiteral(nullEnumEEnum, NullEnum.NULL);
 
 		// Create resource
 		createResource(eNS_URI);

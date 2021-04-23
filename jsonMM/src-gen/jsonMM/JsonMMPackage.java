@@ -4,6 +4,7 @@ package jsonMM;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -206,13 +207,22 @@ public interface JsonMMPackage extends EPackage {
 	int NULL_VALUE = 3;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_VALUE__VALUE = VALUE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Null Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+	int NULL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Null Value</em>' class.
@@ -418,6 +428,16 @@ public interface JsonMMPackage extends EPackage {
 	int KEY_VALUE_PAIR_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link jsonMM.NullEnum <em>Null Enum</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMM.NullEnum
+	 * @see jsonMM.impl.JsonMMPackageImpl#getNullEnum()
+	 * @generated
+	 */
+	int NULL_ENUM = 10;
+
+	/**
 	 * Returns the meta object for class '{@link jsonMM.StringValue <em>String Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -489,6 +509,17 @@ public interface JsonMMPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNullValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jsonMM.NullValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see jsonMM.NullValue#getValue()
+	 * @see #getNullValue()
+	 * @generated
+	 */
+	EAttribute getNullValue_Value();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMM.NumberValue <em>Number Value</em>}'.
@@ -617,6 +648,16 @@ public interface JsonMMPackage extends EPackage {
 	EReference getKeyValuePair_Value();
 
 	/**
+	 * Returns the meta object for enum '{@link jsonMM.NullEnum <em>Null Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Null Enum</em>'.
+	 * @see jsonMM.NullEnum
+	 * @generated
+	 */
+	EEnum getNullEnum();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -702,6 +743,14 @@ public interface JsonMMPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NULL_VALUE = eINSTANCE.getNullValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NULL_VALUE__VALUE = eINSTANCE.getNullValue_Value();
 
 		/**
 		 * The meta object literal for the '{@link jsonMM.impl.NumberValueImpl <em>Number Value</em>}' class.
@@ -810,6 +859,16 @@ public interface JsonMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference KEY_VALUE_PAIR__VALUE = eINSTANCE.getKeyValuePair_Value();
+
+		/**
+		 * The meta object literal for the '{@link jsonMM.NullEnum <em>Null Enum</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jsonMM.NullEnum
+		 * @see jsonMM.impl.JsonMMPackageImpl#getNullEnum()
+		 * @generated
+		 */
+		EEnum NULL_ENUM = eINSTANCE.getNullEnum();
 
 	}
 

@@ -3,10 +3,11 @@
 package jsonMetaschemaMM.jsonMetaschemaMM.impl;
 
 import java.util.Collection;
+
 import jsonMetaschemaMM.jsonMetaschemaMM.DependenciesSchemaDefinition;
 import jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage;
-
 import jsonMetaschemaMM.jsonMetaschemaMM.SchemaObjectDependenciesProperties;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;

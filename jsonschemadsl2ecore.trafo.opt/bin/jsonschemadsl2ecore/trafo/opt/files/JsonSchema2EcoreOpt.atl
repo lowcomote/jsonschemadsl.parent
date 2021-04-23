@@ -1,0 +1,20 @@
+-- @atlcompiler emftvm
+-- @nsURI JSchemaMM=http://at.jku.bise/jsonMetaschemaMM
+-- @nsURI Ecore=http://www.eclipse.org/emf/2002/Ecore
+-- @nsURI JsonGrammarMM=http://at.jku.bise/jsongrammar/1.0
+
+module JsonSchema2EcoreOpt;
+create ecoreM : Ecore, jsonGrammar : JsonGrammarMM from jschema : JSchemaMM;
+
+rule JsonSchemaToEPackage {
+	from
+		jsonSchema : JSchemaMM!JsonSchema
+	to 
+		-------TODO read this info from file name
+		ePackage : Ecore!EPackage (
+			name <- 'Shipyard',
+			nsPrefix <- 'Shipyard',
+			nsURI <- 'http://jku.bise.at/Shipyard'
+		)
+	
+}
