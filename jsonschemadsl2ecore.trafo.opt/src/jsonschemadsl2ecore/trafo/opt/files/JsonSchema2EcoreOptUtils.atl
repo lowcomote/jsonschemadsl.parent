@@ -2,5 +2,120 @@
 
 library JsonSchema2EcoreOptUtils;
 
+helper def : simpleTypeMapping : Map(String, Ecore!EDataType) =
+	Map{
+		(#"\"string\"", Ecore!EString),
+		(#"\"integer\"", Ecore!EInt),
+		(#"\"number\"", Ecore!EDouble),
+		(#"\"boolean\"", Ecore!EBoolean)
+	};
 
 
+helper context JSchemaMM!KeySchemaPair  def : isEnclosedInDefinitions() : Boolean = 
+self.refImmediateComposite().oclIsTypeOf(JSchemaMM!DefinitionsSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isRootOrDefinitionOrSchemaObjectAdditionalProperties() : Boolean =
+	let parent : OclAny = self.refImmediateComposite() in
+	if parent.oclIsTypeOf(JSchemaMM!JsonSchema) or parent.oclIsTypeOf(JSchemaMM!SchemaObjectAdditionalProperties) then true
+	else if parent.oclIsTypeOf(JSchemaMM!KeySchemaPair) then parent.isEnclosedInDefinitions() else false endif	
+	endif;
+
+helper context JSchemaMM!Schema  def : isKeySchemaPairInProperties() : Boolean =
+	let parent : OclAny = self.refImmediateComposite() in
+	if parent.oclIsTypeOf(JSchemaMM!KeySchemaPair)  then 
+--		if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!PropertiesSchemaDefinition) then true else false endif
+		parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!PropertiesSchemaDefinition) 
+	else false
+	endif;
+
+helper context JSchemaMM!Schema  def : isKeySchemaPairInPatternProperties() : Boolean =
+	let parent : OclAny = self.refImmediateComposite() in
+	if parent.oclIsTypeOf(JSchemaMM!KeySchemaPair)  then 
+		parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition) 
+	else false
+	endif;
+	
+	 
+helper context JSchemaMM!Schema def: getKey() : String=
+let parent : OclAny = self.refImmediateComposite() in
+if parent.oclIsTypeOf(JSchemaMM!JsonSchema) then 'root'
+else
+	if parent.oclIsTypeOf(JSchemaMM!KeySchemaPair) then 
+		if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition) then 'patternProperties'.concat(parent.refImmediateComposite().keySchemaPairs.indexOf(parent).toString())
+		else
+			parent.key.stripFirstAndLast()
+		endif	
+		
+	else
+		if parent.oclIsTypeOf(JSchemaMM!SchemaObjectAdditionalProperties) then parent.key
+		else
+			if parent.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition) then 'additionalProperties'
+			else
+--				if parent.oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition) then 'patternProperties'.concat(parent.keySchemaPairs.indexOf(self).toString())
+--				else
+					if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then 'additionalItems'
+					else OclUndefined -- add items 
+					endif
+--				endif		
+			endif
+		endif 
+	endif
+endif;
+
+
+
+-- TODO complete with all the containment pointing to Schema
+helper context JSchemaMM!Schema def: getParentNode(): JSchemaMM!Schema=
+let parent : OclAny = self.refImmediateComposite() in
+if parent.oclIsTypeOf(JSchemaMM!JsonSchema) then OclUndefined --root
+else
+	if parent.oclIsTypeOf(JSchemaMM!KeySchemaPair) then
+		if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!DefinitionsSchemaDefinition) then OclUndefined -- other roots
+		else
+			-- parent.refImmediateComposite() is PropertiesSchemaDefinition or PatternPropertiesSchemaDefinition
+			-- we return the enclosing schema of the PropertiesSchemaDefinition
+			parent.refImmediateComposite().refImmediateComposite()
+		endif
+	else
+		if parent.oclIsTypeOf(JSchemaMM!SchemaObjectAdditionalProperties) then OclUndefined -- other roots
+		else
+			if parent.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition) then parent.refImmediateComposite() -- we return the schema enclosing the AdditionalPropertiesSchemaDefinition
+	        else OclUndefined -- TODO to be completed with the containmentes pointing to Schema
+			endif
+		endif
+	endif	
+endif;
+	
+helper context JSchemaMM!Schema def: buildEClassname(): String=
+let localName : String = self.getKey().toCamelCase() in
+let parentNode: JSchemaMM!Schema = self.getParentNode() in
+if not parentNode.oclIsUndefined() then parentNode.buildEClassname().concat(localName)
+else localName
+endif; 
+
+-- TODO refactor when type is refactored with the new anyOf
+helper context JSchemaMM!TypeSchemaDefinition def: findSimpleType() :String=
+	if not self.typeAnyOf1.oclIsUndefined()
+	then self.typeAnyOf1
+	else OclUndefined
+	endif;
+	
+
+helper context JSchemaMM!TypeSchemaDefinition def: getEDataType() : Ecore!EDataType=
+	let simpleType : String = self.findSimpleType()
+	in
+		if simpleType.oclIsUndefined()
+		then OclUndefined
+		else thisModule.simpleTypeMapping.get(simpleType)
+		endif;
+
+
+
+
+
+
+helper context String def: stripFirstAndLast() : String=
+self.substring(2, self.size()-1);	
+
+helper context String def : toCamelCase() : String=
+	self.substring(1, 1).toUpperCase() + self.substring(2,self.size());	
