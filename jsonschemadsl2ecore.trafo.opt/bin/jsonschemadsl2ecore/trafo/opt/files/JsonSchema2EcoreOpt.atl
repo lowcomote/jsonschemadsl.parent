@@ -115,25 +115,20 @@ abstract rule mapSchemaInPatternPropertiesEClass {
 }
 
 rule mapObjectSchemaInPatternPropertiesEClass extends mapSchemaInPatternPropertiesEClass{
---	from objectSchema :JSchemaMM!ObjectSchema (objectSchema.isKeySchemaPairInPatternProperties())
 	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInPatternProperties() and schema.oclIsTypeOf(JSchemaMM!ObjectSchema))
-	using {
---		propertiesEClassName : String = objectSchema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
---		patternPropertiesType : JSchemaMM!TypeSchemaDefinition = objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
-		patternPropertiesType : JSchemaMM!TypeSchemaDefinition = schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
-	} 
+--	using {
+--		patternPropertiesType : JSchemaMM!TypeSchemaDefinition = schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
+--	} 
 	to 
 		eClass : Ecore!EClass (
---			name<- objectSchema.buildEClassname(),
-			eStructuralFeatures <- Set{key,patternPropertiesType}.flatten()--,
---			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+--			eStructuralFeatures <- Set{key,patternPropertiesType}.flatten() 
+			eStructuralFeatures <- Set{key,let refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) = schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!RefSchemaDefinition)) in
+										if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
+										else schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)) 
+										endif
+									}.flatten() 
 		),
-		key : Ecore!EAttribute--(
---			name<-'key',
---			lowerBound <-1,
---			upperBound <- 1,
---			eType <- Ecore!EString
---		)
+		key : Ecore!EAttribute 
 }
 
 rule mapBooleanSchemaInPatternPropertiesEClass extends mapSchemaInPatternPropertiesEClass{
