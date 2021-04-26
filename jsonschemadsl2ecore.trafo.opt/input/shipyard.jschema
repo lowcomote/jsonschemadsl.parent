@@ -39,7 +39,8 @@
 	"additionalProperties":{"type": "integer"},
 	"patternProperties":{
 		"^S_": { "type": "string" },
-    	"^I_": { "type": "integer" }
+    	"^I_": { "type": "integer" },
+    	"^P_": true
 	}
  
 }
