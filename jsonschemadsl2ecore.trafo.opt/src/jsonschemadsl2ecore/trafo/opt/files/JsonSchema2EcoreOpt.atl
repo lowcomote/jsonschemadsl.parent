@@ -10,6 +10,7 @@ create ecoreM : Ecore, jsonGrammar : JsonGrammarMM from jschema : JSchemaMM;
 uses JsonSchema2EcoreOptUtils;
 
 helper def: rootEPackage : Ecore!EPackage = OclUndefined;
+helper def: jsonDocumentStarter:String='jsonDocumentStarter';
 
 
 rule JsonSchemaToEPackage {
@@ -83,7 +84,7 @@ rule mapInPatternPropertiesEClass{
 }
 
 rule mapObjectSchemaAdditionalPropertiesEClass{
-	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition
+	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition (additionalPropertiesSchemaDefinition.additionalProperties.oclIsTypeOf(JSchemaMM!ObjectSchema))
 	using {
 --		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.refImmediateComposite().buildEClassname().concat('AdditionalProperties');
 		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.additionalProperties.buildEClassname();
@@ -101,6 +102,34 @@ rule mapObjectSchemaAdditionalPropertiesEClass{
 			lowerBound <-1,
 			upperBound <- 1,
 			eType <- Ecore!EString
+		)
+}
+
+rule mapBooleanSchemaAdditionalPropertiesEClass{
+	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition (additionalPropertiesSchemaDefinition.additionalProperties.oclIsTypeOf(JSchemaMM!BooleanSchema))
+	using {
+		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.additionalProperties.buildEClassname();
+--		additionalPropertiesType : JSchemaMM!JsonDocument = thisModule.createJsonDocument(thisModule.rootEPackage);
+		
+		propertiesEClassName : String = 	additionalPropertiesSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties');
+	}
+	to
+		eClass : Ecore!EClass (
+		 	name <-	additionalPropertiesName,
+			eStructuralFeatures <- Set{key, additionalProperties}.flatten(),
+			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		),
+		key : Ecore!EAttribute(
+			name<-'key',
+			lowerBound <-1,
+			upperBound <- 1,
+			eType <- Ecore!EString
+		),
+		additionalProperties: Ecore!EReference(
+			name<-'additionalProperties',
+			lowerBound <-1,
+			upperBound <- 1,
+			eType <- thisModule.createJsonDocument(thisModule.jsonDocumentStarter)
 		)
 }
 
@@ -144,6 +173,136 @@ unique lazy rule createPropertiesEClass{
 		)
 	
 }
+
+
+----------------------    rules for Json Document ---------------------------
+unique lazy rule createJsonDocument{
+--	from rootEPackage : Ecore!EPackage
+	from createJsonDocument : String (createJsonDocument = thisModule.jsonDocumentStarter)
+	to
+		jsonDocument : Ecore!EClass(
+			name <- 'JsonDocument',
+			eStructuralFeatures <-Set{jsonDocumentValue}
+		),
+		jsonDocumentValue :Ecore!EReference ( 
+			name<-'value',
+			containment <- true,
+			eType <- abstractValue,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		abstractValue  : Ecore!EClass(
+			name <- 'Value',
+			abstract<- true
+		),
+		----- createConcreteValues
+		arrayValue :  Ecore!EClass(
+			name<-'ArrayValue',
+			eSuperTypes <- Set{abstractValue},
+			eStructuralFeatures <- Set{arrayToValueReference}
+		),	
+		arrayToValueReference :Ecore!EReference ( 
+			name<-'value',
+			containment <- true,
+			eType <- abstractValue,
+			lowerBound <- 0,
+			upperBound <- -1
+		),
+		booleanValue :  Ecore!EClass(
+			name<-'BooleanValue',
+			eSuperTypes <- Set{abstractValue},
+			eStructuralFeatures <- Set{booleanValueEattribute}
+		),
+		booleanValueEattribute :  Ecore!EAttribute(
+			name<-'value',
+			eType <-Ecore!EBoolean,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		integerValue :  Ecore!EClass(
+			name<-'IntegerValue',
+			eSuperTypes <- Set{abstractValue},
+			eStructuralFeatures <- Set{integerValueEattribute}
+		),
+		integerValueEattribute :  Ecore!EAttribute(
+			name<-'value',
+			eType <-Ecore!EInt,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		nullValue : Ecore!EClass(
+			name<-'NullValue',
+			eSuperTypes <- Set{abstractValue}
+		),
+		numberValue : Ecore!EClass(
+			name<-'NumberValue',
+			eSuperTypes <- Set{abstractValue},
+			eStructuralFeatures <- Set{numberValueEattribute}
+		),
+		numberValueEattribute :  Ecore!EAttribute(
+			name<-'value',
+			eType <-Ecore!EDouble,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		
+		stringValue : Ecore!EClass(
+			name<-'StringValue',
+			eSuperTypes <- Set{abstractValue},
+			eStructuralFeatures <- Set{stringValueEattribute}
+		),
+		stringValueEattribute :  Ecore!EAttribute(
+			name<-'value',
+			eType <-Ecore!EString,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		objectValue : Ecore!EClass(
+			name<-'ObjectValue',
+			eSuperTypes <- Set{abstractValue},
+			eStructuralFeatures <- Set{objectKeyValuePair}
+		),
+		objectKeyValuePair : Ecore!EReference ( 
+			name<-'keyvaluepair',
+			containment <- true,
+			eType <- keyValuePair,
+			lowerBound <- 0,
+			upperBound <- -1
+		),
+		--- createkeyValuePair
+		keyValuePair :  Ecore!EClass(
+			name<-'KeyValuePair',
+			eStructuralFeatures <- Set{key,value}
+		),
+		key : Ecore!EAttribute(
+			name<-'key',
+			eType <-Ecore!EString,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		value :Ecore!EReference ( 
+			name<-'value',
+			containment <- true,
+			eType <- abstractValue,
+			lowerBound <- 1,
+			upperBound <- 1
+		)
+--	do {
+--		thisModule.rootEPackage.eClassifiers <- jsonDocument;
+--		thisModule.rootEPackage.eClassifiers <- abstractValue;
+--		thisModule.rootEPackage.eClassifiers <- arrayValue;
+--		thisModule.rootEPackage.eClassifiers <- booleanValue;
+--		thisModule.rootEPackage.eClassifiers <- integerValue;
+--		thisModule.rootEPackage.eClassifiers <- nullValue;
+--		thisModule.rootEPackage.eClassifiers <- numberValue;
+--		thisModule.rootEPackage.eClassifiers <- stringValue;
+--		thisModule.rootEPackage.eClassifiers <- objectValue;
+--		thisModule.rootEPackage.eClassifiers <- keyValuePair;
+--	}
+		
+}
+
+
 
 
  
