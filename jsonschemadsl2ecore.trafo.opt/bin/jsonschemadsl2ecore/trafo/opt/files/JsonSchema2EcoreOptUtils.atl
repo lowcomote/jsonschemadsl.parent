@@ -100,7 +100,6 @@ else
 							endif	
 						else OclUndefined -- -- TODO to be completed with the containmentes pointing to Schema
 						endif
-	        			--OclUndefined -- TODO to be completed with the containmentes pointing to Schema
 					endif
 				endif
 			endif

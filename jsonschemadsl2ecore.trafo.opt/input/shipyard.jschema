@@ -39,6 +39,13 @@
 		"childrenNames":{
 			"type":"array",
 			"items":{"type": "string"}
+		},
+		"sequentialInfo":{
+			"type":"array"
+		},
+		"sequentialInfo2":{
+			"type":"array",
+			"items":true
 		}
 	},
 	"additionalProperties":{"type": "integer"},
