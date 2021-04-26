@@ -62,6 +62,35 @@ rule mapInPropertiesObjectSchemaToEClass{
 --	}	
 		
 }
+-------------NEWWWW   
+rule mapInPropertiesBooleanSchemaToEClass{
+	from schema :JSchemaMM!Schema  (
+		schema.isKeySchemaPairInProperties()
+		and schema.oclIsTypeOf(JSchemaMM!BooleanSchema)
+		and schema.value=true
+	)
+	using {
+		propertiesEClassName : String = schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
+	}
+	to 
+		eClass : Ecore!EClass (
+			name<- schema.buildEClassname(),
+			eStructuralFeatures <- Sequence{properties},
+			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		),
+		properties:Ecore!EReference ( 
+			name <- schema.getKey(),
+			eType <- thisModule.createJsonDocument(thisModule.jsonDocumentStarter),
+			containment <- true,
+			lowerBound <- 1,
+			upperBound <- 1
+			
+		)
+--	do {
+--		thisModule.rootEPackage.eClassifiers <- Set{eClass};
+--	}	
+		
+}
 
 abstract rule mapSchemaInPatternPropertiesEClass {
 	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInPatternProperties())

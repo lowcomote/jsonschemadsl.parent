@@ -34,7 +34,8 @@
 				"licencePlate":{"type": "string"},
 				"year":{"type": "integer"}
 			}
-		}
+		},
+		"otherInfo":true
 	},
 	"additionalProperties":{"type": "integer"},
 	"patternProperties":{
