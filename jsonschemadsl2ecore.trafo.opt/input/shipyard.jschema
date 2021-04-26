@@ -56,6 +56,9 @@
 					"surname":{"type": "string"}
 				}
 			}
+		},
+		"myFamily":{
+			"$ref":"#/definitions/family"
 		}
 		
 	},

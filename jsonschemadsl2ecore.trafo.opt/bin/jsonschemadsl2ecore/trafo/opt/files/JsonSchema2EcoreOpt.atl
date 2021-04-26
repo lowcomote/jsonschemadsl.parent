@@ -56,16 +56,14 @@ abstract rule mapInPropertiesSchemaToEClass{
 }
 
 rule mapInPropertiesObjectSchemaToEClass extends mapInPropertiesSchemaToEClass{
---	from objectSchema :JSchemaMM!ObjectSchema (objectSchema.isKeySchemaPairInProperties())
 	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInProperties() and schema.oclIsTypeOf(JSchemaMM!ObjectSchema))
---	using {
---		propertiesEClassName : String = objectSchema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
---	}
 	to 
 		eClass : Ecore!EClass (
---			name<- objectSchema.buildEClassname(),
-			eStructuralFeatures <-schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))--,
---			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+--			eStructuralFeatures <-schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)) 
+			eStructuralFeatures <- 	let refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) = schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!RefSchemaDefinition)) in
+									if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
+									else schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)) 
+									endif
 		)
 --	do {
 --		thisModule.rootEPackage.eClassifiers <- Set{eClass};
@@ -401,7 +399,20 @@ rule mapItemsBooleanSchemaOrDefaultToEClass extends mapItemsSchemaToEClass{
 }
 
 
-
+rule mapRefSchemaToEReference{
+	from refSchemaDefinition: JSchemaMM!RefSchemaDefinition 
+	to
+		
+		eReference :Ecore!EReference ( 
+			name <- refSchemaDefinition.refImmediateComposite().getKey(),
+--			eType <- findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref),
+			eType <- thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref),
+			containment <- true,
+			lowerBound <- 1,
+			upperBound <- 1
+			
+		)
+}
 
 unique lazy rule createPropertiesEClass{
 	from name:String
