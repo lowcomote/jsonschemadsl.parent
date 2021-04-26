@@ -25,7 +25,15 @@
 				"role":{"type": "string"},
 				"level":{"type": "integer"}
 			},
+			"additionalProperties":false,
 			"pippo": {"type": "integer"}
+		},
+		"car":{
+			"type":"object",
+			"properties":{
+				"licencePlate":{"type": "string"},
+				"year":{"type": "integer"}
+			}
 		}
 	},
 	"additionalProperties":{"type": "integer"},

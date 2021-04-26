@@ -38,6 +38,7 @@ rule mapRootOrDefinitionsObjectSchemaToEClass{
 		)
 	do {
 --		thisModule.rootEPackage.eClassifiers <- eClass;
+--		thisModule.rootEPackage.eClassifiers <- thisModule.rootEPackage.eClassifiers->union(Sequence{eClass});
 	}		
 		
 }
@@ -83,20 +84,18 @@ rule mapInPatternPropertiesEClass{
 		)
 }
 
-rule mapObjectSchemaAdditionalPropertiesEClass{
-	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition (additionalPropertiesSchemaDefinition.additionalProperties.oclIsTypeOf(JSchemaMM!ObjectSchema))
+abstract rule mapAdditionalPropertiesEClass {
+	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition
 	using {
---		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.refImmediateComposite().buildEClassname().concat('AdditionalProperties');
 		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.additionalProperties.buildEClassname();
-		additionalPropertiesType : JSchemaMM!TypeSchemaDefinition = additionalPropertiesSchemaDefinition.additionalProperties.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
 		propertiesEClassName : String = 	additionalPropertiesSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties');
 	}
 	to
 		eClass : Ecore!EClass (
 		 	name <-	additionalPropertiesName,
-			eStructuralFeatures <- Set{key, additionalPropertiesType}.flatten(),
 			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
 		),
+		
 		key : Ecore!EAttribute(
 			name<-'key',
 			lowerBound <-1,
@@ -105,15 +104,70 @@ rule mapObjectSchemaAdditionalPropertiesEClass{
 		)
 }
 
-rule mapBooleanSchemaAdditionalPropertiesEClass{
-	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition (additionalPropertiesSchemaDefinition.additionalProperties.oclIsTypeOf(JSchemaMM!BooleanSchema))
+rule mapObjectSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEClass{
+	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition (additionalPropertiesSchemaDefinition.additionalProperties.oclIsTypeOf(JSchemaMM!ObjectSchema))
 	using {
-		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.additionalProperties.buildEClassname();
---		additionalPropertiesType : JSchemaMM!JsonDocument = thisModule.createJsonDocument(thisModule.rootEPackage);
-		
-		propertiesEClassName : String = 	additionalPropertiesSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties');
+--		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.additionalProperties.buildEClassname();
+		additionalPropertiesType : JSchemaMM!TypeSchemaDefinition = additionalPropertiesSchemaDefinition.additionalProperties.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
+--		propertiesEClassName : String = 	additionalPropertiesSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties');
 	}
 	to
+		eClass : Ecore!EClass (
+--		 	name <-	additionalPropertiesName,
+			eStructuralFeatures <- Set{key, additionalPropertiesType}.flatten()--,
+--			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		),
+		key : Ecore!EAttribute
+--		key : Ecore!EAttribute(
+--			name<-'key',
+--			lowerBound <-1,
+--			upperBound <- 1,
+--			eType <- Ecore!EString
+--		)
+}
+
+rule mapBooleanSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEClass{
+	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition (
+		additionalPropertiesSchemaDefinition.additionalProperties.oclIsTypeOf(JSchemaMM!BooleanSchema) and 
+		additionalPropertiesSchemaDefinition.additionalProperties.value=true
+	)
+	using {
+--		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.additionalProperties.buildEClassname();
+--		
+--		propertiesEClassName : String = 	additionalPropertiesSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties');
+	}
+	to
+		eClass : Ecore!EClass (
+--		 	name <-	additionalPropertiesName,
+			eStructuralFeatures <- Set{key, additionalProperties}.flatten()
+--			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		),
+		key : Ecore!EAttribute,
+--		key : Ecore!EAttribute(
+--			name<-'key',
+--			lowerBound <-1,
+--			upperBound <- 1,
+--			eType <- Ecore!EString
+--		),
+		additionalProperties: Ecore!EReference(
+			name<-'additionalProperties',
+			lowerBound <-1,
+			upperBound <- 1,
+			eType <- thisModule.createJsonDocument(thisModule.jsonDocumentStarter)
+		)
+}
+------------ Wrong
+rule mapDefaultAdditionalPropertiesEClass  extends createPropertiesContainmentAndMapDefaultAdditionalPropertiesEClass{
+	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (
+		typeSchemaDefinition.findSimpleType() = #"\"object\"" and
+		typeSchemaDefinition.refImmediateComposite().keywordDefinition->exists(keyword  | keyword.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)) = false
+	)
+	using {
+		additionalPropertiesName : String = typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('AdditionalProperties');
+		propertiesEClassName : String = 	typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties');
+	}
+	to
+		eReference :Ecore!EReference,
 		eClass : Ecore!EClass (
 		 	name <-	additionalPropertiesName,
 			eStructuralFeatures <- Set{key, additionalProperties}.flatten(),
@@ -146,8 +200,8 @@ rule createEAttributeSimpleScalar{
 		)
 }
 
-rule createPropertiesContainment{
-	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (typeSchemaDefinition.findSimpleType() = #"\"object\"" )	
+abstract rule createPropertiesContainmentAndMapDefaultAdditionalPropertiesEClass{
+	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (typeSchemaDefinition.findSimpleType() = #"\"object\"")	
 	to 
 		eReference :Ecore!EReference ( 
 			name <- 'properties',
@@ -158,6 +212,25 @@ rule createPropertiesContainment{
 			upperBound <- -1
 			
 		)
+}
+
+rule createPropertiesContainment extends createPropertiesContainmentAndMapDefaultAdditionalPropertiesEClass{
+	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (
+		typeSchemaDefinition.findSimpleType() = #"\"object\"" 
+		and	typeSchemaDefinition.refImmediateComposite().keywordDefinition->exists(keyword  | keyword.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)) = true
+		
+	)	
+	to 
+		eReference :Ecore!EReference 
+--		( 
+--			name <- 'properties',
+--			eType <- thisModule.createPropertiesEClass(typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties')),
+----			eType <- thisModule.createPropertiesEClass(typeSchemaDefinition),
+--			containment <- true,
+--			lowerBound <- 0,
+--			upperBound <- -1
+--			
+--		)
 }
 
 unique lazy rule createPropertiesEClass{
@@ -288,6 +361,7 @@ unique lazy rule createJsonDocument{
 			upperBound <- 1
 		)
 --	do {
+--		
 --		thisModule.rootEPackage.eClassifiers <- jsonDocument;
 --		thisModule.rootEPackage.eClassifiers <- abstractValue;
 --		thisModule.rootEPackage.eClassifiers <- arrayValue;
