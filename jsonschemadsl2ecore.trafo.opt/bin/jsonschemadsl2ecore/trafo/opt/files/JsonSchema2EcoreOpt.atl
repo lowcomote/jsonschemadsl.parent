@@ -43,40 +43,46 @@ rule mapRootOrDefinitionsObjectSchemaToEClass{
 		
 }
 
-rule mapInPropertiesObjectSchemaToEClass{
-	from objectSchema :JSchemaMM!ObjectSchema (objectSchema.isKeySchemaPairInProperties())
-	using {
---		typeSchemaDefinition : JSchemaMM!TypeSchemaDefinition = objectSchema->debug('111111111').refImmediateComposite().refImmediateComposite().refImmediateComposite()->debug('aaaaaaaaaaaa').keywordDefinition->debug('bbbbbbbbbbb')->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))->debug('ccccccccccccc').first();
-		propertiesEClassName : String = objectSchema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
-	}
-	to 
-		eClass : Ecore!EClass (
-			name<- objectSchema.buildEClassname(),
-			eStructuralFeatures <-objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)),
---			eSuperTypes <-  Set{thisModule.createPropertiesEClass(objectSchema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties'))}
-			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
---			eSuperTypes <-  Sequence{thisModule.createPropertiesEClass(typeSchemaDefinition)}
-		)
---	do {
---		thisModule.rootEPackage.eClassifiers <- Set{eClass};
---	}	
-		
-}
--------------NEWWWW  todo continue
-rule mapInPropertiesBooleanSchemaToEClass{
-	from schema :JSchemaMM!Schema  (
-		schema.isKeySchemaPairInProperties()
-		and schema.oclIsTypeOf(JSchemaMM!BooleanSchema)
-		and schema.value=true
-	)
+abstract rule mapInPropertiesSchemaToEClass{
+	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInProperties())
 	using {
 		propertiesEClassName : String = schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
 	}
 	to 
 		eClass : Ecore!EClass (
 			name<- schema.buildEClassname(),
-			eStructuralFeatures <- Sequence{properties},
 			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		)
+}
+
+rule mapInPropertiesObjectSchemaToEClass extends mapInPropertiesSchemaToEClass{
+--	from objectSchema :JSchemaMM!ObjectSchema (objectSchema.isKeySchemaPairInProperties())
+	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInProperties() and schema.oclIsTypeOf(JSchemaMM!ObjectSchema))
+--	using {
+--		propertiesEClassName : String = objectSchema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
+--	}
+	to 
+		eClass : Ecore!EClass (
+--			name<- objectSchema.buildEClassname(),
+			eStructuralFeatures <-schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))--,
+--			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		)
+--	do {
+--		thisModule.rootEPackage.eClassifiers <- Set{eClass};
+--	}	
+		
+}
+-------------NEWWWW   
+rule mapInPropertiesBooleanSchemaToEClass extends mapInPropertiesSchemaToEClass{
+	from schema :JSchemaMM!Schema  (schema.isKeySchemaPairInProperties() and schema.oclIsTypeOf(JSchemaMM!BooleanSchema) and schema.value=true)
+--	using {
+--		propertiesEClassName : String = schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
+--	}
+	to 
+		eClass : Ecore!EClass (
+--			name<- schema.buildEClassname(),
+			eStructuralFeatures <- Sequence{properties}--,
+--			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
 		),
 		properties:Ecore!EReference ( 
 			name <- schema.getKey(),
