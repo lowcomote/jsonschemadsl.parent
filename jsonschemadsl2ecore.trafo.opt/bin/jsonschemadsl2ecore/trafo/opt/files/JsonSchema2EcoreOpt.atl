@@ -326,7 +326,23 @@ rule createPropertiesContainment extends createPropertiesContainmentAndMapDefaul
 }
 
 
-rule mapItemsObjectSchemaToEClass{
+abstract rule mapItemsSchemaToEClass{
+	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (typeSchemaDefinition.findSimpleType() = #"\"array\"")
+	to
+		itemsEClass:  Ecore!EClass (
+			name <- typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Items')
+		),
+		eReference :Ecore!EReference ( 
+			name <- 'items',
+			eType <- itemsEClass,
+			containment <- true,
+			lowerBound <- 0,
+			upperBound <- -1
+			
+		)
+}
+
+rule mapItemsObjectSchemaToEClass extends mapItemsSchemaToEClass{
 	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (
 		typeSchemaDefinition.findSimpleType() = #"\"array\""
 		and (
@@ -335,23 +351,24 @@ rule mapItemsObjectSchemaToEClass{
 		)
 	)	
 	to 
-		eReference :Ecore!EReference ( 
-			name <- 'items',
-			eType <- itemsEClass,
-			containment <- true,
-			lowerBound <- 0,
-			upperBound <- -1
-			
-		),
+--		eReference :Ecore!EReference ( 
+--			name <- 'items',
+--			eType <- itemsEClass,
+--			containment <- true,
+--			lowerBound <- 0,
+--			upperBound <- -1
+--			
+--		),
+		eReference :Ecore!EReference,
 		itemsEClass:  Ecore!EClass (
-			name <- typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.buildEClassname(),
+--			name <- typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.buildEClassname(),
 			eStructuralFeatures <- Sequence{typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))}.flatten() 
 		)
 }
 
 
--------    NEW
-rule mapItemsBooleanSchemaOrDefaultToEClass{
+
+rule mapItemsBooleanSchemaOrDefaultToEClass extends mapItemsSchemaToEClass{
 	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (
 		typeSchemaDefinition.findSimpleType() = #"\"array\""
 		and (
@@ -361,17 +378,17 @@ rule mapItemsBooleanSchemaOrDefaultToEClass{
 		)	
 	)	
 	to 
-		eReference :Ecore!EReference ( 
-			name <- 'items',
-			eType <- itemsEClass,
-			containment <- true,
-			lowerBound <- 0,
-			upperBound <- -1
-			
-		),
+--		eReference :Ecore!EReference ( 
+--			name <- 'items',
+--			eType <- itemsEClass,
+--			containment <- true,
+--			lowerBound <- 0,
+--			upperBound <- -1
+--			
+--		),
+		eReference :Ecore!EReference,
 		itemsEClass:  Ecore!EClass (
-			name <- typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Items'),
---			name <- typeSchemaDefinition->debug('bbbbbbbbbbb').refImmediateComposite()->debug('cccccccccccccc').keywordDefinition->debug('dddddddddd')->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first()->debug('aaaaaaaaaaaa').itemsAnyOf1.buildEClassname();
+--			name <- typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Items'),
 			eStructuralFeatures <- Sequence{itemsEReference}
 		),
 		itemsEReference:Ecore!EReference (

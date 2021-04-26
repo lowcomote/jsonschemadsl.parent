@@ -46,7 +46,18 @@
 		"sequentialInfo2":{
 			"type":"array",
 			"items":true
+		},
+		"grandParents":{
+			"type":"array",
+			"items":{
+				"type":"object",
+				"properties":{
+					"name":{"type": "string"},
+					"surname":{"type": "string"}
+				}
+			}
 		}
+		
 	},
 	"additionalProperties":{"type": "integer"},
 	"patternProperties":{
