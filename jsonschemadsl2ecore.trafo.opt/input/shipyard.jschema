@@ -35,7 +35,11 @@
 				"year":{"type": "integer"}
 			}
 		},
-		"otherInfo":true
+		"otherInfo":true,
+		"childrenNames":{
+			"type":"array",
+			"items":{"type": "string"}
+		}
 	},
 	"additionalProperties":{"type": "integer"},
 	"patternProperties":{

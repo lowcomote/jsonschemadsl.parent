@@ -54,7 +54,16 @@ else
 --				if parent.oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition) then 'patternProperties'.concat(parent.keySchemaPairs.indexOf(self).toString())
 --				else
 					if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then 'additionalItems'
-					else OclUndefined -- add items 
+					else 
+						if parent.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'
+						else 
+							if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
+								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'.concat(parent.indexOf(self).toString())
+								else OclUndefined --add AllOfSchemaDefinition,  AnyOfSchemaDefinition, OneOfSchemaDefinition 
+								endif	
+							else OclUndefined -- add other keywords pointing to Schema
+							endif
+						endif
 					endif
 --				endif		
 			endif
@@ -80,7 +89,19 @@ else
 		if parent.oclIsTypeOf(JSchemaMM!SchemaObjectAdditionalProperties) then OclUndefined -- other roots
 		else
 			if parent.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition) then parent.refImmediateComposite() -- we return the schema enclosing the AdditionalPropertiesSchemaDefinition
-	        else OclUndefined -- TODO to be completed with the containmentes pointing to Schema
+	        else 
+	        	if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then parent.refImmediateComposite() -- we return the schema enclosing the AdditionalItemsSchemaDefinition
+	        	else 
+	        		if parent.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then  parent.refImmediateComposite() -- we return the schema enclosing the ItemsSchemaDefinition
+	        		else 
+	        			if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
+							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then parent.refImmediateComposite().refImmediateComposite() --we return the schema enclosing the ItemsSchemaDefinition that encloses the schema array
+							else OclUndefined --add AllOfSchemaDefinition,  AnyOfSchemaDefinition, OneOfSchemaDefinition 
+							endif	
+						else OclUndefined -- -- TODO to be completed with the containmentes pointing to Schema
+						endif
+					endif
+				endif
 			endif
 		endif
 	endif	

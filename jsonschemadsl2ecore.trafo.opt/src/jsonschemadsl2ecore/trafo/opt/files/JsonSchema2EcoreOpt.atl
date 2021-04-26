@@ -72,7 +72,7 @@ rule mapInPropertiesObjectSchemaToEClass extends mapInPropertiesSchemaToEClass{
 --	}	
 		
 }
--------------NEWWWW   
+
 rule mapInPropertiesBooleanSchemaToEClass extends mapInPropertiesSchemaToEClass{
 	from schema :JSchemaMM!Schema  (schema.isKeySchemaPairInProperties() and schema.oclIsTypeOf(JSchemaMM!BooleanSchema) and schema.value=true)
 --	using {
@@ -324,6 +324,29 @@ rule createPropertiesContainment extends createPropertiesContainmentAndMapDefaul
 --			
 --		)
 }
+
+----------------NEW ----------
+rule mapItemsSchemaToEClass{
+	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (typeSchemaDefinition.findSimpleType() = #"\"array\"")	
+	to 
+		eReference :Ecore!EReference ( 
+			name <- 'items',
+
+--			eType <- typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)).first(),
+			eType <- itemsEClass,
+			containment <- true,
+			lowerBound <- 0,
+			upperBound <- -1
+			
+		),
+		itemsEClass:  Ecore!EClass (
+			name <- typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.buildEClassname(),
+			eStructuralFeatures <- Sequence{typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))}.flatten() 
+		)
+	
+}
+
+
 
 unique lazy rule createPropertiesEClass{
 	from name:String
