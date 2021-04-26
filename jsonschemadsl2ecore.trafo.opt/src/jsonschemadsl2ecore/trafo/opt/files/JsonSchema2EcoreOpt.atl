@@ -63,17 +63,14 @@ rule mapInPropertiesObjectSchemaToEClass{
 		
 }
 
-rule mapObjectSchemaInPatternPropertiesEClass{
-	from objectSchema :JSchemaMM!ObjectSchema (objectSchema.isKeySchemaPairInPatternProperties())
+abstract rule mapSchemaInPatternPropertiesEClass {
+	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInPatternProperties())
 	using {
-		propertiesEClassName : String = objectSchema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
-		patternPropertiesType : JSchemaMM!TypeSchemaDefinition = objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
-		
+		propertiesEClassName : String = schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
 	} 
 	to 
 		eClass : Ecore!EClass (
-			name<- objectSchema.buildEClassname(),
-			eStructuralFeatures <- Set{key,patternPropertiesType}.flatten(),
+			name<- schema.buildEClassname(),
 			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
 		),
 		key : Ecore!EAttribute(
@@ -84,30 +81,56 @@ rule mapObjectSchemaInPatternPropertiesEClass{
 		)
 }
 
-rule mapBooleanSchemaInPatternPropertiesEClass{
-	from booleanSchema :JSchemaMM!BooleanSchema (
-		booleanSchema.isKeySchemaPairInPatternProperties()
-		and booleanSchema.value=true
-	)
+rule mapObjectSchemaInPatternPropertiesEClass extends mapSchemaInPatternPropertiesEClass{
+--	from objectSchema :JSchemaMM!ObjectSchema (objectSchema.isKeySchemaPairInPatternProperties())
+	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInPatternProperties() and schema.oclIsTypeOf(JSchemaMM!ObjectSchema))
 	using {
-		propertiesEClassName : String = booleanSchema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
+--		propertiesEClassName : String = objectSchema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
 --		patternPropertiesType : JSchemaMM!TypeSchemaDefinition = objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
-		
+		patternPropertiesType : JSchemaMM!TypeSchemaDefinition = schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
 	} 
 	to 
 		eClass : Ecore!EClass (
-			name<- booleanSchema.buildEClassname(),
-			eStructuralFeatures <- Set{key,patternProperties},
-			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+--			name<- objectSchema.buildEClassname(),
+			eStructuralFeatures <- Set{key,patternPropertiesType}.flatten()--,
+--			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
 		),
-		key : Ecore!EAttribute(
-			name<-'key',
-			lowerBound <-1,
-			upperBound <- 1,
-			eType <- Ecore!EString
+		key : Ecore!EAttribute--(
+--			name<-'key',
+--			lowerBound <-1,
+--			upperBound <- 1,
+--			eType <- Ecore!EString
+--		)
+}
+
+rule mapBooleanSchemaInPatternPropertiesEClass extends mapSchemaInPatternPropertiesEClass{
+--	from booleanSchema :JSchemaMM!BooleanSchema (
+--		booleanSchema.isKeySchemaPairInPatternProperties()
+--		and booleanSchema.value=true
+--	)
+	from schema :JSchemaMM!Schema  (
+		schema.isKeySchemaPairInPatternProperties()
+		and schema.oclIsTypeOf(JSchemaMM!BooleanSchema)
+		and schema.value=true
+	)
+	using {
+--		propertiesEClassName : String = booleanSchema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
+	} 
+	to 
+		eClass : Ecore!EClass (
+--			name<- booleanSchema.buildEClassname(),
+			eStructuralFeatures <- Set{key,patternProperties}--,
+--			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
 		),
+		key : Ecore!EAttribute,--(
+--			name<-'key',
+--			lowerBound <-1,
+--			upperBound <- 1,
+--			eType <- Ecore!EString
+--		),
 		patternProperties:Ecore!EReference ( 
-			name <- booleanSchema.getKey(),
+--			name <- booleanSchema.getKey(),
+			name <- schema.getKey(),
 			eType <- thisModule.createJsonDocument(thisModule.jsonDocumentStarter),
 			containment <- true,
 			lowerBound <- 1,
