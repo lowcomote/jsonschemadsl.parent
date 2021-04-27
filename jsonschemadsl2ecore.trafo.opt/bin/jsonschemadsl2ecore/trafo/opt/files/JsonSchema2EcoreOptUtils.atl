@@ -2,8 +2,23 @@
 
 library JsonSchema2EcoreOptUtils;
 
+--Keywords
+helper def: keywords : Sequence(Ecore!EStructuralFeature) = Sequence{};
+
+--Curly Braces EReferences
+helper def: curlyBracesEReferences : Sequence(Ecore!EReferece) = Sequence{};
+
+--Brackets EReferences
+helper def: bracketsEReferences : Sequence(Ecore!EReferece) = Sequence{};
+
+--Brackets EReferences
+helper def: keyValues : Sequence(Ecore!EAttribute) = Sequence{};
+
 --Curly Braces EClass
 helper def: curlyBracesEClass : Sequence(Ecore!EClass) = Sequence{};
+
+--Curly Braces EClass
+helper def: bracketsEClass : Sequence(Ecore!EClass) = Sequence{};
 
 --Return Package Objects
 helper def: packageEObjects() : Sequence(Ecore!EPackage) = Ecore!EPackage.allInstancesFrom('ecoreM');

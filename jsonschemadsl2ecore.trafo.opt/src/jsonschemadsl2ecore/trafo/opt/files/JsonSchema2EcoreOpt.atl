@@ -275,6 +275,10 @@ rule createEAttributeSimpleScalar{
 			upperBound <- 1,
 			eType <- typeSchemaDefinition.getEDataType()
 		)
+	do {
+		if (typeSchemaDefinition.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!KeySchemaPair)) 		
+			thisModule.keywords <- thisModule.keywords->union(Sequence{eAttribute});
+	}
 }
 
 abstract rule createPropertiesContainmentAndMapDefaultAdditionalPropertiesEClass{
@@ -407,7 +411,12 @@ endpoint rule ApplyAllStereotypes() {
 	do {
 		thisModule.packageRoot().eClassifiers <- thisModule.allEClass();	
 		--Json Grammar
+		thisModule.jsonGrammarRoot().detailedGrammar.keywords <- thisModule.keywords;		
+		thisModule.jsonGrammarRoot().detailedGrammar.curlyBracesReferences <- thisModule.curlyBracesEReferences;
+		thisModule.jsonGrammarRoot().detailedGrammar.bracketsReferences <- thisModule.bracketsEReferences;
+		thisModule.jsonGrammarRoot().detailedGrammar.keyValue <- thisModule.keyValues;		
 		thisModule.jsonGrammarRoot().detailedGrammar.curlyBracesEClass <- thisModule.curlyBracesEClass;
+		thisModule.jsonGrammarRoot().detailedGrammar.bracketsEClass <- thisModule.bracketsEClass;
 	}
 }
 
