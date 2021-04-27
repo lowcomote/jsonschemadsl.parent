@@ -7,6 +7,22 @@
     <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//StageName/name"/>
     <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//SequenceName/name"/>
     <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//TaskName/name"/>
-    <curlyBracesEClass href="shipyard.ecore#//ShipyardRoot"/>
+    <curlyBracesReferences href="shipyard.ecore#//ShipyardRoot/properties"/>
+    <curlyBracesReferences href="shipyard.ecore#//Metadata/properties"/>
+    <curlyBracesReferences href="shipyard.ecore#//ShipyardSpec/properties"/>
+    <curlyBracesReferences href="shipyard.ecore#//Stage/properties"/>
+    <curlyBracesReferences href="shipyard.ecore#//Sequence/properties"/>
+    <curlyBracesReferences href="shipyard.ecore#//TaskProperties/properties"/>
+    <curlyBracesReferences href="shipyard.ecore#//Task/properties"/>
+    <curlyBracesReferences href="shipyard.ecore#//ShipyardRootMetadata/metadata"/>
+    <curlyBracesReferences href="shipyard.ecore#//ShipyardRootSpec/spec"/>
+    <curlyBracesReferences href="shipyard.ecore#//ShipyardSpecStagesItems/items"/>
+    <curlyBracesReferences href="shipyard.ecore#//StageSequencesItems/items"/>
+    <curlyBracesReferences href="shipyard.ecore#//SequenceTasksItems/items"/>
+    <bracketsReferences href="shipyard.ecore#//ShipyardSpecStages/items"/>
+    <bracketsReferences href="shipyard.ecore#//StageSequences/items"/>
+    <bracketsReferences href="shipyard.ecore#//SequenceTriggeredOn/items"/>
+    <bracketsReferences href="shipyard.ecore#//SequenceTasks/items"/>
+    <keyValue href="shipyard.ecore#//TaskPropertiesAdditionalProperties/key"/>
   </detailedGrammar>
 </jsongrammar:JsonGrammar>

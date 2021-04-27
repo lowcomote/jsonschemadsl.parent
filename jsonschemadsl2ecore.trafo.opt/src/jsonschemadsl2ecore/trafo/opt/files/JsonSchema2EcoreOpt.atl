@@ -38,11 +38,11 @@ rule mapRootOrDefinitionsObjectSchemaToEClass{
 			name<- objectSchema.buildEClassname(),
 			eStructuralFeatures <-objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
 		)
-	do {
-		if (objectSchema->refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) = true) { 
-			thisModule.curlyBracesEClass <- thisModule.curlyBracesEClass->union(Sequence{eClass});
-		}
-	}
+--	do {
+--		if (objectSchema->refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) = true) { 
+--			thisModule.curlyBracesEClass <- thisModule.curlyBracesEClass->union(Sequence{eClass});
+--		}
+--	}
 } 
 
 abstract rule mapInPropertiesSchemaToEClass{
@@ -179,6 +179,9 @@ abstract rule mapAdditionalPropertiesEClass {
 			upperBound <- 1,
 			eType <- Ecore!EString
 		)
+		do {
+			thisModule.keyValues <- thisModule.keyValues->union(Sequence{key});
+		}
 }
 
 rule mapObjectSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEClass{
@@ -198,7 +201,7 @@ rule mapObjectSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEC
 									
 									
 		),
-		key : Ecore!EAttribute
+		key : Ecore!EAttribute		
 }
 
 rule mapBooleanSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEClass{
@@ -312,6 +315,9 @@ rule createPropertiesContainment extends createPropertiesContainmentAndMapDefaul
 --			upperBound <- -1
 --			
 --		)
+		do {
+			thisModule.curlyBracesEReferences <- thisModule.curlyBracesEReferences->union(Sequence{eReference});
+		}
 }
 
 
@@ -352,6 +358,9 @@ rule mapItemsObjectSchemaToEClass extends mapItemsSchemaToEClass{
 										endif	
 									}.flatten() 
 		)
+	do {
+		thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
+	}
 }
 
 
@@ -382,8 +391,11 @@ rule mapItemsBooleanSchemaOrDefaultToEClass extends mapItemsSchemaToEClass{
 
 rule mapRefSchemaToEReference{
 	from refSchemaDefinition: JSchemaMM!RefSchemaDefinition 
-	to
-		
+	using {
+		referenceType : String = thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref)
+									.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
+								.first().findSimpleType();
+	} to		
 		eReference :Ecore!EReference ( 
 			name <- refSchemaDefinition.refImmediateComposite().getKey(),
 			eType <- thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref),
@@ -391,6 +403,13 @@ rule mapRefSchemaToEReference{
 			lowerBound <- 1,
 			upperBound <- 1			
 		)
+	do {
+		if (referenceType = #"\"object\"" ) {
+			thisModule.curlyBracesEReferences <- thisModule.curlyBracesEReferences->union(Sequence{eReference});
+		} else if (referenceType = #"\"array\"" ) {
+			thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
+		} 
+	}	
 }
 
 unique lazy rule createPropertiesEClass{
@@ -403,8 +422,7 @@ unique lazy rule createPropertiesEClass{
 		eClass : Ecore!EClass (
 			name <- name,
 			abstract<- true
-		)
-	
+		)	
 }
 
 endpoint rule ApplyAllStereotypes() {
