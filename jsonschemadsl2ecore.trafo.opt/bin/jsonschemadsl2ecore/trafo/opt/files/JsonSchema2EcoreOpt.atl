@@ -22,10 +22,7 @@ rule JsonSchemaToEPackage {
 			name <- 'Shipyard',
 			nsPrefix <- 'Shipyard',
 			nsURI <- 'http://jku.bise.at/Shipyard'
-		)
-	do{
-		thisModule.rootEPackage <- ePackage;
-	}	
+		)		
 	
 }
 
@@ -36,11 +33,6 @@ rule mapRootOrDefinitionsObjectSchemaToEClass{
 			name<- objectSchema.buildEClassname(),
 			eStructuralFeatures <-objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
 		)
-	do {
---		thisModule.rootEPackage.eClassifiers <- eClass;
---		thisModule.rootEPackage.eClassifiers <- thisModule.rootEPackage.eClassifiers->union(Sequence{eClass});
-	}		
-		
 }
 
 abstract rule mapInPropertiesSchemaToEClass{
@@ -65,10 +57,6 @@ rule mapInPropertiesObjectSchemaToEClass extends mapInPropertiesSchemaToEClass{
 									else schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)) 
 									endif
 		)
---	do {
---		thisModule.rootEPackage.eClassifiers <- Set{eClass};
---	}	
-		
 }
 
 rule mapInPropertiesBooleanSchemaToEClass extends mapInPropertiesSchemaToEClass{
@@ -89,11 +77,7 @@ rule mapInPropertiesBooleanSchemaToEClass extends mapInPropertiesSchemaToEClass{
 			lowerBound <- 1,
 			upperBound <- 1
 			
-		)
---	do {
---		thisModule.rootEPackage.eClassifiers <- Set{eClass};
---	}	
-		
+		)		
 }
 
 abstract rule mapSchemaInPatternPropertiesEClass {
@@ -320,12 +304,12 @@ rule createPropertiesContainment extends createPropertiesContainmentAndMapDefaul
 abstract rule mapItemsSchemaToEClass{
 	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (typeSchemaDefinition.findSimpleType() = #"\"array\"")
 	to
-		itemsEClass:  Ecore!EClass (
+		eClass:  Ecore!EClass (
 			name <- typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Items')
 		),
 		eReference :Ecore!EReference ( 
 			name <- 'items',
-			eType <- itemsEClass,
+			eType <- eClass,
 			containment <- true,
 			lowerBound <- 0,
 			upperBound <- -1
@@ -346,7 +330,7 @@ rule mapItemsObjectSchemaToEClass extends mapItemsSchemaToEClass{
 	}
 	to 
 		eReference :Ecore!EReference,
-		itemsEClass:  Ecore!EClass (
+		eClass:  Ecore!EClass (
 --			eStructuralFeatures <- Sequence{typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))}.flatten() 
 			eStructuralFeatures <- 	Sequence{let refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) = itemsKeywordDefinitionSequence->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!RefSchemaDefinition)) in 
 										if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
@@ -369,7 +353,7 @@ rule mapItemsBooleanSchemaOrDefaultToEClass extends mapItemsSchemaToEClass{
 	)	
 	to 
 		eReference :Ecore!EReference,
-		itemsEClass:  Ecore!EClass (
+		eClass:  Ecore!EClass (
 			eStructuralFeatures <- Sequence{itemsEReference}
 		),
 		itemsEReference:Ecore!EReference (
@@ -391,8 +375,7 @@ rule mapRefSchemaToEReference{
 			eType <- thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref),
 			containment <- true,
 			lowerBound <- 1,
-			upperBound <- 1
-			
+			upperBound <- 1			
 		)
 }
 
@@ -408,6 +391,12 @@ unique lazy rule createPropertiesEClass{
 			abstract<- true
 		)
 	
+}
+
+endpoint rule ApplyAllStereotypes() {
+	do {
+		thisModule.packageRoot().eClassifiers <- thisModule.allEClass();		
+	}
 }
 
 
