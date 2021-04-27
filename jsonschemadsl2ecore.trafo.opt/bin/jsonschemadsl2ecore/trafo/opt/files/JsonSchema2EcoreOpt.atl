@@ -51,7 +51,7 @@ abstract rule mapInPropertiesSchemaToEClass{
 	to 
 		eClass : Ecore!EClass (
 			name<- schema.buildEClassname(),
-			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+			eSuperTypes <-  Sequence{thisModule.createPropertiesEClass(propertiesEClassName)}
 		)
 }
 
@@ -196,7 +196,7 @@ rule mapObjectSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEC
 	to
 		eClass : Ecore!EClass (
 --			eStructuralFeatures <- Set{key, additionalPropertiesType}.flatten()
-			eStructuralFeatures <- Set{key,let refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) = additionalPropertiesObjectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!RefSchemaDefinition)) in
+			eStructuralFeatures <- Sequence{key,let refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) = additionalPropertiesObjectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!RefSchemaDefinition)) in
 										if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
 										else additionalPropertiesObjectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)) 
 										endif
@@ -337,23 +337,22 @@ rule mapItemsObjectSchemaToEClass extends mapItemsSchemaToEClass{
 	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (
 		typeSchemaDefinition.findSimpleType() = #"\"array\""
 		and (
-			let itemsKeywordDefinition : Sequence(JSchemaMM!ItemsSchemaDefinition) = typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)) in  
-			not itemsKeywordDefinition.isEmpty() and itemsKeywordDefinition.first().itemsAnyOf1.oclIsTypeOf(JSchemaMM!ObjectSchema)
+			let itemsKeywordDefinitionSequence : Sequence(JSchemaMM!ItemsSchemaDefinition) = typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)) in  
+			not itemsKeywordDefinitionSequence.isEmpty() and itemsKeywordDefinitionSequence.first().itemsAnyOf1.oclIsTypeOf(JSchemaMM!ObjectSchema)
 		)
 	)	
+	using {
+		itemsKeywordDefinitionSequence : Sequence(JSchemaMM!KeywordDefinition) = typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.keywordDefinition;
+	}
 	to 
---		eReference :Ecore!EReference ( 
---			name <- 'items',
---			eType <- itemsEClass,
---			containment <- true,
---			lowerBound <- 0,
---			upperBound <- -1
---			
---		),
 		eReference :Ecore!EReference,
 		itemsEClass:  Ecore!EClass (
---			name <- typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.buildEClassname(),
-			eStructuralFeatures <- Sequence{typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))}.flatten() 
+--			eStructuralFeatures <- Sequence{typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))}.flatten() 
+			eStructuralFeatures <- 	Sequence{let refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) = itemsKeywordDefinitionSequence->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!RefSchemaDefinition)) in 
+										if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
+										else itemsKeywordDefinitionSequence->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
+										endif	
+									}.flatten() 
 		)
 }
 
@@ -369,17 +368,8 @@ rule mapItemsBooleanSchemaOrDefaultToEClass extends mapItemsSchemaToEClass{
 		)	
 	)	
 	to 
---		eReference :Ecore!EReference ( 
---			name <- 'items',
---			eType <- itemsEClass,
---			containment <- true,
---			lowerBound <- 0,
---			upperBound <- -1
---			
---		),
 		eReference :Ecore!EReference,
 		itemsEClass:  Ecore!EClass (
---			name <- typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Items'),
 			eStructuralFeatures <- Sequence{itemsEReference}
 		),
 		itemsEReference:Ecore!EReference (
@@ -398,7 +388,6 @@ rule mapRefSchemaToEReference{
 		
 		eReference :Ecore!EReference ( 
 			name <- refSchemaDefinition.refImmediateComposite().getKey(),
---			eType <- findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref),
 			eType <- thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref),
 			containment <- true,
 			lowerBound <- 1,

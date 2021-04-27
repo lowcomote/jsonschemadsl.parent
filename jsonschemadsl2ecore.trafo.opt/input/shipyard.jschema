@@ -63,6 +63,10 @@
 		"wives":{
 			"type":"object",
 			"additionalProperties":{"$ref":"#/definitions/family"}
+		},
+		"extraFamilies":{
+			"type":"array",
+			"items":{"$ref":"#/definitions/family"}
 		}
 		
 		
