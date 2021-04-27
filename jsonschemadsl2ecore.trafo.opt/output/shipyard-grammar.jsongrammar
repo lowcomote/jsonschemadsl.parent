@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"/>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/shipyard">
+  <detailedGrammar>
+    <curlyBracesEClass href="shipyard.ecore#//ShipyardRoot"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>

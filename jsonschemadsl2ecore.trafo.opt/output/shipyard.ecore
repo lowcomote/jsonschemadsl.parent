@@ -1,141 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore">
-  <ecore:EPackage name="Shipyard" nsURI="http://jku.bise.at/Shipyard" nsPrefix="Shipyard">
-    <eClassifiers xsi:type="ecore:EClass" name="Root">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#/5" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Metadata">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#/6" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ShipyardSpec">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#/7" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Stage">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#/8" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Sequence">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#/9" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Task">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#/10" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RootApiVersion" eSuperTypes="#/5">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiVersion" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RootKind" eSuperTypes="#/5">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RootMetadata" eSuperTypes="#/5">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" lowerBound="1"
-          eType="#/0/Metadata" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RootSpec" eSuperTypes="#/5">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="spec" lowerBound="1"
-          eType="#/0/ShipyardSpec" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MetadataName" eSuperTypes="#/6">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ShipyardSpecStages" eSuperTypes="#/7">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-          eType="#/1" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StageName" eSuperTypes="#/8">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StageSequences" eSuperTypes="#/8">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-          eType="#/2" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SequenceName" eSuperTypes="#/9">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SequenceTriggeredOn" eSuperTypes="#/9">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-          eType="#/3" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SequenceTasks" eSuperTypes="#/9">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-          eType="#/4" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TaskName" eSuperTypes="#/10">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TaskProperties" eSuperTypes="#/10">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-          eType="#/11" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TaskPropertiesAdditionalProperties"
-        eSuperTypes="#/11">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties"
-          lowerBound="1" eType="#/12" containment="true"/>
-    </eClassifiers>
-  </ecore:EPackage>
-  <ecore:EClass name="ShipyardSpecStagesItems">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#/0/Stage"
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="shipyard" nsURI="http://jku.bise.at/shipyard" nsPrefix="shipyard">
+  <eClassifiers xsi:type="ecore:EClass" name="ShipyardRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//ShipyardRootProperties" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Metadata">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//MetadataProperties" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShipyardSpec">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//ShipyardSpecProperties" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//StageProperties" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sequence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//SequenceProperties" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//TaskProperties.1" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShipyardRootApiVersion" eSuperTypes="#//ShipyardRootProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiVersion" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShipyardRootKind" eSuperTypes="#//ShipyardRootProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShipyardRootMetadata" eSuperTypes="#//ShipyardRootProperties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" lowerBound="1"
+        eType="#//Metadata" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShipyardRootSpec" eSuperTypes="#//ShipyardRootProperties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="spec" lowerBound="1" eType="#//ShipyardSpec"
         containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="StageSequencesItems">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#/0/Sequence"
-        containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="SequenceTriggeredOnItems">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </ecore:EClass>
-  <ecore:EClass name="SequenceTasksItems">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#/0/Task"
-        containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootProperties" abstract="true"/>
-  <ecore:EClass name="MetadataProperties" abstract="true"/>
-  <ecore:EClass name="ShipyardSpecProperties" abstract="true"/>
-  <ecore:EClass name="StageProperties" abstract="true"/>
-  <ecore:EClass name="SequenceProperties" abstract="true"/>
-  <ecore:EClass name="TaskProperties" abstract="true"/>
-  <ecore:EClass name="TaskPropertiesProperties" abstract="true"/>
-  <ecore:EClass name="JsonDocument">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#/13"
-        containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="Value" abstract="true"/>
-  <ecore:EClass name="ArrayValue" eSuperTypes="#/13">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
-        eType="#/13" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="BooleanValue" eSuperTypes="#/13">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </ecore:EClass>
-  <ecore:EClass name="IntegerValue" eSuperTypes="#/13">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </ecore:EClass>
-  <ecore:EClass name="NullValue" eSuperTypes="#/13"/>
-  <ecore:EClass name="NumberValue" eSuperTypes="#/13">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </ecore:EClass>
-  <ecore:EClass name="StringValue" eSuperTypes="#/13">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </ecore:EClass>
-  <ecore:EClass name="ObjectValue" eSuperTypes="#/13">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="keyvaluepair" upperBound="-1"
-        eType="#/21" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="KeyValuePair">
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MetadataName" eSuperTypes="#//MetadataProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShipyardSpecStages" eSuperTypes="#//ShipyardSpecProperties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//ShipyardSpecStagesItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StageName" eSuperTypes="#//StageProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StageSequences" eSuperTypes="#//StageProperties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//StageSequencesItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceName" eSuperTypes="#//SequenceProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceTriggeredOn" eSuperTypes="#//SequenceProperties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//SequenceTriggeredOnItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceTasks" eSuperTypes="#//SequenceProperties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//SequenceTasksItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskName" eSuperTypes="#//TaskProperties.1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskProperties" eSuperTypes="#//TaskProperties.1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//TaskPropertiesProperties" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskPropertiesAdditionalProperties"
+      eSuperTypes="#//TaskPropertiesProperties">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#/13"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShipyardSpecStagesItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#//Stage"
         containment="true"/>
-  </ecore:EClass>
-</xmi:XMI>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StageSequencesItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#//Sequence"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceTriggeredOnItems">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceTasksItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#//Task"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ShipyardRootProperties" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MetadataProperties" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ShipyardSpecProperties" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StageProperties" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceProperties" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskProperties" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskPropertiesProperties" abstract="true"/>
+</ecore:EPackage>

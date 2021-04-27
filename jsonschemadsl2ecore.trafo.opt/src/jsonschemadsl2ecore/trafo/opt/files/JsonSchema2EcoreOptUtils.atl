@@ -2,6 +2,9 @@
 
 library JsonSchema2EcoreOptUtils;
 
+--Curly Braces EClass
+helper def: curlyBracesEClass : Sequence(Ecore!EClass) = Sequence{};
+
 --Return Package Objects
 helper def: packageEObjects() : Sequence(Ecore!EPackage) = Ecore!EPackage.allInstancesFrom('ecoreM');
 
@@ -14,6 +17,17 @@ helper def: packageRoot(): Ecore!EPackage = if (thisModule.packageEObjects().siz
 											 else
 											 	OclUndefined
 											 endif;
+
+--Return JsonGrammar Objects
+helper def: jsonGrammarObjects() : Sequence(JsonGrammarMM!JsonGrammar) = JsonGrammarMM!JsonGrammar.allInstancesFrom('jsonGrammar');
+
+--Return the root JsonGrammar Object
+helper def: jsonGrammarRoot(): JsonGrammarMM!JsonGrammar = if (thisModule.jsonGrammarObjects().size() > 0) then
+																thisModule.jsonGrammarObjects()->first()
+															 else
+															 	OclUndefined
+															 endif;
+
 
 helper def: keywordDefinitionMap : Map (String, OclAny) = ------ TODO should it be OclType????
 	Map{

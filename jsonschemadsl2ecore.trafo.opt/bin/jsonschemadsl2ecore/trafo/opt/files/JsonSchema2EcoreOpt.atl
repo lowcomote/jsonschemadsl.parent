@@ -17,12 +17,18 @@ rule JsonSchemaToEPackage {
 	from
 		jsonSchema : JSchemaMM!JsonSchema
 	to 
-		-------TODO read this info from file name
 		ePackage : Ecore!EPackage (
 			name <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
 			nsPrefix <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
 			nsURI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()
-		)		
+		),
+		jsonGrammar : JsonGrammarMM!JsonGrammar (
+			nsURI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
+			detailedGrammar <- detailedGrammar
+		), 
+		detailedGrammar : JsonGrammarMM!DetailedGrammar (
+			
+			)
 }
 
 rule mapRootOrDefinitionsObjectSchemaToEClass{
@@ -32,7 +38,12 @@ rule mapRootOrDefinitionsObjectSchemaToEClass{
 			name<- objectSchema.buildEClassname(),
 			eStructuralFeatures <-objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
 		)
-}
+	do {
+		if (objectSchema->refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) = true) { 
+			thisModule.curlyBracesEClass <- thisModule.curlyBracesEClass->union(Sequence{eClass});
+		}
+	}
+} 
 
 abstract rule mapInPropertiesSchemaToEClass{
 	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInProperties())
@@ -394,7 +405,9 @@ unique lazy rule createPropertiesEClass{
 
 endpoint rule ApplyAllStereotypes() {
 	do {
-		thisModule.packageRoot().eClassifiers <- thisModule.allEClass();		
+		thisModule.packageRoot().eClassifiers <- thisModule.allEClass();	
+		--Json Grammar
+		thisModule.jsonGrammarRoot().detailedGrammar.curlyBracesEClass <- thisModule.curlyBracesEClass;
 	}
 }
 

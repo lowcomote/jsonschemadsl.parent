@@ -40,7 +40,7 @@ public class JsonSchemaToEcoreUtils {
 		exec.loadMetaModels(JSON_GRAMMAR_META_MODEL, JsongrammarPackage.eINSTANCE.getNsURI());
 		exec.loadModels(IN_JSON_SCHEMA_MODEL, jsonSchemaModelUri, ModelKind.IN);
 		exec.loadModels(OUT_ECORE_MM, ecoreModelUri, ModelKind.INOUT);
-		exec.loadModels(OUT_JSON_GRAMMAR, grammarModelUri, ModelKind.OUT);	
+		exec.loadModels(OUT_JSON_GRAMMAR, grammarModelUri, ModelKind.INOUT);	
 		return exec;
 	}
 }
