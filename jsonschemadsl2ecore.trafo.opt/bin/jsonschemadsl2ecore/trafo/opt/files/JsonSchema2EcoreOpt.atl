@@ -190,23 +190,21 @@ abstract rule mapAdditionalPropertiesEClass {
 rule mapObjectSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEClass{
 	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition (additionalPropertiesSchemaDefinition.additionalProperties.oclIsTypeOf(JSchemaMM!ObjectSchema))
 	using {
---		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.additionalProperties.buildEClassname();
-		additionalPropertiesType : JSchemaMM!TypeSchemaDefinition = additionalPropertiesSchemaDefinition.additionalProperties.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
---		propertiesEClassName : String = 	additionalPropertiesSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties');
+--		additionalPropertiesType : JSchemaMM!TypeSchemaDefinition = additionalPropertiesSchemaDefinition.additionalProperties.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
+		additionalPropertiesObjectSchema : JSchemaMM!ObjectSchema = additionalPropertiesSchemaDefinition.additionalProperties;
 	}
 	to
 		eClass : Ecore!EClass (
---		 	name <-	additionalPropertiesName,
-			eStructuralFeatures <- Set{key, additionalPropertiesType}.flatten()--,
---			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+--			eStructuralFeatures <- Set{key, additionalPropertiesType}.flatten()
+			eStructuralFeatures <- Set{key,let refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) = additionalPropertiesObjectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!RefSchemaDefinition)) in
+										if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
+										else additionalPropertiesObjectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)) 
+										endif
+									}.flatten() 
+									
+									
 		),
 		key : Ecore!EAttribute
---		key : Ecore!EAttribute(
---			name<-'key',
---			lowerBound <-1,
---			upperBound <- 1,
---			eType <- Ecore!EString
---		)
 }
 
 rule mapBooleanSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEClass{

@@ -59,7 +59,13 @@
 		},
 		"myFamily":{
 			"$ref":"#/definitions/family"
+		},
+		"wives":{
+			"type":"object",
+			"additionalProperties":{"$ref":"#/definitions/family"}
 		}
+		
+		
 		
 	},
 	"additionalProperties":{"type": "integer"},
