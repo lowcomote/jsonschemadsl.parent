@@ -9,6 +9,10 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.emf.common.util.URI
 import jsonschemadsl2ecore.trafo.opt.utils.JsonSchemaToEcoreUtils
+import org.eclipse.core.runtime.Path
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.resources.IFile
+import org.eclipse.core.runtime.NullProgressMonitor
 
 /**
  * Generates code from your model files on save.
@@ -29,7 +33,10 @@ class JsonSchemaDslGenerator extends AbstractGenerator {
 					
 		var URI traceResourceURI = fsa.getURI('/').trimSegments(1).appendSegment('model')
 					.appendSegment(resource.URI.trimFileExtension.lastSegment + '.xmi');
-		
+		removeFilesIfExist(resourceURI);
+		removeFilesIfExist(resourceOptURI);
+		removeFilesIfExist(grammarResourceURI);
+		removeFilesIfExist(traceResourceURI);
 		// Not optimized Ecore
 		new SchemaToEcoreGenerator(resource.URI.toString, resourceURI.toString).generateJsonSchema	
 		
@@ -37,4 +44,10 @@ class JsonSchemaDslGenerator extends AbstractGenerator {
 		JsonSchemaToEcoreUtils.performTrafoEMFTVMJsonSchemaToEcore(resource.URI.toString, 
 			resourceOptURI.toString, grammarResourceURI.toString, traceResourceURI.toString);	
 	}
+	
+	def removeFilesIfExist(URI uri) {
+		val IFile file = ResourcesPlugin.workspace.root.getFile(new Path(uri.toPlatformString(true)));
+		file.delete(true, new NullProgressMonitor);
+	}
+	
 }
