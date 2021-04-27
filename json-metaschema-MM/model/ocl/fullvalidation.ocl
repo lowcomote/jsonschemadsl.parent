@@ -15,9 +15,9 @@ if value <0 then null else true endif
 -- trafo validation
 
 
-context ObjectSchema
-inv RefAlone ('The $ref keyword, when present, must be the only keyword in a schema'):
-if keywordDefinition->exists(k | k.oclIsTypeOf(RefSchemaDefinition)) and keywordDefinition->size()>1 then null else true endif
+--context ObjectSchema
+--inv RefAlone ('The $ref keyword, when present, must be the only keyword in a schema'):
+--if keywordDefinition->exists(k | k.oclIsTypeOf(RefSchemaDefinition)) and keywordDefinition->size()>1 then null else true endif
 
 context ObjectSchema
 inv RepeatedKeywords ('Keywords can not be repeated at the same nested level'):
