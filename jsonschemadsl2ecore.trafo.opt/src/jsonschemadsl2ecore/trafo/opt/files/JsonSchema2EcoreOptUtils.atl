@@ -42,7 +42,8 @@ helper def : simpleTypeMapping : Map(String, Ecore!EDataType) =
 	};
 
 
-	
+helper def: getRootName() : String = 
+	thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension().lastSegment();
 
 helper def: retrieveRootSchema() : JSchemaMM!Schema=
 	JSchemaMM!JsonSchema.allInstancesFrom('jschema').first().schema;	
@@ -130,7 +131,7 @@ helper context JSchemaMM!Schema  def : isKeySchemaPairInPatternProperties() : Bo
 	 
 helper context JSchemaMM!Schema def: getKey() : String=
 let parent : OclAny = self.refImmediateComposite() in
-if parent.oclIsTypeOf(JSchemaMM!JsonSchema) then 'root'
+if parent.oclIsTypeOf(JSchemaMM!JsonSchema) then thisModule.getRootName() + 'Root'  
 else
 	if parent.oclIsTypeOf(JSchemaMM!KeySchemaPair) then 
 		if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition) then 'patternProperties'.concat(parent.refImmediateComposite().keySchemaPairs.indexOf(parent).toString())
