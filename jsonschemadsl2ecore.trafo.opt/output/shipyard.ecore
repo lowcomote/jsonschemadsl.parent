@@ -4,204 +4,131 @@
   <ecore:EPackage name="Shipyard" nsURI="http://jku.bise.at/Shipyard" nsPrefix="Shipyard"/>
   <ecore:EClass name="Root">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#/43" containment="true"/>
+        eType="#/25" containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="Family">
+  <ecore:EClass name="Metadata">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#/57" containment="true"/>
+        eType="#/26" containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="Pippo">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pippo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <ecore:EClass name="ShipyardSpec">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#/27" containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="FamilyAdditionalPropertiesMembername" eSuperTypes="#/42">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="membername" lowerBound="1"
+  <ecore:EClass name="Stage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#/28" containment="true"/>
+  </ecore:EClass>
+  <ecore:EClass name="Sequence">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#/29" containment="true"/>
+  </ecore:EClass>
+  <ecore:EClass name="Task">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#/30" containment="true"/>
+  </ecore:EClass>
+  <ecore:EClass name="RootApiVersion" eSuperTypes="#/25">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiVersion" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </ecore:EClass>
-  <ecore:EClass name="FamilyAdditionalPropertiesRelativekind" eSuperTypes="#/42">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativekind" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <ecore:EClass name="RootKind" eSuperTypes="#/25">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </ecore:EClass>
-  <ecore:EClass name="RootName" eSuperTypes="#/43">
+  <ecore:EClass name="RootMetadata" eSuperTypes="#/25">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" lowerBound="1"
+        eType="#/2" containment="true"/>
+  </ecore:EClass>
+  <ecore:EClass name="RootSpec" eSuperTypes="#/25">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="spec" lowerBound="1" eType="#/3"
+        containment="true"/>
+  </ecore:EClass>
+  <ecore:EClass name="MetadataName" eSuperTypes="#/26">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </ecore:EClass>
-  <ecore:EClass name="RootSurname" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootAge" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootAdult" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adult" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootScore" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="score" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootJob" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#/44" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootJobRole" eSuperTypes="#/44">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootJobLevel" eSuperTypes="#/44">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootCar" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#/45" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootCarLicencePlate" eSuperTypes="#/45">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="licencePlate" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootCarYear" eSuperTypes="#/45">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootChildrenNames" eSuperTypes="#/43">
+  <ecore:EClass name="ShipyardSpecStages" eSuperTypes="#/27">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#/35" containment="true"/>
+        eType="#/21" containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="RootSequentialInfo" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#/38" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootSequentialInfo2" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#/39" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootGrandParents" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#/36" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootGrandParentsItemsName" eSuperTypes="#/46">
+  <ecore:EClass name="StageName" eSuperTypes="#/28">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </ecore:EClass>
-  <ecore:EClass name="RootGrandParentsItemsSurname" eSuperTypes="#/46">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootMyFamily" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="myFamily" lowerBound="1"
-        eType="#/2" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootWives" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#/58" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootExtraFamilies" eSuperTypes="#/43">
+  <ecore:EClass name="StageSequences" eSuperTypes="#/28">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#/37" containment="true"/>
+        eType="#/22" containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="RootOtherInfo" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="otherInfo" lowerBound="1"
-        eType="#/47" containment="true"/>
+  <ecore:EClass name="SequenceName" eSuperTypes="#/29">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </ecore:EClass>
-  <ecore:EClass name="RootPatternProperties0" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternProperties0" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <ecore:EClass name="SequenceTriggeredOn" eSuperTypes="#/29">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#/23" containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="RootPatternProperties1" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternProperties1" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <ecore:EClass name="SequenceTasks" eSuperTypes="#/29">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#/24" containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="RootPatternProperties3" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="patternProperties3" lowerBound="1"
-        eType="#/2" containment="true"/>
+  <ecore:EClass name="TaskName" eSuperTypes="#/30">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </ecore:EClass>
-  <ecore:EClass name="RootPatternProperties2" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="patternProperties2" lowerBound="1"
-        eType="#/47" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="FamilyAdditionalProperties" eSuperTypes="#/57">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <ecore:EClass name="TaskProperties" eSuperTypes="#/30">
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#/42" containment="true"/>
+        eType="#/31" containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="RootWivesAdditionalProperties" eSuperTypes="#/58">
+  <ecore:EClass name="TaskPropertiesAdditionalProperties" eSuperTypes="#/31">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
-        eType="#/2" containment="true"/>
+        eType="#/32" containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="RootAdditionalProperties" eSuperTypes="#/43">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalProperties" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <ecore:EClass name="ShipyardSpecStagesItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#/4"
+        containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="FamilyAdditionalPropertiesAdditionalProperties" eSuperTypes="#/42">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
-        eType="#/47" containment="true"/>
+  <ecore:EClass name="StageSequencesItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#/5"
+        containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="RootChildrenNamesItems">
+  <ecore:EClass name="SequenceTriggeredOnItems">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </ecore:EClass>
-  <ecore:EClass name="RootGrandParentsItems">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#/46" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootExtraFamiliesItems">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#/2"
+  <ecore:EClass name="SequenceTasksItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#/6"
         containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="RootSequentialInfoItems">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#/47"
-        containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootSequentialInfo2Items">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#/47"
-        containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootCarAdditionalProperties" eSuperTypes="#/45">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
-        eType="#/47" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="RootGrandParentsItemsAdditionalProperties" eSuperTypes="#/46">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
-        eType="#/47" containment="true"/>
-  </ecore:EClass>
-  <ecore:EClass name="FamilyAdditionalPropertiesProperties" abstract="true"/>
   <ecore:EClass name="RootProperties" abstract="true"/>
-  <ecore:EClass name="RootJobProperties" abstract="true"/>
-  <ecore:EClass name="RootCarProperties" abstract="true"/>
-  <ecore:EClass name="RootGrandParentsItemsProperties" abstract="true"/>
+  <ecore:EClass name="MetadataProperties" abstract="true"/>
+  <ecore:EClass name="ShipyardSpecProperties" abstract="true"/>
+  <ecore:EClass name="StageProperties" abstract="true"/>
+  <ecore:EClass name="SequenceProperties" abstract="true"/>
+  <ecore:EClass name="TaskProperties" abstract="true"/>
+  <ecore:EClass name="TaskPropertiesProperties" abstract="true"/>
   <ecore:EClass name="JsonDocument">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#/48"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#/33"
         containment="true"/>
   </ecore:EClass>
   <ecore:EClass name="Value" abstract="true"/>
-  <ecore:EClass name="ArrayValue" eSuperTypes="#/48">
+  <ecore:EClass name="ArrayValue" eSuperTypes="#/33">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
-        eType="#/48" containment="true"/>
+        eType="#/33" containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="BooleanValue" eSuperTypes="#/48">
+  <ecore:EClass name="BooleanValue" eSuperTypes="#/33">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </ecore:EClass>
-  <ecore:EClass name="IntegerValue" eSuperTypes="#/48">
+  <ecore:EClass name="IntegerValue" eSuperTypes="#/33">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </ecore:EClass>
-  <ecore:EClass name="NullValue" eSuperTypes="#/48"/>
-  <ecore:EClass name="NumberValue" eSuperTypes="#/48">
+  <ecore:EClass name="NullValue" eSuperTypes="#/33"/>
+  <ecore:EClass name="NumberValue" eSuperTypes="#/33">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </ecore:EClass>
-  <ecore:EClass name="StringValue" eSuperTypes="#/48">
+  <ecore:EClass name="StringValue" eSuperTypes="#/33">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </ecore:EClass>
-  <ecore:EClass name="ObjectValue" eSuperTypes="#/48">
+  <ecore:EClass name="ObjectValue" eSuperTypes="#/33">
     <eStructuralFeatures xsi:type="ecore:EReference" name="keyvaluepair" upperBound="-1"
-        eType="#/56" containment="true"/>
+        eType="#/41" containment="true"/>
   </ecore:EClass>
   <ecore:EClass name="KeyValuePair">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#/48"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#/33"
         containment="true"/>
   </ecore:EClass>
-  <ecore:EClass name="FamilyProperties" abstract="true"/>
-  <ecore:EClass name="RootWivesProperties" abstract="true"/>
 </xmi:XMI>
