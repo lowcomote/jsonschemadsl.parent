@@ -9,10 +9,10 @@ helper def: keywords : Sequence(Ecore!EStructuralFeature) = Sequence{};
 helper def: curlyBracesEReferences : Sequence(Ecore!EReferece) = Sequence{};
 
 --Brackets EReferences
-helper def: bracketsEReferences : Sequence(Ecore!EReferece) = Sequence{};
+helper def: bracketsEReferences : Sequence(Ecore!EReferece) = Sequence{JSchemaMM!ArrayValue.getEStructuralFeature('value')};
 
 --Brackets EReferences
-helper def: keyValues : Sequence(Ecore!EAttribute) = Sequence{};
+helper def: keyValues : Sequence(Ecore!EAttribute) = Sequence{JSchemaMM!KeyValuePair.getEStructuralFeature('key')};
 
 --Curly Braces EClass
 helper def: curlyBracesEClass : Sequence(Ecore!EClass) = Sequence{};

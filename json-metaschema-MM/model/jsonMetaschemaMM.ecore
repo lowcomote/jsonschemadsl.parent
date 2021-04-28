@@ -81,7 +81,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="maxProperties" lowerBound="1"
         eType="#//NonNegativeInteger" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NullValue" eSuperTypes="#//Value"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NullValue" eSuperTypes="#//Value">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="#//NullEnum"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MinimumSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimum" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
@@ -90,7 +92,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JsonDocument">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Value"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MaxItemsSchemaDefinition" eSuperTypes="#//KeywordDefinition">
@@ -161,7 +163,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KeyValuePair">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Value"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SimpleTypes">
@@ -290,4 +292,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SchemaObjectDependenciesAdditionalPropertiesAnyOf"
       abstract="true"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="NullEnum">
+    <eLiterals name="null"/>
+  </eClassifiers>
 </ecore:EPackage>

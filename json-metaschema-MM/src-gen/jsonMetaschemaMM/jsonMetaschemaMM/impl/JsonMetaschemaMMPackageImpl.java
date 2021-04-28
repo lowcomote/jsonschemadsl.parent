@@ -47,6 +47,7 @@ import jsonMetaschemaMM.jsonMetaschemaMM.MultipleOfSchemaDefinition;
 import jsonMetaschemaMM.jsonMetaschemaMM.NonNegativeInteger;
 import jsonMetaschemaMM.jsonMetaschemaMM.NonNegativeIntegerDefault0;
 import jsonMetaschemaMM.jsonMetaschemaMM.NotSchemaDefinition;
+import jsonMetaschemaMM.jsonMetaschemaMM.NullEnum;
 import jsonMetaschemaMM.jsonMetaschemaMM.NullValue;
 import jsonMetaschemaMM.jsonMetaschemaMM.NumberValue;
 import jsonMetaschemaMM.jsonMetaschemaMM.ObjectSchema;
@@ -613,6 +614,13 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	private EEnum simpleTypesEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum nullEnumEEnum = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -1052,6 +1060,15 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 */
 	public EClass getNullValue() {
 		return nullValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNullValue_Value() {
+		return (EAttribute) nullValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2004,6 +2021,15 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getNullEnum() {
+		return nullEnumEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public JsonMetaschemaMMFactory getJsonMetaschemaMMFactory() {
 		return (JsonMetaschemaMMFactory) getEFactoryInstance();
 	}
@@ -2090,6 +2116,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		createEReference(maxPropertiesSchemaDefinitionEClass, MAX_PROPERTIES_SCHEMA_DEFINITION__MAX_PROPERTIES);
 
 		nullValueEClass = createEClass(NULL_VALUE);
+		createEAttribute(nullValueEClass, NULL_VALUE__VALUE);
 
 		minimumSchemaDefinitionEClass = createEClass(MINIMUM_SCHEMA_DEFINITION);
 		createEAttribute(minimumSchemaDefinitionEClass, MINIMUM_SCHEMA_DEFINITION__MINIMUM);
@@ -2263,6 +2290,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		// Create enums
 		simpleTypesEEnum = createEEnum(SIMPLE_TYPES);
+		nullEnumEEnum = createEEnum(NULL_ENUM);
 	}
 
 	/**
@@ -2480,6 +2508,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(nullValueEClass, NullValue.class, "NullValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNullValue_Value(), this.getNullEnum(), "value", null, 1, 1, NullValue.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(minimumSchemaDefinitionEClass, MinimumSchemaDefinition.class, "MinimumSchemaDefinition",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2494,7 +2524,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(jsonDocumentEClass, JsonDocument.class, "JsonDocument", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJsonDocument_Value(), this.getValue(), null, "value", null, 0, 1, JsonDocument.class,
+		initEReference(getJsonDocument_Value(), this.getValue(), null, "value", null, 1, 1, JsonDocument.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2603,7 +2633,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKeyValuePair_Key(), ecorePackage.getEString(), "key", null, 0, 1, KeyValuePair.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getKeyValuePair_Value(), this.getValue(), null, "value", null, 0, 1, KeyValuePair.class,
+		initEReference(getKeyValuePair_Value(), this.getValue(), null, "value", null, 1, 1, KeyValuePair.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2804,6 +2834,9 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		addEEnumLiteral(simpleTypesEEnum, SimpleTypes.NUMBER);
 		addEEnumLiteral(simpleTypesEEnum, SimpleTypes.OBJECT);
 		addEEnumLiteral(simpleTypesEEnum, SimpleTypes.STRING);
+
+		initEEnum(nullEnumEEnum, NullEnum.class, "NullEnum");
+		addEEnumLiteral(nullEnumEEnum, NullEnum.NULL);
 
 		// Create resource
 		createResource(eNS_URI);

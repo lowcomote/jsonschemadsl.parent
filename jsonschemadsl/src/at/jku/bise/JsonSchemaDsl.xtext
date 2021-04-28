@@ -721,7 +721,7 @@ BooleanValue returns BooleanValue:
 
 NullValue returns NullValue:
 	{NullValue}
-	'null'
+	value=NullEnum
 ;
 //	{NullValue}
 //	'NullValue'
@@ -813,6 +813,10 @@ NonNegativeInteger returns NonNegativeInteger:
 	value=EINT
 ;
 
+
+enum NullEnum returns NullEnum:
+	null = 'null'
+;
 
 enum SimpleTypes returns SimpleTypes:
 	array = '"array"' | boolean = '"boolean"' | integer = '"integer"' | null = '"null"' | number = '"number"' | object = '"object"' | string = '"string"'

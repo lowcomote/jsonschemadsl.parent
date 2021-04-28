@@ -208,6 +208,8 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 		switch (eDataType.getClassifierID()) {
 		case JsonMetaschemaMMPackage.SIMPLE_TYPES:
 			return createSimpleTypesFromString(eDataType, initialValue);
+		case JsonMetaschemaMMPackage.NULL_ENUM:
+			return createNullEnumFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -223,6 +225,8 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 		switch (eDataType.getClassifierID()) {
 		case JsonMetaschemaMMPackage.SIMPLE_TYPES:
 			return convertSimpleTypesToString(eDataType, instanceValue);
+		case JsonMetaschemaMMPackage.NULL_ENUM:
+			return convertNullEnumToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -927,6 +931,28 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * @generated
 	 */
 	public String convertSimpleTypesToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NullEnum createNullEnumFromString(EDataType eDataType, String initialValue) {
+		NullEnum result = NullEnum.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertNullEnumToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

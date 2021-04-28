@@ -51,7 +51,7 @@ public interface KeyValuePair extends EObject {
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(Value)
 	 * @see jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage#getKeyValuePair_Value()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Value getValue();

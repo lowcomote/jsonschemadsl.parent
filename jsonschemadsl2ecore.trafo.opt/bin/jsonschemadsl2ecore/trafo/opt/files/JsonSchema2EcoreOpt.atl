@@ -425,7 +425,7 @@ unique lazy rule createPropertiesEClass{
 		)	
 }
 
-endpoint rule ApplyAllStereotypes() {
+endpoint rule CompletEPackageAndJsonGrammar() {
 	do {
 		thisModule.packageRoot().eClassifiers <- thisModule.allEClass();	
 		--Json Grammar

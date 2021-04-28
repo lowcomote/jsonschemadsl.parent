@@ -19,6 +19,9 @@
       <genEnumLiterals ecoreEnumLiteral="jsonMetaschemaMM.ecore#//SimpleTypes/object"/>
       <genEnumLiterals ecoreEnumLiteral="jsonMetaschemaMM.ecore#//SimpleTypes/string"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jsonMetaschemaMM.ecore#//NullEnum">
+      <genEnumLiterals ecoreEnumLiteral="jsonMetaschemaMM.ecore#//NullEnum/null"/>
+    </genEnums>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ObjectSchema">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/keywordDefinition"/>
     </genClasses>
@@ -80,7 +83,9 @@
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MaxPropertiesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//MaxPropertiesSchemaDefinition/maxProperties"/>
     </genClasses>
-    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//NullValue"/>
+    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//NullValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//NullValue/value"/>
+    </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MinimumSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//MinimumSchemaDefinition/minimum"/>
     </genClasses>

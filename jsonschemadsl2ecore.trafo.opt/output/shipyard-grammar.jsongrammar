@@ -23,6 +23,7 @@
     <bracketsReferences href="shipyard.ecore#//StageSequences/items"/>
     <bracketsReferences href="shipyard.ecore#//SequenceTriggeredOn/items"/>
     <bracketsReferences href="shipyard.ecore#//SequenceTasks/items"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
     <keyValue href="shipyard.ecore#//TaskPropertiesAdditionalProperties/key"/>
   </detailedGrammar>
 </jsongrammar:JsonGrammar>

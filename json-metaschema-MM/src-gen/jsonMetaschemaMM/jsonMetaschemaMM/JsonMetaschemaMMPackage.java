@@ -901,13 +901,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int NULL_VALUE = 20;
 
 	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_VALUE__VALUE = VALUE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Null Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+	int NULL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Null Value</em>' class.
@@ -2778,6 +2787,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int SIMPLE_TYPES = 73;
 
 	/**
+	 * The meta object id for the '{@link jsonMetaschemaMM.jsonMetaschemaMM.NullEnum <em>Null Enum</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.NullEnum
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getNullEnum()
+	 * @generated
+	 */
+	int NULL_ENUM = 74;
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.jsonMetaschemaMM.ObjectSchema <em>Object Schema</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3217,6 +3236,17 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNullValue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jsonMetaschemaMM.jsonMetaschemaMM.NullValue#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.NullValue#getValue()
+	 * @see #getNullValue()
+	 * @generated
+	 */
+	EAttribute getNullValue_Value();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.jsonMetaschemaMM.MinimumSchemaDefinition <em>Minimum Schema Definition</em>}'.
@@ -4321,6 +4351,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EEnum getSimpleTypes();
 
 	/**
+	 * Returns the meta object for enum '{@link jsonMetaschemaMM.jsonMetaschemaMM.NullEnum <em>Null Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Null Enum</em>'.
+	 * @see jsonMetaschemaMM.jsonMetaschemaMM.NullEnum
+	 * @generated
+	 */
+	EEnum getNullEnum();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4723,6 +4763,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NULL_VALUE = eINSTANCE.getNullValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NULL_VALUE__VALUE = eINSTANCE.getNullValue_Value();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.jsonMetaschemaMM.impl.MinimumSchemaDefinitionImpl <em>Minimum Schema Definition</em>}' class.
@@ -5688,6 +5736,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SIMPLE_TYPES = eINSTANCE.getSimpleTypes();
+
+		/**
+		 * The meta object literal for the '{@link jsonMetaschemaMM.jsonMetaschemaMM.NullEnum <em>Null Enum</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jsonMetaschemaMM.jsonMetaschemaMM.NullEnum
+		 * @see jsonMetaschemaMM.jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getNullEnum()
+		 * @generated
+		 */
+		EEnum NULL_ENUM = eINSTANCE.getNullEnum();
 
 	}
 
