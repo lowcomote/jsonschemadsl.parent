@@ -420,7 +420,7 @@ unique lazy rule createPropertiesEClass{
 --	}
 	to
 		eClass : Ecore!EClass (
-			name <- name,
+			name <- name.concat('Abstract'),
 			abstract<- true
 		)	
 }
@@ -435,8 +435,36 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		thisModule.jsonGrammarRoot().detailedGrammar.keyValue <- thisModule.keyValues;		
 		thisModule.jsonGrammarRoot().detailedGrammar.curlyBracesEClass <- thisModule.curlyBracesEClass;
 		thisModule.jsonGrammarRoot().detailedGrammar.bracketsEClass <- thisModule.bracketsEClass;
+		
+--		thisModule.repeatedEClassName();
 	}
 }
+
+--helper def: eclassEObjects() : Sequence(Ecore!EClass) = Ecore!EClass.allInstancesFrom('ecoreM');
+--
+----helper def: repeatedEClassName() : Sequence(Ecore!EClass) = 
+--helper def: repeatedEClassName() : Integer = 	
+--	thisModule.eclassEObjects()->debug('eclass')->iterate(eClass ; cont: Integer = 0 |
+--		if thisModule.eclassEObjects()->select(eClass2|eClass2.name=eClass.name).size()->debug('size')>1 then eClass.name  = eClass.name.concat(cont.toString())
+--		else OclUndefined endif
+--	)	;
+--		let selection : Sequence(Ecore!EClass) = thisModule.eclassEObjects().select(sameNameEClass|sameNameEClass.name=eClass.name) in
+--	   	if selection.size()>0 then  selection.iterate(repeatedEClass; )
+-- 	)
+--	thisModule.eclassEObjects().iterate(currentEClass; map: Map(String, Sequence(Ecore!EClass)) = Map{} |
+--		if map.get(currentEClass.name)  = OclUndefined then map<-map.including(currentEClass.name, Sequence{currentEClass})
+--		else map.get(currentEClass.name)<-includingAll (Sequence{currentEClass})
+--		endif
+--	).
+--    thisModule.eclassEObjects()->collect(eClass | thisModule.eclassEObjects().mappedBy(eClass2|eClass=eClass2)
+--    	.forAll(map | body)
+--	body
+
+	-- let repeated : Sequence(Ecore!EClass) = Sequence{}in
+
+--	thisModule.eclassEObjects()->iterate(iterator; repeated : Sequence(Ecore!EClass) = Sequence{} |
+--	if map.get(iterator) = OclUndefined then map<-map.including(iterator, 0)
+--	else 
 
  
 
