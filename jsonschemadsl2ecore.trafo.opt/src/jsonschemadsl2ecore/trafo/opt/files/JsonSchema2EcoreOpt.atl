@@ -306,15 +306,7 @@ rule createPropertiesContainment extends createPropertiesContainmentAndMapDefaul
 	)	
 	to 
 		eReference :Ecore!EReference 
---		( 
---			name <- 'properties',
---			eType <- thisModule.createPropertiesEClass(typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties')),
-----			eType <- thisModule.createPropertiesEClass(typeSchemaDefinition),
---			containment <- true,
---			lowerBound <- 0,
---			upperBound <- -1
---			
---		)
+
 		do {
 			thisModule.curlyBracesEReferences <- thisModule.curlyBracesEReferences->union(Sequence{eReference});
 		}
@@ -328,7 +320,8 @@ abstract rule mapItemsSchemaToEClass{
 			name <- typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Items')
 		),
 		eReference :Ecore!EReference ( 
-			name <- 'items',
+--			name <- 'items',
+			name <- typeSchemaDefinition.refImmediateComposite().getKey(),
 			eType <- eClass,
 			containment <- true,
 			lowerBound <- 0,
