@@ -39,28 +39,35 @@ rule JsonSchemaToEPackage {
 		importCS : CompleteOclMM!ImportCS(
 --			ownedPathName <-thisModule.temp2(jsonSchema)
 			ownedPathName <- pathNameCS
+--			pivot <- package
+--			pivot <- importedPackage--,
+--			referredNamespace <-importedPackage
 		),
 		pathNameCS : CompleteOclMM!PathNameCS(
 --			ownedPathElements <- Sequence{pathElementCS}
+--			referredElement <- importedPackage,
 			ownedPathElements <- Sequence{pathElementWithURICS}
 --			ownedPathElements <- Sequence{pathElementCS}
 		),
 		pathElementWithURICS : CompleteOclMM!PathElementWithURICS(
-			referredElement <- package
---			referredElement <- importedPackage
+--			referredElement <- package
+			uri <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
+			referredElement <- importedPackage,
+			owningPathName <-pathNameCS
 		),
 
 		package : CompleteOclMM!Package(
 --		package : Ecore!EPackage(
 			name<-'myPackage',
---			importedPackages <- Sequence{importedPackage}
-			ownedPackages <- Sequence{importedPackage}
+			importedPackages <- Sequence{importedPackage}
+--			ownedPackages <- Sequence{importedPackage}
 --			nsPrefix <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
 --			URI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()
 			),
 		importedPackage :	CompleteOclMM!Package(
 			name <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
-			URI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()
+			URI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()--,
+--			owningPackage<-package
 		)	
 			
 		
