@@ -1,0 +1,10 @@
+-- import an existing library to be extended
+import 'http://www.eclipse.org/ocl/2015/Library';
+
+-- import an extension library re-using the imported library nsURI
+library lib : lib = 'http://www.eclipse.org/ocl/2015/Library' {
+    type String : PrimitiveType {
+    	-- define an additional operation accessed by my.strings.ExtraOperation.INSTANCE.evaluate
+    	operation extraOperation(elem : Boolean) : Boolean => 'my.strings.ExtraOperation';
+    }
+}

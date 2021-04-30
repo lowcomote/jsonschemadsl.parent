@@ -2,9 +2,11 @@
 -- @nsURI JSchemaMM=http://at.jku.bise/jsonMetaschemaMM
 -- @nsURI Ecore=http://www.eclipse.org/emf/2002/Ecore
 -- @nsURI JsonGrammarMM=http://at.jku.bise/jsongrammar/1.0
+-- @nsURI CompleteOclMM=http://www.eclipse.org/ocl/2015/CompleteOCLCS
+
 
 module JsonSchema2EcoreOpt;
-create ecoreM : Ecore, jsonGrammar : JsonGrammarMM from jschema : JSchemaMM;
+create ecoreM : Ecore, jsonGrammar : JsonGrammarMM, oclM : CompleteOclMM from jschema : JSchemaMM;
 
 
 uses JsonSchema2EcoreOptUtils;
@@ -26,10 +28,70 @@ rule JsonSchemaToEPackage {
 			nsURI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
 			detailedGrammar <- detailedGrammar
 		), 
-		detailedGrammar : JsonGrammarMM!DetailedGrammar (
+		detailedGrammar : JsonGrammarMM!DetailedGrammar (),
+		---------- OCL initialization
+		completeOCL: CompleteOclMM!CompleteOCLDocumentCS(
+--			ownedContexts <- Sequence{},
+--			ownedPackages <- Sequence{},
+--			ownedImports <- Sequence{thisModule.temp(jsonSchema)}
+			ownedImports <- Sequence{importCS}
+		),
+		importCS : CompleteOclMM!ImportCS(
+--			ownedPathName <-thisModule.temp2(jsonSchema)
+			ownedPathName <- pathNameCS
+		),
+		pathNameCS : CompleteOclMM!PathNameCS(
+--			ownedPathElements <- Sequence{pathElementCS}
+			ownedPathElements <- Sequence{pathElementWithURICS}
+--			ownedPathElements <- Sequence{pathElementCS}
+		),
+		pathElementWithURICS : CompleteOclMM!PathElementWithURICS(
+			referredElement <- package
+--			referredElement <- importedPackage
+		),
+
+		package : CompleteOclMM!Package(
+--		package : Ecore!EPackage(
+			name<-'myPackage',
+--			importedPackages <- Sequence{importedPackage}
+			ownedPackages <- Sequence{importedPackage}
+--			nsPrefix <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
+--			URI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()
+			),
+		importedPackage :	CompleteOclMM!Package(
+			name <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
+			URI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()
+		)	
 			
-			)
+		
+		
+--		pathElementCS: CompleteOclMM!PathElementCS(
+--			owningPathName <- pathNameCS
+--		),
+--		pathElementCS: CompleteOclMM!PathElementCS(
+--			owningPathName <- pathNameCS,
+--			referredElement <- pathNameCS
+--		)
+
 }
+
+unique lazy rule temp {
+	from
+		jsonSchema : JSchemaMM!JsonSchema
+	to 
+		importCS : CompleteOclMM!ImportCS(
+			ownedPathName <-thisModule.temp2(jsonSchema)
+		)
+}
+
+--unique lazy rule temp2 {
+--	from
+--		jsonSchema : JSchemaMM!JsonSchema
+--	to 
+--		pathNameCS : CompleteOclMM!PathNameCS(
+--			ownedPathElements-- TODO
+--		)
+--}
 
 rule mapRootOrDefinitionsObjectSchemaToEClass{
 	from objectSchema :JSchemaMM!ObjectSchema (objectSchema.isRootOrDefinitionOrSchemaObjectAdditionalProperties())
@@ -283,23 +345,7 @@ rule mapDefaultAdditionalPropertiesEClass  extends createPropertiesContainmentAn
 		)
 }
 
--------TODO move to the bottom
-rule createEAttributeSimpleScalar{
-	from 
-		typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (not typeSchemaDefinition.getEDataType().oclIsUndefined())	
-	to 
-		eAttribute : Ecore!EAttribute(
-			name<-typeSchemaDefinition.refImmediateComposite().getKey(),
-			lowerBound <-1,
-			upperBound <- 1,
-			eType <- typeSchemaDefinition.getEDataType()
-		)
-	do {
---		if (typeSchemaDefinition.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!KeySchemaPair)
---				and not typeSchemaDefinition.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)) 		
---			thisModule.keywords <- thisModule.keywords->union(Sequence{eAttribute});
-	}
-}
+
 
 abstract rule createPropertiesContainmentAndMapDefaultAdditionalPropertiesEClass{
 	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (typeSchemaDefinition.findSimpleType() = #"\"object\"")	
@@ -434,6 +480,24 @@ rule mapRefSchemaToEReference{
 	}	
 }
 
+
+rule createEAttributeSimpleScalar{
+	from 
+		typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (not typeSchemaDefinition.getEDataType().oclIsUndefined())	
+	to 
+		eAttribute : Ecore!EAttribute(
+			name<-typeSchemaDefinition.refImmediateComposite().getKey(),
+			lowerBound <-1,
+			upperBound <- 1,
+			eType <- typeSchemaDefinition.getEDataType()
+		)
+	do {
+--		if (typeSchemaDefinition.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!KeySchemaPair)
+--				and not typeSchemaDefinition.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)) 		
+--			thisModule.keywords <- thisModule.keywords->union(Sequence{eAttribute});
+	}
+}
+
 unique lazy rule createPropertiesEClass{
 	from name:String
 --	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition
@@ -446,6 +510,43 @@ unique lazy rule createPropertiesEClass{
 			abstract<- true
 		)	
 }
+
+-------------------- OCL
+
+--rule minimumConstraintToOCL{
+--	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition
+--	using {
+--		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
+--		attributeName : String = enclosingSchema.getkey();
+--	}
+--	to 
+--		ocl (
+--			context <- enclosingSchema,
+--			inv <- 'if self.'+attributeName+'>='+minimumSchemaDefinition.minimum+'then true else null endif'
+--		)
+--}
+--rule requiredConstraintToOCL{
+--	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
+--	
+--	using {
+--		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
+--		required:Sequence(String) =requiredSchemaDefinition.required
+--		inPropertiesSchemas: Sequence(JSchemaMM!Schema)= enclosingSchema.keywordDefinition->select(k|k.oclIsTypeOf(JSchemaMM!PropertiesSchemaDefinition)).keySchemaPairs->collect(ksp | ksp.value) 
+--		additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition = enclosingSchema.keywordDefinition->select(k|k.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition))
+--		inPatternPropertiesSchemas: Sequence(JSchemaMM!Schema)= enclosingSchema.keywordDefinition->select(k|k.oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition)).keySchemaPairs->collect(ksp | ksp.value) 
+--		inPropertiesSchemasRequired : Sequence(JSchemaMM!Schema)= ---- schemas with keys included in required
+--		requiredNotInProperties:Sequence(String)
+--	}
+--	to ocl(
+--		context <- enclosingSchema,
+--		inv <- --'self.properties->select(p|'+inPropertiesSchemas+'includes(p.oclType()) and'+ inPropertiesSchemas+')'
+--			'self.properties->select(p|'+inPropertiesSchemasRequired+'includes(p.oclType())).oclAsType(Set) = '+inPropertiesSchemasRequired+'.oclAsType(Set) and'+
+--		   	'self.properties->select(p|p.oclIsTypeOf('+additionalPropertiesSchemaDefinition+'))->collect(p|p.key)->union'
+--		   	'(self.properties->select(p|'+inPatternPropertiesSchemas+'includes(p.oclType()))->collect(p|p.key)).oclAsType(Set)'
+--		   
+--		 
+--	)
+--}
 
 endpoint rule CompletEPackageAndJsonGrammar() {
 	do {

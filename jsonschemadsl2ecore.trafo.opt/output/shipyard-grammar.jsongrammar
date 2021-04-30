@@ -3,27 +3,17 @@
   <detailedGrammar>
     <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//ShipyardRootApiVersion/apiVersion"/>
     <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//ShipyardRootKind/kind"/>
-    <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//MetadataName/name"/>
-    <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//StageName/name"/>
-    <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//SequenceName/name"/>
-    <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//TaskName/name"/>
-    <keywords xsi:type="ecore:EReference" href="shipyard.ecore#//ShipyardSpecStages/stages"/>
-    <keywords xsi:type="ecore:EReference" href="shipyard.ecore#//StageSequences/sequences"/>
-    <keywords xsi:type="ecore:EReference" href="shipyard.ecore#//SequenceTriggeredOn/triggeredOn"/>
-    <keywords xsi:type="ecore:EReference" href="shipyard.ecore#//SequenceTasks/tasks"/>
     <keywords xsi:type="ecore:EReference" href="shipyard.ecore#//ShipyardRootMetadata/metadata"/>
     <keywords xsi:type="ecore:EReference" href="shipyard.ecore#//ShipyardRootSpec/spec"/>
+    <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//MetadataName/name"/>
+    <keywords xsi:type="ecore:EReference" href="shipyard.ecore#//ShipyardSpecStages/stages"/>
+    <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//StageName/name"/>
+    <keywords xsi:type="ecore:EReference" href="shipyard.ecore#//StageSequences/sequences"/>
+    <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//SequenceName/name"/>
+    <keywords xsi:type="ecore:EReference" href="shipyard.ecore#//SequenceTriggeredOn/triggeredOn"/>
+    <keywords xsi:type="ecore:EReference" href="shipyard.ecore#//SequenceTasks/tasks"/>
+    <keywords xsi:type="ecore:EAttribute" href="shipyard.ecore#//TaskName/name"/>
     <keywords xsi:type="ecore:EReference" href="shipyard.ecore#//TaskProperties/properties"/>
-    
-    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
-    <bracketsReferences href="shipyard.ecore#//ShipyardSpecStages/stages"/>
-    <bracketsReferences href="shipyard.ecore#//StageSequences/sequences"/>
-    <bracketsReferences href="shipyard.ecore#//SequenceTriggeredOn/triggeredOn"/>
-    <bracketsReferences href="shipyard.ecore#//SequenceTasks/tasks"/>
-    
-    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
-    <keyValue href="shipyard.ecore#//TaskPropertiesAdditionalProperties/key"/>
-    
     <curlyBracesReferences href="shipyard.ecore#//ShipyardRoot/properties"/>
     <curlyBracesReferences href="shipyard.ecore#//Metadata/properties"/>
     <curlyBracesReferences href="shipyard.ecore#//ShipyardSpec/properties"/>
@@ -31,8 +21,13 @@
     <curlyBracesReferences href="shipyard.ecore#//Sequence/properties"/>
     <curlyBracesReferences href="shipyard.ecore#//TaskProperties/properties"/>
     <curlyBracesReferences href="shipyard.ecore#//Task/properties"/>
-    
-    
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <bracketsReferences href="shipyard.ecore#//ShipyardSpecStages/stages"/>
+    <bracketsReferences href="shipyard.ecore#//StageSequences/sequences"/>
+    <bracketsReferences href="shipyard.ecore#//SequenceTriggeredOn/triggeredOn"/>
+    <bracketsReferences href="shipyard.ecore#//SequenceTasks/tasks"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="shipyard.ecore#//TaskPropertiesAdditionalProperties/key"/>
     <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
   </detailedGrammar>
 </jsongrammar:JsonGrammar>
