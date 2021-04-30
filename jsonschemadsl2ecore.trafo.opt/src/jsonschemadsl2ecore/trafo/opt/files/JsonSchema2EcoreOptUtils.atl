@@ -15,7 +15,7 @@ helper def: bracketsEReferences : Sequence(Ecore!EReferece) = Sequence{JSchemaMM
 helper def: keyValues : Sequence(Ecore!EAttribute) = Sequence{JSchemaMM!KeyValuePair.getEStructuralFeature('key')};
 
 --Curly Braces EClass
-helper def: curlyBracesEClass : Sequence(Ecore!EClass) = Sequence{};
+helper def: curlyBracesEClass : Sequence(Ecore!EClass) = Sequence{JSchemaMM!ObjectValue};
 
 --Curly Braces EClass
 helper def: bracketsEClass : Sequence(Ecore!EClass) = Sequence{};

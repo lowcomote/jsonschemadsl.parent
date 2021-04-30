@@ -29,7 +29,7 @@ public interface KeyValuePair extends EObject {
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(String)
 	 * @see jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage#getKeyValuePair_Key()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getKey();
