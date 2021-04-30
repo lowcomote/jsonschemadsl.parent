@@ -29,76 +29,48 @@ rule JsonSchemaToEPackage {
 			detailedGrammar <- detailedGrammar
 		), 
 		detailedGrammar : JsonGrammarMM!DetailedGrammar (),
-		---------- OCL initialization
+
+		---------- OCL initialization -------------
 		completeOCL: CompleteOclMM!CompleteOCLDocumentCS(
---			ownedContexts <- Sequence{},
---			ownedPackages <- Sequence{},
---			ownedImports <- Sequence{thisModule.temp(jsonSchema)}
-			ownedImports <- Sequence{importCS}
+			ownedImports <- Sequence{importCS},
+			ownedPackages <- Sequence{packageDeclarationCS}
 		),
 		importCS : CompleteOclMM!ImportCS(
---			ownedPathName <-thisModule.temp2(jsonSchema)
 			ownedPathName <- pathNameCS
---			pivot <- package
---			pivot <- importedPackage--,
---			referredNamespace <-importedPackage
 		),
 		pathNameCS : CompleteOclMM!PathNameCS(
---			ownedPathElements <- Sequence{pathElementCS}
---			referredElement <- importedPackage,
 			ownedPathElements <- Sequence{pathElementWithURICS}
---			ownedPathElements <- Sequence{pathElementCS}
 		),
 		pathElementWithURICS : CompleteOclMM!PathElementWithURICS(
---			referredElement <- package
 			uri <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
 			referredElement <- importedPackage,
 			owningPathName <-pathNameCS
 		),
-
-		package : CompleteOclMM!Package(
---		package : Ecore!EPackage(
-			name<-'myPackage',
-			importedPackages <- Sequence{importedPackage}
---			ownedPackages <- Sequence{importedPackage}
---			nsPrefix <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
---			URI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()
-			),
 		importedPackage :	CompleteOclMM!Package(
 			name <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
 			URI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()--,
---			owningPackage<-package
-		)	
+		),
+		
+		
+		packageDeclarationCS : CompleteOclMM!PackageDeclarationCS(
+			ownedPathName<-packageDeclarationCSPathNameCS
+		),
+		packageDeclarationCSPathNameCS : CompleteOclMM!PathNameCS(
+			ownedPathElements <- Sequence{packageDeclarationCSPathElementCS}
+		),
+		packageDeclarationCSPathElementCS : CompleteOclMM!PathElementCS(
+			referredElement <- importedPackage,
+			owningPathName <-packageDeclarationCSPathNameCS
+			)
+		
 			
 		
 		
---		pathElementCS: CompleteOclMM!PathElementCS(
---			owningPathName <- pathNameCS
---		),
---		pathElementCS: CompleteOclMM!PathElementCS(
---			owningPathName <- pathNameCS,
---			referredElement <- pathNameCS
---		)
+
 
 }
 
-unique lazy rule temp {
-	from
-		jsonSchema : JSchemaMM!JsonSchema
-	to 
-		importCS : CompleteOclMM!ImportCS(
-			ownedPathName <-thisModule.temp2(jsonSchema)
-		)
-}
 
---unique lazy rule temp2 {
---	from
---		jsonSchema : JSchemaMM!JsonSchema
---	to 
---		pathNameCS : CompleteOclMM!PathNameCS(
---			ownedPathElements-- TODO
---		)
---}
 
 rule mapRootOrDefinitionsObjectSchemaToEClass{
 	from objectSchema :JSchemaMM!ObjectSchema (objectSchema.isRootOrDefinitionOrSchemaObjectAdditionalProperties())

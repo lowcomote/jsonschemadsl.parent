@@ -1,1 +1,5 @@
-import 'http://jku.bise.at/shipyard'  
+import 'http://jku.bise.at/shipyard'
+
+package shipyard
+ 
+endpackage 
