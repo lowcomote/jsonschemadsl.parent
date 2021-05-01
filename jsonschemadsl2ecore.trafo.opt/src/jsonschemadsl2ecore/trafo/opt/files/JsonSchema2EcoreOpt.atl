@@ -521,7 +521,16 @@ rule minimumConstraintToOCL{
 		constraintCS : CompleteOclMM!ConstraintCS(
 			name <- enclosingSchema.buildEClassname().concat('Minimum'),
 --			name <- 'minimum',
-			ownedSpecification <-expSpecificationCS
+			ownedSpecification <-expSpecificationCS,
+			ownedMessageSpecification <- ownedMessageSpecificationCS
+		),
+		ownedMessageSpecificationCS : CompleteOclMM!ExpSpecificationCS(
+			------TODO ownedExpression <-
+			ownedExpression <-stringLiteralExpCS
+		),
+		stringLiteralExpCS :CompleteOclMM!StringLiteralExpCS(
+			segments<-Sequence{'The value of '.concat(enclosingSchema.buildEClassname().concat(' must be greater or equal than ').concat(minimumSchemaDefinition.minimum.toString()))} 
+			
 		),
 		expSpecificationCS : CompleteOclMM!ExpSpecificationCS(
 			ownedExpression <- ifExpCS
@@ -562,7 +571,6 @@ rule minimumConstraintToOCL{
 		)
 	do {
 		thisModule.shipyardContextDeclCSSequence <- thisModule.shipyardContextDeclCSSequence->union(Sequence{classifierContextDeclCS})->debug('shipyardContextDeclCSSequence');
---			
 	}
 		
 		
