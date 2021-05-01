@@ -43,6 +43,8 @@ class JsonSchemaDslGenerator extends AbstractGenerator {
 		//Optimize Trafo Ecore
 		JsonSchemaToEcoreUtils.performTrafoEMFTVMJsonSchemaToEcore(resource.URI.toString, 
 			resourceOptURI.toString, grammarResourceURI.toString, traceResourceURI.toString);	
+			
+			
 	}
 	
 	def removeFilesIfExist(URI uri) {

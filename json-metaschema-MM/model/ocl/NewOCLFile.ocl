@@ -10,4 +10,8 @@ package jsonMetaschemaMM
 --inv NonNull_keywordDefinition('The \'keywordDefinition\' property of "' + self.toString() + '" is null'):
 --	keywordDefinition <> null
 
+context ObjectSchema
+inv RepeatedKeywords ('Keywords can not be repeated at the same nested level'):
+if keywordDefinition->isUnique(k|k.oclType()) then true  else null endif
+
 endpackage

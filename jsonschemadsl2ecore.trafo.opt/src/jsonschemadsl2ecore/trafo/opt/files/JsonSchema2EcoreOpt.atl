@@ -490,20 +490,87 @@ unique lazy rule createPropertiesEClass{
 		)	
 }
 
--------------------- OCL
-
---rule minimumConstraintToOCL{
---	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition
---	using {
---		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
---		attributeName : String = enclosingSchema.getkey();
---	}
---	to 
---		ocl (
+-------------------- OCL Generation --------------------------------
+helper def: allPackageDeclarationCS() : Sequence(CompleteOclMM!PackageDeclarationCS) = CompleteOclMM!PackageDeclarationCS.allInstancesFrom('oclM');
+helper def: shipyardContextDeclCSSequence : Sequence(CompleteOclMM!ContextDeclCS) = Sequence{};
+rule minimumConstraintToOCL{
+	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition
+	using {
+		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
+		attributeName : String = enclosingSchema.getKey();
+	}
+	to 
+		classifierContextDeclCS: CompleteOclMM!ClassifierContextDeclCS (
+--			referredClass <- enclosingSchema,
+			ownedPathName <- pathNameCS,
+			ownedInvariants <- Sequence{constraintCS} 
+		),
+		pathNameCS: CompleteOclMM!PathNameCS(
+			ownedPathElements <- Sequence{pathElementCS} 
+		),
+		pathElementCS : CompleteOclMM!PathElementCS(
+--			elementType <-enclosingSchema,
+--			elementType <- CompleteOclMM!Type,
+--			referredElement <- enclosingSchema,
+			referredElement <- contextClass->debug('contextclass'),
+			owningPathName <-pathNameCS
+		),
+		contextClass : CompleteOclMM!Class(
+			name <- enclosingSchema.buildEClassname()
+		),
+		constraintCS : CompleteOclMM!ConstraintCS(
+			name <- enclosingSchema.buildEClassname().concat('Minimum'),
+--			name <- 'minimum',
+			ownedSpecification <-expSpecificationCS
+		),
+		expSpecificationCS : CompleteOclMM!ExpSpecificationCS(
+			ownedExpression <- ifExpCS
+		),
+		ifExpCS :CompleteOclMM!IfExpCS(
+			ownedCondition <- infixExpCS,
+			ownedThenExpression <- booleanLiteralExpCS,
+			ownedElseExpression <- nullLiteralExpCS
+		),
+		infixExpCS :CompleteOclMM!InfixExpCS(
+--			argument <-argument
+			name <- '>=',
+			ownedLeft<-ownedLeft,
+			ownedRight<-ownedRight
+		),
+		ownedLeft:CompleteOclMM!NameExpCS(
+			 
+			ownedPathName <- leftPathName
+		),
+		leftPathName:CompleteOclMM!PathNameCS(
+			ownedPathElements <- Sequence{leftPathElementCS}
+			
+		),
+		leftPathElementCS : CompleteOclMM!PathElementCS(
+			owningPathName <- leftPathName,
+			referredElement <- leftProperty
+		),
+		leftProperty :CompleteOclMM!Property(
+			name <- attributeName->debug('attributeName')
+		),
+		ownedRight:CompleteOclMM!NumberLiteralExpCS(
+			symbol <- minimumSchemaDefinition.minimum
+		),
+		booleanLiteralExpCS:CompleteOclMM!BooleanLiteralExpCS(
+			symbol<-'true'
+		),
+		nullLiteralExpCS:CompleteOclMM!NullLiteralExpCS(
+		)
+	do {
+		thisModule.shipyardContextDeclCSSequence <- thisModule.shipyardContextDeclCSSequence->union(Sequence{classifierContextDeclCS})->debug('shipyardContextDeclCSSequence');
+--			
+	}
+		
+		
+--		ocl: CompleteOclMM!ClassifierContextDeclCS (
 --			context <- enclosingSchema,
 --			inv <- 'if self.'+attributeName+'>='+minimumSchemaDefinition.minimum+'then true else null endif'
 --		)
---}
+}
 --rule requiredConstraintToOCL{
 --	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
 --	
@@ -530,7 +597,7 @@ unique lazy rule createPropertiesEClass{
 endpoint rule CompletEPackageAndJsonGrammar() {
 	do {
 		thisModule.packageRoot().eClassifiers <- thisModule.allEClass();	
-		--Json Grammar
+		---- Json Grammar
 		thisModule.jsonGrammarRoot().detailedGrammar.keywords <- thisModule.keywords;		
 		thisModule.jsonGrammarRoot().detailedGrammar.curlyBracesReferences <- thisModule.curlyBracesEReferences;
 		thisModule.jsonGrammarRoot().detailedGrammar.bracketsReferences <- thisModule.bracketsEReferences;
@@ -539,6 +606,9 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		thisModule.jsonGrammarRoot().detailedGrammar.bracketsEClass <- thisModule.bracketsEClass;
 		
 --		thisModule.repeatedEClassName();
+		---- OCL generation--------
+		---------   TODO select the proper package declaration. at this point we know that there is only one. But things can get complicated
+		thisModule.allPackageDeclarationCS()->first().ownedContexts <- thisModule.shipyardContextDeclCSSequence;
 	}
 }
 

@@ -46,7 +46,8 @@ public class JsonSchemaToEcoreUtils {
 		exec.loadModels(IN_JSON_SCHEMA_MODEL, jsonSchemaModelUri, ModelKind.IN);
 		exec.loadModels(OUT_ECORE_MM, ecoreModelUri, ModelKind.INOUT);
 		exec.loadModels(OUT_JSON_GRAMMAR, grammarModelUri, ModelKind.INOUT);	
-		exec.loadModels(OCL_MODEL, oclUri, ModelKind.OUT);	
+//		exec.loadModels(OCL_MODEL, oclUri, ModelKind.OUT);	
+		exec.loadModels(OCL_MODEL, oclUri, ModelKind.INOUT);	
 		return exec;
 	}
 }

@@ -10,6 +10,10 @@
 	 	"apiVersion": {
 			"type": "string"
 	    },
+	    "testInteger":{
+	    	"type": "integer",
+	    	"minimum":4.2
+	    },
 	    "kind": {
 	      	"type": "string"
 	    },

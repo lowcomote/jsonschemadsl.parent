@@ -1,0 +1,13 @@
+import 'http://jku.bise.at/shipyard2'
+
+package shipyard2
+
+	context Shipyard2RootTestInteger
+
+	inv Shipyard2RootTestIntegerMinimum:
+	if testInteger >= 4.2
+	then true
+	else null
+	endif
+
+endpackage
