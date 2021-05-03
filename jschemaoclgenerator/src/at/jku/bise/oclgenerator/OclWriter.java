@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class OclWriter {
 	
-//	private  final static String OCL_EXTENSION = ".ocl";
-	private  final static String OCL_EXTENSION = "Ale.ocl";
+	private  final static String OCL_EXTENSION = ".ocl";
+//	private  final static String OCL_EXTENSION = "Ale.ocl";
 	
 	public static void create(String fileName) throws IOException {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(fileName+OCL_EXTENSION));

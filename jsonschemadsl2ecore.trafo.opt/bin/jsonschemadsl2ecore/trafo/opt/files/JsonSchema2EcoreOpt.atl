@@ -16,8 +16,8 @@ helper def: jsonDocumentStarter:String='jsonDocumentStarter';
 helper def: packageName : String = thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension().lastSegment();
 helper def: nsURI : String = 'http://jku.bise.at/' + thisModule.packageName;
 
-helper def: oclFileName:String  =thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension().path().concat('-opt')->debug('oclFileName');
---helper def: oclFileName:String  =thisModule.oclM->debug('oclM').path()->debug('oclFileName');
+helper def: oclFileName:String  =thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension().path().concat('-opt');
+
 
 rule JsonSchemaToEPackage {
 	from
@@ -75,7 +75,6 @@ rule JsonSchemaToEPackage {
 }
 
 helper def : createOclFile() : OclAny=
---	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('createOcl',Sequence{thisModule.packageName, thisModule.nsURI, thisModule.packageName});
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('createOcl',Sequence{thisModule.oclFileName, thisModule.nsURI, thisModule.packageName});
 
 
@@ -86,11 +85,6 @@ rule mapRootOrDefinitionsObjectSchemaToEClass{
 			name<- objectSchema.buildEClassname(),
 			eStructuralFeatures <-objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
 		)
---	do {
---		if (objectSchema->refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) = true) { 
---			thisModule.curlyBracesEClass <- thisModule.curlyBracesEClass->union(Sequence{eClass});
---		}
---	}
 } 
 
 abstract rule mapInPropertiesSchemaToEClass{
@@ -503,97 +497,55 @@ rule minimumConstraintToOCLJava {
 	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
---		attributeName : String = enclosingSchema.getKey();
 	}
 	do {
-	 	thisModule.appendMinimumConstraint(enclosingSchema.buildEClassname(), minimumSchemaDefinition.minimum);
+--	 	thisModule.appendMinimumConstraint(enclosingSchema.buildEClassname(), minimumSchemaDefinition.minimum);
+		thisModule.appendMinimumConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Minimum', minimumSchemaDefinition.minimum);
 	}
 }
 
-helper def : appendMinimumConstraint(contextClass: String, minimum: Real ) : OclAny=
+helper def : appendMinimumConstraint(contextClass: String, inv:String, minimum: Real ) : OclAny=
 --	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.packageName, contextClass, minimum});
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileName, contextClass, minimum});
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileName, contextClass, inv, minimum});
 
+rule requiredInProperties{
+	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
+	using {
+		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
+		required : Sequence(String) = requiredSchemaDefinition.required.values->debug('requireds');
+		
+		inPropertiesRequiredKeySchemaPairs : Sequence(JSchemaMM!KeySchemaPair)= 
+			let propertiesSchemaDefinitions : Sequence(JSchemaMM!PropertiesSchemaDefinition) = 
+				enclosingSchema.keywordDefinition->select(k|k.oclIsTypeOf(JSchemaMM!PropertiesSchemaDefinition))
+			in
+				if propertiesSchemaDefinitions->debug('propertiesSchemaDefinitions').isEmpty() then Sequence{}
+				else
+					propertiesSchemaDefinitions->first().keySchemaPairs->select(ksp| required->debug('required2')->includes(ksp.key.stripFirstAndLast()->debug('ksp.key')))
+				endif;
+				
+	
+		inPropertiesRequiredSchemas : Sequence(JSchemaMM!Schema)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.value);	
+		inPropertiesRequiredKeys : Sequence(String)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.key);	
+		requiredNotInProperties:Sequence(String) = required->excludingAll(inPropertiesRequiredKeys);
+	}
+	do{
+		for (p in inPropertiesRequiredKeySchemaPairs) {
+--			thisModule.appendRequiredInPropertiesConstraint(enclosingSchema.buildEClassname(), p.key.stripFirstAndLast(), p.value.buildEClassname());
+			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Required', p.key.stripFirstAndLast(), p.value.buildEClassname());
+		}
+		
+--		inPropertiesRequiredKeySchemaPairs->debug('inPropertiesRequiredKeySchemaPairs')->collect(p | thisModule.appendRequiredInPropertiesConstraint(enclosingSchema.buildEClassname(), p.key, p.value.buildEClassname()));
+	}
+}
 
+helper def : appendRequiredInPropertiesConstraint(contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileName, contextClass, inv, requiredProperty, requiredClassType});
 
 
 
 --helper def: allPackageDeclarationCS() : Sequence(CompleteOclMM!PackageDeclarationCS) = CompleteOclMM!PackageDeclarationCS.allInstancesFrom('oclM');
 --helper def: shipyardContextDeclCSSequence : Sequence(CompleteOclMM!ContextDeclCS) = Sequence{};
---rule minimumConstraintToOCL{
---	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition
---	using {
---		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
---		attributeName : String = enclosingSchema.getKey();
---	}
---	to 
---		classifierContextDeclCS: CompleteOclMM!ClassifierContextDeclCS (
---			ownedPathName <- pathNameCS,
---			ownedInvariants <- Sequence{constraintCS} 
---		),
---		pathNameCS: CompleteOclMM!PathNameCS(
---			ownedPathElements <- Sequence{pathElementCS} 
---		),
---		pathElementCS : CompleteOclMM!PathElementCS(
---			referredElement <- contextClass,
---			owningPathName <-pathNameCS
---		),
---		contextClass : CompleteOclMM!Class(
---			name <- enclosingSchema.buildEClassname()
---		),
---		constraintCS : CompleteOclMM!ConstraintCS(
---			name <- enclosingSchema.buildEClassname().concat('Minimum'),
---			ownedSpecification <-expSpecificationCS,
---			ownedMessageSpecification <- ownedMessageSpecificationCS
---		),
---		ownedMessageSpecificationCS : CompleteOclMM!ExpSpecificationCS(
---			ownedExpression <-stringLiteralExpCS
---		),
---		stringLiteralExpCS :CompleteOclMM!StringLiteralExpCS(
---			segments<-Sequence{'The value of '.concat(enclosingSchema.buildEClassname().concat(' must be greater or equal than ').concat(minimumSchemaDefinition.minimum.toString()))} 
---			
---		),
---		expSpecificationCS : CompleteOclMM!ExpSpecificationCS(
---			ownedExpression <- ifExpCS
---		),
---		ifExpCS :CompleteOclMM!IfExpCS(
---			ownedCondition <- infixExpCS,
---			ownedThenExpression <- booleanLiteralExpCS,
---			ownedElseExpression <- nullLiteralExpCS
---		),
---		infixExpCS :CompleteOclMM!InfixExpCS(
---			name <- '>=',
---			ownedLeft<-ownedLeft,
---			ownedRight<-ownedRight
---		),
---		ownedLeft:CompleteOclMM!NameExpCS(
---			 
---			ownedPathName <- leftPathName
---		),
---		leftPathName:CompleteOclMM!PathNameCS(
---			ownedPathElements <- Sequence{leftPathElementCS}
---			
---		),
---		leftPathElementCS : CompleteOclMM!PathElementCS(
---			owningPathName <- leftPathName,
---			referredElement <- leftProperty
---		),
---		leftProperty :CompleteOclMM!Property(
---			name <- attributeName
---		),
---		ownedRight:CompleteOclMM!NumberLiteralExpCS(
---			symbol <- minimumSchemaDefinition.minimum
---		),
---		booleanLiteralExpCS:CompleteOclMM!BooleanLiteralExpCS(
---			symbol<-'true'
---		),
---		nullLiteralExpCS:CompleteOclMM!NullLiteralExpCS(
---		)
---	do {
---		thisModule.shipyardContextDeclCSSequence <- thisModule.shipyardContextDeclCSSequence->union(Sequence{classifierContextDeclCS});
---	}
---}
---
+
 --rule requiredConstraintToOCL{
 --	--------- TODO this rule only check if the required values are present under "properties" -------------------------------------------------------------------
 --	--------- TODO. Modify the rule to search in "additionalProperties" (even when it is present by default and not explicltly) and in "patternProperties" ------
@@ -887,16 +839,12 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		
 --		thisModule.repeatedEClassName();
 		---- OCL generation--------
-		---------   TODO select the proper package declaration. at this point we know that there is only one. But things can get complicated
---		thisModule.allPackageDeclarationCS()->first().ownedContexts <- thisModule.shipyardContextDeclCSSequence;
-		
 		thisModule.endPackage();
 		
 	}
 }
 
 helper  def : endPackage() : OclAny=
---	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('endPackage',Sequence{thisModule.packageName});
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('endPackage',Sequence{thisModule.oclFileName});
 
 

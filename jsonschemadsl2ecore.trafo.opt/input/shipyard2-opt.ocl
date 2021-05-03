@@ -1,0 +1,119 @@
+-- OCL contraints for /Users/Alessandro.colantoni/eclipse-lowcomote-jsonschema-workspace/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/shipyard2-opt
+import 'http://jku.bise.at/shipyard2'
+
+package shipyard2
+
+	context shipyard2::Shipyard2RootTestInteger
+
+	inv Shipyard2RootTestIntegerMinimum('The value of Shipyard2RootTestInteger must be greater or equal than 4.2'):
+	if testInteger >= 4.2
+	then true
+	else null
+	endif
+
+	context shipyard2::Shipyard2Root 
+
+	inv Shipyard2RootRequiredapiVersion:
+	if  properties->select(p|p.oclType()=Shipyard2RootApiVersion)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::Shipyard2Root 
+
+	inv Shipyard2RootRequiredkind:
+	if  properties->select(p|p.oclType()=Shipyard2RootKind)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::Shipyard2Root 
+
+	inv Shipyard2RootRequiredmetadata:
+	if  properties->select(p|p.oclType()=Shipyard2RootMetadata)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::Shipyard2Root 
+
+	inv Shipyard2RootRequiredspec:
+	if  properties->select(p|p.oclType()=Shipyard2RootSpec)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::Metadata 
+
+	inv MetadataRequiredname:
+	if  properties->select(p|p.oclType()=MetadataName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::ShipyardSpec 
+
+	inv ShipyardSpecRequiredstages:
+	if  properties->select(p|p.oclType()=ShipyardSpecStages)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::Stage 
+
+	inv StageRequiredname:
+	if  properties->select(p|p.oclType()=StageName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::Stage 
+
+	inv StageRequiredsequences:
+	if  properties->select(p|p.oclType()=StageSequences)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::Sequence 
+
+	inv SequenceRequiredname:
+	if  properties->select(p|p.oclType()=SequenceName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::Sequence 
+
+	inv SequenceRequiredtriggers:
+	if  properties->select(p|p.oclType()=SequenceTriggers)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::Sequence 
+
+	inv SequenceRequiredtasks:
+	if  properties->select(p|p.oclType()=SequenceTasks)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::Task 
+
+	inv TaskRequiredname:
+	if  properties->select(p|p.oclType()=TaskName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::Task 
+
+	inv TaskRequiredproperties:
+	if  properties->select(p|p.oclType()=TaskProperties)->size()>0
+	then true
+	else null
+	endif
+
+endpackage
+

@@ -13,25 +13,39 @@ class OclGenerator {
 		package «packageName»
 	'''
 	
+	def static appendMinimumConstraint (String fileName, String contextClass, String inv, Double minimum){
+		OclWriter.append(fileName, generateMinimumConstraint( contextClass, inv, minimum))
+	}
+	
+	def static generateMinimumConstraint(String contextClass, String inv, Double minimum)'''
+			context «contextClass»
+		
+			inv «inv»('The value of Shipyard2RootTestInteger must be greater or equal than «minimum»'):
+			if testInteger >= «minimum»
+			then true
+			else null
+			endif
+	'''
+	
+	def static appendRequiredInPropertiesConstraint (String fileName, String contextClass, String inv, String requiredProperty, String requiredClassType){
+		OclWriter.append(fileName, generateRequiredInPropertiesConstraint( contextClass, inv, requiredProperty, requiredClassType))
+	}
+	
+	def static generateRequiredInPropertiesConstraint(String contextClass, String inv, String requiredProperty, String requiredClassType)'''
+			context «contextClass» 
+		
+			inv «inv»«requiredProperty»:
+			if  properties->select(p|p.oclType()=«requiredClassType»)->size()>0
+			then true
+			else null
+			endif
+	'''
+	
 	def static endPackage (String fileName){
 		OclWriter.append(fileName, endPackage())
 	}
 	
 	def static endPackage()'''
 		endpackage
-	'''
-	
-	def static appendMinimumConstraint (String fileName, String contextClass, Double minimum){
-		OclWriter.append(fileName, generateMinimumConstraint( contextClass,  minimum))
-	}
-	
-	def static generateMinimumConstraint(String contextClass, Double minimum)'''
-		context «contextClass»
-		
-		inv «contextClass»Minimum('The value of Shipyard2RootTestInteger must be greater or equal than «minimum»'):
-		if testInteger >= «minimum»
-		then true
-		else null
-		endif
 	'''
 }
