@@ -2,12 +2,4 @@ import 'http://jku.bise.at/shipyard2'
 
 package shipyard2
 
-	context Shipyard2RootTestInteger
-
-	inv Shipyard2RootTestIntegerMinimum('The value of Shipyard2RootTestInteger must be greater or equal than 4.2'):
-	if testInteger >= 4.2
-	then true
-	else null
-	endif
-
 endpackage

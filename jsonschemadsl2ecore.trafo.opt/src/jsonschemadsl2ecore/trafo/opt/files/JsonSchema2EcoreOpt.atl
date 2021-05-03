@@ -13,19 +13,27 @@ uses JsonSchema2EcoreOptUtils;
 
 helper def: rootEPackage : Ecore!EPackage = OclUndefined;
 helper def: jsonDocumentStarter:String='jsonDocumentStarter';
+helper def: packageName : String = thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension().lastSegment();
+helper def: nsURI : String = 'http://jku.bise.at/' + thisModule.packageName;
 
+helper def: oclFileName:String  =thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension().path().concat('-opt')->debug('oclFileName');
+--helper def: oclFileName:String  =thisModule.oclM->debug('oclM').path()->debug('oclFileName');
 
 rule JsonSchemaToEPackage {
 	from
 		jsonSchema : JSchemaMM!JsonSchema
 	to 
 		ePackage : Ecore!EPackage (
-			name <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
-			nsPrefix <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
-			nsURI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()
+--			name <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
+			name <- thisModule.packageName,
+--			nsPrefix <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
+			nsPrefix <- thisModule.packageName,
+--			nsURI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()
+			nsURI <- thisModule.nsURI
 		),
 		jsonGrammar : JsonGrammarMM!JsonGrammar (
-			nsURI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
+--			nsURI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
+			nsURI <- thisModule.nsURI,
 			detailedGrammar <- detailedGrammar
 		), 
 		detailedGrammar : JsonGrammarMM!DetailedGrammar (),
@@ -50,8 +58,6 @@ rule JsonSchemaToEPackage {
 			name <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
 			URI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()--,
 		),
-		
-		
 		packageDeclarationCS : CompleteOclMM!PackageDeclarationCS(
 			ownedPathName<-packageDeclarationCSPathNameCS
 		),
@@ -61,15 +67,16 @@ rule JsonSchemaToEPackage {
 		packageDeclarationCSPathElementCS : CompleteOclMM!PathElementCS(
 			referredElement <- importedPackage,
 			owningPathName <-packageDeclarationCSPathNameCS
-			)
-		
-			
-		
-		
-
-
+		)
+	do {
+		---------- Create ocl file -----
+		thisModule.createOclFile();
+	}
 }
 
+helper def : createOclFile() : OclAny=
+--	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('createOcl',Sequence{thisModule.packageName, thisModule.nsURI, thisModule.packageName});
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('createOcl',Sequence{thisModule.oclFileName, thisModule.nsURI, thisModule.packageName});
 
 
 rule mapRootOrDefinitionsObjectSchemaToEClass{
@@ -491,94 +498,359 @@ unique lazy rule createPropertiesEClass{
 }
 
 -------------------- OCL Generation --------------------------------
-helper def: allPackageDeclarationCS() : Sequence(CompleteOclMM!PackageDeclarationCS) = CompleteOclMM!PackageDeclarationCS.allInstancesFrom('oclM');
-helper def: shipyardContextDeclCSSequence : Sequence(CompleteOclMM!ContextDeclCS) = Sequence{};
-rule minimumConstraintToOCL{
+
+rule minimumConstraintToOCLJava {
 	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
-		attributeName : String = enclosingSchema.getKey();
+--		attributeName : String = enclosingSchema.getKey();
 	}
-	to 
-		classifierContextDeclCS: CompleteOclMM!ClassifierContextDeclCS (
---			referredClass <- enclosingSchema,
-			ownedPathName <- pathNameCS,
-			ownedInvariants <- Sequence{constraintCS} 
-		),
-		pathNameCS: CompleteOclMM!PathNameCS(
-			ownedPathElements <- Sequence{pathElementCS} 
-		),
-		pathElementCS : CompleteOclMM!PathElementCS(
---			elementType <-enclosingSchema,
---			elementType <- CompleteOclMM!Type,
---			referredElement <- enclosingSchema,
-			referredElement <- contextClass->debug('contextclass'),
-			owningPathName <-pathNameCS
-		),
-		contextClass : CompleteOclMM!Class(
-			name <- enclosingSchema.buildEClassname()
-		),
-		constraintCS : CompleteOclMM!ConstraintCS(
-			name <- enclosingSchema.buildEClassname().concat('Minimum'),
---			name <- 'minimum',
-			ownedSpecification <-expSpecificationCS,
-			ownedMessageSpecification <- ownedMessageSpecificationCS
-		),
-		ownedMessageSpecificationCS : CompleteOclMM!ExpSpecificationCS(
-			------TODO ownedExpression <-
-			ownedExpression <-stringLiteralExpCS
-		),
-		stringLiteralExpCS :CompleteOclMM!StringLiteralExpCS(
-			segments<-Sequence{'The value of '.concat(enclosingSchema.buildEClassname().concat(' must be greater or equal than ').concat(minimumSchemaDefinition.minimum.toString()))} 
-			
-		),
-		expSpecificationCS : CompleteOclMM!ExpSpecificationCS(
-			ownedExpression <- ifExpCS
-		),
-		ifExpCS :CompleteOclMM!IfExpCS(
-			ownedCondition <- infixExpCS,
-			ownedThenExpression <- booleanLiteralExpCS,
-			ownedElseExpression <- nullLiteralExpCS
-		),
-		infixExpCS :CompleteOclMM!InfixExpCS(
---			argument <-argument
-			name <- '>=',
-			ownedLeft<-ownedLeft,
-			ownedRight<-ownedRight
-		),
-		ownedLeft:CompleteOclMM!NameExpCS(
-			 
-			ownedPathName <- leftPathName
-		),
-		leftPathName:CompleteOclMM!PathNameCS(
-			ownedPathElements <- Sequence{leftPathElementCS}
-			
-		),
-		leftPathElementCS : CompleteOclMM!PathElementCS(
-			owningPathName <- leftPathName,
-			referredElement <- leftProperty
-		),
-		leftProperty :CompleteOclMM!Property(
-			name <- attributeName->debug('attributeName')
-		),
-		ownedRight:CompleteOclMM!NumberLiteralExpCS(
-			symbol <- minimumSchemaDefinition.minimum
-		),
-		booleanLiteralExpCS:CompleteOclMM!BooleanLiteralExpCS(
-			symbol<-'true'
-		),
-		nullLiteralExpCS:CompleteOclMM!NullLiteralExpCS(
-		)
 	do {
-		thisModule.shipyardContextDeclCSSequence <- thisModule.shipyardContextDeclCSSequence->union(Sequence{classifierContextDeclCS})->debug('shipyardContextDeclCSSequence');
+	 	thisModule.appendMinimumConstraint(enclosingSchema.buildEClassname(), minimumSchemaDefinition.minimum);
 	}
-		
-		
---		ocl: CompleteOclMM!ClassifierContextDeclCS (
---			context <- enclosingSchema,
---			inv <- 'if self.'+attributeName+'>='+minimumSchemaDefinition.minimum+'then true else null endif'
---		)
 }
+
+helper def : appendMinimumConstraint(contextClass: String, minimum: Real ) : OclAny=
+--	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.packageName, contextClass, minimum});
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileName, contextClass, minimum});
+
+
+
+
+
+--helper def: allPackageDeclarationCS() : Sequence(CompleteOclMM!PackageDeclarationCS) = CompleteOclMM!PackageDeclarationCS.allInstancesFrom('oclM');
+--helper def: shipyardContextDeclCSSequence : Sequence(CompleteOclMM!ContextDeclCS) = Sequence{};
+--rule minimumConstraintToOCL{
+--	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition
+--	using {
+--		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
+--		attributeName : String = enclosingSchema.getKey();
+--	}
+--	to 
+--		classifierContextDeclCS: CompleteOclMM!ClassifierContextDeclCS (
+--			ownedPathName <- pathNameCS,
+--			ownedInvariants <- Sequence{constraintCS} 
+--		),
+--		pathNameCS: CompleteOclMM!PathNameCS(
+--			ownedPathElements <- Sequence{pathElementCS} 
+--		),
+--		pathElementCS : CompleteOclMM!PathElementCS(
+--			referredElement <- contextClass,
+--			owningPathName <-pathNameCS
+--		),
+--		contextClass : CompleteOclMM!Class(
+--			name <- enclosingSchema.buildEClassname()
+--		),
+--		constraintCS : CompleteOclMM!ConstraintCS(
+--			name <- enclosingSchema.buildEClassname().concat('Minimum'),
+--			ownedSpecification <-expSpecificationCS,
+--			ownedMessageSpecification <- ownedMessageSpecificationCS
+--		),
+--		ownedMessageSpecificationCS : CompleteOclMM!ExpSpecificationCS(
+--			ownedExpression <-stringLiteralExpCS
+--		),
+--		stringLiteralExpCS :CompleteOclMM!StringLiteralExpCS(
+--			segments<-Sequence{'The value of '.concat(enclosingSchema.buildEClassname().concat(' must be greater or equal than ').concat(minimumSchemaDefinition.minimum.toString()))} 
+--			
+--		),
+--		expSpecificationCS : CompleteOclMM!ExpSpecificationCS(
+--			ownedExpression <- ifExpCS
+--		),
+--		ifExpCS :CompleteOclMM!IfExpCS(
+--			ownedCondition <- infixExpCS,
+--			ownedThenExpression <- booleanLiteralExpCS,
+--			ownedElseExpression <- nullLiteralExpCS
+--		),
+--		infixExpCS :CompleteOclMM!InfixExpCS(
+--			name <- '>=',
+--			ownedLeft<-ownedLeft,
+--			ownedRight<-ownedRight
+--		),
+--		ownedLeft:CompleteOclMM!NameExpCS(
+--			 
+--			ownedPathName <- leftPathName
+--		),
+--		leftPathName:CompleteOclMM!PathNameCS(
+--			ownedPathElements <- Sequence{leftPathElementCS}
+--			
+--		),
+--		leftPathElementCS : CompleteOclMM!PathElementCS(
+--			owningPathName <- leftPathName,
+--			referredElement <- leftProperty
+--		),
+--		leftProperty :CompleteOclMM!Property(
+--			name <- attributeName
+--		),
+--		ownedRight:CompleteOclMM!NumberLiteralExpCS(
+--			symbol <- minimumSchemaDefinition.minimum
+--		),
+--		booleanLiteralExpCS:CompleteOclMM!BooleanLiteralExpCS(
+--			symbol<-'true'
+--		),
+--		nullLiteralExpCS:CompleteOclMM!NullLiteralExpCS(
+--		)
+--	do {
+--		thisModule.shipyardContextDeclCSSequence <- thisModule.shipyardContextDeclCSSequence->union(Sequence{classifierContextDeclCS});
+--	}
+--}
+--
+--rule requiredConstraintToOCL{
+--	--------- TODO this rule only check if the required values are present under "properties" -------------------------------------------------------------------
+--	--------- TODO. Modify the rule to search in "additionalProperties" (even when it is present by default and not explicltly) and in "patternProperties" ------
+--	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
+--	using {
+--		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
+--		required : Sequence(String) = requiredSchemaDefinition.required.values;
+--		
+--		inPropertiesRequiredKeySchemaPairs : Sequence(JSchemaMM!KeySchemaPair)= 
+--			let propertiesSchemaDefinitions : Sequence(JSchemaMM!PropertiesSchemaDefinition) = 
+--				enclosingSchema.keywordDefinition->select(k|k.oclIsTypeOf(JSchemaMM!PropertiesSchemaDefinition))
+--			in
+--				if propertiesSchemaDefinitions.isEmpty() then Sequence{}
+--				else
+--					propertiesSchemaDefinitions->first().keySchemaPairs->select(ksp| required->includes(ksp.key))
+--				endif;
+--				
+--	
+--		inPropertiesRequiredSchemas : Sequence(JSchemaMM!Schema)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.value);	
+--		inPropertiesRequiredKeys : Sequence(String)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.key);	
+--		requiredNotInProperties:Sequence(String) = required->excludingAll(inPropertiesRequiredKeys);
+--	}
+--	to
+--		classifierContextDeclCS: CompleteOclMM!ClassifierContextDeclCS (
+--			ownedPathName <- pathNameCS,
+--			ownedInvariants <- Sequence{constraintCS} 
+--		),pathNameCS: CompleteOclMM!PathNameCS(
+--			ownedPathElements <- Sequence{pathElementCS} 
+--		),
+--		pathElementCS : CompleteOclMM!PathElementCS(
+--			referredElement <- contextClass,
+--			owningPathName <-pathNameCS
+--		),
+--		contextClass : CompleteOclMM!Class(
+--			name <- enclosingSchema.buildEClassname()
+--		),
+--		constraintCS : CompleteOclMM!ConstraintCS(
+--			name <- enclosingSchema.buildEClassname().concat('Required'),
+--			ownedSpecification <-expSpecificationCS,
+--			ownedMessageSpecification <- ownedMessageSpecificationCS
+--		),
+--		ownedMessageSpecificationCS : CompleteOclMM!ExpSpecificationCS(
+--			ownedExpression <-stringLiteralExpCS
+--		),
+--		stringLiteralExpCS :CompleteOclMM!StringLiteralExpCS(
+--			segments<-Sequence{'For the object '.concat(enclosingSchema.buildEClassname().concat('the properties ').concat(requiredNotInProperties.toString().concat('are required, but they are missing')))} 
+--			
+--		),
+--		expSpecificationCS : CompleteOclMM!ExpSpecificationCS(
+--			ownedExpression <- ifExpCS
+--		),
+--		ifExpCS :CompleteOclMM!IfExpCS(
+--			ownedCondition <- infixExpCS,
+--			ownedThenExpression <- booleanLiteralExpCS,
+--			ownedElseExpression <- nullLiteralExpCS
+--		),
+--		------ properties->select
+--		infixExpCS :CompleteOclMM!InfixExpCS( 
+--			name <- '->',
+--			pivot <- propertiesSelectIteratorExp, -------- TODO is this necessary?
+--			ownedLeft<-selOwnedLeft,
+--			ownedRight<-selOwnedRight
+--		),
+--		propertiesSelectIteratorExp:CompleteOclMM!IteratorExp( -------- TODO is this necessary?
+--			name<-'select'
+--		),
+--		selOwnedLeft:CompleteOclMM!NameExpCS(
+--			ownedPathName <- selLeftPathName
+--		),
+--		selLeftPathName:CompleteOclMM!PathNameCS(
+--			ownedPathElements <- Sequence{selLeftPathElementCS}
+--			
+--		),
+--		selLeftPathElementCS : CompleteOclMM!PathElementCS(
+--			owningPathName <- selLeftPathName,
+--			referredElement <- selLeftProperty
+--		),
+--		selLeftProperty :CompleteOclMM!Property(
+--			name <- 'properties'
+--		),
+--		selOwnedRight:CompleteOclMM!InfixExpCS(
+--			
+--			name <- '->',
+--			pivot <- propertiesCollectIteratorExp, -------- TODO is this necessary?
+--			ownedLeft <- collOwnedLeft,
+--			ownedRight <- collOownedRight
+--		),
+--		propertiesCollectIteratorExp :CompleteOclMM!IteratorExp( -------- TODO is this necessary?
+--			name<- 'collect'
+--		),
+--		collOwnedLeft: CompleteOclMM!NameExpCS(
+--			ownedPathName <- collectLeftPathNameCS,
+--			ownedRoundBracketedClause <- collectLeftOwnedRoundBracketedClauseCS
+--		),
+--		collectLeftPathNameCS:CompleteOclMM!PathNameCS(
+--			ownedPathElements <- Sequence{collectLeftPathElementCS}
+--		),
+--		collectLeftPathElementCS : CompleteOclMM!PathElementCS(
+--			owningPathName <- collectLeftPathNameCS,
+--			referredElement <- collectLeftIteration
+--		),
+--		collectLeftIteration : CompleteOclMM!Iteration(
+--			name<-'select'
+--		),
+--		collectLeftOwnedRoundBracketedClauseCS : CompleteOclMM!RoundBracketedClauseCS(
+--			ownedArguments <- Sequence{collectLeftBracketedClauseNavigation1, collectLeftBracketedClauseNavigation2} 
+--		),
+--		collectLeftBracketedClauseNavigation1 :  CompleteOclMM!NavigatingArgCs(
+--			ownedNameExpression <- Sequence{collectLeftBracketedClauseNavigation1NameExpCS} 
+--		),
+--		collectLeftBracketedClauseNavigation2 :  CompleteOclMM!NavigatingArgCs(
+--			ownedNameExpression <- Sequence{collectLeftBracketedClauseNavigation2InfixExpCS} 
+--		),
+--		collectLeftBracketedClauseNavigation1NameExpCS:CompleteOclMM!NameExpCS(
+--			ownedPathName <- collectLeftBracketedClauseNavigation1PathNameCS
+--		),
+--		
+--		collectLeftBracketedClauseNavigation1PathNameCS:CompleteOclMM!PathNameCS(
+--			ownedPathElements <- Sequence{collectLeftBracketedClauseNavigation1PathElementCS}
+--		),
+--		collectLeftBracketedClauseNavigation1PathElementCS : CompleteOclMM!PathElementCS(
+--			owningPathName <- collectLeftBracketedClauseNavigation1PathNameCS,
+--			referredElement <- collectLeftBracketedClauseNavigation1IteratorVariable
+--		),
+--		collectLeftBracketedClauseNavigation1IteratorVariable : CompleteOclMM!IteratorVariable(
+--			name <- 'p'
+--		)
+--		
+--		-------   Sequence{....} ->includes (p.oclType())
+--		collectLeftBracketedClauseNavigation2InfixExpCS : CompleteOclMM!InfixExpCS( 
+--			--------- TODOOOO ------------
+--			name <- '->',
+----			ownedLeft<-selOwnedLeft,
+--			ownedRight<-includesOwnedRight
+--		),
+--		
+--		includesOwnedRight :  CompleteOclMM!CompleteOclMM!NameExpCS(
+--			ownedPathName <- includesRigthPathNameCS,
+--			ownedRoundBracketedClause <- includesRigthBracketedClause
+--		)
+--		includesRigthPathNameCS: CompleteOclMM!PathNameCS(
+--			ownedPathElements <- Sequence{includesRigthPathElementCS}
+--		),
+--		includesRigthPathElementCS : CompleteOclMM!PathElementCS(
+--			owningPathName <- includesRigthPathNameCS,
+--			referredElement <- includesRightOperation
+--		),
+--		includesRightOperation : CompleteOclMM!Operation(
+--			name <- 'includes'	
+--		),
+--		includesRigthBracketedClause : CompleteOclMM!CompleteOclMM!RoundBracketedClauseCS(
+--			----------TODO -----------------
+--		)
+--		
+--		
+--		
+--		
+--		
+--		
+--		
+--		
+--		
+--		
+--		
+--		
+--		
+--		
+--		
+--		
+--		
+--		--------   collect(p|p.oclType())->includesAll(Sequence{.....})   ---------------
+--		selectOownedRight:CompleteOclMM!InfixExpCS(
+--			name <- '->',
+--			pivot <- includesAllOperationCallExp, -------- TODO is this necessary?
+--			ownedLeft <- includesAllOwnedLeft,
+--			
+--			ownedRight <- includesAllOwnedRight
+--		),
+--			
+--		includesAllOperationCallExp : CompleteOclMM!OperationCallExp( -------- TODO is this necessary?
+--			name<- 'includesAll'
+--		),
+--		includesAllOwnedRight :CompleteOclMM!NameExpCS(
+--			------------ TODO -------
+--			ownedPathName <- includesAllRigthPathNameCS,
+--			ownedRoundBracketedClause <- includesAllRightOwnedRoundBracketedClauseCS
+--		),
+--		
+--		includesAllRigthPathNameCS: CompleteOclMM!PathNameCS(
+--			ownedPathElements <- Sequence{includesAllRightPathElementCS}
+--		),
+--		includesAllRigthPathElementCS : CompleteOclMM!PathElementCS(
+--			owningPathName <- includesAllRigthPathNameCS,
+--			---  referredElement <- includesAllLeftOperation
+--		),
+--		
+--		includesAllOwnedLeft:CompleteOclMM!NameExpCS(
+--			ownedPathName <- includesAllLeftPathNameCS,
+--			ownedRoundBracketedClause <- includesAllLeftOwnedRoundBracketedClauseCS
+--		),
+--		
+--		includesAllLeftPathNameCS:CompleteOclMM!PathNameCS(
+--			ownedPathElements <- Sequence{includesAllLeftPathElementCS}
+--		),
+--		includesAllLeftPathElementCS : CompleteOclMM!PathElementCS(
+--			owningPathName <- includesAllLeftPathNameCS,
+--			referredElement <- includesAllLeftOperation
+--		),
+--		includesAllLeftOperation : CompleteOclMM!Operation(
+--			name <- 'includesAll'
+--		),
+--		includesAllLeftOwnedRoundBracketedClauseCS:CompleteOclMM!RoundBracketedClauseCS(
+--			ownedArguments <- Sequence{includesAllLeftNavigatingArgCs}
+--		),
+--		includesAllLeftNavigatingArgCs :  CompleteOclMM!NavigatingArgCs(
+--			ownedNameExpression <- Sequence{includesAllLeftCollectionLiteralExpCS}
+--		),
+--		includesAllLeftCollectionLiteralExpCS : CompleteOclMM!CollectionLiteralExpCS(
+--			ownedType : includesAllLeftCollectionTypeCS,
+--			ownedParts <- inPropertiesRequiredSchemas->collect(requiredSchema | thisModule.mapSchemaToCollectionLiteralPartCS(requiredSchema))
+--		),
+--		includesAllLeftCollectionTypeCS :CompleteOclMM!CollectionTypeCS(
+--			name<-'Sequence'
+--		)
+--	
+--		booleanLiteralExpCS:CompleteOclMM!BooleanLiteralExpCS(
+--			symbol<-'true'
+--		),
+--		nullLiteralExpCS:CompleteOclMM!NullLiteralExpCS(
+--		)
+--	do {
+--		thisModule.shipyardContextDeclCSSequence <- thisModule.shipyardContextDeclCSSequence->union(Sequence{classifierContextDeclCS});
+--	}
+--}
+--
+--lazy rule mapSchemaToCollectionLiteralPartCS{
+--	from schema : JSchemaMM!Schema
+--	to 
+--		CompleteOclMM!CollectionLiteralPartsCS(
+--			ownedExpression <- nameExpCS
+--		),
+--		nameExpCS:CompleteOclMM!NameExpCS(
+--			ownedPathName <- pathNameCS
+--		),
+--		pathNameCS:CompleteOclMM!PathNameCS(
+--			ownedPathElements <- Sequence{pathElementCS}
+--			
+--		),
+--		pathElementCS : CompleteOclMM!PathElementCS(
+--			owningPathName <- pathNameCS,
+--			referredElement <- class
+--		),
+--		class : CompleteOclMM!Class(
+--			name <- schema.buildEClassname()
+--		)
+--}
+---------------------------DO Not delete --------------------------------------
 --rule requiredConstraintToOCL{
 --	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
 --	
@@ -616,9 +888,17 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 --		thisModule.repeatedEClassName();
 		---- OCL generation--------
 		---------   TODO select the proper package declaration. at this point we know that there is only one. But things can get complicated
-		thisModule.allPackageDeclarationCS()->first().ownedContexts <- thisModule.shipyardContextDeclCSSequence;
+--		thisModule.allPackageDeclarationCS()->first().ownedContexts <- thisModule.shipyardContextDeclCSSequence;
+		
+		thisModule.endPackage();
+		
 	}
 }
+
+helper  def : endPackage() : OclAny=
+--	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('endPackage',Sequence{thisModule.packageName});
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('endPackage',Sequence{thisModule.oclFileName});
+
 
 --helper def: eclassEObjects() : Sequence(Ecore!EClass) = Ecore!EClass.allInstancesFrom('ecoreM');
 --
