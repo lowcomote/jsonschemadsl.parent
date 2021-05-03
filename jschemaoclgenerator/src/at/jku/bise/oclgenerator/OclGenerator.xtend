@@ -24,7 +24,7 @@ class OclGenerator {
 	def static generateMinimumConstraint(String contextClass, String inv, Double minimum)'''
 			context «contextClass»
 		
-			inv «inv»('The value of Shipyard2RootTestInteger must be greater or equal than «minimum»'):
+			inv «inv»('The value of «contextClass» must be greater or equal than «minimum»'):
 			if testInteger >= «minimum»
 			then true
 			else null
@@ -39,7 +39,7 @@ class OclGenerator {
 	def static generateRequiredInPropertiesConstraint(String contextClass, String inv, String requiredProperty, String requiredClassType)'''
 			context «contextClass» 
 		
-			inv «inv»«requiredProperty»:
+			inv «inv»«requiredProperty» ('«contextClass» require the property «requiredProperty»'):
 			if  properties->select(p|p.oclType()=«requiredClassType»)->size()>0
 			then true
 			else null

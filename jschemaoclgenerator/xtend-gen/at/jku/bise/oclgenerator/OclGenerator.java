@@ -47,7 +47,9 @@ public class OclGenerator {
     _builder.append("\t");
     _builder.append("inv ");
     _builder.append(inv, "\t");
-    _builder.append("(\'The value of Shipyard2RootTestInteger must be greater or equal than ");
+    _builder.append("(\'The value of ");
+    _builder.append(contextClass, "\t");
+    _builder.append(" must be greater or equal than ");
     _builder.append(minimum, "\t");
     _builder.append("\'):");
     _builder.newLineIfNotEmpty();
@@ -87,7 +89,11 @@ public class OclGenerator {
     _builder.append("inv ");
     _builder.append(inv, "\t");
     _builder.append(requiredProperty, "\t");
-    _builder.append(":");
+    _builder.append(" (\'");
+    _builder.append(contextClass, "\t");
+    _builder.append(" require the property ");
+    _builder.append(requiredProperty, "\t");
+    _builder.append("\'):");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("if  properties->select(p|p.oclType()=");

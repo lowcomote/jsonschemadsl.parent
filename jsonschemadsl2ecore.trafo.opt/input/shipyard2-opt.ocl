@@ -1,11 +1,11 @@
 -- OCL contraints for /Users/Alessandro.colantoni/eclipse-lowcomote-jsonschema-workspace/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/shipyard2
 import 'http://jku.bise.at/shipyard2'
 
-package shipyard2
-
+package shipyard2 
+ 
 	context shipyard2::Shipyard2RootTestInteger
 
-	inv Shipyard2RootTestIntegerMinimum('The value of Shipyard2RootTestInteger must be greater or equal than 4.2'):
+	inv Shipyard2RootTestIntegerMinimum('The value of shipyard2::Shipyard2RootTestInteger must be greater or equal than 4.2'):
 	if testInteger >= 4.2
 	then true
 	else null
@@ -13,7 +13,7 @@ package shipyard2
 
 	context shipyard2::Shipyard2Root 
 
-	inv Shipyard2RootRequiredapiVersion:
+	inv Shipyard2RootRequiredapiVersion ('shipyard2::Shipyard2Root require the property apiVersion'):
 	if  properties->select(p|p.oclType()=Shipyard2RootApiVersion)->size()>0
 	then true
 	else null
@@ -21,7 +21,7 @@ package shipyard2
 
 	context shipyard2::Shipyard2Root 
 
-	inv Shipyard2RootRequiredkind:
+	inv Shipyard2RootRequiredkind ('shipyard2::Shipyard2Root require the property kind'):
 	if  properties->select(p|p.oclType()=Shipyard2RootKind)->size()>0
 	then true
 	else null
@@ -29,7 +29,7 @@ package shipyard2
 
 	context shipyard2::Shipyard2Root 
 
-	inv Shipyard2RootRequiredmetadata:
+	inv Shipyard2RootRequiredmetadata ('shipyard2::Shipyard2Root require the property metadata'):
 	if  properties->select(p|p.oclType()=Shipyard2RootMetadata)->size()>0
 	then true
 	else null
@@ -37,7 +37,7 @@ package shipyard2
 
 	context shipyard2::Shipyard2Root 
 
-	inv Shipyard2RootRequiredspec:
+	inv Shipyard2RootRequiredspec ('shipyard2::Shipyard2Root require the property spec'):
 	if  properties->select(p|p.oclType()=Shipyard2RootSpec)->size()>0
 	then true
 	else null
@@ -45,7 +45,7 @@ package shipyard2
 
 	context shipyard2::Metadata 
 
-	inv MetadataRequiredname:
+	inv MetadataRequiredname ('shipyard2::Metadata require the property name'):
 	if  properties->select(p|p.oclType()=MetadataName)->size()>0
 	then true
 	else null
@@ -53,7 +53,7 @@ package shipyard2
 
 	context shipyard2::ShipyardSpec 
 
-	inv ShipyardSpecRequiredstages:
+	inv ShipyardSpecRequiredstages ('shipyard2::ShipyardSpec require the property stages'):
 	if  properties->select(p|p.oclType()=ShipyardSpecStages)->size()>0
 	then true
 	else null
@@ -61,7 +61,7 @@ package shipyard2
 
 	context shipyard2::Stage 
 
-	inv StageRequiredname:
+	inv StageRequiredname ('shipyard2::Stage require the property name'):
 	if  properties->select(p|p.oclType()=StageName)->size()>0
 	then true
 	else null
@@ -69,7 +69,7 @@ package shipyard2
 
 	context shipyard2::Stage 
 
-	inv StageRequiredsequences:
+	inv StageRequiredsequences ('shipyard2::Stage require the property sequences'):
 	if  properties->select(p|p.oclType()=StageSequences)->size()>0
 	then true
 	else null
@@ -77,7 +77,7 @@ package shipyard2
 
 	context shipyard2::Sequence 
 
-	inv SequenceRequiredname:
+	inv SequenceRequiredname ('shipyard2::Sequence require the property name'):
 	if  properties->select(p|p.oclType()=SequenceName)->size()>0
 	then true
 	else null
@@ -85,7 +85,7 @@ package shipyard2
 
 	context shipyard2::Sequence 
 
-	inv SequenceRequiredtriggers:
+	inv SequenceRequiredtriggers ('shipyard2::Sequence require the property triggers'):
 	if  properties->select(p|p.oclType()=SequenceTriggers)->size()>0
 	then true
 	else null
@@ -93,7 +93,7 @@ package shipyard2
 
 	context shipyard2::Sequence 
 
-	inv SequenceRequiredtasks:
+	inv SequenceRequiredtasks ('shipyard2::Sequence require the property tasks'):
 	if  properties->select(p|p.oclType()=SequenceTasks)->size()>0
 	then true
 	else null
@@ -101,7 +101,7 @@ package shipyard2
 
 	context shipyard2::Task 
 
-	inv TaskRequiredname:
+	inv TaskRequiredname ('shipyard2::Task require the property name'):
 	if  properties->select(p|p.oclType()=TaskName)->size()>0
 	then true
 	else null
@@ -109,7 +109,7 @@ package shipyard2
 
 	context shipyard2::Task 
 
-	inv TaskRequiredproperties:
+	inv TaskRequiredproperties ('shipyard2::Task require the property properties'):
 	if  properties->select(p|p.oclType()=TaskProperties)->size()>0
 	then true
 	else null
