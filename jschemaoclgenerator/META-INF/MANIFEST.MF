@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Jschemaoclgenerator
+Bundle-SymbolicName: jschemaoclgenerator
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: jschemaoclgenerator
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.eclipse.emf.common;bundle-version="2.20.0",
+ org.eclipse.core.resources;bundle-version="3.13.800"
+Export-Package: at.jku.bise.oclgenerator,
+ at.jku.bise.oclgenerator
+Import-Package: org.eclipse.core.runtime

@@ -25,7 +25,7 @@ public class JsonSchemaToEcoreUtils {
 	public static String MODULE_JSON_SCHEMA_TO_ECORE_MM = "JsonSchema2EcoreOpt";
 	
 	public static void performTrafoEMFTVMJsonSchemaToEcore(String jsonSchemaModelUri, String ecoreModelUri, 
-			String grammarModelUri,String traceUri) throws IOException {
+			String grammarModelUri, String traceUri) throws IOException {
 		ATLExecutorEMFTVM exec = createEMFTVMJsonSchemaToEcoreM(jsonSchemaModelUri, ecoreModelUri, grammarModelUri);
 		exec.loadTraceModel(traceUri);
 		URL trafosFolder = FileLocator.toFileURL(Activator.getDefault().getBundle().getResource(MODULE_FOLDER));
@@ -38,6 +38,7 @@ public class JsonSchemaToEcoreUtils {
 		exec.loadMetaModels(JSON_SCHEMA_META_MODEL, JsonMetaschemaMMPackage.eINSTANCE.getNsURI());
 		exec.loadMetaModels(ECORE_META_MODEL, EcorePackage.eINSTANCE.getNsURI());
 		exec.loadMetaModels(JSON_GRAMMAR_META_MODEL, JsongrammarPackage.eINSTANCE.getNsURI());
+		
 		exec.loadModels(IN_JSON_SCHEMA_MODEL, jsonSchemaModelUri, ModelKind.IN);
 		exec.loadModels(OUT_ECORE_MM, ecoreModelUri, ModelKind.INOUT);
 		exec.loadModels(OUT_JSON_GRAMMAR, grammarModelUri, ModelKind.INOUT);	
