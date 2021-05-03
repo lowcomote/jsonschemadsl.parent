@@ -262,3 +262,21 @@ self.substring(2, self.size()-1);
 
 helper context String def : toCamelCase() : String=
 	self.substring(1, 1).toUpperCase() + self.substring(2,self.size());	
+
+
+
+---------- OCL helpers
+
+helper def : createOclFile() : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('createOcl',Sequence{thisModule.oclFileName, thisModule.nsURI, thisModule.packageName});
+
+helper def : appendMinimumConstraint(contextClass: String, inv:String, minimum: Real ) : OclAny=
+--	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.packageName, contextClass, minimum});
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileName, contextClass, inv, minimum});
+
+helper def : appendRequiredInPropertiesConstraint(contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileName, contextClass, inv, requiredProperty, requiredClassType});
+
+helper  def : endPackage() : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('endPackage',Sequence{thisModule.oclFileName});
+	

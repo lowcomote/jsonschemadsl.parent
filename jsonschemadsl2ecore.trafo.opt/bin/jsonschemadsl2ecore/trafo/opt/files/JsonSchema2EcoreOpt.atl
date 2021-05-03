@@ -43,8 +43,6 @@ rule JsonSchemaToEPackage {
 	}
 }
 
-helper def : createOclFile() : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('createOcl',Sequence{thisModule.oclFileName, thisModule.nsURI, thisModule.packageName});
 
 
 rule mapRootOrDefinitionsObjectSchemaToEClass{
@@ -449,10 +447,6 @@ rule createEAttributeSimpleScalar{
 
 unique lazy rule createPropertiesEClass{
 	from name:String
---	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition
---	using {
---		name : String =  typeSchemaDefinition->debug('ddddddddddddddddddd').refImmediateComposite().buildEClassname().concat('Properties');
---	}
 	to
 		eClass : Ecore!EClass (
 			name <- name.concat('Abstract'),
@@ -473,23 +467,20 @@ rule minimumConstraintToOCLJava {
 	}
 }
 
-helper def : appendMinimumConstraint(contextClass: String, inv:String, minimum: Real ) : OclAny=
---	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.packageName, contextClass, minimum});
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileName, contextClass, inv, minimum});
 
 rule requiredInProperties{
 	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
-		required : Sequence(String) = requiredSchemaDefinition.required.values->debug('requireds');
+		required : Sequence(String) = requiredSchemaDefinition.required.values;
 		
 		inPropertiesRequiredKeySchemaPairs : Sequence(JSchemaMM!KeySchemaPair)= 
 			let propertiesSchemaDefinitions : Sequence(JSchemaMM!PropertiesSchemaDefinition) = 
 				enclosingSchema.keywordDefinition->select(k|k.oclIsTypeOf(JSchemaMM!PropertiesSchemaDefinition))
 			in
-				if propertiesSchemaDefinitions->debug('propertiesSchemaDefinitions').isEmpty() then Sequence{}
+				if propertiesSchemaDefinitions.isEmpty() then Sequence{}
 				else
-					propertiesSchemaDefinitions->first().keySchemaPairs->select(ksp| required->debug('required2')->includes(ksp.key.stripFirstAndLast()->debug('ksp.key')))
+					propertiesSchemaDefinitions->first().keySchemaPairs->select(ksp| required->includes(ksp.key.stripFirstAndLast()))
 				endif;
 				
 	
@@ -506,9 +497,6 @@ rule requiredInProperties{
 --		inPropertiesRequiredKeySchemaPairs->debug('inPropertiesRequiredKeySchemaPairs')->collect(p | thisModule.appendRequiredInPropertiesConstraint(enclosingSchema.buildEClassname(), p.key, p.value.buildEClassname()));
 	}
 }
-
-helper def : appendRequiredInPropertiesConstraint(contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String) : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileName, contextClass, inv, requiredProperty, requiredClassType});
 
 
 
@@ -531,8 +519,6 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 	}
 }
 
-helper  def : endPackage() : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('endPackage',Sequence{thisModule.oclFileName});
 
 
 
