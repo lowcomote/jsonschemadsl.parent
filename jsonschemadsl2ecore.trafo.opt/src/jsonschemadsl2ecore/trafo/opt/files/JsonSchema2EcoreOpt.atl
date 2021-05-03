@@ -17,7 +17,7 @@ helper def: packageName : String = thisModule.retrieveRootSchema().eResource().g
 helper def: nsURI : String = 'http://jku.bise.at/' + thisModule.packageName;
 
 helper def: oclFileName:String  =thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension().path().concat('-opt');
-
+helper def: oclFileUri: OclAny = thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension();
 
 rule JsonSchemaToEPackage {
 	from

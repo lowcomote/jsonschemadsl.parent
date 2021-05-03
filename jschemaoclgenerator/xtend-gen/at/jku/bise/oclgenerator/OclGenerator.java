@@ -1,12 +1,13 @@
 package at.jku.bise.oclgenerator;
 
 import at.jku.bise.oclgenerator.OclWriter;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
 public class OclGenerator {
-  public static void createOcl(final String fileName, final String importContent, final String packageName) {
+  public static void createOcl(final URI fileName, final String importContent, final String packageName) {
     try {
       OclWriter.create(fileName);
       OclWriter.append(fileName, OclGenerator.initializeOcl(importContent, packageName));
@@ -28,7 +29,7 @@ public class OclGenerator {
     return _builder;
   }
   
-  public static void appendMinimumConstraint(final String fileName, final String contextClass, final String inv, final Double minimum) {
+  public static void appendMinimumConstraint(final URI fileName, final String contextClass, final String inv, final Double minimum) {
     try {
       OclWriter.append(fileName, OclGenerator.generateMinimumConstraint(contextClass, inv, minimum));
     } catch (Throwable _e) {
@@ -66,7 +67,7 @@ public class OclGenerator {
     return _builder;
   }
   
-  public static void appendRequiredInPropertiesConstraint(final String fileName, final String contextClass, final String inv, final String requiredProperty, final String requiredClassType) {
+  public static void appendRequiredInPropertiesConstraint(final URI fileName, final String contextClass, final String inv, final String requiredProperty, final String requiredClassType) {
     try {
       OclWriter.append(fileName, OclGenerator.generateRequiredInPropertiesConstraint(contextClass, inv, requiredProperty, requiredClassType));
     } catch (Throwable _e) {
@@ -105,7 +106,7 @@ public class OclGenerator {
     return _builder;
   }
   
-  public static void endPackage(final String fileName) {
+  public static void endPackage(final URI fileName) {
     try {
       OclWriter.append(fileName, OclGenerator.endPackage());
     } catch (Throwable _e) {
