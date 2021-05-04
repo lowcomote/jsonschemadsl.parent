@@ -1,15 +1,13 @@
 import 'http://at.jku.bise/jsonMetaschemaMM'
 
---package jsonMetaschemaMM
---
--- 
---endpackage
+package jsonMetaschemaMM
 
-package ocl
+ 
 
 
-context OclAny
- def: findSchemaByJsonPointer (tokens : Sequence(String)): jsonMetaschemaMM::Schema =
+
+context ocl::OclAny
+def: findSchemaByJsonPointer (tokens : Sequence(String)): jsonMetaschemaMM::Schema =
 	let keywordDefinitionMap : Map (String, OclAny) =  
 		Map{
 			('additionalItems',AdditionalItemsSchemaDefinition), 
@@ -86,7 +84,9 @@ context OclAny
 endif
 
 
+endpackage
 
+package ocl
 
 
 context ocl::Sequence 
