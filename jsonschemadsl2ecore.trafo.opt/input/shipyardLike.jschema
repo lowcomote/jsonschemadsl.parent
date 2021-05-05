@@ -1,0 +1,124 @@
+{
+
+  	"required": [
+	    "apiVersion",
+	    "kind",
+	    "metadata",
+	    "spec"
+  	],
+  	"properties": {
+	 	"apiVersion": {
+			"type": "string"
+	    },
+	    "testInteger":{
+	    	"type": "integer",
+	    	"minimum":4.2
+	    },
+	    "kind": {
+	      	"type": "string"
+	    },
+	    "metadata": {
+	      	"$ref": "#/definitions/Metadata"
+	    },
+	    "spec": {
+	      	"$ref": "#/definitions/ShipyardSpec"
+	    }
+  	},
+  	"additionalProperties": false,
+  	"type": "object",
+	"definitions":{
+		"Metadata": {
+		  "required": [
+		    "name"
+		  ],
+		  "properties": {
+		    "name": {
+		      "type": "string"
+		    }
+		  },
+		  "additionalProperties": false,
+		  "type": "object"
+		},
+
+		"ShipyardSpec": {
+		  "required": [
+		    "stages"
+		  ],
+		  "properties": {
+		    "stages": {
+		      "items": {
+		        "$ref": "#/definitions/Stage"
+		      },
+		      "type": "array"
+		    }
+		  },
+		  "additionalProperties": false,
+		  "type": "object"
+		},
+
+		"Stage": {
+		  "required": [
+		    "name",
+		    "sequences"
+		  ],
+		  "properties": {
+		    "name": {
+		      "type": "string"
+		    },
+		    "sequences": {
+		      "items": {
+		        "$ref": "#/definitions/Sequence"
+		      },
+		      "type": "array"
+		    }
+		  },
+		  "additionalProperties": false,
+		  "type": "object"
+		},
+
+		"Sequence": {
+		  	"required": [
+			    "name",
+			    "triggers",
+			    "tasks"
+			],
+		  	"properties": {
+		    	"name": {
+		      		"type": "string"
+		    	},
+		    	"triggers": {
+		      		"items": {
+		        		"type": "string"
+		      		},
+		      	"type": "array"
+		    	},
+		    	"tasks": {
+		      		"items": {
+		        		"$ref": "#/definitions/Task"
+		      		},
+		      		"type": "array"
+		    	}
+		  	},
+		  	"additionalProperties": false,
+		  	"type": "object"
+		},
+
+		"Task": {
+		  	"required": [
+			    "name",
+			    "properties"
+		  	],
+		  	"properties": {
+		    	"name": {
+		      		"type": "string"
+		    	},
+		    	"properties": {
+		    		"type": "object",
+		      		"additionalProperties": true
+		    	}
+		  	},
+		  	"additionalProperties": false,
+		  	"type": "object"
+		}
+	}
+}

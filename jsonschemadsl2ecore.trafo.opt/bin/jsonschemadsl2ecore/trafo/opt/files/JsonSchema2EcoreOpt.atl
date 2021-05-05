@@ -45,12 +45,18 @@ rule JsonSchemaToEPackage {
 
 
 
-rule mapRootOrDefinitionsObjectSchemaToEClass{
+rule mapRootOrDefinitionsObjectSchemaToEClass{ ---- TODO: manage the root or definitions be a boolean schema
 	from objectSchema :JSchemaMM!ObjectSchema (objectSchema.isRootOrDefinitionOrSchemaObjectAdditionalProperties())
+	using {
+		refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) =objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!RefSchemaDefinition));
+		typeSchemaDefinitionSequence : Sequence(JSchemaMM!TypeSchemaDefinition) = objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
+	}
 	to 
 		eClass : Ecore!EClass (
 			name<- objectSchema.buildEClassname(),
-			eStructuralFeatures <-objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
+--			eStructuralFeatures <-objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
+			eStructuralFeatures <- 	if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
+									else typeSchemaDefinitionSequence  endif
 		)
 } 
 
@@ -74,12 +80,8 @@ rule mapInPropertiesObjectSchemaToEClass extends mapInPropertiesSchemaToEClass{
 	}
 	to 
 		eClass : Ecore!EClass (
---			eStructuralFeatures <- 	let refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) = schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!RefSchemaDefinition)) in
---									if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
---									else schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)) 
---									endif
-						eStructuralFeatures <- 	if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
-												else typeSchemaDefinitionSequence  endif
+			eStructuralFeatures <- 	if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
+									else typeSchemaDefinitionSequence  endif
 		)
 	do {
 --		if (refSchemaDefinitonSequence.isEmpty() and typeSchemaDefinitionSequence.first().findSimpleType() = #"\"object\"") 
