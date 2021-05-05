@@ -517,9 +517,48 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		
 		---- OCL generation--------
 		thisModule.endPackage();
+		-----  Refine Class names for unicity	-----------
+		
+--		for (eClass in thisModule.allEClass()){
+--			thisModule.allEClass()->iterate(eClass2; acc: Integer = 0 |
+--				if eClass <> eClass2 and eClass2.name = eClass.name 
+--			)	
+--		}
+		
+--		for (eClass in thisModule.allEClass()){
+--			if (thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name )->size()>0){
+--				eClass.name<-
+--			}	
+--		}
+		
+--		for (eClass in thisModule.allEClass()){
+--			thisModule.allEClass()->excluding(eClass)->iterate(eClass2; acc: Integer = 0 |
+----				if  eClass2.name = eClass.name then  
+----					eClass2.name <- eClass2.name.concat((acc<-acc+1).toString()); 
+----				else
+----					OclUndefined
+----				endif	
+--				if (eClass2.name = eClass.name)	then	
+----					acc+1
+--					eClass2.name <- ''
+--				else
+--					acc+1
+--				endif	
+--			);
+--		}	
+					
+		for (eClass in thisModule.allEClass()){
+--			if (thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name )->size() >0 ) {
+				for (eClass2 in thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name)) {
+					eClass2.name <- eClass2.name.
+						concat(thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name)->indexOf(eClass2).toString());
+				}
+--			}	
+		}
 		
 	}
 }
+
 
 
 

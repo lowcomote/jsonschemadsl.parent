@@ -6,7 +6,7 @@ package shipyard2
 	context shipyard2::Metadata 
 
 	inv MetadataRequiredname ('shipyard2::Metadata require the property name'):
-	if  properties->select(p|p.oclType()=Metadata_Name)->size()>0
+	if  properties->select(p|p.oclType()=MetadataName)->size()>0
 	then true
 	else null
 	endif
@@ -14,7 +14,7 @@ package shipyard2
 	context shipyard2::Selector 
 
 	inv SelectorRequiredmatch ('shipyard2::Selector require the property match'):
-	if  properties->select(p|p.oclType()=Selector_Match)->size()>0
+	if  properties->select(p|p.oclType()=SelectorMatch)->size()>0
 	then true
 	else null
 	endif
@@ -22,7 +22,7 @@ package shipyard2
 	context shipyard2::Sequence 
 
 	inv SequenceRequiredname ('shipyard2::Sequence require the property name'):
-	if  properties->select(p|p.oclType()=Sequence_Name)->size()>0
+	if  properties->select(p|p.oclType()=SequenceName)->size()>0
 	then true
 	else null
 	endif
@@ -30,7 +30,7 @@ package shipyard2
 	context shipyard2::Sequence 
 
 	inv SequenceRequiredtasks ('shipyard2::Sequence require the property tasks'):
-	if  properties->select(p|p.oclType()=Sequence_Tasks)->size()>0
+	if  properties->select(p|p.oclType()=SequenceTasks)->size()>0
 	then true
 	else null
 	endif
@@ -38,7 +38,7 @@ package shipyard2
 	context shipyard2::Shipyard 
 
 	inv ShipyardRequiredapiVersion ('shipyard2::Shipyard require the property apiVersion'):
-	if  properties->select(p|p.oclType()=Shipyard_ApiVersion)->size()>0
+	if  properties->select(p|p.oclType()=ShipyardApiVersion)->size()>0
 	then true
 	else null
 	endif
@@ -46,7 +46,7 @@ package shipyard2
 	context shipyard2::Shipyard 
 
 	inv ShipyardRequiredkind ('shipyard2::Shipyard require the property kind'):
-	if  properties->select(p|p.oclType()=Shipyard_Kind)->size()>0
+	if  properties->select(p|p.oclType()=ShipyardKind)->size()>0
 	then true
 	else null
 	endif
@@ -54,7 +54,7 @@ package shipyard2
 	context shipyard2::Shipyard 
 
 	inv ShipyardRequiredmetadata ('shipyard2::Shipyard require the property metadata'):
-	if  properties->select(p|p.oclType()=Shipyard_Metadata)->size()>0
+	if  properties->select(p|p.oclType()=ShipyardMetadata)->size()>0
 	then true
 	else null
 	endif
@@ -62,7 +62,7 @@ package shipyard2
 	context shipyard2::Shipyard 
 
 	inv ShipyardRequiredspec ('shipyard2::Shipyard require the property spec'):
-	if  properties->select(p|p.oclType()=Shipyard_Spec)->size()>0
+	if  properties->select(p|p.oclType()=ShipyardSpec)->size()>0
 	then true
 	else null
 	endif
@@ -70,7 +70,7 @@ package shipyard2
 	context shipyard2::ShipyardSpec 
 
 	inv ShipyardSpecRequiredstages ('shipyard2::ShipyardSpec require the property stages'):
-	if  properties->select(p|p.oclType()=ShipyardSpec_Stages)->size()>0
+	if  properties->select(p|p.oclType()=ShipyardSpecStages)->size()>0
 	then true
 	else null
 	endif
@@ -78,7 +78,7 @@ package shipyard2
 	context shipyard2::Stage 
 
 	inv StageRequiredname ('shipyard2::Stage require the property name'):
-	if  properties->select(p|p.oclType()=Stage_Name)->size()>0
+	if  properties->select(p|p.oclType()=StageName)->size()>0
 	then true
 	else null
 	endif
@@ -86,7 +86,7 @@ package shipyard2
 	context shipyard2::Stage 
 
 	inv StageRequiredsequences ('shipyard2::Stage require the property sequences'):
-	if  properties->select(p|p.oclType()=Stage_Sequences)->size()>0
+	if  properties->select(p|p.oclType()=StageSequences)->size()>0
 	then true
 	else null
 	endif
@@ -94,7 +94,7 @@ package shipyard2
 	context shipyard2::Task 
 
 	inv TaskRequiredname ('shipyard2::Task require the property name'):
-	if  properties->select(p|p.oclType()=Task_Name)->size()>0
+	if  properties->select(p|p.oclType()=TaskName)->size()>0
 	then true
 	else null
 	endif
@@ -102,7 +102,7 @@ package shipyard2
 	context shipyard2::Task 
 
 	inv TaskRequiredproperties ('shipyard2::Task require the property properties'):
-	if  properties->select(p|p.oclType()=Task_Properties)->size()>0
+	if  properties->select(p|p.oclType()=TaskProperties)->size()>0
 	then true
 	else null
 	endif
@@ -110,7 +110,7 @@ package shipyard2
 	context shipyard2::Trigger 
 
 	inv TriggerRequiredevent ('shipyard2::Trigger require the property event'):
-	if  properties->select(p|p.oclType()=Trigger_Event)->size()>0
+	if  properties->select(p|p.oclType()=TriggerEvent)->size()>0
 	then true
 	else null
 	endif
