@@ -232,8 +232,7 @@ endif;
 helper context JSchemaMM!Schema def: buildEClassname(): String=
 let localName : String = self.getKey().toCamelCase() in
 let parentNode: JSchemaMM!Schema = self.getParentNode() in
---if not parentNode.oclIsUndefined() then parentNode.buildEClassname().concat(localName)
-if not parentNode.oclIsUndefined() then parentNode.buildEClassname().concat('_').concat(localName)
+if not parentNode.oclIsUndefined() then parentNode.buildEClassname().concat(localName)
 else localName
 endif; 
 
