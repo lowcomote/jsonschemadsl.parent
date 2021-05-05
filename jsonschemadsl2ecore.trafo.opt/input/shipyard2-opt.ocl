@@ -62,7 +62,7 @@ package shipyard2
 	context shipyard2::Shipyard 
 
 	inv ShipyardRequiredspec ('shipyard2::Shipyard require the property spec'):
-	if  properties->select(p|p.oclType()=ShipyardSpec)->size()>0
+	if  properties->select(p|p.oclType()=ShipyardSpec1)->size()>0
 	then true
 	else null
 	endif

@@ -301,8 +301,8 @@ abstract rule createPropertiesContainmentAndMapDefaultAdditionalPropertiesEClass
 	to 
 		eReference :Ecore!EReference ( 
 			name <- 'properties',
+--			name <- typeSchemaDefinition.refImmediateComposite().getkey(),
 			eType <- thisModule.createPropertiesEClass(typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties')),
---			eType <- thisModule.createPropertiesEClass(typeSchemaDefinition),
 			containment <- true,
 			lowerBound <- 0,
 			upperBound <- -1
@@ -440,11 +440,7 @@ rule createEAttributeSimpleScalar{
 			upperBound <- 1,
 			eType <- typeSchemaDefinition.getEDataType()
 		)
-	do {
---		if (typeSchemaDefinition.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!KeySchemaPair)
---				and not typeSchemaDefinition.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)) 		
---			thisModule.keywords <- thisModule.keywords->union(Sequence{eAttribute});
-	}
+
 }
 
 unique lazy rule createPropertiesEClass{
@@ -458,19 +454,19 @@ unique lazy rule createPropertiesEClass{
 
 -------------------- OCL Generation --------------------------------
 
-rule minimumConstraintToOCLJava {
+lazy rule minimumConstraintToOcl {
 	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
 	}
 	do {
---	 	thisModule.appendMinimumConstraint(enclosingSchema.buildEClassname(), minimumSchemaDefinition.minimum);
-		thisModule.appendMinimumConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Minimum', minimumSchemaDefinition.minimum);
+--		thisModule.appendMinimumConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Minimum', minimumSchemaDefinition.minimum);
+		thisModule.appendMinimumConstraint(thisModule.packageName+'::'+enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum);
 	}
 }
 
 
-rule requiredInProperties{
+lazy rule requiredInPropertiesToOcl{
 	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
@@ -492,11 +488,9 @@ rule requiredInProperties{
 	}
 	do{
 		for (p in inPropertiesRequiredKeySchemaPairs) {
---			thisModule.appendRequiredInPropertiesConstraint(enclosingSchema.buildEClassname(), p.key.stripFirstAndLast(), p.value.buildEClassname());
-			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Required', p.key.stripFirstAndLast(), p.value.buildEClassname());
+--			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Required', p.key.stripFirstAndLast(), p.value.buildEClassname());
+			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName+'::'+enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Required', p.key.stripFirstAndLast(), p.value.resolve().name);
 		}
-		
---		inPropertiesRequiredKeySchemaPairs->debug('inPropertiesRequiredKeySchemaPairs')->collect(p | thisModule.appendRequiredInPropertiesConstraint(enclosingSchema.buildEClassname(), p.key, p.value.buildEClassname()));
 	}
 }
 
@@ -515,46 +509,29 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		thisModule.jsonGrammarRoot().detailedGrammar.curlyBracesEClass <- thisModule.curlyBracesEClass;
 		thisModule.jsonGrammarRoot().detailedGrammar.bracketsEClass <- thisModule.bracketsEClass;
 		
-		---- OCL generation--------
-		thisModule.endPackage();
+		
 		-----  Refine Class names for unicity	-----------
 		
---		for (eClass in thisModule.allEClass()){
---			thisModule.allEClass()->iterate(eClass2; acc: Integer = 0 |
---				if eClass <> eClass2 and eClass2.name = eClass.name 
---			)	
---		}
-		
---		for (eClass in thisModule.allEClass()){
---			if (thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name )->size()>0){
---				eClass.name<-
---			}	
---		}
-		
---		for (eClass in thisModule.allEClass()){
---			thisModule.allEClass()->excluding(eClass)->iterate(eClass2; acc: Integer = 0 |
-----				if  eClass2.name = eClass.name then  
-----					eClass2.name <- eClass2.name.concat((acc<-acc+1).toString()); 
-----				else
-----					OclUndefined
-----				endif	
---				if (eClass2.name = eClass.name)	then	
-----					acc+1
---					eClass2.name <- ''
---				else
---					acc+1
---				endif	
---			);
---		}	
+
 					
 		for (eClass in thisModule.allEClass()){
---			if (thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name )->size() >0 ) {
-				for (eClass2 in thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name)) {
-					eClass2.name <- eClass2.name.
-						concat(thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name)->indexOf(eClass2).toString());
-				}
---			}	
+			for (eClass2 in thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name)) {
+				eClass2.name <- eClass2.name.
+					concat(thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name)->indexOf(eClass2).toString());
+			}
 		}
+		
+		
+		---- OCL generation--------
+		for (m in JSchemaMM!MinimumSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.minimumConstraintToOcl(m);
+		}	
+
+		for (r in JSchemaMM!RequiredSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.requiredInPropertiesToOcl(r);
+		}
+			
+		thisModule.endPackage();
 		
 	}
 }
