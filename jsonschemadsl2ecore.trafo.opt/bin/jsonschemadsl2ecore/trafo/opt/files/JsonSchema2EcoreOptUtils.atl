@@ -274,8 +274,8 @@ helper def : appendMinimumConstraint(contextClass: String, inv:String, minimum: 
 --	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.packageName, contextClass, minimum});
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileUri, contextClass, inv, minimum});
 
-helper def : appendRequiredInPropertiesConstraint(contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String) : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, contextClass, inv, requiredProperty, requiredClassType});
+helper def : appendRequiredInPropertiesConstraint(contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String, propertyName : String) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, contextClass, inv, requiredProperty, requiredClassType, propertyName});
 
 helper  def : endPackage() : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('endPackage',Sequence{thisModule.oclFileUri});

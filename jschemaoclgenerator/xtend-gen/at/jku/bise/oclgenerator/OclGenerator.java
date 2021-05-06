@@ -69,15 +69,15 @@ public class OclGenerator {
     return _builder;
   }
   
-  public static void appendRequiredInPropertiesConstraint(final URI fileName, final String contextClass, final String inv, final String requiredProperty, final String requiredClassType) {
+  public static void appendRequiredInPropertiesConstraint(final URI fileName, final String contextClass, final String inv, final String requiredProperty, final String requiredClassType, final String propertyName) {
     try {
-      OclWriter.append(fileName, OclGenerator.generateRequiredInPropertiesConstraint(contextClass, inv, requiredProperty, requiredClassType));
+      OclWriter.append(fileName, OclGenerator.generateRequiredInPropertiesConstraint(contextClass, inv, requiredProperty, requiredClassType, propertyName));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
-  public static CharSequence generateRequiredInPropertiesConstraint(final String contextClass, final String inv, final String requiredProperty, final String requiredClassType) {
+  public static CharSequence generateRequiredInPropertiesConstraint(final String contextClass, final String inv, final String requiredProperty, final String requiredClassType, final String propertyName) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("\t");
     _builder.append("context ");
@@ -96,7 +96,9 @@ public class OclGenerator {
     _builder.append("\'):");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("if  properties->select(p|p.oclType()=");
+    _builder.append("if  ");
+    _builder.append(propertyName, "\t");
+    _builder.append("->select(p|p.oclType()=");
     _builder.append(requiredClassType, "\t");
     _builder.append(")->size()>0");
     _builder.newLineIfNotEmpty();

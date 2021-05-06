@@ -300,8 +300,8 @@ abstract rule createPropertiesContainmentAndMapDefaultAdditionalPropertiesEClass
 	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (typeSchemaDefinition.findSimpleType() = #"\"object\"")	
 	to 
 		eReference :Ecore!EReference ( 
-			name <- 'properties',
---			name <- typeSchemaDefinition.refImmediateComposite().getkey(),
+--			name <- 'properties',
+			name <- typeSchemaDefinition.refImmediateComposite().getKey(),
 			eType <- thisModule.createPropertiesEClass(typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties')),
 			containment <- true,
 			lowerBound <- 0,
@@ -471,6 +471,7 @@ lazy rule requiredInPropertiesToOcl{
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
 		required : Sequence(String) = requiredSchemaDefinition.required.values;
+		propertyName : String = enclosingSchema.getKey();
 		
 		inPropertiesRequiredKeySchemaPairs : Sequence(JSchemaMM!KeySchemaPair)= 
 			let propertiesSchemaDefinitions : Sequence(JSchemaMM!PropertiesSchemaDefinition) = 
@@ -489,7 +490,7 @@ lazy rule requiredInPropertiesToOcl{
 	do{
 		for (p in inPropertiesRequiredKeySchemaPairs) {
 --			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Required', p.key.stripFirstAndLast(), p.value.buildEClassname());
-			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName+'::'+enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Required', p.key.stripFirstAndLast(), p.value.resolve().name);
+			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName+'::'+enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Required', p.key.stripFirstAndLast(), p.value.resolve().name, propertyName);
 		}
 	}
 }

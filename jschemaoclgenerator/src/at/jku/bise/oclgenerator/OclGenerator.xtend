@@ -32,15 +32,15 @@ class OclGenerator {
 	'''
 	
 //	def static appendRequiredInPropertiesConstraint (String fileName, String contextClass, String inv, String requiredProperty, String requiredClassType){
-	def static appendRequiredInPropertiesConstraint (URI fileName, String contextClass, String inv, String requiredProperty, String requiredClassType){
-		OclWriter.append(fileName, generateRequiredInPropertiesConstraint( contextClass, inv, requiredProperty, requiredClassType))
+	def static appendRequiredInPropertiesConstraint (URI fileName, String contextClass, String inv, String requiredProperty, String requiredClassType, String propertyName){
+		OclWriter.append(fileName, generateRequiredInPropertiesConstraint( contextClass, inv, requiredProperty, requiredClassType, propertyName))
 	}
 	
-	def static generateRequiredInPropertiesConstraint(String contextClass, String inv, String requiredProperty, String requiredClassType)'''
+	def static generateRequiredInPropertiesConstraint(String contextClass, String inv, String requiredProperty, String requiredClassType, String propertyName)'''
 			context «contextClass» 
 		
 			inv «inv»«requiredProperty» ('«contextClass» require the property «requiredProperty»'):
-			if  properties->select(p|p.oclType()=«requiredClassType»)->size()>0
+			if  «propertyName»->select(p|p.oclType()=«requiredClassType»)->size()>0
 			then true
 			else null
 			endif
