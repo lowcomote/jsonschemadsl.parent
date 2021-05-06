@@ -461,7 +461,7 @@ lazy rule minimumConstraintToOcl {
 	}
 	do {
 --		thisModule.appendMinimumConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Minimum', minimumSchemaDefinition.minimum);
-		thisModule.appendMinimumConstraint(thisModule.packageName+'::'+enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum);
+		thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getkey());
 	}
 }
 
@@ -490,7 +490,7 @@ lazy rule requiredInPropertiesToOcl{
 	do{
 		for (p in inPropertiesRequiredKeySchemaPairs) {
 --			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Required', p.key.stripFirstAndLast(), p.value.buildEClassname());
-			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName+'::'+enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Required', p.key.stripFirstAndLast(), p.value.resolve().name, propertyName);
+			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName, enclosingSchema.resolve().name,  enclosingSchema.resolve().name+'Required', p.key.stripFirstAndLast(), p.value.resolve().name, propertyName);
 		}
 	}
 }

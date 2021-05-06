@@ -17,30 +17,30 @@ class OclGenerator {
 	'''
 	
 //	def static appendMinimumConstraint (String fileName, String contextClass, String inv, Double minimum){
-	def static appendMinimumConstraint (URI fileName, String contextClass, String inv, Double minimum){
-		OclWriter.append(fileName, generateMinimumConstraint( contextClass, inv, minimum))
+	def static appendMinimumConstraint (URI fileName, String packageName, String contextClass, String inv, Double minimum, String propertyName){
+		OclWriter.append(fileName, generateMinimumConstraint(packageName, contextClass, inv, minimum, propertyName))
 	}
 	
-	def static generateMinimumConstraint(String contextClass, String inv, Double minimum)'''
-			context «contextClass»
+	def static generateMinimumConstraint(String packageName, String contextClass, String inv, Double minimum, String propertyName)'''
+			context «packageName»::«contextClass»
 		
 			inv «inv»('The value of «contextClass» must be greater or equal than «minimum»'):
-			if testInteger >= «minimum»
+			if «propertyName» >= «minimum»
 			then true
 			else null
 			endif
 	'''
 	
 //	def static appendRequiredInPropertiesConstraint (String fileName, String contextClass, String inv, String requiredProperty, String requiredClassType){
-	def static appendRequiredInPropertiesConstraint (URI fileName, String contextClass, String inv, String requiredProperty, String requiredClassType, String propertyName){
-		OclWriter.append(fileName, generateRequiredInPropertiesConstraint( contextClass, inv, requiredProperty, requiredClassType, propertyName))
+	def static appendRequiredInPropertiesConstraint (URI fileName, String packageName, String contextClass, String inv, String requiredProperty, String requiredClassType, String propertyName){
+		OclWriter.append(fileName, generateRequiredInPropertiesConstraint(packageName, contextClass, inv, requiredProperty, requiredClassType, propertyName))
 	}
 	
-	def static generateRequiredInPropertiesConstraint(String contextClass, String inv, String requiredProperty, String requiredClassType, String propertyName)'''
-			context «contextClass» 
+	def static generateRequiredInPropertiesConstraint(String packageName, String contextClass, String inv, String requiredProperty, String requiredClassType, String propertyName)'''
+			context «packageName»::«contextClass» 
 		
-			inv «inv»«requiredProperty» ('«contextClass» require the property «requiredProperty»'):
-			if  «propertyName»->select(p|p.oclType()=«requiredClassType»)->size()>0
+			inv «inv»«requiredProperty» ('«contextClass» requires the property «requiredProperty»'):
+			if  self.«propertyName.underscoreIfNecessary»->select(p|p.oclType()=«packageName»::«requiredClassType»)->size()>0
 			then true
 			else null
 			endif
@@ -54,4 +54,14 @@ class OclGenerator {
 	def static endPackage()'''
 		endpackage
 	'''
+	
+	def static isIllegalSyntax(String str){
+		newArrayList('Sequence').contains(str)
+	}
+	
+	def static underscoreIfNecessary(String str){
+		if(isIllegalSyntax(str)) '_' + str else str;
+	}
+	
+	
 }

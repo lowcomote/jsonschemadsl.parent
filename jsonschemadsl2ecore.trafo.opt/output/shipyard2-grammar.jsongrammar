@@ -14,17 +14,19 @@
     <keywords xsi:type="ecore:EAttribute" href="shipyard2.ecore#//StageName/name"/>
     <keywords xsi:type="ecore:EReference" href="shipyard2.ecore#//StageSequences/sequences"/>
     <keywords xsi:type="ecore:EAttribute" href="shipyard2.ecore#//TaskName/name"/>
+    <keywords xsi:type="ecore:EReference" href="shipyard2.ecore#//TaskProperties/properties"/>
     <keywords xsi:type="ecore:EAttribute" href="shipyard2.ecore#//TriggerEvent/event"/>
     <keywords xsi:type="ecore:EReference" href="shipyard2.ecore#//TriggerSelector/selector"/>
     <curlyBracesReferences href="shipyard2.ecore#//Metadata/Metadata"/>
+    <curlyBracesReferences href="shipyard2.ecore#//SelectorMatch/match"/>
     <curlyBracesReferences href="shipyard2.ecore#//Selector/Selector"/>
     <curlyBracesReferences href="shipyard2.ecore#//Sequence/Sequence"/>
     <curlyBracesReferences href="shipyard2.ecore#//Shipyard/Shipyard"/>
     <curlyBracesReferences href="shipyard2.ecore#//ShipyardSpec/ShipyardSpec"/>
     <curlyBracesReferences href="shipyard2.ecore#//Stage/Stage"/>
+    <curlyBracesReferences href="shipyard2.ecore#//TaskProperties/properties"/>
     <curlyBracesReferences href="shipyard2.ecore#//Task/Task"/>
     <curlyBracesReferences href="shipyard2.ecore#//Trigger/Trigger"/>
-    <curlyBracesReferences href="shipyard2.ecore#//SelectorMatch/match"/>
     <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
     <bracketsReferences href="shipyard2.ecore#//SequenceTriggeredOn/triggeredOn"/>
     <bracketsReferences href="shipyard2.ecore#//SequenceTasks/tasks"/>

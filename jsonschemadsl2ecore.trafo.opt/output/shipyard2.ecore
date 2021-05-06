@@ -84,7 +84,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="TaskName" eSuperTypes="#//TaskPropertiesAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskProperties" eSuperTypes="#//TaskPropertiesAbstract"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskProperties" eSuperTypes="#//TaskPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//TaskPropertiesPropertiesAbstract" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TriggerEvent" eSuperTypes="#//TriggerPropertiesAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="event" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -118,11 +121,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="StageSequencesItems">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#//Sequence"
         containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SelectorMatchAdditionalProperties" eSuperTypes="#//SelectorMatchPropertiesAbstract">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
-        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MetadataPropertiesAbstract" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="SelectorPropertiesAbstract" abstract="true"/>
