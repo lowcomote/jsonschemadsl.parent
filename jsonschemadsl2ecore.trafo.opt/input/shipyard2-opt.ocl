@@ -1,8 +1,8 @@
 -- OCL contraints for /Users/Alessandro.colantoni/eclipse-lowcomote-jsonschema-workspace/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/shipyard2
 import 'http://jku.bise.at/shipyard2'
 
-package shipyard2   
-     
+package shipyard2
+
 	context shipyard2::Metadata 
 
 	inv MetadataRequiredname ('Metadata requires the property name'):
@@ -111,6 +111,14 @@ package shipyard2
 
 	inv TriggerRequiredevent ('Trigger requires the property event'):
 	if  self.Trigger->select(p|p.oclType()=shipyard2::TriggerEvent)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyard2::SelectorMatchPatternProperties0 
+
+	inv SelectorMatchPatternProperties0patternProperties0Regex ('the key must match the regular expression .*'):
+	if  key.matches('.*')
 	then true
 	else null
 	endif

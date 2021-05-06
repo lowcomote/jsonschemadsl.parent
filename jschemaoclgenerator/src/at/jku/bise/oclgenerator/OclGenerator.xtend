@@ -46,7 +46,24 @@ class OclGenerator {
 			endif
 	'''
 	
-//	def static endPackage (String fileName){
+	
+	def static appendRegexInPatternPropertiesConstraint(URI fileName, String packageName, String contextClass,  String inv, String regex, String propertyName){
+		OclWriter.append(fileName, generateRegexInPatternPropertiesConstraint(packageName, contextClass, inv, regex,  propertyName))
+	}
+	
+	
+	def static generateRegexInPatternPropertiesConstraint(String packageName, String contextClass, String inv, String regex, String propertyName)'''
+			context «packageName»::«contextClass» 
+		
+			inv «inv»Regex ('the key must match the regular expression «regex»'):
+			if  «propertyName».matches('«regex»')
+			then true
+			else null
+			endif
+	'''
+
+
+
 	def static endPackage (URI fileName){
 		OclWriter.append(fileName, endPackage())
 	}

@@ -125,6 +125,50 @@ public class OclGenerator {
     return _builder;
   }
   
+  public static void appendRegexInPatternPropertiesConstraint(final URI fileName, final String packageName, final String contextClass, final String inv, final String regex, final String propertyName) {
+    try {
+      OclWriter.append(fileName, OclGenerator.generateRegexInPatternPropertiesConstraint(packageName, contextClass, inv, regex, propertyName));
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  public static CharSequence generateRegexInPatternPropertiesConstraint(final String packageName, final String contextClass, final String inv, final String regex, final String propertyName) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("\t");
+    _builder.append("context ");
+    _builder.append(packageName, "\t");
+    _builder.append("::");
+    _builder.append(contextClass, "\t");
+    _builder.append(" ");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("inv ");
+    _builder.append(inv, "\t");
+    _builder.append("Regex (\'the key must match the regular expression ");
+    _builder.append(regex, "\t");
+    _builder.append("\'):");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("if  ");
+    _builder.append(propertyName, "\t");
+    _builder.append(".matches(\'");
+    _builder.append(regex, "\t");
+    _builder.append("\')");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("then true");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("else null");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("endif");
+    _builder.newLine();
+    return _builder;
+  }
+  
   public static void endPackage(final URI fileName) {
     try {
       OclWriter.append(fileName, OclGenerator.endPackage());

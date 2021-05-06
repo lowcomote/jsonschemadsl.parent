@@ -321,12 +321,6 @@ rule createPropertiesContainment extends createPropertiesContainmentAndMapDefaul
 	)	
 	to 
 		eReference :Ecore!EReference 
-
-		do {
-			-- we put curly braces to the enclosing object schema
---			thisModule.curlyBracesEReferences <- thisModule.curlyBracesEReferences->union(Sequence{eReference}); 
---			thisModule.curlyBracesEClass <- thisModule.curlyBracesEClass->union(Sequence{eReference.refImmediateComposite()}); 
-		}
 }
 
 
@@ -372,10 +366,7 @@ rule mapItemsObjectSchemaToEClass extends mapItemsSchemaToEClass{
 										endif	
 									}.flatten() 
 		)
---	do {
---		thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
-----		thisModule.bracketsEClass <- thisModule.bracketsEClass->union(Sequence{eReference.refImmediateComposite()});
---	}
+
 }
 
 
@@ -495,7 +486,20 @@ lazy rule requiredInPropertiesToOcl{
 	}
 }
 
-
+lazy rule patternPropertiesRegexToOcl{
+	---- keySchemaPair isInPatternProperties
+	from keySchemaPair: JSchemaMM!KeySchemaPair(keySchemaPair.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition))
+	using {
+		regex:String = keySchemaPair.key.stripFirstAndLast();
+		contextClass:String = keySchemaPair.value.resolve().name ;
+		inv : String = contextClass+keySchemaPair.value.getKey();
+		propertyName : String = 'key';
+	}
+	do{
+		
+		thisModule.appendRegexInPatternPropertiesConstraint(thisModule.packageName,contextClass, inv, regex, propertyName);
+	}
+}
 
 
 
@@ -530,6 +534,12 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 
 		for (r in JSchemaMM!RequiredSchemaDefinition.allInstancesFrom('jschema')){
 			thisModule.requiredInPropertiesToOcl(r);
+		}
+		
+		for(ksp in JSchemaMM!KeySchemaPair.allInstancesFrom('jschema')){
+			if(ksp.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition)){
+				thisModule.patternPropertiesRegexToOcl(ksp);
+			}
 		}
 			
 		thisModule.endPackage();
