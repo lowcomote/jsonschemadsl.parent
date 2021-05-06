@@ -25,7 +25,7 @@ class OclGenerator {
 			context «packageName»::«contextClass»
 		
 			inv «inv»('The value of «contextClass» must be greater or equal than «minimum»'):
-			if «propertyName» >= «minimum»
+			if «propertyName.underscoreIfNecessary» >= «minimum»
 			then true
 			else null
 			endif

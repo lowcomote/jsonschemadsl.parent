@@ -461,7 +461,7 @@ lazy rule minimumConstraintToOcl {
 	}
 	do {
 --		thisModule.appendMinimumConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Minimum', minimumSchemaDefinition.minimum);
-		thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getkey());
+		thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
 	}
 }
 

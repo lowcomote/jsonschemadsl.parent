@@ -58,7 +58,8 @@ public class OclGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("if ");
-    _builder.append(propertyName, "\t");
+    String _underscoreIfNecessary = OclGenerator.underscoreIfNecessary(propertyName);
+    _builder.append(_underscoreIfNecessary, "\t");
     _builder.append(" >= ");
     _builder.append(minimum, "\t");
     _builder.newLineIfNotEmpty();
