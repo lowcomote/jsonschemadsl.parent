@@ -3,12 +3,11 @@
 <target name="jsonschemadsl.target" sequenceNumber="1">
 	<locations>
 		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<unit id="org.eclipse.jdt.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.platform.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.pde.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.draw2d.feature.group" version="0.0.0"/>
-			<unit id="org.eclipse.emf.sdk.feature.group" version="0.0.0"/>
+			<unit id="org.eclipse.jdt.feature.group" version="3.18.500.v20200902-1800"/>
+			<unit id="org.eclipse.pde.feature.group" version="3.14.500.v20200902-1800"/>
+			<unit id="org.eclipse.emf.sdk.feature.group" version="2.23.0.v20200822-0801"/>
 			<repository location="https://download.eclipse.org/releases/2020-09"/>
+			<unit id="org.eclipse.m2m.atl.sdk.feature.group" version="4.2.1.v202006221222"/>
 		</location>
 		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
 			<unit id="org.eclipse.emf.mwe2.launcher.feature.group" version="0.0.0"/>
@@ -33,6 +32,23 @@
 			<unit id="org.objectweb.asm.tree" version="8.0.1.v20200420-1007"/>
 			<unit id="io.github.classgraph" version="4.8.35.v20190528-1517"/>
 			<repository location="https://download.eclipse.org/tools/orbit/downloads/2020-09"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://download.eclipse.org/modeling/mdt/ocl/updates/releases/"/>
+			<unit id="org.eclipse.ocl.all.feature.group" version="5.14.0.v20210310-0557"/>
+			<unit id="org.eclipse.ocl.all.source.feature.group" version="5.14.0.v20210310-0557"/>
+			<unit id="org.eclipse.ocl.build.feature.group" version="6.14.0.v20210310-0557"/>
+			<unit id="org.eclipse.ocl.build.source.feature.group" version="6.14.0.v20210310-0557"/>
+			<unit id="org.eclipse.ocl.examples.feature.group" version="6.14.0.v20210310-0557"/>
+			<unit id="org.eclipse.ocl.examples.source.feature.group" version="6.14.0.v20210310-0557"/>
+			<unit id="org.eclipse.ocl.examples.unified.feature.group" version="4.14.0.v20210310-0557"/>
+			<unit id="org.eclipse.ocl.examples.unified.source.feature.group" version="4.14.0.v20210310-0557"/>
+			<unit id="org.eclipse.ocl.master.feature.group" version="6.14.0.v20210310-0557"/>
+			<unit id="org.eclipse.ocl.master.source.feature.group" version="6.14.0.v20210310-0557"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="https://jku-win-se.github.io/JsonBasedXtextGrammar/"/>
+			<unit id="at.jku.bise.ecore.json.grammar.feature.feature.group" version="1.0.0.202105071633"/>
 		</location>
 	</locations>
 </target>

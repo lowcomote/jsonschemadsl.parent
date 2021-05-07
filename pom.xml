@@ -9,7 +9,7 @@
 	<properties>
 		<xtextVersion>2.23.0</xtextVersion>
 		<mwe2Version>2.11.3</mwe2Version>
-		<project.build.sourceEncoding>windows-1252</project.build.sourceEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 		<!-- Tycho settings -->
@@ -29,6 +29,12 @@
 		<module>jsonschemadsl.repository</module>
 		<module>jsonschemadsl.tests</module>
 		<module>jsonschemadsl.ui.tests</module>
+		
+		<module>json-metaschema-MM</module>
+		<module>jsonschemadsl2ecore.trafo</module>
+		<module>jsonschemadsl2ecore.trafo.opt</module>
+		<module>jschemaoclgenerator</module>
+		<module>jku.se.atl.transformation.utils</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
@@ -129,11 +135,14 @@
 							<!-- to get the org.eclipse.osgi.compatibility.state plugin if the target 
 								platform is Luna or later. (backward compatible with kepler and previous 
 								versions) see https://bugs.eclipse.org/bugs/show_bug.cgi?id=492149 -->
-							<requirement>
-								<type>eclipse-feature</type>
-								<id>org.eclipse.rcp</id>
-								<versionRange>0.0.0</versionRange>
-							</requirement>
+								
+								<!-- TODO ALERT deleted because "You requested to install 'org.eclipse.equinox.p2.iu"-->
+								
+<!-- 							<requirement> -->
+<!-- 								<type>eclipse-feature</type> -->
+<!-- 								<id>org.eclipse.rcp</id> -->
+<!-- 								<versionRange>0.0.0</versionRange> -->
+<!-- 							</requirement> -->
 						</extraRequirements>
 					</dependency-resolution>
 				</configuration>
