@@ -5,7 +5,7 @@ import java.net.URL;
 
 import jku.se.atl.transformation.utils.ATLExecutorEMFTVM;
 import jku.se.atl.transformation.utils.ATLExecutorEMFTVM.ModelKind;
-import jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage;
+import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsongrammar.JsongrammarPackage;
 import jsonschemadsl2ecore.trafo.opt.Activator;
 

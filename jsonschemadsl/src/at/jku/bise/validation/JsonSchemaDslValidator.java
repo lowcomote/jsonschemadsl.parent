@@ -8,7 +8,7 @@ import org.eclipse.ocl.xtext.completeocl.validation.CompleteOCLEObjectValidator;
 import org.eclipse.xtext.validation.EValidatorRegistrar;
 
 
-import jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage;
+import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 
 /**
  * This class contains custom validation rules. 
@@ -37,7 +37,9 @@ public class JsonSchemaDslValidator extends AbstractJsonSchemaDslValidator {
 //	        OCL ocl0 = OCL.newInstance();
 //	        URI oclURI = URI.createPlatformResourceURI(
 	        
-	        URI basicOclURI = URI.createPlatformPluginURI("/json-metaschema-MM/model/ocl/fullvalidation.ocl", true);	
+//	        URI basicOclURI = URI.createPlatformPluginURI("/json-metaschema-MM/model/ocl/fullvalidation.ocl", true);	
+//	        URI basicOclURI = URI.createPlatformPluginURI("/jsonmetaschemaMM/model/ocl/fullvalidation.ocl", true);
+	        URI basicOclURI = URI.createPlatformPluginURI("/jsonmetaschemaMM/model/ocl/fullvalidation.ocl", true);
 	        registrar.register(ePackage, new CompleteOCLEObjectValidator(ePackage, basicOclURI));
 	        
 	       

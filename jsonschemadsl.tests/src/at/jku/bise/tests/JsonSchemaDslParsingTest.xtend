@@ -4,7 +4,7 @@
 package at.jku.bise.tests
 
 import com.google.inject.Inject
-import jsonMetaschemaMM.jsonMetaschemaMM.JsonSchema
+import jsonMetaschemaMM.JsonSchema
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper

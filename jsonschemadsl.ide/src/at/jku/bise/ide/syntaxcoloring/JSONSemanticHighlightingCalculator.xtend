@@ -7,9 +7,9 @@ import javax.inject.Inject
 import org.eclipse.xtext.ide.editor.syntaxcoloring.HighlightingStyles
 import org.eclipse.xtext.util.CancelIndicator
 import at.jku.bise.services.JsonSchemaDslGrammarAccess
-import jsonMetaschemaMM.jsonMetaschemaMM.JsonMetaschemaMMPackage
-import jsonMetaschemaMM.jsonMetaschemaMM.KeySchemaPair
-import jsonMetaschemaMM.jsonMetaschemaMM.StringArray
+import jsonMetaschemaMM.JsonMetaschemaMMPackage
+import jsonMetaschemaMM.KeySchemaPair
+import jsonMetaschemaMM.StringArray
 import org.eclipse.xtext.resource.XtextResource
 import java.util.Iterator
 import org.eclipse.xtext.nodemodel.INode

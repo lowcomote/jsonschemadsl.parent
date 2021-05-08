@@ -30,7 +30,8 @@
 		<module>jsonschemadsl.tests</module>
 		<module>jsonschemadsl.ui.tests</module>
 		
-		<module>json-metaschema-MM</module>
+<!-- 		<module>json-metaschema-MM</module> -->
+		<module>jsonmetaschemaMM</module>
 		<module>jsonschemadsl2ecore.trafo</module>
 		<module>jsonschemadsl2ecore.trafo.opt</module>
 		<module>jschemaoclgenerator</module>
@@ -136,13 +137,12 @@
 								platform is Luna or later. (backward compatible with kepler and previous 
 								versions) see https://bugs.eclipse.org/bugs/show_bug.cgi?id=492149 -->
 								
-								<!-- TODO ALERT deleted because "You requested to install 'org.eclipse.equinox.p2.iu"-->
 								
-<!-- 							<requirement> -->
-<!-- 								<type>eclipse-feature</type> -->
-<!-- 								<id>org.eclipse.rcp</id> -->
-<!-- 								<versionRange>0.0.0</versionRange> -->
-<!-- 							</requirement> -->
+							<requirement>
+								<type>eclipse-feature</type>
+								<id>org.eclipse.rcp</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
 						</extraRequirements>
 					</dependency-resolution>
 				</configuration>

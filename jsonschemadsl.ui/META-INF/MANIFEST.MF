@@ -8,7 +8,7 @@ Bundle-SymbolicName: jsonschemadsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: jsonschemadsl,
  jsonschemadsl.ide,
- json-metaschema-MM,
+ jsonmetaschemaMM,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,
