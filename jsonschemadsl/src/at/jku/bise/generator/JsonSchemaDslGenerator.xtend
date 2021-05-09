@@ -26,7 +26,8 @@ class JsonSchemaDslGenerator extends AbstractGenerator {
 					.appendSegment(resource.URI.trimFileExtension.lastSegment + '.ecore');
 		
 		var URI resourceOptURI = fsa.getURI('/').trimSegments(1).appendSegment('model')
-					.appendSegment(resource.URI.trimFileExtension.lastSegment + '-opt.ecore');
+//					.appendSegment(resource.URI.trimFileExtension.lastSegment + '-opt.ecore');
+					.appendSegment(resource.URI.trimFileExtension.lastSegment + 'Opt.ecore');
 					
 		var URI grammarResourceURI = fsa.getURI('/').trimSegments(1).appendSegment('model')
 					.appendSegment(resource.URI.trimFileExtension.lastSegment + '.jsongrammar');

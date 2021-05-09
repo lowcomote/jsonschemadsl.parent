@@ -11,7 +11,7 @@ inv MinimumDefault0 ('The value must be >= 0'):
 if value <0 then null else true endif
 
 
-
+ 
 
 -- trafo validation
  
@@ -38,7 +38,7 @@ inv missingType ('The keyword "type" should be present'):
 --inv missingAdditionalProperties ('The keyword "additionalProperties" should be specified explicitly'):
 --	keywordDefinition->select(k|k.oclIsTypeOf(AdditionalPropertiesSchemaDefinition))->size()>0
 	
-	
+ 	
 	
 -- TODO refactor when type is refactored with the new anyOf
 context ObjectSchema

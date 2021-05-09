@@ -12,7 +12,7 @@ import org.eclipse.core.runtime.Path;
 
 public class OclWriter {
 	
-	private  final static String OCL_EXTENSION = "-opt.ocl";
+	private  final static String OCL_EXTENSION = "Opt.ocl";
 //	private  final static String OCL_EXTENSION = "Ale.ocl";
 	
 //	public static void create(String fileName) throws IOException {

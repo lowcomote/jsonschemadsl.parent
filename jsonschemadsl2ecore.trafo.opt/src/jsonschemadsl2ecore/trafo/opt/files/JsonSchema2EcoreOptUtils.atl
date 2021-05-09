@@ -271,17 +271,10 @@ helper def : createOclFile() : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('createOcl',Sequence{thisModule.oclFileUri, thisModule.nsURI, thisModule.packageName});
 
 helper def : appendMinimumConstraint(packageName: String, contextClass: String, inv:String, minimum: Real, propertyName : String ) : OclAny=
---	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.packageName, contextClass, minimum});
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, minimum, propertyName});
 
 helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String, propertyName : String) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, requiredProperty, requiredClassType, propertyName});
-
-
-	
-	
-	
-	
 	
 	
 helper def : appendRegexInPatternPropertiesConstraint(packageName: String, contextClass: String, inv:String, regex : String,  propertyName : String): OclAny=
