@@ -1,0 +1,6 @@
+{
+ "definitions": {
+      "a": {"$ref": "#/definitions/a"}
+     },
+   "$ref": "#/definitions/a"
+}
