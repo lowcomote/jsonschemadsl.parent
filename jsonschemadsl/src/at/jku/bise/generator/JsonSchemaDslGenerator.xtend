@@ -39,7 +39,10 @@ class JsonSchemaDslGenerator extends AbstractGenerator {
 		removeFilesIfExist(grammarResourceURI);
 		removeFilesIfExist(traceResourceURI);
 		// Not optimized Ecore
-		new SchemaToEcoreGenerator(resource.URI.toString, resourceURI.toString).generateJsonSchema	
+		/**
+		 * descomment this line to enable conceptual mapping
+		 */
+//		new SchemaToEcoreGenerator(resource.URI.toString, resourceURI.toString).generateJsonSchema	
 		
 		//Optimize Trafo Ecore
 		JsonSchemaToEcoreUtils.performTrafoEMFTVMJsonSchemaToEcore(resource.URI.toString, 

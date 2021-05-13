@@ -63,7 +63,9 @@ inv missingAdditionalProperties ('The keyword "additionalProperties" should be s
 
 context ObjectSchema
 inv RepeatedKeywords ('Keywords can not be repeated at the same nested level'):
-if keywordDefinition->isUnique(k|k.oclType()) then true  else null endif
+--if keywordDefinition->isUnique(k|k.oclType()) then true  else null endif
+if keywordDefinition->select(k|k.oclType()<> SchemaObjectAdditionalProperties)->isUnique(k|k.oclType()) then true  else null endif
+
 
 context PropertiesSchemaDefinition
 inv RepeatedKeysInProperties ('The same key cannot be repeated under the same properties keyword'):
