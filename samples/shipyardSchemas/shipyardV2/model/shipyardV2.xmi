@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="ASCII"?>
+<trace:TraceLinkSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http://www.eclipse.org/m2m/atl/emftvm/2011/Trace" defaultSourceElements="//@rules.0/@links.0/@sourceElements.0 //@rules.1/@links.0/@sourceElements.0 //@rules.1/@links.1/@sourceElements.0 //@rules.1/@links.2/@sourceElements.0 //@rules.1/@links.3/@sourceElements.0 //@rules.1/@links.4/@sourceElements.0 //@rules.1/@links.5/@sourceElements.0 //@rules.1/@links.6/@sourceElements.0 //@rules.2/@links.0/@sourceElements.0 //@rules.2/@links.1/@sourceElements.0 //@rules.2/@links.2/@sourceElements.0 //@rules.2/@links.3/@sourceElements.0 //@rules.2/@links.4/@sourceElements.0 //@rules.2/@links.5/@sourceElements.0 //@rules.2/@links.6/@sourceElements.0 //@rules.2/@links.7/@sourceElements.0 //@rules.2/@links.8/@sourceElements.0 //@rules.2/@links.9/@sourceElements.0 //@rules.2/@links.10/@sourceElements.0 //@rules.2/@links.11/@sourceElements.0 //@rules.2/@links.12/@sourceElements.0 //@rules.3/@links.0/@sourceElements.0 //@rules.4/@links.0/@sourceElements.0 //@rules.4/@links.1/@sourceElements.0 //@rules.4/@links.2/@sourceElements.0 //@rules.4/@links.3/@sourceElements.0 //@rules.4/@links.4/@sourceElements.0 //@rules.4/@links.5/@sourceElements.0 //@rules.4/@links.6/@sourceElements.0 //@rules.5/@links.0/@sourceElements.0 //@rules.5/@links.1/@sourceElements.0 //@rules.5/@links.2/@sourceElements.0 //@rules.5/@links.3/@sourceElements.0 //@rules.6/@links.0/@sourceElements.0 //@rules.6/@links.1/@sourceElements.0 //@rules.6/@links.2/@sourceElements.0 //@rules.6/@links.3/@sourceElements.0 //@rules.6/@links.4/@sourceElements.0 //@rules.6/@links.5/@sourceElements.0 //@rules.7/@links.0/@sourceElements.0 //@rules.7/@links.1/@sourceElements.0 //@rules.7/@links.2/@sourceElements.0 //@rules.7/@links.3/@sourceElements.0 //@rules.7/@links.4/@sourceElements.0 //@rules.7/@links.5/@sourceElements.0 //@rules.7/@links.6/@sourceElements.0">
+  <rules rule="JsonSchemaToEPackage">
+    <links>
+      <sourceElements name="jsonSchema" defaultFor="/">
+        <object href="../shipyardV2.jschema#/"/>
+      </sourceElements>
+      <targetElements name="ePackage">
+        <object href="shipyardV2Opt.ecore#/"/>
+      </targetElements>
+      <targetElements name="jsonGrammar">
+        <object href="shipyardV2.jsongrammar#/"/>
+      </targetElements>
+      <targetElements name="detailedGrammar">
+        <object href="shipyardV2.jsongrammar#//@detailedGrammar"/>
+      </targetElements>
+    </links>
+  </rules>
+  <rules rule="mapRootOrDefinitionsObjectSchemaToEClass">
+    <links>
+      <sourceElements name="objectSchema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//ShipyardV2Root"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="objectSchema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//Shipyard"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="objectSchema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//Metadata"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="objectSchema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.2/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//ShipyardSpec"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="objectSchema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.3/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//Stage"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="objectSchema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.4/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//Sequence"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="objectSchema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.5/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//Task"/>
+      </targetElements>
+    </links>
+  </rules>
+  <rules rule="mapInPropertiesObjectSchemaToEClass">
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.1/@keySchemaPairs.0/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//ShipyardApiVersion"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.1/@keySchemaPairs.1/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//ShipyardKind"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.1/@keySchemaPairs.2/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//ShipyardMetadata"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.1/@keySchemaPairs.3/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//ShipyardSpec1"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1/@keySchemaPairs.0/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//MetadataName"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.2/@value/@keywordDefinition.1/@keySchemaPairs.0/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//ShipyardSpecStages"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.3/@value/@keywordDefinition.1/@keySchemaPairs.0/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//StageName"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.3/@value/@keywordDefinition.1/@keySchemaPairs.1/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//StageSequences"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.4/@value/@keywordDefinition.1/@keySchemaPairs.0/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//SequenceName"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.4/@value/@keywordDefinition.1/@keySchemaPairs.1/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//SequenceTriggeredOn"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.4/@value/@keywordDefinition.1/@keySchemaPairs.2/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//SequenceTasks"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.5/@value/@keywordDefinition.1/@keySchemaPairs.0/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//TaskName"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="schema" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.5/@value/@keywordDefinition.1/@keySchemaPairs.1/@value"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//TaskProperties"/>
+      </targetElements>
+    </links>
+  </rules>
+  <rules rule="mapBooleanSchemaAdditionalPropertiesEClass">
+    <links>
+      <sourceElements name="additionalPropertiesSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.5/@value/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1"/>
+      </sourceElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//TaskPropertiesAdditionalProperties"/>
+      </targetElements>
+      <targetElements name="key">
+        <object href="shipyardV2Opt.ecore#//TaskPropertiesAdditionalProperties/key"/>
+      </targetElements>
+      <targetElements name="additionalProperties">
+        <object href="shipyardV2Opt.ecore#//TaskPropertiesAdditionalProperties/additionalProperties"/>
+      </targetElements>
+    </links>
+  </rules>
+  <rules rule="createPropertiesContainment">
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.3"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//Shipyard/Shipyard"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.3"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//Metadata/Metadata"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.2/@value/@keywordDefinition.3"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//ShipyardSpec/ShipyardSpec"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.3/@value/@keywordDefinition.3"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//Stage/Stage"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.4/@value/@keywordDefinition.3"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//Sequence/Sequence"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.5/@value/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//TaskProperties/properties"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.5/@value/@keywordDefinition.3"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//Task/Task"/>
+      </targetElements>
+    </links>
+  </rules>
+  <rules rule="mapItemsObjectSchemaToEClass">
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.2/@value/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.1"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//ShipyardSpecStages/stages"/>
+      </targetElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//ShipyardSpecStagesItems"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.3/@value/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//StageSequences/sequences"/>
+      </targetElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//StageSequencesItems"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.4/@value/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//SequenceTriggeredOn/triggeredOn"/>
+      </targetElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//SequenceTriggeredOnItems"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.4/@value/@keywordDefinition.1/@keySchemaPairs.2/@value/@keywordDefinition.1"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//SequenceTasks/tasks"/>
+      </targetElements>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//SequenceTasksItems"/>
+      </targetElements>
+    </links>
+  </rules>
+  <rules rule="mapRefSchemaToEReference">
+    <links>
+      <sourceElements name="refSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//ShipyardV2Root/shipyardV2Root"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="refSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.1/@keySchemaPairs.2/@value/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//ShipyardMetadata/metadata"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="refSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.1/@keySchemaPairs.3/@value/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//ShipyardSpec1/spec"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="refSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.2/@value/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0/@itemsAnyOf1/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//ShipyardSpecStagesItems/items"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="refSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.3/@value/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.0/@itemsAnyOf1/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//StageSequencesItems/items"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="refSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.4/@value/@keywordDefinition.1/@keySchemaPairs.2/@value/@keywordDefinition.0/@itemsAnyOf1/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eReference">
+        <object href="shipyardV2Opt.ecore#//SequenceTasksItems/items"/>
+      </targetElements>
+    </links>
+  </rules>
+  <rules rule="createEAttributeSimpleScalar">
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eAttribute">
+        <object href="shipyardV2Opt.ecore#//ShipyardApiVersion/apiVersion"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eAttribute">
+        <object href="shipyardV2Opt.ecore#//ShipyardKind/kind"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eAttribute">
+        <object href="shipyardV2Opt.ecore#//MetadataName/name"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.3/@value/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eAttribute">
+        <object href="shipyardV2Opt.ecore#//StageName/name"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.4/@value/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eAttribute">
+        <object href="shipyardV2Opt.ecore#//SequenceName/name"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.4/@value/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.0/@itemsAnyOf1/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eAttribute">
+        <object href="shipyardV2Opt.ecore#//SequenceTriggeredOnItems/items"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="typeSchemaDefinition" defaultFor="/">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.5/@value/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0"/>
+      </sourceElements>
+      <targetElements name="eAttribute">
+        <object href="shipyardV2Opt.ecore#//TaskName/name"/>
+      </targetElements>
+    </links>
+  </rules>
+  <rules rule="createPropertiesEClass" uniqueSourceElements="//@rules.8/@links.0/@sourceElements.0 //@rules.8/@links.1/@sourceElements.0 //@rules.8/@links.2/@sourceElements.0 //@rules.8/@links.3/@sourceElements.0 //@rules.8/@links.4/@sourceElements.0 //@rules.8/@links.5/@sourceElements.0 //@rules.8/@links.6/@sourceElements.0">
+    <links>
+      <sourceElements name="name" uniqueFor="//@rules.8"/>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//ShipyardPropertiesAbstract"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="name" uniqueFor="//@rules.8"/>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//MetadataPropertiesAbstract"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="name" uniqueFor="//@rules.8"/>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//ShipyardSpecPropertiesAbstract"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="name" uniqueFor="//@rules.8"/>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//StagePropertiesAbstract"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="name" uniqueFor="//@rules.8"/>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//SequencePropertiesAbstract"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="name" uniqueFor="//@rules.8"/>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//TaskPropertiesAbstract"/>
+      </targetElements>
+    </links>
+    <links>
+      <sourceElements name="name" uniqueFor="//@rules.8"/>
+      <targetElements name="eClass">
+        <object href="shipyardV2Opt.ecore#//TaskPropertiesPropertiesAbstract"/>
+      </targetElements>
+    </links>
+  </rules>
+  <rules rule="requiredInPropertiesToOcl">
+    <links>
+      <sourceElements name="requiredSchemaDefinition">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="requiredSchemaDefinition">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="requiredSchemaDefinition">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.2/@value/@keywordDefinition.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="requiredSchemaDefinition">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.3/@value/@keywordDefinition.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="requiredSchemaDefinition">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.4/@value/@keywordDefinition.0"/>
+      </sourceElements>
+    </links>
+    <links>
+      <sourceElements name="requiredSchemaDefinition">
+        <object href="../shipyardV2.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.5/@value/@keywordDefinition.0"/>
+      </sourceElements>
+    </links>
+  </rules>
+</trace:TraceLinkSet>

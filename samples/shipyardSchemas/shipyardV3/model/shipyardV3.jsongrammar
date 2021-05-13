@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/shipyardV3">
+  <detailedGrammar>
+    <keywords xsi:type="ecore:EAttribute" href="shipyardV3Opt.ecore#//MetadataName/name"/>
+    <keywords xsi:type="ecore:EReference" href="shipyardV3Opt.ecore#//SelectorMatch/match"/>
+    <keywords xsi:type="ecore:EAttribute" href="shipyardV3Opt.ecore#//SequenceName/name"/>
+    <keywords xsi:type="ecore:EReference" href="shipyardV3Opt.ecore#//SequenceTriggeredOn/triggeredOn"/>
+    <keywords xsi:type="ecore:EReference" href="shipyardV3Opt.ecore#//SequenceTasks/tasks"/>
+    <keywords xsi:type="ecore:EAttribute" href="shipyardV3Opt.ecore#//ShipyardApiVersion/apiVersion"/>
+    <keywords xsi:type="ecore:EAttribute" href="shipyardV3Opt.ecore#//ShipyardKind/kind"/>
+    <keywords xsi:type="ecore:EReference" href="shipyardV3Opt.ecore#//ShipyardMetadata/metadata"/>
+    <keywords xsi:type="ecore:EReference" href="shipyardV3Opt.ecore#//ShipyardSpec1/spec"/>
+    <keywords xsi:type="ecore:EReference" href="shipyardV3Opt.ecore#//ShipyardSpecStages/stages"/>
+    <keywords xsi:type="ecore:EAttribute" href="shipyardV3Opt.ecore#//StageName/name"/>
+    <keywords xsi:type="ecore:EReference" href="shipyardV3Opt.ecore#//StageSequences/sequences"/>
+    <keywords xsi:type="ecore:EAttribute" href="shipyardV3Opt.ecore#//TaskName/name"/>
+    <keywords xsi:type="ecore:EAttribute" href="shipyardV3Opt.ecore#//TriggerEvent/event"/>
+    <keywords xsi:type="ecore:EReference" href="shipyardV3Opt.ecore#//TriggerSelector/selector"/>
+    <curlyBracesReferences href="shipyardV3Opt.ecore#//Metadata/Metadata"/>
+    <curlyBracesReferences href="shipyardV3Opt.ecore#//Selector/Selector"/>
+    <curlyBracesReferences href="shipyardV3Opt.ecore#//Sequence/Sequence"/>
+    <curlyBracesReferences href="shipyardV3Opt.ecore#//Shipyard/Shipyard"/>
+    <curlyBracesReferences href="shipyardV3Opt.ecore#//ShipyardSpec/ShipyardSpec"/>
+    <curlyBracesReferences href="shipyardV3Opt.ecore#//Stage/Stage"/>
+    <curlyBracesReferences href="shipyardV3Opt.ecore#//Task/Task"/>
+    <curlyBracesReferences href="shipyardV3Opt.ecore#//Trigger/Trigger"/>
+    <curlyBracesReferences href="shipyardV3Opt.ecore#//SelectorMatch/match"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <bracketsReferences href="shipyardV3Opt.ecore#//SequenceTriggeredOn/triggeredOn"/>
+    <bracketsReferences href="shipyardV3Opt.ecore#//SequenceTasks/tasks"/>
+    <bracketsReferences href="shipyardV3Opt.ecore#//ShipyardSpecStages/stages"/>
+    <bracketsReferences href="shipyardV3Opt.ecore#//StageSequences/sequences"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="shipyardV3Opt.ecore#//SelectorMatchPatternProperties0/key"/>
+    <keyValue href="shipyardV3Opt.ecore#//TaskPropertiesAdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>
