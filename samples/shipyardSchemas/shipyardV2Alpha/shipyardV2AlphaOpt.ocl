@@ -1,0 +1,111 @@
+-- OCL contraints for /C:/Users/Alessandro.colantoni/eclipse/eclipse-modeling-2021-03-R-win32-x86_64/eclipse/workspaces/jsonschemadsl/shipyardV2Alpha/shipyardV2Alpha
+import 'http://jku.bise.at/shipyardV2Alpha'
+
+package shipyardV2Alpha
+
+	context shipyardV2Alpha::Shipyard 
+
+	inv ShipyardRequiredapiVersion ('Shipyard requires the property apiVersion'):
+	if  self.Shipyard->select(p|p.oclType()=shipyardV2Alpha::ShipyardApiVersion)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::Shipyard 
+
+	inv ShipyardRequiredkind ('Shipyard requires the property kind'):
+	if  self.Shipyard->select(p|p.oclType()=shipyardV2Alpha::ShipyardKind)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::Shipyard 
+
+	inv ShipyardRequiredmetadata ('Shipyard requires the property metadata'):
+	if  self.Shipyard->select(p|p.oclType()=shipyardV2Alpha::ShipyardMetadata)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::Shipyard 
+
+	inv ShipyardRequiredspec ('Shipyard requires the property spec'):
+	if  self.Shipyard->select(p|p.oclType()=shipyardV2Alpha::ShipyardSpec1)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::Metadata 
+
+	inv MetadataRequiredname ('Metadata requires the property name'):
+	if  self.Metadata->select(p|p.oclType()=shipyardV2Alpha::MetadataName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::ShipyardSpec 
+
+	inv ShipyardSpecRequiredstages ('ShipyardSpec requires the property stages'):
+	if  self.ShipyardSpec->select(p|p.oclType()=shipyardV2Alpha::ShipyardSpecStages)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::Stage 
+
+	inv StageRequiredname ('Stage requires the property name'):
+	if  self.Stage->select(p|p.oclType()=shipyardV2Alpha::StageName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::Stage 
+
+	inv StageRequiredsequences ('Stage requires the property sequences'):
+	if  self.Stage->select(p|p.oclType()=shipyardV2Alpha::StageSequences)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::Sequence 
+
+	inv SequenceRequiredname ('Sequence requires the property name'):
+	if  self._Sequence->select(p|p.oclType()=shipyardV2Alpha::SequenceName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::Sequence 
+
+	inv SequenceRequiredtriggers ('Sequence requires the property triggers'):
+	if  self._Sequence->select(p|p.oclType()=shipyardV2Alpha::SequenceTriggers)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::Sequence 
+
+	inv SequenceRequiredtasks ('Sequence requires the property tasks'):
+	if  self._Sequence->select(p|p.oclType()=shipyardV2Alpha::SequenceTasks)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::Task 
+
+	inv TaskRequiredname ('Task requires the property name'):
+	if  self.Task->select(p|p.oclType()=shipyardV2Alpha::TaskName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV2Alpha::Task 
+
+	inv TaskRequiredproperties ('Task requires the property properties'):
+	if  self.Task->select(p|p.oclType()=shipyardV2Alpha::TaskProperties)->size()>0
+	then true
+	else null
+	endif
+
+endpackage
+
