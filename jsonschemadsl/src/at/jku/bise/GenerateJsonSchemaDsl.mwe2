@@ -33,7 +33,7 @@ Workflow {
 		language = StandardLanguage {
 			name = "at.jku.bise.JsonSchemaDsl"
 			fileExtensions = "jschema"
-			referencedResource = "platform:/resource/json-metaschema-MM/model/jsonMetaschemaMM.genmodel"
+			referencedResource = "platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.genmodel"
 			
 			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
 

@@ -3,6 +3,14 @@
  */
 package at.jku.bise.validation;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.ocl.xtext.completeocl.validation.CompleteOCLEObjectValidator;
+import org.eclipse.xtext.validation.EValidatorRegistrar;
+
+
+import jsonMetaschemaMM.JsonMetaschemaMMPackage;
+import jsonMetaschemaMM.Activator;
+import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
  * This class contains custom validation rules. 
@@ -21,5 +29,38 @@ public class JsonSchemaDslValidator extends AbstractJsonSchemaDslValidator {
 //					INVALID_NAME);
 //		}
 //	}
+	//JsonMetaschemaMMPackage
 	
+	 @Override
+	    public void register(EValidatorRegistrar registrar) {
+	        super.register(registrar);
+	        JsonMetaschemaMMPackage ePackage = JsonMetaschemaMMPackage.eINSTANCE;
+	        
+//	        OCL ocl0 = OCL.newInstance();
+//	        URI oclURI = URI.createPlatformResourceURI(
+	        
+//	        URI basicOclURI = URI.createPlatformPluginURI("/json-metaschema-MM/model/ocl/fullvalidation.ocl", true);	
+//	        URI basicOclURI = URI.createPlatformPluginURI("/jsonmetaschemaMM/model/ocl/fullvalidation.ocl", true);
+
+	        
+//	        URI basicOclURI = URI.createPlatformPluginURI("/jsonmetaschemaMM/model/ocl/fullvalidation.ocl", true);
+	        
+	        
+//	        URI basicOclURI = URI.createURI(Activator.getDefault().getBundle().getResource("/jsonmetaschemaMM/model/ocl/fullvalidation.ocl").toString());
+	        
+	        
+	        URI basicOclURI = URI.createURI(Activator.getDefault().getBundle().getResource("model/ocl/fullvalidation.ocl").toString());
+	        registrar.register(ePackage, new CompleteOCLEObjectValidator(ePackage, basicOclURI));
+	        
+	        
+	        
+	       
+	       
+
+	        
+//	        new CompleteOCLEObjectValidator(ePackage, oclURI,ocl0.getEnvironmentFactory()));
+	        
+	        
+	        
+	 }
 }

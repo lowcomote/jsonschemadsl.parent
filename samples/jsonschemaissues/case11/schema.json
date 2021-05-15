@@ -1,0 +1,10 @@
+{
+  	
+    "definitions":{
+        "prop1":{"type":"string"},
+    	"prop1":{"type":"integer"}
+     },
+     
+     "$ref":"#/definitions/prop1"
+
+}

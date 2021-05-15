@@ -8,6 +8,11 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.emf.common.util.URI
+import jsonschemadsl2ecore.trafo.opt.utils.JsonSchemaToEcoreUtils
+import org.eclipse.core.runtime.Path
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.resources.IFile
+import org.eclipse.core.runtime.NullProgressMonitor
 
 /**
  * Generates code from your model files on save.
@@ -20,12 +25,33 @@ class JsonSchemaDslGenerator extends AbstractGenerator {
 		var URI resourceURI = fsa.getURI('/').trimSegments(1).appendSegment('model')
 					.appendSegment(resource.URI.trimFileExtension.lastSegment + '.ecore');
 		
-		new SchemaToEcoreGenerator(resource.URI.toString, resourceURI.toString).generateJsonSchema		
-//		println(resourceURI.toString);
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		var URI resourceOptURI = fsa.getURI('/').trimSegments(1).appendSegment('model')
+//					.appendSegment(resource.URI.trimFileExtension.lastSegment + '-opt.ecore');
+					.appendSegment(resource.URI.trimFileExtension.lastSegment + 'Opt.ecore');
+					
+		var URI grammarResourceURI = fsa.getURI('/').trimSegments(1).appendSegment('model')
+					.appendSegment(resource.URI.trimFileExtension.lastSegment + '.jsongrammar');
+					
+		var URI traceResourceURI = fsa.getURI('/').trimSegments(1).appendSegment('model')
+					.appendSegment(resource.URI.trimFileExtension.lastSegment + '.xmi');
+		removeFilesIfExist(resourceURI);
+		removeFilesIfExist(resourceOptURI);
+		removeFilesIfExist(grammarResourceURI);
+		removeFilesIfExist(traceResourceURI);
+		// Not optimized Ecore
+		/**
+		 * descomment this line to enable conceptual mapping
+		 */
+//		new SchemaToEcoreGenerator(resource.URI.toString, resourceURI.toString).generateJsonSchema	
+		
+		//Optimize Trafo Ecore
+		JsonSchemaToEcoreUtils.performTrafoEMFTVMJsonSchemaToEcore(resource.URI.toString, 
+			resourceOptURI.toString, grammarResourceURI.toString, traceResourceURI.toString);	
 	}
+	
+	def removeFilesIfExist(URI uri) {
+		val IFile file = ResourcesPlugin.workspace.root.getFile(new Path(uri.toPlatformString(true)));
+		file.delete(true, new NullProgressMonitor);
+	}
+	
 }

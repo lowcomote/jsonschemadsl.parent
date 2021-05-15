@@ -1,0 +1,24 @@
+{
+	"type":"object",
+	"properties":{
+		"childrenNames":{
+			"type":"array",
+			"items":{"type":"string"}
+		},
+		
+		"wivesAndHusbands":{
+			"type":"array",
+			"items":{
+				"type":"object",
+				"properties":{
+					"name":{"type":"string"},
+					"surname":{"type":"string"},
+					"age":{"type":"integer"}
+				},
+				"additionalProperties":false
+				
+			}
+		}
+	},
+	"additionalProperties":false
+}

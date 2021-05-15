@@ -1,0 +1,559 @@
+-- @atlcompiler emftvm
+-- @nsURI JSchemaMM=http://at.jku.bise/jsonMetaschemaMM
+-- @nsURI Ecore=http://www.eclipse.org/emf/2002/Ecore
+-- @nsURI JsonGrammarMM=http://at.jku.bise/jsongrammar/1.0
+-- @nsURI CompleteOclMM=http://www.eclipse.org/ocl/2015/CompleteOCLCS
+
+
+module JsonSchema2EcoreOpt;
+create ecoreM : Ecore, jsonGrammar : JsonGrammarMM from jschema : JSchemaMM;
+
+
+uses JsonSchema2EcoreOptUtils;
+
+helper def: rootEPackage : Ecore!EPackage = OclUndefined;
+helper def: jsonDocumentStarter:String='jsonDocumentStarter';
+helper def: packageName : String = thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension().lastSegment();
+helper def: nsURI : String = 'http://jku.bise.at/' + thisModule.packageName;
+
+helper def: oclFileName:String  =thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension().path().concat('-opt');
+helper def: oclFileUri: OclAny = thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension();
+
+rule JsonSchemaToEPackage {
+	from
+		jsonSchema : JSchemaMM!JsonSchema
+	to 
+		ePackage : Ecore!EPackage (
+--			name <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
+			name <- thisModule.packageName,
+--			nsPrefix <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
+			nsPrefix <- thisModule.packageName,
+--			nsURI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()
+			nsURI <- thisModule.nsURI
+		),
+		jsonGrammar : JsonGrammarMM!JsonGrammar (
+--			nsURI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
+			nsURI <- thisModule.nsURI,
+			detailedGrammar <- detailedGrammar
+		), 
+		detailedGrammar : JsonGrammarMM!DetailedGrammar ()
+	do {
+		---------- Create ocl file -----
+		thisModule.createOclFile();
+	}
+}
+
+
+
+rule mapRootOrDefinitionsObjectSchemaToEClass{ ---- TODO: manage the root or definitions be a boolean schema
+	from objectSchema :JSchemaMM!ObjectSchema (objectSchema.isRootOrDefinitionOrSchemaObjectAdditionalProperties())
+	using {
+		refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) =objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!RefSchemaDefinition));
+		typeSchemaDefinitionSequence : Sequence(JSchemaMM!TypeSchemaDefinition) = objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
+	}
+	to 
+		eClass : Ecore!EClass (
+			name<- objectSchema.buildEClassname(),
+--			eStructuralFeatures <-objectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
+			eStructuralFeatures <- 	if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
+									else typeSchemaDefinitionSequence  endif
+		)
+} 
+
+abstract rule mapInPropertiesSchemaToEClass{
+	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInProperties()) ----- TODO add the condition that is not BooleanSchema.value=false
+	using {
+		propertiesEClassName : String = schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
+	}
+	to 
+		eClass : Ecore!EClass (
+			name<- schema.buildEClassname(),
+			eSuperTypes <-  Sequence{thisModule.createPropertiesEClass(propertiesEClassName)}
+		)
+}
+
+rule mapInPropertiesObjectSchemaToEClass extends mapInPropertiesSchemaToEClass{
+	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInProperties() and schema.oclIsTypeOf(JSchemaMM!ObjectSchema))
+	using {
+		refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) =schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!RefSchemaDefinition));
+		typeSchemaDefinitionSequence : Sequence(JSchemaMM!TypeSchemaDefinition) = schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
+	}
+	to 
+		eClass : Ecore!EClass (
+			eStructuralFeatures <- 	if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
+									else typeSchemaDefinitionSequence  endif
+		)
+	do {
+--		if (refSchemaDefinitonSequence.isEmpty() and typeSchemaDefinitionSequence.first().findSimpleType() = #"\"object\"") 
+--			 thisModule.keywords <- thisModule.keywords->union(eClass.eStructuralFeatures) ;
+		 thisModule.keywords <- thisModule.keywords->union(eClass.eStructuralFeatures) ;
+	}
+}
+
+rule mapInPropertiesBooleanSchemaToEClass extends mapInPropertiesSchemaToEClass{
+	from schema :JSchemaMM!Schema  (schema.isKeySchemaPairInProperties() and schema.oclIsTypeOf(JSchemaMM!BooleanSchema) and schema.value=true)
+--	using {
+--		propertiesEClassName : String = schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
+--	}
+	to 
+		eClass : Ecore!EClass (
+--			name<- schema.buildEClassname(),
+			eStructuralFeatures <- Sequence{properties}--,
+--			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		),
+		properties:Ecore!EReference ( 
+			name <- schema.getKey(),
+			eType <- JSchemaMM!JsonDocument,
+			containment <- true,
+			lowerBound <- 1,
+			upperBound <- 1
+			
+		)
+	do {
+		 thisModule.keywords <- thisModule.keywords->union(eClass.eStructuralFeatures) ;
+	}	
+}
+
+abstract rule mapSchemaInPatternPropertiesEClass {
+	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInPatternProperties())
+	using {
+		propertiesEClassName : String = schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
+	} 
+	to 
+		eClass : Ecore!EClass (
+			name<- schema.buildEClassname(),
+			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		),
+		key : Ecore!EAttribute(
+			name<-'key',
+			lowerBound <-1,
+			upperBound <- 1,
+			eType <- Ecore!EString
+		)
+	do {
+			thisModule.keyValues <- thisModule.keyValues->union(Sequence{key});
+	}	
+}
+
+rule mapObjectSchemaInPatternPropertiesEClass extends mapSchemaInPatternPropertiesEClass{
+	from schema :JSchemaMM!Schema (schema.isKeySchemaPairInPatternProperties() and schema.oclIsTypeOf(JSchemaMM!ObjectSchema))
+--	using {
+--		patternPropertiesType : JSchemaMM!TypeSchemaDefinition = schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
+--	} 
+	to 
+		eClass : Ecore!EClass (
+--			eStructuralFeatures <- Set{key,patternPropertiesType}.flatten() 
+			eStructuralFeatures <- Set{key,let refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) = schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!RefSchemaDefinition)) in
+										if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
+										else schema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)) 
+										endif
+									}.flatten() 
+		),
+		key : Ecore!EAttribute 
+}
+
+rule mapBooleanSchemaInPatternPropertiesEClass extends mapSchemaInPatternPropertiesEClass{
+--	from booleanSchema :JSchemaMM!BooleanSchema (
+--		booleanSchema.isKeySchemaPairInPatternProperties()
+--		and booleanSchema.value=true
+--	)
+	from schema :JSchemaMM!Schema  (
+		schema.isKeySchemaPairInPatternProperties()
+		and schema.oclIsTypeOf(JSchemaMM!BooleanSchema)
+		and schema.value=true
+	)
+	using {
+--		propertiesEClassName : String = booleanSchema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassname().concat('Properties');
+	} 
+	to 
+		eClass : Ecore!EClass (
+--			name<- booleanSchema.buildEClassname(),
+			eStructuralFeatures <- Set{key,patternProperties}--,
+--			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		),
+		key : Ecore!EAttribute,--(
+--			name<-'key',
+--			lowerBound <-1,
+--			upperBound <- 1,
+--			eType <- Ecore!EString
+--		),
+		patternProperties:Ecore!EReference ( 
+--			name <- booleanSchema.getKey(),
+			name <- schema.getKey(),
+			eType <- JSchemaMM!JsonDocument,
+			containment <- true,
+			lowerBound <- 1,
+			upperBound <- 1
+			
+		)
+}
+
+abstract rule mapAdditionalPropertiesEClass {
+	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition
+	using {
+		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.additionalProperties.buildEClassname();
+		propertiesEClassName : String = 	additionalPropertiesSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties');
+	}
+	to
+		eClass : Ecore!EClass (
+		 	name <-	additionalPropertiesName,
+			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		),
+		
+		key : Ecore!EAttribute(
+			name<-'key',
+			lowerBound <-1,
+			upperBound <- 1,
+			eType <- Ecore!EString
+		)
+		do {
+			thisModule.keyValues <- thisModule.keyValues->union(Sequence{key});
+		}
+}
+
+rule mapObjectSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEClass{
+	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition (additionalPropertiesSchemaDefinition.additionalProperties.oclIsTypeOf(JSchemaMM!ObjectSchema))
+	using {
+--		additionalPropertiesType : JSchemaMM!TypeSchemaDefinition = additionalPropertiesSchemaDefinition.additionalProperties.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition));
+		additionalPropertiesObjectSchema : JSchemaMM!ObjectSchema = additionalPropertiesSchemaDefinition.additionalProperties;
+	}
+	to
+		eClass : Ecore!EClass (
+--			eStructuralFeatures <- Set{key, additionalPropertiesType}.flatten()
+			eStructuralFeatures <- Sequence{key,let refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) = additionalPropertiesObjectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!RefSchemaDefinition)) in
+										if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
+										else additionalPropertiesObjectSchema.keywordDefinition->select(keyword  | keyword.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)) 
+										endif
+									}.flatten() 
+									
+									
+		),
+		key : Ecore!EAttribute		
+}
+
+rule mapBooleanSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEClass{
+	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition (
+		additionalPropertiesSchemaDefinition.additionalProperties.oclIsTypeOf(JSchemaMM!BooleanSchema) and 
+		additionalPropertiesSchemaDefinition.additionalProperties.value=true
+	)
+	using {
+--		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.additionalProperties.buildEClassname();
+--		
+--		propertiesEClassName : String = 	additionalPropertiesSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties');
+	}
+	to
+		eClass : Ecore!EClass (
+--		 	name <-	additionalPropertiesName,
+			eStructuralFeatures <- Set{key, additionalProperties}.flatten()
+--			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		),
+		key : Ecore!EAttribute,
+--		key : Ecore!EAttribute(
+--			name<-'key',
+--			lowerBound <-1,
+--			upperBound <- 1,
+--			eType <- Ecore!EString
+--		),
+		additionalProperties: Ecore!EReference(
+			name<-'additionalProperties',
+			containment <- true,
+			lowerBound <-1,
+			upperBound <- 1,
+			eType <- JSchemaMM!JsonDocument
+		)
+}
+
+rule mapDefaultAdditionalPropertiesEClass  extends createPropertiesContainmentAndMapDefaultAdditionalPropertiesEClass{
+	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (
+		typeSchemaDefinition.findSimpleType() = #"\"object\"" and
+		typeSchemaDefinition.refImmediateComposite().keywordDefinition->exists(keyword  | keyword.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)) = false
+	)
+	using {
+		additionalPropertiesName : String = typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('AdditionalProperties');
+		propertiesEClassName : String = 	typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties');
+	}
+	to
+		eReference :Ecore!EReference,
+		eClass : Ecore!EClass (
+		 	name <-	additionalPropertiesName,
+			eStructuralFeatures <- Set{key, additionalProperties}.flatten(),
+			eSuperTypes <-  Set{thisModule.createPropertiesEClass(propertiesEClassName)}
+		),
+		key : Ecore!EAttribute(
+			name<-'key',
+			lowerBound <-1,
+			upperBound <- 1,
+			eType <- Ecore!EString
+		),
+		additionalProperties: Ecore!EReference(
+			name<-'additionalProperties',
+			containment <- true,
+			lowerBound <-1,
+			upperBound <- 1,
+			eType <- JSchemaMM!JsonDocument
+		)
+}
+
+
+
+abstract rule createPropertiesContainmentAndMapDefaultAdditionalPropertiesEClass{
+	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (typeSchemaDefinition.findSimpleType() = #"\"object\"")	
+	to 
+		eReference :Ecore!EReference ( 
+--			name <- 'properties',
+			name <- typeSchemaDefinition.refImmediateComposite().getKey(),
+			eType <- thisModule.createPropertiesEClass(typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties')),
+			containment <- true,
+			lowerBound <- 0,
+			upperBound <- -1
+			
+		)
+	do {
+		thisModule.curlyBracesEReferences <- thisModule.curlyBracesEReferences->union(Sequence{eReference}); 
+	}	
+}
+
+rule createPropertiesContainment extends createPropertiesContainmentAndMapDefaultAdditionalPropertiesEClass{
+	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (
+		typeSchemaDefinition.findSimpleType() = #"\"object\"" 
+		and	typeSchemaDefinition.refImmediateComposite().keywordDefinition->exists(keyword  | keyword.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)) = true
+		
+	)	
+	to 
+		eReference :Ecore!EReference 
+}
+
+
+abstract rule mapItemsSchemaToEClass{
+	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (typeSchemaDefinition.findSimpleType() = #"\"array\"")
+	to
+		eClass:  Ecore!EClass (
+			name <- typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Items')
+		),
+		eReference :Ecore!EReference ( 
+--			name <- 'items',
+			name <- typeSchemaDefinition.refImmediateComposite().getKey(),
+			eType <- eClass,
+			containment <- true,
+			lowerBound <- 0,
+			upperBound <- -1
+			
+		)
+		do{
+			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
+			thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
+		}
+}
+
+rule mapItemsObjectSchemaToEClass extends mapItemsSchemaToEClass{
+	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (
+		typeSchemaDefinition.findSimpleType() = #"\"array\""
+		and (
+			let itemsKeywordDefinitionSequence : Sequence(JSchemaMM!ItemsSchemaDefinition) = typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)) in  
+			not itemsKeywordDefinitionSequence.isEmpty() and itemsKeywordDefinitionSequence.first().itemsAnyOf1.oclIsTypeOf(JSchemaMM!ObjectSchema)
+		)
+	)	
+	using {
+		itemsKeywordDefinitionSequence : Sequence(JSchemaMM!KeywordDefinition) = typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.keywordDefinition;
+	}
+	to 
+		eReference :Ecore!EReference,
+		eClass:  Ecore!EClass (
+--			eStructuralFeatures <- Sequence{typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)).first().itemsAnyOf1.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))}.flatten() 
+			eStructuralFeatures <- 	Sequence{let refSchemaDefinitonSequence : Sequence(JSchemaMM!RefSchemaDefinition) = itemsKeywordDefinitionSequence->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!RefSchemaDefinition)) in 
+										if not refSchemaDefinitonSequence.isEmpty() then refSchemaDefinitonSequence
+										else itemsKeywordDefinitionSequence->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
+										endif	
+									}.flatten() 
+		)
+
+}
+
+
+
+rule mapItemsBooleanSchemaOrDefaultToEClass extends mapItemsSchemaToEClass{
+	from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (
+		typeSchemaDefinition.findSimpleType() = #"\"array\""
+		and (
+			let itemsKeywordDefinition : Sequence(JSchemaMM!ItemsSchemaDefinition) = typeSchemaDefinition.refImmediateComposite().keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition)) in  
+			itemsKeywordDefinition.isEmpty() ---- true is the Default case
+			or(itemsKeywordDefinition.first().itemsAnyOf1.oclIsTypeOf(JSchemaMM!BooleanSchema) and itemsKeywordDefinition.first().itemsAnyOf1.value=true )
+		)	
+	)	
+	to 
+		eReference :Ecore!EReference,
+		eClass:  Ecore!EClass (
+			eStructuralFeatures <- Sequence{itemsEReference}
+		),
+		itemsEReference:Ecore!EReference (
+			name <- 'items',
+			eType <- JSchemaMM!JsonSchema,
+			containment <- true,
+			lowerBound <- 1,
+			upperBound <- 1
+		)	
+}
+
+
+rule mapRefSchemaToEReference{
+	from refSchemaDefinition: JSchemaMM!RefSchemaDefinition 
+	using {
+		referenceType : String = thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref)
+									.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
+								.first().findSimpleType();
+	} to		
+		eReference :Ecore!EReference ( 
+			name <- refSchemaDefinition.refImmediateComposite().getKey(),
+			eType <- thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref),
+			containment <- true,
+			lowerBound <- 1,
+			upperBound <- 1			
+		)
+	do {
+		if (referenceType = #"\"object\"" ) {
+--			thisModule.curlyBracesEReferences <- thisModule.curlyBracesEReferences->union(Sequence{eReference});
+--			thisModule.curlyBracesEClass <- thisModule.curlyBracesEClass->union(Sequence{eReference.refImmediateComposite()});
+		} else if (referenceType = #"\"array\"" ) {
+			thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
+--			thisModule.bracketsEClass <- thisModule.bracketsEClass->union(Sequence{eReference.refImmediateComposite()});
+		} 
+	}	
+}
+
+
+rule createEAttributeSimpleScalar{
+	from 
+		typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (not typeSchemaDefinition.getEDataType().oclIsUndefined())	
+	to 
+		eAttribute : Ecore!EAttribute(
+			name<-typeSchemaDefinition.refImmediateComposite().getKey(),
+			lowerBound <-1,
+			upperBound <- 1,
+			eType <- typeSchemaDefinition.getEDataType()
+		)
+
+}
+
+unique lazy rule createPropertiesEClass{
+	from name:String
+	to
+		eClass : Ecore!EClass (
+			name <- name.concat('Abstract'),
+			abstract<- true
+		)	
+}
+
+-------------------- OCL Generation --------------------------------
+
+lazy rule minimumConstraintToOcl {
+	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition
+	using {
+		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
+	}
+	do {
+--		thisModule.appendMinimumConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Minimum', minimumSchemaDefinition.minimum);
+		thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+	}
+}
+
+
+lazy rule requiredInPropertiesToOcl{
+	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
+	using {
+		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
+		required : Sequence(String) = requiredSchemaDefinition.required.values;
+		propertyName : String = enclosingSchema.getKey();
+		
+		inPropertiesRequiredKeySchemaPairs : Sequence(JSchemaMM!KeySchemaPair)= 
+			let propertiesSchemaDefinitions : Sequence(JSchemaMM!PropertiesSchemaDefinition) = 
+				enclosingSchema.keywordDefinition->select(k|k.oclIsTypeOf(JSchemaMM!PropertiesSchemaDefinition))
+			in
+				if propertiesSchemaDefinitions.isEmpty() then Sequence{}
+				else
+					propertiesSchemaDefinitions->first().keySchemaPairs->select(ksp| required->includes(ksp.key.stripFirstAndLast()))
+				endif;
+				
+	
+		inPropertiesRequiredSchemas : Sequence(JSchemaMM!Schema)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.value);	
+		inPropertiesRequiredKeys : Sequence(String)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.key);	
+		requiredNotInProperties:Sequence(String) = required->excludingAll(inPropertiesRequiredKeys);
+	}
+	do{
+		for (p in inPropertiesRequiredKeySchemaPairs) {
+--			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Required', p.key.stripFirstAndLast(), p.value.buildEClassname());
+			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName, enclosingSchema.resolve().name,  enclosingSchema.resolve().name+'Required', p.key.stripFirstAndLast(), p.value.resolve().name, propertyName);
+		}
+	}
+}
+
+lazy rule patternPropertiesRegexToOcl{
+	---- keySchemaPair isInPatternProperties
+	from keySchemaPair: JSchemaMM!KeySchemaPair(keySchemaPair.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition))
+	using {
+		regex:String = keySchemaPair.key.stripFirstAndLast();
+		contextClass:String = keySchemaPair.value.resolve().name ;
+		inv : String = contextClass+keySchemaPair.value.getKey();
+		propertyName : String = 'key';
+	}
+	do{
+		
+		thisModule.appendRegexInPatternPropertiesConstraint(thisModule.packageName,contextClass, inv, regex, propertyName);
+	}
+}
+
+
+
+endpoint rule CompletEPackageAndJsonGrammar() {
+	do {
+		thisModule.packageRoot().eClassifiers <- thisModule.allEClass();	
+		---- Json Grammar
+		thisModule.jsonGrammarRoot().detailedGrammar.keywords <- thisModule.keywords;		
+		thisModule.jsonGrammarRoot().detailedGrammar.curlyBracesReferences <- thisModule.curlyBracesEReferences;
+		thisModule.jsonGrammarRoot().detailedGrammar.bracketsReferences <- thisModule.bracketsEReferences;
+		thisModule.jsonGrammarRoot().detailedGrammar.keyValue <- thisModule.keyValues;		
+		thisModule.jsonGrammarRoot().detailedGrammar.curlyBracesEClass <- thisModule.curlyBracesEClass;
+		thisModule.jsonGrammarRoot().detailedGrammar.bracketsEClass <- thisModule.bracketsEClass;
+		
+		
+		-----  Refine Class names for unicity	-----------
+		
+
+					
+		for (eClass in thisModule.allEClass()){
+			for (eClass2 in thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name)) {
+				eClass2.name <- eClass2.name.
+					concat(thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name)->indexOf(eClass2).toString());
+			}
+		}
+		
+		
+		---- OCL generation--------
+		for (m in JSchemaMM!MinimumSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.minimumConstraintToOcl(m);
+		}	
+
+		for (r in JSchemaMM!RequiredSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.requiredInPropertiesToOcl(r);
+		}
+		
+		for(ksp in JSchemaMM!KeySchemaPair.allInstancesFrom('jschema')){
+			if(ksp.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition)){
+				thisModule.patternPropertiesRegexToOcl(ksp);
+			}
+		}
+			
+		thisModule.endPackage();
+		
+	}
+}
+
+
+
+
+
+
+ 
+
+
+
+

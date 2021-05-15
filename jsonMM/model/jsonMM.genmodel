@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/jsonMM/src-gen" creationIcons="false" editDirectory="/jsonMM.edit/src-gen"
+    editorDirectory="/jsonMM.editor/src-gen" modelPluginID="jsonMM" modelName="JsonMM"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>jsonMM.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="JsonMM" disposableProviderFactory="true" ecorePackage="jsonMM.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jsonMM.ecore#//NullEnum">
+      <genEnumLiterals ecoreEnumLiteral="jsonMM.ecore#//NullEnum/null"/>
+    </genEnums>
+    <genClasses ecoreClass="jsonMM.ecore#//StringValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//StringValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="jsonMM.ecore#//IntegerValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//IntegerValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="jsonMM.ecore#//ArrayValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMM.ecore#//ArrayValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="jsonMM.ecore#//NullValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//NullValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="jsonMM.ecore#//NumberValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//NumberValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="jsonMM.ecore#//JsonDocument">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMM.ecore#//JsonDocument/value"/>
+    </genClasses>
+    <genClasses ecoreClass="jsonMM.ecore#//ObjectValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMM.ecore#//ObjectValue/keyvaluepair"/>
+    </genClasses>
+    <genClasses ecoreClass="jsonMM.ecore#//BooleanValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//BooleanValue/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jsonMM.ecore#//Value"/>
+    <genClasses ecoreClass="jsonMM.ecore#//KeyValuePair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//KeyValuePair/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMM.ecore#//KeyValuePair/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,111 @@
+-- OCL contraints for /C:/Users/Alessandro.colantoni/eclipse/eclipse-modeling-2021-03-R-win32-x86_64/eclipse/workspaces/jsonschemadsl/shipyardV4/shipyardV4
+import 'http://jku.bise.at/shipyardV4'
+
+package shipyardV4
+
+	context shipyardV4::Metadata 
+
+	inv MetadataRequiredname ('Metadata requires the property name'):
+	if  self.Metadata->select(p|p.oclType()=shipyardV4::MetadataName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::Selector 
+
+	inv SelectorRequiredmatch ('Selector requires the property match'):
+	if  self.Selector->select(p|p.oclType()=shipyardV4::SelectorMatch)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::Sequence 
+
+	inv SequenceRequiredname ('Sequence requires the property name'):
+	if  self._Sequence->select(p|p.oclType()=shipyardV4::SequenceName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::Shipyard 
+
+	inv ShipyardRequiredapiVersion ('Shipyard requires the property apiVersion'):
+	if  self.Shipyard->select(p|p.oclType()=shipyardV4::ShipyardApiVersion)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::Shipyard 
+
+	inv ShipyardRequiredkind ('Shipyard requires the property kind'):
+	if  self.Shipyard->select(p|p.oclType()=shipyardV4::ShipyardKind)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::Shipyard 
+
+	inv ShipyardRequiredmetadata ('Shipyard requires the property metadata'):
+	if  self.Shipyard->select(p|p.oclType()=shipyardV4::ShipyardMetadata)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::Shipyard 
+
+	inv ShipyardRequiredspec ('Shipyard requires the property spec'):
+	if  self.Shipyard->select(p|p.oclType()=shipyardV4::ShipyardSpec1)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::ShipyardSpec 
+
+	inv ShipyardSpecRequiredstages ('ShipyardSpec requires the property stages'):
+	if  self.ShipyardSpec->select(p|p.oclType()=shipyardV4::ShipyardSpecStages)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::Stage 
+
+	inv StageRequiredname ('Stage requires the property name'):
+	if  self.Stage->select(p|p.oclType()=shipyardV4::StageName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::Stage 
+
+	inv StageRequiredsequences ('Stage requires the property sequences'):
+	if  self.Stage->select(p|p.oclType()=shipyardV4::StageSequences)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::Task 
+
+	inv TaskRequiredname ('Task requires the property name'):
+	if  self.Task->select(p|p.oclType()=shipyardV4::TaskName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::Trigger 
+
+	inv TriggerRequiredevent ('Trigger requires the property event'):
+	if  self.Trigger->select(p|p.oclType()=shipyardV4::TriggerEvent)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardV4::SelectorMatchPatternProperties0 
+
+	inv SelectorMatchPatternProperties0patternProperties0Regex ('the key must match the regular expression .*'):
+	if  key.matches('.*')
+	then true
+	else null
+	endif
+
+endpackage
+

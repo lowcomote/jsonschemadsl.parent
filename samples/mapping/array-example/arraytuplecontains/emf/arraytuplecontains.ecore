@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="arraytuplecontains" nsURI="http://at.jku.bise/jschema/mapping/example/arraytuplecontains"
+    nsPrefix="arraytuplecontains">
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" ordered="false"
+        upperBound="-1" eType="#//RootProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootProperty" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPerson" eSuperTypes="#//RootProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fullPerson" eType="#//RootFullPersonArray"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonAdditionalItems" eSuperTypes="#//RootFullPersonAdditionalItemsAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" lowerBound="1"
+        eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonAdditionalItemsAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2Abstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" ordered="false"
+        upperBound="-1" eType="#//RootFullPersonItems1Property" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems1Property" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems1Name" eSuperTypes="#//RootFullPersonItems1Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems1Surname" eSuperTypes="#//RootFullPersonItems1Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems1ContainsProperty"
+      abstract="true" eSuperTypes="#//RootFullPersonItems1Property"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems1ContainsEmergencyNumber"
+      eSuperTypes="#//RootFullPersonItems1ContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emergencyNumber" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2" eSuperTypes="#//RootFullPersonItems2Abstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" ordered="false"
+        upperBound="-1" eType="#//RootFullPersonItems2Property" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2Property" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2Street" eSuperTypes="#//RootFullPersonItems2Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="street" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2City" eSuperTypes="#//RootFullPersonItems2Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="city" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2Contains" eSuperTypes="#//RootFullPersonItems2Abstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" ordered="false"
+        upperBound="-1" eType="#//RootFullPersonItems2ContainsProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2ContainsProperty"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2ContainsStreet"
+      eSuperTypes="#//RootFullPersonItems2ContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="street" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2ContainsCity" eSuperTypes="#//RootFullPersonItems2ContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="city" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2ContainsEmergencyNumber"
+      eSuperTypes="#//RootFullPersonItems2ContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emergencyNumber" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonAdditionalItemsContains"
+      eSuperTypes="#//RootFullPersonAdditionalItemsAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" ordered="false"
+        upperBound="-1" eType="#//RootFullPersonAdditionalItemsContainsProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonAdditionalItemsContainsProperty"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonAdditionalItemsContainsEmergencyNumber"
+      eSuperTypes="#//RootFullPersonAdditionalItemsContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emergencyNumber" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems1AdditionalProperties"
+      eSuperTypes="#//RootFullPersonItems1Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2AdditionalProperties"
+      eSuperTypes="#//RootFullPersonItems2Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonItems2ContainsAdditionalProperties"
+      eSuperTypes="#//RootFullPersonItems2ContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonAdditionalItemsContainsAdditionalProperties"
+      eSuperTypes="#//RootFullPersonAdditionalItemsContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//NullValue"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootFullPersonArray">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items1" ordered="false"
+        eType="#//RootFullPersonItems1" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" eType="#//RootFullPersonItems2Abstract"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" ordered="false"
+        upperBound="-1" eType="#//RootFullPersonAdditionalItemsAbstract" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

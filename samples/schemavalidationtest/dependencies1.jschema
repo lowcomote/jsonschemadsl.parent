@@ -1,0 +1,26 @@
+{
+  "type": "object",
+
+  "properties": {
+    "name": { "type": "string" },
+    "credit_card": { "type": "number" },
+    "billing_address": { "type": "string" },
+    "credit_card2": { "type": "number" } 
+  },
+
+  "required": ["name"],
+
+  "dependencies": {
+  	
+    "credit_card": ["billing_address"],
+    "billing_address": ["credit_card"],
+    "credit_card2": {
+      "properties": {
+        "billing_address": { "type": "string" }
+      },
+      "required": ["billing_address"]
+    },
+    "minimum" : ["test"] ,
+    "maxLength" : {"type" : "boolean"} 
+  }
+}

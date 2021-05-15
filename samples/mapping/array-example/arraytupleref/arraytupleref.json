@@ -1,0 +1,55 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"definitions": {
+		"direction":{
+			"type": "string",
+			"enum": ["NW", "NE", "SW", "SE"]
+		},
+		"personalData":{
+			"description":"name and surname of a family member",
+	        "type": "object",
+			"properties":{
+	      		"name":{"type": "string"},
+	      		"surName":{"type": "string"}
+	      	}
+		},
+		
+		"relationship":{
+			"description":"relationship kind with the family member, e.g., oncle, father, son...",
+			"type": "string"
+		}
+	},
+	"type":"object",
+	"properties":{
+		"adresses": {
+		    "description":"addresses list of a person",
+			"type": "array",
+			"items": [
+			    {
+			      	"type": "number"
+			    },
+			    {
+			    	"type": "string"
+			    },
+			    {
+			      	"type": "string",
+			      	"enum": ["Street", "Avenue", "Boulevard"]
+			    },
+			    {
+			      	"$ref": "#/definitions/direction"
+			    }
+			]
+		},
+		"familyMembers":{
+			"type": "array",
+			"items": [
+			    {
+			        "$ref": "#/definitions/personalData"
+			    },
+			    {
+			    	"$ref": "#/definitions/relationship"
+			    }
+			]
+		}
+	}
+}

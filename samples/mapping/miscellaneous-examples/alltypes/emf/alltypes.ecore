@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="alltypes" nsURI="http://at.jku.bise/jschema/mapping/miscellaneous-examples/alltypes"
+    nsPrefix="alltypes">
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootProperties" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Job">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//JobProperties" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobRoleName" eSuperTypes="#//JobProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roleName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobCompanyName" eSuperTypes="#//JobProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="companyName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="JobProperties" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="JobAdditionalProperties" eSuperTypes="#//JobProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootProperties" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootName" eSuperTypes="#//RootProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAge" eSuperTypes="#//RootProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddress" eSuperTypes="#//RootProperties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items1" eType="#//RootAddressItems1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" eType="#//RootAddressItems2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalitems" upperBound="-1"
+        eType="#//RootAddressAdditionalItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootChildrenNamesItems">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootChildrenNames" eSuperTypes="#//RootProperties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//RootChildrenNamesItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressItems1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items1" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressItems2">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootAddressItems2Properties" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressItems2Properties" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressItems2StreetName" eSuperTypes="#//RootAddressItems2Properties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="streetName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressItems2StreetType" eSuperTypes="#//RootAddressItems2Properties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="streetType" lowerBound="1"
+        eType="#//RootAddressItems2StreetTypeEnum"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RootAddressItems2StreetTypeEnum">
+    <eLiterals name="Street" literal="&quot;Street&quot;"/>
+    <eLiterals name="Avenue" value="1" literal="&quot;Avenue&quot;"/>
+    <eLiterals name="Boulevard" value="2" literal="&quot;Boulevard&quot;"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAdditionalProperties" eSuperTypes="#//RootProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootJob" eSuperTypes="#//RootProperties">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" lowerBound="1" eType="#//Job"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressAdditionalItems" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressAdditionalItemsInteger" eSuperTypes="#//RootAddressAdditionalItems">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalItems" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootAddressAdditionalItemsString" eSuperTypes="#//RootAddressAdditionalItems">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalItems" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -3,19 +3,23 @@ Automatic-Module-Name: jsonschemadsl
 Bundle-ManifestVersion: 2
 Bundle-Name: jsonschemadsl
 Bundle-Vendor: My Company
-Bundle-Version: 0.1.0
+Bundle-Version: 1.1.0
 Bundle-SymbolicName: jsonschemadsl; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: json-metaschema-MM,
- org.eclipse.xtext,
+Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.eclipse.equinox.common;bundle-version="3.5.0",
  org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
  org.eclipse.xtext.util,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
- jsonschemadsl2ecore.trafo;bundle-version="0.1.0",
+ jsonmetaschemaMM;bundle-version="1.0.0",
+ jsonschemadsl2ecore.trafo;bundle-version="1.0.0",
  org.eclipse.m2m.atl.common;bundle-version="4.2.1",
- org.eclipse.m2m.atl.core;bundle-version="4.2.1"
+ org.eclipse.m2m.atl.core;bundle-version="4.2.1",
+ org.eclipse.ocl.xtext.completeocl,
+ jsonschemadsl2ecore.trafo.opt;bundle-version="1.0.0",
+ org.eclipse.core.resources;bundle-version="3.13.800",
+ org.eclipse.ui;bundle-version="3.118.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: at.jku.bise,
  at.jku.bise.scoping,

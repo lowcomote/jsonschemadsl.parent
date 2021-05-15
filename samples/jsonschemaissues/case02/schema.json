@@ -1,0 +1,7 @@
+{
+ "definitions": {
+    "a": {"type": "string"}
+   },
+ "$ref": "#/definitions/a",
+ "type": "integer"
+}

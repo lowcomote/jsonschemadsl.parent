@@ -1,0 +1,83 @@
+import 'http://at.jku.bise/jsonMetaschemaMM'
+
+package jsonMetaschemaMM
+
+context NonNegativeInteger
+inv Minimum0 ('The value must be >= 0'):
+if value <0 then null else true endif
+
+context NonNegativeIntegerDefault0
+inv MinimumDefault0 ('The value must be >= 0'):
+if value <0 then null else true endif
+
+
+ 
+
+-- trafo validation
+ 
+
+--context ObjectSchema
+--inv RefAlone ('The $ref keyword, when present, must be the only keyword in a schema'):
+--if keywordDefinition->exists(k | k.oclIsTypeOf(RefSchemaDefinition)) and keywordDefinition->size()>1 then null else true endif
+
+
+--context ObjectSchema
+--inv missingType ('The keyword "type" should be present'):
+--	keywordDefinition->select(k|k.oclIsTypeOf(TypeSchemaDefinition))->size()>0
+
+context ObjectSchema
+inv missingType ('The keyword "type" should be present'):
+	if keywordDefinition->select(k|k.oclIsTypeOf(RefSchemaDefinition))->size()=0
+	then
+		keywordDefinition->select(k|k.oclIsTypeOf(TypeSchemaDefinition))->size()>0
+	else true
+	endif
+	
+
+--context ObjectSchema
+--inv missingAdditionalProperties ('The keyword "additionalProperties" should be specified explicitly'):
+--	keywordDefinition->select(k|k.oclIsTypeOf(AdditionalPropertiesSchemaDefinition))->size()>0
+	
+ 	
+	
+-- TODO refactor when type is refactored with the new anyOf
+context ObjectSchema
+inv missingAdditionalProperties ('The keyword "additionalProperties" should be specified explicitly'):
+	let typeSchemaDefinitionSequence : Sequence(TypeSchemaDefinition) = keywordDefinition->select(k|k.oclIsTypeOf(TypeSchemaDefinition)) in
+	if typeSchemaDefinitionSequence ->size()>0 then
+		let typeSchemaDefinition: TypeSchemaDefinition = typeSchemaDefinitionSequence->first() in
+		if not typeSchemaDefinition.typeAnyOf1.oclIsUndefined() then
+			if typeSchemaDefinition.typeAnyOf1= SimpleTypes::object    --SimpleTypes::object ----#"\ and "object\"") 
+			then self.keywordDefinition->select(k|k.oclIsTypeOf(AdditionalPropertiesSchemaDefinition))->size()>0
+			else true
+			endif
+		else true ---TODO manage this case in the refactoring
+		endif 
+	else true
+	endif
+
+
+
+
+	
+
+context ObjectSchema
+inv RepeatedKeywords ('Keywords can not be repeated at the same nested level'):
+--if keywordDefinition->isUnique(k|k.oclType()) then true  else null endif
+if keywordDefinition->select(k|k.oclType()<> SchemaObjectAdditionalProperties)->isUnique(k|k.oclType()) then true  else null endif
+
+
+context PropertiesSchemaDefinition
+inv RepeatedKeysInProperties ('The same key cannot be repeated under the same properties keyword'):
+if keySchemaPairs->isUnique(k | k.key) then true  else null endif
+
+context PatternPropertiesSchemaDefinition
+inv RepeatedKeysInPatternProperties ('The same key cannot be repeated under the same patternProperties keyword'):
+if keySchemaPairs->isUnique(k | k.key) then true  else null endif
+
+context DefinitionsSchemaDefinition
+inv RepeatedKeysInDefinitions ('The same key cannot be repeated under the same definitions keyword'):
+if keySchemaPairs->isUnique(k | k.key) then true  else null endif
+
+
+endpackage

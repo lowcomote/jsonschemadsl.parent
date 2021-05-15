@@ -1,0 +1,14 @@
+{
+   "type":"object",
+    "properties":{
+     "prop1":{
+            "type":"object",
+            "properties":{
+                    "name":{"type":"string"},
+                    "surname":{"type":"string"} 
+            },
+            "additionalProperties":false,
+            "enum":[{"name": "alessandro", "age":1}, {"name":"antonio", "age":2}] 
+     }
+    }
+}

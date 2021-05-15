@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  
+  "propertyNames": {
+    "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+  },
+  "properties":{
+     "1": {"type":"integer"}
+  },
+  "additionalProperties":{"type":"integer"}
+}

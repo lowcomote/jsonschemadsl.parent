@@ -1,0 +1,119 @@
+-- OCL contraints for /Users/Alessandro.colantoni/eclipse-lowcomote-jsonschema-workspace/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/shipyardLike
+import 'http://jku.bise.at/shipyardLike'
+
+package shipyardLike
+
+	context shipyardLike::ShipyardLikeRootTestInteger
+
+	inv ShipyardLikeRootTestIntegerMinimum('The value of ShipyardLikeRootTestInteger must be greater or equal than 4.2'):
+	if testInteger >= 4.2
+	then true 
+	else null
+	endif
+
+	context shipyardLike::ShipyardLikeRoot 
+
+	inv ShipyardLikeRootRequiredapiVersion ('ShipyardLikeRoot requires the property apiVersion'):
+	if  self.shipyardLikeRoot->select(p|p.oclType()=shipyardLike::ShipyardLikeRootApiVersion)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::ShipyardLikeRoot 
+
+	inv ShipyardLikeRootRequiredkind ('ShipyardLikeRoot requires the property kind'):
+	if  self.shipyardLikeRoot->select(p|p.oclType()=shipyardLike::ShipyardLikeRootKind)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::ShipyardLikeRoot 
+
+	inv ShipyardLikeRootRequiredmetadata ('ShipyardLikeRoot requires the property metadata'):
+	if  self.shipyardLikeRoot->select(p|p.oclType()=shipyardLike::ShipyardLikeRootMetadata)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::ShipyardLikeRoot 
+
+	inv ShipyardLikeRootRequiredspec ('ShipyardLikeRoot requires the property spec'):
+	if  self.shipyardLikeRoot->select(p|p.oclType()=shipyardLike::ShipyardLikeRootSpec)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::Metadata 
+
+	inv MetadataRequiredname ('Metadata requires the property name'):
+	if  self.Metadata->select(p|p.oclType()=shipyardLike::MetadataName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::ShipyardSpec 
+
+	inv ShipyardSpecRequiredstages ('ShipyardSpec requires the property stages'):
+	if  self.ShipyardSpec->select(p|p.oclType()=shipyardLike::ShipyardSpecStages)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::Stage 
+
+	inv StageRequiredname ('Stage requires the property name'):
+	if  self.Stage->select(p|p.oclType()=shipyardLike::StageName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::Stage 
+
+	inv StageRequiredsequences ('Stage requires the property sequences'):
+	if  self.Stage->select(p|p.oclType()=shipyardLike::StageSequences)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::Sequence 
+
+	inv SequenceRequiredname ('Sequence requires the property name'):
+	if  self._Sequence->select(p|p.oclType()=shipyardLike::SequenceName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::Sequence 
+
+	inv SequenceRequiredtriggers ('Sequence requires the property triggers'):
+	if  self._Sequence->select(p|p.oclType()=shipyardLike::SequenceTriggers)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::Sequence 
+
+	inv SequenceRequiredtasks ('Sequence requires the property tasks'):
+	if  self._Sequence->select(p|p.oclType()=shipyardLike::SequenceTasks)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::Task 
+
+	inv TaskRequiredname ('Task requires the property name'):
+	if  self.Task->select(p|p.oclType()=shipyardLike::TaskName)->size()>0
+	then true
+	else null
+	endif
+
+	context shipyardLike::Task 
+
+	inv TaskRequiredproperties ('Task requires the property properties'):
+	if  self.Task->select(p|p.oclType()=shipyardLike::TaskProperties)->size()>0
+	then true
+	else null
+	endif
+
+endpackage
+

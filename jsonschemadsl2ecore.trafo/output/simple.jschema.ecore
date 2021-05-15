@@ -3,55 +3,44 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Shipyard" nsURI="http://jku.bise.at/Shipyard" nsPrefix="Shipyard">
   <eClassifiers xsi:type="ecore:EClass" name="Root">
     <eAnnotations source="#"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="apiVersion" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="&quot;apiVersion&quot;">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" lowerBound="1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="metadata" lowerBound="1"
-        eType="//Metadata" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="spec" lowerBound="1" eType="//ShipyardSpec"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Metadata">
-    <eAnnotations source="#/definitions/Metadata"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="&quot;kind&quot;">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ShipyardSpec">
-    <eAnnotations source="#/definitions/ShipyardSpec"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="stages" lowerBound="1"
-        upperBound="-1" eType="//Stage" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="&quot;Metadata&quot;">
+    <eAnnotations source="#/definitions/&quot;Metadata&quot;"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="&quot;name&quot;">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Stage">
-    <eAnnotations source="#/definitions/Stage"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" lowerBound="1"
-        upperBound="-1" eType="//Sequence" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="&quot;ShipyardSpec&quot;">
+    <eAnnotations source="#/definitions/&quot;ShipyardSpec&quot;"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sequence">
-    <eAnnotations source="#/definitions/Sequence"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
+  <eClassifiers xsi:type="ecore:EClass" name="&quot;Stage&quot;">
+    <eAnnotations source="#/definitions/&quot;Stage&quot;"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="&quot;name&quot;">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="triggers" lowerBound="1"
-        upperBound="-1">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" lowerBound="1" upperBound="-1"
-        eType="//Task" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Task">
-    <eAnnotations source="#/definitions/Task"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1">
+  <eClassifiers xsi:type="ecore:EClass" name="&quot;Sequence&quot;">
+    <eAnnotations source="#/definitions/&quot;Sequence&quot;"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="&quot;name&quot;">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" lowerBound="1"
-        eType="//Properties" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="&quot;triggers&quot;" upperBound="-1">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="&quot;Task&quot;">
+    <eAnnotations source="#/definitions/&quot;Task&quot;"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="&quot;name&quot;">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="&quot;properties&quot;"
+        eType="//%22properties%22" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArrayValue" eSuperTypes="//Value">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
@@ -90,8 +79,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="//Value"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Properties">
-    <eAnnotations source="#/definitions/Task/properties/properties"/>
+  <eClassifiers xsi:type="ecore:EClass" name="&quot;properties&quot;">
+    <eAnnotations source="#/definitions/&quot;Task&quot;/properties/&quot;properties&quot;"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" upperBound="-1"
         eType="//KeyValuePair" containment="true"/>
   </eClassifiers>

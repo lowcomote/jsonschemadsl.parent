@@ -1,0 +1,34 @@
+{
+	
+	"definitions" :{
+		"minimum":{"type":"boolean"},
+		"properties":{"type":"array"},
+		"propA":{"type":"number"} ,
+		"type":{}
+	},
+	"myProp1" : {
+		"minimum":5.2 ,
+		"type":"string",
+		"default" : {"type": 2}, 
+		"minLength" : 2,
+		"maxLength" : 3,
+		"examples":[{"minimum": "testobject", "maximum": "testobject"}]
+		
+		    
+	} , 
+	"properties" :{
+		"ale":{
+			"type":"string", 
+			"maxLength" : 77 
+		},
+		"properties" 	:{"type":"object"} ,
+	    "minLength":{"type": "object"},
+		"minimum":{"type":"boolean"} ,
+		"maximum":{"type":"object"},
+		"additionalProperties":false
+		
+	},
+	"additionalProperties":false,
+	"minLength" : 2,
+	"maxLength" : 3
+}   

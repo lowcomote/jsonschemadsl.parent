@@ -1,0 +1,35 @@
+{
+	"type":"object",
+	"properties":{
+		"department":{
+			"type":"array",
+			"items":[
+				{
+					"type":"object",
+					"properties":{
+						"departmentName":{"type":"string"},
+						"unitName":{"type":"string"}
+					}
+				}
+			],
+			"additionalItems":{
+				"description":"department's employees",
+				"type":"object",
+				"properties":{
+					"id":{"type":"string"},
+					"name":{"type":"string"},
+					"surname":{"type":"string"}
+				}
+			},
+			"contains":{
+				"description":"chief's id",
+				"type":"object",
+				"properties":{
+					"chiefId" :{"type":"string"}
+				}
+				
+			}
+			
+		}
+	}
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="arraylistcontains" nsURI="http://at.jku.bise/jschema/mapping/example/arraylistcontains"
+    nsPrefix="arraylistcontains">
+  <eClassifiers xsi:type="ecore:EClass" name="Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootProperty" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagers" eSuperTypes="#//RootProperty">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//RootEmployeesWithManagersItemsAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersItemsAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersItems" eSuperTypes="#//RootEmployeesWithManagersItemsAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootEmployeesWithManagersItemsProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersItemsProperty"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersItemsName"
+      eSuperTypes="#//RootEmployeesWithManagersItemsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersItemsSurame"
+      eSuperTypes="#//RootEmployeesWithManagersItemsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersItemsSeniority"
+      eSuperTypes="#//RootEmployeesWithManagersItemsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seniority" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersContains" eSuperTypes="#//RootEmployeesWithManagersItemsAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//RootEmployeesWithManagersContainsProperty" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersContainsProperty"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersContainsName"
+      eSuperTypes="#//RootEmployeesWithManagersContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersContainsSurname"
+      eSuperTypes="#//RootEmployeesWithManagersContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersContainsSeniority"
+      eSuperTypes="#//RootEmployeesWithManagersContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seniority" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersContainsPeopleOnCharge"
+      eSuperTypes="#//RootEmployeesWithManagersContainsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="peopleOnCharge" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersItemsAdditionalProperties"
+      eSuperTypes="#//RootEmployeesWithManagersItemsProperty">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootEmployeesWithManagersContainsAdditionalProperties">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="ecore:EClass ../../../../../../jsonMM/model/jsonMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

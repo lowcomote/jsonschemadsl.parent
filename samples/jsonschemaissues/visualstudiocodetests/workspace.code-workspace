@@ -1,0 +1,181 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+
+		"json.schemas": [{
+				"fileMatch": [
+					"*.case01"
+				],
+				"schema": {
+					"description": "case 01",
+					"myprop":1
+				}
+			},{
+				"fileMatch": [
+					"*.case02"
+				],
+				"schema": {
+					"description": "case 02",
+					"definitions": {
+						"a": {"type": "string"}
+					   },
+					 "$ref": "#/definitions/a",
+					 "type": "integer"
+				}
+			},{
+				"fileMatch": [
+					"*.case03"
+				],
+				"schema": {
+					"description": "case 03",
+					"type":"string",
+					"minLength":2,
+					"minimum": 3
+				}
+			},{
+				"fileMatch": [
+					"*.case04"
+				],
+				"schema": {
+					"description": "case 04",
+					"definitions": {
+						"a": {"$ref": "#/definitions/a"}
+					   },
+					 "$ref": "#/definitions/a"
+				}
+			},{
+				"fileMatch": [
+					"*.case05"
+				],
+				"schema": {
+					"description": "case 05",
+					"minimum":3,
+  					"minLength":3
+				}
+			},{
+				"fileMatch": [
+					"*.case06"
+				],
+				"schema": {
+					"description": "case 06",
+					"type":"integer",
+					"type":"string"
+				}
+			},{
+				"fileMatch": [
+					"*.case07"
+				],
+				"schema": {
+					"description": "case 07",
+					"type" :"object",
+					"properties":{
+						"prop1": {"type":"string"},
+						"prop1": {"type":"integer"}
+					},
+					
+					"patternProperties":{
+						"^S_": { "type": "integer" },
+						"^S_": { "type": "string" } 
+					},
+					
+					"definitions":{
+						"age": { "type": "integer" }, 
+						"age": { "type": "string" }
+					}
+				}
+			},{
+				"fileMatch": [
+					"*.case08"
+				],
+				"schema": {
+					"description": "case 08",
+					"type":"object",
+					"properties":{
+						"prop1":{"type":"string"}
+					}
+				}
+			},{
+				"fileMatch": [
+					"*.case09"
+				],
+				"schema": {
+					"description": "case 09",
+					"$ref" : "#/notExists"
+				}
+			},{
+				"fileMatch": [
+					"*.case10"
+				],
+				"schema": {
+					"description": "case 10",
+					"myProp":"some value",
+					"$ref":"#/myProp"
+				}
+			},{
+				"fileMatch": [
+					"*.case11"
+				],
+				"schema": {
+					"description": "case 11",
+					"definitions":{
+						"prop1":{"type":"string"},
+						"prop1":{"type":"integer"}
+					 },
+					 
+					 "$ref":"#/definitions/prop1"
+				}
+			},{
+				"fileMatch": [
+					"*.case12_1"
+				],
+				"schema": {
+					"description": "case 12_1",
+					"type": "string",
+					"enum":[1,2,3,4]
+				}
+			},
+			{
+				"fileMatch": [
+					"*.case12_2"
+				],
+				"schema": {
+					"description": "CASE_12_2",
+					"type":"object",
+					"properties":{
+						"prop1":{
+								"type":"object",
+								"properties":{
+										"name":{"type":"string"},
+										"surname":{"type":"string"} 
+								},
+								"additionalProperties":false,
+								"enum":[{"name": "alessandro", "age":1}, {"name":"antonio", "age":2}] 
+						}
+					}
+				}
+			}
+		],
+		"files.associations": {
+			"*.case01":"json"	,
+			"*.case02":"json"	,
+			"*.case03":"json"	,
+			"*.case04":"json"	,
+			"*.case05":"json"	,
+			"*.case06":"json"	,
+			"*.case07":"json"	,
+			"*.case08":"json"	,
+			"*.case09":"json"	,
+			"*.case10":"json"	,
+			"*.case11":"json"	,
+			
+			"*.case12_1":"json"	,
+			"*.case12_2":"json"	
+			
+
+		}
+	}
+}

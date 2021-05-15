@@ -5,8 +5,8 @@ package at.jku.bise.formatting2
 
 import at.jku.bise.services.JsonSchemaDslGrammarAccess
 import com.google.inject.Inject
-import jsonMetaschemaMM.jsonMetaschemaMM.JsonSchema
-import jsonMetaschemaMM.jsonMetaschemaMM.ObjectSchema
+import jsonMetaschemaMM.JsonSchema
+import jsonMetaschemaMM.ObjectSchema
 import org.eclipse.xtext.formatting2.AbstractFormatter2
 import org.eclipse.xtext.formatting2.IFormattableDocument
 

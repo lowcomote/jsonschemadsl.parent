@@ -1,0 +1,36 @@
+import 'http://jku.bise.at/shipyard2'
+
+package shipyard2
+ 
+	context Shipyard2RootTestInteger
+
+	inv Shipyard2RootTestIntegerMinimum('The value of Shipyard2RootTestInteger must be greater or equal than 4.2'):
+	if testInteger >= 4.2
+	then true
+	else null
+	endif
+	 
+	context  Shipyard2Root 
+	inv Shipyard2RootRequired2ApiVersion:
+	if  properties->select(p|p.oclType()=Shipyard2RootApiVersion)->size()>1
+	then true
+	else null
+	endif
+	
+--	context  Shipyard2Root
+--	inv Shipyard2RootRequiredExtraKey:
+--	if properties->select(p|not Sequence{Shipyard2RootApiVersion, Shipyard2RootKind, Shipyard2RootMetadata, Shipyard2RootSpec}->includes(p.oclType()))
+--				->select(p|p.key = 'extraKey')->size()>1
+--	then true
+--	else null
+--	endif	
+	
+	context Shipyard2Root 
+	inv Shipyard2RootRequired:
+	if properties->select(p|Sequence{Shipyard2RootApiVersion, Shipyard2RootKind, Shipyard2RootMetadata, Shipyard2RootSpec}->includes(p.oclType()))
+	->collect(p|p.oclType())->includesAll(Sequence{Shipyard2RootApiVersion, Shipyard2RootKind, Shipyard2RootMetadata, Shipyard2RootSpec})
+	then true
+	else null
+	endif 
+
+endpackage
