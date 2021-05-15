@@ -3,7 +3,7 @@ Automatic-Module-Name: jsonschemadsl.ui.tests
 Bundle-ManifestVersion: 2
 Bundle-Name: jsonschemadsl.ui.tests
 Bundle-Vendor: My Company
-Bundle-Version: 1.1.0
+Bundle-Version: 1.1.0.qualifier
 Bundle-SymbolicName: jsonschemadsl.ui.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: jsonschemadsl.ui,
