@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ATL jsonschemadsl2ecore.trafo Transformation Runtime Plug-in
 Bundle-SymbolicName: jsonschemadsl2ecore.trafo;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.1.0
 Bundle-Activator: jsonschemadsl2ecore.trafo.Activator
 Bundle-Vendor: Eclipse Modeling Project
 Require-Bundle: org.eclipse.core.runtime, 
