@@ -2,7 +2,7 @@
 <feature
       id="jsonschemadsl.feature"
       label="JsonSchemaDsl Feature "
-      version="1.1.0">
+      version="1.0.1">
 
    <plugin
          id="jsonschemadsl"
