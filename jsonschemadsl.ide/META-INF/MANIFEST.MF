@@ -3,7 +3,7 @@ Automatic-Module-Name: jsonschemadsl.ide
 Bundle-ManifestVersion: 2
 Bundle-Name: jsonschemadsl.ide
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.1
+Bundle-Version: 1.0.2.qualifier
 Bundle-SymbolicName: jsonschemadsl.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: jsonschemadsl,
