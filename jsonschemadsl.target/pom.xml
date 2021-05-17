@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>jsonschemadsl</groupId>
 		<artifactId>jsonschemadsl.parent</artifactId>
-		<version>1.0.1-SNAPSHOT</version>
+		<version>1.0.1</version>
 	</parent>
 	<artifactId>jsonschemadsl.target</artifactId>
 	<packaging>eclipse-target-definition</packaging>
