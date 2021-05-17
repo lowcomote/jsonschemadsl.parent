@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Utils
 Bundle-SymbolicName: jku.se.atl.transformation.utils
-Bundle-Version: 1.1.0.qualifier
+Bundle-Version: 1.0.1.qualifier
 Automatic-Module-Name: jku.se.atl.transformation.utils
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: org.eclipse.m2m.atl.emftvm;bundle-version="4.2.1"
