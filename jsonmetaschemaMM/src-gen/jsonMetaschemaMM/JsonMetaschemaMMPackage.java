@@ -860,13 +860,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int DEFINITIONS_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITIONS_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Definitions Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEFINITIONS_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int DEFINITIONS_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
@@ -1757,13 +1766,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int PATTERN_PROPERTIES_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_PROPERTIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Pattern Properties Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_PROPERTIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int PATTERN_PROPERTIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.AdditionalItemsSchemaDefinitionImpl <em>Additional Items Schema Definition</em>}' class.
@@ -3484,6 +3502,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getDefinitionsSchemaDefinition_KeySchemaPairs();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.DefinitionsSchemaDefinition#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Key</em>' operation.
+	 * @see jsonMetaschemaMM.DefinitionsSchemaDefinition#findSchemaByKey(java.lang.String)
+	 * @generated
+	 */
+	EOperation getDefinitionsSchemaDefinition__FindSchemaByKey__String();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.BooleanValue <em>Boolean Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4007,6 +4035,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPatternPropertiesSchemaDefinition_KeySchemaPairs();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.PatternPropertiesSchemaDefinition#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Key</em>' operation.
+	 * @see jsonMetaschemaMM.PatternPropertiesSchemaDefinition#findSchemaByKey(java.lang.String)
+	 * @generated
+	 */
+	EOperation getPatternPropertiesSchemaDefinition__FindSchemaByKey__String();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.AdditionalItemsSchemaDefinition <em>Additional Items Schema Definition</em>}'.
@@ -5177,6 +5215,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference DEFINITIONS_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS = eINSTANCE.getDefinitionsSchemaDefinition_KeySchemaPairs();
 
 		/**
+		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DEFINITIONS_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = eINSTANCE.getDefinitionsSchemaDefinition__FindSchemaByKey__String();
+
+		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5625,6 +5671,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PATTERN_PROPERTIES_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS = eINSTANCE.getPatternPropertiesSchemaDefinition_KeySchemaPairs();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_PROPERTIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = eINSTANCE.getPatternPropertiesSchemaDefinition__FindSchemaByKey__String();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.AdditionalItemsSchemaDefinitionImpl <em>Additional Items Schema Definition</em>}' class.

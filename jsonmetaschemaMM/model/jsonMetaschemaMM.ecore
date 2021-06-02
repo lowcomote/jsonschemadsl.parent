@@ -115,6 +115,10 @@
         eType="#//NonNegativeIntegerDefault0" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionsSchemaDefinition" eSuperTypes="#//KeywordDefinition">
+    <eOperations name="findSchemaByKey" ordered="false" unique="false" lowerBound="1"
+        eType="#//Schema">
+      <eParameters name="key" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="keySchemaPairs" upperBound="-1"
         eType="#//KeySchemaPair" containment="true"/>
   </eClassifiers>
@@ -210,6 +214,10 @@
         eType="#//NonNegativeIntegerDefault0" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PatternPropertiesSchemaDefinition" eSuperTypes="#//KeywordDefinition">
+    <eOperations name="findSchemaByKey" ordered="false" unique="false" lowerBound="1"
+        eType="#//Schema">
+      <eParameters name="key" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="keySchemaPairs" upperBound="-1"
         eType="#//KeySchemaPair" containment="true"/>
   </eClassifiers>

@@ -1178,6 +1178,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getDefinitionsSchemaDefinition__FindSchemaByKey__String() {
+		return definitionsSchemaDefinitionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBooleanValue() {
 		return booleanValueEClass;
 	}
@@ -1670,6 +1680,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	@Override
 	public EReference getPatternPropertiesSchemaDefinition_KeySchemaPairs() {
 		return (EReference)patternPropertiesSchemaDefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternPropertiesSchemaDefinition__FindSchemaByKey__String() {
+		return patternPropertiesSchemaDefinitionEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2454,6 +2474,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		definitionsSchemaDefinitionEClass = createEClass(DEFINITIONS_SCHEMA_DEFINITION);
 		createEReference(definitionsSchemaDefinitionEClass, DEFINITIONS_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS);
+		createEOperation(definitionsSchemaDefinitionEClass, DEFINITIONS_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING);
 
 		booleanValueEClass = createEClass(BOOLEAN_VALUE);
 		createEAttribute(booleanValueEClass, BOOLEAN_VALUE__VALUE);
@@ -2529,6 +2550,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		patternPropertiesSchemaDefinitionEClass = createEClass(PATTERN_PROPERTIES_SCHEMA_DEFINITION);
 		createEReference(patternPropertiesSchemaDefinitionEClass, PATTERN_PROPERTIES_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS);
+		createEOperation(patternPropertiesSchemaDefinitionEClass, PATTERN_PROPERTIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING);
 
 		additionalItemsSchemaDefinitionEClass = createEClass(ADDITIONAL_ITEMS_SCHEMA_DEFINITION);
 		createEReference(additionalItemsSchemaDefinitionEClass, ADDITIONAL_ITEMS_SCHEMA_DEFINITION__ADDITIONAL_ITEMS);
@@ -2790,6 +2812,9 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEClass(definitionsSchemaDefinitionEClass, DefinitionsSchemaDefinition.class, "DefinitionsSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDefinitionsSchemaDefinition_KeySchemaPairs(), this.getKeySchemaPair(), null, "keySchemaPairs", null, 0, -1, DefinitionsSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getDefinitionsSchemaDefinition__FindSchemaByKey__String(), this.getSchema(), "findSchemaByKey", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "key", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(booleanValueEClass, BooleanValue.class, "BooleanValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanValue_Value(), ecorePackage.getEBoolean(), "value", null, 1, 1, BooleanValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2864,6 +2889,9 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(patternPropertiesSchemaDefinitionEClass, PatternPropertiesSchemaDefinition.class, "PatternPropertiesSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPatternPropertiesSchemaDefinition_KeySchemaPairs(), this.getKeySchemaPair(), null, "keySchemaPairs", null, 0, -1, PatternPropertiesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getPatternPropertiesSchemaDefinition__FindSchemaByKey__String(), this.getSchema(), "findSchemaByKey", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "key", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(additionalItemsSchemaDefinitionEClass, AdditionalItemsSchemaDefinition.class, "AdditionalItemsSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAdditionalItemsSchemaDefinition_AdditionalItems(), this.getSchema(), null, "additionalItems", null, 1, 1, AdditionalItemsSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

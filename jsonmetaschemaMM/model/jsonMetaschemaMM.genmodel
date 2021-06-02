@@ -118,6 +118,10 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//DefinitionsSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//DefinitionsSchemaDefinition/keySchemaPairs"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//DefinitionsSchemaDefinition/findSchemaByKey"
+          body="return getKeySchemaPairs().stream().filter(ksp -> ksp.getKey()==key).findFirst().map(KeySchemaPair::getValue).orElse(null);">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//DefinitionsSchemaDefinition/findSchemaByKey/key"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//BooleanValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//BooleanValue/value"/>
@@ -192,6 +196,10 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//PatternPropertiesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//PatternPropertiesSchemaDefinition/keySchemaPairs"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//PatternPropertiesSchemaDefinition/findSchemaByKey"
+          body="return getKeySchemaPairs().stream().filter(ksp -> ksp.getKey()==key).findFirst().map(KeySchemaPair::getValue).orElse(null);">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//PatternPropertiesSchemaDefinition/findSchemaByKey/key"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//AdditionalItemsSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//AdditionalItemsSchemaDefinition/additionalItems"/>
