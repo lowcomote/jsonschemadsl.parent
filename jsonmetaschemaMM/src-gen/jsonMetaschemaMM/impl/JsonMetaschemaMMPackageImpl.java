@@ -1268,6 +1268,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getSchemaArray__FindSchemaByIndex__int() {
+		return schemaArrayEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMaxPropertiesSchemaDefinition() {
 		return maxPropertiesSchemaDefinitionEClass;
 	}
@@ -2487,6 +2497,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		schemaArrayEClass = createEClass(SCHEMA_ARRAY);
 		createEReference(schemaArrayEClass, SCHEMA_ARRAY__ITEMS);
+		createEOperation(schemaArrayEClass, SCHEMA_ARRAY___FIND_SCHEMA_BY_INDEX__INT);
 
 		maxPropertiesSchemaDefinitionEClass = createEClass(MAX_PROPERTIES_SCHEMA_DEFINITION);
 		createEReference(maxPropertiesSchemaDefinitionEClass, MAX_PROPERTIES_SCHEMA_DEFINITION__MAX_PROPERTIES);
@@ -2826,6 +2837,9 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(schemaArrayEClass, SchemaArray.class, "SchemaArray", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSchemaArray_Items(), this.getSchema(), null, "items", null, 1, -1, SchemaArray.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getSchemaArray__FindSchemaByIndex__int(), this.getSchema(), "findSchemaByIndex", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "index", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(maxPropertiesSchemaDefinitionEClass, MaxPropertiesSchemaDefinition.class, "MaxPropertiesSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMaxPropertiesSchemaDefinition_MaxProperties(), this.getNonNegativeInteger(), null, "maxProperties", null, 1, 1, MaxPropertiesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

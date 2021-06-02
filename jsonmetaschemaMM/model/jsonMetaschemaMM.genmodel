@@ -134,6 +134,10 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//SchemaArray">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//SchemaArray/items"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//SchemaArray/findSchemaByIndex"
+          body="Schema schema =null;&#xA;if(0 &lt;= index &amp;&amp; index &lt; getItems().size()) {&#xA;&#x9;schema = getItems().get(index);&#xA;}&#xA;return schema;">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//SchemaArray/findSchemaByIndex/index"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MaxPropertiesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//MaxPropertiesSchemaDefinition/maxProperties"/>

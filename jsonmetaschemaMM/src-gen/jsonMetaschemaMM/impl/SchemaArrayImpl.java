@@ -2,6 +2,8 @@
  */
 package jsonMetaschemaMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
@@ -82,6 +84,20 @@ public class SchemaArrayImpl extends MinimalEObjectImpl.Container implements Sch
 	 * @generated
 	 */
 	@Override
+	public Schema findSchemaByIndex(final int index) {
+		Schema schema =null;
+		if(0 <= index && index < getItems().size()) {
+			schema = getItems().get(index);
+		}
+		return schema;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.SCHEMA_ARRAY__ITEMS:
@@ -148,6 +164,20 @@ public class SchemaArrayImpl extends MinimalEObjectImpl.Container implements Sch
 				return items != null && !items.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JsonMetaschemaMMPackage.SCHEMA_ARRAY___FIND_SCHEMA_BY_INDEX__INT:
+				return findSchemaByIndex((Integer)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //SchemaArrayImpl

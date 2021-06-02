@@ -134,6 +134,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SchemaArray">
+    <eOperations name="findSchemaByIndex" ordered="false" unique="false" lowerBound="1"
+        eType="#//Schema">
+      <eParameters name="index" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" upperBound="-1"
         eType="#//Schema" containment="true"/>
   </eClassifiers>

@@ -1017,13 +1017,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int SCHEMA_ARRAY_FEATURE_COUNT = 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Index</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_ARRAY___FIND_SCHEMA_BY_INDEX__INT = 0;
+
+	/**
 	 * The number of operations of the '<em>Schema Array</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_ARRAY_OPERATION_COUNT = 0;
+	int SCHEMA_ARRAY_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.MaxPropertiesSchemaDefinitionImpl <em>Max Properties Schema Definition</em>}' class.
@@ -3596,6 +3605,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getSchemaArray_Items();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.SchemaArray#findSchemaByIndex(int) <em>Find Schema By Index</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Index</em>' operation.
+	 * @see jsonMetaschemaMM.SchemaArray#findSchemaByIndex(int)
+	 * @generated
+	 */
+	EOperation getSchemaArray__FindSchemaByIndex__int();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.MaxPropertiesSchemaDefinition <em>Max Properties Schema Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5293,6 +5312,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCHEMA_ARRAY__ITEMS = eINSTANCE.getSchemaArray_Items();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Index</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCHEMA_ARRAY___FIND_SCHEMA_BY_INDEX__INT = eINSTANCE.getSchemaArray__FindSchemaByIndex__int();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.MaxPropertiesSchemaDefinitionImpl <em>Max Properties Schema Definition</em>}' class.

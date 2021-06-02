@@ -3,13 +3,14 @@
 package jsonMetaschemaMM.impl;
 
 import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.KeySchemaPair;
 import jsonMetaschemaMM.PatternPropertiesSchemaDefinition;
-
 import jsonMetaschemaMM.Schema;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
