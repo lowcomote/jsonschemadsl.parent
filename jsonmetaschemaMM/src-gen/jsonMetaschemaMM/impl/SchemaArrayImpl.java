@@ -68,6 +68,7 @@ public class SchemaArrayImpl extends MinimalEObjectImpl.Container implements Sch
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Schema> getItems() {
 		if (items == null) {
 			items = new EObjectContainmentEList<Schema>(Schema.class, this, JsonMetaschemaMMPackage.SCHEMA_ARRAY__ITEMS);

@@ -66,6 +66,7 @@ public class DependenciesSchemaDefinitionImpl extends KeywordDefinitionImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SchemaObjectDependenciesProperties> getProperties() {
 		if (properties == null) {
 			properties = new EObjectContainmentEList<SchemaObjectDependenciesProperties>(SchemaObjectDependenciesProperties.class, this, JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES);

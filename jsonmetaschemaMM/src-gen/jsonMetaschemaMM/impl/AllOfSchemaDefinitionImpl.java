@@ -62,6 +62,7 @@ public class AllOfSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SchemaArray getAllOf() {
 		return allOf;
 	}
@@ -86,6 +87,7 @@ public class AllOfSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAllOf(SchemaArray newAllOf) {
 		if (newAllOf != allOf) {
 			NotificationChain msgs = null;

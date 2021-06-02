@@ -69,6 +69,7 @@ public class MinimumSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getMinimum() {
 		return minimum;
 	}
@@ -78,6 +79,7 @@ public class MinimumSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinimum(double newMinimum) {
 		double oldMinimum = minimum;
 		minimum = newMinimum;

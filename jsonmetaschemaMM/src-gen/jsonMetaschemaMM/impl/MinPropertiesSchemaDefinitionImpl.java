@@ -62,6 +62,7 @@ public class MinPropertiesSchemaDefinitionImpl extends KeywordDefinitionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NonNegativeIntegerDefault0 getMinProperties() {
 		return minProperties;
 	}
@@ -86,6 +87,7 @@ public class MinPropertiesSchemaDefinitionImpl extends KeywordDefinitionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinProperties(NonNegativeIntegerDefault0 newMinProperties) {
 		if (newMinProperties != minProperties) {
 			NotificationChain msgs = null;

@@ -63,6 +63,7 @@ public class JsonSchemaImpl extends MinimalEObjectImpl.Container implements Json
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getSchema() {
 		return schema;
 	}
@@ -87,6 +88,7 @@ public class JsonSchemaImpl extends MinimalEObjectImpl.Container implements Json
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSchema(Schema newSchema) {
 		if (newSchema != schema) {
 			NotificationChain msgs = null;

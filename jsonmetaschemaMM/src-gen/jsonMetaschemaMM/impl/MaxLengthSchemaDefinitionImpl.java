@@ -62,6 +62,7 @@ public class MaxLengthSchemaDefinitionImpl extends KeywordDefinitionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NonNegativeInteger getMaxLength() {
 		return maxLength;
 	}
@@ -86,6 +87,7 @@ public class MaxLengthSchemaDefinitionImpl extends KeywordDefinitionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxLength(NonNegativeInteger newMaxLength) {
 		if (newMaxLength != maxLength) {
 			NotificationChain msgs = null;

@@ -69,6 +69,7 @@ public class SchemaSchemaDefinitionImpl extends KeywordDefinitionImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getSchema() {
 		return schema;
 	}
@@ -78,6 +79,7 @@ public class SchemaSchemaDefinitionImpl extends KeywordDefinitionImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setSchema(String newSchema) {
 		String oldSchema = schema;
 		schema = newSchema;

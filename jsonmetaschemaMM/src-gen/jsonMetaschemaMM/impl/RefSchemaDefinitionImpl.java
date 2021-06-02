@@ -69,6 +69,7 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getRef() {
 		return ref;
 	}
@@ -78,6 +79,7 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRef(String newRef) {
 		String oldRef = ref;
 		ref = newRef;

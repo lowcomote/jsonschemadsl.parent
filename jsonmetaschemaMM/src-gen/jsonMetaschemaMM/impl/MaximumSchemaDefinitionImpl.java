@@ -69,6 +69,7 @@ public class MaximumSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getMaximum() {
 		return maximum;
 	}
@@ -78,6 +79,7 @@ public class MaximumSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaximum(double newMaximum) {
 		double oldMaximum = maximum;
 		maximum = newMaximum;

@@ -62,6 +62,7 @@ public class IfSchemaDefinitionImpl extends KeywordDefinitionImpl implements IfS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getIf() {
 		return if_;
 	}
@@ -86,6 +87,7 @@ public class IfSchemaDefinitionImpl extends KeywordDefinitionImpl implements IfS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setIf(Schema newIf) {
 		if (newIf != if_) {
 			NotificationChain msgs = null;

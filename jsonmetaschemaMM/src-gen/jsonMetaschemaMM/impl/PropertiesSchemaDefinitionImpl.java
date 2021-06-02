@@ -66,6 +66,7 @@ public class PropertiesSchemaDefinitionImpl extends KeywordDefinitionImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<KeySchemaPair> getKeySchemaPairs() {
 		if (keySchemaPairs == null) {
 			keySchemaPairs = new EObjectContainmentEList<KeySchemaPair>(KeySchemaPair.class, this, JsonMetaschemaMMPackage.PROPERTIES_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS);

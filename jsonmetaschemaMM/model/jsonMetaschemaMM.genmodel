@@ -2,7 +2,7 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/jsonmetaschemaMM/src-gen" modelPluginID="jsonmetaschemaMM"
     modelName="JsonMetaschemaMM" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="11.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>jsonMetaschemaMM.ecore</foreignModel>
   <genPackages prefix="JsonMetaschemaMM" disposableProviderFactory="true" ecorePackage="jsonMetaschemaMM.ecore#/">
@@ -20,6 +20,54 @@
     </genEnums>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ObjectSchema">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/keywordDefinition"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/additionalItems"
+          suppressedGetVisibility="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true"
+          suppressedUnsetVisibility="true" get="return (AdditionalItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AdditionalItemsSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/items"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (ItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ItemsSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/additionalProperties"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (AdditionalPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AdditionalPropertiesSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/contains"
+          suppressedGetVisibility="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true"
+          suppressedUnsetVisibility="true" get="return (ContainsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ContainsSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/properties"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (PropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PropertiesSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/definitions"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (DefinitionsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof DefinitionsSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/patternProperties"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (PatternPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PatternPropertiesSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/dependencies"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (DependenciesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof DependenciesSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/propertyNames"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (PropertyNamesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PropertyNamesSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/if"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (IfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof IfSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/then"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (ThenSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ThenSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/else"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (ElseSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ElseSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/allOf"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (AllOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AllOfSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/anyOf"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (AnyOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AnyOfSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/oneOf"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (OneOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof OneOfSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/not"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (NotSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof NotSchemaDefinition).findFirst().orElse(null);"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MaximumSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//MaximumSchemaDefinition/maximum"/>

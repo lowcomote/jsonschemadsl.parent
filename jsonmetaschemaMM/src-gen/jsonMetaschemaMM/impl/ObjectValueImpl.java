@@ -66,6 +66,7 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<KeyValuePair> getKeyvaluepair() {
 		if (keyvaluepair == null) {
 			keyvaluepair = new EObjectContainmentEList<KeyValuePair>(KeyValuePair.class, this, JsonMetaschemaMMPackage.OBJECT_VALUE__KEYVALUEPAIR);

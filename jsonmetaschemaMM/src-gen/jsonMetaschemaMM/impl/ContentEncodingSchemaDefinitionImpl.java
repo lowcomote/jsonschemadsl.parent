@@ -69,6 +69,7 @@ public class ContentEncodingSchemaDefinitionImpl extends KeywordDefinitionImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getContentEncoding() {
 		return contentEncoding;
 	}
@@ -78,6 +79,7 @@ public class ContentEncodingSchemaDefinitionImpl extends KeywordDefinitionImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContentEncoding(String newContentEncoding) {
 		String oldContentEncoding = contentEncoding;
 		contentEncoding = newContentEncoding;

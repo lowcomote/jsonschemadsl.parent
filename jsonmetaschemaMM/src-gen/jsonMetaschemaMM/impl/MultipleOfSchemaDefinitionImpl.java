@@ -69,6 +69,7 @@ public class MultipleOfSchemaDefinitionImpl extends KeywordDefinitionImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getMultipleOf() {
 		return multipleOf;
 	}
@@ -78,6 +79,7 @@ public class MultipleOfSchemaDefinitionImpl extends KeywordDefinitionImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMultipleOf(double newMultipleOf) {
 		double oldMultipleOf = multipleOf;
 		multipleOf = newMultipleOf;

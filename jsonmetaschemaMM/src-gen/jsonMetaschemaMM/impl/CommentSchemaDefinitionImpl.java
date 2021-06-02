@@ -69,6 +69,7 @@ public class CommentSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getComment() {
 		return comment;
 	}
@@ -78,6 +79,7 @@ public class CommentSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setComment(String newComment) {
 		String oldComment = comment;
 		comment = newComment;

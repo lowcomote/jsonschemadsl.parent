@@ -74,6 +74,7 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getItemsAnyOf1() {
 		return itemsAnyOf1;
 	}
@@ -98,6 +99,7 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setItemsAnyOf1(Schema newItemsAnyOf1) {
 		if (newItemsAnyOf1 != itemsAnyOf1) {
 			NotificationChain msgs = null;
@@ -117,6 +119,7 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SchemaArray getItemsAnyOf2() {
 		return itemsAnyOf2;
 	}
@@ -141,6 +144,7 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setItemsAnyOf2(SchemaArray newItemsAnyOf2) {
 		if (newItemsAnyOf2 != itemsAnyOf2) {
 			NotificationChain msgs = null;

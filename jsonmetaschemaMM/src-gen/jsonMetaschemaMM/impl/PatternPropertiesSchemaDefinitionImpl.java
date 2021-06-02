@@ -66,6 +66,7 @@ public class PatternPropertiesSchemaDefinitionImpl extends KeywordDefinitionImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<KeySchemaPair> getKeySchemaPairs() {
 		if (keySchemaPairs == null) {
 			keySchemaPairs = new EObjectContainmentEList<KeySchemaPair>(KeySchemaPair.class, this, JsonMetaschemaMMPackage.PATTERN_PROPERTIES_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS);

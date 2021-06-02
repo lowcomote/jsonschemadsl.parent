@@ -83,6 +83,7 @@ public class SchemaObjectAdditionalPropertiesImpl extends KeywordDefinitionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getKey() {
 		return key;
 	}
@@ -92,6 +93,7 @@ public class SchemaObjectAdditionalPropertiesImpl extends KeywordDefinitionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKey(String newKey) {
 		String oldKey = key;
 		key = newKey;
@@ -104,6 +106,7 @@ public class SchemaObjectAdditionalPropertiesImpl extends KeywordDefinitionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getAdditionalProperties() {
 		return additionalProperties;
 	}
@@ -128,6 +131,7 @@ public class SchemaObjectAdditionalPropertiesImpl extends KeywordDefinitionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAdditionalProperties(Schema newAdditionalProperties) {
 		if (newAdditionalProperties != additionalProperties) {
 			NotificationChain msgs = null;

@@ -62,6 +62,7 @@ public class SchemaObjectDependenciesAdditionalPropertiesAnyOf2Impl extends Sche
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StringArray getAnyOf2() {
 		return anyOf2;
 	}
@@ -86,6 +87,7 @@ public class SchemaObjectDependenciesAdditionalPropertiesAnyOf2Impl extends Sche
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAnyOf2(StringArray newAnyOf2) {
 		if (newAnyOf2 != anyOf2) {
 			NotificationChain msgs = null;

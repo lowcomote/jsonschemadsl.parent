@@ -69,6 +69,7 @@ public class WriteOnlySchemaDefinitionImpl extends KeywordDefinitionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isWriteOnly() {
 		return writeOnly;
 	}
@@ -78,6 +79,7 @@ public class WriteOnlySchemaDefinitionImpl extends KeywordDefinitionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setWriteOnly(boolean newWriteOnly) {
 		boolean oldWriteOnly = writeOnly;
 		writeOnly = newWriteOnly;

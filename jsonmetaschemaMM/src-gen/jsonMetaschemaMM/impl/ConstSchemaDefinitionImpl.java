@@ -62,6 +62,7 @@ public class ConstSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JsonDocument getConst() {
 		return const_;
 	}
@@ -86,6 +87,7 @@ public class ConstSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setConst(JsonDocument newConst) {
 		if (newConst != const_) {
 			NotificationChain msgs = null;

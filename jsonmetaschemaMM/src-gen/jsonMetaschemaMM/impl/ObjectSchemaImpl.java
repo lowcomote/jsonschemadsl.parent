@@ -4,9 +4,25 @@ package jsonMetaschemaMM.impl;
 
 import java.util.Collection;
 
+import jsonMetaschemaMM.AdditionalItemsSchemaDefinition;
+import jsonMetaschemaMM.AdditionalPropertiesSchemaDefinition;
+import jsonMetaschemaMM.AllOfSchemaDefinition;
+import jsonMetaschemaMM.AnyOfSchemaDefinition;
+import jsonMetaschemaMM.ContainsSchemaDefinition;
+import jsonMetaschemaMM.DefinitionsSchemaDefinition;
+import jsonMetaschemaMM.DependenciesSchemaDefinition;
+import jsonMetaschemaMM.ElseSchemaDefinition;
+import jsonMetaschemaMM.IfSchemaDefinition;
+import jsonMetaschemaMM.ItemsSchemaDefinition;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.KeywordDefinition;
+import jsonMetaschemaMM.NotSchemaDefinition;
 import jsonMetaschemaMM.ObjectSchema;
+import jsonMetaschemaMM.OneOfSchemaDefinition;
+import jsonMetaschemaMM.PatternPropertiesSchemaDefinition;
+import jsonMetaschemaMM.PropertiesSchemaDefinition;
+import jsonMetaschemaMM.PropertyNamesSchemaDefinition;
+import jsonMetaschemaMM.ThenSchemaDefinition;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -27,6 +43,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getKeywordDefinition <em>Keyword Definition</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getAdditionalItems <em>Additional Items</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getItems <em>Items</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getAdditionalProperties <em>Additional Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getContains <em>Contains</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getDefinitions <em>Definitions</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getPatternProperties <em>Pattern Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getDependencies <em>Dependencies</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getPropertyNames <em>Property Names</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getIf <em>If</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getThen <em>Then</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getElse <em>Else</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getAllOf <em>All Of</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getAnyOf <em>Any Of</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getOneOf <em>One Of</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getNot <em>Not</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,11 +98,348 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<KeywordDefinition> getKeywordDefinition() {
 		if (keywordDefinition == null) {
 			keywordDefinition = new EObjectContainmentEList<KeywordDefinition>(KeywordDefinition.class, this, JsonMetaschemaMMPackage.OBJECT_SCHEMA__KEYWORD_DEFINITION);
 		}
 		return keywordDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AdditionalItemsSchemaDefinition getAdditionalItems() {
+		return (AdditionalItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AdditionalItemsSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetAdditionalItems() {
+		// TODO: implement this method to return whether the 'Additional Items' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ItemsSchemaDefinition getItems() {
+		return (ItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ItemsSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetItems() {
+		// TODO: implement this method to return whether the 'Items' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AdditionalPropertiesSchemaDefinition getAdditionalProperties() {
+		return (AdditionalPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AdditionalPropertiesSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetAdditionalProperties() {
+		// TODO: implement this method to return whether the 'Additional Properties' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ContainsSchemaDefinition getContains() {
+		return (ContainsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ContainsSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetContains() {
+		// TODO: implement this method to return whether the 'Contains' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PropertiesSchemaDefinition getProperties() {
+		return (PropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PropertiesSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetProperties() {
+		// TODO: implement this method to return whether the 'Properties' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DefinitionsSchemaDefinition getDefinitions() {
+		return (DefinitionsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof DefinitionsSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetDefinitions() {
+		// TODO: implement this method to return whether the 'Definitions' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PatternPropertiesSchemaDefinition getPatternProperties() {
+		return (PatternPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PatternPropertiesSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetPatternProperties() {
+		// TODO: implement this method to return whether the 'Pattern Properties' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DependenciesSchemaDefinition getDependencies() {
+		return (DependenciesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof DependenciesSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetDependencies() {
+		// TODO: implement this method to return whether the 'Dependencies' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PropertyNamesSchemaDefinition getPropertyNames() {
+		return (PropertyNamesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PropertyNamesSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetPropertyNames() {
+		// TODO: implement this method to return whether the 'Property Names' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public IfSchemaDefinition getIf() {
+		return (IfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof IfSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetIf() {
+		// TODO: implement this method to return whether the 'If' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ThenSchemaDefinition getThen() {
+		return (ThenSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ThenSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetThen() {
+		// TODO: implement this method to return whether the 'Then' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ElseSchemaDefinition getElse() {
+		return (ElseSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ElseSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetElse() {
+		// TODO: implement this method to return whether the 'Else' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AllOfSchemaDefinition getAllOf() {
+		return (AllOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AllOfSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetAllOf() {
+		// TODO: implement this method to return whether the 'All Of' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AnyOfSchemaDefinition getAnyOf() {
+		return (AnyOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AnyOfSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetAnyOf() {
+		// TODO: implement this method to return whether the 'Any Of' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public OneOfSchemaDefinition getOneOf() {
+		return (OneOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof OneOfSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetOneOf() {
+		// TODO: implement this method to return whether the 'One Of' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotSchemaDefinition getNot() {
+		return (NotSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof NotSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetNot() {
+		// TODO: implement this method to return whether the 'Not' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -97,6 +466,38 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__KEYWORD_DEFINITION:
 				return getKeywordDefinition();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ADDITIONAL_ITEMS:
+				return getAdditionalItems();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ITEMS:
+				return getItems();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ADDITIONAL_PROPERTIES:
+				return getAdditionalProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__CONTAINS:
+				return getContains();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PROPERTIES:
+				return getProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__DEFINITIONS:
+				return getDefinitions();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PATTERN_PROPERTIES:
+				return getPatternProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__DEPENDENCIES:
+				return getDependencies();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PROPERTY_NAMES:
+				return getPropertyNames();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__IF:
+				return getIf();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__THEN:
+				return getThen();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ELSE:
+				return getElse();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ALL_OF:
+				return getAllOf();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ANY_OF:
+				return getAnyOf();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ONE_OF:
+				return getOneOf();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__NOT:
+				return getNot();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -143,6 +544,38 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__KEYWORD_DEFINITION:
 				return keywordDefinition != null && !keywordDefinition.isEmpty();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ADDITIONAL_ITEMS:
+				return isSetAdditionalItems();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ITEMS:
+				return isSetItems();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ADDITIONAL_PROPERTIES:
+				return isSetAdditionalProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__CONTAINS:
+				return isSetContains();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PROPERTIES:
+				return isSetProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__DEFINITIONS:
+				return isSetDefinitions();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PATTERN_PROPERTIES:
+				return isSetPatternProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__DEPENDENCIES:
+				return isSetDependencies();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PROPERTY_NAMES:
+				return isSetPropertyNames();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__IF:
+				return isSetIf();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__THEN:
+				return isSetThen();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ELSE:
+				return isSetElse();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ALL_OF:
+				return isSetAllOf();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ANY_OF:
+				return isSetAnyOf();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ONE_OF:
+				return isSetOneOf();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__NOT:
+				return isSetNot();
 		}
 		return super.eIsSet(featureID);
 	}

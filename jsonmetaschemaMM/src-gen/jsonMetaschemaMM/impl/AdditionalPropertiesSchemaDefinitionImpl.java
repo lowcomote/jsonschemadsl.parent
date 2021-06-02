@@ -62,6 +62,7 @@ public class AdditionalPropertiesSchemaDefinitionImpl extends KeywordDefinitionI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getAdditionalProperties() {
 		return additionalProperties;
 	}
@@ -86,6 +87,7 @@ public class AdditionalPropertiesSchemaDefinitionImpl extends KeywordDefinitionI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAdditionalProperties(Schema newAdditionalProperties) {
 		if (newAdditionalProperties != additionalProperties) {
 			NotificationChain msgs = null;

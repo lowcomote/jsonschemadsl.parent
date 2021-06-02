@@ -66,6 +66,7 @@ public class ArrayValueImpl extends ValueImpl implements ArrayValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<Value> getValue() {
 		if (value == null) {
 			value = new EObjectContainmentEList<Value>(Value.class, this, JsonMetaschemaMMPackage.ARRAY_VALUE__VALUE);

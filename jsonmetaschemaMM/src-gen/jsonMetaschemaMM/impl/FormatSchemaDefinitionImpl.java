@@ -69,6 +69,7 @@ public class FormatSchemaDefinitionImpl extends KeywordDefinitionImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getFormat() {
 		return format;
 	}
@@ -78,6 +79,7 @@ public class FormatSchemaDefinitionImpl extends KeywordDefinitionImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFormat(String newFormat) {
 		String oldFormat = format;
 		format = newFormat;

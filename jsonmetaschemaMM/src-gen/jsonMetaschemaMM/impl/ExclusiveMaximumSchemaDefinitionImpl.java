@@ -69,6 +69,7 @@ public class ExclusiveMaximumSchemaDefinitionImpl extends KeywordDefinitionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getExclusiveMaximum() {
 		return exclusiveMaximum;
 	}
@@ -78,6 +79,7 @@ public class ExclusiveMaximumSchemaDefinitionImpl extends KeywordDefinitionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExclusiveMaximum(double newExclusiveMaximum) {
 		double oldExclusiveMaximum = exclusiveMaximum;
 		exclusiveMaximum = newExclusiveMaximum;

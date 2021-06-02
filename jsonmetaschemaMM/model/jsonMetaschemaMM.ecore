@@ -5,6 +5,54 @@
   <eClassifiers xsi:type="ecore:EClass" name="ObjectSchema" eSuperTypes="#//Schema">
     <eStructuralFeatures xsi:type="ecore:EReference" name="keywordDefinition" upperBound="-1"
         eType="#//KeywordDefinition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" ordered="false"
+        unique="false" eType="#//AdditionalItemsSchemaDefinition" changeable="false"
+        volatile="true" transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" ordered="false"
+        unique="false" eType="#//ItemsSchemaDefinition" changeable="false" volatile="true"
+        transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" ordered="false"
+        unique="false" eType="#//AdditionalPropertiesSchemaDefinition" changeable="false"
+        volatile="true" transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" ordered="false"
+        unique="false" eType="#//ContainsSchemaDefinition" changeable="false" volatile="true"
+        transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" ordered="false"
+        unique="false" eType="#//PropertiesSchemaDefinition" changeable="false" volatile="true"
+        transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" ordered="false"
+        unique="false" eType="#//DefinitionsSchemaDefinition" changeable="false" volatile="true"
+        transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patternProperties" ordered="false"
+        unique="false" eType="#//PatternPropertiesSchemaDefinition" changeable="false"
+        volatile="true" transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" ordered="false"
+        unique="false" eType="#//DependenciesSchemaDefinition" changeable="false"
+        volatile="true" transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="propertyNames" ordered="false"
+        unique="false" eType="#//PropertyNamesSchemaDefinition" changeable="false"
+        volatile="true" transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="if" ordered="false" unique="false"
+        eType="#//IfSchemaDefinition" changeable="false" volatile="true" transient="true"
+        unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="then" ordered="false" unique="false"
+        eType="#//ThenSchemaDefinition" changeable="false" volatile="true" transient="true"
+        unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="else" ordered="false" unique="false"
+        eType="#//ElseSchemaDefinition" changeable="false" volatile="true" transient="true"
+        unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allOf" ordered="false"
+        unique="false" eType="#//AllOfSchemaDefinition" changeable="false" volatile="true"
+        transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf" ordered="false"
+        unique="false" eType="#//AnyOfSchemaDefinition" changeable="false" volatile="true"
+        transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oneOf" ordered="false"
+        unique="false" eType="#//OneOfSchemaDefinition" changeable="false" volatile="true"
+        transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="not" ordered="false" unique="false"
+        eType="#//NotSchemaDefinition" changeable="false" volatile="true" transient="true"
+        unsettable="true" derived="true" resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MaximumSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" lowerBound="1"
