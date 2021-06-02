@@ -83,6 +83,7 @@ import jsonMetaschemaMM.WriteOnlySchemaDefinition;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -869,6 +870,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	@Override
 	public EReference getObjectSchema_SchemaObjectAdditionalProperties() {
 		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getObjectSchema__FindSchemaByKey__String() {
+		return objectSchemaEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2077,6 +2088,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getPropertiesSchemaDefinition__FindSchemaByKey__String() {
+		return propertiesSchemaDefinitionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPropertyNamesSchemaDefinition() {
 		return propertyNamesSchemaDefinitionEClass;
 	}
@@ -2389,6 +2410,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__ONE_OF);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__NOT);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES);
+		createEOperation(objectSchemaEClass, OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING);
 
 		maximumSchemaDefinitionEClass = createEClass(MAXIMUM_SCHEMA_DEFINITION);
 		createEAttribute(maximumSchemaDefinitionEClass, MAXIMUM_SCHEMA_DEFINITION__MAXIMUM);
@@ -2568,6 +2590,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		propertiesSchemaDefinitionEClass = createEClass(PROPERTIES_SCHEMA_DEFINITION);
 		createEReference(propertiesSchemaDefinitionEClass, PROPERTIES_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS);
+		createEOperation(propertiesSchemaDefinitionEClass, PROPERTIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING);
 
 		propertyNamesSchemaDefinitionEClass = createEClass(PROPERTY_NAMES_SCHEMA_DEFINITION);
 		createEReference(propertyNamesSchemaDefinitionEClass, PROPERTY_NAMES_SCHEMA_DEFINITION__PROPERTY_NAMES);
@@ -2719,7 +2742,10 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEReference(getObjectSchema_AnyOf(), this.getAnyOfSchemaDefinition(), null, "anyOf", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getObjectSchema_OneOf(), this.getOneOfSchemaDefinition(), null, "oneOf", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getObjectSchema_Not(), this.getNotSchemaDefinition(), null, "not", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
-		initEReference(getObjectSchema_SchemaObjectAdditionalProperties(), this.getSchemaObjectAdditionalProperties(), null, "schemaObjectAdditionalProperties", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_SchemaObjectAdditionalProperties(), this.getSchemaObjectAdditionalProperties(), null, "schemaObjectAdditionalProperties", null, 0, -1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+
+		EOperation op = initEOperation(getObjectSchema__FindSchemaByKey__String(), this.getSchema(), "findSchemaByKey", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "key", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(maximumSchemaDefinitionEClass, MaximumSchemaDefinition.class, "MaximumSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMaximumSchemaDefinition_Maximum(), ecorePackage.getEDouble(), "maximum", null, 1, 1, MaximumSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2899,6 +2925,9 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(propertiesSchemaDefinitionEClass, PropertiesSchemaDefinition.class, "PropertiesSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropertiesSchemaDefinition_KeySchemaPairs(), this.getKeySchemaPair(), null, "keySchemaPairs", null, 0, -1, PropertiesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getPropertiesSchemaDefinition__FindSchemaByKey__String(), this.getSchema(), "findSchemaByKey", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "key", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(propertyNamesSchemaDefinitionEClass, PropertyNamesSchemaDefinition.class, "PropertyNamesSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropertyNamesSchemaDefinition_PropertyNames(), this.getSchema(), null, "propertyNames", null, 1, 1, PropertyNamesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

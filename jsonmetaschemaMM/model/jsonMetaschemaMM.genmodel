@@ -70,7 +70,11 @@
           get="return (NotSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof NotSchemaDefinition).findFirst().orElse(null);"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/schemaObjectAdditionalProperties"
           suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
-          get="return (SchemaObjectAdditionalProperties) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).findFirst().orElse(null);"/>
+          get="return new org.eclipse.emf.common.util.BasicEList&lt;SchemaObjectAdditionalProperties>((Collection&lt;? extends SchemaObjectAdditionalProperties>) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).collect(java.util.stream.Collectors.toList()))  ;"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByKey"
+          body="return getSchemaObjectAdditionalProperties().stream().filter(s -> s.getKey() == key ).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByKey/key"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MaximumSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//MaximumSchemaDefinition/maximum"/>
@@ -248,6 +252,10 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//PropertiesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//PropertiesSchemaDefinition/keySchemaPairs"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//PropertiesSchemaDefinition/findSchemaByKey"
+          body="return getKeySchemaPairs().stream().filter(ksp -> ksp.getKey()==key).findFirst().map(KeySchemaPair::getValue).orElse(null);">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//PropertiesSchemaDefinition/findSchemaByKey/key"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//PropertyNamesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//PropertyNamesSchemaDefinition/propertyNames"/>

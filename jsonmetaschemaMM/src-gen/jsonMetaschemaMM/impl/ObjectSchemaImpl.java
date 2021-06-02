@@ -2,6 +2,8 @@
  */
 package jsonMetaschemaMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import jsonMetaschemaMM.AdditionalItemsSchemaDefinition;
@@ -22,6 +24,7 @@ import jsonMetaschemaMM.OneOfSchemaDefinition;
 import jsonMetaschemaMM.PatternPropertiesSchemaDefinition;
 import jsonMetaschemaMM.PropertiesSchemaDefinition;
 import jsonMetaschemaMM.PropertyNamesSchemaDefinition;
+import jsonMetaschemaMM.Schema;
 import jsonMetaschemaMM.SchemaObjectAdditionalProperties;
 import jsonMetaschemaMM.ThenSchemaDefinition;
 
@@ -450,8 +453,8 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * @generated
 	 */
 	@Override
-	public SchemaObjectAdditionalProperties getSchemaObjectAdditionalProperties() {
-		return (SchemaObjectAdditionalProperties) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).findFirst().orElse(null);
+	public EList<SchemaObjectAdditionalProperties> getSchemaObjectAdditionalProperties() {
+		return new org.eclipse.emf.common.util.BasicEList<SchemaObjectAdditionalProperties>((Collection<? extends SchemaObjectAdditionalProperties>) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).collect(java.util.stream.Collectors.toList()))  ;
 	}
 
 	/**
@@ -460,9 +463,19 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * @generated
 	 */
 	public boolean isSetSchemaObjectAdditionalProperties() {
-		// TODO: implement this method to return whether the 'Schema Object Additional Properties' reference is set
+		// TODO: implement this method to return whether the 'Schema Object Additional Properties' reference list is set
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Schema findSchemaByKey(final String key) {
+		return getSchemaObjectAdditionalProperties().stream().filter(s -> s.getKey() == key ).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);
 	}
 
 	/**
@@ -605,6 +618,20 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return isSetSchemaObjectAdditionalProperties();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING:
+				return findSchemaByKey((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ObjectSchemaImpl

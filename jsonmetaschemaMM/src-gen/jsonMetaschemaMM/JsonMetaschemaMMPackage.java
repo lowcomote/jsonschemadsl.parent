@@ -5,6 +5,7 @@ package jsonMetaschemaMM;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -249,7 +250,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__NOT = SCHEMA_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Schema Object Additional Properties</b></em>' reference.
+	 * The feature id for the '<em><b>Schema Object Additional Properties</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -267,13 +268,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 18;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING = SCHEMA_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Object Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_SCHEMA_OPERATION_COUNT = SCHEMA_OPERATION_COUNT + 0;
+	int OBJECT_SCHEMA_OPERATION_COUNT = SCHEMA_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.KeywordDefinitionImpl <em>Keyword Definition</em>}' class.
@@ -2468,13 +2478,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int PROPERTIES_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Properties Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int PROPERTIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.PropertyNamesSchemaDefinitionImpl <em>Property Names Schema Definition</em>}' class.
@@ -3139,15 +3158,25 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Not();
 
 	/**
-	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}'.
+	 * Returns the meta object for the reference list '{@link jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Schema Object Additional Properties</em>'.
+	 * @return the meta object for the reference list '<em>Schema Object Additional Properties</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties()
 	 * @see #getObjectSchema()
 	 * @generated
 	 */
 	EReference getObjectSchema_SchemaObjectAdditionalProperties();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.ObjectSchema#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Key</em>' operation.
+	 * @see jsonMetaschemaMM.ObjectSchema#findSchemaByKey(java.lang.String)
+	 * @generated
+	 */
+	EOperation getObjectSchema__FindSchemaByKey__String();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.MaximumSchemaDefinition <em>Maximum Schema Definition</em>}'.
@@ -4411,6 +4440,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getPropertiesSchemaDefinition_KeySchemaPairs();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.PropertiesSchemaDefinition#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Key</em>' operation.
+	 * @see jsonMetaschemaMM.PropertiesSchemaDefinition#findSchemaByKey(java.lang.String)
+	 * @generated
+	 */
+	EOperation getPropertiesSchemaDefinition__FindSchemaByKey__String();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.PropertyNamesSchemaDefinition <em>Property Names Schema Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4862,12 +4901,20 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__NOT = eINSTANCE.getObjectSchema_Not();
 
 		/**
-		 * The meta object literal for the '<em><b>Schema Object Additional Properties</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Schema Object Additional Properties</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES = eINSTANCE.getObjectSchema_SchemaObjectAdditionalProperties();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING = eINSTANCE.getObjectSchema__FindSchemaByKey__String();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.MaximumSchemaDefinitionImpl <em>Maximum Schema Definition</em>}' class.
@@ -5946,6 +5993,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROPERTIES_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS = eINSTANCE.getPropertiesSchemaDefinition_KeySchemaPairs();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = eINSTANCE.getPropertiesSchemaDefinition__FindSchemaByKey__String();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.PropertyNamesSchemaDefinitionImpl <em>Property Names Schema Definition</em>}' class.

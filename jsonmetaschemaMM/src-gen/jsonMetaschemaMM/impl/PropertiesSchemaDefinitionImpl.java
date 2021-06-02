@@ -2,11 +2,14 @@
  */
 package jsonMetaschemaMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.KeySchemaPair;
 import jsonMetaschemaMM.PropertiesSchemaDefinition;
+import jsonMetaschemaMM.Schema;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -72,6 +75,16 @@ public class PropertiesSchemaDefinitionImpl extends KeywordDefinitionImpl implem
 			keySchemaPairs = new EObjectContainmentEList<KeySchemaPair>(KeySchemaPair.class, this, JsonMetaschemaMMPackage.PROPERTIES_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS);
 		}
 		return keySchemaPairs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Schema findSchemaByKey(final String key) {
+		return getKeySchemaPairs().stream().filter(ksp -> ksp.getKey()==key).findFirst().map(KeySchemaPair::getValue).orElse(null);
 	}
 
 	/**
@@ -146,6 +159,20 @@ public class PropertiesSchemaDefinitionImpl extends KeywordDefinitionImpl implem
 				return keySchemaPairs != null && !keySchemaPairs.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JsonMetaschemaMMPackage.PROPERTIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING:
+				return findSchemaByKey((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //PropertiesSchemaDefinitionImpl

@@ -3,6 +3,10 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jsonMetaschemaMM" nsURI="http://at.jku.bise/jsonMetaschemaMM"
     nsPrefix="jsonMetaschemaMM">
   <eClassifiers xsi:type="ecore:EClass" name="ObjectSchema" eSuperTypes="#//Schema">
+    <eOperations name="findSchemaByKey" ordered="false" unique="false" lowerBound="1"
+        eType="#//Schema">
+      <eParameters name="key" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="keywordDefinition" upperBound="-1"
         eType="#//KeywordDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" ordered="false"
@@ -54,7 +58,7 @@
         eType="#//NotSchemaDefinition" changeable="false" volatile="true" transient="true"
         unsettable="true" derived="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemaObjectAdditionalProperties"
-        ordered="false" unique="false" eType="#//SchemaObjectAdditionalProperties"
+        ordered="false" unique="false" upperBound="-1" eType="#//SchemaObjectAdditionalProperties"
         changeable="false" volatile="true" transient="true" unsettable="true" derived="true"
         resolveProxies="false"/>
   </eClassifiers>
@@ -293,6 +297,10 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PropertiesSchemaDefinition" eSuperTypes="#//KeywordDefinition">
+    <eOperations name="findSchemaByKey" ordered="false" unique="false" lowerBound="1"
+        eType="#//Schema">
+      <eParameters name="key" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="keySchemaPairs" upperBound="-1"
         eType="#//KeySchemaPair" containment="true"/>
   </eClassifiers>

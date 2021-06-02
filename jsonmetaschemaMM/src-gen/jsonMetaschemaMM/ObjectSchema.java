@@ -227,14 +227,23 @@ public interface ObjectSchema extends Schema {
 	NotSchemaDefinition getNot();
 
 	/**
-	 * Returns the value of the '<em><b>Schema Object Additional Properties</b></em>' reference.
+	 * Returns the value of the '<em><b>Schema Object Additional Properties</b></em>' reference list.
+	 * The list contents are of type {@link jsonMetaschemaMM.SchemaObjectAdditionalProperties}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Schema Object Additional Properties</em>' reference.
+	 * @return the value of the '<em>Schema Object Additional Properties</em>' reference list.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_SchemaObjectAdditionalProperties()
 	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
-	SchemaObjectAdditionalProperties getSchemaObjectAdditionalProperties();
+	EList<SchemaObjectAdditionalProperties> getSchemaObjectAdditionalProperties();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false" keyUnique="false" keyRequired="true" keyOrdered="false"
+	 * @generated
+	 */
+	Schema findSchemaByKey(String key);
 
 } // ObjectSchema
