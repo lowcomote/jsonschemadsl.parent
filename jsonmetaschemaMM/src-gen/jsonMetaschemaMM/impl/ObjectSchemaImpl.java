@@ -22,6 +22,7 @@ import jsonMetaschemaMM.OneOfSchemaDefinition;
 import jsonMetaschemaMM.PatternPropertiesSchemaDefinition;
 import jsonMetaschemaMM.PropertiesSchemaDefinition;
 import jsonMetaschemaMM.PropertyNamesSchemaDefinition;
+import jsonMetaschemaMM.SchemaObjectAdditionalProperties;
 import jsonMetaschemaMM.ThenSchemaDefinition;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -59,6 +60,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getAnyOf <em>Any Of</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getOneOf <em>One Of</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getNot <em>Not</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}</li>
  * </ul>
  *
  * @generated
@@ -448,6 +450,27 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * @generated
 	 */
 	@Override
+	public SchemaObjectAdditionalProperties getSchemaObjectAdditionalProperties() {
+		return (SchemaObjectAdditionalProperties) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isSetSchemaObjectAdditionalProperties() {
+		// TODO: implement this method to return whether the 'Schema Object Additional Properties' reference is set
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__KEYWORD_DEFINITION:
@@ -498,6 +521,8 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getOneOf();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__NOT:
 				return getNot();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES:
+				return getSchemaObjectAdditionalProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -576,6 +601,8 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return isSetOneOf();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__NOT:
 				return isSetNot();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES:
+				return isSetSchemaObjectAdditionalProperties();
 		}
 		return super.eIsSet(featureID);
 	}

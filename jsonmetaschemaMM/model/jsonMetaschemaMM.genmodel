@@ -68,6 +68,9 @@
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/not"
           suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
           get="return (NotSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof NotSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/schemaObjectAdditionalProperties"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (SchemaObjectAdditionalProperties) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).findFirst().orElse(null);"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MaximumSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//MaximumSchemaDefinition/maximum"/>

@@ -249,13 +249,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__NOT = SCHEMA_FEATURE_COUNT + 16;
 
 	/**
+	 * The feature id for the '<em><b>Schema Object Additional Properties</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES = SCHEMA_FEATURE_COUNT + 17;
+
+	/**
 	 * The number of structural features of the '<em>Object Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 17;
+	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 18;
 
 	/**
 	 * The number of operations of the '<em>Object Schema</em>' class.
@@ -3130,6 +3139,17 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Not();
 
 	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Schema Object Additional Properties</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_SchemaObjectAdditionalProperties();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.MaximumSchemaDefinition <em>Maximum Schema Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4840,6 +4860,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OBJECT_SCHEMA__NOT = eINSTANCE.getObjectSchema_Not();
+
+		/**
+		 * The meta object literal for the '<em><b>Schema Object Additional Properties</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES = eINSTANCE.getObjectSchema_SchemaObjectAdditionalProperties();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.MaximumSchemaDefinitionImpl <em>Maximum Schema Definition</em>}' class.

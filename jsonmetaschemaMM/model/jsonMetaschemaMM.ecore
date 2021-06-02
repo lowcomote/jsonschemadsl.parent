@@ -53,6 +53,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="not" ordered="false" unique="false"
         eType="#//NotSchemaDefinition" changeable="false" volatile="true" transient="true"
         unsettable="true" derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="schemaObjectAdditionalProperties"
+        ordered="false" unique="false" eType="#//SchemaObjectAdditionalProperties"
+        changeable="false" volatile="true" transient="true" unsettable="true" derived="true"
+        resolveProxies="false"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MaximumSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" lowerBound="1"

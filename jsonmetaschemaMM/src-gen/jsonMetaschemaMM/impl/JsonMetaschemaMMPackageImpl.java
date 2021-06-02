@@ -867,6 +867,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EReference getObjectSchema_SchemaObjectAdditionalProperties() {
+		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMaximumSchemaDefinition() {
 		return maximumSchemaDefinitionEClass;
 	}
@@ -2378,6 +2388,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__ANY_OF);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__ONE_OF);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__NOT);
+		createEReference(objectSchemaEClass, OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES);
 
 		maximumSchemaDefinitionEClass = createEClass(MAXIMUM_SCHEMA_DEFINITION);
 		createEAttribute(maximumSchemaDefinitionEClass, MAXIMUM_SCHEMA_DEFINITION__MAXIMUM);
@@ -2708,6 +2719,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEReference(getObjectSchema_AnyOf(), this.getAnyOfSchemaDefinition(), null, "anyOf", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getObjectSchema_OneOf(), this.getOneOfSchemaDefinition(), null, "oneOf", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getObjectSchema_Not(), this.getNotSchemaDefinition(), null, "not", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_SchemaObjectAdditionalProperties(), this.getSchemaObjectAdditionalProperties(), null, "schemaObjectAdditionalProperties", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 
 		initEClass(maximumSchemaDefinitionEClass, MaximumSchemaDefinition.class, "MaximumSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMaximumSchemaDefinition_Maximum(), ecorePackage.getEDouble(), "maximum", null, 1, 1, MaximumSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
