@@ -266,7 +266,7 @@
       <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/getFragment"
           body="try {&#xA;&#x9;return new java.net.URI(getRef()).getFragment();&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}"/>
       <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/getJsonPointerAsList"
-          body="EList&lt;String> jsonPointerAsList= new org.eclipse.emf.common.util.BasicEList&lt;String>();&#xA;String jsonPointer = getFragment();&#xA;if(jsonPointer!=null) {&#xA;&#x9;jsonPointerAsList.addAll(java.util.Arrays.asList(jsonPointer.split(&quot;/&quot;)));&#xA;}&#xA;return jsonPointerAsList;"/>
+          body="EList&lt;String> jsonPointerAsList = new org.eclipse.emf.common.util.BasicEList&lt;String>();&#xA;try {&#xA;&#x9;String fragment = new java.net.URI(getRef()).getFragment();&#xA;&#x9;if(fragment!=null) {&#xA;&#x9;&#x9;jsonPointerAsList.addAll(java.util.Arrays.asList(fragment.split(&quot;/&quot;)));&#xA;&#x9;}&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}&#xA;return jsonPointerAsList;"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//JsonSchema">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//JsonSchema/schema"/>

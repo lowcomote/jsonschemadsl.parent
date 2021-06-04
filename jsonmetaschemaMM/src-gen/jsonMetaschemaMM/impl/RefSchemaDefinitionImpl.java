@@ -142,10 +142,14 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	 */
 	@Override
 	public EList<String> getJsonPointerAsList() {
-		EList<String> jsonPointerAsList= new org.eclipse.emf.common.util.BasicEList<String>();
-		String jsonPointer = getFragment();
-		if(jsonPointer!=null) {
-			jsonPointerAsList.addAll(java.util.Arrays.asList(jsonPointer.split("/")));
+		EList<String> jsonPointerAsList = new org.eclipse.emf.common.util.BasicEList<String>();
+		try {
+			String fragment = new java.net.URI(getRef()).getFragment();
+			if(fragment!=null) {
+				jsonPointerAsList.addAll(java.util.Arrays.asList(fragment.split("/")));
+			}
+		} catch (Exception e) {
+			return null;
 		}
 		return jsonPointerAsList;
 	}
