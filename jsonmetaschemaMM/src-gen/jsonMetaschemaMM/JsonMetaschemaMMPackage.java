@@ -2338,13 +2338,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int JSON_SCHEMA_FEATURE_COUNT = 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST = 0;
+
+	/**
 	 * The number of operations of the '<em>Json Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JSON_SCHEMA_OPERATION_COUNT = 0;
+	int JSON_SCHEMA_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.KeySchemaPairImpl <em>Key Schema Pair</em>}' class.
@@ -4447,6 +4456,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getJsonSchema_Schema();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.JsonSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList) <em>Find Schema By Json Pointer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * @see jsonMetaschemaMM.JsonSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getJsonSchema__FindSchemaByJsonPointer__EList();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.KeySchemaPair <em>Key Schema Pair</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6076,6 +6095,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JSON_SCHEMA__SCHEMA = eINSTANCE.getJsonSchema_Schema();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Json Pointer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JSON_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST = eINSTANCE.getJsonSchema__FindSchemaByJsonPointer__EList();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.KeySchemaPairImpl <em>Key Schema Pair</em>}' class.

@@ -16,7 +16,7 @@
     <semanticResources>ocl/fullvalidation.ocl</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_SBu5YGjDEeutyv0gtBO7yg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_SCd5MWjDEeutyv0gtBO7yg" name="jsonMetaschemaMM" repPath="#_SCZnwGjDEeutyv0gtBO7yg" changeId="dcc23569-4b56-4186-839f-75c35d815e15">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_SCd5MWjDEeutyv0gtBO7yg" name="jsonMetaschemaMM" repPath="#_SCZnwGjDEeutyv0gtBO7yg" changeId="76702d15-b828-424d-8d90-7f8241c84f20">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="jsonMetaschemaMM.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -684,6 +684,10 @@
         <children xmi:type="notation:Node" xmi:id="_q4sL5GjDEeutyv0gtBO7yg" type="2003" element="_q09icGjDEeutyv0gtBO7yg">
           <children xmi:type="notation:Node" xmi:id="_q4sL52jDEeutyv0gtBO7yg" type="5007"/>
           <children xmi:type="notation:Node" xmi:id="_q4sL6GjDEeutyv0gtBO7yg" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_vT0JQMUOEeuNW8abaF5ZRw" type="3010" element="_vS6xYcUOEeuNW8abaF5ZRw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_vT0JQcUOEeuNW8abaF5ZRw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_vT0JQsUOEeuNW8abaF5ZRw"/>
+            </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_q4sL6WjDEeutyv0gtBO7yg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_q4sL6mjDEeutyv0gtBO7yg"/>
           </children>
@@ -3894,6 +3898,15 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_vS6xYcUOEeuNW8abaF5ZRw" name="findSchemaByJsonPointer(jsonPointer EString) : Schema" tooltipText="findSchemaByJsonPointer(jsonPointer) : Schema">
+        <target xmi:type="ecore:EOperation" href="jsonMetaschemaMM.ecore#//JsonSchema/findSchemaByJsonPointer"/>
+        <semanticElements xmi:type="ecore:EOperation" href="jsonMetaschemaMM.ecore#//JsonSchema/findSchemaByJsonPointer"/>
+        <semanticElements xmi:type="ecore:EParameter" href="jsonMetaschemaMM.ecore#//JsonSchema/findSchemaByJsonPointer/jsonPointer"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_vS6xYsUOEeuNW8abaF5ZRw" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
+      </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_q1AlwGjDEeutyv0gtBO7yg" name="KeySchemaPair" tooltipText="" outgoingEdges="_q39zJmjDEeutyv0gtBO7yg" incomingEdges="_q30pNmjDEeutyv0gtBO7yg _q346qmjDEeutyv0gtBO7yg _q3-aNmjDEeutyv0gtBO7yg" width="12" height="10">
       <target xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//KeySchemaPair"/>

@@ -2038,6 +2038,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getJsonSchema__FindSchemaByJsonPointer__EList() {
+		return jsonSchemaEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getKeySchemaPair() {
 		return keySchemaPairEClass;
 	}
@@ -2650,6 +2660,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		jsonSchemaEClass = createEClass(JSON_SCHEMA);
 		createEReference(jsonSchemaEClass, JSON_SCHEMA__SCHEMA);
+		createEOperation(jsonSchemaEClass, JSON_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST);
 
 		keySchemaPairEClass = createEClass(KEY_SCHEMA_PAIR);
 		createEAttribute(keySchemaPairEClass, KEY_SCHEMA_PAIR__KEY);
@@ -3006,6 +3017,9 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(jsonSchemaEClass, JsonSchema.class, "JsonSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJsonSchema_Schema(), this.getSchema(), null, "schema", null, 0, 1, JsonSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getJsonSchema__FindSchemaByJsonPointer__EList(), this.getSchema(), "findSchemaByJsonPointer", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "jsonPointer", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEClass(keySchemaPairEClass, KeySchemaPair.class, "KeySchemaPair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getKeySchemaPair_Key(), ecorePackage.getEString(), "key", null, 1, 1, KeySchemaPair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -2,6 +2,8 @@
  */
 package jsonMetaschemaMM;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -42,5 +44,13 @@ public interface JsonSchema extends EObject {
 	 * @generated
 	 */
 	void setSchema(Schema value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false" jsonPointerUnique="false" jsonPointerMany="true"
+	 * @generated
+	 */
+	Schema findSchemaByJsonPointer(EList<String> jsonPointer);
 
 } // JsonSchema

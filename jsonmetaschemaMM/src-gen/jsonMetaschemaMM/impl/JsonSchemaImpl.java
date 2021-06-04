@@ -2,12 +2,16 @@
  */
 package jsonMetaschemaMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.JsonSchema;
 import jsonMetaschemaMM.Schema;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -109,6 +113,20 @@ public class JsonSchemaImpl extends MinimalEObjectImpl.Container implements Json
 	 * @generated
 	 */
 	@Override
+	public Schema findSchemaByJsonPointer(final EList<String> jsonPointer) {
+		try {
+			return getSchema().findSchemaByJsonPointer(jsonPointer,0);
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.JSON_SCHEMA__SCHEMA:
@@ -173,6 +191,21 @@ public class JsonSchemaImpl extends MinimalEObjectImpl.Container implements Json
 				return schema != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JsonMetaschemaMMPackage.JSON_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST:
+				return findSchemaByJsonPointer((EList<String>)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //JsonSchemaImpl

@@ -304,6 +304,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JsonSchema">
+    <eOperations name="findSchemaByJsonPointer" ordered="false" unique="false" lowerBound="1"
+        eType="#//Schema">
+      <eParameters name="jsonPointer" unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schema" eType="#//Schema"
         containment="true"/>
   </eClassifiers>
