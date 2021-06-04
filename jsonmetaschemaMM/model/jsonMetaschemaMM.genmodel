@@ -75,6 +75,11 @@
           body="return getSchemaObjectAdditionalProperties().stream().filter(s -> s.getKey() == key ).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);">
         <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByKey/key"/>
       </genOperations>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByJsonPointer"
+          body="try {&#xA;&#x9;Schema schema = null;&#xA;&#x9;if(currentIndex==jsonPointer.size()) {&#xA;&#x9;&#x9;schema=this;&#xA;&#x9;}else if(0 &lt;= currentIndex &amp;&amp; currentIndex &lt; jsonPointer.size()) {&#xA;&#x9;&#x9;String currentToken = jsonPointer.get(currentIndex);&#xA;&#x9;&#x9;Integer nextIndex= currentIndex +1;&#xA;&#x9;&#x9;Schema nextSchema = null;&#xA;&#x9;&#x9;if(&quot;additionalItems&quot;== currentToken) {&#xA;&#x9;&#x9;&#x9;nextSchema = getAdditionalItems().getAdditionalItems();&#xA;&#x9;&#x9;}else if (&quot;additionalProperties&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;nextSchema = getAdditionalProperties().getAdditionalProperties();&#xA;&#x9;&#x9;}else if (&quot;contains&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;nextSchema = getContains().getContains();&#xA;&#x9;&#x9;}else if (&quot;definitions&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;&#x9;nextSchema = getDefinitions().findSchemaByKey(jsonPointer.get(nextIndex));&#xA;&#x9;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}else if (&quot;properties&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;&#x9;nextSchema = getProperties().findSchemaByKey(jsonPointer.get(nextIndex));&#xA;&#x9;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}else if (&quot;patternProperties&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;&#x9;nextSchema = getPatternProperties().findSchemaByKey(jsonPointer.get(nextIndex));&#xA;&#x9;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}else if (&quot;dependencies&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;&#x9;nextSchema = getDependencies().findSchemaByKey(jsonPointer.get(nextIndex));&#xA;&#x9;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}else if (&quot;propertyNames&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;nextSchema = getPropertyNames().getPropertyNames();&#xA;&#x9;&#x9;}else if (&quot;if&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;nextSchema = getIf().getIf();&#xA;&#x9;&#x9;}else if (&quot;then&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;nextSchema = getThen().getThen();&#xA;&#x9;&#x9;}else if (&quot;else&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;nextSchema = getElse().getElse();&#xA;&#x9;&#x9;}else if (&quot;allOf&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;nextSchema = getAllOf().getAllOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}else if (&quot;anyOf&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;nextSchema = getAnyOf().getAnyOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}else if (&quot;oneOf&quot; == currentToken) {&#xA;&#x9;&#x9;&#x9;nextSchema = getOneOf().getOneOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;if(nextSchema!=null) {&#xA;&#x9;&#x9;&#x9;schema = nextSchema.findSchemaByJsonPointer(jsonPointer, nextIndex);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;return schema;&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByJsonPointer/jsonPointer"/>
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByJsonPointer/currentIndex"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MaximumSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//MaximumSchemaDefinition/maximum"/>
@@ -163,7 +168,12 @@
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ReadOnlySchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//ReadOnlySchemaDefinition/readOnly"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="jsonMetaschemaMM.ecore#//Schema"/>
+    <genClasses image="false" ecoreClass="jsonMetaschemaMM.ecore#//Schema">
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//Schema/findSchemaByJsonPointer">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//Schema/findSchemaByJsonPointer/jsonPointer"/>
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//Schema/findSchemaByJsonPointer/currentIndex"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ObjectValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectValue/keyvaluepair"/>
     </genClasses>
@@ -185,6 +195,10 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//DependenciesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//DependenciesSchemaDefinition/properties"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//DependenciesSchemaDefinition/findSchemaByKey"
+          body="Schema schema = null; &#xA;jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties schemaObjectDependenciesAdditionalProperties = (jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties) getProperties().stream().filter(p -> p instanceof jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties &amp;&amp; ((jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties)p).getKey()==key).findFirst().orElse(null);&#xA;if(schemaObjectDependenciesAdditionalProperties!=null ) {&#xA;&#x9;jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf additionalPropertiesAnyOf= schemaObjectDependenciesAdditionalProperties.getAdditionalProperties();&#xA;&#x9;if(additionalPropertiesAnyOf instanceof jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf1) {&#xA;&#x9;&#x9;schema = ((jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf1)additionalPropertiesAnyOf).getAnyOf1();&#xA;&#x9;}&#xA;}&#xA;return schema;&#xA;">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//DependenciesSchemaDefinition/findSchemaByKey/key"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//NumberValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//NumberValue/value"/>
@@ -281,6 +295,11 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//BooleanSchema">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//BooleanSchema/value"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//BooleanSchema/findSchemaByJsonPointer"
+          body="if(currentIndex==jsonPointer.size()) {&#xA;&#x9;return this;&#xA;} else {&#xA;&#x9;return null;&#xA;}">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//BooleanSchema/findSchemaByJsonPointer/jsonPointer"/>
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//BooleanSchema/findSchemaByJsonPointer/currentIndex"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//NonNegativeInteger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//NonNegativeInteger/value"/>

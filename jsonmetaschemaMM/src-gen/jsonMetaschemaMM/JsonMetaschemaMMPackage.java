@@ -78,13 +78,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int SCHEMA_FEATURE_COUNT = 0;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = 0;
+
+	/**
 	 * The number of operations of the '<em>Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_OPERATION_COUNT = 0;
+	int SCHEMA_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ObjectSchemaImpl <em>Object Schema</em>}' class.
@@ -277,13 +286,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING = SCHEMA_OPERATION_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = SCHEMA_OPERATION_COUNT + 1;
+
+	/**
 	 * The number of operations of the '<em>Object Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_SCHEMA_OPERATION_COUNT = SCHEMA_OPERATION_COUNT + 1;
+	int OBJECT_SCHEMA_OPERATION_COUNT = SCHEMA_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.KeywordDefinitionImpl <em>Keyword Definition</em>}' class.
@@ -1590,13 +1608,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int DEPENDENCIES_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDENCIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Dependencies Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int DEPENDENCIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.NumberValueImpl <em>Number Value</em>}' class.
@@ -2662,13 +2689,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int BOOLEAN_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = SCHEMA_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Boolean Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_SCHEMA_OPERATION_COUNT = SCHEMA_OPERATION_COUNT + 0;
+	int BOOLEAN_SCHEMA_OPERATION_COUNT = SCHEMA_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.NonNegativeIntegerImpl <em>Non Negative Integer</em>}' class.
@@ -3204,6 +3240,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getObjectSchema__FindSchemaByKey__String();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.ObjectSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int) <em>Find Schema By Json Pointer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * @see jsonMetaschemaMM.ObjectSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int)
+	 * @generated
+	 */
+	EOperation getObjectSchema__FindSchemaByJsonPointer__EList_int();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.MaximumSchemaDefinition <em>Maximum Schema Definition</em>}'.
@@ -3793,6 +3839,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EClass getSchema();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.Schema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int) <em>Find Schema By Json Pointer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * @see jsonMetaschemaMM.Schema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int)
+	 * @generated
+	 */
+	EOperation getSchema__FindSchemaByJsonPointer__EList_int();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.ObjectValue <em>Object Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3949,6 +4005,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDependenciesSchemaDefinition_Properties();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.DependenciesSchemaDefinition#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Key</em>' operation.
+	 * @see jsonMetaschemaMM.DependenciesSchemaDefinition#findSchemaByKey(java.lang.String)
+	 * @generated
+	 */
+	EOperation getDependenciesSchemaDefinition__FindSchemaByKey__String();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.NumberValue <em>Number Value</em>}'.
@@ -4601,6 +4667,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EAttribute getBooleanSchema_Value();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.BooleanSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int) <em>Find Schema By Json Pointer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * @see jsonMetaschemaMM.BooleanSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int)
+	 * @generated
+	 */
+	EOperation getBooleanSchema__FindSchemaByJsonPointer__EList_int();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.NonNegativeInteger <em>Non Negative Integer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4972,6 +5048,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING = eINSTANCE.getObjectSchema__FindSchemaByKey__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Json Pointer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OBJECT_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = eINSTANCE.getObjectSchema__FindSchemaByJsonPointer__EList_int();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.MaximumSchemaDefinitionImpl <em>Maximum Schema Definition</em>}' class.
@@ -5476,6 +5560,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EClass SCHEMA = eINSTANCE.getSchema();
 
 		/**
+		 * The meta object literal for the '<em><b>Find Schema By Json Pointer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = eINSTANCE.getSchema__FindSchemaByJsonPointer__EList_int();
+
+		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.ObjectValueImpl <em>Object Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5608,6 +5700,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES = eINSTANCE.getDependenciesSchemaDefinition_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DEPENDENCIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = eINSTANCE.getDependenciesSchemaDefinition__FindSchemaByKey__String();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.NumberValueImpl <em>Number Value</em>}' class.
@@ -6164,6 +6264,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BOOLEAN_SCHEMA__VALUE = eINSTANCE.getBooleanSchema_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Json Pointer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = eINSTANCE.getBooleanSchema__FindSchemaByJsonPointer__EList_int();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.NonNegativeIntegerImpl <em>Non Negative Integer</em>}' class.

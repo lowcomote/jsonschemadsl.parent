@@ -888,6 +888,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getObjectSchema__FindSchemaByJsonPointer__EList_int() {
+		return objectSchemaEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMaximumSchemaDefinition() {
 		return maximumSchemaDefinitionEClass;
 	}
@@ -1448,6 +1458,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getSchema__FindSchemaByJsonPointer__EList_int() {
+		return schemaEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getObjectValue() {
 		return objectValueEClass;
 	}
@@ -1590,6 +1610,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	@Override
 	public EReference getDependenciesSchemaDefinition_Properties() {
 		return (EReference)dependenciesSchemaDefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getDependenciesSchemaDefinition__FindSchemaByKey__String() {
+		return dependenciesSchemaDefinitionEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2218,6 +2248,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getBooleanSchema__FindSchemaByJsonPointer__EList_int() {
+		return booleanSchemaEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNonNegativeInteger() {
 		return nonNegativeIntegerEClass;
 	}
@@ -2441,6 +2481,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__NOT);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES);
 		createEOperation(objectSchemaEClass, OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING);
+		createEOperation(objectSchemaEClass, OBJECT_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT);
 
 		maximumSchemaDefinitionEClass = createEClass(MAXIMUM_SCHEMA_DEFINITION);
 		createEAttribute(maximumSchemaDefinitionEClass, MAXIMUM_SCHEMA_DEFINITION__MAXIMUM);
@@ -2524,6 +2565,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		createEAttribute(readOnlySchemaDefinitionEClass, READ_ONLY_SCHEMA_DEFINITION__READ_ONLY);
 
 		schemaEClass = createEClass(SCHEMA);
+		createEOperation(schemaEClass, SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT);
 
 		objectValueEClass = createEClass(OBJECT_VALUE);
 		createEReference(objectValueEClass, OBJECT_VALUE__KEYVALUEPAIR);
@@ -2546,6 +2588,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		dependenciesSchemaDefinitionEClass = createEClass(DEPENDENCIES_SCHEMA_DEFINITION);
 		createEReference(dependenciesSchemaDefinitionEClass, DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES);
+		createEOperation(dependenciesSchemaDefinitionEClass, DEPENDENCIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING);
 
 		numberValueEClass = createEClass(NUMBER_VALUE);
 		createEAttribute(numberValueEClass, NUMBER_VALUE__VALUE);
@@ -2638,6 +2681,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		booleanSchemaEClass = createEClass(BOOLEAN_SCHEMA);
 		createEAttribute(booleanSchemaEClass, BOOLEAN_SCHEMA__VALUE);
+		createEOperation(booleanSchemaEClass, BOOLEAN_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT);
 
 		nonNegativeIntegerEClass = createEClass(NON_NEGATIVE_INTEGER);
 		createEAttribute(nonNegativeIntegerEClass, NON_NEGATIVE_INTEGER__VALUE);
@@ -2780,6 +2824,10 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		EOperation op = initEOperation(getObjectSchema__FindSchemaByKey__String(), this.getSchema(), "findSchemaByKey", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
+		op = initEOperation(getObjectSchema__FindSchemaByJsonPointer__EList_int(), this.getSchema(), "findSchemaByJsonPointer", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "jsonPointer", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "currentIndex", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(maximumSchemaDefinitionEClass, MaximumSchemaDefinition.class, "MaximumSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMaximumSchemaDefinition_Maximum(), ecorePackage.getEDouble(), "maximum", null, 1, 1, MaximumSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2867,6 +2915,10 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(schemaEClass, Schema.class, "Schema", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		op = initEOperation(getSchema__FindSchemaByJsonPointer__EList_int(), this.getSchema(), "findSchemaByJsonPointer", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "jsonPointer", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "currentIndex", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(objectValueEClass, ObjectValue.class, "ObjectValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getObjectValue_Keyvaluepair(), this.getKeyValuePair(), null, "keyvaluepair", null, 0, -1, ObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2888,6 +2940,9 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(dependenciesSchemaDefinitionEClass, DependenciesSchemaDefinition.class, "DependenciesSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDependenciesSchemaDefinition_Properties(), this.getSchemaObjectDependenciesProperties(), null, "properties", null, 0, -1, DependenciesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getDependenciesSchemaDefinition__FindSchemaByKey__String(), this.getSchema(), "findSchemaByKey", 0, 1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "key", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(numberValueEClass, NumberValue.class, "NumberValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberValue_Value(), ecorePackage.getEDouble(), "value", null, 1, 1, NumberValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2984,6 +3039,10 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(booleanSchemaEClass, BooleanSchema.class, "BooleanSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanSchema_Value(), ecorePackage.getEBoolean(), "value", null, 1, 1, BooleanSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getBooleanSchema__FindSchemaByJsonPointer__EList_int(), this.getSchema(), "findSchemaByJsonPointer", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "jsonPointer", 0, -1, !IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "currentIndex", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(nonNegativeIntegerEClass, NonNegativeInteger.class, "NonNegativeInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNonNegativeInteger_Value(), ecorePackage.getEInt(), "value", null, 1, 1, NonNegativeInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -484,6 +484,76 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * @generated
 	 */
 	@Override
+	public Schema findSchemaByJsonPointer(final EList<String> jsonPointer, final int currentIndex) {
+		try {
+			Schema schema = null;
+			if(currentIndex==jsonPointer.size()) {
+				schema=this;
+			}else if(0 <= currentIndex && currentIndex < jsonPointer.size()) {
+				String currentToken = jsonPointer.get(currentIndex);
+				Integer nextIndex= currentIndex +1;
+				Schema nextSchema = null;
+				if("additionalItems"== currentToken) {
+					nextSchema = getAdditionalItems().getAdditionalItems();
+				}else if ("additionalProperties" == currentToken) {
+					nextSchema = getAdditionalProperties().getAdditionalProperties();
+				}else if ("contains" == currentToken) {
+					nextSchema = getContains().getContains();
+				}else if ("definitions" == currentToken) {
+					if(nextIndex <jsonPointer.size()) {
+						nextSchema = getDefinitions().findSchemaByKey(jsonPointer.get(nextIndex));
+						nextIndex++;
+					}
+				}else if ("properties" == currentToken) {
+					if(nextIndex <jsonPointer.size()) {
+						nextSchema = getProperties().findSchemaByKey(jsonPointer.get(nextIndex));
+						nextIndex++;
+					}
+				}else if ("patternProperties" == currentToken) {
+					if(nextIndex <jsonPointer.size()) {
+						nextSchema = getPatternProperties().findSchemaByKey(jsonPointer.get(nextIndex));
+						nextIndex++;
+					}
+				}else if ("dependencies" == currentToken) {
+					if(nextIndex <jsonPointer.size()) {
+						nextSchema = getDependencies().findSchemaByKey(jsonPointer.get(nextIndex));
+						nextIndex++;
+					}
+				}else if ("propertyNames" == currentToken) {
+					nextSchema = getPropertyNames().getPropertyNames();
+				}else if ("if" == currentToken) {
+					nextSchema = getIf().getIf();
+				}else if ("then" == currentToken) {
+					nextSchema = getThen().getThen();
+				}else if ("else" == currentToken) {
+					nextSchema = getElse().getElse();
+				}else if ("allOf" == currentToken) {
+					nextSchema = getAllOf().getAllOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));
+					nextIndex++;
+				}else if ("anyOf" == currentToken) {
+					nextSchema = getAnyOf().getAnyOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));
+					nextIndex++;
+				}else if ("oneOf" == currentToken) {
+					nextSchema = getOneOf().getOneOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));
+					nextIndex++;
+				}
+						
+				if(nextSchema!=null) {
+					schema = nextSchema.findSchemaByJsonPointer(jsonPointer, nextIndex);
+				}
+			}
+			return schema;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__KEYWORD_DEFINITION:
@@ -626,10 +696,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * @generated
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING:
 				return findSchemaByKey((String)arguments.get(0));
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT:
+				return findSchemaByJsonPointer((EList<String>)arguments.get(0), (Integer)arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
 	}

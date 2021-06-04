@@ -2,10 +2,13 @@
  */
 package jsonMetaschemaMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import jsonMetaschemaMM.DependenciesSchemaDefinition;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
+import jsonMetaschemaMM.Schema;
 import jsonMetaschemaMM.SchemaObjectDependenciesProperties;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -80,6 +83,25 @@ public class DependenciesSchemaDefinitionImpl extends KeywordDefinitionImpl impl
 	 * @generated
 	 */
 	@Override
+	public Schema findSchemaByKey(final String key) {
+		Schema schema = null; 
+		jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties schemaObjectDependenciesAdditionalProperties = (jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties) getProperties().stream().filter(p -> p instanceof jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties && ((jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties)p).getKey()==key).findFirst().orElse(null);
+		if(schemaObjectDependenciesAdditionalProperties!=null ) {
+			jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf additionalPropertiesAnyOf= schemaObjectDependenciesAdditionalProperties.getAdditionalProperties();
+			if(additionalPropertiesAnyOf instanceof jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf1) {
+				schema = ((jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf1)additionalPropertiesAnyOf).getAnyOf1();
+			}
+		}
+		return schema;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES:
@@ -146,6 +168,20 @@ public class DependenciesSchemaDefinitionImpl extends KeywordDefinitionImpl impl
 				return properties != null && !properties.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING:
+				return findSchemaByKey((String)arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //DependenciesSchemaDefinitionImpl

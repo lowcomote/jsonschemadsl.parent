@@ -7,6 +7,12 @@
         eType="#//Schema">
       <eParameters name="key" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
+    <eOperations name="findSchemaByJsonPointer" ordered="false" unique="false" lowerBound="1"
+        eType="#//Schema">
+      <eParameters name="jsonPointer" unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="currentIndex" ordered="false" unique="false" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="keywordDefinition" upperBound="-1"
         eType="#//KeywordDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" ordered="false"
@@ -171,7 +177,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="readOnly" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Schema" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Schema" abstract="true">
+    <eOperations name="findSchemaByJsonPointer" ordered="false" unique="false" lowerBound="1"
+        eType="#//Schema">
+      <eParameters name="jsonPointer" unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="currentIndex" ordered="false" unique="false" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectValue" eSuperTypes="#//Value">
     <eStructuralFeatures xsi:type="ecore:EReference" name="keyvaluepair" upperBound="-1"
         eType="#//KeyValuePair" containment="true"/>
@@ -199,6 +212,9 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DependenciesSchemaDefinition" eSuperTypes="#//KeywordDefinition">
+    <eOperations name="findSchemaByKey" ordered="false" unique="false" eType="#//Schema">
+      <eParameters name="key" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//SchemaObjectDependenciesProperties" containment="true"/>
   </eClassifiers>
@@ -330,6 +346,12 @@
         eType="#//SimpleTypes"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanSchema" eSuperTypes="#//Schema">
+    <eOperations name="findSchemaByJsonPointer" ordered="false" unique="false" lowerBound="1"
+        eType="#//Schema">
+      <eParameters name="jsonPointer" unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eParameters name="currentIndex" ordered="false" unique="false" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NonNegativeInteger">

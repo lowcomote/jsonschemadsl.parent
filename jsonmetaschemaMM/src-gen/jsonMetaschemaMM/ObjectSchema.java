@@ -246,4 +246,12 @@ public interface ObjectSchema extends Schema {
 	 */
 	Schema findSchemaByKey(String key);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false" jsonPointerUnique="false" jsonPointerMany="true" currentIndexUnique="false" currentIndexRequired="true" currentIndexOrdered="false"
+	 * @generated
+	 */
+	Schema findSchemaByJsonPointer(EList<String> jsonPointer, int currentIndex);
+
 } // ObjectSchema

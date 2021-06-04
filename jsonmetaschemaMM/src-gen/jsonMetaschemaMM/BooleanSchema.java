@@ -2,6 +2,7 @@
  */
 package jsonMetaschemaMM;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,5 +42,13 @@ public interface BooleanSchema extends Schema {
 	 * @generated
 	 */
 	void setValue(boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false" jsonPointerUnique="false" jsonPointerMany="true" currentIndexUnique="false" currentIndexRequired="true" currentIndexOrdered="false"
+	 * @generated
+	 */
+	Schema findSchemaByJsonPointer(EList<String> jsonPointer, int currentIndex);
 
 } // BooleanSchema
