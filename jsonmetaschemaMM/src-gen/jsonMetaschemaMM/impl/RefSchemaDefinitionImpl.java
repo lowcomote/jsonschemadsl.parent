@@ -2,10 +2,14 @@
  */
 package jsonMetaschemaMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.RefSchemaDefinition;
 
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -93,6 +97,65 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	 * @generated
 	 */
 	@Override
+	public boolean isFormatUriReference() {
+		boolean isUri = true; 
+		try {
+			new java.net.URI(getRef());
+		} catch (Exception e) {
+			isUri=false;
+		}
+		return isUri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Boolean isAbsoluteReference() {
+		try {
+			return  new java.net.URI(getRef()).isAbsolute();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getFragment() {
+		try {
+			return new java.net.URI(getRef()).getFragment();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getJsonPointerAsList() {
+		EList<String> jsonPointerAsList= new org.eclipse.emf.common.util.BasicEList<String>();
+		String jsonPointer = getFragment();
+		if(jsonPointer!=null) {
+			jsonPointerAsList.addAll(java.util.Arrays.asList(jsonPointer.split("/")));
+		}
+		return jsonPointerAsList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION__REF:
@@ -143,6 +206,26 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 				return REF_EDEFAULT == null ? ref != null : !REF_EDEFAULT.equals(ref);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE:
+				return isFormatUriReference();
+			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___IS_ABSOLUTE_REFERENCE:
+				return isAbsoluteReference();
+			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___GET_FRAGMENT:
+				return getFragment();
+			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___GET_JSON_POINTER_AS_LIST:
+				return getJsonPointerAsList();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

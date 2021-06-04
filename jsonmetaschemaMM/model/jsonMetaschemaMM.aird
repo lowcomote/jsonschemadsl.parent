@@ -16,7 +16,7 @@
     <semanticResources>ocl/fullvalidation.ocl</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_SBu5YGjDEeutyv0gtBO7yg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_SCd5MWjDEeutyv0gtBO7yg" name="jsonMetaschemaMM" repPath="#_SCZnwGjDEeutyv0gtBO7yg" changeId="76702d15-b828-424d-8d90-7f8241c84f20">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_SCd5MWjDEeutyv0gtBO7yg" name="jsonMetaschemaMM" repPath="#_SCZnwGjDEeutyv0gtBO7yg" changeId="26d5b862-69b0-4876-8b8a-66296fd63d4c">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="jsonMetaschemaMM.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -674,6 +674,10 @@
             <children xmi:type="notation:Node" xmi:id="_q41V1mjDEeutyv0gtBO7yg" type="3010" element="_q3q4M2jDEeutyv0gtBO7yg">
               <styles xmi:type="notation:FontStyle" xmi:id="_q41V12jDEeutyv0gtBO7yg" fontName="Segoe UI" fontHeight="8"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_q41V2GjDEeutyv0gtBO7yg"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_ag1HEMVREeuNW8abaF5ZRw" type="3010" element="_agCc4cVREeuNW8abaF5ZRw">
+              <styles xmi:type="notation:FontStyle" xmi:id="_ag1HEcVREeuNW8abaF5ZRw" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_ag1HEsVREeuNW8abaF5ZRw"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_q4sL4mjDEeutyv0gtBO7yg"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_q4sL42jDEeutyv0gtBO7yg"/>
@@ -3886,6 +3890,14 @@
           <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_agCc4cVREeuNW8abaF5ZRw" name="isFormatUriReference() : EBoolean" tooltipText="isFormatUriReference() : EBoolean">
+        <target xmi:type="ecore:EOperation" href="jsonMetaschemaMM.ecore#//RefSchemaDefinition/isFormatUriReference"/>
+        <semanticElements xmi:type="ecore:EOperation" href="jsonMetaschemaMM.ecore#//RefSchemaDefinition/isFormatUriReference"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_agDD8MVREeuNW8abaF5ZRw" labelAlignment="LEFT">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='Operation']"/>
       </ownedElements>
     </ownedDiagramElements>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_q09icGjDEeutyv0gtBO7yg" name="JsonSchema" tooltipText="" outgoingEdges="_q39MF2jDEeutyv0gtBO7yg" width="12" height="10">

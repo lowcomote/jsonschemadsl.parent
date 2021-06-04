@@ -259,6 +259,14 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//RefSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//RefSchemaDefinition/ref"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/isFormatUriReference"
+          body="boolean isUri = true; &#xA;try {&#xA;&#x9;new java.net.URI(getRef());&#xA;} catch (Exception e) {&#xA;&#x9;isUri=false;&#xA;}&#xA;return isUri;"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/isAbsoluteReference"
+          body="try {&#xA;&#x9;return  new java.net.URI(getRef()).isAbsolute();&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/getFragment"
+          body="try {&#xA;&#x9;return new java.net.URI(getRef()).getFragment();&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/getJsonPointerAsList"
+          body="EList&lt;String> jsonPointerAsList= new org.eclipse.emf.common.util.BasicEList&lt;String>();&#xA;String jsonPointer = getFragment();&#xA;if(jsonPointer!=null) {&#xA;&#x9;jsonPointerAsList.addAll(java.util.Arrays.asList(jsonPointer.split(&quot;/&quot;)));&#xA;}&#xA;return jsonPointerAsList;"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//JsonSchema">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//JsonSchema/schema"/>
