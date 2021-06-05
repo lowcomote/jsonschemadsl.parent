@@ -124,12 +124,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetAdditionalItems() {
 		// TODO: implement this method to return whether the 'Additional Items' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return getAdditionalItems()!=null;
 	}
 
 	/**
@@ -145,12 +146,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetItems() {
 		// TODO: implement this method to return whether the 'Items' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+//		throw new UnsupportedOperationException();
+		return getItems()!=null;
 	}
 
 	/**
@@ -166,12 +168,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetAdditionalProperties() {
 		// TODO: implement this method to return whether the 'Additional Properties' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return getAdditionalProperties()!=null;
 	}
 
 	/**
@@ -187,12 +190,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetContains() {
 		// TODO: implement this method to return whether the 'Contains' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return getContains()!=null;
 	}
 
 	/**
@@ -208,12 +212,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetProperties() {
 		// TODO: implement this method to return whether the 'Properties' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return getProperties()!=null;
 	}
 
 	/**
@@ -229,12 +234,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetDefinitions() {
 		// TODO: implement this method to return whether the 'Definitions' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return getDefinitions()!=null;
 	}
 
 	/**
@@ -250,12 +256,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetPatternProperties() {
 		// TODO: implement this method to return whether the 'Pattern Properties' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return getPatternProperties()!=null;
 	}
 
 	/**
@@ -271,12 +278,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetDependencies() {
 		// TODO: implement this method to return whether the 'Dependencies' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+//		throw new UnsupportedOperationException();
+		return getDependencies()!=null;
 	}
 
 	/**
@@ -292,12 +300,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetPropertyNames() {
 		// TODO: implement this method to return whether the 'Property Names' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
+		return getPropertyNames()!=null;
 	}
 
 	/**
@@ -313,12 +322,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetIf() {
 		// TODO: implement this method to return whether the 'If' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+//		throw new UnsupportedOperationException();
+		return getIf()!=null; 
 	}
 
 	/**
@@ -334,12 +344,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetThen() {
 		// TODO: implement this method to return whether the 'Then' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+//		throw new UnsupportedOperationException();
+		return getThen()!=null;
 	}
 
 	/**
@@ -355,12 +366,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetElse() {
 		// TODO: implement this method to return whether the 'Else' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+//		throw new UnsupportedOperationException();
+		return getElse()!=null;
 	}
 
 	/**
@@ -376,12 +388,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetAllOf() {
 		// TODO: implement this method to return whether the 'All Of' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+//		throw new UnsupportedOperationException();
+		return getAllOf()!=null;
 	}
 
 	/**
@@ -397,12 +410,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetAnyOf() {
 		// TODO: implement this method to return whether the 'Any Of' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+//		throw new UnsupportedOperationException();
+		return getAnyOf()!=null;
 	}
 
 	/**
@@ -418,12 +432,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetOneOf() {
 		// TODO: implement this method to return whether the 'One Of' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+//		throw new UnsupportedOperationException();
+		return getOneOf()!=null;
 	}
 
 	/**
@@ -439,12 +454,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetNot() {
 		// TODO: implement this method to return whether the 'Not' reference is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+//		throw new UnsupportedOperationException();
+		return getNot()!=null;
 	}
 
 	/**
@@ -460,12 +476,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSetSchemaObjectAdditionalProperties() {
 		// TODO: implement this method to return whether the 'Schema Object Additional Properties' reference list is set
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+//		throw new UnsupportedOperationException();
+		return getSchemaObjectAdditionalProperties()!=null && !getSchemaObjectAdditionalProperties().isEmpty();
 	}
 
 	/**
