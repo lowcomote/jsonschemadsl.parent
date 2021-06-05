@@ -492,7 +492,7 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 */
 	@Override
 	public Schema findSchemaByKey(final String key) {
-		return getSchemaObjectAdditionalProperties().stream().filter(s -> s.getKey() == key ).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);
+		return getSchemaObjectAdditionalProperties().stream().filter(s -> key.equals(s.getKey())).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);
 	}
 
 	/**
@@ -509,51 +509,53 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 			String currentToken = jsonPointer.get(currentIndex);
 			Integer nextIndex= currentIndex +1;
 			Schema nextSchema = null;
-			if("additionalItems"== currentToken) {
+			if("additionalItems".equals(currentToken)) {
 				nextSchema = getAdditionalItems().getAdditionalItems();
-			}else if ("additionalProperties" == currentToken) {
+			}else if ("additionalProperties".equals(currentToken)) {
 				nextSchema = getAdditionalProperties().getAdditionalProperties();
-			}else if ("contains" == currentToken) {
+			}else if ("contains".equals(currentToken)) {
 				nextSchema = getContains().getContains();
-			}else if ("definitions" == currentToken) {
+			}else if ("definitions".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getDefinitions().findSchemaByKey(jsonPointer.get(nextIndex));
+					nextSchema = getDefinitions().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
 					nextIndex++;
 				}
-			}else if ("properties" == currentToken) {
+			}else if ("properties".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
 					nextSchema = getProperties().findSchemaByKey(jsonPointer.get(nextIndex));
 					nextIndex++;
 				}
-			}else if ("patternProperties" == currentToken) {
+			}else if ("patternProperties".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
 					nextSchema = getPatternProperties().findSchemaByKey(jsonPointer.get(nextIndex));
 					nextIndex++;
 				}
-			}else if ("dependencies" == currentToken) {
+			}else if ("dependencies".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
 					nextSchema = getDependencies().findSchemaByKey(jsonPointer.get(nextIndex));
 					nextIndex++;
 				}
-			}else if ("propertyNames" == currentToken) {
+			}else if ("propertyNames".equals(currentToken)) {
 				nextSchema = getPropertyNames().getPropertyNames();
-			}else if ("if" == currentToken) {
+			}else if ("if".equals(currentToken)) {
 				nextSchema = getIf().getIf();
-			}else if ("then" == currentToken) {
+			}else if ("then".equals(currentToken)) {
 				nextSchema = getThen().getThen();
-			}else if ("else" == currentToken) {
+			}else if ("else".equals(currentToken)) {
 				nextSchema = getElse().getElse();
-			}else if ("allOf" == currentToken) {
+			}else if ("allOf".equals(currentToken)) {
 				nextSchema = getAllOf().getAllOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));
 				nextIndex++;
-			}else if ("anyOf" == currentToken) {
+			}else if ("anyOf".equals(currentToken)) {
 				nextSchema = getAnyOf().getAnyOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));
 				nextIndex++;
-			}else if ("oneOf" == currentToken) {
+			}else if ("oneOf".equals(currentToken)) {
 				nextSchema = getOneOf().getOneOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));
 				nextIndex++;
+			}else {
+				nextSchema = findSchemaByKey(currentToken);
 			}
-							
+									
 			if(nextSchema!=null) {
 				schema = nextSchema.findSchemaByJsonPointer(jsonPointer, nextIndex);
 			}

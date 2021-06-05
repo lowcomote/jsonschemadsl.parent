@@ -84,7 +84,7 @@ public class PropertiesSchemaDefinitionImpl extends KeywordDefinitionImpl implem
 	 */
 	@Override
 	public Schema findSchemaByKey(final String key) {
-		return getKeySchemaPairs().stream().filter(ksp -> ksp.getKey()==key).findFirst().map(KeySchemaPair::getValue).orElse(null);
+		return getKeySchemaPairs().stream().filter(ksp -> key.equals(ksp.getKey())).findFirst().map(KeySchemaPair::getValue).orElse(null);
 	}
 
 	/**
