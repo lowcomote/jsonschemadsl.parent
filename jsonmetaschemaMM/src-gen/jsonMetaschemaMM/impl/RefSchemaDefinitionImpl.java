@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Ref Schema Definition</b></em>'.
@@ -100,7 +99,7 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	public boolean isFormatUriReference() {
 		boolean isUri = true; 
 		try {
-			new java.net.URI(getRef());
+			jakarta.ws.rs.core.UriBuilder.fromUri(getRef());
 		} catch (Exception e) {
 			isUri=false;
 		}
@@ -113,23 +112,9 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	 * @generated
 	 */
 	@Override
-	public Boolean isAbsoluteReference() {
-		try {
-			return  new java.net.URI(getRef()).isAbsolute();
-		} catch (Exception e) {
-			return null;
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public String getFragment() {
 		try {
-			return new java.net.URI(getRef()).getFragment();
+			return getRef().substring(getRef().indexOf("#"), getRef().length());
 		} catch (Exception e) {
 			return null;
 		}
@@ -144,8 +129,9 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	public EList<String> getJsonPointerAsList() {
 		EList<String> jsonPointerAsList = new org.eclipse.emf.common.util.BasicEList<String>();
 		try {
-			String fragment = new java.net.URI(getRef()).getFragment();
+			String fragment = getFragment();
 			if(fragment!=null && !fragment.isBlank()) {
+				fragment = fragment.substring(1,fragment.length()); // take off "#"
 				if("/".equals(fragment.substring(0, 1)) ) {
 					fragment = fragment.substring(1,fragment.length());
 				}
@@ -155,6 +141,16 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 			return null;
 		}
 		return jsonPointerAsList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Boolean isOnlyFragment() {
+		return getRef().equals(getFragment());
 	}
 
 	/**
@@ -225,12 +221,12 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 		switch (operationID) {
 			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE:
 				return isFormatUriReference();
-			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___IS_ABSOLUTE_REFERENCE:
-				return isAbsoluteReference();
 			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___GET_FRAGMENT:
 				return getFragment();
 			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___GET_JSON_POINTER_AS_LIST:
 				return getJsonPointerAsList();
+			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___IS_ONLY_FRAGMENT:
+				return isOnlyFragment();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

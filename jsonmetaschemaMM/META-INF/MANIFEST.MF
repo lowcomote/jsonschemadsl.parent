@@ -16,5 +16,6 @@ Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.ui;bundle-version="3.118.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: jsonMetaschemaMM.Activator
+Import-Package: jakarta.ws.rs.core;version="9.1.0"
 
 

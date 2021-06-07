@@ -57,14 +57,6 @@ public interface RefSchemaDefinition extends KeywordDefinition {
 	 * @model kind="operation" unique="false" required="true" ordered="false"
 	 * @generated
 	 */
-	Boolean isAbsoluteReference();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" unique="false" required="true" ordered="false"
-	 * @generated
-	 */
 	String getFragment();
 
 	/**
@@ -74,5 +66,13 @@ public interface RefSchemaDefinition extends KeywordDefinition {
 	 * @generated
 	 */
 	EList<String> getJsonPointerAsList();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false" required="true" ordered="false"
+	 * @generated
+	 */
+	Boolean isOnlyFragment();
 
 } // RefSchemaDefinition

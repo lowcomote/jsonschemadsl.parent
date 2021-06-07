@@ -81,7 +81,7 @@ if keySchemaPairs->isUnique(k | k.key) then true  else null endif
 
 context RefSchemaDefinition
 inv UnsolvableReference ('The reference '+self.ref+' does not point to a schema'):
-if false = self.isAbsoluteReference() then
+if true = self.isOnlyFragment() then
 	let jsonPointer : Sequence(String) = self.getJsonPointerAsList() in
 	if jsonPointer=null then null
 	else

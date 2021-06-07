@@ -85,7 +85,7 @@ public class DependenciesSchemaDefinitionImpl extends KeywordDefinitionImpl impl
 	@Override
 	public Schema findSchemaByKey(final String key) {
 		Schema schema = null; 
-		jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties schemaObjectDependenciesAdditionalProperties = (jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties) getProperties().stream().filter(p -> p instanceof jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties && ((jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties)p).getKey()==key).findFirst().orElse(null);
+		jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties schemaObjectDependenciesAdditionalProperties = (jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties) getProperties().stream().filter(p -> p instanceof jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties && key.equals(((jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties)p).getKey())).findFirst().orElse(null);
 		if(schemaObjectDependenciesAdditionalProperties!=null ) {
 			jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf additionalPropertiesAnyOf= schemaObjectDependenciesAdditionalProperties.getAdditionalProperties();
 			if(additionalPropertiesAnyOf instanceof jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf1) {

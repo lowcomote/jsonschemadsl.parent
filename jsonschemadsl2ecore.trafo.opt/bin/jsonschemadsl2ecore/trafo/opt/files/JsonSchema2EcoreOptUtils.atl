@@ -77,6 +77,21 @@ helper def: getRootName() : String =
 helper def: retrieveRootSchema() : JSchemaMM!Schema=
 	JSchemaMM!JsonSchema.allInstancesFrom('jschema').first().schema;	
 
+---------- NEWW
+--- This is similar to the inv UnsolvableReference in fullvalidation.ocl
+helper context JSchemaMM!RefSchemaDefinition def: findSchemaByJsonPointer() : JSchemaMM!Schema=
+--	if false =  self.isAbsoluteReference() then
+	if true =  self.isOnlyFragment() then
+		let jsonPointer : Sequence(String) = self.getJsonPointerAsList() in
+		if  jsonPointer.oclIsUndefined() then OclUndefined
+		else
+			JSchemaMM!JsonSchema.allInstancesFrom('jschema').first().findSchemaByJsonPointer(jsonPointer)
+		endif
+	else OclUndefined
+	endif;
+-----------NEWW
+
+
 helper context JSchemaMM!Schema def:findSchemaByJsonPointerFromRoot(jsonPointer:String):  JSchemaMM!Schema=
 	self.findSchemaByJsonPointer(jsonPointer.split('/'));
 
@@ -180,10 +195,42 @@ else
 						if parent.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'
 						else 
 							if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
-								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'.concat(parent.indexOf(self).toString())
-								else OclUndefined --add AllOfSchemaDefinition,  AnyOfSchemaDefinition, OneOfSchemaDefinition 
+							    ---- TODO change when refactoring ItemsSchemaDefinition
+								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'.concat(parent.items.indexOf(self).toString())
+								else 
+									if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition) then 'allOf'.concat(parent.items.indexOf(self).toString())
+									else
+										if  parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition) then 'anyOf'.concat(parent.items.indexOf(self).toString())
+										else
+											if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition) then 'oneOf'.concat(parent.items.indexOf(self).toString())
+											else  OclUndefined --- This case should not exist
+											endif
+										endif 
+									endif	
+									
 								endif	
-							else OclUndefined -- add other keywords pointing to Schema
+							else
+								if parent.oclIsTypeOf(JSchemaMM!NotSchemaDefinition) then 'not'
+								else
+									if parent.oclIsTypeOf(JSchemaMM!IfSchemaDefinition) then 'if'
+									else
+										if parent.oclIsTypeOf(JSchemaMM!ThenSchemaDefinition) then 'then'
+										else 
+											if parent.oclIsTypeOf(JSchemaMM!ElseSchemaDefinition) then 'else'
+											else 
+												if parent.oclIsTypeOf(JSchemaMM!PropertyNamesSchemaDefinition) then 'propertyNames'
+												else 
+													if parent.oclIsTypeOf(JSchemaMM!ContainsSchemaDefinition) then 'contains'
+													else 
+														if parent.oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1) then 'dependencies'.concat(parent.refImmediateComposite().refImmediateComposite().properties.indexOf(parent.refImmediateComposite()).toString())
+														else OclUndefined ---- TODO  add other keywords pointing to Schema 
+														endif 
+													endif 
+												endif
+											endif
+										endif
+									endif
+								endif
 							endif
 						endif
 					endif

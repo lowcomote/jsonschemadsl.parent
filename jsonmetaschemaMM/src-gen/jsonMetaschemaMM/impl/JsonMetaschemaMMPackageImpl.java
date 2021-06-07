@@ -2028,7 +2028,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public EOperation getRefSchemaDefinition__IsAbsoluteReference() {
+	public EOperation getRefSchemaDefinition__GetFragment() {
 		return refSchemaDefinitionEClass.getEOperations().get(1);
 	}
 
@@ -2038,7 +2038,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public EOperation getRefSchemaDefinition__GetFragment() {
+	public EOperation getRefSchemaDefinition__GetJsonPointerAsList() {
 		return refSchemaDefinitionEClass.getEOperations().get(2);
 	}
 
@@ -2048,7 +2048,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public EOperation getRefSchemaDefinition__GetJsonPointerAsList() {
+	public EOperation getRefSchemaDefinition__IsOnlyFragment() {
 		return refSchemaDefinitionEClass.getEOperations().get(3);
 	}
 
@@ -2698,9 +2698,9 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		refSchemaDefinitionEClass = createEClass(REF_SCHEMA_DEFINITION);
 		createEAttribute(refSchemaDefinitionEClass, REF_SCHEMA_DEFINITION__REF);
 		createEOperation(refSchemaDefinitionEClass, REF_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE);
-		createEOperation(refSchemaDefinitionEClass, REF_SCHEMA_DEFINITION___IS_ABSOLUTE_REFERENCE);
 		createEOperation(refSchemaDefinitionEClass, REF_SCHEMA_DEFINITION___GET_FRAGMENT);
 		createEOperation(refSchemaDefinitionEClass, REF_SCHEMA_DEFINITION___GET_JSON_POINTER_AS_LIST);
+		createEOperation(refSchemaDefinitionEClass, REF_SCHEMA_DEFINITION___IS_ONLY_FRAGMENT);
 
 		jsonSchemaEClass = createEClass(JSON_SCHEMA);
 		createEReference(jsonSchemaEClass, JSON_SCHEMA__SCHEMA);
@@ -3061,11 +3061,11 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEOperation(getRefSchemaDefinition__IsFormatUriReference(), ecorePackage.getEBoolean(), "isFormatUriReference", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getRefSchemaDefinition__IsAbsoluteReference(), ecorePackage.getEBooleanObject(), "isAbsoluteReference", 1, 1, !IS_UNIQUE, !IS_ORDERED);
-
 		initEOperation(getRefSchemaDefinition__GetFragment(), ecorePackage.getEString(), "getFragment", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEOperation(getRefSchemaDefinition__GetJsonPointerAsList(), ecorePackage.getEString(), "getJsonPointerAsList", 0, -1, IS_UNIQUE, IS_ORDERED);
+
+		initEOperation(getRefSchemaDefinition__IsOnlyFragment(), ecorePackage.getEBooleanObject(), "isOnlyFragment", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(jsonSchemaEClass, JsonSchema.class, "JsonSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getJsonSchema_Schema(), this.getSchema(), null, "schema", null, 0, 1, JsonSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

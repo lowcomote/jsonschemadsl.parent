@@ -522,17 +522,17 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				}
 			}else if ("properties".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getProperties().findSchemaByKey(jsonPointer.get(nextIndex));
+					nextSchema = getProperties().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
 					nextIndex++;
 				}
 			}else if ("patternProperties".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getPatternProperties().findSchemaByKey(jsonPointer.get(nextIndex));
+					nextSchema = getPatternProperties().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
 					nextIndex++;
 				}
 			}else if ("dependencies".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getDependencies().findSchemaByKey(jsonPointer.get(nextIndex));
+					nextSchema = getDependencies().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
 					nextIndex++;
 				}
 			}else if ("propertyNames".equals(currentToken)) {
@@ -552,10 +552,12 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 			}else if ("oneOf".equals(currentToken)) {
 				nextSchema = getOneOf().getOneOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));
 				nextIndex++;
+			}else if ("not".equals(currentToken)) {
+				nextSchema = getNot().getNot();
 			}else {
 				nextSchema = findSchemaByKey(currentToken);
 			}
-									
+											
 			if(nextSchema!=null) {
 				schema = nextSchema.findSchemaByJsonPointer(jsonPointer, nextIndex);
 			}

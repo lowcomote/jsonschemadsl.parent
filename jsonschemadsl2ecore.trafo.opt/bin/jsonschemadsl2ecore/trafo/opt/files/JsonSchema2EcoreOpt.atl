@@ -398,25 +398,36 @@ rule mapItemsBooleanSchemaOrDefaultToEClass extends mapItemsSchemaToEClass{
 rule mapRefSchemaToEReference{
 	from refSchemaDefinition: JSchemaMM!RefSchemaDefinition 
 	using {
-		referenceType : String = thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref)
-									.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
-								.first().findSimpleType();
+--		referenceType : String = thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref)
+--									.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
+--								.first().findSimpleType();
+--		referenceType : String =     refSchemaDefinition.findSchemaByJsonPointer()
+--									.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition))
+--								.first().findSimpleType();
+        jsonPointerSchema : JSchemaMM!Schema = refSchemaDefinition.findSchemaByJsonPointer();
+        isJsonPointerSchemaTypeArray : Boolean = 	if jsonPointerSchema.oclIsTypeOf(JSchemaMM!ObjectSchema) then 
+														if jsonPointerSchema.keywordDefinition->select(keywordDefinition | keywordDefinition.oclIsTypeOf(JSchemaMM!TypeSchemaDefinition)).first().findSimpleType() = #"\"array\""
+														then true else false endif
+													else false
+													endif ;
+										
 	} to		
 		eReference :Ecore!EReference ( 
 			name <- refSchemaDefinition.refImmediateComposite().getKey(),
-			eType <- thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref),
-			containment <- true,
+--			eType <- thisModule.retrieveRootSchema().findSchemaByJsonPointerFromRoot(refSchemaDefinition.ref),
+			eType <- refSchemaDefinition.findSchemaByJsonPointer().oclAsType(JSchemaMM!ObjectSchema),
+			containment <- true, 
 			lowerBound <- 1,
 			upperBound <- 1			
 		)
 	do {
-		if (referenceType = #"\"object\"" ) {
---			thisModule.curlyBracesEReferences <- thisModule.curlyBracesEReferences->union(Sequence{eReference});
---			thisModule.curlyBracesEClass <- thisModule.curlyBracesEClass->union(Sequence{eReference.refImmediateComposite()});
-		} else if (referenceType = #"\"array\"" ) {
+--		if (referenceType = #"\"object\"" ) {
+--		} else if (referenceType = #"\"array\"" ) {
+--			thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
+--		} 
+		if (isJsonPointerSchemaTypeArray){ 
 			thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
---			thisModule.bracketsEClass <- thisModule.bracketsEClass->union(Sequence{eReference.refImmediateComposite()});
-		} 
+		}	
 	}	
 }
 

@@ -2310,22 +2310,13 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int REF_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Is Absolute Reference</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REF_SCHEMA_DEFINITION___IS_ABSOLUTE_REFERENCE = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
-
-	/**
 	 * The operation id for the '<em>Get Fragment</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REF_SCHEMA_DEFINITION___GET_FRAGMENT = KEYWORD_DEFINITION_OPERATION_COUNT + 2;
+	int REF_SCHEMA_DEFINITION___GET_FRAGMENT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The operation id for the '<em>Get Json Pointer As List</em>' operation.
@@ -2334,7 +2325,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REF_SCHEMA_DEFINITION___GET_JSON_POINTER_AS_LIST = KEYWORD_DEFINITION_OPERATION_COUNT + 3;
+	int REF_SCHEMA_DEFINITION___GET_JSON_POINTER_AS_LIST = KEYWORD_DEFINITION_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Is Only Fragment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF_SCHEMA_DEFINITION___IS_ONLY_FRAGMENT = KEYWORD_DEFINITION_OPERATION_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Ref Schema Definition</em>' class.
@@ -4481,16 +4481,6 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EOperation getRefSchemaDefinition__IsFormatUriReference();
 
 	/**
-	 * Returns the meta object for the '{@link jsonMetaschemaMM.RefSchemaDefinition#isAbsoluteReference() <em>Is Absolute Reference</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Is Absolute Reference</em>' operation.
-	 * @see jsonMetaschemaMM.RefSchemaDefinition#isAbsoluteReference()
-	 * @generated
-	 */
-	EOperation getRefSchemaDefinition__IsAbsoluteReference();
-
-	/**
 	 * Returns the meta object for the '{@link jsonMetaschemaMM.RefSchemaDefinition#getFragment() <em>Get Fragment</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4509,6 +4499,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getRefSchemaDefinition__GetJsonPointerAsList();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.RefSchemaDefinition#isOnlyFragment() <em>Is Only Fragment</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Only Fragment</em>' operation.
+	 * @see jsonMetaschemaMM.RefSchemaDefinition#isOnlyFragment()
+	 * @generated
+	 */
+	EOperation getRefSchemaDefinition__IsOnlyFragment();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.JsonSchema <em>Json Schema</em>}'.
@@ -6163,14 +6163,6 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EOperation REF_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE = eINSTANCE.getRefSchemaDefinition__IsFormatUriReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Absolute Reference</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation REF_SCHEMA_DEFINITION___IS_ABSOLUTE_REFERENCE = eINSTANCE.getRefSchemaDefinition__IsAbsoluteReference();
-
-		/**
 		 * The meta object literal for the '<em><b>Get Fragment</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6185,6 +6177,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation REF_SCHEMA_DEFINITION___GET_JSON_POINTER_AS_LIST = eINSTANCE.getRefSchemaDefinition__GetJsonPointerAsList();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Only Fragment</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation REF_SCHEMA_DEFINITION___IS_ONLY_FRAGMENT = eINSTANCE.getRefSchemaDefinition__IsOnlyFragment();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.JsonSchemaImpl <em>Json Schema</em>}' class.

@@ -3,11 +3,12 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="testcurrentimplementation" nsURI="http://jku.bise.at/testcurrentimplementation"
     nsPrefix="testcurrentimplementation">
   <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRoot">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//TestcurrentimplementationRootPropertiesAbstract" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testcurrentimplementationRoot"
+        upperBound="-1" eType="#//TestcurrentimplementationRootPropertiesAbstract"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Family">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="family" upperBound="-1"
         eType="#//FamilyPropertiesAbstract" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pippo">
@@ -43,8 +44,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="score" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootJob" eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//TestcurrentimplementationRootJobPropertiesAbstract" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="job" upperBound="-1" eType="#//TestcurrentimplementationRootJobPropertiesAbstract"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootJobRole"
       eSuperTypes="#//TestcurrentimplementationRootJobPropertiesAbstract">
@@ -55,8 +56,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootCar" eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//TestcurrentimplementationRootCarPropertiesAbstract" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="car" upperBound="-1" eType="#//TestcurrentimplementationRootCarPropertiesAbstract"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootCarLicencePlate"
       eSuperTypes="#//TestcurrentimplementationRootCarPropertiesAbstract">
@@ -103,7 +104,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootWives"
       eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wives" upperBound="-1"
         eType="#//TestcurrentimplementationRootWivesPropertiesAbstract" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootExtraFamilies"
@@ -142,7 +143,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FamilyAdditionalProperties" eSuperTypes="#//FamilyPropertiesAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" upperBound="-1"
         eType="#//FamilyAdditionalPropertiesPropertiesAbstract" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootWivesAdditionalProperties"
@@ -167,7 +168,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootGrandParentsItems">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
         eType="#//TestcurrentimplementationRootGrandParentsItemsPropertiesAbstract"
         containment="true"/>
   </eClassifiers>
