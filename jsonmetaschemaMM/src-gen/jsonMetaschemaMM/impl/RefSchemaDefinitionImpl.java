@@ -2,6 +2,7 @@
  */
 package jsonMetaschemaMM.impl;
 
+
 import java.lang.reflect.InvocationTargetException;
 
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
@@ -94,8 +95,8 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
-	@Override
+	 */ 
+	@Override 
 	public boolean isFormatUriReference() {
 		boolean isUri = true; 
 		try {

@@ -17,7 +17,7 @@
         eType="#//KeywordDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" ordered="false"
         unique="false" eType="#//AdditionalItemsSchemaDefinition" changeable="false"
-        volatile="true" transient="true" unsettable="true" derived="true" resolveProxies="false"/>
+        volatile="true" transient="true" derived="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" ordered="false"
         unique="false" eType="#//ItemsSchemaDefinition" changeable="false" volatile="true"
         transient="true" unsettable="true" derived="true" resolveProxies="false"/>

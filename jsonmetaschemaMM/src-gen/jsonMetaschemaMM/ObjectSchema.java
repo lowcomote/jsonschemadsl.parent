@@ -56,7 +56,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Additional Items</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_AdditionalItems()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	AdditionalItemsSchemaDefinition getAdditionalItems();

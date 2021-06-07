@@ -124,18 +124,6 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetAdditionalItems() {
-		// TODO: implement this method to return whether the 'Additional Items' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
-		return getAdditionalItems()!=null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -670,7 +658,7 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__KEYWORD_DEFINITION:
 				return keywordDefinition != null && !keywordDefinition.isEmpty();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ADDITIONAL_ITEMS:
-				return isSetAdditionalItems();
+				return getAdditionalItems() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ITEMS:
 				return isSetItems();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ADDITIONAL_PROPERTIES:
