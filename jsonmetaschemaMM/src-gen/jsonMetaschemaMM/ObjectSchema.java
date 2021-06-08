@@ -67,7 +67,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Items</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Items()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	ItemsSchemaDefinition getItems();
@@ -78,7 +78,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Additional Properties</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_AdditionalProperties()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	AdditionalPropertiesSchemaDefinition getAdditionalProperties();
@@ -89,7 +89,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contains</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Contains()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	ContainsSchemaDefinition getContains();
@@ -100,7 +100,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Properties</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Properties()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	PropertiesSchemaDefinition getProperties();
@@ -111,7 +111,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Definitions</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Definitions()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	DefinitionsSchemaDefinition getDefinitions();
@@ -122,7 +122,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Pattern Properties</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_PatternProperties()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	PatternPropertiesSchemaDefinition getPatternProperties();
@@ -133,7 +133,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dependencies</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Dependencies()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	DependenciesSchemaDefinition getDependencies();
@@ -144,7 +144,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Property Names</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_PropertyNames()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	PropertyNamesSchemaDefinition getPropertyNames();
@@ -155,7 +155,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>If</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_If()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	IfSchemaDefinition getIf();
@@ -166,7 +166,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Then</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Then()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	ThenSchemaDefinition getThen();
@@ -177,7 +177,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Else</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Else()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	ElseSchemaDefinition getElse();
@@ -188,7 +188,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>All Of</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_AllOf()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	AllOfSchemaDefinition getAllOf();
@@ -199,7 +199,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Any Of</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_AnyOf()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	AnyOfSchemaDefinition getAnyOf();
@@ -210,7 +210,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>One Of</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_OneOf()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	OneOfSchemaDefinition getOneOf();
@@ -221,7 +221,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Not</em>' reference.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Not()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	NotSchemaDefinition getNot();
@@ -233,7 +233,7 @@ public interface ObjectSchema extends Schema {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Schema Object Additional Properties</em>' reference list.
 	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_SchemaObjectAdditionalProperties()
-	 * @model resolveProxies="false" unsettable="true" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
 	 * @generated
 	 */
 	EList<SchemaObjectAdditionalProperties> getSchemaObjectAdditionalProperties();

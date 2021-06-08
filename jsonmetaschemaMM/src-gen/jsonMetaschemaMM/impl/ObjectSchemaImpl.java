@@ -134,35 +134,11 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetItems() {
-		// TODO: implement this method to return whether the 'Items' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-//		throw new UnsupportedOperationException();
-		return getItems()!=null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public AdditionalPropertiesSchemaDefinition getAdditionalProperties() {
 		return (AdditionalPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AdditionalPropertiesSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetAdditionalProperties() {
-		// TODO: implement this method to return whether the 'Additional Properties' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
-		return getAdditionalProperties()!=null;
 	}
 
 	/**
@@ -178,35 +154,11 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetContains() {
-		// TODO: implement this method to return whether the 'Contains' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
-		return getContains()!=null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public PropertiesSchemaDefinition getProperties() {
 		return (PropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PropertiesSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetProperties() {
-		// TODO: implement this method to return whether the 'Properties' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
-		return getProperties()!=null;
 	}
 
 	/**
@@ -222,35 +174,11 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetDefinitions() {
-		// TODO: implement this method to return whether the 'Definitions' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
-		return getDefinitions()!=null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public PatternPropertiesSchemaDefinition getPatternProperties() {
 		return (PatternPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PatternPropertiesSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetPatternProperties() {
-		// TODO: implement this method to return whether the 'Pattern Properties' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
-		return getPatternProperties()!=null;
 	}
 
 	/**
@@ -266,35 +194,11 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetDependencies() {
-		// TODO: implement this method to return whether the 'Dependencies' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-//		throw new UnsupportedOperationException();
-		return getDependencies()!=null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public PropertyNamesSchemaDefinition getPropertyNames() {
 		return (PropertyNamesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PropertyNamesSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetPropertyNames() {
-		// TODO: implement this method to return whether the 'Property Names' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-		//throw new UnsupportedOperationException();
-		return getPropertyNames()!=null;
 	}
 
 	/**
@@ -310,35 +214,11 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetIf() {
-		// TODO: implement this method to return whether the 'If' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-//		throw new UnsupportedOperationException();
-		return getIf()!=null; 
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public ThenSchemaDefinition getThen() {
 		return (ThenSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ThenSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetThen() {
-		// TODO: implement this method to return whether the 'Then' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-//		throw new UnsupportedOperationException();
-		return getThen()!=null;
 	}
 
 	/**
@@ -354,35 +234,11 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetElse() {
-		// TODO: implement this method to return whether the 'Else' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-//		throw new UnsupportedOperationException();
-		return getElse()!=null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public AllOfSchemaDefinition getAllOf() {
 		return (AllOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AllOfSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetAllOf() {
-		// TODO: implement this method to return whether the 'All Of' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-//		throw new UnsupportedOperationException();
-		return getAllOf()!=null;
 	}
 
 	/**
@@ -398,35 +254,11 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetAnyOf() {
-		// TODO: implement this method to return whether the 'Any Of' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-//		throw new UnsupportedOperationException();
-		return getAnyOf()!=null;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public OneOfSchemaDefinition getOneOf() {
 		return (OneOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof OneOfSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetOneOf() {
-		// TODO: implement this method to return whether the 'One Of' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-//		throw new UnsupportedOperationException();
-		return getOneOf()!=null;
 	}
 
 	/**
@@ -459,18 +291,6 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	@Override
 	public EList<SchemaObjectAdditionalProperties> getSchemaObjectAdditionalProperties() {
 		return new org.eclipse.emf.common.util.BasicEList<SchemaObjectAdditionalProperties>((Collection<? extends SchemaObjectAdditionalProperties>) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).collect(java.util.stream.Collectors.toList()))  ;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated NOT
-	 */
-	public boolean isSetSchemaObjectAdditionalProperties() {
-		// TODO: implement this method to return whether the 'Schema Object Additional Properties' reference list is set
-		// Ensure that you remove @generated or mark it @generated NOT
-//		throw new UnsupportedOperationException();
-		return getSchemaObjectAdditionalProperties()!=null && !getSchemaObjectAdditionalProperties().isEmpty();
 	}
 
 	/**
@@ -660,37 +480,37 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ADDITIONAL_ITEMS:
 				return getAdditionalItems() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ITEMS:
-				return isSetItems();
+				return getItems() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ADDITIONAL_PROPERTIES:
-				return isSetAdditionalProperties();
+				return getAdditionalProperties() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__CONTAINS:
-				return isSetContains();
+				return getContains() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PROPERTIES:
-				return isSetProperties();
+				return getProperties() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__DEFINITIONS:
-				return isSetDefinitions();
+				return getDefinitions() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PATTERN_PROPERTIES:
-				return isSetPatternProperties();
+				return getPatternProperties() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__DEPENDENCIES:
-				return isSetDependencies();
+				return getDependencies() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PROPERTY_NAMES:
-				return isSetPropertyNames();
+				return getPropertyNames() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__IF:
-				return isSetIf();
+				return getIf() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__THEN:
-				return isSetThen();
+				return getThen() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ELSE:
-				return isSetElse();
+				return getElse() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ALL_OF:
-				return isSetAllOf();
+				return getAllOf() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ANY_OF:
-				return isSetAnyOf();
+				return getAnyOf() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ONE_OF:
-				return isSetOneOf();
+				return getOneOf() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__NOT:
-				return isSetNot();
+				return getNot() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES:
-				return isSetSchemaObjectAdditionalProperties();
+				return !getSchemaObjectAdditionalProperties().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
