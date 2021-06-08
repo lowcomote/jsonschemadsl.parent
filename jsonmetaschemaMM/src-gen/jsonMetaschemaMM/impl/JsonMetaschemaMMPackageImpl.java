@@ -3063,7 +3063,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEOperation(getRefSchemaDefinition__GetFragment(), ecorePackage.getEString(), "getFragment", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
-		initEOperation(getRefSchemaDefinition__GetJsonPointerAsList(), ecorePackage.getEString(), "getJsonPointerAsList", 0, -1, IS_UNIQUE, IS_ORDERED);
+		initEOperation(getRefSchemaDefinition__GetJsonPointerAsList(), ecorePackage.getEString(), "getJsonPointerAsList", 0, -1, !IS_UNIQUE, IS_ORDERED);
 
 		initEOperation(getRefSchemaDefinition__IsOnlyFragment(), ecorePackage.getEBooleanObject(), "isOnlyFragment", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 

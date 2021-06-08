@@ -19,7 +19,7 @@
  			"additionalProperties":true	
  		},
  		"def2":{
- 			"type":"object",
+ 			"type":"object", 
  			"additionalProperties":{
  				"type":"object",
  				"additionalProperties":{
@@ -44,8 +44,8 @@
  					
  				}
  			}	
- 		}
- 	},
+ 		} 
+ 	}, 
  	"patternProperties":{
  		"^S_": { "type": "string" }
  	},
@@ -80,11 +80,11 @@
   	],
   	"anyOf": [
     	{ "type": "string", "maxLength": 5 },
-    	{ "type": "number", "minimum": 0 }
+    	{ "type": "number", "minimum": 0.0 }
   	],
   	"oneOf": [
-	    { "type": "number", "multipleOf": 5 },
-	    { "type": "number", "multipleOf": 3 }
+	    { "type": "number", "multipleOf": 5.2 },
+	    { "type": "number", "multipleOf": 3.0 }
 	 ],
 	 "not": { "type": "string" },
 	 
@@ -94,7 +94,7 @@
 	 		"extraProp1":{"type":"number"}
 	 	}
 	 },
-	 
+	    
 	 "properties":{
 	 	"ref1":{"$ref": "#/additionalItems"},
 	 	"ref2":{"$ref": "#/additionalProperties"},
@@ -102,7 +102,7 @@
 	 	"ref4":{"$ref": "#/contains"},
 	 	
 	 	"ref6":{"$ref": "#/definitions/def1"},
-	 	"ref7":{"$ref": "#/definitions/def2"},
+	 	"ref7":{"$ref": "#/definitions/def2"}, 
 	 	"ref8":{"$ref": "#/definitions/def2/additionalProperties"},
 	 	"ref9":{"$ref": "#/definitions/def2/additionalProperties/additionalProperties"},
 	 	"ref10":{"$ref": "#/definitions/def2/additionalProperties/additionalProperties/contains"},

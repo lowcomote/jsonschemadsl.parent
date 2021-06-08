@@ -62,7 +62,7 @@ public interface RefSchemaDefinition extends KeywordDefinition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model kind="operation"
+	 * @model kind="operation" unique="false"
 	 * @generated
 	 */
 	EList<String> getJsonPointerAsList();
