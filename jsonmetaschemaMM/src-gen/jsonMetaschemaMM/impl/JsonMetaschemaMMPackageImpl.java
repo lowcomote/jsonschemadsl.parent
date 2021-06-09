@@ -27,6 +27,9 @@ import jsonMetaschemaMM.FormatSchemaDefinition;
 import jsonMetaschemaMM.IdSchemaDefinition;
 import jsonMetaschemaMM.IfSchemaDefinition;
 import jsonMetaschemaMM.IntegerValue;
+import jsonMetaschemaMM.ItemsAnyOf;
+import jsonMetaschemaMM.ItemsAnyOf1;
+import jsonMetaschemaMM.ItemsAnyOf2;
 import jsonMetaschemaMM.ItemsSchemaDefinition;
 import jsonMetaschemaMM.JsonDocument;
 import jsonMetaschemaMM.JsonMetaschemaMMFactory;
@@ -612,6 +615,27 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass itemsAnyOfEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass itemsAnyOf1EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass itemsAnyOf2EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum simpleTypesEEnum = null;
 
 	/**
@@ -1088,18 +1112,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public EReference getItemsSchemaDefinition_ItemsAnyOf1() {
+	public EReference getItemsSchemaDefinition_AnyOf() {
 		return (EReference)itemsSchemaDefinitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getItemsSchemaDefinition_ItemsAnyOf2() {
-		return (EReference)itemsSchemaDefinitionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2468,6 +2482,56 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EClass getItemsAnyOf() {
+		return itemsAnyOfEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getItemsAnyOf1() {
+		return itemsAnyOf1EClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getItemsAnyOf1_AnyOf1() {
+		return (EReference)itemsAnyOf1EClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getItemsAnyOf2() {
+		return itemsAnyOf2EClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getItemsAnyOf2_AnyOf2() {
+		return (EReference)itemsAnyOf2EClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getSimpleTypes() {
 		return simpleTypesEEnum;
 	}
@@ -2561,8 +2625,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		createEAttribute(titleSchemaDefinitionEClass, TITLE_SCHEMA_DEFINITION__TITLE);
 
 		itemsSchemaDefinitionEClass = createEClass(ITEMS_SCHEMA_DEFINITION);
-		createEReference(itemsSchemaDefinitionEClass, ITEMS_SCHEMA_DEFINITION__ITEMS_ANY_OF1);
-		createEReference(itemsSchemaDefinitionEClass, ITEMS_SCHEMA_DEFINITION__ITEMS_ANY_OF2);
+		createEReference(itemsSchemaDefinitionEClass, ITEMS_SCHEMA_DEFINITION__ANY_OF);
 
 		defaultSchemaDefinitionEClass = createEClass(DEFAULT_SCHEMA_DEFINITION);
 		createEReference(defaultSchemaDefinitionEClass, DEFAULT_SCHEMA_DEFINITION__DEFAULT);
@@ -2762,6 +2825,14 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		schemaObjectDependenciesAdditionalPropertiesAnyOfEClass = createEClass(SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF);
 
+		itemsAnyOfEClass = createEClass(ITEMS_ANY_OF);
+
+		itemsAnyOf1EClass = createEClass(ITEMS_ANY_OF1);
+		createEReference(itemsAnyOf1EClass, ITEMS_ANY_OF1__ANY_OF1);
+
+		itemsAnyOf2EClass = createEClass(ITEMS_ANY_OF2);
+		createEReference(itemsAnyOf2EClass, ITEMS_ANY_OF2__ANY_OF2);
+
 		// Create enums
 		simpleTypesEEnum = createEEnum(SIMPLE_TYPES);
 		nullEnumEEnum = createEEnum(NULL_ENUM);
@@ -2854,6 +2925,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		schemaObjectDependenciesAdditionalPropertiesEClass.getESuperTypes().add(this.getSchemaObjectDependenciesProperties());
 		schemaObjectDependenciesAdditionalPropertiesAnyOf1EClass.getESuperTypes().add(this.getSchemaObjectDependenciesAdditionalPropertiesAnyOf());
 		schemaObjectDependenciesAdditionalPropertiesAnyOf2EClass.getESuperTypes().add(this.getSchemaObjectDependenciesAdditionalPropertiesAnyOf());
+		itemsAnyOf1EClass.getESuperTypes().add(this.getItemsAnyOf());
+		itemsAnyOf2EClass.getESuperTypes().add(this.getItemsAnyOf());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(objectSchemaEClass, ObjectSchema.class, "ObjectSchema", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2911,8 +2984,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEAttribute(getTitleSchemaDefinition_Title(), ecorePackage.getEString(), "title", null, 1, 1, TitleSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(itemsSchemaDefinitionEClass, ItemsSchemaDefinition.class, "ItemsSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getItemsSchemaDefinition_ItemsAnyOf1(), this.getSchema(), null, "itemsAnyOf1", null, 0, 1, ItemsSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getItemsSchemaDefinition_ItemsAnyOf2(), this.getSchemaArray(), null, "itemsAnyOf2", null, 0, 1, ItemsSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getItemsSchemaDefinition_AnyOf(), this.getItemsAnyOf(), null, "anyOf", null, 1, 1, ItemsSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(defaultSchemaDefinitionEClass, DefaultSchemaDefinition.class, "DefaultSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDefaultSchemaDefinition_Default(), this.getJsonDocument(), null, "default", null, 1, 1, DefaultSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3133,6 +3205,14 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEReference(getSchemaObjectDependenciesAdditionalPropertiesAnyOf2_AnyOf2(), this.getStringArray(), null, "anyOf2", null, 1, 1, SchemaObjectDependenciesAdditionalPropertiesAnyOf2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(schemaObjectDependenciesAdditionalPropertiesAnyOfEClass, SchemaObjectDependenciesAdditionalPropertiesAnyOf.class, "SchemaObjectDependenciesAdditionalPropertiesAnyOf", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(itemsAnyOfEClass, ItemsAnyOf.class, "ItemsAnyOf", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(itemsAnyOf1EClass, ItemsAnyOf1.class, "ItemsAnyOf1", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getItemsAnyOf1_AnyOf1(), this.getSchema(), null, "anyOf1", null, 1, 1, ItemsAnyOf1.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(itemsAnyOf2EClass, ItemsAnyOf2.class, "ItemsAnyOf2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getItemsAnyOf2_AnyOf2(), this.getSchemaArray(), null, "anyOf2", null, 1, 1, ItemsAnyOf2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(simpleTypesEEnum, SimpleTypes.class, "SimpleTypes");

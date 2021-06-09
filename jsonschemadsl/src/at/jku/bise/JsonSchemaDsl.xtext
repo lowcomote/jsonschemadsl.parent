@@ -190,9 +190,21 @@ TitleSchemaDefinition returns TitleSchemaDefinition:
  */
 ItemsSchemaDefinition returns ItemsSchemaDefinition:
 	{ItemsSchemaDefinition} 
-	'"items"' ':' 
-		(itemsAnyOf1=Schema)?
-		(itemsAnyOf2=SchemaArray)?
+	'"items"' ':' anyOf= ItemsAnyOf
+//		(itemsAnyOf1=Schema)?
+//		(itemsAnyOf2=SchemaArray)?
+;
+
+ItemsAnyOf returns ItemsAnyOf:
+	ItemsAnyOf1 | ItemsAnyOf2
+;
+
+ItemsAnyOf1 returns ItemsAnyOf1:
+    anyOf1=Schema 
+;
+
+ItemsAnyOf2 returns ItemsAnyOf2:
+    anyOf2=SchemaArray
 ;
 //	{ItemsSchemaDefinition}
 //	'ItemsSchemaDefinition'

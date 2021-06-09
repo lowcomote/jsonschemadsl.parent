@@ -109,8 +109,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//TitleSchemaDefinition/title"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ItemsSchemaDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ItemsSchemaDefinition/itemsAnyOf1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ItemsSchemaDefinition/itemsAnyOf2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ItemsSchemaDefinition/anyOf"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//DefaultSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//DefaultSchemaDefinition/default"/>
@@ -335,5 +334,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//SchemaObjectDependenciesAdditionalPropertiesAnyOf2/anyOf2"/>
     </genClasses>
     <genClasses image="false" ecoreClass="jsonMetaschemaMM.ecore#//SchemaObjectDependenciesAdditionalPropertiesAnyOf"/>
+    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ItemsAnyOf"/>
+    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ItemsAnyOf1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ItemsAnyOf1/anyOf1"/>
+    </genClasses>
+    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ItemsAnyOf2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ItemsAnyOf2/anyOf2"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

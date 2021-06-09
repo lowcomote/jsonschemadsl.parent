@@ -125,6 +125,8 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 			case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES: return createSchemaObjectDependenciesAdditionalProperties();
 			case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF1: return createSchemaObjectDependenciesAdditionalPropertiesAnyOf1();
 			case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF2: return createSchemaObjectDependenciesAdditionalPropertiesAnyOf2();
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF1: return createItemsAnyOf1();
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF2: return createItemsAnyOf2();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -910,6 +912,28 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	public SchemaObjectDependenciesAdditionalPropertiesAnyOf2 createSchemaObjectDependenciesAdditionalPropertiesAnyOf2() {
 		SchemaObjectDependenciesAdditionalPropertiesAnyOf2Impl schemaObjectDependenciesAdditionalPropertiesAnyOf2 = new SchemaObjectDependenciesAdditionalPropertiesAnyOf2Impl();
 		return schemaObjectDependenciesAdditionalPropertiesAnyOf2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ItemsAnyOf1 createItemsAnyOf1() {
+		ItemsAnyOf1Impl itemsAnyOf1 = new ItemsAnyOf1Impl();
+		return itemsAnyOf1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ItemsAnyOf2 createItemsAnyOf2() {
+		ItemsAnyOf2Impl itemsAnyOf2 = new ItemsAnyOf2Impl();
+		return itemsAnyOf2;
 	}
 
 	/**

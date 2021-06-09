@@ -319,6 +319,13 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 			Schema nextSchema = null;
 			if("additionalItems".equals(currentToken)) {
 				nextSchema = getAdditionalItems().getAdditionalItems();
+			}else if ("items".equals(currentToken)) {
+				if(getItems().getAnyOf() instanceof jsonMetaschemaMM.ItemsAnyOf1) {
+					nextSchema= ((jsonMetaschemaMM.ItemsAnyOf1)getItems().getAnyOf()).getAnyOf1();
+				}else { // getItems().getAnyOf() instanceof jsonMetaschemaMM.ItemsAnyOf2
+					nextSchema = ((jsonMetaschemaMM.ItemsAnyOf2)getItems().getAnyOf()).getAnyOf2().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));
+					nextIndex++;
+				}
 			}else if ("additionalProperties".equals(currentToken)) {
 				nextSchema = getAdditionalProperties().getAdditionalProperties();
 			}else if ("contains".equals(currentToken)) {

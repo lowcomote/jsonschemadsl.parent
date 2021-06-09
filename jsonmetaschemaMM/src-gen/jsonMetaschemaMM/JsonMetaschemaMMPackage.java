@@ -703,22 +703,13 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int ITEMS_SCHEMA_DEFINITION = 10;
 
 	/**
-	 * The feature id for the '<em><b>Items Any Of1</b></em>' containment reference.
+	 * The feature id for the '<em><b>Any Of</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS_SCHEMA_DEFINITION__ITEMS_ANY_OF1 = KEYWORD_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Items Any Of2</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITEMS_SCHEMA_DEFINITION__ITEMS_ANY_OF2 = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
+	int ITEMS_SCHEMA_DEFINITION__ANY_OF = KEYWORD_DEFINITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Items Schema Definition</em>' class.
@@ -727,7 +718,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 2;
+	int ITEMS_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Items Schema Definition</em>' class.
@@ -3048,6 +3039,108 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF2_OPERATION_COUNT = SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ItemsAnyOfImpl <em>Items Any Of</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMetaschemaMM.impl.ItemsAnyOfImpl
+	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf()
+	 * @generated
+	 */
+	int ITEMS_ANY_OF = 73;
+
+	/**
+	 * The number of structural features of the '<em>Items Any Of</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Items Any Of</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ItemsAnyOf1Impl <em>Items Any Of1</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMetaschemaMM.impl.ItemsAnyOf1Impl
+	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf1()
+	 * @generated
+	 */
+	int ITEMS_ANY_OF1 = 74;
+
+	/**
+	 * The feature id for the '<em><b>Any Of1</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF1__ANY_OF1 = ITEMS_ANY_OF_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Items Any Of1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF1_FEATURE_COUNT = ITEMS_ANY_OF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Items Any Of1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF1_OPERATION_COUNT = ITEMS_ANY_OF_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ItemsAnyOf2Impl <em>Items Any Of2</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMetaschemaMM.impl.ItemsAnyOf2Impl
+	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf2()
+	 * @generated
+	 */
+	int ITEMS_ANY_OF2 = 75;
+
+	/**
+	 * The feature id for the '<em><b>Any Of2</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF2__ANY_OF2 = ITEMS_ANY_OF_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Items Any Of2</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF2_FEATURE_COUNT = ITEMS_ANY_OF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Items Any Of2</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF2_OPERATION_COUNT = ITEMS_ANY_OF_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3055,7 +3148,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSimpleTypes()
 	 * @generated
 	 */
-	int SIMPLE_TYPES = 73;
+	int SIMPLE_TYPES = 76;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.NullEnum <em>Null Enum</em>}' enum.
@@ -3065,7 +3158,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getNullEnum()
 	 * @generated
 	 */
-	int NULL_ENUM = 74;
+	int NULL_ENUM = 77;
 
 
 	/**
@@ -3496,26 +3589,15 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EClass getItemsSchemaDefinition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf1 <em>Items Any Of1</em>}'.
+	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ItemsSchemaDefinition#getAnyOf <em>Any Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Items Any Of1</em>'.
-	 * @see jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf1()
+	 * @return the meta object for the containment reference '<em>Any Of</em>'.
+	 * @see jsonMetaschemaMM.ItemsSchemaDefinition#getAnyOf()
 	 * @see #getItemsSchemaDefinition()
 	 * @generated
 	 */
-	EReference getItemsSchemaDefinition_ItemsAnyOf1();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf2 <em>Items Any Of2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Items Any Of2</em>'.
-	 * @see jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf2()
-	 * @see #getItemsSchemaDefinition()
-	 * @generated
-	 */
-	EReference getItemsSchemaDefinition_ItemsAnyOf2();
+	EReference getItemsSchemaDefinition_AnyOf();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.DefaultSchemaDefinition <em>Default Schema Definition</em>}'.
@@ -4940,6 +5022,58 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EClass getSchemaObjectDependenciesAdditionalPropertiesAnyOf();
 
 	/**
+	 * Returns the meta object for class '{@link jsonMetaschemaMM.ItemsAnyOf <em>Items Any Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Items Any Of</em>'.
+	 * @see jsonMetaschemaMM.ItemsAnyOf
+	 * @generated
+	 */
+	EClass getItemsAnyOf();
+
+	/**
+	 * Returns the meta object for class '{@link jsonMetaschemaMM.ItemsAnyOf1 <em>Items Any Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Items Any Of1</em>'.
+	 * @see jsonMetaschemaMM.ItemsAnyOf1
+	 * @generated
+	 */
+	EClass getItemsAnyOf1();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ItemsAnyOf1#getAnyOf1 <em>Any Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Any Of1</em>'.
+	 * @see jsonMetaschemaMM.ItemsAnyOf1#getAnyOf1()
+	 * @see #getItemsAnyOf1()
+	 * @generated
+	 */
+	EReference getItemsAnyOf1_AnyOf1();
+
+	/**
+	 * Returns the meta object for class '{@link jsonMetaschemaMM.ItemsAnyOf2 <em>Items Any Of2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Items Any Of2</em>'.
+	 * @see jsonMetaschemaMM.ItemsAnyOf2
+	 * @generated
+	 */
+	EClass getItemsAnyOf2();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ItemsAnyOf2#getAnyOf2 <em>Any Of2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Any Of2</em>'.
+	 * @see jsonMetaschemaMM.ItemsAnyOf2#getAnyOf2()
+	 * @see #getItemsAnyOf2()
+	 * @generated
+	 */
+	EReference getItemsAnyOf2_AnyOf2();
+
+	/**
 	 * Returns the meta object for enum '{@link jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5325,20 +5459,12 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EClass ITEMS_SCHEMA_DEFINITION = eINSTANCE.getItemsSchemaDefinition();
 
 		/**
-		 * The meta object literal for the '<em><b>Items Any Of1</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Any Of</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ITEMS_SCHEMA_DEFINITION__ITEMS_ANY_OF1 = eINSTANCE.getItemsSchemaDefinition_ItemsAnyOf1();
-
-		/**
-		 * The meta object literal for the '<em><b>Items Any Of2</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ITEMS_SCHEMA_DEFINITION__ITEMS_ANY_OF2 = eINSTANCE.getItemsSchemaDefinition_ItemsAnyOf2();
+		EReference ITEMS_SCHEMA_DEFINITION__ANY_OF = eINSTANCE.getItemsSchemaDefinition_AnyOf();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.DefaultSchemaDefinitionImpl <em>Default Schema Definition</em>}' class.
@@ -6551,6 +6677,52 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF = eINSTANCE.getSchemaObjectDependenciesAdditionalPropertiesAnyOf();
+
+		/**
+		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.ItemsAnyOfImpl <em>Items Any Of</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jsonMetaschemaMM.impl.ItemsAnyOfImpl
+		 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf()
+		 * @generated
+		 */
+		EClass ITEMS_ANY_OF = eINSTANCE.getItemsAnyOf();
+
+		/**
+		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.ItemsAnyOf1Impl <em>Items Any Of1</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jsonMetaschemaMM.impl.ItemsAnyOf1Impl
+		 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf1()
+		 * @generated
+		 */
+		EClass ITEMS_ANY_OF1 = eINSTANCE.getItemsAnyOf1();
+
+		/**
+		 * The meta object literal for the '<em><b>Any Of1</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ITEMS_ANY_OF1__ANY_OF1 = eINSTANCE.getItemsAnyOf1_AnyOf1();
+
+		/**
+		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.ItemsAnyOf2Impl <em>Items Any Of2</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jsonMetaschemaMM.impl.ItemsAnyOf2Impl
+		 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf2()
+		 * @generated
+		 */
+		EClass ITEMS_ANY_OF2 = eINSTANCE.getItemsAnyOf2();
+
+		/**
+		 * The meta object literal for the '<em><b>Any Of2</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ITEMS_ANY_OF2__ANY_OF2 = eINSTANCE.getItemsAnyOf2_AnyOf2();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}' enum.

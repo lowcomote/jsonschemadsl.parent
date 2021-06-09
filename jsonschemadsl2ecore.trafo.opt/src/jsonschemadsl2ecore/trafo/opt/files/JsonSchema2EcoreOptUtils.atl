@@ -44,24 +44,26 @@ helper def: jsonGrammarRoot(): JsonGrammarMM!JsonGrammar = if (thisModule.jsonGr
 															 endif;
 
 
-helper def: keywordDefinitionMap : Map (String, OclAny) = ------ TODO should it be OclType????
-	Map{
-		('additionalItems',JSchemaMM!AdditionalItemsSchemaDefinition), 
-		('items',JSchemaMM!ItemsSchemaDefinition),
-		('additionalProperties',JSchemaMM!AdditionalPropertiesSchemaDefinition),
-		('contains',JSchemaMM!ContainsSchemaDefinition),
-		('definitions',JSchemaMM!DefinitionsSchemaDefinition),
-		('properties',JSchemaMM!PropertiesSchemaDefinition),
-		('patternProperties',JSchemaMM!PatternPropertiesSchemaDefinition),
-		('propertyNames',JSchemaMM!PropertyNamesSchemaDefinition),
-		('if',JSchemaMM!IfSchemaDefinition),
-		('then',JSchemaMM!ThenSchemaDefinition),
-		('else',JSchemaMM!ElseSchemaDefinition),
-		('allOf',JSchemaMM!AllOfSchemaDefinition),
-		('anyOf',JSchemaMM!AnyOfSchemaDefinition),
-		('oneOf',JSchemaMM!OneOfSchemaDefinition),
-		('not',JSchemaMM!NotSchemaDefinition)
-	};
+--helper def: keywordDefinitionMap : Map (String, OclAny) = ------ TODO should it be OclType????
+--	Map{
+--		('additionalItems',JSchemaMM!AdditionalItemsSchemaDefinition), 
+--		('items',JSchemaMM!ItemsSchemaDefinition),
+--		('additionalProperties',JSchemaMM!AdditionalPropertiesSchemaDefinition),
+--		('contains',JSchemaMM!ContainsSchemaDefinition),
+--		('definitions',JSchemaMM!DefinitionsSchemaDefinition),
+--		('properties',JSchemaMM!PropertiesSchemaDefinition),
+--		('patternProperties',JSchemaMM!PatternPropertiesSchemaDefinition),
+--		('propertyNames',JSchemaMM!PropertyNamesSchemaDefinition),
+--		('if',JSchemaMM!IfSchemaDefinition),
+--		('then',JSchemaMM!ThenSchemaDefinition),
+--		('else',JSchemaMM!ElseSchemaDefinition),
+--		('allOf',JSchemaMM!AllOfSchemaDefinition),
+--		('anyOf',JSchemaMM!AnyOfSchemaDefinition),
+--		('oneOf',JSchemaMM!OneOfSchemaDefinition),
+--		('not',JSchemaMM!NotSchemaDefinition)
+--	};
+	
+	
 helper def : simpleTypeMapping : Map(String, Ecore!EDataType) =
 	Map{
 		(#"\"string\"", Ecore!EString),
@@ -92,50 +94,50 @@ helper context JSchemaMM!RefSchemaDefinition def: findSchemaByJsonPointer() : JS
 -----------NEWW
 
 
-helper context JSchemaMM!Schema def:findSchemaByJsonPointerFromRoot(jsonPointer:String):  JSchemaMM!Schema=
-	self.findSchemaByJsonPointer(jsonPointer.split('/'));
+--helper context JSchemaMM!Schema def:findSchemaByJsonPointerFromRoot(jsonPointer:String):  JSchemaMM!Schema=
+--	self.findSchemaByJsonPointer(jsonPointer.split('/'));
 
 --  the initial input will be JsonSchema.schema
-helper context OclAny def: findSchemaByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
-	if jsonPointer ->notEmpty() 
-	then
-		if jsonPointer.first() = '#' -- OclAny is MM!JsonSchema.schema
-			then
-				self.findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
-			else
-				let keywordDefinitionType : OclAny = thisModule.keywordDefinitionMap.get(jsonPointer.first())
-				in
-					if not keywordDefinitionType.oclIsUndefined()
-					then --In the jsonPointer navigation we are on a keywordDefinition and self is an objectschema
-						let foundKeywordDefinition : JSchemaMM!KeywordDefinition = 
-							self.keywordDefinition->select(
-								keywordDefinition | keywordDefinition.oclIsTypeOf(keywordDefinitionType)
-							)
-						in 
-							if foundKeywordDefinition.isEmpty()	
-							then OclUndefined
-							else
-								foundKeywordDefinition.first().findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
-							endif
-
-					else -- In the jsonPointer navigation we are on a key , we look for a KeySchema with that key
-						 ------ TODO (we could be on an array index, not supported yet)
-						 ------ TODO it could also be a keyValue pair , not supported yet to hold definitions
-						let foundKeySchemaPair : JSchemaMM!KeySchemaPair =
-							self.keySchemaPairs->select(keySchemaPair | keySchemaPair.key.stripFirstAndLast()=jsonPointer.first())
-						in 
-							if foundKeySchemaPair.isEmpty()
-							then OclUndefined	
-							else
-								foundKeySchemaPair.first().value.findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
-							endif
-						 
-					endif
-			endif
-		else
-		self
-	endif
-;
+--helper context OclAny def: findSchemaByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
+--	if jsonPointer ->notEmpty() 
+--	then
+--		if jsonPointer.first() = '#' -- OclAny is MM!JsonSchema.schema
+--			then
+--				self.findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
+--			else
+--				let keywordDefinitionType : OclAny = thisModule.keywordDefinitionMap.get(jsonPointer.first())
+--				in
+--					if not keywordDefinitionType.oclIsUndefined()
+--					then --In the jsonPointer navigation we are on a keywordDefinition and self is an objectschema
+--						let foundKeywordDefinition : JSchemaMM!KeywordDefinition = 
+--							self.keywordDefinition->select(
+--								keywordDefinition | keywordDefinition.oclIsTypeOf(keywordDefinitionType)
+--							)
+--						in 
+--							if foundKeywordDefinition.isEmpty()	
+--							then OclUndefined
+--							else
+--								foundKeywordDefinition.first().findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
+--							endif
+--
+--					else -- In the jsonPointer navigation we are on a key , we look for a KeySchema with that key
+--						 ------ TODO (we could be on an array index, not supported yet)
+--						 ------ TODO it could also be a keyValue pair , not supported yet to hold definitions
+--						let foundKeySchemaPair : JSchemaMM!KeySchemaPair =
+--							self.keySchemaPairs->select(keySchemaPair | keySchemaPair.key.stripFirstAndLast()=jsonPointer.first())
+--						in 
+--							if foundKeySchemaPair.isEmpty()
+--							then OclUndefined	
+--							else
+--								foundKeySchemaPair.first().value.findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
+--							endif
+--						 
+--					endif
+--			endif
+--		else
+--		self
+--	endif
+--;
 
 helper  def: popFirst(jsonPointer:Sequence(String)): Sequence(String)=
 	if jsonPointer.size() = 0
@@ -192,11 +194,13 @@ else
 --				else
 					if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then 'additionalItems'
 					else 
-						if parent.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'
+--						if parent.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'
+						if parent.oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then 'items'
 						else 
 							if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
 							    ---- TODO change when refactoring ItemsSchemaDefinition
-								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'.concat(parent.items.indexOf(self).toString())
+--								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'.concat(parent.items.indexOf(self).toString())
+								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then 'items'.concat(parent.items.indexOf(self).toString())
 								else 
 									if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition) then 'allOf'.concat(parent.items.indexOf(self).toString())
 									else
@@ -223,7 +227,7 @@ else
 													if parent.oclIsTypeOf(JSchemaMM!ContainsSchemaDefinition) then 'contains'
 													else 
 														if parent.oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1) then 'dependencies'.concat(parent.refImmediateComposite().refImmediateComposite().properties.indexOf(parent.refImmediateComposite()).toString())
-														else OclUndefined ---- TODO  add other keywords pointing to Schema 
+														else OclUndefined ---- TODO  add other keywords pointing to Schema (check if are already all)
 														endif 
 													endif 
 												endif
@@ -261,10 +265,12 @@ else
 	        else 
 	        	if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then parent.refImmediateComposite() -- we return the schema enclosing the AdditionalItemsSchemaDefinition
 	        	else 
-	        		if parent.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then  parent.refImmediateComposite() -- we return the schema enclosing the ItemsSchemaDefinition
+--	        		if parent.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then  parent.refImmediateComposite() -- we return the schema enclosing the ItemsSchemaDefinition
+					if parent.oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then  parent.refImmediateComposite().refImmediateComposite() -- we return the schema enclosing the ItemsSchemaDefinition 
 	        		else 
 	        			if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
-							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then parent.refImmediateComposite().refImmediateComposite() --we return the schema enclosing the ItemsSchemaDefinition that encloses the schema array
+--							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then parent.refImmediateComposite().refImmediateComposite() --we return the schema enclosing the ItemsSchemaDefinition that encloses the schema array
+							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then parent.refImmediateComposite().refImmediateComposite().refImmediateComposite()  --we return the schema enclosing the ItemsSchemaDefinition that encloses the schema array
 							else OclUndefined --add AllOfSchemaDefinition,  AnyOfSchemaDefinition, OneOfSchemaDefinition 
 							endif	
 						else OclUndefined -- -- TODO to be completed with the containmentes pointing to Schema

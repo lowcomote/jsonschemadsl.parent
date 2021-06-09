@@ -12,8 +12,7 @@ package jsonMetaschemaMM;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf1 <em>Items Any Of1</em>}</li>
- *   <li>{@link jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf2 <em>Items Any Of2</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.ItemsSchemaDefinition#getAnyOf <em>Any Of</em>}</li>
  * </ul>
  *
  * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getItemsSchemaDefinition()
@@ -22,47 +21,25 @@ package jsonMetaschemaMM;
  */
 public interface ItemsSchemaDefinition extends KeywordDefinition {
 	/**
-	 * Returns the value of the '<em><b>Items Any Of1</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Any Of</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Items Any Of1</em>' containment reference.
-	 * @see #setItemsAnyOf1(Schema)
-	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getItemsSchemaDefinition_ItemsAnyOf1()
-	 * @model containment="true"
+	 * @return the value of the '<em>Any Of</em>' containment reference.
+	 * @see #setAnyOf(ItemsAnyOf)
+	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getItemsSchemaDefinition_AnyOf()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Schema getItemsAnyOf1();
+	ItemsAnyOf getAnyOf();
 
 	/**
-	 * Sets the value of the '{@link jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf1 <em>Items Any Of1</em>}' containment reference.
+	 * Sets the value of the '{@link jsonMetaschemaMM.ItemsSchemaDefinition#getAnyOf <em>Any Of</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Items Any Of1</em>' containment reference.
-	 * @see #getItemsAnyOf1()
+	 * @param value the new value of the '<em>Any Of</em>' containment reference.
+	 * @see #getAnyOf()
 	 * @generated
 	 */
-	void setItemsAnyOf1(Schema value);
-
-	/**
-	 * Returns the value of the '<em><b>Items Any Of2</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Items Any Of2</em>' containment reference.
-	 * @see #setItemsAnyOf2(SchemaArray)
-	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getItemsSchemaDefinition_ItemsAnyOf2()
-	 * @model containment="true"
-	 * @generated
-	 */
-	SchemaArray getItemsAnyOf2();
-
-	/**
-	 * Sets the value of the '{@link jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf2 <em>Items Any Of2</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Items Any Of2</em>' containment reference.
-	 * @see #getItemsAnyOf2()
-	 * @generated
-	 */
-	void setItemsAnyOf2(SchemaArray value);
+	void setAnyOf(ItemsAnyOf value);
 
 } // ItemsSchemaDefinition

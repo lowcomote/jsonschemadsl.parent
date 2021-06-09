@@ -91,8 +91,16 @@
 	 "extraProp":{
 	 	"type":"object",
 	 	"properties":{
-	 		"extraProp1":{"type":"number"}
-	 	}
+	 		"extraProp1":{"type":"number"},
+	 		"extraProp2":{
+	 			"type":"array",
+	 			"items":[
+	 				{"type":"number"},
+	 				{"type":"string"}
+	 			]
+	 		}
+	 	},
+	 	"additionalProperties":false
 	 },
 	    
 	 "properties":{
@@ -100,7 +108,7 @@
 	 	"ref2":{"$ref": "#/additionalProperties"},
 	 	"ref3":{"$ref": "#/additionalProperties/properties/prop1"},
 	 	"ref4":{"$ref": "#/contains"},
-	 	
+	 	"ref5":{"$ref": "#/contains/items"},
 	 	"ref6":{"$ref": "#/definitions/def1"},
 	 	"ref7":{"$ref": "#/definitions/def2"}, 
 	 	"ref8":{"$ref": "#/definitions/def2/additionalProperties"},
@@ -127,7 +135,8 @@
 	 	"ref30":{"$ref": "#/oneOf/1"},
 	 	"ref31":{"$ref": "#/not"},
 	 	"ref32":{"$ref": "#/extraProp"},
-	 	"ref33":{"$ref": "#/extraProp/properties/extraProp1"}
+	 	"ref33":{"$ref": "#/extraProp/properties/extraProp1"},
+	 	"ref34":{"$ref": "#/extraProp/properties/extraProp2/items/0"}
 	 	
 	 }
   	

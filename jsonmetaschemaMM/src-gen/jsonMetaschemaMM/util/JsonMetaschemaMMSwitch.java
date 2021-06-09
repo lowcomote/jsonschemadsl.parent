@@ -563,6 +563,26 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF: {
+				ItemsAnyOf itemsAnyOf = (ItemsAnyOf)theEObject;
+				T result = caseItemsAnyOf(itemsAnyOf);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF1: {
+				ItemsAnyOf1 itemsAnyOf1 = (ItemsAnyOf1)theEObject;
+				T result = caseItemsAnyOf1(itemsAnyOf1);
+				if (result == null) result = caseItemsAnyOf(itemsAnyOf1);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF2: {
+				ItemsAnyOf2 itemsAnyOf2 = (ItemsAnyOf2)theEObject;
+				T result = caseItemsAnyOf2(itemsAnyOf2);
+				if (result == null) result = caseItemsAnyOf(itemsAnyOf2);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -1659,6 +1679,51 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSchemaObjectDependenciesAdditionalPropertiesAnyOf(SchemaObjectDependenciesAdditionalPropertiesAnyOf object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Items Any Of</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Items Any Of</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseItemsAnyOf(ItemsAnyOf object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Items Any Of1</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Items Any Of1</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseItemsAnyOf1(ItemsAnyOf1 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Items Any Of2</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Items Any Of2</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseItemsAnyOf2(ItemsAnyOf2 object) {
 		return null;
 	}
 

@@ -102,9 +102,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ItemsSchemaDefinition" eSuperTypes="#//KeywordDefinition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="itemsAnyOf1" eType="#//Schema"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="itemsAnyOf2" eType="#//SchemaArray"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf" lowerBound="1" eType="#//ItemsAnyOf"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefaultSchemaDefinition" eSuperTypes="#//KeywordDefinition">
@@ -398,5 +396,14 @@
       abstract="true"/>
   <eClassifiers xsi:type="ecore:EEnum" name="NullEnum">
     <eLiterals name="null"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemsAnyOf" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemsAnyOf1" eSuperTypes="#//ItemsAnyOf">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf1" lowerBound="1"
+        eType="#//Schema" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemsAnyOf2" eSuperTypes="#//ItemsAnyOf">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf2" lowerBound="1"
+        eType="#//SchemaArray" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

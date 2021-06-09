@@ -2,9 +2,10 @@
  */
 package jsonMetaschemaMM.impl;
 
-import jsonMetaschemaMM.ItemsAnyOf;
-import jsonMetaschemaMM.ItemsSchemaDefinition;
+import jsonMetaschemaMM.ItemsAnyOf2;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
+import jsonMetaschemaMM.SchemaArray;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,34 +16,34 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Items Schema Definition</b></em>'.
+ * An implementation of the model object '<em><b>Items Any Of2</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link jsonMetaschemaMM.impl.ItemsSchemaDefinitionImpl#getAnyOf <em>Any Of</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ItemsAnyOf2Impl#getAnyOf2 <em>Any Of2</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements ItemsSchemaDefinition {
+public class ItemsAnyOf2Impl extends ItemsAnyOfImpl implements ItemsAnyOf2 {
 	/**
-	 * The cached value of the '{@link #getAnyOf() <em>Any Of</em>}' containment reference.
+	 * The cached value of the '{@link #getAnyOf2() <em>Any Of2</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAnyOf()
+	 * @see #getAnyOf2()
 	 * @generated
 	 * @ordered
 	 */
-	protected ItemsAnyOf anyOf;
+	protected SchemaArray anyOf2;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ItemsSchemaDefinitionImpl() {
+	protected ItemsAnyOf2Impl() {
 		super();
 	}
 
@@ -53,7 +54,7 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JsonMetaschemaMMPackage.Literals.ITEMS_SCHEMA_DEFINITION;
+		return JsonMetaschemaMMPackage.Literals.ITEMS_ANY_OF2;
 	}
 
 	/**
@@ -62,8 +63,8 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * @generated
 	 */
 	@Override
-	public ItemsAnyOf getAnyOf() {
-		return anyOf;
+	public SchemaArray getAnyOf2() {
+		return anyOf2;
 	}
 
 	/**
@@ -71,11 +72,11 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAnyOf(ItemsAnyOf newAnyOf, NotificationChain msgs) {
-		ItemsAnyOf oldAnyOf = anyOf;
-		anyOf = newAnyOf;
+	public NotificationChain basicSetAnyOf2(SchemaArray newAnyOf2, NotificationChain msgs) {
+		SchemaArray oldAnyOf2 = anyOf2;
+		anyOf2 = newAnyOf2;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.ITEMS_SCHEMA_DEFINITION__ANY_OF, oldAnyOf, newAnyOf);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.ITEMS_ANY_OF2__ANY_OF2, oldAnyOf2, newAnyOf2);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -87,18 +88,18 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * @generated
 	 */
 	@Override
-	public void setAnyOf(ItemsAnyOf newAnyOf) {
-		if (newAnyOf != anyOf) {
+	public void setAnyOf2(SchemaArray newAnyOf2) {
+		if (newAnyOf2 != anyOf2) {
 			NotificationChain msgs = null;
-			if (anyOf != null)
-				msgs = ((InternalEObject)anyOf).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JsonMetaschemaMMPackage.ITEMS_SCHEMA_DEFINITION__ANY_OF, null, msgs);
-			if (newAnyOf != null)
-				msgs = ((InternalEObject)newAnyOf).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JsonMetaschemaMMPackage.ITEMS_SCHEMA_DEFINITION__ANY_OF, null, msgs);
-			msgs = basicSetAnyOf(newAnyOf, msgs);
+			if (anyOf2 != null)
+				msgs = ((InternalEObject)anyOf2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JsonMetaschemaMMPackage.ITEMS_ANY_OF2__ANY_OF2, null, msgs);
+			if (newAnyOf2 != null)
+				msgs = ((InternalEObject)newAnyOf2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JsonMetaschemaMMPackage.ITEMS_ANY_OF2__ANY_OF2, null, msgs);
+			msgs = basicSetAnyOf2(newAnyOf2, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.ITEMS_SCHEMA_DEFINITION__ANY_OF, newAnyOf, newAnyOf));
+			eNotify(new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.ITEMS_ANY_OF2__ANY_OF2, newAnyOf2, newAnyOf2));
 	}
 
 	/**
@@ -109,8 +110,8 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.ITEMS_SCHEMA_DEFINITION__ANY_OF:
-				return basicSetAnyOf(null, msgs);
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF2__ANY_OF2:
+				return basicSetAnyOf2(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -123,8 +124,8 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.ITEMS_SCHEMA_DEFINITION__ANY_OF:
-				return getAnyOf();
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF2__ANY_OF2:
+				return getAnyOf2();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -137,8 +138,8 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.ITEMS_SCHEMA_DEFINITION__ANY_OF:
-				setAnyOf((ItemsAnyOf)newValue);
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF2__ANY_OF2:
+				setAnyOf2((SchemaArray)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -152,8 +153,8 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.ITEMS_SCHEMA_DEFINITION__ANY_OF:
-				setAnyOf((ItemsAnyOf)null);
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF2__ANY_OF2:
+				setAnyOf2((SchemaArray)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -167,10 +168,10 @@ public class ItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.ITEMS_SCHEMA_DEFINITION__ANY_OF:
-				return anyOf != null;
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF2__ANY_OF2:
+				return anyOf2 != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ItemsSchemaDefinitionImpl
+} //ItemsAnyOf2Impl

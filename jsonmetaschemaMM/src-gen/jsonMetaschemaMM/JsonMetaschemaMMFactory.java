@@ -634,6 +634,24 @@ public interface JsonMetaschemaMMFactory extends EFactory {
 	SchemaObjectDependenciesAdditionalPropertiesAnyOf2 createSchemaObjectDependenciesAdditionalPropertiesAnyOf2();
 
 	/**
+	 * Returns a new object of class '<em>Items Any Of1</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Items Any Of1</em>'.
+	 * @generated
+	 */
+	ItemsAnyOf1 createItemsAnyOf1();
+
+	/**
+	 * Returns a new object of class '<em>Items Any Of2</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Items Any Of2</em>'.
+	 * @generated
+	 */
+	ItemsAnyOf2 createItemsAnyOf2();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
