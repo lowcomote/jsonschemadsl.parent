@@ -1,6 +1,6 @@
 ## RQ3: Comparison of existing JSON Schema editors
   
-In the following table we compare Altova XML Spy Enterprise Edition 2021, Visual Studio Code 1.56.2 and JSON Schema DSL Editor of this repository.
+In the following table we compare Altova XML Spy Enterprise Edition 2021 rel 3, Visual Studio Code 1.56.2 and JSON Schema DSL Editor of this repository.
 We compare their capabilities to edit a JSON Schema (M2) conforming to the Metaschema Draft07 (M3), and the capabilities to edit a JSON Instance (M1) conforming to a JSON Schema (M2).
 
   
@@ -34,10 +34,22 @@ Visual Studio Code does not highlight the Meta Schema keywords (keywords defined
 
 
 When editing a JSON conforming to a given JSON Schema, Visual Studio Code does not highlight the keywords defined in the JSON Schema.
-For example "prop1", "name" and "surname" are defined in the previous example, so they are keywords of the language under definition,
+For example "prop1", "name" and "surname" are defined in the previous example, so they are keywords of the defined language,
  while "otherProperties" is not. In the following picture can be seen that they are treated in the same way.
  
 ![VS Instance Highlighting](evaluation/VS-Instance-Highlighting.PNG) 
+
+It can be observed the same behavior with Altova. In the following two screenshots we show the same cases with Altova.
+
+![Altova Schema Highlighting](evaluation/Altova-Schema-Highlighting.png) 
+
+![Altova Instance Highlighting](evaluation/Altova-Instance-Highlighting.png) 
+
+
+------
+
+
+
 
 The JSON Schema Editor of this repository highlights the keywords defined in the Metaschema.json draft 07.
 In the following screenshot can be seen the keywords "required", "properties", "type", "$schema", "$ref"  are correctly highlighted.
