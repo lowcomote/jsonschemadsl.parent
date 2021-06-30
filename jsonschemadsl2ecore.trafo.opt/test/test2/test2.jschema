@@ -1,0 +1,19 @@
+{
+	"type":"object",
+	"properties":{
+		"name":{"type": "string"},
+		"surname":{"type": "string"},
+		"age":{"type": "integer"},
+		"adult":{"type": "boolean"},
+		"job":{
+			"type":"object",
+			"properties":{
+				"role":{"type": "string"},
+				"level":{"type": "integer", "minimum":2.1}
+			},
+			"additionalProperties":false,
+			"favouriteNumber": {"type": "integer"}
+		}
+	},
+	"additionalProperties":false
+}

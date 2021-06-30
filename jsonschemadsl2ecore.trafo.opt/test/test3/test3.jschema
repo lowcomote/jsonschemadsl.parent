@@ -1,0 +1,16 @@
+{
+	"type":"object",
+	"properties":{
+		
+		"car":{
+			"type":"object",
+			"properties":{
+				"licencePlate":{"type": "string"},
+				"year":{"type": "integer"}
+			},
+			"required": ["licencePlate"]
+		}
+	},
+	"additionalProperties":false
+ 
+}

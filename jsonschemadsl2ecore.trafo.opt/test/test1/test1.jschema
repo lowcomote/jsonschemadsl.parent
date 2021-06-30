@@ -1,0 +1,28 @@
+{
+	"definitions":{
+		"family":{
+			"type":"object",
+			"additionalProperties":{
+				"type":"object",
+				"properties":{
+					"membername":{"type": "string"},
+					"relativekind":{"type": "string"}
+				},
+				"additionalProperties":true
+			}
+		}
+	},
+	"type":"object",
+	"properties":{
+		
+		"myFamily":{
+			"$ref":"#/definitions/family"
+		}
+		
+		
+		
+	},
+	"additionalProperties":false
+	
+ 
+}

@@ -1,0 +1,15 @@
+-- OCL contraints for /Users/Alessandro.colantoni/eclipse-lowcomote-jsonschema-workspace/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test3
+import 'http://jku.bise.at/test3'
+
+package test3
+
+	context test3::Test3RootCar 
+
+	inv Test3RootCarRequiredlicencePlate ('Test3RootCar requires the property licencePlate'):
+	if  self.car->select(p|p.oclType()=test3::Test3RootCarLicencePlate)->size()>0
+	then true
+	else null
+	endif
+
+endpackage
+
