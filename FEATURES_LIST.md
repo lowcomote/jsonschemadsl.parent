@@ -67,6 +67,6 @@ two structures for "items" are supported. Because of this, in the column Languag
 |"oneOf"               |Y                    |N                         ||
 |"not"                 |Y                    |N                         ||
 
-Legend:
+Legend:  
 Y -> Supported  
 N -> Not Supported  
