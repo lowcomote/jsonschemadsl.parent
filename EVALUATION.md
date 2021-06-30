@@ -27,46 +27,57 @@ We compare their capabilities to edit a JSON Schema (M2) conforming to the Metas
  
 ### Keyword highlighting
 
-Visual Studio Code does not highlight the Meta Schema keywords (keywords defined in metaschema.json). As shown in the next picture, the Meta Schema keywords "description", "properties",
-"type", "additionalProperties", and "enum" are not treated with any difference with respect to any other JSON key like "name" and "surname".
+#### Visual Studio Code
 
-![VS Schema Highlighting](evaluation/VS-Schema-Highlighting.PNG) 
+Visual Studio Code does not highlight the Metaschema keywords (keywords defined in metaschema.json). As shown in the next picture, the Meta Schema keywords 
+"required", "properties", "type", "additionalProperties", "$schema", "$ref" and "additionalProperties" are not treated with any difference with respect to 
+"apiVersion", "kind", "metadata" and "spec" that are the keys that are being defined in this schema.
+Only the basic JSON syntax highlighting, to distinguish between keys and values, is provided.
+
+
+![VS Schema Highlighting Shipyard](evaluation/VS-Schema-Highlighting-Ship.PNG) 
 
 
 When editing a JSON conforming to a given JSON Schema, Visual Studio Code does not highlight the keywords defined in the JSON Schema.
-For example "prop1", "name" and "surname" are defined in the previous example, so they are keywords of the defined language,
- while "otherProperties" is not. In the following picture can be seen that they are treated in the same way.
- 
-![VS Instance Highlighting](evaluation/VS-Instance-Highlighting.PNG) 
-
-It can be observed the same behavior with Altova. In the following two screenshots we show the same cases with Altova.
-
-![Altova Schema Highlighting](evaluation/Altova-Schema-Highlighting.png) 
-
-![Altova Instance Highlighting](evaluation/Altova-Instance-Highlighting.png) 
+For example in the next screenshot it can be seen that  "apiVersion", "kind", "metadata" and "spec", that are defined in the previous screenshot, so they are keywords of the defined language,
+are treated in the same way as "deploymentstrategy" and "teststrategy"  that are not defined in the language. 
 
 
-------
+![VS Instance Highlighting Ship](evaluation/VS-Instance-Highlighting-Ship.PNG) 
 
+
+#### Altova
+
+It can be observed the same behavior with Altova, as in Visual Studio Code. In the following two screenshots we show the same cases with Altova.
+
+![Altova Schema Highlighting Ship](evaluation/Altova-Schema-Highlighting-Ship.png) 
+
+
+![Altova Instance Highlighting Ship](evaluation/Altova-Instance-Highlighting-Ship.png) 
+
+
+
+#### JSON Schema DSL
 
 
 
 The JSON Schema Editor of this repository highlights the keywords defined in the Metaschema.json draft 07.
-In the following screenshot can be seen the keywords "required", "properties", "type", "$schema", "$ref"  are correctly highlighted.
-The keys "Shipyard", "apiVersion", "kind", "metadata" and "spec", as are not part of the metaschema, are correctly not highlighted.
+In the following screenshot can be seen the keywords "required", "properties", "type", "$schema", "$ref" and "additionalProperties" are correctly highlighted.
+The keys "Shipyard", "apiVersion", "kind", "metadata" and "spec", as are not part of the metaschema, so they are correctly not highlighted.
 
 ![JSONSchemaDSL Schema Highlighting](evaluation/JSONSchemaDSL-Schema-Highlight.PNG) 
 
-When editing a JSON conforming to a JSON Schema, JSON Schema DSL higliths the keywords defines in the JSON Schema. In the following screenshot it can be seen
-that "apiVersion", "kind", "metadata", "name" and "spec" are properly highlighted because they are defined in the Schema that an excerpt of it, is shown in the previous screenshot 
+When editing a JSON conforming to a JSON Schema, JSON Schema DSL highlights the keywords defined in the JSON Schema. In the following screenshot it can be seen
+that "apiVersion", "kind", "metadata", "name" and "spec" are properly highlighted because they are defined in the Schema  shown in the previous screenshot 
 ("name" is not shown in the screenshot).
 
-![JSONSchemaDSL Instance Highlighting](evaluation/JSONSchemaDSL-Instance-Highlight.PNG) 
-
 When in the JSON are used keys that are not defined in the schema they are correctly no highlighted.
-As an example it can be seen that the key "deploymentstrategy" is not highlighted.
+As an example it can be seen that the key "deploymentstrategy" and "teststrategy" are not highlighted.
 
-![JSONSchemaDSL Instance Highlighting 2](evaluation/JSONSchemaDSL-Instance-Highlight-2.PNG) 
+
+
+![JSONSchemaDSL Instance Highlighting 3](evaluation/JSONSchemaDSL-Instance-Highlight-3.PNG) 
+
 
 
 ### Content assist
