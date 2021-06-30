@@ -657,7 +657,7 @@ function setDocumentScrollTop(ypos)
    <td>&quot;$id&quot;</td> 
    <td>Y</td> 
    <td>N</td> 
-   <td>Not needed to generate the language. It is an annotation</td> 
+   <td></td> 
   </tr> 
   <tr> 
    <td>&quot;$schema&quot;</td> 
@@ -666,9 +666,15 @@ function setDocumentScrollTop(ypos)
    <td>Not needed to generate the language. It is an annotation</td> 
   </tr> 
   <tr> 
-   <td>&quot;$ref&quot;</td> 
+   <td>&quot;$ref&quot; (json pointer)</td> 
    <td>Y</td> 
    <td>Y</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>&quot;$ref&quot; ($id)</td> 
+   <td>Y</td> 
+   <td>N</td> 
    <td></td> 
   </tr> 
   <tr> 
@@ -768,9 +774,15 @@ function setDocumentScrollTop(ypos)
    <td></td> 
   </tr> 
   <tr> 
-   <td>&quot;items&quot;</td> 
+   <td>&quot;items&quot; (List)</td> 
    <td>Y</td> 
-   <td>P Schema Array Not. Supp.</td> 
+   <td>Y</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>&quot;items&quot; (Tuple</td> 
+   <td>Y</td> 
+   <td>N</td> 
    <td></td> 
   </tr> 
   <tr> 
@@ -810,9 +822,21 @@ function setDocumentScrollTop(ypos)
    <td>Easy to solve with OCL as done for &quot;minimum&quot;</td> 
   </tr> 
   <tr> 
-   <td>&quot;required&quot;</td> 
+   <td>&quot;required&quot;(properties)</td> 
    <td>Y</td> 
-   <td>P (Only for &quot;properties&quot;)</td> 
+   <td>Y</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>&quot;required&quot;(patt.prop.)</td> 
+   <td>Y</td> 
+   <td>N</td> 
+   <td></td> 
+  </tr> 
+  <tr> 
+   <td>&quot;required&quot;(add. prop.)</td> 
+   <td>Y</td> 
+   <td>N</td> 
    <td></td> 
   </tr> 
   <tr> 
@@ -866,7 +890,13 @@ function setDocumentScrollTop(ypos)
   <tr> 
    <td>&quot;type&quot;</td> 
    <td>Y</td> 
-   <td>P Array of types Not Supp.</td> 
+   <td>Y</td> 
+   <td>e.g., &quot;type&quot;:&quot;object&quot;, &quot;type&quot;:&quot;array&quot;, ....</td> 
+  </tr> 
+  <tr> 
+   <td>&quot;type&quot;(array of types)</td> 
+   <td>Y</td> 
+   <td>N</td> 
    <td>e.g., &quot;type&quot;:[&quot;integer&quot;, string]</td> 
   </tr> 
   <tr> 

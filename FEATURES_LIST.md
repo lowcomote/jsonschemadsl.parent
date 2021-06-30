@@ -3,7 +3,7 @@
 In the following table we show the list of the keywords defined in the Metaschema Draft 07.
 We support all the keywords in the JSON Schema Editor, as shown in the column JSON Schema Editor.
 In the column Language Editor Generation we show which keywords are supported to generate a language so far. Of course this is a work in progress.
-We have limited the implementation only to the keywords used in the "Shipyard" JSON Schema (our case study).
+We have started the implementation from a subset of keywords that allow to define a minimal structure (e.g., "type", "properties", "definitions",...).
 In the column of Comments, we explain which keywords are not needed, because they are just annotations with no influence on the language as stated in
 JSON  Schema specifications. We also explain which ones are easy, because similar to the already implemented "minimum" keyword.
 
@@ -15,9 +15,10 @@ two structures for "items" are supported. Because of this, in the column Languag
 
 |Keyword               |JSON Schema Editor   |Language Editor Generation| Comment|
 |----------------------|---------------------|--------------------------|--------
-|"$id"                 |Y                    |N                         |Not needed to generate the language. It is an annotation|
+|"$id"                 |Y                    |N                         | |
 |"$schema"             |Y                    |N                         |Not needed to generate the language. It is an annotation|
-|"$ref"                |Y                    |Y                         ||
+|"$ref" (json pointer) |Y                    |Y                         ||
+|"$ref"   ($id)        |Y                    |N                         ||
 |"$comment             |Y                    |N                         |Not needed to generate the language. It is an annotation|
 |"title"               |Y                    |N                         |Not needed to generate the language. It is an annotation|
 |"description"         |Y                    |N                         |Not needed to generate the language. It is an annotation|
@@ -34,14 +35,17 @@ two structures for "items" are supported. Because of this, in the column Languag
 |"minLength"           |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
 |"pattern"             |N                    |N                         |Solvable with an Eoperation that check if it is a regex|
 |"additionalItems"     |Y                    |N                         ||
-|"items"               |Y                    |P  Schema Array Not. Supp.||
+|"items" (List)        |Y                    |Y                         ||
+|"items" (Tuple        |Y                    |N                         ||
 |"maxItems"            |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
 |"minItems"            |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
 |"uniqueItems"         |Y                    |N                         ||
 |"contains"            |Y                    |N                         ||
 |"maxProperties"       |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
 |"minProperties"       |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
-|"required"            |Y                    |P (Only for "properties") ||
+|"required"(properties)|Y                    |Y                         ||
+|"required"(patt.prop.)|Y                    |N                         ||
+|"required"(add. prop.)|Y                    |N                         ||
 |"additionalProperties"|Y                    |Y                         | |
 |"definitions"         |Y                    |Y                         | |
 |"properties"          |Y                    |Y                         | |
@@ -50,7 +54,8 @@ two structures for "items" are supported. Because of this, in the column Languag
 |"propertyNames"       |Y                    |N                         ||
 |"const"               |Y                    |N                         ||
 |"enum"                |Y                    |N                         ||
-|"type"                |Y                    |P Array of types Not Supp.| e.g., "type":["integer", string]|
+|"type"                |Y                    |Y                         | e.g., "type":"object", "type":"array", .... |
+|"type"(array of types)|Y                    |N                         | e.g., "type":["integer", string]|
 |"format"              |Y                    |N                         ||
 |"contentMediaType"    |Y                    |N                         ||
 |"contentEncoding"     |Y                    |N                         ||
