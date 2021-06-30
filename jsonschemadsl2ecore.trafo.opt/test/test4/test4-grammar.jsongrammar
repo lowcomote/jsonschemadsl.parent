@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test4">
+  <detailedGrammar>
+    <keywords xsi:type="ecore:EAttribute" href="test4.ecore#//Test4RootName/name"/>
+    <keywords xsi:type="ecore:EAttribute" href="test4.ecore#//Test4RootSurname/surname"/>
+    <keywords xsi:type="ecore:EReference" href="test4.ecore#//Test4RootChildrenNames/childrenNames"/>
+    <keywords xsi:type="ecore:EReference" href="test4.ecore#//Test4RootGrandParents/grandParents"/>
+    <keywords xsi:type="ecore:EAttribute" href="test4.ecore#//Test4RootGrandParentsItemsName/name"/>
+    <keywords xsi:type="ecore:EAttribute" href="test4.ecore#//Test4RootGrandParentsItemsSurname/surname"/>
+    <curlyBracesReferences href="test4.ecore#//Test4Root/test4Root"/>
+    <curlyBracesReferences href="test4.ecore#//Test4RootGrandParentsItems/items"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <bracketsReferences href="test4.ecore#//Test4RootChildrenNames/childrenNames"/>
+    <bracketsReferences href="test4.ecore#//Test4RootGrandParents/grandParents"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="test4.ecore#//Test4RootAdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>

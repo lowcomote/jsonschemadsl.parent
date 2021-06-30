@@ -1,0 +1,7 @@
+-- OCL contraints for /Users/Alessandro.colantoni/eclipse-lowcomote-jsonschema-workspace/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test5
+import 'http://jku.bise.at/test5'
+
+package test5
+
+endpackage
+
