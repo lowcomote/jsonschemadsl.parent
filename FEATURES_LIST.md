@@ -68,5 +68,5 @@ two structures for "items" are supported. Because of this, in the column Languag
 |"not"                 |Y                    |N                         ||
 
 Legend:
-Y -> Supported
-N -> Not Supported
+Y -> Supported  
+N -> Not Supported  
