@@ -1,7 +1,7 @@
 # Features list
 
 In the following table we show the list of the keywords defined in the Metaschema Draft 07.
-We support all the keywords in the JSON Schema Editor, as shown in the column JSON Schema Editor.
+We support all the keywords except one ("pattern") in the JSON Schema Editor, as shown in the column JSON Schema Editor.
 In the column Language Editor Generation we show which keywords are supported to generate a language so far. Of course this is a work in progress.
 We have started the implementation from a subset of keywords that allow to define a minimal structure (e.g., "type", "properties", "definitions",...).
 In the column of Comments, we explain which keywords are not needed, because they are just annotations with no influence on the language as stated in
@@ -66,3 +66,7 @@ two structures for "items" are supported. Because of this, in the column Languag
 |"anyOf"               |Y                    |N                         ||
 |"oneOf"               |Y                    |N                         ||
 |"not"                 |Y                    |N                         ||
+
+Legend:
+Y -> Supported
+N -> Not Supported
