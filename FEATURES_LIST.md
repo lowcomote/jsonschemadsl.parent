@@ -2,16 +2,12 @@
 
 In the following table we show the list of the keywords defined in the Metaschema Draft 07.
 We support all the keywords except one ("pattern") in the JSON Schema Editor, as shown in the column JSON Schema Editor.
-In the column Language Editor Generation we show which keywords are supported to generate a language so far. Of course this is a work in progress.
-We have started the implementation from a subset of keywords that allow to define a minimal structure (e.g., "type", "properties", "definitions",...).
-In the column of Comments, we explain which keywords are not needed, because they are just annotations with no influence on the language as stated in
-JSON  Schema specifications. We also explain which ones are easy, because similar to the already implemented "minimum" keyword.
+In the column Language Editor Generation we show which keywords are supported for language generation. Of course, currently our tool is a prototype (work in progress).
+We have started the implementation from the keywords that we saw as the kernel of the Metaschema language (e.g., "type", "properties", "definitions")
+In the Comments column, we provide some info about how we are going to implement the generation. 
 
 In conclusion we can edit and validate every JSON Schema, but we can automatically generate a language only for JSON Schema that don't use
 the keywords with N in the column Language Editor Generation, or that are not needed as stated in the column of Comments
-
-The are two keywords, "type" and "items", that support two different structure. Only one of the two structures for "type" and one of the 
-two structures for "items" are supported. Because of this, in the column Language Editor Generation they are marked with P (Partial).
 
 |Keyword               |JSON Schema Editor   |Language Editor Generation| Comment|
 |----------------------|---------------------|--------------------------|--------
