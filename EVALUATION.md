@@ -1,7 +1,6 @@
 ## RQ3: Comparison of existing JSON Schema editors
   
-In the following table we compare Altova XML Spy Enterprise Edition 2021 rel 3, Visual Studio Code 1.56.2 and JSON Schema DSL Editor of this repository.
-We compare their capabilities to edit a JSON Schema (M2) conforming to the Metaschema Draft07 (M3), and the capabilities to edit a JSON Instance (M1) conforming to a JSON Schema (M2).
+In the following table we compare Altova XML Spy Enterprise Edition 2021 rel 3, Visual Studio Code 1.56.2 and JSON Schema DSL Editor. We compare their capabilities to edit a JSON Schema (M2) conforming to the Metaschema Draft07 (M3), and the capabilities to edit a JSON Instance (M1) conforming to a JSON Schema (M2).
 
   
 | Feature                                                     | T1/S | T1/I | T2/S | T2/I | T3/S | T3/I |
@@ -29,18 +28,17 @@ We compare their capabilities to edit a JSON Schema (M2) conforming to the Metas
 
 #### Visual Studio Code
 
-Visual Studio Code does not highlight the Metaschema keywords (keywords defined in metaschema.json). As shown in the next picture, the Meta Schema keywords 
-"required", "properties", "type", "additionalProperties", "$schema", "$ref" and "additionalProperties" are not treated with any difference with respect to 
-"apiVersion", "kind", "metadata" and "spec" that are the keys that are being defined in this schema.
-Only the basic JSON syntax highlighting, to distinguish between keys and values, is provided.
+Visual Studio Code does not highlight the Metaschema keywords (keywords defined in metaschema.json). As shown in the next screenshot, the Meta Schema keywords 
+"required", "properties", "type", "additionalProperties", "$schema", "$ref" and "additionalProperties" are not highlighted with any difference with respect to 
+"apiVersion", "kind", "metadata" and "spec" that are the keys being defined in this schema.
+These tools only provide basic JSON syntax highlighting, to distinguish between keys and values.
 
 
 ![VS Schema Highlighting Shipyard](evaluation/VS-Schema-Highlighting-Ship.PNG) 
 
 
-When editing a JSON conforming to a given JSON Schema, Visual Studio Code does not highlight the keywords defined in the JSON Schema.
-For example in the next screenshot it can be seen that  "apiVersion", "kind", "metadata" and "spec", that are defined in the previous screenshot, so they are keywords of the defined language,
-are treated in the same way as "deploymentstrategy" and "teststrategy"  that are not defined in the language. 
+When editing a JSON instance that conforms to a given JSON Schema, Visual Studio Code does not highlighted the keywords either.
+For example in the next screenshot it can be seen that the defined keywords of the language "apiVersion", "kind", "metadata" and "spec" (defined in the previous screenshot) have the same font style as "deploymentstrategy" and "teststrategy" (that are not keywords), because the tool do not recognize actual keywords.
 
 
 ![VS Instance Highlighting Ship](evaluation/VS-Instance-Highlighting-Ship.PNG) 
@@ -48,21 +46,17 @@ are treated in the same way as "deploymentstrategy" and "teststrategy"  that are
 
 #### Altova
 
-It can be observed the same behavior with Altova, as in Visual Studio Code. In the following two screenshots we show the same cases with Altova.
+In the following two screenshots we show the same cases with Altova. It can be seen the same behaviour as in Visual Studio Code.
 
 ![Altova Schema Highlighting Ship](evaluation/Altova-Schema-Highlighting-Ship.png) 
 
 
 ![Altova Instance Highlighting Ship](evaluation/Altova-Instance-Highlighting-Ship.png) 
 
-
-
-#### JSON Schema DSL
-
-
+#### JSON Schema DSL (Our tool)
 
 The JSON Schema Editor of this repository highlights the keywords defined in the Metaschema.json draft 07.
-In the following screenshot can be seen the keywords "required", "properties", "type", "$schema", "$ref" and "additionalProperties" are correctly highlighted.
+In the following screenshots can be seen the keywords "required", "properties", "type", "$schema", "$ref" and "additionalProperties" are correctly highlighted.
 The keys "Shipyard", "apiVersion", "kind", "metadata" and "spec", as are not part of the metaschema, so they are correctly not highlighted.
 
 ![JSONSchemaDSL Schema Highlighting](evaluation/JSONSchemaDSL-Schema-Highlight.PNG) 
@@ -75,9 +69,7 @@ When in the JSON are used keys that are not defined in the schema they are corre
 As an example it can be seen that the key "deploymentstrategy" and "teststrategy" are not highlighted.
 
 
-
 ![JSONSchemaDSL Instance Highlighting 3](evaluation/JSONSchemaDSL-Instance-Highlight-3.PNG) 
-
 
 
 ### Content assist
@@ -101,15 +93,14 @@ In the following two screenshots, it can be seen that the feature is provided fo
 
 ### Custom Validation.
 Altova XML SPY and Visual Studio Code only offer the validation supported by JSON Schema.
-There is no possibility to add custom validation for the concrete domain of the language under design.
-With JSON Schema DSL, as both JSON Schema and the conforming JSONs are treated as Ecore models, it is possible to add more ocl validation rules, 
+There is no possibility to add custom validation for the concrete domain of the language.
+With JSON Schema DSL, both JSON Schema and the conforming JSONs instances conform to Ecore models, then, it is possible to add the ocl validation rules, 
 to the ocl file that is loaded by the Xtext Grammar as explained in [Language Editor generator](tutorials/LanguageEditorGeneration.pdf), in steps 19 and 20. 
-
 
 ### Graphical Representations.
 Altova XML SPY provides a graphical representation for JSON Schemas and for all the JSON conforming to them.
 Visual Studio Code does not.
-JSON Schema DSL does not so far, but as JSON and JSON Schemas are treated as models, we plan in the future to apply the knowledge of MDE in this area (e.g., SIRIUS)
+JSON Schema DSL does not so far, but as JSON and JSON Schemas are treated as models, we plan in the future to implement this functionality using SIRIUS.
  
 
 
