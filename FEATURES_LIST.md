@@ -19,30 +19,30 @@ two structures for "items" are supported. Because of this, in the column Languag
 |"$schema"             |Y                    |N                         |It will be converted as an annotation|
 |"$ref" (json pointer) |Y                    |Y                         ||
 |"$ref"   ($id)        |Y                    |N                         ||
-|"$comment             |Y                    |N                         |Not needed to generate the language. It is an annotation|
-|"title"               |Y                    |N                         |Not needed to generate the language. It is an annotation|
-|"description"         |Y                    |N                         |Not needed to generate the language. It is an annotation|
-|"default"             |Y                    |N                         |Not needed to generate the language. It is an annotation|
+|"$comment             |Y                    |N                         |It will be converted as an annotation|
+|"title"               |Y                    |N                         |It will be converted as an annotation|
+|"description"         |Y                    |N                         |It will be converted as an annotation|
+|"default"             |Y                    |N                         ||
 |"readOnly"            |Y                    |N                         ||
 |"writeOnly"           |Y                    |N                         ||
-|"examples"            |Y                    |N                         |Not needed to generate the language. It is an annotation|
-|"multipleOf"          |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
-|"maximum"             |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
-|"exclusiveMaximum"    |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
+|"examples"            |Y                    |N                         ||
+|"multipleOf"          |Y                    |N                         |Generate an OCL constraint (like "minimum")|
+|"maximum"             |Y                    |N                         |Generate an OCL constraint (like "minimum")|
+|"exclusiveMaximum"    |Y                    |N                         |Generate an OCL constraint (like "minimum")|
 |"minimum":            |Y                    |Y                         | |
-|"exclusiveMinimum"    |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
-|"maxLength"           |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
-|"minLength"           |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
-|"pattern"             |N                    |N                         |Solvable with an Eoperation that check if it is a regex|
+|"exclusiveMinimum"    |Y                    |N                         |Generate an OCL constraint (like "minimum")|
+|"maxLength"           |Y                    |N                         |Generate an OCL constraint (like "minimum")|
+|"minLength"           |Y                    |N                         |Generate an OCL constraint (like "minimum")|
+|"pattern"             |N                    |N                         |Create an EOperation that check if it is a regex|
 |"additionalItems"     |Y                    |N                         ||
 |"items" (List)        |Y                    |Y                         ||
 |"items" (Tuple        |Y                    |N                         ||
-|"maxItems"            |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
-|"minItems"            |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
+|"maxItems"            |Y                    |N                         |Generate an OCL constraint (like "minimum")|
+|"minItems"            |Y                    |N                         |Generate an OCL constraint (like "minimum")|
 |"uniqueItems"         |Y                    |N                         ||
 |"contains"            |Y                    |N                         ||
-|"maxProperties"       |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
-|"minProperties"       |Y                    |N                         |Easy to solve with OCL as done for "minimum"|
+|"maxProperties"       |Y                    |N                         |Generate an OCL constraint (like "minimum")|
+|"minProperties"       |Y                    |N                         |Generate an OCL constraint (like "minimum")|
 |"required"(properties)|Y                    |Y                         ||
 |"required"(patt.prop.)|Y                    |N                         ||
 |"required"(add. prop.)|Y                    |N                         ||
