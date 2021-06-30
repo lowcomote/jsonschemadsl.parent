@@ -62,6 +62,7 @@ public class NotSchemaDefinitionImpl extends KeywordDefinitionImpl implements No
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getNot() {
 		return not;
 	}
@@ -86,6 +87,7 @@ public class NotSchemaDefinitionImpl extends KeywordDefinitionImpl implements No
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setNot(Schema newNot) {
 		if (newNot != not) {
 			NotificationChain msgs = null;

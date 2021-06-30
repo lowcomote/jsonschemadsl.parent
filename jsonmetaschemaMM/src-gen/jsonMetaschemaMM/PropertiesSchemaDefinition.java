@@ -33,4 +33,12 @@ public interface PropertiesSchemaDefinition extends KeywordDefinition {
 	 */
 	EList<KeySchemaPair> getKeySchemaPairs();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false" keyUnique="false" keyRequired="true" keyOrdered="false"
+	 * @generated
+	 */
+	Schema findSchemaByKey(String key);
+
 } // PropertiesSchemaDefinition

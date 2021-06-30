@@ -35,4 +35,12 @@ public interface SchemaArray extends EObject {
 	 */
 	EList<Schema> getItems();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false" indexUnique="false" indexRequired="true" indexOrdered="false"
+	 * @generated
+	 */
+	Schema findSchemaByIndex(int index);
+
 } // SchemaArray

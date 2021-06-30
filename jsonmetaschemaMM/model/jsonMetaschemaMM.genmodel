@@ -2,7 +2,7 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/jsonmetaschemaMM/src-gen" modelPluginID="jsonmetaschemaMM"
     modelName="JsonMetaschemaMM" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="11.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>jsonMetaschemaMM.ecore</foreignModel>
   <genPackages prefix="JsonMetaschemaMM" disposableProviderFactory="true" ecorePackage="jsonMetaschemaMM.ecore#/">
@@ -20,6 +20,66 @@
     </genEnums>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ObjectSchema">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/keywordDefinition"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/additionalItems"
+          suppressedGetVisibility="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true"
+          suppressedUnsetVisibility="true" get="return (AdditionalItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AdditionalItemsSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/items"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (ItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ItemsSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/additionalProperties"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (AdditionalPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AdditionalPropertiesSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/contains"
+          suppressedGetVisibility="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true"
+          suppressedUnsetVisibility="true" get="return (ContainsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ContainsSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/properties"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (PropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PropertiesSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/definitions"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (DefinitionsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof DefinitionsSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/patternProperties"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (PatternPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PatternPropertiesSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/dependencies"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (DependenciesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof DependenciesSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/propertyNames"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (PropertyNamesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PropertyNamesSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/if"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (IfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof IfSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/then"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (ThenSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ThenSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/else"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (ElseSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ElseSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/allOf"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (AllOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AllOfSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/anyOf"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (AnyOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AnyOfSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/oneOf"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (OneOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof OneOfSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/not"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return (NotSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof NotSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/schemaObjectAdditionalProperties"
+          suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+          get="return new org.eclipse.emf.common.util.BasicEList&lt;SchemaObjectAdditionalProperties>((Collection&lt;? extends SchemaObjectAdditionalProperties>) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).collect(java.util.stream.Collectors.toList()))  ;"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByKey"
+          body="return getSchemaObjectAdditionalProperties().stream().filter(s -> key.equals(s.getKey())).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByKey/key"/>
+      </genOperations>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByJsonPointer"
+          body="Schema schema = null;&#xA;if(currentIndex==jsonPointer.size()) {&#xA;&#x9;schema=this;&#xA;}else if(0 &lt;= currentIndex &amp;&amp; currentIndex &lt; jsonPointer.size()) {&#xA;&#x9;String currentToken = jsonPointer.get(currentIndex);&#xA;&#x9;Integer nextIndex= currentIndex +1;&#xA;&#x9;Schema nextSchema = null;&#xA;&#x9;if(&quot;additionalItems&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getAdditionalItems().getAdditionalItems();&#xA;&#x9;}else if (&quot;additionalProperties&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getAdditionalProperties().getAdditionalProperties();&#xA;&#x9;}else if (&quot;contains&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getContains().getContains();&#xA;&#x9;}else if (&quot;definitions&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;nextSchema = getDefinitions().findSchemaByKey(&quot;\&quot;&quot;+jsonPointer.get(nextIndex)+&quot;\&quot;&quot;);&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}&#xA;&#x9;}else if (&quot;properties&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;nextSchema = getProperties().findSchemaByKey(&quot;\&quot;&quot;+jsonPointer.get(nextIndex)+&quot;\&quot;&quot;);&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}&#xA;&#x9;}else if (&quot;patternProperties&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;nextSchema = getPatternProperties().findSchemaByKey(&quot;\&quot;&quot;+jsonPointer.get(nextIndex)+&quot;\&quot;&quot;);&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}&#xA;&#x9;}else if (&quot;dependencies&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;nextSchema = getDependencies().findSchemaByKey(&quot;\&quot;&quot;+jsonPointer.get(nextIndex)+&quot;\&quot;&quot;);&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}&#xA;&#x9;}else if (&quot;propertyNames&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getPropertyNames().getPropertyNames();&#xA;&#x9;}else if (&quot;if&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getIf().getIf();&#xA;&#x9;}else if (&quot;then&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getThen().getThen();&#xA;&#x9;}else if (&quot;else&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getElse().getElse();&#xA;&#x9;}else if (&quot;allOf&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getAllOf().getAllOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));&#xA;&#x9;&#x9;nextIndex++;&#xA;&#x9;}else if (&quot;anyOf&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getAnyOf().getAnyOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));&#xA;&#x9;&#x9;nextIndex++;&#xA;&#x9;}else if (&quot;oneOf&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getOneOf().getOneOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));&#xA;&#x9;&#x9;nextIndex++;&#xA;&#x9;}else if (&quot;not&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getNot().getNot();&#xA;&#x9;}else {&#xA;&#x9;&#x9;nextSchema = findSchemaByKey(currentToken);&#xA;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;if(nextSchema!=null) {&#xA;&#x9;&#x9;schema = nextSchema.findSchemaByJsonPointer(jsonPointer, nextIndex);&#xA;&#x9;}&#xA;}&#xA;return schema;">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByJsonPointer/jsonPointer"/>
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByJsonPointer/currentIndex"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MaximumSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//MaximumSchemaDefinition/maximum"/>
@@ -49,8 +109,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//TitleSchemaDefinition/title"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ItemsSchemaDefinition">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ItemsSchemaDefinition/itemsAnyOf1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ItemsSchemaDefinition/itemsAnyOf2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ItemsSchemaDefinition/anyOf"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//DefaultSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//DefaultSchemaDefinition/default"/>
@@ -63,6 +122,10 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//DefinitionsSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//DefinitionsSchemaDefinition/keySchemaPairs"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//DefinitionsSchemaDefinition/findSchemaByKey"
+          body="return getKeySchemaPairs().stream().filter(ksp -> key.equals(ksp.getKey())).findFirst().map(KeySchemaPair::getValue).orElse(null);">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//DefinitionsSchemaDefinition/findSchemaByKey/key"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//BooleanValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//BooleanValue/value"/>
@@ -75,6 +138,10 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//SchemaArray">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//SchemaArray/items"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//SchemaArray/findSchemaByIndex"
+          body="Schema schema =null;&#xA;if(0 &lt;= index &amp;&amp; index &lt; getItems().size()) {&#xA;&#x9;schema = getItems().get(index);&#xA;}&#xA;return schema;">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//SchemaArray/findSchemaByIndex/index"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MaxPropertiesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//MaxPropertiesSchemaDefinition/maxProperties"/>
@@ -100,7 +167,12 @@
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ReadOnlySchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//ReadOnlySchemaDefinition/readOnly"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="jsonMetaschemaMM.ecore#//Schema"/>
+    <genClasses image="false" ecoreClass="jsonMetaschemaMM.ecore#//Schema">
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//Schema/findSchemaByJsonPointer">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//Schema/findSchemaByJsonPointer/jsonPointer"/>
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//Schema/findSchemaByJsonPointer/currentIndex"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ObjectValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectValue/keyvaluepair"/>
     </genClasses>
@@ -122,6 +194,10 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//DependenciesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//DependenciesSchemaDefinition/properties"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//DependenciesSchemaDefinition/findSchemaByKey"
+          body="Schema schema = null; &#xA;jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties schemaObjectDependenciesAdditionalProperties = (jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties) getProperties().stream().filter(p -> p instanceof jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties &amp;&amp; key.equals(((jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties)p).getKey())).findFirst().orElse(null);&#xA;if(schemaObjectDependenciesAdditionalProperties!=null ) {&#xA;&#x9;jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf additionalPropertiesAnyOf= schemaObjectDependenciesAdditionalProperties.getAdditionalProperties();&#xA;&#x9;if(additionalPropertiesAnyOf instanceof jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf1) {&#xA;&#x9;&#x9;schema = ((jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf1)additionalPropertiesAnyOf).getAnyOf1();&#xA;&#x9;}&#xA;}&#xA;return schema;&#xA;">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//DependenciesSchemaDefinition/findSchemaByKey/key"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//NumberValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//NumberValue/value"/>
@@ -137,6 +213,10 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//PatternPropertiesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//PatternPropertiesSchemaDefinition/keySchemaPairs"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//PatternPropertiesSchemaDefinition/findSchemaByKey"
+          body="return getKeySchemaPairs().stream().filter(ksp -> key.equals(ksp.getKey())).findFirst().map(KeySchemaPair::getValue).orElse(null);">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//PatternPropertiesSchemaDefinition/findSchemaByKey/key"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//AdditionalItemsSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//AdditionalItemsSchemaDefinition/additionalItems"/>
@@ -178,9 +258,21 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//RefSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//RefSchemaDefinition/ref"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/isFormatUriReference"
+          body="boolean isUri = true; &#xA;try {&#xA;&#x9;jakarta.ws.rs.core.UriBuilder.fromUri(getRef());&#xA;} catch (Exception e) {&#xA;&#x9;isUri=false;&#xA;}&#xA;return isUri;"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/getFragment"
+          body="try {&#xA;&#x9;return getRef().substring(getRef().indexOf(&quot;#&quot;), getRef().length());&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/getJsonPointerAsList"
+          body="EList&lt;String> jsonPointerAsList = new org.eclipse.emf.common.util.BasicEList&lt;String>();&#xA;try {&#xA;&#x9;String fragment = getFragment();&#xA;&#x9;if(fragment!=null &amp;&amp; !fragment.isBlank()) {&#xA;&#x9;&#x9;fragment = fragment.substring(1,fragment.length()); // take off &quot;#&quot;&#xA;&#x9;&#x9;if(&quot;/&quot;.equals(fragment.substring(0, 1)) ) {&#xA;&#x9;&#x9;&#x9;fragment = fragment.substring(1,fragment.length());&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;jsonPointerAsList.addAll(java.util.Arrays.asList(fragment.split(&quot;/&quot;)));&#xA;&#x9;}&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}&#xA;return jsonPointerAsList;"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/isOnlyFragment"
+          body="return getRef().equals(getFragment());"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//JsonSchema">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//JsonSchema/schema"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//JsonSchema/findSchemaByJsonPointer"
+          body="try {&#xA;&#x9;return getSchema().findSchemaByJsonPointer(jsonPointer,0);&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//JsonSchema/findSchemaByJsonPointer/jsonPointer"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//KeySchemaPair">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//KeySchemaPair/key"/>
@@ -197,6 +289,10 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//PropertiesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//PropertiesSchemaDefinition/keySchemaPairs"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//PropertiesSchemaDefinition/findSchemaByKey"
+          body="return getKeySchemaPairs().stream().filter(ksp -> key.equals(ksp.getKey())).findFirst().map(KeySchemaPair::getValue).orElse(null);">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//PropertiesSchemaDefinition/findSchemaByKey/key"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//PropertyNamesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//PropertyNamesSchemaDefinition/propertyNames"/>
@@ -210,6 +306,11 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//BooleanSchema">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//BooleanSchema/value"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//BooleanSchema/findSchemaByJsonPointer"
+          body="if(currentIndex==jsonPointer.size()) {&#xA;&#x9;return this;&#xA;} else {&#xA;&#x9;return null;&#xA;}">
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//BooleanSchema/findSchemaByJsonPointer/jsonPointer"/>
+        <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//BooleanSchema/findSchemaByJsonPointer/currentIndex"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//NonNegativeInteger">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//NonNegativeInteger/value"/>
@@ -233,5 +334,12 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//SchemaObjectDependenciesAdditionalPropertiesAnyOf2/anyOf2"/>
     </genClasses>
     <genClasses image="false" ecoreClass="jsonMetaschemaMM.ecore#//SchemaObjectDependenciesAdditionalPropertiesAnyOf"/>
+    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ItemsAnyOf"/>
+    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ItemsAnyOf1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ItemsAnyOf1/anyOf1"/>
+    </genClasses>
+    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ItemsAnyOf2">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ItemsAnyOf2/anyOf2"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

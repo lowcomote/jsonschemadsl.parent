@@ -84,6 +84,7 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getKey() {
 		return key;
 	}
@@ -93,6 +94,7 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setKey(String newKey) {
 		String oldKey = key;
 		key = newKey;
@@ -105,6 +107,7 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getValue() {
 		return value;
 	}
@@ -129,6 +132,7 @@ public class KeySchemaPairImpl extends MinimalEObjectImpl.Container implements K
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(Schema newValue) {
 		if (newValue != value) {
 			NotificationChain msgs = null;

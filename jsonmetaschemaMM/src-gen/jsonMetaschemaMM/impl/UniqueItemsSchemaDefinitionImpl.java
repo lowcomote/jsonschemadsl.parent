@@ -69,6 +69,7 @@ public class UniqueItemsSchemaDefinitionImpl extends KeywordDefinitionImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isUniqueItems() {
 		return uniqueItems;
 	}
@@ -78,6 +79,7 @@ public class UniqueItemsSchemaDefinitionImpl extends KeywordDefinitionImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setUniqueItems(boolean newUniqueItems) {
 		boolean oldUniqueItems = uniqueItems;
 		uniqueItems = newUniqueItems;

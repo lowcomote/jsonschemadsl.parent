@@ -69,6 +69,7 @@ public class DescriptionSchemaDefinitionImpl extends KeywordDefinitionImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getDescription() {
 		return description;
 	}
@@ -78,6 +79,7 @@ public class DescriptionSchemaDefinitionImpl extends KeywordDefinitionImpl imple
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;

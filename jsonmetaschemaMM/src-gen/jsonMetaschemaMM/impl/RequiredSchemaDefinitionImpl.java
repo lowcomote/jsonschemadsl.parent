@@ -62,6 +62,7 @@ public class RequiredSchemaDefinitionImpl extends KeywordDefinitionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StringArray getRequired() {
 		return required;
 	}
@@ -86,6 +87,7 @@ public class RequiredSchemaDefinitionImpl extends KeywordDefinitionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRequired(StringArray newRequired) {
 		if (newRequired != required) {
 			NotificationChain msgs = null;

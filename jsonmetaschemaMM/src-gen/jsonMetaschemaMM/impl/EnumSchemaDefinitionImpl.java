@@ -66,6 +66,7 @@ public class EnumSchemaDefinitionImpl extends KeywordDefinitionImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<JsonDocument> getItems() {
 		if (items == null) {
 			items = new EObjectContainmentEList<JsonDocument>(JsonDocument.class, this, JsonMetaschemaMMPackage.ENUM_SCHEMA_DEFINITION__ITEMS);

@@ -62,6 +62,7 @@ public class MinLengthSchemaDefinitionImpl extends KeywordDefinitionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NonNegativeIntegerDefault0 getMinLength() {
 		return minLength;
 	}
@@ -86,6 +87,7 @@ public class MinLengthSchemaDefinitionImpl extends KeywordDefinitionImpl impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinLength(NonNegativeIntegerDefault0 newMinLength) {
 		if (newMinLength != minLength) {
 			NotificationChain msgs = null;

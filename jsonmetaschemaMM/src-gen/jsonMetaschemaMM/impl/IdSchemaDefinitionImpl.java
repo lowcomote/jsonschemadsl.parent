@@ -69,6 +69,7 @@ public class IdSchemaDefinitionImpl extends KeywordDefinitionImpl implements IdS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getId() {
 		return id;
 	}
@@ -78,6 +79,7 @@ public class IdSchemaDefinitionImpl extends KeywordDefinitionImpl implements IdS
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setId(String newId) {
 		String oldId = id;
 		id = newId;

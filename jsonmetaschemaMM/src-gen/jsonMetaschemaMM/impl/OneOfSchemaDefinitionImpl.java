@@ -62,6 +62,7 @@ public class OneOfSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SchemaArray getOneOf() {
 		return oneOf;
 	}
@@ -86,6 +87,7 @@ public class OneOfSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setOneOf(SchemaArray newOneOf) {
 		if (newOneOf != oneOf) {
 			NotificationChain msgs = null;

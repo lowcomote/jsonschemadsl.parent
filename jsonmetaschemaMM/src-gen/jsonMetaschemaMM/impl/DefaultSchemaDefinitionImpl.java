@@ -62,6 +62,7 @@ public class DefaultSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JsonDocument getDefault() {
 		return default_;
 	}
@@ -86,6 +87,7 @@ public class DefaultSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setDefault(JsonDocument newDefault) {
 		if (newDefault != default_) {
 			NotificationChain msgs = null;

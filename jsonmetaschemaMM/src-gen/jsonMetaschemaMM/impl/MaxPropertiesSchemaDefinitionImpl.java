@@ -62,6 +62,7 @@ public class MaxPropertiesSchemaDefinitionImpl extends KeywordDefinitionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NonNegativeInteger getMaxProperties() {
 		return maxProperties;
 	}
@@ -86,6 +87,7 @@ public class MaxPropertiesSchemaDefinitionImpl extends KeywordDefinitionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxProperties(NonNegativeInteger newMaxProperties) {
 		if (newMaxProperties != maxProperties) {
 			NotificationChain msgs = null;

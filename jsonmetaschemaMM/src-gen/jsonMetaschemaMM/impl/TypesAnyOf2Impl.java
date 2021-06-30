@@ -64,6 +64,7 @@ public class TypesAnyOf2Impl extends MinimalEObjectImpl.Container implements Typ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<SimpleTypes> getItems() {
 		if (items == null) {
 			items = new EDataTypeUniqueEList<SimpleTypes>(SimpleTypes.class, this, JsonMetaschemaMMPackage.TYPES_ANY_OF2__ITEMS);

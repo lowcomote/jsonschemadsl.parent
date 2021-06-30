@@ -66,6 +66,7 @@ public class ExamplesSchemaDefinitionImpl extends KeywordDefinitionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<JsonDocument> getExamples() {
 		if (examples == null) {
 			examples = new EObjectContainmentEList<JsonDocument>(JsonDocument.class, this, JsonMetaschemaMMPackage.EXAMPLES_SCHEMA_DEFINITION__EXAMPLES);

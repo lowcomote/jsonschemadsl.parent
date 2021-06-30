@@ -1,5 +1,5 @@
 import 'http://at.jku.bise/jsonMetaschemaMM'
-
+ 
 package jsonMetaschemaMM
 
 context NonNegativeInteger
@@ -79,5 +79,17 @@ context DefinitionsSchemaDefinition
 inv RepeatedKeysInDefinitions ('The same key cannot be repeated under the same definitions keyword'):
 if keySchemaPairs->isUnique(k | k.key) then true  else null endif
 
+context RefSchemaDefinition
+inv UnsolvableReference ('The reference '+self.ref+' does not point to a schema'):
+if true = self.isOnlyFragment() then
+	let jsonPointer : Sequence(String) = self.getJsonPointerAsList() in
+	if jsonPointer=null then null
+	else
+		if JsonSchema.allInstances()->asSequence()->first().findSchemaByJsonPointer(jsonPointer)<>null then true
+		else null
+		endif
+	endif
+else true
+endif
 
 endpackage

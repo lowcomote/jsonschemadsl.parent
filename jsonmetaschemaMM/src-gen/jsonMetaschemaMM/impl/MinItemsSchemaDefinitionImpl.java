@@ -62,6 +62,7 @@ public class MinItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NonNegativeIntegerDefault0 getMinItems() {
 		return minItems;
 	}
@@ -86,6 +87,7 @@ public class MinItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMinItems(NonNegativeIntegerDefault0 newMinItems) {
 		if (newMinItems != minItems) {
 			NotificationChain msgs = null;

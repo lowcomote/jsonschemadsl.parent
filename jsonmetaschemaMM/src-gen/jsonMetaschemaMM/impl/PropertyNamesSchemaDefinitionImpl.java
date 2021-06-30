@@ -62,6 +62,7 @@ public class PropertyNamesSchemaDefinitionImpl extends KeywordDefinitionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getPropertyNames() {
 		return propertyNames;
 	}
@@ -86,6 +87,7 @@ public class PropertyNamesSchemaDefinitionImpl extends KeywordDefinitionImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPropertyNames(Schema newPropertyNames) {
 		if (newPropertyNames != propertyNames) {
 			NotificationChain msgs = null;

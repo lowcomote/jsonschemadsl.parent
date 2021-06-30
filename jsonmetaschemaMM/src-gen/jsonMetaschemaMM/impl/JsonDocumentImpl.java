@@ -63,6 +63,7 @@ public class JsonDocumentImpl extends MinimalEObjectImpl.Container implements Js
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Value getValue() {
 		return value;
 	}
@@ -87,6 +88,7 @@ public class JsonDocumentImpl extends MinimalEObjectImpl.Container implements Js
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(Value newValue) {
 		if (newValue != value) {
 			NotificationChain msgs = null;

@@ -125,6 +125,8 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 			case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES: return createSchemaObjectDependenciesAdditionalProperties();
 			case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF1: return createSchemaObjectDependenciesAdditionalPropertiesAnyOf1();
 			case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF2: return createSchemaObjectDependenciesAdditionalPropertiesAnyOf2();
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF1: return createItemsAnyOf1();
+			case JsonMetaschemaMMPackage.ITEMS_ANY_OF2: return createItemsAnyOf2();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -169,6 +171,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ObjectSchema createObjectSchema() {
 		ObjectSchemaImpl objectSchema = new ObjectSchemaImpl();
 		return objectSchema;
@@ -179,6 +182,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MaximumSchemaDefinition createMaximumSchemaDefinition() {
 		MaximumSchemaDefinitionImpl maximumSchemaDefinition = new MaximumSchemaDefinitionImpl();
 		return maximumSchemaDefinition;
@@ -189,6 +193,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IntegerValue createIntegerValue() {
 		IntegerValueImpl integerValue = new IntegerValueImpl();
 		return integerValue;
@@ -199,6 +204,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public WriteOnlySchemaDefinition createWriteOnlySchemaDefinition() {
 		WriteOnlySchemaDefinitionImpl writeOnlySchemaDefinition = new WriteOnlySchemaDefinitionImpl();
 		return writeOnlySchemaDefinition;
@@ -209,6 +215,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public CommentSchemaDefinition createCommentSchemaDefinition() {
 		CommentSchemaDefinitionImpl commentSchemaDefinition = new CommentSchemaDefinitionImpl();
 		return commentSchemaDefinition;
@@ -219,6 +226,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EnumSchemaDefinition createEnumSchemaDefinition() {
 		EnumSchemaDefinitionImpl enumSchemaDefinition = new EnumSchemaDefinitionImpl();
 		return enumSchemaDefinition;
@@ -229,6 +237,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public UniqueItemsSchemaDefinition createUniqueItemsSchemaDefinition() {
 		UniqueItemsSchemaDefinitionImpl uniqueItemsSchemaDefinition = new UniqueItemsSchemaDefinitionImpl();
 		return uniqueItemsSchemaDefinition;
@@ -239,6 +248,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AnyOfSchemaDefinition createAnyOfSchemaDefinition() {
 		AnyOfSchemaDefinitionImpl anyOfSchemaDefinition = new AnyOfSchemaDefinitionImpl();
 		return anyOfSchemaDefinition;
@@ -249,6 +259,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StringArray createStringArray() {
 		StringArrayImpl stringArray = new StringArrayImpl();
 		return stringArray;
@@ -259,6 +270,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TitleSchemaDefinition createTitleSchemaDefinition() {
 		TitleSchemaDefinitionImpl titleSchemaDefinition = new TitleSchemaDefinitionImpl();
 		return titleSchemaDefinition;
@@ -269,6 +281,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ItemsSchemaDefinition createItemsSchemaDefinition() {
 		ItemsSchemaDefinitionImpl itemsSchemaDefinition = new ItemsSchemaDefinitionImpl();
 		return itemsSchemaDefinition;
@@ -279,6 +292,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DefaultSchemaDefinition createDefaultSchemaDefinition() {
 		DefaultSchemaDefinitionImpl defaultSchemaDefinition = new DefaultSchemaDefinitionImpl();
 		return defaultSchemaDefinition;
@@ -289,6 +303,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ThenSchemaDefinition createThenSchemaDefinition() {
 		ThenSchemaDefinitionImpl thenSchemaDefinition = new ThenSchemaDefinitionImpl();
 		return thenSchemaDefinition;
@@ -299,6 +314,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MinLengthSchemaDefinition createMinLengthSchemaDefinition() {
 		MinLengthSchemaDefinitionImpl minLengthSchemaDefinition = new MinLengthSchemaDefinitionImpl();
 		return minLengthSchemaDefinition;
@@ -309,6 +325,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DefinitionsSchemaDefinition createDefinitionsSchemaDefinition() {
 		DefinitionsSchemaDefinitionImpl definitionsSchemaDefinition = new DefinitionsSchemaDefinitionImpl();
 		return definitionsSchemaDefinition;
@@ -319,6 +336,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BooleanValue createBooleanValue() {
 		BooleanValueImpl booleanValue = new BooleanValueImpl();
 		return booleanValue;
@@ -329,6 +347,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MinItemsSchemaDefinition createMinItemsSchemaDefinition() {
 		MinItemsSchemaDefinitionImpl minItemsSchemaDefinition = new MinItemsSchemaDefinitionImpl();
 		return minItemsSchemaDefinition;
@@ -339,6 +358,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public OneOfSchemaDefinition createOneOfSchemaDefinition() {
 		OneOfSchemaDefinitionImpl oneOfSchemaDefinition = new OneOfSchemaDefinitionImpl();
 		return oneOfSchemaDefinition;
@@ -349,6 +369,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SchemaArray createSchemaArray() {
 		SchemaArrayImpl schemaArray = new SchemaArrayImpl();
 		return schemaArray;
@@ -359,6 +380,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MaxPropertiesSchemaDefinition createMaxPropertiesSchemaDefinition() {
 		MaxPropertiesSchemaDefinitionImpl maxPropertiesSchemaDefinition = new MaxPropertiesSchemaDefinitionImpl();
 		return maxPropertiesSchemaDefinition;
@@ -369,6 +391,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NullValue createNullValue() {
 		NullValueImpl nullValue = new NullValueImpl();
 		return nullValue;
@@ -379,6 +402,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MinimumSchemaDefinition createMinimumSchemaDefinition() {
 		MinimumSchemaDefinitionImpl minimumSchemaDefinition = new MinimumSchemaDefinitionImpl();
 		return minimumSchemaDefinition;
@@ -389,6 +413,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public StringValue createStringValue() {
 		StringValueImpl stringValue = new StringValueImpl();
 		return stringValue;
@@ -399,6 +424,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JsonDocument createJsonDocument() {
 		JsonDocumentImpl jsonDocument = new JsonDocumentImpl();
 		return jsonDocument;
@@ -409,6 +435,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MaxItemsSchemaDefinition createMaxItemsSchemaDefinition() {
 		MaxItemsSchemaDefinitionImpl maxItemsSchemaDefinition = new MaxItemsSchemaDefinitionImpl();
 		return maxItemsSchemaDefinition;
@@ -419,6 +446,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public FormatSchemaDefinition createFormatSchemaDefinition() {
 		FormatSchemaDefinitionImpl formatSchemaDefinition = new FormatSchemaDefinitionImpl();
 		return formatSchemaDefinition;
@@ -429,6 +457,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ReadOnlySchemaDefinition createReadOnlySchemaDefinition() {
 		ReadOnlySchemaDefinitionImpl readOnlySchemaDefinition = new ReadOnlySchemaDefinitionImpl();
 		return readOnlySchemaDefinition;
@@ -439,6 +468,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ObjectValue createObjectValue() {
 		ObjectValueImpl objectValue = new ObjectValueImpl();
 		return objectValue;
@@ -449,6 +479,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypeSchemaDefinition createTypeSchemaDefinition() {
 		TypeSchemaDefinitionImpl typeSchemaDefinition = new TypeSchemaDefinitionImpl();
 		return typeSchemaDefinition;
@@ -459,6 +490,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AdditionalPropertiesSchemaDefinition createAdditionalPropertiesSchemaDefinition() {
 		AdditionalPropertiesSchemaDefinitionImpl additionalPropertiesSchemaDefinition = new AdditionalPropertiesSchemaDefinitionImpl();
 		return additionalPropertiesSchemaDefinition;
@@ -469,6 +501,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ElseSchemaDefinition createElseSchemaDefinition() {
 		ElseSchemaDefinitionImpl elseSchemaDefinition = new ElseSchemaDefinitionImpl();
 		return elseSchemaDefinition;
@@ -479,6 +512,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IdSchemaDefinition createIdSchemaDefinition() {
 		IdSchemaDefinitionImpl idSchemaDefinition = new IdSchemaDefinitionImpl();
 		return idSchemaDefinition;
@@ -489,6 +523,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ConstSchemaDefinition createConstSchemaDefinition() {
 		ConstSchemaDefinitionImpl constSchemaDefinition = new ConstSchemaDefinitionImpl();
 		return constSchemaDefinition;
@@ -499,6 +534,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DependenciesSchemaDefinition createDependenciesSchemaDefinition() {
 		DependenciesSchemaDefinitionImpl dependenciesSchemaDefinition = new DependenciesSchemaDefinitionImpl();
 		return dependenciesSchemaDefinition;
@@ -509,6 +545,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NumberValue createNumberValue() {
 		NumberValueImpl numberValue = new NumberValueImpl();
 		return numberValue;
@@ -519,6 +556,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RequiredSchemaDefinition createRequiredSchemaDefinition() {
 		RequiredSchemaDefinitionImpl requiredSchemaDefinition = new RequiredSchemaDefinitionImpl();
 		return requiredSchemaDefinition;
@@ -529,6 +567,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public DescriptionSchemaDefinition createDescriptionSchemaDefinition() {
 		DescriptionSchemaDefinitionImpl descriptionSchemaDefinition = new DescriptionSchemaDefinitionImpl();
 		return descriptionSchemaDefinition;
@@ -539,6 +578,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MinPropertiesSchemaDefinition createMinPropertiesSchemaDefinition() {
 		MinPropertiesSchemaDefinitionImpl minPropertiesSchemaDefinition = new MinPropertiesSchemaDefinitionImpl();
 		return minPropertiesSchemaDefinition;
@@ -549,6 +589,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatternPropertiesSchemaDefinition createPatternPropertiesSchemaDefinition() {
 		PatternPropertiesSchemaDefinitionImpl patternPropertiesSchemaDefinition = new PatternPropertiesSchemaDefinitionImpl();
 		return patternPropertiesSchemaDefinition;
@@ -559,6 +600,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AdditionalItemsSchemaDefinition createAdditionalItemsSchemaDefinition() {
 		AdditionalItemsSchemaDefinitionImpl additionalItemsSchemaDefinition = new AdditionalItemsSchemaDefinitionImpl();
 		return additionalItemsSchemaDefinition;
@@ -569,6 +611,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public KeyValuePair createKeyValuePair() {
 		KeyValuePairImpl keyValuePair = new KeyValuePairImpl();
 		return keyValuePair;
@@ -579,6 +622,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExamplesSchemaDefinition createExamplesSchemaDefinition() {
 		ExamplesSchemaDefinitionImpl examplesSchemaDefinition = new ExamplesSchemaDefinitionImpl();
 		return examplesSchemaDefinition;
@@ -589,6 +633,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public IfSchemaDefinition createIfSchemaDefinition() {
 		IfSchemaDefinitionImpl ifSchemaDefinition = new IfSchemaDefinitionImpl();
 		return ifSchemaDefinition;
@@ -599,6 +644,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public AllOfSchemaDefinition createAllOfSchemaDefinition() {
 		AllOfSchemaDefinitionImpl allOfSchemaDefinition = new AllOfSchemaDefinitionImpl();
 		return allOfSchemaDefinition;
@@ -609,6 +655,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ContentEncodingSchemaDefinition createContentEncodingSchemaDefinition() {
 		ContentEncodingSchemaDefinitionImpl contentEncodingSchemaDefinition = new ContentEncodingSchemaDefinitionImpl();
 		return contentEncodingSchemaDefinition;
@@ -619,6 +666,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MultipleOfSchemaDefinition createMultipleOfSchemaDefinition() {
 		MultipleOfSchemaDefinitionImpl multipleOfSchemaDefinition = new MultipleOfSchemaDefinitionImpl();
 		return multipleOfSchemaDefinition;
@@ -629,6 +677,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PatternSchemaDefinition createPatternSchemaDefinition() {
 		PatternSchemaDefinitionImpl patternSchemaDefinition = new PatternSchemaDefinitionImpl();
 		return patternSchemaDefinition;
@@ -639,6 +688,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ContainsSchemaDefinition createContainsSchemaDefinition() {
 		ContainsSchemaDefinitionImpl containsSchemaDefinition = new ContainsSchemaDefinitionImpl();
 		return containsSchemaDefinition;
@@ -649,6 +699,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotSchemaDefinition createNotSchemaDefinition() {
 		NotSchemaDefinitionImpl notSchemaDefinition = new NotSchemaDefinitionImpl();
 		return notSchemaDefinition;
@@ -659,6 +710,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExclusiveMaximumSchemaDefinition createExclusiveMaximumSchemaDefinition() {
 		ExclusiveMaximumSchemaDefinitionImpl exclusiveMaximumSchemaDefinition = new ExclusiveMaximumSchemaDefinitionImpl();
 		return exclusiveMaximumSchemaDefinition;
@@ -669,6 +721,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MaxLengthSchemaDefinition createMaxLengthSchemaDefinition() {
 		MaxLengthSchemaDefinitionImpl maxLengthSchemaDefinition = new MaxLengthSchemaDefinitionImpl();
 		return maxLengthSchemaDefinition;
@@ -679,6 +732,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public RefSchemaDefinition createRefSchemaDefinition() {
 		RefSchemaDefinitionImpl refSchemaDefinition = new RefSchemaDefinitionImpl();
 		return refSchemaDefinition;
@@ -689,6 +743,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JsonSchema createJsonSchema() {
 		JsonSchemaImpl jsonSchema = new JsonSchemaImpl();
 		return jsonSchema;
@@ -699,6 +754,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public KeySchemaPair createKeySchemaPair() {
 		KeySchemaPairImpl keySchemaPair = new KeySchemaPairImpl();
 		return keySchemaPair;
@@ -709,6 +765,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ContentMediaTypeSchemaDefinition createContentMediaTypeSchemaDefinition() {
 		ContentMediaTypeSchemaDefinitionImpl contentMediaTypeSchemaDefinition = new ContentMediaTypeSchemaDefinitionImpl();
 		return contentMediaTypeSchemaDefinition;
@@ -719,6 +776,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ExclusiveMinimumSchemaDefinition createExclusiveMinimumSchemaDefinition() {
 		ExclusiveMinimumSchemaDefinitionImpl exclusiveMinimumSchemaDefinition = new ExclusiveMinimumSchemaDefinitionImpl();
 		return exclusiveMinimumSchemaDefinition;
@@ -729,6 +787,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SchemaSchemaDefinition createSchemaSchemaDefinition() {
 		SchemaSchemaDefinitionImpl schemaSchemaDefinition = new SchemaSchemaDefinitionImpl();
 		return schemaSchemaDefinition;
@@ -739,6 +798,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PropertiesSchemaDefinition createPropertiesSchemaDefinition() {
 		PropertiesSchemaDefinitionImpl propertiesSchemaDefinition = new PropertiesSchemaDefinitionImpl();
 		return propertiesSchemaDefinition;
@@ -749,6 +809,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public PropertyNamesSchemaDefinition createPropertyNamesSchemaDefinition() {
 		PropertyNamesSchemaDefinitionImpl propertyNamesSchemaDefinition = new PropertyNamesSchemaDefinitionImpl();
 		return propertyNamesSchemaDefinition;
@@ -759,6 +820,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public ArrayValue createArrayValue() {
 		ArrayValueImpl arrayValue = new ArrayValueImpl();
 		return arrayValue;
@@ -769,6 +831,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypesAnyOf2 createTypesAnyOf2() {
 		TypesAnyOf2Impl typesAnyOf2 = new TypesAnyOf2Impl();
 		return typesAnyOf2;
@@ -779,6 +842,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public BooleanSchema createBooleanSchema() {
 		BooleanSchemaImpl booleanSchema = new BooleanSchemaImpl();
 		return booleanSchema;
@@ -789,6 +853,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NonNegativeInteger createNonNegativeInteger() {
 		NonNegativeIntegerImpl nonNegativeInteger = new NonNegativeIntegerImpl();
 		return nonNegativeInteger;
@@ -799,6 +864,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NonNegativeIntegerDefault0 createNonNegativeIntegerDefault0() {
 		NonNegativeIntegerDefault0Impl nonNegativeIntegerDefault0 = new NonNegativeIntegerDefault0Impl();
 		return nonNegativeIntegerDefault0;
@@ -809,6 +875,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SchemaObjectAdditionalProperties createSchemaObjectAdditionalProperties() {
 		SchemaObjectAdditionalPropertiesImpl schemaObjectAdditionalProperties = new SchemaObjectAdditionalPropertiesImpl();
 		return schemaObjectAdditionalProperties;
@@ -819,6 +886,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SchemaObjectDependenciesAdditionalProperties createSchemaObjectDependenciesAdditionalProperties() {
 		SchemaObjectDependenciesAdditionalPropertiesImpl schemaObjectDependenciesAdditionalProperties = new SchemaObjectDependenciesAdditionalPropertiesImpl();
 		return schemaObjectDependenciesAdditionalProperties;
@@ -829,6 +897,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SchemaObjectDependenciesAdditionalPropertiesAnyOf1 createSchemaObjectDependenciesAdditionalPropertiesAnyOf1() {
 		SchemaObjectDependenciesAdditionalPropertiesAnyOf1Impl schemaObjectDependenciesAdditionalPropertiesAnyOf1 = new SchemaObjectDependenciesAdditionalPropertiesAnyOf1Impl();
 		return schemaObjectDependenciesAdditionalPropertiesAnyOf1;
@@ -839,9 +908,32 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SchemaObjectDependenciesAdditionalPropertiesAnyOf2 createSchemaObjectDependenciesAdditionalPropertiesAnyOf2() {
 		SchemaObjectDependenciesAdditionalPropertiesAnyOf2Impl schemaObjectDependenciesAdditionalPropertiesAnyOf2 = new SchemaObjectDependenciesAdditionalPropertiesAnyOf2Impl();
 		return schemaObjectDependenciesAdditionalPropertiesAnyOf2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ItemsAnyOf1 createItemsAnyOf1() {
+		ItemsAnyOf1Impl itemsAnyOf1 = new ItemsAnyOf1Impl();
+		return itemsAnyOf1;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ItemsAnyOf2 createItemsAnyOf2() {
+		ItemsAnyOf2Impl itemsAnyOf2 = new ItemsAnyOf2Impl();
+		return itemsAnyOf2;
 	}
 
 	/**
@@ -889,6 +981,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public JsonMetaschemaMMPackage getJsonMetaschemaMMPackage() {
 		return (JsonMetaschemaMMPackage)getEPackage();
 	}

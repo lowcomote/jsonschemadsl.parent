@@ -1,0 +1,29 @@
+{
+	"definitions":{
+		"family":{
+			"type":"object",
+			"additionalProperties":{
+				"type":"object",
+				"properties":{
+					"membername":{"type": "string"},
+					"relativekind":{"type": "string"}
+				},
+				"additionalProperties":true
+			}
+		}
+	},
+	"type":"object",
+	"properties":{
+		
+		"wives":{
+			"type":"object",
+			"additionalProperties":{"$ref":"#/definitions/family"}
+		},
+		"extraFamilies":{
+			"type":"array",
+			"items":{"$ref":"#/definitions/family"}
+		}
+	},
+	"additionalProperties":true
+ 
+}

@@ -69,6 +69,7 @@ public class ReadOnlySchemaDefinitionImpl extends KeywordDefinitionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isReadOnly() {
 		return readOnly;
 	}
@@ -78,6 +79,7 @@ public class ReadOnlySchemaDefinitionImpl extends KeywordDefinitionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setReadOnly(boolean newReadOnly) {
 		boolean oldReadOnly = readOnly;
 		readOnly = newReadOnly;

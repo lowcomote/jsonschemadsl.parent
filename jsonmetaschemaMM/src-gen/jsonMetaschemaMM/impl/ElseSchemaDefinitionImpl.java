@@ -62,6 +62,7 @@ public class ElseSchemaDefinitionImpl extends KeywordDefinitionImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getElse() {
 		return else_;
 	}
@@ -86,6 +87,7 @@ public class ElseSchemaDefinitionImpl extends KeywordDefinitionImpl implements E
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setElse(Schema newElse) {
 		if (newElse != else_) {
 			NotificationChain msgs = null;

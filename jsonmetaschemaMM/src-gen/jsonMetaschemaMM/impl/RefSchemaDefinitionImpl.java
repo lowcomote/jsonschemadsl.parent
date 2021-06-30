@@ -2,15 +2,19 @@
  */
 package jsonMetaschemaMM.impl;
 
+
+import java.lang.reflect.InvocationTargetException;
+
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.RefSchemaDefinition;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Ref Schema Definition</b></em>'.
@@ -69,6 +73,7 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getRef() {
 		return ref;
 	}
@@ -78,11 +83,75 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setRef(String newRef) {
 		String oldRef = ref;
 		ref = newRef;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION__REF, oldRef, ref));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */ 
+	@Override 
+	public boolean isFormatUriReference() {
+		boolean isUri = true; 
+		try {
+			jakarta.ws.rs.core.UriBuilder.fromUri(getRef());
+		} catch (Exception e) {
+			isUri=false;
+		}
+		return isUri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getFragment() {
+		try {
+			return getRef().substring(getRef().indexOf("#"), getRef().length());
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<String> getJsonPointerAsList() {
+		EList<String> jsonPointerAsList = new org.eclipse.emf.common.util.BasicEList<String>();
+		try {
+			String fragment = getFragment();
+			if(fragment!=null && !fragment.isBlank()) {
+				fragment = fragment.substring(1,fragment.length()); // take off "#"
+				if("/".equals(fragment.substring(0, 1)) ) {
+					fragment = fragment.substring(1,fragment.length());
+				}
+				jsonPointerAsList.addAll(java.util.Arrays.asList(fragment.split("/")));
+			}
+		} catch (Exception e) {
+			return null;
+		}
+		return jsonPointerAsList;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Boolean isOnlyFragment() {
+		return getRef().equals(getFragment());
 	}
 
 	/**
@@ -141,6 +210,26 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 				return REF_EDEFAULT == null ? ref != null : !REF_EDEFAULT.equals(ref);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE:
+				return isFormatUriReference();
+			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___GET_FRAGMENT:
+				return getFragment();
+			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___GET_JSON_POINTER_AS_LIST:
+				return getJsonPointerAsList();
+			case JsonMetaschemaMMPackage.REF_SCHEMA_DEFINITION___IS_ONLY_FRAGMENT:
+				return isOnlyFragment();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

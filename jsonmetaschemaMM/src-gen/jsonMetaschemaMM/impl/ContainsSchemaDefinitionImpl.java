@@ -62,6 +62,7 @@ public class ContainsSchemaDefinitionImpl extends KeywordDefinitionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getContains() {
 		return contains;
 	}
@@ -86,6 +87,7 @@ public class ContainsSchemaDefinitionImpl extends KeywordDefinitionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContains(Schema newContains) {
 		if (newContains != contains) {
 			NotificationChain msgs = null;

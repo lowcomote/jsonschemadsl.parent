@@ -1,0 +1,144 @@
+{
+
+ 	"type":"object",
+ 	"additionalItems": {"type":"string"},
+ 	"additionalProperties":{
+ 		"type":"object",
+ 		"properties":{
+ 			"prop1":{"type":"integer"}
+ 		},
+ 		"additionalProperties":false
+ 	},
+ 	"contains":{
+ 		"type":"array",
+ 		"items":{"type":"string"}
+ 	},
+ 	"definitions":{
+ 		"def1":{
+ 			"type":"object",
+ 			"additionalProperties":true	
+ 		},
+ 		"def2":{
+ 			"type":"object", 
+ 			"additionalProperties":{
+ 				"type":"object",
+ 				"additionalProperties":{
+ 					"type":"array",
+ 					"contains":{
+ 						"type":"object",
+ 						"properties":{
+ 							"prop3":{
+ 								"type":"object",
+ 								"properties":{
+ 									"prop4":{"type":"string"}
+ 								},
+ 								"patternProperties":{
+							 		"^I_": { "type": "integer" }
+							 	},
+ 								"additionalProperties":false
+ 							}
+ 						},
+ 						"additionalProperties":false
+ 						
+ 					}
+ 					
+ 				}
+ 			}	
+ 		} 
+ 	}, 
+ 	"patternProperties":{
+ 		"^S_": { "type": "string" }
+ 	},
+ 	"dependencies": {
+	    "credit_card": {
+	    	"type":"object",
+	      	"properties": {
+	        	"billing_address": { "type": "string" }
+	      	},
+	      	"required": ["billing_address"]
+	    }
+  	},
+	"propertyNames": {
+  		"type": "string",
+	    "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+	 },
+	"if": {
+	    "type":"object",
+    	"properties": { "country": { "type": "string" } }
+	},
+  	"then": {
+  		"type":"object",
+    	"properties": { "postal_code": { "type": "string"  } }
+  	},
+  	"else": {
+  		"type":"object",
+    	"properties": { "postal_code": { "type": "integer"  } }
+  	},
+  	"allOf": [
+    	{ "type": "string" },
+    	{ "type": "string", "maxLength": 5 }
+  	],
+  	"anyOf": [
+    	{ "type": "string", "maxLength": 5 },
+    	{ "type": "number", "minimum": 0.0 }
+  	],
+  	"oneOf": [
+	    { "type": "number", "multipleOf": 5.2 },
+	    { "type": "number", "multipleOf": 3.0 }
+	 ],
+	 "not": { "type": "string" },
+	 
+	 "extraProp":{
+	 	"type":"object",
+	 	"properties":{
+	 		"extraProp1":{"type":"number"},
+	 		"extraProp2":{
+	 			"type":"array",
+	 			"items":[
+	 				{"type":"number"},
+	 				{"type":"string"}
+	 			]
+	 		}
+	 	},
+	 	"additionalProperties":false
+	 },
+	    
+	 "properties":{
+	 	"ref1":{"$ref": "#/additionalItems"},
+	 	"ref2":{"$ref": "#/additionalProperties"},
+	 	"ref3":{"$ref": "#/additionalProperties/properties/prop1"},
+	 	"ref4":{"$ref": "#/contains"},
+	 	"ref5":{"$ref": "#/contains/items"},
+	 	"ref6":{"$ref": "#/definitions/def1"},
+	 	"ref7":{"$ref": "#/definitions/def2"}, 
+	 	"ref8":{"$ref": "#/definitions/def2/additionalProperties"},
+	 	"ref9":{"$ref": "#/definitions/def2/additionalProperties/additionalProperties"},
+	 	"ref10":{"$ref": "#/definitions/def2/additionalProperties/additionalProperties/contains"},
+	 	"ref11":{"$ref": "#/definitions/def2/additionalProperties/additionalProperties/contains/properties/prop3"},
+	 	"ref12":{"$ref": "#/definitions/def2/additionalProperties/additionalProperties/contains/properties/prop3/properties/prop4"},
+	 	"ref13":{"$ref": "#/definitions/def2/additionalProperties/additionalProperties/contains/properties/prop3/patternProperties/^I_"},
+	 	"ref14":{"$ref": "#/patternProperties/^S_"},
+	 	"ref16":{"$ref": "#/dependencies/credit_card"},
+	 	"ref17":{"$ref": "#/dependencies/credit_card/properties/billing_address"},
+	 	"ref18":{"$ref": "#/propertyNames"},
+	 	"ref19":{"$ref": "#/if"},
+	 	"ref20":{"$ref": "#/if/properties/country"},
+	 	"ref21":{"$ref": "#/then"},
+	 	"ref22":{"$ref": "#/then/properties/postal_code"},
+	 	"ref23":{"$ref": "#/else"},
+	 	"ref24":{"$ref": "#/else/properties/postal_code"},
+	 	"ref25":{"$ref": "#/allOf/0"},
+	 	"ref26":{"$ref": "#/allOf/1"},
+	 	"ref27":{"$ref": "#/anyOf/0"},
+	 	"ref28":{"$ref": "#/anyOf/1"},
+	 	"ref29":{"$ref": "#/oneOf/0"},
+	 	"ref30":{"$ref": "#/oneOf/1"},
+	 	"ref31":{"$ref": "#/not"},
+	 	"ref32":{"$ref": "#/extraProp"},
+	 	"ref33":{"$ref": "#/extraProp/properties/extraProp1"},
+	 	"ref34":{"$ref": "#/extraProp/properties/extraProp2/items/0"}
+	 	
+	 }
+  	
+ 	
+}

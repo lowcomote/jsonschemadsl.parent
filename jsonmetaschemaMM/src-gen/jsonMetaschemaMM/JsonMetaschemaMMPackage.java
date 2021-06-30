@@ -5,6 +5,7 @@ package jsonMetaschemaMM;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -77,13 +78,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int SCHEMA_FEATURE_COUNT = 0;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = 0;
+
+	/**
 	 * The number of operations of the '<em>Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_OPERATION_COUNT = 0;
+	int SCHEMA_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ObjectSchemaImpl <em>Object Schema</em>}' class.
@@ -105,13 +115,184 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__KEYWORD_DEFINITION = SCHEMA_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Additional Items</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__ADDITIONAL_ITEMS = SCHEMA_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Items</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__ITEMS = SCHEMA_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Additional Properties</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__ADDITIONAL_PROPERTIES = SCHEMA_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Contains</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__CONTAINS = SCHEMA_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Properties</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__PROPERTIES = SCHEMA_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Definitions</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__DEFINITIONS = SCHEMA_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Pattern Properties</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__PATTERN_PROPERTIES = SCHEMA_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Dependencies</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__DEPENDENCIES = SCHEMA_FEATURE_COUNT + 8;
+
+	/**
+	 * The feature id for the '<em><b>Property Names</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__PROPERTY_NAMES = SCHEMA_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>If</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__IF = SCHEMA_FEATURE_COUNT + 10;
+
+	/**
+	 * The feature id for the '<em><b>Then</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__THEN = SCHEMA_FEATURE_COUNT + 11;
+
+	/**
+	 * The feature id for the '<em><b>Else</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__ELSE = SCHEMA_FEATURE_COUNT + 12;
+
+	/**
+	 * The feature id for the '<em><b>All Of</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__ALL_OF = SCHEMA_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Any Of</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__ANY_OF = SCHEMA_FEATURE_COUNT + 14;
+
+	/**
+	 * The feature id for the '<em><b>One Of</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__ONE_OF = SCHEMA_FEATURE_COUNT + 15;
+
+	/**
+	 * The feature id for the '<em><b>Not</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__NOT = SCHEMA_FEATURE_COUNT + 16;
+
+	/**
+	 * The feature id for the '<em><b>Schema Object Additional Properties</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES = SCHEMA_FEATURE_COUNT + 17;
+
+	/**
 	 * The number of structural features of the '<em>Object Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 1;
+	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 18;
+
+	/**
+	 * The operation id for the '<em>Find Schema By Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING = SCHEMA_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = SCHEMA_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Object Schema</em>' class.
@@ -120,7 +301,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_SCHEMA_OPERATION_COUNT = SCHEMA_OPERATION_COUNT + 0;
+	int OBJECT_SCHEMA_OPERATION_COUNT = SCHEMA_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.KeywordDefinitionImpl <em>Keyword Definition</em>}' class.
@@ -522,22 +703,13 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int ITEMS_SCHEMA_DEFINITION = 10;
 
 	/**
-	 * The feature id for the '<em><b>Items Any Of1</b></em>' containment reference.
+	 * The feature id for the '<em><b>Any Of</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS_SCHEMA_DEFINITION__ITEMS_ANY_OF1 = KEYWORD_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Items Any Of2</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITEMS_SCHEMA_DEFINITION__ITEMS_ANY_OF2 = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
+	int ITEMS_SCHEMA_DEFINITION__ANY_OF = KEYWORD_DEFINITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Items Schema Definition</em>' class.
@@ -546,7 +718,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ITEMS_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 2;
+	int ITEMS_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Items Schema Definition</em>' class.
@@ -697,13 +869,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int DEFINITIONS_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINITIONS_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Definitions Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEFINITIONS_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int DEFINITIONS_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
@@ -845,13 +1026,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int SCHEMA_ARRAY_FEATURE_COUNT = 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Index</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_ARRAY___FIND_SCHEMA_BY_INDEX__INT = 0;
+
+	/**
 	 * The number of operations of the '<em>Schema Array</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_ARRAY_OPERATION_COUNT = 0;
+	int SCHEMA_ARRAY_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.MaxPropertiesSchemaDefinitionImpl <em>Max Properties Schema Definition</em>}' class.
@@ -1409,13 +1599,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int DEPENDENCIES_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDENCIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Dependencies Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int DEPENDENCIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.NumberValueImpl <em>Number Value</em>}' class.
@@ -1594,13 +1793,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int PATTERN_PROPERTIES_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_PROPERTIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Pattern Properties Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_PROPERTIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int PATTERN_PROPERTIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.AdditionalItemsSchemaDefinitionImpl <em>Additional Items Schema Definition</em>}' class.
@@ -2084,13 +2292,49 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int REF_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Is Format Uri Reference</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Get Fragment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF_SCHEMA_DEFINITION___GET_FRAGMENT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Get Json Pointer As List</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF_SCHEMA_DEFINITION___GET_JSON_POINTER_AS_LIST = KEYWORD_DEFINITION_OPERATION_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Is Only Fragment</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REF_SCHEMA_DEFINITION___IS_ONLY_FRAGMENT = KEYWORD_DEFINITION_OPERATION_COUNT + 3;
+
+	/**
 	 * The number of operations of the '<em>Ref Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REF_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int REF_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.JsonSchemaImpl <em>Json Schema</em>}' class.
@@ -2121,13 +2365,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int JSON_SCHEMA_FEATURE_COUNT = 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST = 0;
+
+	/**
 	 * The number of operations of the '<em>Json Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JSON_SCHEMA_OPERATION_COUNT = 0;
+	int JSON_SCHEMA_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.KeySchemaPairImpl <em>Key Schema Pair</em>}' class.
@@ -2315,13 +2568,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int PROPERTIES_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Key</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Properties Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int PROPERTIES_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.PropertyNamesSchemaDefinitionImpl <em>Property Names Schema Definition</em>}' class.
@@ -2463,13 +2725,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int BOOLEAN_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = SCHEMA_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Boolean Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_SCHEMA_OPERATION_COUNT = SCHEMA_OPERATION_COUNT + 0;
+	int BOOLEAN_SCHEMA_OPERATION_COUNT = SCHEMA_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.NonNegativeIntegerImpl <em>Non Negative Integer</em>}' class.
@@ -2768,6 +3039,108 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF2_OPERATION_COUNT = SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ItemsAnyOfImpl <em>Items Any Of</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMetaschemaMM.impl.ItemsAnyOfImpl
+	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf()
+	 * @generated
+	 */
+	int ITEMS_ANY_OF = 73;
+
+	/**
+	 * The number of structural features of the '<em>Items Any Of</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Items Any Of</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ItemsAnyOf1Impl <em>Items Any Of1</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMetaschemaMM.impl.ItemsAnyOf1Impl
+	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf1()
+	 * @generated
+	 */
+	int ITEMS_ANY_OF1 = 74;
+
+	/**
+	 * The feature id for the '<em><b>Any Of1</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF1__ANY_OF1 = ITEMS_ANY_OF_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Items Any Of1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF1_FEATURE_COUNT = ITEMS_ANY_OF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Items Any Of1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF1_OPERATION_COUNT = ITEMS_ANY_OF_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ItemsAnyOf2Impl <em>Items Any Of2</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMetaschemaMM.impl.ItemsAnyOf2Impl
+	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf2()
+	 * @generated
+	 */
+	int ITEMS_ANY_OF2 = 75;
+
+	/**
+	 * The feature id for the '<em><b>Any Of2</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF2__ANY_OF2 = ITEMS_ANY_OF_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Items Any Of2</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF2_FEATURE_COUNT = ITEMS_ANY_OF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Items Any Of2</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITEMS_ANY_OF2_OPERATION_COUNT = ITEMS_ANY_OF_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2775,7 +3148,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSimpleTypes()
 	 * @generated
 	 */
-	int SIMPLE_TYPES = 73;
+	int SIMPLE_TYPES = 76;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.NullEnum <em>Null Enum</em>}' enum.
@@ -2785,7 +3158,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getNullEnum()
 	 * @generated
 	 */
-	int NULL_ENUM = 74;
+	int NULL_ENUM = 77;
 
 
 	/**
@@ -2808,6 +3181,213 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getObjectSchema_KeywordDefinition();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getAdditionalItems <em>Additional Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Additional Items</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getAdditionalItems()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_AdditionalItems();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getItems <em>Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Items</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getItems()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Items();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getAdditionalProperties <em>Additional Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Additional Properties</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getAdditionalProperties()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_AdditionalProperties();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getContains <em>Contains</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Contains</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getContains()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Contains();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Properties</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getProperties()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Properties();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getDefinitions <em>Definitions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Definitions</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getDefinitions()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Definitions();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getPatternProperties <em>Pattern Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Pattern Properties</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getPatternProperties()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_PatternProperties();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getDependencies <em>Dependencies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Dependencies</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getDependencies()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Dependencies();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getPropertyNames <em>Property Names</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Property Names</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getPropertyNames()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_PropertyNames();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getIf <em>If</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>If</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getIf()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_If();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getThen <em>Then</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Then</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getThen()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Then();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getElse <em>Else</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Else</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getElse()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Else();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getAllOf <em>All Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>All Of</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getAllOf()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_AllOf();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getAnyOf <em>Any Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Any Of</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getAnyOf()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_AnyOf();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getOneOf <em>One Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>One Of</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getOneOf()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_OneOf();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getNot <em>Not</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Not</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getNot()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Not();
+
+	/**
+	 * Returns the meta object for the reference list '{@link jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Schema Object Additional Properties</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_SchemaObjectAdditionalProperties();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.ObjectSchema#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Key</em>' operation.
+	 * @see jsonMetaschemaMM.ObjectSchema#findSchemaByKey(java.lang.String)
+	 * @generated
+	 */
+	EOperation getObjectSchema__FindSchemaByKey__String();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.ObjectSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int) <em>Find Schema By Json Pointer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * @see jsonMetaschemaMM.ObjectSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int)
+	 * @generated
+	 */
+	EOperation getObjectSchema__FindSchemaByJsonPointer__EList_int();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.MaximumSchemaDefinition <em>Maximum Schema Definition</em>}'.
@@ -3009,26 +3589,15 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EClass getItemsSchemaDefinition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf1 <em>Items Any Of1</em>}'.
+	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ItemsSchemaDefinition#getAnyOf <em>Any Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Items Any Of1</em>'.
-	 * @see jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf1()
+	 * @return the meta object for the containment reference '<em>Any Of</em>'.
+	 * @see jsonMetaschemaMM.ItemsSchemaDefinition#getAnyOf()
 	 * @see #getItemsSchemaDefinition()
 	 * @generated
 	 */
-	EReference getItemsSchemaDefinition_ItemsAnyOf1();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf2 <em>Items Any Of2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Items Any Of2</em>'.
-	 * @see jsonMetaschemaMM.ItemsSchemaDefinition#getItemsAnyOf2()
-	 * @see #getItemsSchemaDefinition()
-	 * @generated
-	 */
-	EReference getItemsSchemaDefinition_ItemsAnyOf2();
+	EReference getItemsSchemaDefinition_AnyOf();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.DefaultSchemaDefinition <em>Default Schema Definition</em>}'.
@@ -3115,6 +3684,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getDefinitionsSchemaDefinition_KeySchemaPairs();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.DefinitionsSchemaDefinition#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Key</em>' operation.
+	 * @see jsonMetaschemaMM.DefinitionsSchemaDefinition#findSchemaByKey(java.lang.String)
+	 * @generated
+	 */
+	EOperation getDefinitionsSchemaDefinition__FindSchemaByKey__String();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.BooleanValue <em>Boolean Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3197,6 +3776,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSchemaArray_Items();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.SchemaArray#findSchemaByIndex(int) <em>Find Schema By Index</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Index</em>' operation.
+	 * @see jsonMetaschemaMM.SchemaArray#findSchemaByIndex(int)
+	 * @generated
+	 */
+	EOperation getSchemaArray__FindSchemaByIndex__int();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.MaxPropertiesSchemaDefinition <em>Max Properties Schema Definition</em>}'.
@@ -3377,6 +3966,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EClass getSchema();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.Schema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int) <em>Find Schema By Json Pointer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * @see jsonMetaschemaMM.Schema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int)
+	 * @generated
+	 */
+	EOperation getSchema__FindSchemaByJsonPointer__EList_int();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.ObjectValue <em>Object Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3535,6 +4134,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getDependenciesSchemaDefinition_Properties();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.DependenciesSchemaDefinition#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Key</em>' operation.
+	 * @see jsonMetaschemaMM.DependenciesSchemaDefinition#findSchemaByKey(java.lang.String)
+	 * @generated
+	 */
+	EOperation getDependenciesSchemaDefinition__FindSchemaByKey__String();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.NumberValue <em>Number Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3638,6 +4247,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPatternPropertiesSchemaDefinition_KeySchemaPairs();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.PatternPropertiesSchemaDefinition#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Key</em>' operation.
+	 * @see jsonMetaschemaMM.PatternPropertiesSchemaDefinition#findSchemaByKey(java.lang.String)
+	 * @generated
+	 */
+	EOperation getPatternPropertiesSchemaDefinition__FindSchemaByKey__String();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.AdditionalItemsSchemaDefinition <em>Additional Items Schema Definition</em>}'.
@@ -3934,6 +4553,46 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EAttribute getRefSchemaDefinition_Ref();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.RefSchemaDefinition#isFormatUriReference() <em>Is Format Uri Reference</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Format Uri Reference</em>' operation.
+	 * @see jsonMetaschemaMM.RefSchemaDefinition#isFormatUriReference()
+	 * @generated
+	 */
+	EOperation getRefSchemaDefinition__IsFormatUriReference();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.RefSchemaDefinition#getFragment() <em>Get Fragment</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Fragment</em>' operation.
+	 * @see jsonMetaschemaMM.RefSchemaDefinition#getFragment()
+	 * @generated
+	 */
+	EOperation getRefSchemaDefinition__GetFragment();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.RefSchemaDefinition#getJsonPointerAsList() <em>Get Json Pointer As List</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Get Json Pointer As List</em>' operation.
+	 * @see jsonMetaschemaMM.RefSchemaDefinition#getJsonPointerAsList()
+	 * @generated
+	 */
+	EOperation getRefSchemaDefinition__GetJsonPointerAsList();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.RefSchemaDefinition#isOnlyFragment() <em>Is Only Fragment</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Only Fragment</em>' operation.
+	 * @see jsonMetaschemaMM.RefSchemaDefinition#isOnlyFragment()
+	 * @generated
+	 */
+	EOperation getRefSchemaDefinition__IsOnlyFragment();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.JsonSchema <em>Json Schema</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3953,6 +4612,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getJsonSchema_Schema();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.JsonSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList) <em>Find Schema By Json Pointer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * @see jsonMetaschemaMM.JsonSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList)
+	 * @generated
+	 */
+	EOperation getJsonSchema__FindSchemaByJsonPointer__EList();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.KeySchemaPair <em>Key Schema Pair</em>}'.
@@ -4071,6 +4740,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getPropertiesSchemaDefinition_KeySchemaPairs();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.PropertiesSchemaDefinition#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Key</em>' operation.
+	 * @see jsonMetaschemaMM.PropertiesSchemaDefinition#findSchemaByKey(java.lang.String)
+	 * @generated
+	 */
+	EOperation getPropertiesSchemaDefinition__FindSchemaByKey__String();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.PropertyNamesSchemaDefinition <em>Property Names Schema Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4163,6 +4842,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBooleanSchema_Value();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.BooleanSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int) <em>Find Schema By Json Pointer</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Find Schema By Json Pointer</em>' operation.
+	 * @see jsonMetaschemaMM.BooleanSchema#findSchemaByJsonPointer(org.eclipse.emf.common.util.EList, int)
+	 * @generated
+	 */
+	EOperation getBooleanSchema__FindSchemaByJsonPointer__EList_int();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.NonNegativeInteger <em>Non Negative Integer</em>}'.
@@ -4333,6 +5022,58 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EClass getSchemaObjectDependenciesAdditionalPropertiesAnyOf();
 
 	/**
+	 * Returns the meta object for class '{@link jsonMetaschemaMM.ItemsAnyOf <em>Items Any Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Items Any Of</em>'.
+	 * @see jsonMetaschemaMM.ItemsAnyOf
+	 * @generated
+	 */
+	EClass getItemsAnyOf();
+
+	/**
+	 * Returns the meta object for class '{@link jsonMetaschemaMM.ItemsAnyOf1 <em>Items Any Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Items Any Of1</em>'.
+	 * @see jsonMetaschemaMM.ItemsAnyOf1
+	 * @generated
+	 */
+	EClass getItemsAnyOf1();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ItemsAnyOf1#getAnyOf1 <em>Any Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Any Of1</em>'.
+	 * @see jsonMetaschemaMM.ItemsAnyOf1#getAnyOf1()
+	 * @see #getItemsAnyOf1()
+	 * @generated
+	 */
+	EReference getItemsAnyOf1_AnyOf1();
+
+	/**
+	 * Returns the meta object for class '{@link jsonMetaschemaMM.ItemsAnyOf2 <em>Items Any Of2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Items Any Of2</em>'.
+	 * @see jsonMetaschemaMM.ItemsAnyOf2
+	 * @generated
+	 */
+	EClass getItemsAnyOf2();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ItemsAnyOf2#getAnyOf2 <em>Any Of2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Any Of2</em>'.
+	 * @see jsonMetaschemaMM.ItemsAnyOf2#getAnyOf2()
+	 * @see #getItemsAnyOf2()
+	 * @generated
+	 */
+	EReference getItemsAnyOf2_AnyOf2();
+
+	/**
 	 * Returns the meta object for enum '{@link jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4392,6 +5133,158 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OBJECT_SCHEMA__KEYWORD_DEFINITION = eINSTANCE.getObjectSchema_KeywordDefinition();
+
+		/**
+		 * The meta object literal for the '<em><b>Additional Items</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__ADDITIONAL_ITEMS = eINSTANCE.getObjectSchema_AdditionalItems();
+
+		/**
+		 * The meta object literal for the '<em><b>Items</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__ITEMS = eINSTANCE.getObjectSchema_Items();
+
+		/**
+		 * The meta object literal for the '<em><b>Additional Properties</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__ADDITIONAL_PROPERTIES = eINSTANCE.getObjectSchema_AdditionalProperties();
+
+		/**
+		 * The meta object literal for the '<em><b>Contains</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__CONTAINS = eINSTANCE.getObjectSchema_Contains();
+
+		/**
+		 * The meta object literal for the '<em><b>Properties</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__PROPERTIES = eINSTANCE.getObjectSchema_Properties();
+
+		/**
+		 * The meta object literal for the '<em><b>Definitions</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__DEFINITIONS = eINSTANCE.getObjectSchema_Definitions();
+
+		/**
+		 * The meta object literal for the '<em><b>Pattern Properties</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__PATTERN_PROPERTIES = eINSTANCE.getObjectSchema_PatternProperties();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependencies</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__DEPENDENCIES = eINSTANCE.getObjectSchema_Dependencies();
+
+		/**
+		 * The meta object literal for the '<em><b>Property Names</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__PROPERTY_NAMES = eINSTANCE.getObjectSchema_PropertyNames();
+
+		/**
+		 * The meta object literal for the '<em><b>If</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__IF = eINSTANCE.getObjectSchema_If();
+
+		/**
+		 * The meta object literal for the '<em><b>Then</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__THEN = eINSTANCE.getObjectSchema_Then();
+
+		/**
+		 * The meta object literal for the '<em><b>Else</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__ELSE = eINSTANCE.getObjectSchema_Else();
+
+		/**
+		 * The meta object literal for the '<em><b>All Of</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__ALL_OF = eINSTANCE.getObjectSchema_AllOf();
+
+		/**
+		 * The meta object literal for the '<em><b>Any Of</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__ANY_OF = eINSTANCE.getObjectSchema_AnyOf();
+
+		/**
+		 * The meta object literal for the '<em><b>One Of</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__ONE_OF = eINSTANCE.getObjectSchema_OneOf();
+
+		/**
+		 * The meta object literal for the '<em><b>Not</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__NOT = eINSTANCE.getObjectSchema_Not();
+
+		/**
+		 * The meta object literal for the '<em><b>Schema Object Additional Properties</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES = eINSTANCE.getObjectSchema_SchemaObjectAdditionalProperties();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING = eINSTANCE.getObjectSchema__FindSchemaByKey__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Json Pointer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OBJECT_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = eINSTANCE.getObjectSchema__FindSchemaByJsonPointer__EList_int();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.MaximumSchemaDefinitionImpl <em>Maximum Schema Definition</em>}' class.
@@ -4566,20 +5459,12 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EClass ITEMS_SCHEMA_DEFINITION = eINSTANCE.getItemsSchemaDefinition();
 
 		/**
-		 * The meta object literal for the '<em><b>Items Any Of1</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Any Of</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ITEMS_SCHEMA_DEFINITION__ITEMS_ANY_OF1 = eINSTANCE.getItemsSchemaDefinition_ItemsAnyOf1();
-
-		/**
-		 * The meta object literal for the '<em><b>Items Any Of2</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ITEMS_SCHEMA_DEFINITION__ITEMS_ANY_OF2 = eINSTANCE.getItemsSchemaDefinition_ItemsAnyOf2();
+		EReference ITEMS_SCHEMA_DEFINITION__ANY_OF = eINSTANCE.getItemsSchemaDefinition_AnyOf();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.DefaultSchemaDefinitionImpl <em>Default Schema Definition</em>}' class.
@@ -4654,6 +5539,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference DEFINITIONS_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS = eINSTANCE.getDefinitionsSchemaDefinition_KeySchemaPairs();
 
 		/**
+		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DEFINITIONS_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = eINSTANCE.getDefinitionsSchemaDefinition__FindSchemaByKey__String();
+
+		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4724,6 +5617,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCHEMA_ARRAY__ITEMS = eINSTANCE.getSchemaArray_Items();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Index</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCHEMA_ARRAY___FIND_SCHEMA_BY_INDEX__INT = eINSTANCE.getSchemaArray__FindSchemaByIndex__int();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.MaxPropertiesSchemaDefinitionImpl <em>Max Properties Schema Definition</em>}' class.
@@ -4880,6 +5781,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EClass SCHEMA = eINSTANCE.getSchema();
 
 		/**
+		 * The meta object literal for the '<em><b>Find Schema By Json Pointer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = eINSTANCE.getSchema__FindSchemaByJsonPointer__EList_int();
+
+		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.ObjectValueImpl <em>Object Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5014,6 +5923,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES = eINSTANCE.getDependenciesSchemaDefinition_Properties();
 
 		/**
+		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DEPENDENCIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = eINSTANCE.getDependenciesSchemaDefinition__FindSchemaByKey__String();
+
+		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.NumberValueImpl <em>Number Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5102,6 +6019,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PATTERN_PROPERTIES_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS = eINSTANCE.getPatternPropertiesSchemaDefinition_KeySchemaPairs();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_PROPERTIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = eINSTANCE.getPatternPropertiesSchemaDefinition__FindSchemaByKey__String();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.AdditionalItemsSchemaDefinitionImpl <em>Additional Items Schema Definition</em>}' class.
@@ -5356,6 +6281,38 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EAttribute REF_SCHEMA_DEFINITION__REF = eINSTANCE.getRefSchemaDefinition_Ref();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Format Uri Reference</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation REF_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE = eINSTANCE.getRefSchemaDefinition__IsFormatUriReference();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Fragment</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation REF_SCHEMA_DEFINITION___GET_FRAGMENT = eINSTANCE.getRefSchemaDefinition__GetFragment();
+
+		/**
+		 * The meta object literal for the '<em><b>Get Json Pointer As List</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation REF_SCHEMA_DEFINITION___GET_JSON_POINTER_AS_LIST = eINSTANCE.getRefSchemaDefinition__GetJsonPointerAsList();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Only Fragment</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation REF_SCHEMA_DEFINITION___IS_ONLY_FRAGMENT = eINSTANCE.getRefSchemaDefinition__IsOnlyFragment();
+
+		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.JsonSchemaImpl <em>Json Schema</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5372,6 +6329,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference JSON_SCHEMA__SCHEMA = eINSTANCE.getJsonSchema_Schema();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Json Pointer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JSON_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST = eINSTANCE.getJsonSchema__FindSchemaByJsonPointer__EList();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.KeySchemaPairImpl <em>Key Schema Pair</em>}' class.
@@ -5472,6 +6437,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference PROPERTIES_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS = eINSTANCE.getPropertiesSchemaDefinition_KeySchemaPairs();
 
 		/**
+		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PROPERTIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING = eINSTANCE.getPropertiesSchemaDefinition__FindSchemaByKey__String();
+
+		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.PropertyNamesSchemaDefinitionImpl <em>Property Names Schema Definition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5552,6 +6525,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BOOLEAN_SCHEMA__VALUE = eINSTANCE.getBooleanSchema_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Find Schema By Json Pointer</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT = eINSTANCE.getBooleanSchema__FindSchemaByJsonPointer__EList_int();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.NonNegativeIntegerImpl <em>Non Negative Integer</em>}' class.
@@ -5696,6 +6677,52 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EClass SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF = eINSTANCE.getSchemaObjectDependenciesAdditionalPropertiesAnyOf();
+
+		/**
+		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.ItemsAnyOfImpl <em>Items Any Of</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jsonMetaschemaMM.impl.ItemsAnyOfImpl
+		 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf()
+		 * @generated
+		 */
+		EClass ITEMS_ANY_OF = eINSTANCE.getItemsAnyOf();
+
+		/**
+		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.ItemsAnyOf1Impl <em>Items Any Of1</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jsonMetaschemaMM.impl.ItemsAnyOf1Impl
+		 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf1()
+		 * @generated
+		 */
+		EClass ITEMS_ANY_OF1 = eINSTANCE.getItemsAnyOf1();
+
+		/**
+		 * The meta object literal for the '<em><b>Any Of1</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ITEMS_ANY_OF1__ANY_OF1 = eINSTANCE.getItemsAnyOf1_AnyOf1();
+
+		/**
+		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.ItemsAnyOf2Impl <em>Items Any Of2</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jsonMetaschemaMM.impl.ItemsAnyOf2Impl
+		 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf2()
+		 * @generated
+		 */
+		EClass ITEMS_ANY_OF2 = eINSTANCE.getItemsAnyOf2();
+
+		/**
+		 * The meta object literal for the '<em><b>Any Of2</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ITEMS_ANY_OF2__ANY_OF2 = eINSTANCE.getItemsAnyOf2_AnyOf2();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}' enum.

@@ -62,6 +62,7 @@ public class AnyOfSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SchemaArray getAnyOf() {
 		return anyOf;
 	}
@@ -86,6 +87,7 @@ public class AnyOfSchemaDefinitionImpl extends KeywordDefinitionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAnyOf(SchemaArray newAnyOf) {
 		if (newAnyOf != anyOf) {
 			NotificationChain msgs = null;

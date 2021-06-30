@@ -8,31 +8,44 @@
     <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootAge/age"/>
     <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootAdult/adult"/>
     <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootScore/score"/>
+    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootJob/job"/>
     <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootJobRole/role"/>
     <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootJobLevel/level"/>
+    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootCar/car"/>
     <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootCarLicencePlate/licencePlate"/>
     <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootCarYear/year"/>
+    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootChildrenNames/childrenNames"/>
+    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootSequentialInfo/sequentialInfo"/>
+    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootSequentialInfo2/sequentialInfo2"/>
+    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootGrandParents/grandParents"/>
     <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootGrandParentsItemsName/name"/>
     <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootGrandParentsItemsSurname/surname"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootPatternProperties0/patternProperties0"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootPatternProperties1/patternProperties1"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//Family/properties"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//FamilyAdditionalProperties/properties"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRoot/properties"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootJob/properties"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootWives/properties"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootMyFamily/myFamily"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootWivesAdditionalProperties/additionalProperties"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootExtraFamiliesItems/items"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootPatternProperties3/patternProperties3"/>
+    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootMyFamily/myFamily"/>
+    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootWives/wives"/>
+    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootExtraFamilies/extraFamilies"/>
+    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootOtherInfo/otherInfo"/>
+    <curlyBracesReferences href="testcurrentimplementation.ecore#//Family/family"/>
+    <curlyBracesReferences href="testcurrentimplementation.ecore#//FamilyAdditionalProperties/additionalProperties"/>
+    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRoot/testcurrentimplementationRoot"/>
+    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootJob/job"/>
+    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootWives/wives"/>
+    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootCar/car"/>
+    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootGrandParentsItems/items"/>
     <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
     <bracketsReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootChildrenNames/childrenNames"/>
     <bracketsReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootGrandParents/grandParents"/>
     <bracketsReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootExtraFamilies/extraFamilies"/>
+    <bracketsReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootSequentialInfo/sequentialInfo"/>
+    <bracketsReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootSequentialInfo2/sequentialInfo2"/>
     <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootPatternProperties0/key"/>
+    <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootPatternProperties1/key"/>
+    <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootPatternProperties3/key"/>
+    <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootPatternProperties2/key"/>
     <keyValue href="testcurrentimplementation.ecore#//FamilyAdditionalProperties/key"/>
     <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootWivesAdditionalProperties/key"/>
     <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootAdditionalProperties/key"/>
     <keyValue href="testcurrentimplementation.ecore#//FamilyAdditionalPropertiesAdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
   </detailedGrammar>
 </jsongrammar:JsonGrammar>

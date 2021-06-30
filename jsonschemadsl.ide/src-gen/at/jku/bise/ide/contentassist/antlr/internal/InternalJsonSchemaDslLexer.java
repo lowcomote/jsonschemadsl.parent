@@ -1399,10 +1399,10 @@ public class InternalJsonSchemaDslLexer extends Lexer {
         try {
             int _type = RULE_EINT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonSchemaDsl.g:10595:11: ( ( '-' )? RULE_INT )
-            // InternalJsonSchemaDsl.g:10595:13: ( '-' )? RULE_INT
+            // InternalJsonSchemaDsl.g:10679:11: ( ( '-' )? RULE_INT )
+            // InternalJsonSchemaDsl.g:10679:13: ( '-' )? RULE_INT
             {
-            // InternalJsonSchemaDsl.g:10595:13: ( '-' )?
+            // InternalJsonSchemaDsl.g:10679:13: ( '-' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1411,7 +1411,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:10595:13: '-'
+                    // InternalJsonSchemaDsl.g:10679:13: '-'
                     {
                     match('-'); 
 
@@ -1437,10 +1437,10 @@ public class InternalJsonSchemaDslLexer extends Lexer {
         try {
             int _type = RULE_EDOUBLE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonSchemaDsl.g:10597:14: ( ( '-' )? RULE_INT ( '.' ( RULE_INT )+ )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? )
-            // InternalJsonSchemaDsl.g:10597:16: ( '-' )? RULE_INT ( '.' ( RULE_INT )+ )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
+            // InternalJsonSchemaDsl.g:10681:14: ( ( '-' )? RULE_INT ( '.' ( RULE_INT )+ )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )? )
+            // InternalJsonSchemaDsl.g:10681:16: ( '-' )? RULE_INT ( '.' ( RULE_INT )+ )? ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
             {
-            // InternalJsonSchemaDsl.g:10597:16: ( '-' )?
+            // InternalJsonSchemaDsl.g:10681:16: ( '-' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1449,7 +1449,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:10597:16: '-'
+                    // InternalJsonSchemaDsl.g:10681:16: '-'
                     {
                     match('-'); 
 
@@ -1459,7 +1459,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
             }
 
             mRULE_INT(); 
-            // InternalJsonSchemaDsl.g:10597:30: ( '.' ( RULE_INT )+ )?
+            // InternalJsonSchemaDsl.g:10681:30: ( '.' ( RULE_INT )+ )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1468,10 +1468,10 @@ public class InternalJsonSchemaDslLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:10597:31: '.' ( RULE_INT )+
+                    // InternalJsonSchemaDsl.g:10681:31: '.' ( RULE_INT )+
                     {
                     match('.'); 
-                    // InternalJsonSchemaDsl.g:10597:35: ( RULE_INT )+
+                    // InternalJsonSchemaDsl.g:10681:35: ( RULE_INT )+
                     int cnt3=0;
                     loop3:
                     do {
@@ -1485,7 +1485,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
 
                         switch (alt3) {
                     	case 1 :
-                    	    // InternalJsonSchemaDsl.g:10597:35: RULE_INT
+                    	    // InternalJsonSchemaDsl.g:10681:35: RULE_INT
                     	    {
                     	    mRULE_INT(); 
 
@@ -1507,7 +1507,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
 
             }
 
-            // InternalJsonSchemaDsl.g:10597:47: ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
+            // InternalJsonSchemaDsl.g:10681:47: ( ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1516,7 +1516,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:10597:48: ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT
+                    // InternalJsonSchemaDsl.g:10681:48: ( 'E' | 'e' ) ( '+' | '-' )? RULE_INT
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -1527,7 +1527,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // InternalJsonSchemaDsl.g:10597:58: ( '+' | '-' )?
+                    // InternalJsonSchemaDsl.g:10681:58: ( '+' | '-' )?
                     int alt5=2;
                     int LA5_0 = input.LA(1);
 
@@ -1574,10 +1574,10 @@ public class InternalJsonSchemaDslLexer extends Lexer {
     // $ANTLR start "RULE_INT"
     public final void mRULE_INT() throws RecognitionException {
         try {
-            // InternalJsonSchemaDsl.g:10599:19: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) )
-            // InternalJsonSchemaDsl.g:10599:21: ( '0' | '1' .. '9' ( '0' .. '9' )* )
+            // InternalJsonSchemaDsl.g:10683:19: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) )
+            // InternalJsonSchemaDsl.g:10683:21: ( '0' | '1' .. '9' ( '0' .. '9' )* )
             {
-            // InternalJsonSchemaDsl.g:10599:21: ( '0' | '1' .. '9' ( '0' .. '9' )* )
+            // InternalJsonSchemaDsl.g:10683:21: ( '0' | '1' .. '9' ( '0' .. '9' )* )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1595,17 +1595,17 @@ public class InternalJsonSchemaDslLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:10599:22: '0'
+                    // InternalJsonSchemaDsl.g:10683:22: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // InternalJsonSchemaDsl.g:10599:26: '1' .. '9' ( '0' .. '9' )*
+                    // InternalJsonSchemaDsl.g:10683:26: '1' .. '9' ( '0' .. '9' )*
                     {
                     matchRange('1','9'); 
-                    // InternalJsonSchemaDsl.g:10599:35: ( '0' .. '9' )*
+                    // InternalJsonSchemaDsl.g:10683:35: ( '0' .. '9' )*
                     loop7:
                     do {
                         int alt7=2;
@@ -1618,7 +1618,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // InternalJsonSchemaDsl.g:10599:36: '0' .. '9'
+                    	    // InternalJsonSchemaDsl.g:10683:36: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -1650,11 +1650,11 @@ public class InternalJsonSchemaDslLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonSchemaDsl.g:10601:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // InternalJsonSchemaDsl.g:10601:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // InternalJsonSchemaDsl.g:10685:13: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // InternalJsonSchemaDsl.g:10685:15: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // InternalJsonSchemaDsl.g:10601:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+            // InternalJsonSchemaDsl.g:10685:19: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
             loop9:
             do {
                 int alt9=3;
@@ -1670,7 +1670,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:10601:20: '\\\\' .
+            	    // InternalJsonSchemaDsl.g:10685:20: '\\\\' .
             	    {
             	    match('\\'); 
             	    matchAny(); 
@@ -1678,7 +1678,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // InternalJsonSchemaDsl.g:10601:27: ~ ( ( '\\\\' | '\"' ) )
+            	    // InternalJsonSchemaDsl.g:10685:27: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1715,10 +1715,10 @@ public class InternalJsonSchemaDslLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonSchemaDsl.g:10603:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalJsonSchemaDsl.g:10603:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalJsonSchemaDsl.g:10687:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalJsonSchemaDsl.g:10687:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalJsonSchemaDsl.g:10603:11: ( '^' )?
+            // InternalJsonSchemaDsl.g:10687:11: ( '^' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1727,7 +1727,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:10603:11: '^'
+                    // InternalJsonSchemaDsl.g:10687:11: '^'
                     {
                     match('^'); 
 
@@ -1745,7 +1745,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalJsonSchemaDsl.g:10603:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalJsonSchemaDsl.g:10687:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop11:
             do {
                 int alt11=2;
@@ -1794,12 +1794,12 @@ public class InternalJsonSchemaDslLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonSchemaDsl.g:10605:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalJsonSchemaDsl.g:10605:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalJsonSchemaDsl.g:10689:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalJsonSchemaDsl.g:10689:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalJsonSchemaDsl.g:10605:24: ( options {greedy=false; } : . )*
+            // InternalJsonSchemaDsl.g:10689:24: ( options {greedy=false; } : . )*
             loop12:
             do {
                 int alt12=2;
@@ -1824,7 +1824,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:10605:52: .
+            	    // InternalJsonSchemaDsl.g:10689:52: .
             	    {
             	    matchAny(); 
 
@@ -1854,12 +1854,12 @@ public class InternalJsonSchemaDslLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonSchemaDsl.g:10607:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalJsonSchemaDsl.g:10607:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalJsonSchemaDsl.g:10691:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalJsonSchemaDsl.g:10691:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalJsonSchemaDsl.g:10607:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalJsonSchemaDsl.g:10691:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop13:
             do {
                 int alt13=2;
@@ -1872,7 +1872,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
 
                 switch (alt13) {
             	case 1 :
-            	    // InternalJsonSchemaDsl.g:10607:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalJsonSchemaDsl.g:10691:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1892,7 +1892,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalJsonSchemaDsl.g:10607:40: ( ( '\\r' )? '\\n' )?
+            // InternalJsonSchemaDsl.g:10691:40: ( ( '\\r' )? '\\n' )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -1901,9 +1901,9 @@ public class InternalJsonSchemaDslLexer extends Lexer {
             }
             switch (alt15) {
                 case 1 :
-                    // InternalJsonSchemaDsl.g:10607:41: ( '\\r' )? '\\n'
+                    // InternalJsonSchemaDsl.g:10691:41: ( '\\r' )? '\\n'
                     {
-                    // InternalJsonSchemaDsl.g:10607:41: ( '\\r' )?
+                    // InternalJsonSchemaDsl.g:10691:41: ( '\\r' )?
                     int alt14=2;
                     int LA14_0 = input.LA(1);
 
@@ -1912,7 +1912,7 @@ public class InternalJsonSchemaDslLexer extends Lexer {
                     }
                     switch (alt14) {
                         case 1 :
-                            // InternalJsonSchemaDsl.g:10607:41: '\\r'
+                            // InternalJsonSchemaDsl.g:10691:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1944,10 +1944,10 @@ public class InternalJsonSchemaDslLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonSchemaDsl.g:10609:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalJsonSchemaDsl.g:10609:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJsonSchemaDsl.g:10693:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalJsonSchemaDsl.g:10693:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalJsonSchemaDsl.g:10609:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalJsonSchemaDsl.g:10693:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt16=0;
             loop16:
             do {
@@ -2001,8 +2001,8 @@ public class InternalJsonSchemaDslLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalJsonSchemaDsl.g:10611:16: ( . )
-            // InternalJsonSchemaDsl.g:10611:18: .
+            // InternalJsonSchemaDsl.g:10695:16: ( . )
+            // InternalJsonSchemaDsl.g:10695:18: .
             {
             matchAny(); 
 

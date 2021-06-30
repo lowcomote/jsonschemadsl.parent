@@ -62,6 +62,7 @@ public class ThenSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getThen() {
 		return then;
 	}
@@ -86,6 +87,7 @@ public class ThenSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setThen(Schema newThen) {
 		if (newThen != then) {
 			NotificationChain msgs = null;

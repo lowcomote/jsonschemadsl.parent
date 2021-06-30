@@ -33,4 +33,12 @@ public interface DependenciesSchemaDefinition extends KeywordDefinition {
 	 */
 	EList<SchemaObjectDependenciesProperties> getProperties();
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" ordered="false" keyUnique="false" keyRequired="true" keyOrdered="false"
+	 * @generated
+	 */
+	Schema findSchemaByKey(String key);
+
 } // DependenciesSchemaDefinition

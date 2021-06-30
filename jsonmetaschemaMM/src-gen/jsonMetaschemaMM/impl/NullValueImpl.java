@@ -70,6 +70,7 @@ public class NullValueImpl extends ValueImpl implements NullValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NullEnum getValue() {
 		return value;
 	}
@@ -79,6 +80,7 @@ public class NullValueImpl extends ValueImpl implements NullValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(NullEnum newValue) {
 		NullEnum oldValue = value;
 		value = newValue == null ? VALUE_EDEFAULT : newValue;

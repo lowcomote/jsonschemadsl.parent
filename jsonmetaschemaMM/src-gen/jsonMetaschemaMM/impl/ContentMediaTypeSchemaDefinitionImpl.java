@@ -69,6 +69,7 @@ public class ContentMediaTypeSchemaDefinitionImpl extends KeywordDefinitionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getContentMediaType() {
 		return contentMediaType;
 	}
@@ -78,6 +79,7 @@ public class ContentMediaTypeSchemaDefinitionImpl extends KeywordDefinitionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setContentMediaType(String newContentMediaType) {
 		String oldContentMediaType = contentMediaType;
 		contentMediaType = newContentMediaType;

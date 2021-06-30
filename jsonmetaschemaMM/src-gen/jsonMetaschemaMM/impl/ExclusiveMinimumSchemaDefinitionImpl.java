@@ -69,6 +69,7 @@ public class ExclusiveMinimumSchemaDefinitionImpl extends KeywordDefinitionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public double getExclusiveMinimum() {
 		return exclusiveMinimum;
 	}
@@ -78,6 +79,7 @@ public class ExclusiveMinimumSchemaDefinitionImpl extends KeywordDefinitionImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setExclusiveMinimum(double newExclusiveMinimum) {
 		double oldExclusiveMinimum = exclusiveMinimum;
 		exclusiveMinimum = newExclusiveMinimum;

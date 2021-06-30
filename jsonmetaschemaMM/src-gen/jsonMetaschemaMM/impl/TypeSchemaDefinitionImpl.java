@@ -84,6 +84,7 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public SimpleTypes getTypeAnyOf1() {
 		return typeAnyOf1;
 	}
@@ -93,6 +94,7 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTypeAnyOf1(SimpleTypes newTypeAnyOf1) {
 		SimpleTypes oldTypeAnyOf1 = typeAnyOf1;
 		typeAnyOf1 = newTypeAnyOf1 == null ? TYPE_ANY_OF1_EDEFAULT : newTypeAnyOf1;
@@ -105,6 +107,7 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public TypesAnyOf2 getTypesAnyOf2() {
 		return typesAnyOf2;
 	}
@@ -129,6 +132,7 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setTypesAnyOf2(TypesAnyOf2 newTypesAnyOf2) {
 		if (newTypesAnyOf2 != typesAnyOf2) {
 			NotificationChain msgs = null;

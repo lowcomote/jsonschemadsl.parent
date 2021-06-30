@@ -63,6 +63,7 @@ public class StringArrayImpl extends MinimalEObjectImpl.Container implements Str
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EList<String> getValues() {
 		if (values == null) {
 			values = new EDataTypeUniqueEList<String>(String.class, this, JsonMetaschemaMMPackage.STRING_ARRAY__VALUES);

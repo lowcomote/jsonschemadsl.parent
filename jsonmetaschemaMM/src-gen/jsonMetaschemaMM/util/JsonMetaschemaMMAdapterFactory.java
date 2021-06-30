@@ -360,6 +360,18 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 				return createSchemaObjectDependenciesAdditionalPropertiesAnyOfAdapter();
 			}
 			@Override
+			public Adapter caseItemsAnyOf(ItemsAnyOf object) {
+				return createItemsAnyOfAdapter();
+			}
+			@Override
+			public Adapter caseItemsAnyOf1(ItemsAnyOf1 object) {
+				return createItemsAnyOf1Adapter();
+			}
+			@Override
+			public Adapter caseItemsAnyOf2(ItemsAnyOf2 object) {
+				return createItemsAnyOf2Adapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -1398,6 +1410,48 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSchemaObjectDependenciesAdditionalPropertiesAnyOfAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.ItemsAnyOf <em>Items Any Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jsonMetaschemaMM.ItemsAnyOf
+	 * @generated
+	 */
+	public Adapter createItemsAnyOfAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.ItemsAnyOf1 <em>Items Any Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jsonMetaschemaMM.ItemsAnyOf1
+	 * @generated
+	 */
+	public Adapter createItemsAnyOf1Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.ItemsAnyOf2 <em>Items Any Of2</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jsonMetaschemaMM.ItemsAnyOf2
+	 * @generated
+	 */
+	public Adapter createItemsAnyOf2Adapter() {
 		return null;
 	}
 

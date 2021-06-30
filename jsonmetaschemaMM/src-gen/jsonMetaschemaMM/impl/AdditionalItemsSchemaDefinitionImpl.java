@@ -62,6 +62,7 @@ public class AdditionalItemsSchemaDefinitionImpl extends KeywordDefinitionImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Schema getAdditionalItems() {
 		return additionalItems;
 	}
@@ -86,6 +87,7 @@ public class AdditionalItemsSchemaDefinitionImpl extends KeywordDefinitionImpl i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setAdditionalItems(Schema newAdditionalItems) {
 		if (newAdditionalItems != additionalItems) {
 			NotificationChain msgs = null;

@@ -2,10 +2,15 @@
  */
 package jsonMetaschemaMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import jsonMetaschemaMM.BooleanSchema;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
+import jsonMetaschemaMM.Schema;
 
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -69,6 +74,7 @@ public class BooleanSchemaImpl extends SchemaImpl implements BooleanSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isValue() {
 		return value;
 	}
@@ -78,11 +84,26 @@ public class BooleanSchemaImpl extends SchemaImpl implements BooleanSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setValue(boolean newValue) {
 		boolean oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.BOOLEAN_SCHEMA__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Schema findSchemaByJsonPointer(final EList<String> jsonPointer, final int currentIndex) {
+		if(currentIndex==jsonPointer.size()) {
+			return this;
+		} else {
+			return null;
+		}
 	}
 
 	/**
@@ -141,6 +162,21 @@ public class BooleanSchemaImpl extends SchemaImpl implements BooleanSchema {
 				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	@SuppressWarnings("unchecked")
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JsonMetaschemaMMPackage.BOOLEAN_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT:
+				return findSchemaByJsonPointer((EList<String>)arguments.get(0), (Integer)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

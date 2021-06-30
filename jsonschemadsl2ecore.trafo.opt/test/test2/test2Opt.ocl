@@ -1,0 +1,15 @@
+-- OCL contraints for /Users/Alessandro.colantoni/eclipse-lowcomote-jsonschema-workspace/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test2
+import 'http://jku.bise.at/test2'
+
+package test2
+
+	context test2::Test2RootJobLevel
+
+	inv Test2RootJobLevelMinimum('The value of Test2RootJobLevel must be greater or equal than 2.1'):
+	if level >= 2.1
+	then true
+	else null
+	endif
+
+endpackage
+

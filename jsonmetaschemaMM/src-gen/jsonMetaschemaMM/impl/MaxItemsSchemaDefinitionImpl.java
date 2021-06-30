@@ -62,6 +62,7 @@ public class MaxItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NonNegativeInteger getMaxItems() {
 		return maxItems;
 	}
@@ -86,6 +87,7 @@ public class MaxItemsSchemaDefinitionImpl extends KeywordDefinitionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setMaxItems(NonNegativeInteger newMaxItems) {
 		if (newMaxItems != maxItems) {
 			NotificationChain msgs = null;

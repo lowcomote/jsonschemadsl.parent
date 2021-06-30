@@ -69,6 +69,7 @@ public class PatternSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String getPattern() {
 		return pattern;
 	}
@@ -78,6 +79,7 @@ public class PatternSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setPattern(String newPattern) {
 		String oldPattern = pattern;
 		pattern = newPattern;
