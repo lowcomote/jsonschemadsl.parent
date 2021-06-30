@@ -16,7 +16,7 @@ two structures for "items" are supported. Because of this, in the column Languag
 |Keyword               |JSON Schema Editor   |Language Editor Generation| Comment|
 |----------------------|---------------------|--------------------------|--------
 |"$id"                 |Y                    |N                         | |
-|"$schema"             |Y                    |N                         |Not needed to generate the language. It is an annotation|
+|"$schema"             |Y                    |N                         |It will be converted as an annotation|
 |"$ref" (json pointer) |Y                    |Y                         ||
 |"$ref"   ($id)        |Y                    |N                         ||
 |"$comment             |Y                    |N                         |Not needed to generate the language. It is an annotation|
