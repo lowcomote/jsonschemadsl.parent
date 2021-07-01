@@ -15,3 +15,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: at.jku.bise.ide.contentassist.antlr,
  at.jku.bise.ide.contentassist.antlr.internal,
  at.jku.bise.ide.syntaxcoloring
+ 
