@@ -27,11 +27,14 @@ We evaluate our approach with Shipyard, a JSON Schema-based language for workflo
 
 ## Installation
 
-An installation guide is available [here](tutorials/JSchemaDSLInstallationTutorial.pdf)
+The latest version of the installation guide is available [here](tutorials/JSchemaDSLInstallationTutorial.pdf)
 
 
-## JSON Schema DSL Examples.
-Once you have complete the installation, you can open it and start working.
+## Examples.
+This section introduces a list of working examples. The list is continuously updated.
+
+### Hello World examples. 
+A list of trivial examples is available [here](TODO). Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]
 
 In the folder /samples/shipyardSchemas,  different versions of the [Shipyard](https://github.com/keptn/spec/blob/master/shipyard.md) JSON Schema can be found.
 As a practice, a new simple project can be created for each version in the installed Eclipse .  Create a new file inside it, with the same name and extension (.jschema). You will asked 
