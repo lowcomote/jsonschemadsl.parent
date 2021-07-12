@@ -52,14 +52,14 @@ In the example folder [/samples/shipyardSchemas](jsonschemadsl.parent/tree/devel
 
 ![Convert To Xtext Question](tutorials/img/convertXtextPropject.PNG)  
 
-Copy the content of the file you chose in the newly created file. You will see the keyword highlighted, the in line validation errors and warnings. 
+- Copy the content of the file you chose in the newly created file. You will see the keyword highlighted, the in line validation errors and warnings. 
 Open the Eclipse problems view to see the details of both error and warnings.  In the figure below you can see the example shipyardV1.jschema with an error (not gently reported) 
 due to the "$ref" keywords have a wrong JSON Pointer, and two warnings. 
 
 ![ShipyardV1](tutorials/img/shipyardV1.PNG) 
 
 
-Repeating the steps for shipyadV4.jschema you will see that everything is correct, with no errors or warnings.
+- Repeat the steps for shipyadV4.jschema you will see that everything is correct, with no errors or warnings.
 
 ![ShipyardV4](tutorials/img/shipyardV4.PNG) 
 
