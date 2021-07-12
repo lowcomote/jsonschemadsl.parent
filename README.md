@@ -1,6 +1,8 @@
 # JSON Schema DSL
 
-JSON Schema DSL aims at bridging [JSON Schema](https://json-schema.org/) to Model Driven Engineering Technical Space.
+JSON Schema DSL is a model-driven approach that aims at bridging [JSON Schema](https://json-schema.org/) and EMF/Ecore. The approach is published at [MODELS 2021](https://conf.researchr.org/home/models-2021) [1]
+
+[1] A. Colantoni, A. Garmendia, L. Berardinelli, and M. Wimmer, “Leveraging Model-Driven Technologies for JSON Artefacts: The Shipyard Case Study,” New York, NY, USA, 2021. doi: XYZ.
 
 ## Introduction
 
