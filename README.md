@@ -1,23 +1,26 @@
 # JSON Schema DSL
 
-JSON Schema DSL is a model-driven approach that aims at bridging [JSON Schema](https://json-schema.org/) and EMF/Ecore. The approach is published at [MODELS 2021](https://conf.researchr.org/home/models-2021) [1]
+JSON Schema DSL is a model-driven language engineering approach for JSON Schema that aims at bridging [JSON Schema](https://json-schema.org/) and EMF/Ecore. The approach is published at [MODELS 2021](https://conf.researchr.org/home/models-2021) [1]
 
 [1] A. Colantoni, A. Garmendia, L. Berardinelli, and M. Wimmer, “Leveraging Model-Driven Technologies for JSON Artefacts: The Shipyard Case Study,” New York, NY, USA, 2021. doi: XYZ.
 
 ## Introduction
 
-JSON Schema DSL is a model-driven language engineering approach devised for language engineers, tools providers, and domain experts, used to work with JSON and JSON Schema, 
-who want to improve editing and validation introducing Low Code capabilities, but a the same time keeping the approach transparent to JSONware users by
-preserving the native JSON concrete syntax, and by this, compatibility with existing JSON-based tools.
+With JSON's increasing adoption, the need for structural constraints and validation capabilities led to JSON Schema, a dedicated meta-language to specify languages which are in turn used to validate JSON documents. 
+The standardisation process of JSON Schema as well as the implementation of adequate tool support (e.g., validators and editors) are work in progress. 
+The periodic issuing of newer JSON Schema drafts makes tool development challenging. Nevertheless, many JSON Schemas as language definitions exist, but JSON documents are still mostly edited in basic text-based editors.   
 
-JSON Schema DSL is an editor for both JSON Schemas and its instances,
-that leverages the benefits of the state of the art of MDE practices, without any impact on the JSON textual syntax. 
+In order to tackle this challenge, we investigate in this paper how Model-Driven Engineering (MDE) methods for language engineering can help in this area. Instead of re-inventing the wheel of building up particular technologies directly for JSON, in [1] we investigate how the existing MDE infrastructures may be utilized for JSON. In particular, we present a bridge between the JSONware and Ecore/EMF technical spaces to exchange languages and documents. 
 
-Unlike existing [JSON Schema implementations](https://json-schema.org/implementations.html), 
-our project offers the possibility to easily create custom Graphical User Interfaces and make them available in the web with technologies like Sirius Web; it helps
-to show differences across different versions of the same JSON Schema (with EMF compare), identifying (non) breaking changes; it can better deal with co-evolution, being possible to create automatic transformation 
-to make JSON of old JSON Schema versions, conforming to new JSON Schema versions.  
+Based on this bridge, our approach supports language engineers, domain experts, and tool providers in editing, validating, and generating tool support with enhanced capabilities for JSON documents, in particular:
+
+- textual JSON Schema editor (draft 7)
+- ...TO DO
  
+The approach is transparent to JSON users: it preservs the native JSON concrete syntax and, as a result, we obtain a native compatibility existing JSON-based tools.
+
+We evaluate our approach with Shipyard, a JSON Schema-based language for workflow specification for Keptn, an open source tool for DevOps automation of cloud-native applications.
+
 
 ## Installation
 
