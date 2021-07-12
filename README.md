@@ -44,9 +44,11 @@ Shipyard, a JSON Schema-based language for workflow specification for [Keptn](ht
 In the example folder [/samples/shipyardSchemas](jsonschemadsl.parent/tree/develop/samples/shipyardSchemas),  we collected different version of the [Shipyard DSL](https://github.com/keptn/spec/blob/master/shipyard.md). The Shipyard DSL is defined by schema document, which, in turn, conforms to a given metaschema or JSON Schema Draft. We currently support [JSON Schema Draft 7](https://json-schema.org/).
 
 
-
-As a practice, a new simple project can be created for each version in the installed Eclipse .  Create a new file inside it, with the same name and extension (.jschema). You will asked 
-if you want to convert your project in an Xtext project. Click Yes.
+#### Steps
+- Choose a Shipyard version among the ones made available (e.g., );
+- Create a Simple Project 
+- Create a new file within the newly creted Project with .jschema file extension (e.g. .jschema). 
+- You will asked if you want to convert your project in an Xtext project. Click Yes.
 
 ![Convert To Xtext Question](tutorials/img/convertXtextPropject.PNG)  
 
