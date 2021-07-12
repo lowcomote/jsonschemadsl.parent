@@ -6,7 +6,7 @@ JSON Schema DSL is a model-driven approach that aims at bridging [JSON Schema](h
 
 ## Introduction
 
-JSON Schema DSL is for language engineers, tools providers, and domain experts, used to work with JSON and JSON Schema, 
+JSON Schema DSL is a model-driven language engineering approach devised for language engineers, tools providers, and domain experts, used to work with JSON and JSON Schema, 
 who want to improve editing and validation introducing Low Code capabilities, but a the same time keeping the approach transparent to JSONware users by
 preserving the native JSON concrete syntax, and by this, compatibility with existing JSON-based tools.
 
