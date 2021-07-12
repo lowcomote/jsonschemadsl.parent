@@ -36,7 +36,15 @@ This section introduces a list of working examples. The list is continuously upd
 ### Hello World examples. 
 A list of trivial examples is available [here](TODO). Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]
 
-In the folder /samples/shipyardSchemas,  different versions of the [Shipyard](https://github.com/keptn/spec/blob/master/shipyard.md) JSON Schema can be found.
+
+### Shipyard DSL.
+Shipyard, a JSON Schema-based language for workflow specification for [Keptn](https://keptn.sh/), an open source tool for DevOps automation  of  cloud-native  applications.  The  results  of  the  casestudy  show  that  proper  editors  as  well  as  language  evolutionsupport  from  MDE  can  be  reused  and  at  the  same  time,  thesurface  syntax  of  JSON  is  maintained. See [1] for further details.
+
+
+In the example folder [/samples/shipyardSchemas](),  we collected different version of the [Shipyard DSL](https://github.com/keptn/spec/blob/master/shipyard.md). The Shipyard DSL is defined by schema document, which, in turn, conforms to a given metaschema or JSON Schema Draft. We currently support [JSON Schema Draft 7](https://json-schema.org/).
+
+
+
 As a practice, a new simple project can be created for each version in the installed Eclipse .  Create a new file inside it, with the same name and extension (.jschema). You will asked 
 if you want to convert your project in an Xtext project. Click Yes.
 
