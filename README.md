@@ -27,7 +27,7 @@ We evaluate our approach with Shipyard, a JSON Schema-based language for workflo
 
 ## Installation
 
-Follow installation guide in  [JSchema DSL Installation](tutorials/JSchemaDSLInstallationTutorial.pdf)
+An installation guide is available [here](tutorials/JSchemaDSLInstallationTutorial.pdf)
 
 
 ## JSON Schema DSL Examples.
