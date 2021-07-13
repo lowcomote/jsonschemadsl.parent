@@ -41,7 +41,7 @@ A list of trivial examples is available [here](TODO). Such trivial examples will
 Shipyard, a JSON Schema-based language for workflow specification for [Keptn](https://keptn.sh/), an open source tool for DevOps automation  of  cloud-native  applications.  The  results  of  the  casestudy  show  that  proper  editors  as  well  as  language  evolutionsupport  from  MDE  can  be  reused  and  at  the  same  time,  thesurface  syntax  of  JSON  is  maintained. See [1] for further details.
 
 
-In the example folder [/samples/shipyardSchemas](jsonschemadsl.parent/tree/develop/samples/shipyardSchemas),  we collected different version of the [Shipyard DSL](https://github.com/keptn/spec/blob/master/shipyard.md). The Shipyard DSL is defined by schema document, which, in turn, conforms to a given metaschema or JSON Schema Draft. We currently support [JSON Schema Draft 7](https://json-schema.org/).
+In the example folder [/samples/shipyardSchemas](samples/shipyardSchemas),  we collected different version of the [Shipyard DSL](https://github.com/keptn/spec/blob/master/shipyard.md). The Shipyard DSL is defined by schema document, which, in turn, conforms to a given metaschema or JSON Schema Draft. We currently support [JSON Schema Draft 7](https://json-schema.org/).
 
 
 #### Steps
