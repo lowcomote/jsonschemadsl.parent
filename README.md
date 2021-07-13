@@ -1,4 +1,4 @@
- JSON Schema DSL
+# JSON Schema DSL
 
 
 JSON Schema DSL is a model-driven language engineering approach for JSON Schema that aims at bridging [JSON Schema](https://json-schema.org/) and Ecore (see Eclipse Modeling Framework [EMF](https://www.eclipse.org/modeling/emf/). 
