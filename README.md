@@ -94,10 +94,11 @@ At the end of step 6, everything will be correct, with no errors or warnings.
 
 
 *(after choosing shipyardV4.json at step 1)*
+
 7. Save the shipyardV4.jschema. 
-8. A folder /model will be created including the following artifacts: shipyardV4.jsongrammar, shipyardV4.xmi, shipyardV4Opt.ecore. If you do not see the /model folder or it is empty, please refresh the /model or the whole peoject folder. 
-9. Under the root project folder, a fourth artifact (shipyardV4Opt.ocl) is created. Refresh the project folder if the OCL artifact does not appear.
-10. Open the ocl file. Fix the reported error by registering the ecore metamodel generated from the shipyardV4.jschema artifact. For registering the generated metamodel, switch to the ATL perspective, then right click on the generated ecore metamodel and select "Register Metamodel". If you had already opened the ocl file, you have to close and open it again.  Wait a while for the synchrnizaation process to be completed. 
+9. A folder /model will be created including the following artifacts: shipyardV4.jsongrammar, shipyardV4.xmi, shipyardV4Opt.ecore. If you do not see the /model folder or it is empty, please refresh the /model or the whole peoject folder. 
+
+10. Under the root project folder, a fourth artifact (shipyardV4Opt.ocl) is created. Refresh the project folder if the OCL artifact does not appear. Open the ocl file. Fix the reported error by registering the ecore metamodel generated from the shipyardV4.jschema artifact. For registering the generated metamodel, switch to the ATL perspective, then right click on the generated ecore metamodel and select "Register Metamodel". If you had already opened the ocl file, you have to close and open it again.  Wait a while for the synchrnizaation process to be completed. 
 
 
 (TODO: what is the meaning?)
