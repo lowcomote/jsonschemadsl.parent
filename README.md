@@ -93,6 +93,7 @@ At the end of step 6, everything will be correct, with no errors or warnings.
 ![ShipyardV4](tutorials/img/shipyardV4.PNG) 
 
 
+#### Steps 7-9
 *(after choosing shipyardV4.json at step 1)*
 
 7. Save the shipyardV4.jschema. 
