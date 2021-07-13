@@ -107,7 +107,7 @@ Try to create a new project from scratch, to test the content assist (CTRL+space
 
 ## Tool support : DSL editor generation.
 
-Once completed steps 1-10, the EMF/Xtext-based editor for the DSL defined by the .jschema artifact can be generated.
+TODO: Once completed steps 1-10, the EMF/Xtext-based editor for the DSL defined by the .jschema artifact can be generated.
 
 #### Steps 11-TODO
 Split the following text in steps as did for steps 1-10
