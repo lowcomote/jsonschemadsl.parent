@@ -49,31 +49,30 @@ Shipyard DSL versions are collected in [samples/shipyardSchemas/](samples/shipya
 The Shipyard DSL is defined by schema document, which, in turn, conforms to a given metaschema or JSON Schema Draft. We currently support [JSON Schema Draft 7](https://json-schema.org/).
 In the following, we explain the approach steps applied to the Shipyard DSL
 
-#### Steps
-- Choose a Shipyard version among the ones made available (e.g., (ShipyardVersion).json );
-- Create a Simple Project; 
-- Create a new file within the newly creted Project with .jschema file extension (e.g. .jschema). 
-- You will be asked whether you want to convert your project in an Xtext project. Click Yes.
+#### Steps 1-6
 
-![Convert To Xtext Question](tutorials/img/convertXtextPropject.PNG)  
+1. Choose a Shipyard version among the ones made available (e.g., shipyardV1.json );
+2. Create a Simple Project; 
+3. Create a new file within the newly created Project with .jschema file extension (e.g. shipyardV1.jschema). 
+4. You will be asked whether you want to convert your project in an Xtext project. Click Yes.
 
-- Copy the content of the file you chose in the newly created file. You will see the keyword highlighted, the in line validation errors and warnings. 
-Open the Eclipse problems view to see the details of both error and warnings.  In the figure below you can see the example shipyardV1.jschema with an error (not gently reported) 
-due to the "$ref" keywords have a wrong JSON Pointer, and two warnings. 
+[Convert To Xtext Question](tutorials/img/convertXtextPropject.PNG)  
+
+5. Copy the content Shipyard version chosen at step 1  in the newly created file. You will see the keywords highlighted, the in line validation errors and warnings. 
+6. Open the  Problems view to see the details of both error and warnings.  In the figure below, you can see the example shipyardV1.jschema with an error due to mistyped "$ref"  value (it has to be a correct [JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901) string) , and two warnings. 
 
 ![ShipyardV1](tutorials/img/shipyardV1.PNG) 
 
-
-- Repeat the steps for shipyadV4.jschema you will see that everything is correct, with no errors or warnings.
+We invite the reader to repeat steps 1. to 6. choosing the *shipyardV4.json* at step 1. 
+At the end of step 6, everything will be correct, with no errors or warnings.
 
 ![ShipyardV4](tutorials/img/shipyardV4.PNG) 
 
-
-In this last case, when you saved the file, a folder model has been created with the genertated artifacts (shipyardV4.jsongrammar, shipyardV4.xmi, shipyardV4Opt.ecore). 
-To see them, maybe the folder model has to be refreshed. Under the root project folder, a fourth artifact (shipyardV4Opt.ocl) has been created. Maybe the project folder need to be refreshed to see it.
-If you open the ocl file, it will report error, because the generated ecore metamodel has not been registered.  
-To do this, switch to the ATL perspective, then right click on the generated ecore metamodel and select "Register Metamodel". If you had already opened the ocl file, you have to close and open it again.
-Maybe it takes some time to synch. But it does not matter, because it will be registered by the language that is going to be generated, as described in the next step.
+*(after choosing shipyardV4.json at step 1)*
+7. Save the shipyardV4.jschema. 
+8. A folder /model will be created including the following artifacts: shipyardV4.jsongrammar, shipyardV4.xmi, shipyardV4Opt.ecore. If you do not see the /model folder or it is empty, please refresh the /model or the whole peoject folder. 
+9. Under the root project folder, a fourth artifact (shipyardV4Opt.ocl) is created. Refresh the project folder if the OCL artifact does not appear.
+10. Open the ocl file. Fix the reported error by registering the ecore metamodel generated from the shipyardV4.jschema artifact. For registering the generated metamodel, switch to the ATL perspective, then right click on the generated ecore metamodel and select "Register Metamodel". If you had already opened the ocl file, you have to close and open it again. Wait it takes some time to synch. But it does not matter, because it will be registered by the language that is going to be generated, as described in the next step.
 
 
 Try to create a new project from scratch, to test the content assist (CTRL+space). To test code completion, remind that every keyword start with double quotes ("). 
