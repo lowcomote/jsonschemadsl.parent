@@ -34,21 +34,26 @@ The latest version of the installation guide is available [here](tutorials/JSche
 This section introduces a list of working examples. The list is continuously updated.
 
 ### Hello World examples. 
-A list of trivial examples is available [here](samples/schemavalidationtest/). Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]
+Trivial examples are available. Their are listed, together with their rationaleL in the following folders:
+- [samples/schemavalidationtest](samples/schemavalidationtest/) have been used to [TODO]
+- [samples/schemavalidationtest](samples/schemavalidationtest/) have been used to [TODO]
+- ...
+
+Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]
 
 
 ### Shipyard DSL.
 Shipyard, a JSON Schema-based language for workflow specification for [Keptn](https://keptn.sh/), an open source tool for DevOps automation  of  cloud-native  applications.  The  results  of  the  casestudy  show  that  proper  editors  as  well  as  language  evolutionsupport  from  MDE  can  be  reused  and  at  the  same  time,  thesurface  syntax  of  JSON  is  maintained. See [1] for further details.
 
-
-In the example folder [/samples/shipyardSchemas](samples/shipyardSchemas),  we collected different version of the [Shipyard DSL](https://github.com/keptn/spec/blob/master/shipyard.md). The Shipyard DSL is defined by schema document, which, in turn, conforms to a given metaschema or JSON Schema Draft. We currently support [JSON Schema Draft 7](https://json-schema.org/).
-
+Shipyard DSL versions are collected in [samples/shipyardSchemas/](samples/shipyardSchemas/) as collected from the Shipyard official [Keptn repository](https://github.com/keptn/spec/blob/master/shipyard.md)
+The Shipyard DSL is defined by schema document, which, in turn, conforms to a given metaschema or JSON Schema Draft. We currently support [JSON Schema Draft 7](https://json-schema.org/).
+In the following, we explain the approach steps applied to the Shipyard DSL
 
 #### Steps
-- Choose a Shipyard version among the ones made available (e.g., );
-- Create a Simple Project 
+- Choose a Shipyard version among the ones made available (e.g., (ShipyardVersion).json );
+- Create a Simple Project; 
 - Create a new file within the newly creted Project with .jschema file extension (e.g. .jschema). 
-- You will asked if you want to convert your project in an Xtext project. Click Yes.
+- You will be asked whether you want to convert your project in an Xtext project. Click Yes.
 
 ![Convert To Xtext Question](tutorials/img/convertXtextPropject.PNG)  
 
