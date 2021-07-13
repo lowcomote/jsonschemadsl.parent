@@ -57,18 +57,14 @@ Trivial examples are available. Their are listed, together with their rationaleL
 Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]
 
 
-
-
-
-
-
 ### Shipyard DSL.
 Shipyard, a JSON Schema-based language for workflow specification for [Keptn](https://keptn.sh/), an open source tool for DevOps automation  of  cloud-native  applications.  The  results  of  the  casestudy  show  that  proper  editors  as  well  as  language  evolutionsupport  from  MDE  can  be  reused  and  at  the  same  time,  thesurface  syntax  of  JSON  is  maintained. See [1] for further details.
 
 
 Shipyard DSL versions are collected in [samples/shipyardSchemas/](samples/shipyardSchemas/) as collected from the Shipyard official [Keptn repository](https://github.com/keptn/spec/blob/master/shipyard.md)
 The Shipyard DSL is defined by schema document, which, in turn, conforms to a given metaschema or JSON Schema Draft. We currently support [JSON Schema Draft 7](https://json-schema.org/).
-In the following, we explain the approach steps applied to the Shipyard DSL
+In the following, we explain the approach steps applied to the Shipyard DSL.
+The following steps (1-10) are expected to be performance by a Language Engineer, i.e., an user that, given a schema (.json), is able to create a language specification based on Eclipse EMF/Xtext.
 
 
 #### Steps 1-6
@@ -109,12 +105,15 @@ Try to create a new project from scratch, to test the content assist (CTRL+space
 
 
 
-## Language generation
+## Tool support : DSL editor generation.
 
-Once as a Language Engineer, you fixed all the errors, and you are satisfied with the generated ecore metamodel, you can generate the editor for the language defined by the .jschema artifact.
-To achieve this, follow the steps described in [Language Editor generator](tutorials/LanguageEditorGeneration.pdf).
+Once completed steps 1-10, the EMF/Xtext-based editor for the DSL defined by the .jschema artifact can be generated.
 
-Once generated the the language, and launched the runtime as explained in the Language Editior Generation tutorial, you can create your instances conforming to the .jschema.
+#### Steps 11-TODO
+Split the following text in steps as did for steps 1-10
+
+- Generated  the language, and launched the runtime as explained in the [Language Editior Generation tutorial](TODO),
+you can create your instances conforming to the .jschema.
 Create a new sample project in the runtime Eclipse, create in it a new file with the extension of the language (e.g., .shipyardV4), answer Yes when asked if you want to convert it to an Xtext project,
 open the file, and you have available the content assist and the validation for the generated language.
 If you created the editor for shipyardV4, you can try two samples available in the folder /samples/shipyardSchemas/shipyardV4/instanceExamples.
