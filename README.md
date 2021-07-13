@@ -48,11 +48,8 @@ This section introduces a list of working examples. The list is continuously upd
 
 
 ### Hello World examples. 
-Trivial examples are available. Their are listed, together with their rationaleL in the following folders:
-- [samples/schemavalidationtest](samples/schemavalidationtest/) have been used to [TODO]
-- [samples/schemavalidationtest](samples/schemavalidationtest/) have been used to [TODO]
-- ...
-
+Trivial examples are available. Their are listed in the following folder:
+- [jsonschemadsl2ecore.trafo.opt/input](jsonschemadsl2ecore.trafo.opt/input/)
 
 Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]
 
@@ -76,7 +73,7 @@ The following steps (1-10) are expected to be performance by a Language Engineer
 4. You will be asked whether you want to convert your project in an Xtext project. Click Yes.
 
 
-[Convert To Xtext Question](tutorials/img/convertXtextPropject.PNG)  
+![Convert To Xtext Question](tutorials/img/convertXtextPropject.PNG)  
 
 
 5. Copy the content Shipyard version chosen at step 1  in the newly created file. You will see the keywords highlighted, the in line validation errors and warnings. 
