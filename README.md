@@ -34,7 +34,7 @@ The latest version of the installation guide is available [here](tutorials/JSche
 This section introduces a list of working examples. The list is continuously updated.
 
 ### Hello World examples. 
-A list of trivial examples is available [here](TODO). Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]
+A list of trivial examples is available [here](samples/schemavalidationtest/). Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]
 
 
 ### Shipyard DSL.
