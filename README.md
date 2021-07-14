@@ -49,9 +49,10 @@ This section introduces a list of working examples. The list is continuously upd
 
 ### Hello World examples. 
 Trivial examples are available. Their are listed in the following folder:
-- [jsonschemadsl2ecore.trafo.opt/input](jsonschemadsl2ecore.trafo.opt/input/)
+- [https://github.com/lowcomote/jsonschemadsl.parent/tree/master/jsonschemadsl2ecore.trafo.opt/test)
 
-Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]
+Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]. In each subfolder you can find a jsonschema (with extension.jschema)
+and the artifacts that will be generated from it by JsonSchemaDSL
 
 
 ### Shipyard DSL.
