@@ -122,7 +122,7 @@ Once completed steps 1-9, the EMF/Xtext-based editor for the DSL defined by the 
 3.  You will be asked if you want to convert the project to an XText project. Answer YES. 
 4.  Open your file
 5.  Use CTRL+space for the content assist and code completion. Remember that all the keywords are between double quotes (“)
-![creation.sample1.shipyardV4.png]creation.sample1.shipyardV4.png
+![creation.sample1.shipyardV4.png](tutorials/img/creation.sample1.shipyardV4.png)
 
 
 #### Steps 10-TODO (At the end of the language generation tutorial on drive, from step 29, I described how to play the generated languale)
