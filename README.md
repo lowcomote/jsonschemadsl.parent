@@ -100,11 +100,16 @@ At the end of step 6, everything will be correct, with no errors or warnings.
 10. Under the root project folder, a fourth artifact (shipyardV4Opt.ocl) is created. Refresh the project folder if the OCL artifact does not appear. Open the ocl file. Fix the reported error by registering the ecore metamodel generated from the shipyardV4.jschema artifact. For registering the generated metamodel, switch to the ATL perspective, then right click on the generated ecore metamodel and select "Register Metamodel". If you had already opened the ocl file, you have to close and open it again.  Wait a while for the synchrnizaation process to be completed. 
 
 
-(TODO: what is the meaning?)
-Try to create a new project from scratch, to test the content assist (CTRL+space). To test code completion, remind that every keyword start with double quotes ("). 
+We invite the reader to practice with other shipyard versions. Not all versions of shipyard are valid json schema, as explained in the paper [1]. 
+They can be considered a good base to experiment autonomously, as well as the tests in 
+[jsonschemadsl2ecore.trafo.opt/test](jsonschemadsl2ecore.trafo.opt/test)
 
-TODO here we should put something to help the reviewer to create his own examples, beyond the ones the we are providing, to play with the tool independently.
-We should put a link to the feature list, to make it clear what we suport and what no
+Note that so far JsonSchemaDSL is an initial prototype, and it does not support the generation of the artifacts for all the JSON Schema keywords.
+We also invite the reader to create his own json schemas and repeat the entire cycle. Use the CTRL+space for the content assist.
+
+The list of supported keywords/feature so far is available in
+[FEATURES_LIST.md](FEATURES_LIST.md)
+
 
 
 
