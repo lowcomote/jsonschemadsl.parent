@@ -117,12 +117,26 @@ The list of supported keywords/feature so far is available in
 
 Once completed steps 1-9, the EMF/Xtext-based editor for the DSL defined by the .jschema artifact can be generated, following the steps in the [Language Editor generator](tutorials/LanguageEditorGeneration.pdf) tutorial. Once launched the runtime eclipse as explained in the [tutorial](tutorials/LanguageEditorGeneration.pdf) the reader can perform the following steps, described in term of the *shipyardV4.jschema* example previoulsy explained.
 
-1.  create a new general project with the New Project wizard; 
-2.  create a file with the extension you chose in the language editor creation(e.g., shipyardV4). 
-3.  You will be asked if you want to convert the project to an XText project. Answer YES. 
-4.  Open your file
-5.  Use CTRL+space for the content assist and code completion. Remember that all the keywords are between double quotes (“)
+11.  create a new general project with the New Project wizard
+12.  create a file with the extension you chose in the language editor creation(e.g., shipyardV4)
+13.  You will be asked if you want to convert the project to an XText project. Answer YES
+14.  Open your file
+15.  Open the Problems and Properties view to see more details
+16.  Use CTRL+space for the content assist and code completion. Remember that all the keywords are between double quotes (“)
+
+
 ![creation.sample1.shipyardV4.png](tutorials/img/creation.sample1.shipyardV4.png)
+
+
+For the shipyardV4.jschema example use in this tutorial you can try json instances example in  
+[samples/shipyardSchemas/shipyardV4/instanceExamples](samples/shipyardSchemas/shipyardV4/instanceExamples) where you will find *sample1.shipyardV4* and *samples2.shipyardV4*.
+
+In the screenshot below you can see an excerpt of sample1.shipyardV4.
+
+![excerpt.sample1.shipyardV4.png](tutorials/img/excerpt.sample1.shipyardV4.png)
+
+
+
 
 
 #### Steps 10-TODO (At the end of the language generation tutorial on drive, from step 29, I described how to play the generated languale)
