@@ -128,25 +128,35 @@ Once completed steps 1-9, the EMF/Xtext-based editor for the DSL defined by the 
 ![creation.sample1.shipyardV4.png](tutorials/img/creation.sample1.shipyardV4.png)
 
 
-For the shipyardV4.jschema example use in this tutorial you can try json instances example in  
+17. For the shipyardV4.jschema example use in this tutorial you can try json instance examples in  
 [samples/shipyardSchemas/shipyardV4/instanceExamples](samples/shipyardSchemas/shipyardV4/instanceExamples) where you will find *sample1.shipyardV4* and *samples2.shipyardV4*.
 
 In the screenshot below you can see an excerpt of sample1.shipyardV4.
 
 ![excerpt.sample1.shipyardV4.png](tutorials/img/excerpt.sample1.shipyardV4.png)
 
+### Sample Reflective Ecore Model Editor	
+18. Right click on the file with the extension that you have created (e.g., sample1.shipyardV4) 
+19. Select open with -> other.
+20. Choose the Sample Reflective Ecore Model Editor and click OK. 
+
+![samplereflectiveeditor.png](tutorials/img/samplereflectiveeditor.png)
+
+
+21. Wait some second and you will see the tree editor for your file, that is a model.
+22. Open the view properties, to see more details when you select an element of the tree.
+
+
+
+As shown in the screenshot below, you can see sample1.shipyardV4 as a json conforming to the shipyardV4.jschema or as a model conforming to the previously generated shipyardV4Opt.ecore.
+
+Changes applied to the tree are reflected in the file json style and vice versa.
+
+![sample1.shipyardV4.modeljson.png](tutorials/img/sample1.shipyardV4.modeljson.png)
 
 
 
 
-#### Steps 10-TODO (At the end of the language generation tutorial on drive, from step 29, I described how to play the generated languale)
-Split the following text in steps as did for steps 1-9
 
-- Generated  the language, and launched the runtime as explained in the [Language Editior Generation tutorial](TODO),
-you can create your instances conforming to the .jschema.
-Create a new sample project in the runtime Eclipse, create in it a new file with the extension of the language (e.g., .shipyardV4), answer Yes when asked if you want to convert it to an Xtext project,
-open the file, and you have available the content assist and the validation for the generated language.
-If you created the editor for shipyardV4, you can try two samples available in the folder /samples/shipyardSchemas/shipyardV4/instanceExamples.
-The [Language Editor generator](tutorials/LanguageEditorGeneration.pdf) tutorial, also explain how to open an instance with the Reflective Editor, and see an instance as a model.
 
 
