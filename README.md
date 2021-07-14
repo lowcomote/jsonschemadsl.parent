@@ -102,13 +102,16 @@ At the end of step 6, everything will be correct, with no errors or warnings.
 (TODO: what is the meaning?)
 Try to create a new project from scratch, to test the content assist (CTRL+space). To test code completion, remind that every keyword start with double quotes ("). 
 
+TODO here we should put something to help the reviewer to create his own examples, beyond the ones the we are providing, to play with the tool independently.
+We should put a link to the feature list, to make it clear what we suport and what no
+
 
 
 ## Tool support : DSL editor generation.
 
 TODO: Once completed steps 1-9, the EMF/Xtext-based editor for the DSL defined by the .jschema artifact can be generated.
 
-#### Steps 10-TODO
+#### Steps 10-TODO (At the end of the language generation tutorial on drive, from step 29, I described how to play the generated languale)
 Split the following text in steps as did for steps 1-9
 
 - Generated  the language, and launched the runtime as explained in the [Language Editior Generation tutorial](TODO),
