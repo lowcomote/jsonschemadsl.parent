@@ -62,7 +62,7 @@ Shipyard, a JSON Schema-based language for workflow specification for [Keptn](ht
 Shipyard DSL versions are collected in [samples/shipyardSchemas/](samples/shipyardSchemas/) as collected from the Shipyard official [Keptn repository](https://github.com/keptn/spec/blob/master/shipyard.md)
 The Shipyard DSL is defined by schema document, which, in turn, conforms to a given metaschema or JSON Schema Draft. We currently support [JSON Schema Draft 7](https://json-schema.org/).
 In the following, we explain the approach steps applied to the Shipyard DSL.
-The following steps (1-10) are expected to be performance by a Language Engineer, i.e., an user that, given a schema (.json), is able to create a language specification based on Eclipse EMF/Xtext.
+The following steps (1-10) are expected to be performance by a Language Engineer, i.e., an user that wants to define the specification of a language.
 
 
 #### Steps 1-6
