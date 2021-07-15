@@ -51,19 +51,16 @@ This section introduces a list of working examples. The list is continuously upd
 Trivial examples are available. Their are listed in the following folder:
 - [jsonschemadsl2ecore.trafo.opt/test](jsonschemadsl2ecore.trafo.opt/test)
 
-Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]. In each subfolder you can find a jsonschema (with extension.jschema)
-and the artifacts that will be generated from it by JsonSchemaDSL
+Such trivial examples will help you to understand the overall approach and its steps, as documented in [1]. In each subfolder, you can find a json schema (with extension.jschema) and the artifacts that will be generated from it by JsonSchemaDSL
 
 
 ### Shipyard DSL.
-Shipyard, a JSON Schema-based language for workflow specification for [Keptn](https://keptn.sh/), an open source tool for DevOps automation  of  cloud-native  applications.  The  results  of  the  casestudy  show  that  proper  editors  as  well  as  language  evolutionsupport  from  MDE  can  be  reused  and  at  the  same  time,  thesurface  syntax  of  JSON  is  maintained. See [1] for further details.
+Shipyard is a JSON Schema-based language for workflow specification for [Keptn](https://keptn.sh/), an open source tool for DevOps automation of  cloud-native applications.  The  results  of  the  case study  show  that  proper  editors  as  well  as  language  evolution support  from  MDE  can  be  reused  and  at  the  same  time,  the surface  syntax  of  JSON  is  maintained. See [1] for further details.
 
 
-Shipyard DSL versions are collected in [samples/shipyardSchemas/](samples/shipyardSchemas/) as collected from the Shipyard official [Keptn repository](https://github.com/keptn/spec/blob/master/shipyard.md)
+Shipyard DSL versions are available in [samples/shipyardSchemas/](samples/shipyardSchemas/) as collected from the Shipyard official [Keptn repository](https://github.com/keptn/spec/blob/master/shipyard.md)
 The Shipyard DSL is defined by schema document, which, in turn, conforms to a given metaschema or JSON Schema Draft. We currently support [JSON Schema Draft 7](https://json-schema.org/).
-In the following, we explain the approach steps applied to the Shipyard DSL.
-The following steps (1-10) are expected to be performance by a Language Engineer, i.e., an user that wants to define the specification of a language.
-
+In the following, we apply the approach proposed in [1] to Shipyard. The following steps (1-9) are typically performed by a Language Engineer.
 
 #### Steps 1-6
 
