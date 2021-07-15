@@ -55,12 +55,13 @@ Such trivial examples will help you to understand the overall approach and its s
 
 
 ### Shipyard DSL.
-Shipyard is a JSON Schema-based language for workflow specification for [Keptn](https://keptn.sh/), an open source tool for DevOps automation of  cloud-native applications.  The  results  of  the  case study  show  that  proper  editors  as  well  as  language  evolution support  from  MDE  can  be  reused  and  at  the  same  time,  the surface  syntax  of  JSON  is  maintained. See [1] for further details.
+Shipyard is a JSON Schema-based domain-specific language (DSL) for workflow specification for [Keptn](https://keptn.sh/), an open source tool for DevOps automation of cloud-native applications.  The  results  of  the  case study  show  that  proper  editors  as  well  as  language  evolution support  from  MDE  can  be  reused  and  at  the  same  time,  the surface  syntax  of  JSON  is  maintained. See [1] for further details.
 
 
-Shipyard DSL versions are available in [samples/shipyardSchemas/](samples/shipyardSchemas/) as collected from the Shipyard official [Keptn repository](https://github.com/keptn/spec/blob/master/shipyard.md)
-The Shipyard DSL is defined by schema document, which, in turn, conforms to a given metaschema or JSON Schema Draft. We currently support [JSON Schema Draft 7](https://json-schema.org/).
-In the following, we apply the approach proposed in [1] to Shipyard. The following steps (1-9) are typically performed by a Language Engineer.
+Different Shipyard DSL versions are available in [samples/shipyardSchemas/](samples/shipyardSchemas/), collected from the Shipyard official [Keptn repository](https://github.com/keptn/spec/blob/master/shipyard.md).
+The Shipyard DSL is orginally defined by schema document, which, in turn, conforms to a given metaschema or [JSON Schema Draft](https://json-schema.org/). The JSON Schema is a draft standard by IETF, New JSON Schema Drafts are issued by IETF every six months. Our approach [1] supports the [JSON Schema Draft 7](https://json-schema.org/).
+
+In the following, we apply the approach proposed in [1] to Shipyard. The following steps (1-10) are typically performed by a Language Engineer.
 
 #### Steps 1-6
 
@@ -81,14 +82,14 @@ In the following, we apply the approach proposed in [1] to Shipyard. The followi
 ![ShipyardV1](tutorials/img/shipyardV1.PNG) 
 
 
-We invite the reader to repeat steps 1. to 6. choosing the *shipyardV4.json* at step 1. 
+We invite the reader to repeat steps from 1. to 6. choosing the *shipyardV4.json* at step 1. 
 At the end of step 6, everything will be correct, with no errors or warnings.
 
 
 ![ShipyardV4](tutorials/img/shipyardV4.PNG) 
 
 
-#### Steps 7-9
+#### Steps 7-10
 *(after choosing shipyardV4.json at step 1)*
 
 7. Save the shipyardV4.jschema. 
@@ -96,16 +97,25 @@ At the end of step 6, everything will be correct, with no errors or warnings.
 
 10. Under the root project folder, a fourth artifact (shipyardV4Opt.ocl) is created. Refresh the project folder if the OCL artifact does not appear. Open the ocl file. Fix the reported error by registering the ecore metamodel generated from the shipyardV4.jschema artifact. For registering the generated metamodel, switch to the ATL perspective, then right click on the generated ecore metamodel and select "Register Metamodel". If you had already opened the ocl file, you have to close and open it again.  Wait a while for the synchrnizaation process to be completed. 
 
-
-We invite the reader to practice with other shipyard versions. Not all versions of shipyard are valid json schema, as explained in the paper [1]. 
+#### Tip 1
+We invite the reader to practice with other shipyard versions. Not all versions of shipyard are valid json schema, as explained in [1]. 
 They can be considered a good base to experiment autonomously, as well as the tests in 
 [jsonschemadsl2ecore.trafo.opt/test](jsonschemadsl2ecore.trafo.opt/test)
 
-Note that so far JsonSchemaDSL is an initial prototype, and it does not support the generation of the artifacts for all the JSON Schema keywords.
-We also invite the reader to create his own json schemas and repeat the entire cycle. Use the CTRL+space for the content assist.
+#### Tip 2
+We invite the reader to create her/his own json schemas and repeat the entire cycle. 
 
-The list of supported keywords/feature so far is available in
-[FEATURES_LIST.md](FEATURES_LIST.md)
+#### Tip 3
+The generated DSL editors are provided with content assist features. Press CTRL+space while typing.
+
+#### Known limitations
+Note that so far JsonSchemaDSL is a prototype, and it does not support the generation of the artifacts for all the JSON Schema keywords.
+The list of supported keywords/feature so far is available in [FEATURES_LIST.md](FEATURES_LIST.md)
+
+
+
+
+
 
 
 
