@@ -105,61 +105,58 @@ They can be considered a good base to experiment autonomously, as well as the te
 #### Tip 2
 We invite the reader to create her/his own json schemas and repeat the entire cycle. 
 
-#### Tip 3
-The generated DSL editors are provided with content assist features. Press CTRL+space while typing.
-
-#### Known limitations
-Note that so far JsonSchemaDSL is a prototype, and it does not support the generation of the artifacts for all the JSON Schema keywords.
-The list of supported keywords/feature so far is available in [FEATURES_LIST.md](FEATURES_LIST.md)
-
-
-
-
-
-
 
 
 
 ## Tool support : DSL editor generation.
 
-Once completed steps 1-9, the EMF/Xtext-based editor for the DSL defined by the .jschema artifact can be generated, following the steps in the [Language Editor generator](tutorials/LanguageEditorGeneration.pdf) tutorial. Once launched the runtime eclipse as explained in the [tutorial](tutorials/LanguageEditorGeneration.pdf) the reader can perform the following steps, described in term of the *shipyardV4.jschema* example previoulsy explained.
+Once completed steps 1-10, the EMF/Xtext-based editor for the DSL defined by the .jschema artifact can be generated, following the steps in the [Language Editor generator tutorial](tutorials/LanguageEditorGeneration.pdf). 
 
-11.  create a new general project with the New Project wizard
-12.  create a file with the extension you chose in the language editor creation(e.g., shipyardV4)
-13.  You will be asked if you want to convert the project to an XText project. Answer YES
-14.  Open your file
+### Example: Shipyard v4 DSL editor generation.
+
+Once launched an eclipse runtime instance, as explained in the [tutorial](tutorials/LanguageEditorGeneration.pdf), the reader can perform the following steps:
+
+*(after choosing shipyardV4.json at step 1 and successful completion of steps 1-10)*
+11.  Create a new general project with the New Project wizard.
+12.  Create a file with the extension you chose in the language editor creation (e.g., shipyardV4).
+13.  You will be asked if you want to convert the project to an XText project. Choose YES.
+14.  Open created at step 12.
 15.  Open the Problems and Properties view to see more details
-16.  Use CTRL+space for the content assist and code completion. Remember that all the keywords are between double quotes (“)
+16.  Use CTRL+space to activate content assist and code completion capabilities. Remember that all the keywords are between double quotes (").
 
 
 ![creation.sample1.shipyardV4.png](tutorials/img/creation.sample1.shipyardV4.png)
 
 
-17. For the shipyardV4.jschema example use in this tutorial you can try json instance examples in  
-[samples/shipyardSchemas/shipyardV4/instanceExamples](samples/shipyardSchemas/shipyardV4/instanceExamples) where you will find *sample1.shipyardV4* and *samples2.shipyardV4*.
+17. For the shipyardV4.jschema example used in this tutorial, you can try the json instance examples (i.e., Shipyard models) *sample1.shipyardV4* and *samples2.shipyardV4* in  
+[samples/shipyardSchemas/shipyardV4/instanceExamples](samples/shipyardSchemas/shipyardV4/instanceExamples).
 
 In the screenshot below you can see an excerpt of sample1.shipyardV4.
 
 ![excerpt.sample1.shipyardV4.png](tutorials/img/excerpt.sample1.shipyardV4.png)
 
 ### Sample Reflective Ecore Model Editor	
-18. Right click on the file with the extension that you have created (e.g., sample1.shipyardV4) 
-19. Select open with -> other.
+18. Right click on the file created at step 12 (e.g., sample1.shipyardV4) 
+19. Select Open with -> Other.
 20. Choose the Sample Reflective Ecore Model Editor and click OK. 
 
 ![samplereflectiveeditor.png](tutorials/img/samplereflectiveeditor.png)
 
-
 21. Wait some second and you will see the tree editor for your file, that is a model.
 22. Open the view properties, to see more details when you select an element of the tree.
 
-
-
-As shown in the screenshot below, you can see sample1.shipyardV4 as a json conforming to the shipyardV4.jschema or as a model conforming to the previously generated shipyardV4Opt.ecore.
+As shown in the screenshot below, you can see sample1.shipyardV4 as a json conforming to the shipyardV4.jschema or as a model conforming to the previously generated metamodel shipyardV4Opt.ecore.
 
 Changes applied to the tree are reflected in the file json style and vice versa.
 
 ![sample1.shipyardV4.modeljson.png](tutorials/img/sample1.shipyardV4.modeljson.png)
+
+#### Known limitations
+Note that so far JsonSchemaDSL is a prototype, and it does not support the generation of the artifacts for all the JSON Schema keywords.
+The list of supported keywords/feature so far is available in [FEATURES_LIST.md](FEATURES_LIST.md)
+
+#### Tip 3
+The generated DSL editors are provided with content assist features. Press CTRL+space while typing.
 
 
 
