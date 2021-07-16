@@ -13,7 +13,7 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |----------------------|---------------------|--------------------------|--------
 |"$id"                 |Y                    |N                         | |
 |"$schema"             |Y                    |N                         |It will be converted as an annotation|
-|"$ref" (json pointer) |Y                    |Y                         ||
+|"$ref" (json pointer) |Y                    |Y                         |URI and JSON Pointer validation not available yet| 
 |"$ref"   ($id)        |Y                    |N                         ||
 |"$comment             |Y                    |N                         |It will be converted as an annotation|
 |"title"               |Y                    |N                         |It will be converted as an annotation|
