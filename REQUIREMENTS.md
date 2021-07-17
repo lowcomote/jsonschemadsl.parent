@@ -11,4 +11,4 @@ The prerequisites for JsonSchemaDSL and JsonGrammar are :
 - ATL
 - XText
 
-The specific versions are explained in detail in the installation tutorial. [tutorials/JSchemaDSLInstallationTutorial.pdf](tutorials/JSchemaDSLInstallationTutorial.pdf)
+See installation tutorial. [tutorials/JSchemaDSLInstallationTutorial.pdf](tutorials/JSchemaDSLInstallationTutorial.pdf)
