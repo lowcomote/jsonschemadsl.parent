@@ -33,6 +33,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Task" upperBound="-1" eType="#//TaskPropertiesAbstract"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskName" eSuperTypes="#//TaskPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskProperties" eSuperTypes="#//TaskPropertiesAbstract"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskPropertiesAdditionalProperties"
+      eSuperTypes="#//TaskPropertiesPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Trigger">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Trigger" upperBound="-1"
         eType="#//TriggerPropertiesAbstract" containment="true"/>
@@ -81,10 +91,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sequences" upperBound="-1"
         eType="#//StageSequencesItems" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskName" eSuperTypes="#//TaskPropertiesAbstract">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskProperties" eSuperTypes="#//TaskPropertiesAbstract"/>
   <eClassifiers xsi:type="ecore:EClass" name="TriggerEvent" eSuperTypes="#//TriggerPropertiesAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="event" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -96,12 +102,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternProperties0" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskPropertiesAdditionalProperties"
-      eSuperTypes="#//TaskPropertiesPropertiesAbstract">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
-        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SequenceTriggeredOnItems">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#//Trigger"
