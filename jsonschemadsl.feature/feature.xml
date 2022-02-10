@@ -2,7 +2,7 @@
 <feature
       id="jsonschemadsl.feature"
       label="JsonSchemaDsl Feature "
-      version="1.0.2.qualifier">
+      version="1.0.3">
 
    <plugin
          id="jsonschemadsl"
@@ -55,6 +55,27 @@
 
    <plugin
          id="jsonmetaschemaMM"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="jsonmetaschemaMM.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="jsonmetaschemaMM.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="jakarta.ws.rs-api-3.0.0.wrapper"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jsonschemadsl</groupId>
-	<version>1.0.2-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<artifactId>jsonschemadsl.parent</artifactId>
 	<packaging>pom</packaging>
 
@@ -33,10 +33,13 @@
 		
 <!-- 		<module>json-metaschema-MM</module> -->
 		<module>jsonmetaschemaMM</module>
+		<module>jsonmetaschemaMM.edit</module>
+		<module>jsonmetaschemaMM.editor</module>
 		<module>jsonschemadsl2ecore.trafo</module>
 		<module>jsonschemadsl2ecore.trafo.opt</module>
 		<module>jschemaoclgenerator</module>
 		<module>jku.se.atl.transformation.utils</module>
+		<module>jakarta.ws.rs-api-3.0.0.wrapper</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>

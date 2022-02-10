@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated jsonMetaschemaMM -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jsonMetaschemaMM.presentation.JsonMetaschemaMMModelWizardID"
+            name="%_UI_JsonMetaschemaMMModelWizard_label"
+            class="jsonMetaschemaMM.presentation.JsonMetaschemaMMModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JsonMetaschemaMMModelFile.gif">
+         <description>%_UI_JsonMetaschemaMMModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated jsonMetaschemaMM -->
+      <editor
+            id="jsonMetaschemaMM.presentation.JsonMetaschemaMMEditorID"
+            name="%_UI_JsonMetaschemaMMEditor_label"
+            icon="icons/full/obj16/JsonMetaschemaMMModelFile.gif"
+            extensions="jsonmetaschemamm"
+            class="jsonMetaschemaMM.presentation.JsonMetaschemaMMEditor"
+            contributorClass="jsonMetaschemaMM.presentation.JsonMetaschemaMMActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
