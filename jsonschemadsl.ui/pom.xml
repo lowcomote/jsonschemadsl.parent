@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>jsonschemadsl</groupId>
 		<artifactId>jsonschemadsl.parent</artifactId>
-		<version>1.0.2-SNAPSHOT</version>
+		<version>1.0.3</version>
 	</parent>
 	<artifactId>jsonschemadsl.ui</artifactId>
 	<packaging>eclipse-plugin</packaging>

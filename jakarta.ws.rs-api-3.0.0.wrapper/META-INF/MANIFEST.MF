@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JakartaWsRsApiWrapper
+Bundle-SymbolicName: jakarta.ws.rs-api-3.0.0.wrapper
+Bundle-Version: 1.0.3
+Bundle-ClassPath: .
+Export-Package: jakarta.ws.rs,
+ jakarta.ws.rs.client,
+ jakarta.ws.rs.container,
+ jakarta.ws.rs.core,
+ jakarta.ws.rs.ext,
+ jakarta.ws.rs.sse
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: jakarta.ws.rs.api
