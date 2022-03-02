@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <?metadataRepository version='1.2.0'?>
 <repository name='TychoTargetPlatform' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='0.0.1'>
-  <units size='267'>
+  <units size='266'>
     <unit id='org.eclipse.e4.ui.workbench.renderers.swt.cocoa' version='0.12.600.v20200416-0656' generation='2'>
       <update id='org.eclipse.e4.ui.workbench.renderers.swt.cocoa' range='[0.0.0,0.12.600.v20200416-0656)' severity='0'/>
       <properties size='8'>
@@ -4862,7 +4862,7 @@
       <provides size='1'>
         <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.group' version='1.0.3'/>
       </provides>
-      <requires size='12'>
+      <requires size='11'>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl' range='[1.0.3,1.0.3]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ide' range='[1.0.3,1.0.3]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ui' range='[1.0.3,1.0.3]'/>
@@ -4873,7 +4873,6 @@
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM' range='[1.0.3,1.0.3]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.edit' range='[1.0.3,1.0.3]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.editor' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.ws.rs-api-3.0.0.wrapper' range='[1.0.3,1.0.3]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.jar' range='[1.0.3,1.0.3]'>
           <filter>
             (org.eclipse.update.install.features=true)
@@ -6909,6 +6908,57 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='jakarta.ws.rs-api' version='3.0.0' singleton='false' generation='2'>
+      <update id='jakarta.ws.rs-api' range='[0.0.0,3.0.0)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='jakarta.ws.rs-api'/>
+        <property name='org.eclipse.equinox.p2.description' value='Jakarta RESTful Web Services API (JAX-RS)'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Foundation'/>
+        <property name='org.eclipse.equinox.p2.doc.url' value='https://www.eclipse.org/org/foundation/'/>
+      </properties>
+      <provides size='10'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.ws.rs-api' version='3.0.0'/>
+        <provided namespace='osgi.bundle' name='jakarta.ws.rs-api' version='3.0.0'/>
+        <provided namespace='java.package' name='jakarta.ws.rs.core' version='3.0.0'/>
+        <provided namespace='java.package' name='jakarta.ws.rs' version='3.0.0'/>
+        <provided namespace='java.package' name='jakarta.ws.rs.ext' version='3.0.0'/>
+        <provided namespace='java.package' name='jakarta.ws.rs.container' version='3.0.0'/>
+        <provided namespace='java.package' name='jakarta.ws.rs.client' version='3.0.0'/>
+        <provided namespace='java.package' name='jakarta.ws.rs.sse' version='3.0.0'/>
+        <provided namespace='osgi.identity' name='jakarta.ws.rs-api' version='3.0.0'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='9'>
+        <required namespace='java.package' name='jakarta.ws.rs' range='[3.0.0,4.0.0)'/>
+        <required namespace='java.package' name='jakarta.ws.rs.client' range='[3.0.0,4.0.0)'/>
+        <required namespace='java.package' name='jakarta.ws.rs.core' range='[3.0.0,4.0.0)'/>
+        <required namespace='java.package' name='jakarta.ws.rs.ext' range='[3.0.0,4.0.0)'/>
+        <required namespace='java.package' name='jakarta.xml.bind.annotation' range='[3.0.0,4.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='jakarta.xml.bind.annotation.adapters' range='[3.0.0,4.0.0)' optional='true' greedy='false'/>
+        <required namespace='java.package' name='javax.net.ssl' range='0.0.0'/>
+        <required namespace='java.package' name='javax.xml.namespace' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.8))'>
+          <description>
+            jakarta.ws.rs-api
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jakarta.ws.rs-api' version='3.0.0'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jakarta.ws.rs-api&#xA;Bundle-Version: 3.0.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='jsonschemadsl2ecore.trafo.opt' version='1.0.3' generation='2'>
       <update id='jsonschemadsl2ecore.trafo.opt' range='[0.0.0,1.0.3)' severity='0'/>
       <properties size='4'>
@@ -7474,7 +7524,7 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonmetaschemaMM.edit' version='1.0.3'>
+    <unit id='jsonmetaschemaMM.edit' version='1.0.3' generation='2'>
       <update id='jsonmetaschemaMM.edit' range='[0.0.0,1.0.3)' severity='0'/>
       <properties size='8'>
         <property name='df_LT.pluginName' value='jsonMetaschemaMM Edit Support'/>
@@ -7498,10 +7548,15 @@
         <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
         <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
       </provides>
-      <requires size='3'>
+      <requires size='4'>
         <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
         <required namespace='osgi.bundle' name='jsonmetaschemaMM' range='1.0.3'/>
         <required namespace='osgi.bundle' name='org.eclipse.emf.edit' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jsonmetaschemaMM.edit
+          </description>
+        </requiredProperties>
       </requires>
       <artifacts size='1'>
         <artifact classifier='osgi.bundle' id='jsonmetaschemaMM.edit' version='1.0.3'/>
@@ -7606,7 +7661,7 @@
         <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
         <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
         <required namespace='osgi.bundle' name='org.eclipse.ui' range='3.118.0'/>
-        <required namespace='osgi.bundle' name='jakarta.ws.rs-api-3.0.0.wrapper' range='1.0.3'/>
+        <required namespace='osgi.bundle' name='jakarta.ws.rs-api' range='3.0.0'/>
         <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
           <description>
             jsonmetaschemaMM
@@ -12025,22 +12080,22 @@
         <provided namespace='java.package' name='com.sun.net.httpserver' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.jdi.connect' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.events' version='0.0.0'/>
-        <provided namespace='java.package' name='java.awt.datatransfer' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.swing.plaf' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.text.html' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.swing.plaf' version='0.0.0'/>
+        <provided namespace='java.package' name='java.awt.datatransfer' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.jdi.event' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.dynalink' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf.metal' version='0.0.0'/>
         <provided namespace='java.package' name='java.net.spi' version='0.0.0'/>
         <provided namespace='java.package' name='java.rmi.activation' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml' version='0.0.0'/>
-        <provided namespace='java.package' name='java.util.logging' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.colorchooser' version='0.0.0'/>
+        <provided namespace='java.package' name='java.util.logging' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.dynalink.support' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.auth.x500' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.stream' version='0.0.0'/>
-        <provided namespace='java.package' name='jdk.jshell.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.lang.model' version='0.0.0'/>
+        <provided namespace='java.package' name='jdk.jshell.spi' version='0.0.0'/>
         <provided namespace='java.package' name='java.lang.annotation' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.jfr' version='0.0.0'/>
         <provided namespace='java.package' name='javax.imageio.spi' version='0.0.0'/>
@@ -12057,13 +12112,13 @@
         <provided namespace='java.package' name='jdk.swing.interop' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt' version='0.0.0'/>
         <provided namespace='java.package' name='java.text' version='0.0.0'/>
-        <provided namespace='java.package' name='com.sun.management' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.undo' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.management' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.transform.stream' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.datatype' version='0.0.0'/>
         <provided namespace='java.package' name='javax.print' version='0.0.0'/>
-        <provided namespace='java.package' name='org.w3c.dom.html' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.auth.login' version='0.0.0'/>
+        <provided namespace='java.package' name='org.w3c.dom.html' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.security.auth.login' version='0.0.0'/>
         <provided namespace='java.package' name='java.rmi' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.jdi.connect.spi' version='0.0.0'/>
@@ -12076,19 +12131,19 @@
         <provided namespace='java.package' name='javax.naming.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.imageio.plugins.bmp' version='0.0.0'/>
         <provided namespace='java.package' name='sun.misc' version='0.0.0'/>
-        <provided namespace='java.package' name='jdk.nashorn.api.scripting' version='0.0.0'/>
         <provided namespace='java.package' name='java.time.format' version='0.0.0'/>
+        <provided namespace='java.package' name='jdk.nashorn.api.scripting' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.concurrent' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.auth.spi' version='0.0.0'/>
-        <provided namespace='java.package' name='java.rmi.server' version='0.0.0'/>
         <provided namespace='java.package' name='javax.sound.sampled' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.sql.rowset.serial' version='0.0.0'/>
+        <provided namespace='java.package' name='java.rmi.server' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.parsers' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.sql.rowset.serial' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf.synth' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf.basic' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.tree' version='0.0.0'/>
-        <provided namespace='java.package' name='java.util.function' version='0.0.0'/>
         <provided namespace='java.package' name='javax.net' version='0.0.0'/>
+        <provided namespace='java.package' name='java.util.function' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.dynalink.linker' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.image.renderable' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.nio.file' version='0.0.0'/>
@@ -12109,20 +12164,20 @@
         <provided namespace='java.package' name='java.util.concurrent.atomic' version='0.0.0'/>
         <provided namespace='java.package' name='javax.rmi.ssl' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.event' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.management.openmbean' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.color' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.management.openmbean' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.text.rtf' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.javadoc.doclet' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.xml.crypto' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.print' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.crypto' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf.multi' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.channels.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.imageio.event' version='0.0.0'/>
         <provided namespace='java.package' name='javax.net.ssl' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.stream.events' version='0.0.0'/>
         <provided namespace='java.package' name='java.rmi.registry' version='0.0.0'/>
-        <provided namespace='java.package' name='com.sun.java.accessibility.util' version='0.0.0'/>
         <provided namespace='java.package' name='javax.print.attribute' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.java.accessibility.util' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.file.attribute' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.management.jfr' version='0.0.0'/>
@@ -12143,18 +12198,18 @@
         <provided namespace='java.package' name='com.sun.tools.attach' version='0.0.0'/>
         <provided namespace='java.package' name='javax.print.attribute.standard' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.jshell.tool' version='0.0.0'/>
-        <provided namespace='java.package' name='com.sun.tools.jconsole' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.javadoc' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.tools.jconsole' version='0.0.0'/>
         <provided namespace='java.package' name='java.lang' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.security.jarsigner' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.security.auth' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.auth.kerberos' version='0.0.0'/>
-        <provided namespace='java.package' name='java.sql' version='0.0.0'/>
         <provided namespace='java.package' name='javax.crypto' version='0.0.0'/>
+        <provided namespace='java.package' name='java.sql' version='0.0.0'/>
         <provided namespace='java.package' name='java.util' version='0.0.0'/>
         <provided namespace='java.package' name='java.security.acl' version='0.0.0'/>
-        <provided namespace='java.package' name='java.time.temporal' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.channels' version='0.0.0'/>
+        <provided namespace='java.package' name='java.time.temporal' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.stylesheets' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.charset' version='0.0.0'/>
         <provided namespace='java.package' name='javax.sound.midi' version='0.0.0'/>
@@ -12175,8 +12230,8 @@
         <provided namespace='java.package' name='com.sun.jdi' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.security.jgss' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.charset.spi' version='0.0.0'/>
-        <provided namespace='java.package' name='java.text.spi' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.spi' version='0.0.0'/>
+        <provided namespace='java.package' name='java.text.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.management.timer' version='0.0.0'/>
         <provided namespace='java.package' name='java.security.spec' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.file.spi' version='0.0.0'/>
@@ -12199,8 +12254,8 @@
         <provided namespace='java.package' name='javax.sql.rowset.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.border' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.jfr.consumer' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.management.remote' version='0.0.0'/>
         <provided namespace='java.package' name='javax.imageio.plugins.tiff' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.management.remote' version='0.0.0'/>
         <provided namespace='java.package' name='org.xml.sax.ext' version='0.0.0'/>
         <provided namespace='java.package' name='sun.reflect' version='0.0.0'/>
         <provided namespace='java.package' name='javax.lang.model.util' version='0.0.0'/>
@@ -12209,8 +12264,8 @@
         <provided namespace='java.package' name='com.sun.security.auth.module' version='0.0.0'/>
         <provided namespace='java.package' name='javax.naming.ldap' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.crypto.dom' version='0.0.0'/>
-        <provided namespace='java.package' name='jdk.nashorn.api.tree' version='0.0.0'/>
         <provided namespace='java.package' name='java.time.zone' version='0.0.0'/>
+        <provided namespace='java.package' name='jdk.nashorn.api.tree' version='0.0.0'/>
         <provided namespace='java.package' name='netscape.javascript' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.im.spi' version='0.0.0'/>
         <provided namespace='java.package' name='java.beans.beancontext' version='0.0.0'/>
@@ -12220,8 +12275,8 @@
         <provided namespace='java.package' name='javax.script' version='0.0.0'/>
         <provided namespace='java.package' name='java.lang.module' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.source.util' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.sql.rowset' version='0.0.0'/>
         <provided namespace='java.package' name='java.io' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.sql.rowset' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.jar' version='0.0.0'/>
         <provided namespace='java.package' name='javax.crypto.interfaces' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.ranges' version='0.0.0'/>
@@ -14316,7 +14371,7 @@
       <provides size='1'>
         <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.group' version='1.0.3'/>
       </provides>
-      <requires size='13'>
+      <requires size='12'>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.group' range='[1.0.3,1.0.3]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.source' range='[1.0.3,1.0.3]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ide.source' range='[1.0.3,1.0.3]'/>
@@ -14328,7 +14383,6 @@
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.source' range='[1.0.3,1.0.3]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.edit.source' range='[1.0.3,1.0.3]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.editor.source' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jakarta.ws.rs-api-3.0.0.wrapper.source' range='[1.0.3,1.0.3]'/>
         <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.jar' range='[1.0.3,1.0.3]'>
           <filter>
             (org.eclipse.update.install.features=true)
@@ -14568,49 +14622,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jakarta.ws.rs-api-3.0.0.wrapper' version='1.0.3' singleton='false' generation='2'>
-      <update id='jakarta.ws.rs-api-3.0.0.wrapper' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='4'>
-        <property name='org.eclipse.equinox.p2.name' value='JakartaWsRsApiWrapper'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jakarta.ws.rs-api-3.0.0.wrapper'/>
-        <property name='maven-version' value='1.0.3'/>
-      </properties>
-      <provides size='10'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.ws.rs-api-3.0.0.wrapper' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jakarta.ws.rs-api-3.0.0.wrapper' version='1.0.3'/>
-        <provided namespace='java.package' name='jakarta.ws.rs' version='0.0.0'/>
-        <provided namespace='java.package' name='jakarta.ws.rs.client' version='0.0.0'/>
-        <provided namespace='java.package' name='jakarta.ws.rs.container' version='0.0.0'/>
-        <provided namespace='java.package' name='jakarta.ws.rs.core' version='0.0.0'/>
-        <provided namespace='java.package' name='jakarta.ws.rs.ext' version='0.0.0'/>
-        <provided namespace='java.package' name='jakarta.ws.rs.sse' version='0.0.0'/>
-        <provided namespace='osgi.identity' name='jakarta.ws.rs-api-3.0.0.wrapper' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='1'>
-        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
-          <description>
-            jakarta.ws.rs-api-3.0.0.wrapper
-          </description>
-        </requiredProperties>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jakarta.ws.rs-api-3.0.0.wrapper' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jakarta.ws.rs-api-3.0.0.wrapper&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.xtend.lib.macro' version='2.23.0.v20200831-0723' singleton='false' generation='2'>
       <update id='org.eclipse.xtend.lib.macro' range='[0.0.0,2.23.0.v20200831-0723)' severity='0'/>
       <properties size='5'>
@@ -14807,42 +14818,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: jsonschemadsl; singleton:=true&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='jakarta.ws.rs-api-3.0.0.wrapper.source' version='1.0.3' singleton='false'>
-      <update id='jakarta.ws.rs-api-3.0.0.wrapper.source' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='9'>
-        <property name='df_LT.bundleVendor' value='unknown'/>
-        <property name='df_LT.bundleName' value='JakartaWsRsApiWrapper Source'/>
-        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jakarta.ws.rs-api-3.0.0.wrapper'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jakarta.ws.rs-api-3.0.0.wrapper.source' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jakarta.ws.rs-api-3.0.0.wrapper.source' version='1.0.3'/>
-        <provided namespace='osgi.identity' name='jakarta.ws.rs-api-3.0.0.wrapper.source' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jakarta.ws.rs-api-3.0.0.wrapper.source' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jakarta.ws.rs-api-3.0.0.wrapper.source&#xA;Bundle-Version: 1.0.3
           </instruction>
         </instructions>
       </touchpointData>

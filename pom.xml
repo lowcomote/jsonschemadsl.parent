@@ -39,7 +39,7 @@
 		<module>jsonschemadsl2ecore.trafo.opt</module>
 		<module>jschemaoclgenerator</module>
 		<module>jku.se.atl.transformation.utils</module>
-		<module>jakarta.ws.rs-api-3.0.0.wrapper</module>
+		<!-- <module>jakarta.ws.rs-api-3.0.0.wrapper</module>-->
 	</modules>
 	<dependencyManagement>
 		<dependencies>
