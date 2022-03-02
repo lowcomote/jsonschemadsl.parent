@@ -180,29 +180,29 @@
       </instructions>
     </touchpointData>
   </unit>
-  <unit id='main.source' version='1.0.0.2-5dNy0vE'>
+  <unit id='202203021746.main.source' version='1.0.0.2-77dNy0vE7737739375GAE'>
     <properties size='2'>
       <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl (Sources)'/>
       <property name='org.eclipse.equinox.p2.type.category' value='true'/>
     </properties>
     <provides size='1'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='main.source' version='1.0.0.2-5dNy0vE'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='202203021746.main.source' version='1.0.0.2-77dNy0vE7737739375GAE'/>
     </provides>
     <requires size='1'>
-      <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.group' range='[1.0.3,1.0.3]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.group' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
     </requires>
     <touchpoint id='null' version='0.0.0'/>
   </unit>
-  <unit id='main' version='1.0.0.2-5dNzCo'>
+  <unit id='202203021746.main' version='1.0.0.2-77dNzCo-7737739375GAE'>
     <properties size='2'>
       <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl'/>
       <property name='org.eclipse.equinox.p2.type.category' value='true'/>
     </properties>
     <provides size='1'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='main' version='1.0.0.2-5dNzCo'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='202203021746.main' version='1.0.0.2-77dNzCo-7737739375GAE'/>
     </provides>
     <requires size='1'>
-      <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.group' range='[1.0.3,1.0.3]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.group' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
     </requires>
     <touchpoint id='null' version='0.0.0'/>
   </unit>

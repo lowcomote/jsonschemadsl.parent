@@ -601,6 +601,42 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='jsonschemadsl2ecore.trafo.opt.source' version='1.0.4.202203021746' singleton='false'>
+      <update id='jsonschemadsl2ecore.trafo.opt.source' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='9'>
+        <property name='df_LT.bundleVendor' value='unknown'/>
+        <property name='df_LT.bundleName' value='Opt Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl2ecore.trafo.opt'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.opt.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo.opt.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.identity' name='jsonschemadsl2ecore.trafo.opt.source' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonschemadsl2ecore.trafo.opt.source' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonschemadsl2ecore.trafo.opt.source&#xA;Bundle-Version: 1.0.4.202203021746
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.core.expressions' version='3.7.0.v20200720-1126' generation='2'>
       <update id='org.eclipse.core.expressions' range='[0.0.0,3.7.0.v20200720-1126)' severity='0'/>
       <properties size='8'>
@@ -676,42 +712,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonschemadsl2ecore.trafo.source' version='1.0.3' singleton='false'>
-      <update id='jsonschemadsl2ecore.trafo.source' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='9'>
-        <property name='df_LT.bundleVendor' value='Eclipse Modeling Project'/>
-        <property name='df_LT.bundleName' value='ATL jsonschemadsl2ecore.trafo Transformation Runtime Plug-in Source'/>
-        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl2ecore.trafo'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.source' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo.source' version='1.0.3'/>
-        <provided namespace='osgi.identity' name='jsonschemadsl2ecore.trafo.source' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonschemadsl2ecore.trafo.source' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonschemadsl2ecore.trafo.source&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.ocl.xtext.base' version='1.14.0.v20210310-0557' generation='2'>
       <update id='org.eclipse.ocl.xtext.base' range='[0.0.0,1.14.0.v20210310-0557)' severity='0'/>
       <properties size='8'>
@@ -771,42 +771,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.ocl.xtext.base;singleton:=true&#xA;Bundle-Version: 1.14.0.v20210310-0557
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='jschemaoclgenerator.source' version='1.0.3' singleton='false'>
-      <update id='jschemaoclgenerator.source' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='9'>
-        <property name='df_LT.bundleVendor' value='unknown'/>
-        <property name='df_LT.bundleName' value='Jschemaoclgenerator Source'/>
-        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jschemaoclgenerator'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jschemaoclgenerator.source' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jschemaoclgenerator.source' version='1.0.3'/>
-        <provided namespace='osgi.identity' name='jschemaoclgenerator.source' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jschemaoclgenerator.source' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jschemaoclgenerator.source&#xA;Bundle-Version: 1.0.3
           </instruction>
         </instructions>
       </touchpointData>
@@ -1354,44 +1318,29 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonschemadsl2ecore.trafo' version='1.0.3' generation='2'>
-      <update id='jsonschemadsl2ecore.trafo' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='ATL jsonschemadsl2ecore.trafo Transformation Runtime Plug-in'/>
-        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Modeling Project'/>
+    <unit id='jsonschemadsl.feature.feature.jar' version='1.0.4.202203021746'>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl Feature'/>
         <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl2ecore.trafo'/>
-        <property name='maven-version' value='1.0.3'/>
+        <property name='maven-artifactId' value='jsonschemadsl.feature'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
       </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo' version='1.0.3'/>
-        <provided namespace='java.package' name='jsonschemadsl2ecore.trafo.files' version='0.0.0'/>
-        <provided namespace='osgi.identity' name='jsonschemadsl2ecore.trafo' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.jar' version='1.0.4.202203021746'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='jsonschemadsl.feature' version='1.0.4.202203021746'/>
       </provides>
-      <requires size='4'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.engine.emfvm' range='0.0.0'/>
-        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
-          <description>
-            jsonschemadsl2ecore.trafo
-          </description>
-        </requiredProperties>
-      </requires>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
       <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonschemadsl2ecore.trafo' version='1.0.3'/>
+        <artifact classifier='org.eclipse.update.feature' id='jsonschemadsl.feature' version='1.0.4.202203021746'/>
       </artifacts>
       <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
       <touchpointData size='1'>
         <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonschemadsl2ecore.trafo;singleton:=true&#xA;Bundle-Version: 1.0.3
+          <instruction key='zipped'>
+            true
           </instruction>
         </instructions>
       </touchpointData>
@@ -1544,6 +1493,42 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: javax.inject&#xA;Bundle-Version: 1.0.0.v20091030
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jschemaoclgenerator.source' version='1.0.4.202203021746' singleton='false'>
+      <update id='jschemaoclgenerator.source' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='9'>
+        <property name='df_LT.bundleVendor' value='unknown'/>
+        <property name='df_LT.bundleName' value='Jschemaoclgenerator Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jschemaoclgenerator'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jschemaoclgenerator.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jschemaoclgenerator.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.identity' name='jschemaoclgenerator.source' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jschemaoclgenerator.source' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jschemaoclgenerator.source&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -2313,42 +2298,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonschemadsl2ecore.trafo.opt.source' version='1.0.3' singleton='false'>
-      <update id='jsonschemadsl2ecore.trafo.opt.source' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='9'>
-        <property name='df_LT.bundleVendor' value='unknown'/>
-        <property name='df_LT.bundleName' value='Opt Source'/>
-        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl2ecore.trafo.opt'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.opt.source' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo.opt.source' version='1.0.3'/>
-        <provided namespace='osgi.identity' name='jsonschemadsl2ecore.trafo.opt.source' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonschemadsl2ecore.trafo.opt.source' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonschemadsl2ecore.trafo.opt.source&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.equinox.p2.repository' version='2.4.800.v20200813-0739' generation='2'>
       <update id='org.eclipse.equinox.p2.repository' range='[0.0.0,2.4.800.v20200813-0739)' severity='0'/>
       <properties size='8'>
@@ -2640,42 +2589,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.rcp; singleton:=true&#xA;Bundle-Version: 4.17.0.v20200902-1800
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='jsonmetaschemaMM.editor.source' version='1.0.3' singleton='false'>
-      <update id='jsonmetaschemaMM.editor.source' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='9'>
-        <property name='df_LT.bundleVendor' value='www.example.org'/>
-        <property name='df_LT.bundleName' value='jsonMetaschemaMM Editor Source'/>
-        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonmetaschemaMM.editor'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.editor.source' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonmetaschemaMM.editor.source' version='1.0.3'/>
-        <provided namespace='osgi.identity' name='jsonmetaschemaMM.editor.source' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM.editor.source' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonmetaschemaMM.editor.source&#xA;Bundle-Version: 1.0.3
           </instruction>
         </instructions>
       </touchpointData>
@@ -3177,42 +3090,6 @@
         Copyright (c) 2002-2018 IBM Corporation and others.&#xA;All rights reserved.   This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v2.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v20.html
       </copyright>
     </unit>
-    <unit id='jsonmetaschemaMM.edit.source' version='1.0.3' singleton='false'>
-      <update id='jsonmetaschemaMM.edit.source' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='9'>
-        <property name='df_LT.bundleVendor' value='www.example.org'/>
-        <property name='df_LT.bundleName' value='jsonMetaschemaMM Edit Support Source'/>
-        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonmetaschemaMM.edit'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.edit.source' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonmetaschemaMM.edit.source' version='1.0.3'/>
-        <provided namespace='osgi.identity' name='jsonmetaschemaMM.edit.source' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM.edit.source' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonmetaschemaMM.edit.source&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.core.variables' version='3.4.800.v20200120-1101' generation='2'>
       <update id='org.eclipse.core.variables' range='[0.0.0,3.4.800.v20200120-1101)' severity='0'/>
       <properties size='8'>
@@ -3486,6 +3363,42 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.swt.gtk.linux.x86_64; singleton:=true&#xA;Bundle-Version: 3.115.0.v20200831-1002&#xA;Fragment-Host: org.eclipse.swt; bundle-version=&quot;[3.0.0,4.0.0)&quot;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jsonmetaschemaMM.edit.source' version='1.0.4.202203021746' singleton='false'>
+      <update id='jsonmetaschemaMM.edit.source' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='9'>
+        <property name='df_LT.bundleVendor' value='www.example.org'/>
+        <property name='df_LT.bundleName' value='jsonMetaschemaMM Edit Support Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonmetaschemaMM.edit'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.edit.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonmetaschemaMM.edit.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.identity' name='jsonmetaschemaMM.edit.source' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM.edit.source' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonmetaschemaMM.edit.source&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -3923,6 +3836,42 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='jsonmetaschemaMM.source' version='1.0.4.202203021746' singleton='false'>
+      <update id='jsonmetaschemaMM.source' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='9'>
+        <property name='df_LT.bundleVendor' value='www.example.org'/>
+        <property name='df_LT.bundleName' value='jsonMetaschemaMM Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonmetaschemaMM'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonmetaschemaMM.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.identity' name='jsonmetaschemaMM.source' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM.source' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonmetaschemaMM.source&#xA;Bundle-Version: 1.0.4.202203021746
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.apache.commons.cli' version='1.4.0.v20200417-1444' singleton='false' generation='2'>
       <update id='org.apache.commons.cli' range='[0.0.0,1.4.0.v20200417-1444)' severity='0'/>
       <properties size='9'>
@@ -4081,52 +4030,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.e4.ui.workbench3;singleton:=true&#xA;Bundle-Version: 0.15.400.v20191216-0805
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='jschemaoclgenerator' version='1.0.3' singleton='false' generation='2'>
-      <update id='jschemaoclgenerator' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='4'>
-        <property name='org.eclipse.equinox.p2.name' value='Jschemaoclgenerator'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jschemaoclgenerator'/>
-        <property name='maven-version' value='1.0.3'/>
-      </properties>
-      <provides size='6'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jschemaoclgenerator' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jschemaoclgenerator' version='1.0.3'/>
-        <provided namespace='java.package' name='at.jku.bise.oclgenerator' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.oclgenerator' version='0.0.0'/>
-        <provided namespace='osgi.identity' name='jschemaoclgenerator' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='8'>
-        <required namespace='osgi.bundle' name='com.google.guava' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase.lib' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtend.lib' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtend.lib.macro' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.common' range='2.20.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.13.800'/>
-        <required namespace='java.package' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
-          <description>
-            jschemaoclgenerator
-          </description>
-        </requiredProperties>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jschemaoclgenerator' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jschemaoclgenerator&#xA;Bundle-Version: 1.0.3
           </instruction>
         </instructions>
       </touchpointData>
@@ -4683,23 +4586,23 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonschemadsl.ui.source' version='1.0.3' singleton='false'>
-      <update id='jsonschemadsl.ui.source' range='[0.0.0,1.0.3)' severity='0'/>
+    <unit id='jsonmetaschemaMM.editor.source' version='1.0.4.202203021746' singleton='false'>
+      <update id='jsonmetaschemaMM.editor.source' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
       <properties size='9'>
-        <property name='df_LT.bundleVendor' value='My Company'/>
-        <property name='df_LT.bundleName' value='jsonschemadsl.ui Source'/>
+        <property name='df_LT.bundleVendor' value='www.example.org'/>
+        <property name='df_LT.bundleName' value='jsonMetaschemaMM Editor Source'/>
         <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
         <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
         <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
         <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl.ui'/>
-        <property name='maven-version' value='1.0.3'/>
+        <property name='maven-artifactId' value='jsonmetaschemaMM.editor'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
         <property name='maven-classifier' value='sources'/>
       </properties>
       <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ui.source' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonschemadsl.ui.source' version='1.0.3'/>
-        <provided namespace='osgi.identity' name='jsonschemadsl.ui.source' version='1.0.3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.editor.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonmetaschemaMM.editor.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.identity' name='jsonmetaschemaMM.editor.source' version='1.0.4.202203021746'>
           <properties size='1'>
             <property name='type' value='osgi.bundle'/>
           </properties>
@@ -4708,52 +4611,13 @@
         <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
       </provides>
       <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonschemadsl.ui.source' version='1.0.3'/>
+        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM.editor.source' version='1.0.4.202203021746'/>
       </artifacts>
       <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-SymbolicName: jsonschemadsl.ui.source&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='jku.se.atl.transformation.utils' version='1.0.3' singleton='false' generation='2'>
-      <update id='jku.se.atl.transformation.utils' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='4'>
-        <property name='org.eclipse.equinox.p2.name' value='Utils'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jku.se.atl.transformation.utils'/>
-        <property name='maven-version' value='1.0.3'/>
-      </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jku.se.atl.transformation.utils' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jku.se.atl.transformation.utils' version='1.0.3'/>
-        <provided namespace='java.package' name='jku.se.atl.transformation.utils' version='0.0.0'/>
-        <provided namespace='osgi.identity' name='jku.se.atl.transformation.utils' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='2'>
-        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.emftvm' range='4.2.1'/>
-        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
-          <description>
-            jku.se.atl.transformation.utils
-          </description>
-        </requiredProperties>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jku.se.atl.transformation.utils' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jku.se.atl.transformation.utils&#xA;Bundle-Version: 1.0.3
+            Bundle-SymbolicName: jsonmetaschemaMM.editor.source&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -4846,73 +4710,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.antlr.runtime&#xA;Bundle-Version: 3.2.0.v201101311130
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='jsonschemadsl.feature.feature.group' version='1.0.3' singleton='false'>
-      <update id='jsonschemadsl.feature.feature.group' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl Feature'/>
-        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl.feature'/>
-        <property name='maven-version' value='1.0.3'/>
-      </properties>
-      <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.group' version='1.0.3'/>
-      </provides>
-      <requires size='11'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ide' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ui' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jku.se.atl.transformation.utils' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jschemaoclgenerator' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.opt' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.edit' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.editor' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.jar' range='[1.0.3,1.0.3]'>
-          <filter>
-            (org.eclipse.update.install.features=true)
-          </filter>
-        </required>
-      </requires>
-      <touchpoint id='null' version='0.0.0'/>
-    </unit>
-    <unit id='jsonschemadsl.source' version='1.0.3' singleton='false'>
-      <update id='jsonschemadsl.source' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='9'>
-        <property name='df_LT.bundleVendor' value='My Company'/>
-        <property name='df_LT.bundleName' value='jsonschemadsl Source'/>
-        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.source' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonschemadsl.source' version='1.0.3'/>
-        <provided namespace='osgi.identity' name='jsonschemadsl.source' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonschemadsl.source' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonschemadsl.source&#xA;Bundle-Version: 1.0.3
           </instruction>
         </instructions>
       </touchpointData>
@@ -5275,6 +5072,45 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='jku.se.atl.transformation.utils' version='1.0.4.202203021746' singleton='false' generation='2'>
+      <update id='jku.se.atl.transformation.utils' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Utils'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jku.se.atl.transformation.utils'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jku.se.atl.transformation.utils' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jku.se.atl.transformation.utils' version='1.0.4.202203021746'/>
+        <provided namespace='java.package' name='jku.se.atl.transformation.utils' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='jku.se.atl.transformation.utils' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.emftvm' range='4.2.1'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jku.se.atl.transformation.utils
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jku.se.atl.transformation.utils' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jku.se.atl.transformation.utils&#xA;Bundle-Version: 1.0.4.202203021746
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.ui.views' version='3.10.400.v20200611-1719' generation='2'>
       <update id='org.eclipse.ui.views' range='[0.0.0,3.10.400.v20200611-1719)' severity='0'/>
       <properties size='8'>
@@ -5529,6 +5365,73 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.xtext.xtext.ide;singleton:=true&#xA;Bundle-Version: 2.23.0.v20200831-0730
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jsonschemadsl.feature.feature.group' version='1.0.4.202203021746' singleton='false'>
+      <update id='jsonschemadsl.feature.feature.group' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl Feature'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl.feature'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.group' version='1.0.4.202203021746'/>
+      </provides>
+      <requires size='11'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ide' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ui' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jku.se.atl.transformation.utils' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jschemaoclgenerator' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.opt' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.edit' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.editor' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.jar' range='[1.0.4.202203021746,1.0.4.202203021746]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+    </unit>
+    <unit id='jsonschemadsl.source' version='1.0.4.202203021746' singleton='false'>
+      <update id='jsonschemadsl.source' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='9'>
+        <property name='df_LT.bundleVendor' value='My Company'/>
+        <property name='df_LT.bundleName' value='jsonschemadsl Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonschemadsl.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.identity' name='jsonschemadsl.source' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonschemadsl.source' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonschemadsl.source&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -5970,38 +5873,51 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jku.se.atl.transformation.utils.source' version='1.0.3' singleton='false'>
-      <update id='jku.se.atl.transformation.utils.source' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='9'>
-        <property name='df_LT.bundleVendor' value='unknown'/>
-        <property name='df_LT.bundleName' value='Utils Source'/>
-        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+    <unit id='jsonschemadsl2ecore.trafo.opt' version='1.0.4.202203021746' generation='2'>
+      <update id='jsonschemadsl2ecore.trafo.opt' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Opt'/>
         <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jku.se.atl.transformation.utils'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources'/>
+        <property name='maven-artifactId' value='jsonschemadsl2ecore.trafo.opt'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
       </properties>
       <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jku.se.atl.transformation.utils.source' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jku.se.atl.transformation.utils.source' version='1.0.3'/>
-        <provided namespace='osgi.identity' name='jku.se.atl.transformation.utils.source' version='1.0.3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.opt' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo.opt' version='1.0.4.202203021746'/>
+        <provided namespace='java.package' name='jsonschemadsl2ecore.trafo.opt.utils' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='jsonschemadsl2ecore.trafo.opt' version='1.0.4.202203021746'>
           <properties size='1'>
             <property name='type' value='osgi.bundle'/>
           </properties>
         </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
       </provides>
+      <requires size='12'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='jschemaoclgenerator' range='1.0.4'/>
+        <required namespace='osgi.bundle' name='jku.se.atl.transformation.utils' range='1.0.4'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.emftvm' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='com.google.guava' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase.lib' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtend.lib' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtend.lib.macro' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='at.jku.bise.ecore.json.grammar' range='1.0.0'/>
+        <required namespace='osgi.bundle' name='jsonmetaschemaMM' range='1.0.4'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jsonschemadsl2ecore.trafo.opt
+          </description>
+        </requiredProperties>
+      </requires>
       <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jku.se.atl.transformation.utils.source' version='1.0.3'/>
+        <artifact classifier='osgi.bundle' id='jsonschemadsl2ecore.trafo.opt' version='1.0.4.202203021746'/>
       </artifacts>
       <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-SymbolicName: jku.se.atl.transformation.utils.source&#xA;Bundle-Version: 1.0.3
+            Bundle-SymbolicName: jsonschemadsl2ecore.trafo.opt;singleton:=true&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -6181,6 +6097,42 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='jsonschemadsl.ui.source' version='1.0.4.202203021746' singleton='false'>
+      <update id='jsonschemadsl.ui.source' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='9'>
+        <property name='df_LT.bundleVendor' value='My Company'/>
+        <property name='df_LT.bundleName' value='jsonschemadsl.ui Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl.ui'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ui.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonschemadsl.ui.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.identity' name='jsonschemadsl.ui.source' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonschemadsl.ui.source' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonschemadsl.ui.source&#xA;Bundle-Version: 1.0.4.202203021746
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.apache.felix.gogo.shell' version='1.1.0.v20180713-1646' singleton='false' generation='2'>
       <update id='org.apache.felix.gogo.shell' range='[0.0.0,1.1.0.v20180713-1646)' severity='0'/>
       <properties size='9'>
@@ -6285,6 +6237,48 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.ltk.ui.refactoring; singleton:=true&#xA;Bundle-Version: 3.11.100.v20200817-1715
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jsonschemadsl2ecore.trafo' version='1.0.4.202203021746' generation='2'>
+      <update id='jsonschemadsl2ecore.trafo' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='ATL jsonschemadsl2ecore.trafo Transformation Runtime Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Modeling Project'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl2ecore.trafo'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo' version='1.0.4.202203021746'/>
+        <provided namespace='java.package' name='jsonschemadsl2ecore.trafo.files' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='jsonschemadsl2ecore.trafo' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.engine.emfvm' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jsonschemadsl2ecore.trafo
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonschemadsl2ecore.trafo' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonschemadsl2ecore.trafo;singleton:=true&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -6959,51 +6953,48 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonschemadsl2ecore.trafo.opt' version='1.0.3' generation='2'>
-      <update id='jsonschemadsl2ecore.trafo.opt' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='4'>
-        <property name='org.eclipse.equinox.p2.name' value='Opt'/>
+    <unit id='jsonmetaschemaMM.edit' version='1.0.4.202203021746' generation='2'>
+      <update id='jsonmetaschemaMM.edit' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='8'>
+        <property name='df_LT.pluginName' value='jsonMetaschemaMM Edit Support'/>
+        <property name='df_LT.providerName' value='www.example.org'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
         <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl2ecore.trafo.opt'/>
-        <property name='maven-version' value='1.0.3'/>
+        <property name='maven-artifactId' value='jsonmetaschemaMM.edit'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
       </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.opt' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo.opt' version='1.0.3'/>
-        <provided namespace='java.package' name='jsonschemadsl2ecore.trafo.opt.utils' version='0.0.0'/>
-        <provided namespace='osgi.identity' name='jsonschemadsl2ecore.trafo.opt' version='1.0.3'>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.edit' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonmetaschemaMM.edit' version='1.0.4.202203021746'/>
+        <provided namespace='java.package' name='jsonMetaschemaMM.provider' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='jsonmetaschemaMM.edit' version='1.0.4.202203021746'>
           <properties size='1'>
             <property name='type' value='osgi.bundle'/>
           </properties>
         </provided>
         <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
       </provides>
-      <requires size='12'>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+      <requires size='4'>
         <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='jschemaoclgenerator' range='1.0.3'/>
-        <required namespace='osgi.bundle' name='jku.se.atl.transformation.utils' range='1.0.3'/>
-        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.emftvm' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='com.google.guava' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase.lib' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtend.lib' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtend.lib.macro' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='at.jku.bise.ecore.json.grammar' range='1.0.0'/>
-        <required namespace='osgi.bundle' name='jsonmetaschemaMM' range='1.0.3'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.edit' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='jsonmetaschemaMM' range='1.0.4'/>
         <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
           <description>
-            jsonschemadsl2ecore.trafo.opt
+            jsonmetaschemaMM.edit
           </description>
         </requiredProperties>
       </requires>
       <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonschemadsl2ecore.trafo.opt' version='1.0.3'/>
+        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM.edit' version='1.0.4.202203021746'/>
       </artifacts>
       <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-SymbolicName: jsonschemadsl2ecore.trafo.opt;singleton:=true&#xA;Bundle-Version: 1.0.3
+            Bundle-SymbolicName: jsonmetaschemaMM.edit;singleton:=true&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -7168,6 +7159,52 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='jschemaoclgenerator' version='1.0.4.202203021746' singleton='false' generation='2'>
+      <update id='jschemaoclgenerator' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='Jschemaoclgenerator'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jschemaoclgenerator'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jschemaoclgenerator' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jschemaoclgenerator' version='1.0.4.202203021746'/>
+        <provided namespace='java.package' name='at.jku.bise.oclgenerator' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.oclgenerator' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='jschemaoclgenerator' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='8'>
+        <required namespace='osgi.bundle' name='com.google.guava' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase.lib' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtend.lib' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtend.lib.macro' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.common' range='2.20.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.13.800'/>
+        <required namespace='java.package' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jschemaoclgenerator
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jschemaoclgenerator' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jschemaoclgenerator&#xA;Bundle-Version: 1.0.4.202203021746
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.e4.ui.bindings' version='0.12.900.v20200513-0930' generation='2'>
       <update id='org.eclipse.e4.ui.bindings' range='[0.0.0,0.12.900.v20200513-0930)' severity='0'/>
       <properties size='8'>
@@ -7221,6 +7258,42 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.e4.ui.bindings;singleton:=true&#xA;Bundle-Version: 0.12.900.v20200513-0930
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jku.se.atl.transformation.utils.source' version='1.0.4.202203021746' singleton='false'>
+      <update id='jku.se.atl.transformation.utils.source' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='9'>
+        <property name='df_LT.bundleVendor' value='unknown'/>
+        <property name='df_LT.bundleName' value='Utils Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jku.se.atl.transformation.utils'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jku.se.atl.transformation.utils.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jku.se.atl.transformation.utils.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.identity' name='jku.se.atl.transformation.utils.source' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jku.se.atl.transformation.utils.source' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jku.se.atl.transformation.utils.source&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -7524,52 +7597,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonmetaschemaMM.edit' version='1.0.3' generation='2'>
-      <update id='jsonmetaschemaMM.edit' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='8'>
-        <property name='df_LT.pluginName' value='jsonMetaschemaMM Edit Support'/>
-        <property name='df_LT.providerName' value='www.example.org'/>
-        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonmetaschemaMM.edit'/>
-        <property name='maven-version' value='1.0.3'/>
-      </properties>
-      <provides size='6'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.edit' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonmetaschemaMM.edit' version='1.0.3'/>
-        <provided namespace='java.package' name='jsonMetaschemaMM.provider' version='0.0.0'/>
-        <provided namespace='osgi.identity' name='jsonmetaschemaMM.edit' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <requires size='4'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='jsonmetaschemaMM' range='1.0.3'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.edit' range='0.0.0'/>
-        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
-          <description>
-            jsonmetaschemaMM.edit
-          </description>
-        </requiredProperties>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM.edit' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonmetaschemaMM.edit;singleton:=true&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.apache.felix.gogo.runtime' version='1.1.0.v20180713-1646' singleton='false' generation='2'>
       <update id='org.apache.felix.gogo.runtime' range='[0.0.0,1.1.0.v20180713-1646)' severity='0'/>
       <properties size='9'>
@@ -7627,55 +7654,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.apache.felix.gogo.runtime&#xA;Bundle-Version: 1.1.0.v20180713-1646
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='jsonmetaschemaMM' version='1.0.3' generation='2'>
-      <update id='jsonmetaschemaMM' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='8'>
-        <property name='df_LT.pluginName' value='jsonMetaschemaMM'/>
-        <property name='df_LT.providerName' value='www.example.org'/>
-        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonmetaschemaMM'/>
-        <property name='maven-version' value='1.0.3'/>
-      </properties>
-      <provides size='8'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonmetaschemaMM' version='1.0.3'/>
-        <provided namespace='java.package' name='jsonMetaschemaMM' version='0.0.0'/>
-        <provided namespace='java.package' name='jsonMetaschemaMM.impl' version='0.0.0'/>
-        <provided namespace='java.package' name='jsonMetaschemaMM.util' version='0.0.0'/>
-        <provided namespace='osgi.identity' name='jsonmetaschemaMM' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <requires size='5'>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='3.118.0'/>
-        <required namespace='osgi.bundle' name='jakarta.ws.rs-api' range='3.0.0'/>
-        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
-          <description>
-            jsonmetaschemaMM
-          </description>
-        </requiredProperties>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonmetaschemaMM;singleton:=true&#xA;Bundle-Version: 1.0.3
           </instruction>
         </instructions>
       </touchpointData>
@@ -8355,42 +8333,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonschemadsl.ide.source' version='1.0.3' singleton='false'>
-      <update id='jsonschemadsl.ide.source' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='9'>
-        <property name='df_LT.bundleVendor' value='My Company'/>
-        <property name='df_LT.bundleName' value='jsonschemadsl.ide Source'/>
-        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl.ide'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ide.source' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonschemadsl.ide.source' version='1.0.3'/>
-        <provided namespace='osgi.identity' name='jsonschemadsl.ide.source' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonschemadsl.ide.source' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonschemadsl.ide.source&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.apache.batik.css' version='1.13.0.v20200622-2037' singleton='false' generation='2'>
       <update id='org.apache.batik.css' range='[0.0.0,1.13.0.v20200622-2037)' severity='0'/>
       <properties size='7'>
@@ -9046,59 +8988,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonschemadsl.ui' version='1.0.3' generation='2'>
-      <update id='jsonschemadsl.ui' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='jsonschemadsl.ui'/>
-        <property name='org.eclipse.equinox.p2.provider' value='My Company'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl.ui'/>
-        <property name='maven-version' value='1.0.3'/>
-      </properties>
-      <provides size='7'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ui' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonschemadsl.ui' version='1.0.3'/>
-        <provided namespace='java.package' name='at.jku.bise.ui.contentassist' version='0.0.0'/>
-        <provided namespace='java.package' name='jsonschemadsl.ui.internal' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.ui.quickfix' version='0.0.0'/>
-        <provided namespace='osgi.identity' name='jsonschemadsl.ui' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='13'>
-        <required namespace='osgi.bundle' name='jsonschemadsl' range='1.0.3'/>
-        <required namespace='osgi.bundle' name='jsonschemadsl.ide' range='1.0.3'/>
-        <required namespace='osgi.bundle' name='jsonmetaschemaMM' range='1.0.3'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.ui.shared' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.ui.codetemplates.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='3.5.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='3.5.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.compare' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.builder' range='0.0.0'/>
-        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
-        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
-          <description>
-            jsonschemadsl.ui
-          </description>
-        </requiredProperties>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonschemadsl.ui' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonschemadsl.ui; singleton:=true&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.apache.batik.constants' version='1.13.0.v20200622-2037' singleton='false' generation='2'>
       <update id='org.apache.batik.constants' range='[0.0.0,1.13.0.v20200622-2037)' severity='0'/>
       <properties size='7'>
@@ -9309,6 +9198,42 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.m2m.atl.engine.emfvm;singleton:=true&#xA;Bundle-Version: 4.2.1.v202006221222
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jsonschemadsl.ide.source' version='1.0.4.202203021746' singleton='false'>
+      <update id='jsonschemadsl.ide.source' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='9'>
+        <property name='df_LT.bundleVendor' value='My Company'/>
+        <property name='df_LT.bundleName' value='jsonschemadsl.ide Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl.ide'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ide.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonschemadsl.ide.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.identity' name='jsonschemadsl.ide.source' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonschemadsl.ide.source' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonschemadsl.ide.source&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -10050,42 +9975,6 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.uml2.types;singleton:=true&#xA;Bundle-Version: 2.5.0.v20200302-1312
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
-    <unit id='jsonmetaschemaMM.source' version='1.0.3' singleton='false'>
-      <update id='jsonmetaschemaMM.source' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='9'>
-        <property name='df_LT.bundleVendor' value='www.example.org'/>
-        <property name='df_LT.bundleName' value='jsonMetaschemaMM Source'/>
-        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonmetaschemaMM'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources'/>
-      </properties>
-      <provides size='5'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.source' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonmetaschemaMM.source' version='1.0.3'/>
-        <provided namespace='osgi.identity' name='jsonmetaschemaMM.source' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM.source' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonmetaschemaMM.source&#xA;Bundle-Version: 1.0.3
           </instruction>
         </instructions>
       </touchpointData>
@@ -12073,29 +11962,29 @@
         <provided namespace='java.package' name='com.sun.nio.sctp' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.validation' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.dynalink.beans' version='0.0.0'/>
-        <provided namespace='java.package' name='com.sun.jndi.ldap.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.imageio' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.jndi.ldap.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.text' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.jarsigner' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.net.httpserver' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.jdi.connect' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.events' version='0.0.0'/>
+        <provided namespace='java.package' name='java.awt.datatransfer' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.text.html' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf' version='0.0.0'/>
-        <provided namespace='java.package' name='java.awt.datatransfer' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.jdi.event' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.dynalink' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf.metal' version='0.0.0'/>
         <provided namespace='java.package' name='java.net.spi' version='0.0.0'/>
         <provided namespace='java.package' name='java.rmi.activation' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.xml' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.swing.colorchooser' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.logging' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.swing.colorchooser' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.dynalink.support' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.auth.x500' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.stream' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.lang.model' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.jshell.spi' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.lang.model' version='0.0.0'/>
         <provided namespace='java.package' name='java.lang.annotation' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.jfr' version='0.0.0'/>
         <provided namespace='java.package' name='javax.imageio.spi' version='0.0.0'/>
@@ -12105,8 +11994,8 @@
         <provided namespace='java.package' name='javax.security.auth' version='0.0.0'/>
         <provided namespace='java.package' name='java.math' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.transaction.xa' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.geom' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.transaction.xa' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.transform.stax' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.traversal' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.swing.interop' version='0.0.0'/>
@@ -12117,8 +12006,8 @@
         <provided namespace='java.package' name='javax.xml.transform.stream' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.datatype' version='0.0.0'/>
         <provided namespace='java.package' name='javax.print' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.security.auth.login' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.html' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.security.auth.login' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.security.auth.login' version='0.0.0'/>
         <provided namespace='java.package' name='java.rmi' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.jdi.connect.spi' version='0.0.0'/>
@@ -12135,17 +12024,17 @@
         <provided namespace='java.package' name='jdk.nashorn.api.scripting' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.concurrent' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.auth.spi' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.sound.sampled' version='0.0.0'/>
         <provided namespace='java.package' name='java.rmi.server' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.xml.parsers' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.sound.sampled' version='0.0.0'/>
         <provided namespace='java.package' name='javax.sql.rowset.serial' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.parsers' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf.synth' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf.basic' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.tree' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.net' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.function' version='0.0.0'/>
-        <provided namespace='java.package' name='jdk.dynalink.linker' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.net' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.image.renderable' version='0.0.0'/>
+        <provided namespace='java.package' name='jdk.dynalink.linker' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.nio.file' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.ls' version='0.0.0'/>
         <provided namespace='java.package' name='javax.smartcardio' version='0.0.0'/>
@@ -12168,24 +12057,24 @@
         <provided namespace='java.package' name='javax.management.openmbean' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.text.rtf' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.javadoc.doclet' version='0.0.0'/>
-        <provided namespace='java.package' name='java.awt.print' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.crypto' version='0.0.0'/>
+        <provided namespace='java.package' name='java.awt.print' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf.multi' version='0.0.0'/>
-        <provided namespace='java.package' name='java.nio.channels.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.imageio.event' version='0.0.0'/>
+        <provided namespace='java.package' name='java.nio.channels.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.net.ssl' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.xml.stream.events' version='0.0.0'/>
         <provided namespace='java.package' name='java.rmi.registry' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.stream.events' version='0.0.0'/>
         <provided namespace='java.package' name='javax.print.attribute' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.java.accessibility.util' version='0.0.0'/>
-        <provided namespace='java.package' name='java.nio.file.attribute' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing' version='0.0.0'/>
+        <provided namespace='java.package' name='java.nio.file.attribute' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.management.jfr' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.tools.javadoc' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.jdi.request' version='0.0.0'/>
-        <provided namespace='java.package' name='java.lang.ref' version='0.0.0'/>
         <provided namespace='java.package' name='java.lang.instrument' version='0.0.0'/>
+        <provided namespace='java.package' name='java.lang.ref' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.regex' version='0.0.0'/>
         <provided namespace='java.package' name='org.ietf.jgss' version='0.0.0'/>
         <provided namespace='java.package' name='javax.sound.midi.spi' version='0.0.0'/>
@@ -12194,8 +12083,8 @@
         <provided namespace='java.package' name='java.lang.reflect' version='0.0.0'/>
         <provided namespace='java.package' name='java.security' version='0.0.0'/>
         <provided namespace='java.package' name='org.xml.sax.helpers' version='0.0.0'/>
-        <provided namespace='java.package' name='jdk.jshell' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.tools.attach' version='0.0.0'/>
+        <provided namespace='java.package' name='jdk.jshell' version='0.0.0'/>
         <provided namespace='java.package' name='javax.print.attribute.standard' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.jshell.tool' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.javadoc' version='0.0.0'/>
@@ -12204,12 +12093,12 @@
         <provided namespace='java.package' name='jdk.security.jarsigner' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.security.auth' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.auth.kerberos' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.crypto' version='0.0.0'/>
         <provided namespace='java.package' name='java.sql' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.crypto' version='0.0.0'/>
         <provided namespace='java.package' name='java.util' version='0.0.0'/>
         <provided namespace='java.package' name='java.security.acl' version='0.0.0'/>
-        <provided namespace='java.package' name='java.nio.channels' version='0.0.0'/>
         <provided namespace='java.package' name='java.time.temporal' version='0.0.0'/>
+        <provided namespace='java.package' name='java.nio.channels' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.stylesheets' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.charset' version='0.0.0'/>
         <provided namespace='java.package' name='javax.sound.midi' version='0.0.0'/>
@@ -12230,8 +12119,8 @@
         <provided namespace='java.package' name='com.sun.jdi' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.security.jgss' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.charset.spi' version='0.0.0'/>
-        <provided namespace='java.package' name='java.util.spi' version='0.0.0'/>
         <provided namespace='java.package' name='java.text.spi' version='0.0.0'/>
+        <provided namespace='java.package' name='java.util.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.management.timer' version='0.0.0'/>
         <provided namespace='java.package' name='java.security.spec' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.file.spi' version='0.0.0'/>
@@ -12251,8 +12140,8 @@
         <provided namespace='java.package' name='java.util.concurrent.locks' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf.nimbus' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.event' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.sql.rowset.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.border' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.sql.rowset.spi' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.jfr.consumer' version='0.0.0'/>
         <provided namespace='java.package' name='javax.imageio.plugins.tiff' version='0.0.0'/>
         <provided namespace='java.package' name='javax.management.remote' version='0.0.0'/>
@@ -12262,8 +12151,8 @@
         <provided namespace='java.package' name='com.sun.security.auth.callback' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.sasl' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.security.auth.module' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.naming.ldap' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.crypto.dom' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.naming.ldap' version='0.0.0'/>
         <provided namespace='java.package' name='java.time.zone' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.nashorn.api.tree' version='0.0.0'/>
         <provided namespace='java.package' name='netscape.javascript' version='0.0.0'/>
@@ -12275,8 +12164,8 @@
         <provided namespace='java.package' name='javax.script' version='0.0.0'/>
         <provided namespace='java.package' name='java.lang.module' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.source.util' version='0.0.0'/>
-        <provided namespace='java.package' name='java.io' version='0.0.0'/>
         <provided namespace='java.package' name='javax.sql.rowset' version='0.0.0'/>
+        <provided namespace='java.package' name='java.io' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.jar' version='0.0.0'/>
         <provided namespace='java.package' name='javax.crypto.interfaces' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.ranges' version='0.0.0'/>
@@ -12943,33 +12832,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonschemadsl.feature.feature.jar' version='1.0.3'>
-      <properties size='4'>
-        <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl Feature'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl.feature'/>
-        <property name='maven-version' value='1.0.3'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.jar' version='1.0.3'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-        <provided namespace='org.eclipse.update.feature' name='jsonschemadsl.feature' version='1.0.3'/>
-      </provides>
-      <filter>
-        (org.eclipse.update.install.features=true)
-      </filter>
-      <artifacts size='1'>
-        <artifact classifier='org.eclipse.update.feature' id='jsonschemadsl.feature' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.equinox.launcher.gtk.linux.x86_64' version='1.1.1300.v20200819-0940'>
       <update id='org.eclipse.equinox.launcher.gtk.linux.x86_64' range='[0.0.0,1.1.1300.v20200819-0940)' severity='0'/>
       <properties size='8'>
@@ -13167,6 +13029,50 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.m2m.atl.emftvm.trace;singleton:=true&#xA;Bundle-Version: 4.2.1.v202006221222
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jsonmetaschemaMM.editor' version='1.0.4.202203021746'>
+      <update id='jsonmetaschemaMM.editor' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='8'>
+        <property name='df_LT.pluginName' value='jsonMetaschemaMM Editor'/>
+        <property name='df_LT.providerName' value='www.example.org'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonmetaschemaMM.editor'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.editor' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonmetaschemaMM.editor' version='1.0.4.202203021746'/>
+        <provided namespace='java.package' name='jsonMetaschemaMM.presentation' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='jsonmetaschemaMM.editor' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='jsonmetaschemaMM.edit' range='1.0.4'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.edit.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM.editor' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonmetaschemaMM.editor;singleton:=true&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -13541,50 +13447,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonmetaschemaMM.editor' version='1.0.3'>
-      <update id='jsonmetaschemaMM.editor' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='8'>
-        <property name='df_LT.pluginName' value='jsonMetaschemaMM Editor'/>
-        <property name='df_LT.providerName' value='www.example.org'/>
-        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
-        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
-        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonmetaschemaMM.editor'/>
-        <property name='maven-version' value='1.0.3'/>
-      </properties>
-      <provides size='6'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.editor' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonmetaschemaMM.editor' version='1.0.3'/>
-        <provided namespace='java.package' name='jsonMetaschemaMM.presentation' version='0.0.0'/>
-        <provided namespace='osgi.identity' name='jsonmetaschemaMM.editor' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
-      </provides>
-      <requires size='6'>
-        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='jsonmetaschemaMM.edit' range='1.0.3'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.emf.edit.ui' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM.editor' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonmetaschemaMM.editor;singleton:=true&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.core.databinding.beans' version='1.7.0.v20200717-1533' singleton='false' generation='2'>
       <update id='org.eclipse.core.databinding.beans' range='[0.0.0,1.7.0.v20200717-1533)' severity='0'/>
       <properties size='8'>
@@ -13625,6 +13487,59 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.core.databinding.beans&#xA;Bundle-Version: 1.7.0.v20200717-1533
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jsonschemadsl.ui' version='1.0.4.202203021746' generation='2'>
+      <update id='jsonschemadsl.ui' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='jsonschemadsl.ui'/>
+        <property name='org.eclipse.equinox.p2.provider' value='My Company'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl.ui'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ui' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonschemadsl.ui' version='1.0.4.202203021746'/>
+        <provided namespace='java.package' name='at.jku.bise.ui.contentassist' version='0.0.0'/>
+        <provided namespace='java.package' name='jsonschemadsl.ui.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.ui.quickfix' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='jsonschemadsl.ui' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='13'>
+        <required namespace='osgi.bundle' name='jsonschemadsl' range='1.0.4'/>
+        <required namespace='osgi.bundle' name='jsonschemadsl.ide' range='1.0.4'/>
+        <required namespace='osgi.bundle' name='jsonmetaschemaMM' range='1.0.4'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.ui.shared' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.ui.codetemplates.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='3.5.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='3.5.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.compare' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.builder' range='0.0.0'/>
+        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jsonschemadsl.ui
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonschemadsl.ui' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonschemadsl.ui; singleton:=true&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -14064,34 +13979,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonschemadsl.feature.source.feature.jar' version='1.0.3'>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl Feature  Developer Resources'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl.feature'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources-feature'/>
-      </properties>
-      <provides size='3'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.jar' version='1.0.3'/>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-        <provided namespace='org.eclipse.update.feature' name='jsonschemadsl.feature.source' version='1.0.3'/>
-      </provides>
-      <filter>
-        (org.eclipse.update.install.features=true)
-      </filter>
-      <artifacts size='1'>
-        <artifact classifier='org.eclipse.update.feature' id='jsonschemadsl.feature.source' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='zipped'>
-            true
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='com.sun.jna' version='4.5.1.v20190425-1842' singleton='false' generation='2'>
       <update id='com.sun.jna' range='[0.0.0,4.5.1.v20190425-1842)' severity='0'/>
       <properties size='8'>
@@ -14245,6 +14132,88 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='jsonmetaschemaMM' version='1.0.4.202203021746' generation='2'>
+      <update id='jsonmetaschemaMM' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='8'>
+        <property name='df_LT.pluginName' value='jsonMetaschemaMM'/>
+        <property name='df_LT.providerName' value='www.example.org'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonmetaschemaMM'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonmetaschemaMM' version='1.0.4.202203021746'/>
+        <provided namespace='java.package' name='jsonMetaschemaMM' version='0.0.0'/>
+        <provided namespace='java.package' name='jsonMetaschemaMM.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='jsonMetaschemaMM.util' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='jsonmetaschemaMM' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='3.118.0'/>
+        <required namespace='osgi.bundle' name='jakarta.ws.rs-api' range='3.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jsonmetaschemaMM
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonmetaschemaMM' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonmetaschemaMM;singleton:=true&#xA;Bundle-Version: 1.0.4.202203021746
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jsonschemadsl.feature.source.feature.group' version='1.0.4.202203021746' singleton='false'>
+      <update id='jsonschemadsl.feature.source.feature.group' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='6'>
+        <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl Feature  Developer Resources'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl.feature'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.group' version='1.0.4.202203021746'/>
+      </provides>
+      <requires size='12'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.group' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.source' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ide.source' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ui.source' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jku.se.atl.transformation.utils.source' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jschemaoclgenerator.source' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.source' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.opt.source' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.source' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.edit.source' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.editor.source' range='[1.0.4.202203021746,1.0.4.202203021746]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.jar' range='[1.0.4.202203021746,1.0.4.202203021746]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+    </unit>
     <unit id='org.eclipse.team.ui' version='3.8.1000.v20200806-0621' generation='2'>
       <update id='org.eclipse.team.ui' range='[0.0.0,3.8.1000.v20200806-0621)' severity='0'/>
       <properties size='8'>
@@ -14357,39 +14326,6 @@
           </instruction>
         </instructions>
       </touchpointData>
-    </unit>
-    <unit id='jsonschemadsl.feature.source.feature.group' version='1.0.3' singleton='false'>
-      <update id='jsonschemadsl.feature.source.feature.group' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='6'>
-        <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl Feature  Developer Resources'/>
-        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl.feature'/>
-        <property name='maven-version' value='1.0.3'/>
-        <property name='maven-classifier' value='sources-feature'/>
-      </properties>
-      <provides size='1'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.group' version='1.0.3'/>
-      </provides>
-      <requires size='12'>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.group' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.source' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ide.source' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ui.source' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jku.se.atl.transformation.utils.source' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jschemaoclgenerator.source' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.source' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.opt.source' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.source' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.edit.source' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonmetaschemaMM.editor.source' range='[1.0.3,1.0.3]'/>
-        <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.jar' range='[1.0.3,1.0.3]'>
-          <filter>
-            (org.eclipse.update.install.features=true)
-          </filter>
-        </required>
-      </requires>
-      <touchpoint id='null' version='0.0.0'/>
     </unit>
     <unit id='org.eclipse.equinox.p2.director' version='2.4.700.v20200511-1530' generation='2'>
       <update id='org.eclipse.equinox.p2.director' range='[0.0.0,2.4.700.v20200511-1530)' severity='0'/>
@@ -14760,68 +14696,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonschemadsl' version='1.0.3' generation='2'>
-      <update id='jsonschemadsl' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='jsonschemadsl'/>
-        <property name='org.eclipse.equinox.p2.provider' value='My Company'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl'/>
-        <property name='maven-version' value='1.0.3'/>
-      </properties>
-      <provides size='13'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonschemadsl' version='1.0.3'/>
-        <provided namespace='java.package' name='at.jku.bise' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.scoping' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.generator' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.services' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.parser.antlr' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.serializer' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.parser.antlr.internal' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.validation' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.formatting2' version='0.0.0'/>
-        <provided namespace='osgi.identity' name='jsonschemadsl' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='16'>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.equinox.common' range='3.5.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase.lib' range='2.14.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.util' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.antlr.runtime' range='[3.2.0,3.2.1)'/>
-        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.common' range='4.2.1'/>
-        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.core' range='4.2.1'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ocl.xtext.completeocl' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.13.800'/>
-        <required namespace='osgi.bundle' name='org.eclipse.ui' range='3.118.0'/>
-        <required namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo' range='1.0.3'/>
-        <required namespace='osgi.bundle' name='jsonmetaschemaMM' range='1.0.3'/>
-        <required namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo.opt' range='1.0.3'/>
-        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
-        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
-          <description>
-            jsonschemadsl
-          </description>
-        </requiredProperties>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonschemadsl' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonschemadsl; singleton:=true&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.e4.core.commands' version='0.12.900.v20200110-1732' generation='2'>
       <update id='org.eclipse.e4.core.commands' range='[0.0.0,0.12.900.v20200110-1732)' severity='0'/>
       <properties size='8'>
@@ -14916,6 +14790,34 @@
         </instructions>
       </touchpointData>
     </unit>
+    <unit id='jsonschemadsl.feature.source.feature.jar' version='1.0.4.202203021746'>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl Feature  Developer Resources'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl.feature'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources-feature'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.jar' version='1.0.4.202203021746'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='jsonschemadsl.feature.source' version='1.0.4.202203021746'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='jsonschemadsl.feature.source' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
     <unit id='org.eclipse.ant.launching' version='1.2.1000.v20200610-1458' generation='2'>
       <update id='org.eclipse.ant.launching' range='[0.0.0,1.2.1000.v20200610-1458)' severity='0'/>
       <properties size='8'>
@@ -14969,6 +14871,88 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.ant.launching;singleton:=true&#xA;Bundle-Version: 1.2.1000.v20200610-1458
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jsonschemadsl2ecore.trafo.source' version='1.0.4.202203021746' singleton='false'>
+      <update id='jsonschemadsl2ecore.trafo.source' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='9'>
+        <property name='df_LT.bundleVendor' value='Eclipse Modeling Project'/>
+        <property name='df_LT.bundleName' value='ATL jsonschemadsl2ecore.trafo Transformation Runtime Plug-in Source'/>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleVendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='OSGI-INF/l10n/bundle-src'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl2ecore.trafo'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+        <property name='maven-classifier' value='sources'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl2ecore.trafo.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo.source' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.identity' name='jsonschemadsl2ecore.trafo.source' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='source' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonschemadsl2ecore.trafo.source' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonschemadsl2ecore.trafo.source&#xA;Bundle-Version: 1.0.4.202203021746
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jsonschemadsl.ide' version='1.0.4.202203021746' generation='2'>
+      <update id='jsonschemadsl.ide' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='jsonschemadsl.ide'/>
+        <property name='org.eclipse.equinox.p2.provider' value='My Company'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl.ide'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ide' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonschemadsl.ide' version='1.0.4.202203021746'/>
+        <provided namespace='java.package' name='at.jku.bise.ide.contentassist.antlr' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.ide.contentassist.antlr.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.ide.syntaxcoloring' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='jsonschemadsl.ide' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='osgi.bundle' name='jsonschemadsl' range='1.0.4'/>
+        <required namespace='osgi.bundle' name='jsonmetaschemaMM' range='1.0.4'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.antlr.runtime' range='[3.2.0,3.2.1)'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jsonschemadsl.ide
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonschemadsl.ide' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonschemadsl.ide; singleton:=true&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
@@ -15184,52 +15168,6 @@
         </instructions>
       </touchpointData>
     </unit>
-    <unit id='jsonschemadsl.ide' version='1.0.3' generation='2'>
-      <update id='jsonschemadsl.ide' range='[0.0.0,1.0.3)' severity='0'/>
-      <properties size='5'>
-        <property name='org.eclipse.equinox.p2.name' value='jsonschemadsl.ide'/>
-        <property name='org.eclipse.equinox.p2.provider' value='My Company'/>
-        <property name='maven-groupId' value='jsonschemadsl'/>
-        <property name='maven-artifactId' value='jsonschemadsl.ide'/>
-        <property name='maven-version' value='1.0.3'/>
-      </properties>
-      <provides size='7'>
-        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.ide' version='1.0.3'/>
-        <provided namespace='osgi.bundle' name='jsonschemadsl.ide' version='1.0.3'/>
-        <provided namespace='java.package' name='at.jku.bise.ide.contentassist.antlr' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.ide.contentassist.antlr.internal' version='0.0.0'/>
-        <provided namespace='java.package' name='at.jku.bise.ide.syntaxcoloring' version='0.0.0'/>
-        <provided namespace='osgi.identity' name='jsonschemadsl.ide' version='1.0.3'>
-          <properties size='1'>
-            <property name='type' value='osgi.bundle'/>
-          </properties>
-        </provided>
-        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
-      </provides>
-      <requires size='6'>
-        <required namespace='osgi.bundle' name='jsonschemadsl' range='1.0.3'/>
-        <required namespace='osgi.bundle' name='jsonmetaschemaMM' range='1.0.3'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.ide' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase.ide' range='0.0.0'/>
-        <required namespace='osgi.bundle' name='org.antlr.runtime' range='[3.2.0,3.2.1)'/>
-        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
-          <description>
-            jsonschemadsl.ide
-          </description>
-        </requiredProperties>
-      </requires>
-      <artifacts size='1'>
-        <artifact classifier='osgi.bundle' id='jsonschemadsl.ide' version='1.0.3'/>
-      </artifacts>
-      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
-      <touchpointData size='1'>
-        <instructions size='1'>
-          <instruction key='manifest'>
-            Bundle-SymbolicName: jsonschemadsl.ide; singleton:=true&#xA;Bundle-Version: 1.0.3
-          </instruction>
-        </instructions>
-      </touchpointData>
-    </unit>
     <unit id='org.eclipse.xtext.ui' version='2.23.0.v20200831-0808' generation='2'>
       <update id='org.eclipse.xtext.ui' range='[0.0.0,2.23.0.v20200831-0808)' severity='0'/>
       <properties size='8'>
@@ -15410,6 +15348,68 @@
         <instructions size='1'>
           <instruction key='manifest'>
             Bundle-SymbolicName: org.eclipse.urischeme;singleton:=true&#xA;Bundle-Version: 1.1.100.v20200729-2048
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='jsonschemadsl' version='1.0.4.202203021746' generation='2'>
+      <update id='jsonschemadsl' range='[0.0.0,1.0.4.202203021746)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='jsonschemadsl'/>
+        <property name='org.eclipse.equinox.p2.provider' value='My Company'/>
+        <property name='maven-groupId' value='jsonschemadsl'/>
+        <property name='maven-artifactId' value='jsonschemadsl'/>
+        <property name='maven-version' value='1.0.4-SNAPSHOT'/>
+      </properties>
+      <provides size='13'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl' version='1.0.4.202203021746'/>
+        <provided namespace='osgi.bundle' name='jsonschemadsl' version='1.0.4.202203021746'/>
+        <provided namespace='java.package' name='at.jku.bise' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.scoping' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.generator' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.services' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.parser.antlr' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.serializer' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.parser.antlr.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.validation' version='0.0.0'/>
+        <provided namespace='java.package' name='at.jku.bise.formatting2' version='0.0.0'/>
+        <provided namespace='osgi.identity' name='jsonschemadsl' version='1.0.4.202203021746'>
+          <properties size='1'>
+            <property name='type' value='osgi.bundle'/>
+          </properties>
+        </provided>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='16'>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.equinox.common' range='3.5.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.xbase.lib' range='2.14.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.xtext.util' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.antlr.runtime' range='[3.2.0,3.2.1)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.common' range='4.2.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.m2m.atl.core' range='4.2.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ocl.xtext.completeocl' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='3.13.800'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='3.118.0'/>
+        <required namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo' range='1.0.4'/>
+        <required namespace='osgi.bundle' name='jsonmetaschemaMM' range='1.0.4'/>
+        <required namespace='osgi.bundle' name='jsonschemadsl2ecore.trafo.opt' range='1.0.4'/>
+        <required namespace='java.package' name='org.apache.log4j' range='0.0.0'/>
+        <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=11))'>
+          <description>
+            jsonschemadsl
+          </description>
+        </requiredProperties>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='jsonschemadsl' version='1.0.4.202203021746'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-SymbolicName: jsonschemadsl; singleton:=true&#xA;Bundle-Version: 1.0.4.202203021746
           </instruction>
         </instructions>
       </touchpointData>
