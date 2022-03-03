@@ -4,6 +4,10 @@
       label="JsonSchemaDsl Feature "
       version="1.0.4.qualifier">
 
+   <requires>
+      <import plugin="jakarta.ws.rs-api"/>
+   </requires>
+
    <plugin
          id="jsonschemadsl"
          download-size="0"
@@ -73,7 +77,5 @@
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
-   
 
 </feature>
