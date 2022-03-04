@@ -893,7 +893,27 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 */
 	@Override
 	public EReference getObjectSchema_SchemaObjectAdditionalProperties() {
+		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getObjectSchema_Ref() {
 		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getObjectSchema_Type() {
+		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -2593,6 +2613,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__ANY_OF);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__ONE_OF);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__NOT);
+		createEReference(objectSchemaEClass, OBJECT_SCHEMA__REF);
+		createEReference(objectSchemaEClass, OBJECT_SCHEMA__TYPE);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES);
 		createEOperation(objectSchemaEClass, OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING);
 		createEOperation(objectSchemaEClass, OBJECT_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT);
@@ -2947,6 +2969,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEReference(getObjectSchema_AnyOf(), this.getAnyOfSchemaDefinition(), null, "anyOf", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getObjectSchema_OneOf(), this.getOneOfSchemaDefinition(), null, "oneOf", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getObjectSchema_Not(), this.getNotSchemaDefinition(), null, "not", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_Ref(), this.getRefSchemaDefinition(), null, "ref", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_Type(), this.getTypeSchemaDefinition(), null, "type", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getObjectSchema_SchemaObjectAdditionalProperties(), this.getSchemaObjectAdditionalProperties(), null, "schemaObjectAdditionalProperties", null, 0, -1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 
 		EOperation op = initEOperation(getObjectSchema__FindSchemaByKey__String(), this.getSchema(), "findSchemaByKey", 1, 1, !IS_UNIQUE, !IS_ORDERED);

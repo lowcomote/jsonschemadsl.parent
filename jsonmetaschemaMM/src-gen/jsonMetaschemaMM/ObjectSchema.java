@@ -30,6 +30,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getAnyOf <em>Any Of</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getOneOf <em>One Of</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getNot <em>Not</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.ObjectSchema#getRef <em>Ref</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.ObjectSchema#getType <em>Type</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}</li>
  * </ul>
  *
@@ -237,6 +239,28 @@ public interface ObjectSchema extends Schema {
 	 * @generated
 	 */
 	EList<SchemaObjectAdditionalProperties> getSchemaObjectAdditionalProperties();
+
+	/**
+	 * Returns the value of the '<em><b>Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ref</em>' reference.
+	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Ref()
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @generated
+	 */
+	RefSchemaDefinition getRef();
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' reference.
+	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Type()
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @generated
+	 */
+	TypeSchemaDefinition getType();
 
 	/**
 	 * <!-- begin-user-doc -->
