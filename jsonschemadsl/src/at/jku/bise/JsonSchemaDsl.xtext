@@ -345,10 +345,19 @@ ReadOnlySchemaDefinition returns ReadOnlySchemaDefinition:
  */
 TypeSchemaDefinition returns TypeSchemaDefinition:
 	{TypeSchemaDefinition} 
-	'"type"' ':' 
-		(typeAnyOf1=SimpleTypes)?
-		(typesAnyOf2=TypesAnyOf2)?
+	'"type"' ':' anyOf=TypeAnyOf
 ;
+TypeAnyOf returns TypeAnyOf:
+	TypeAnyOf1 | TypeAnyOf2
+;
+
+
+//TypeSchemaDefinition returns TypeSchemaDefinition:
+//	{TypeSchemaDefinition} 
+//	'"type"' ':' 
+//		(typeAnyOf1=SimpleTypes)?
+//		(typesAnyOf2=TypesAnyOf2)?
+//;
 //	{TypeSchemaDefinition}
 //	'TypeSchemaDefinition'
 //	'{'
@@ -834,8 +843,12 @@ enum SimpleTypes returns SimpleTypes:
 	array = '"array"' | boolean = '"boolean"' | integer = '"integer"' | null = '"null"' | number = '"number"' | object = '"object"' | string = '"string"'
 ;
 
-TypesAnyOf2 returns TypesAnyOf2:
+TypeAnyOf2 returns TypeAnyOf2:
 	'[' items+=SimpleTypes ( "," items+=SimpleTypes)* ']' 
+;
+
+TypeAnyOf1 returns TypeAnyOf1:
+	type=SimpleTypes
 ;
 //	'TypesAnyOf2'
 //	'{'

@@ -1452,26 +1452,26 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.TypesAnyOf2} instances.
+	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.TypeAnyOf2} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TypesAnyOf2ItemProvider typesAnyOf2ItemProvider;
+	protected TypeAnyOf2ItemProvider typeAnyOf2ItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link jsonMetaschemaMM.TypesAnyOf2}.
+	 * This creates an adapter for a {@link jsonMetaschemaMM.TypeAnyOf2}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTypesAnyOf2Adapter() {
-		if (typesAnyOf2ItemProvider == null) {
-			typesAnyOf2ItemProvider = new TypesAnyOf2ItemProvider(this);
+	public Adapter createTypeAnyOf2Adapter() {
+		if (typeAnyOf2ItemProvider == null) {
+			typeAnyOf2ItemProvider = new TypeAnyOf2ItemProvider(this);
 		}
 
-		return typesAnyOf2ItemProvider;
+		return typeAnyOf2ItemProvider;
 	}
 
 	/**
@@ -1682,6 +1682,29 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.TypeAnyOf1} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TypeAnyOf1ItemProvider typeAnyOf1ItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link jsonMetaschemaMM.TypeAnyOf1}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTypeAnyOf1Adapter() {
+		if (typeAnyOf1ItemProvider == null) {
+			typeAnyOf1ItemProvider = new TypeAnyOf1ItemProvider(this);
+		}
+
+		return typeAnyOf1ItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1846,7 +1869,7 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 		if (propertiesSchemaDefinitionItemProvider != null) propertiesSchemaDefinitionItemProvider.dispose();
 		if (propertyNamesSchemaDefinitionItemProvider != null) propertyNamesSchemaDefinitionItemProvider.dispose();
 		if (arrayValueItemProvider != null) arrayValueItemProvider.dispose();
-		if (typesAnyOf2ItemProvider != null) typesAnyOf2ItemProvider.dispose();
+		if (typeAnyOf2ItemProvider != null) typeAnyOf2ItemProvider.dispose();
 		if (booleanSchemaItemProvider != null) booleanSchemaItemProvider.dispose();
 		if (nonNegativeIntegerItemProvider != null) nonNegativeIntegerItemProvider.dispose();
 		if (nonNegativeIntegerDefault0ItemProvider != null) nonNegativeIntegerDefault0ItemProvider.dispose();
@@ -1856,6 +1879,7 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 		if (schemaObjectDependenciesAdditionalPropertiesAnyOf2ItemProvider != null) schemaObjectDependenciesAdditionalPropertiesAnyOf2ItemProvider.dispose();
 		if (itemsAnyOf1ItemProvider != null) itemsAnyOf1ItemProvider.dispose();
 		if (itemsAnyOf2ItemProvider != null) itemsAnyOf2ItemProvider.dispose();
+		if (typeAnyOf1ItemProvider != null) typeAnyOf1ItemProvider.dispose();
 	}
 
 }

@@ -2,7 +2,6 @@
  */
 package jsonMetaschemaMM.impl;
 
-
 import java.lang.reflect.InvocationTargetException;
 
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
@@ -15,6 +14,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Ref Schema Definition</b></em>'.
@@ -95,8 +95,8 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */ 
-	@Override 
+	 */
+	@Override
 	public boolean isFormatUriReference() {
 		boolean isUri = true; 
 		try {

@@ -3,9 +3,8 @@
 package jsonMetaschemaMM.impl;
 
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
-import jsonMetaschemaMM.SimpleTypes;
+import jsonMetaschemaMM.TypeAnyOf;
 import jsonMetaschemaMM.TypeSchemaDefinition;
-import jsonMetaschemaMM.TypesAnyOf2;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -23,42 +22,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link jsonMetaschemaMM.impl.TypeSchemaDefinitionImpl#getTypeAnyOf1 <em>Type Any Of1</em>}</li>
- *   <li>{@link jsonMetaschemaMM.impl.TypeSchemaDefinitionImpl#getTypesAnyOf2 <em>Types Any Of2</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.TypeSchemaDefinitionImpl#getAnyOf <em>Any Of</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements TypeSchemaDefinition {
 	/**
-	 * The default value of the '{@link #getTypeAnyOf1() <em>Type Any Of1</em>}' attribute.
+	 * The cached value of the '{@link #getAnyOf() <em>Any Of</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTypeAnyOf1()
+	 * @see #getAnyOf()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final SimpleTypes TYPE_ANY_OF1_EDEFAULT = SimpleTypes.ARRAY;
-
-	/**
-	 * The cached value of the '{@link #getTypeAnyOf1() <em>Type Any Of1</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypeAnyOf1()
-	 * @generated
-	 * @ordered
-	 */
-	protected SimpleTypes typeAnyOf1 = TYPE_ANY_OF1_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getTypesAnyOf2() <em>Types Any Of2</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTypesAnyOf2()
-	 * @generated
-	 * @ordered
-	 */
-	protected TypesAnyOf2 typesAnyOf2;
+	protected TypeAnyOf anyOf;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -85,8 +63,8 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	 * @generated
 	 */
 	@Override
-	public SimpleTypes getTypeAnyOf1() {
-		return typeAnyOf1;
+	public TypeAnyOf getAnyOf() {
+		return anyOf;
 	}
 
 	/**
@@ -94,34 +72,11 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setTypeAnyOf1(SimpleTypes newTypeAnyOf1) {
-		SimpleTypes oldTypeAnyOf1 = typeAnyOf1;
-		typeAnyOf1 = newTypeAnyOf1 == null ? TYPE_ANY_OF1_EDEFAULT : newTypeAnyOf1;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPE_ANY_OF1, oldTypeAnyOf1, typeAnyOf1));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TypesAnyOf2 getTypesAnyOf2() {
-		return typesAnyOf2;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetTypesAnyOf2(TypesAnyOf2 newTypesAnyOf2, NotificationChain msgs) {
-		TypesAnyOf2 oldTypesAnyOf2 = typesAnyOf2;
-		typesAnyOf2 = newTypesAnyOf2;
+	public NotificationChain basicSetAnyOf(TypeAnyOf newAnyOf, NotificationChain msgs) {
+		TypeAnyOf oldAnyOf = anyOf;
+		anyOf = newAnyOf;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPES_ANY_OF2, oldTypesAnyOf2, newTypesAnyOf2);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__ANY_OF, oldAnyOf, newAnyOf);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -133,18 +88,18 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	 * @generated
 	 */
 	@Override
-	public void setTypesAnyOf2(TypesAnyOf2 newTypesAnyOf2) {
-		if (newTypesAnyOf2 != typesAnyOf2) {
+	public void setAnyOf(TypeAnyOf newAnyOf) {
+		if (newAnyOf != anyOf) {
 			NotificationChain msgs = null;
-			if (typesAnyOf2 != null)
-				msgs = ((InternalEObject)typesAnyOf2).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPES_ANY_OF2, null, msgs);
-			if (newTypesAnyOf2 != null)
-				msgs = ((InternalEObject)newTypesAnyOf2).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPES_ANY_OF2, null, msgs);
-			msgs = basicSetTypesAnyOf2(newTypesAnyOf2, msgs);
+			if (anyOf != null)
+				msgs = ((InternalEObject)anyOf).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__ANY_OF, null, msgs);
+			if (newAnyOf != null)
+				msgs = ((InternalEObject)newAnyOf).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__ANY_OF, null, msgs);
+			msgs = basicSetAnyOf(newAnyOf, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPES_ANY_OF2, newTypesAnyOf2, newTypesAnyOf2));
+			eNotify(new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__ANY_OF, newAnyOf, newAnyOf));
 	}
 
 	/**
@@ -155,8 +110,8 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPES_ANY_OF2:
-				return basicSetTypesAnyOf2(null, msgs);
+			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__ANY_OF:
+				return basicSetAnyOf(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -169,10 +124,8 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPE_ANY_OF1:
-				return getTypeAnyOf1();
-			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPES_ANY_OF2:
-				return getTypesAnyOf2();
+			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__ANY_OF:
+				return getAnyOf();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -185,11 +138,8 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPE_ANY_OF1:
-				setTypeAnyOf1((SimpleTypes)newValue);
-				return;
-			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPES_ANY_OF2:
-				setTypesAnyOf2((TypesAnyOf2)newValue);
+			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__ANY_OF:
+				setAnyOf((TypeAnyOf)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -203,11 +153,8 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPE_ANY_OF1:
-				setTypeAnyOf1(TYPE_ANY_OF1_EDEFAULT);
-				return;
-			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPES_ANY_OF2:
-				setTypesAnyOf2((TypesAnyOf2)null);
+			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__ANY_OF:
+				setAnyOf((TypeAnyOf)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -221,28 +168,10 @@ public class TypeSchemaDefinitionImpl extends KeywordDefinitionImpl implements T
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPE_ANY_OF1:
-				return typeAnyOf1 != TYPE_ANY_OF1_EDEFAULT;
-			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__TYPES_ANY_OF2:
-				return typesAnyOf2 != null;
+			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__ANY_OF:
+				return anyOf != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (typeAnyOf1: ");
-		result.append(typeAnyOf1);
-		result.append(')');
-		return result.toString();
 	}
 
 } //TypeSchemaDefinitionImpl

@@ -562,13 +562,13 @@ public interface JsonMetaschemaMMFactory extends EFactory {
 	ArrayValue createArrayValue();
 
 	/**
-	 * Returns a new object of class '<em>Types Any Of2</em>'.
+	 * Returns a new object of class '<em>Type Any Of2</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Types Any Of2</em>'.
+	 * @return a new object of class '<em>Type Any Of2</em>'.
 	 * @generated
 	 */
-	TypesAnyOf2 createTypesAnyOf2();
+	TypeAnyOf2 createTypeAnyOf2();
 
 	/**
 	 * Returns a new object of class '<em>Boolean Schema</em>'.
@@ -650,6 +650,15 @@ public interface JsonMetaschemaMMFactory extends EFactory {
 	 * @generated
 	 */
 	ItemsAnyOf2 createItemsAnyOf2();
+
+	/**
+	 * Returns a new object of class '<em>Type Any Of1</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Type Any Of1</em>'.
+	 * @generated
+	 */
+	TypeAnyOf1 createTypeAnyOf1();
 
 	/**
 	 * Returns the package supported by this factory.

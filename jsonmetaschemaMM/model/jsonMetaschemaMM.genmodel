@@ -71,10 +71,17 @@
           get="return (NotSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof NotSchemaDefinition).findFirst().orElse(null);"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/ref"
           suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
-          get="return (RefSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof RefSchemaDefinition).findFirst().orElse(null);"/>
+          get="return (RefSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof RefSchemaDefinition).findFirst().orElse(null);">
+        <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="set" value="return;"/>
+          <details key="body-set" value="return;"/>
+        </genAnnotations>
+      </genFeatures>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/type"
           suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
           get="return (TypeSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof TypeSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/enum"
+          get="return (EnumSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof EnumSchemaDefinition).findFirst().orElse(null);"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/schemaObjectAdditionalProperties"
           suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
           get="return new org.eclipse.emf.common.util.BasicEList&lt;SchemaObjectAdditionalProperties>((Collection&lt;? extends SchemaObjectAdditionalProperties>) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).collect(java.util.stream.Collectors.toList()))  ;"/>
@@ -184,8 +191,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectValue/keyvaluepair"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//TypeSchemaDefinition">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//TypeSchemaDefinition/typeAnyOf1"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//TypeSchemaDefinition/typesAnyOf2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//TypeSchemaDefinition/anyOf"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//AdditionalPropertiesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//AdditionalPropertiesSchemaDefinition/additionalProperties"/>
@@ -308,8 +314,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ArrayValue/value"/>
     </genClasses>
     <genClasses image="false" ecoreClass="jsonMetaschemaMM.ecore#//Value"/>
-    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//TypesAnyOf2">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//TypesAnyOf2/items"/>
+    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//TypeAnyOf2">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//TypeAnyOf2/items"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//BooleanSchema">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//BooleanSchema/value"/>
@@ -348,5 +354,9 @@
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ItemsAnyOf2">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ItemsAnyOf2/anyOf2"/>
     </genClasses>
+    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//TypeAnyOf1">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//TypeAnyOf1/type"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="jsonMetaschemaMM.ecore#//TypeAnyOf"/>
   </genPackages>
 </genmodel:GenModel>

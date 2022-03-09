@@ -65,6 +65,7 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 			addNotPropertyDescriptor(object);
 			addRefPropertyDescriptor(object);
 			addTypePropertyDescriptor(object);
+			addEnumPropertyDescriptor(object);
 			addSchemaObjectAdditionalPropertiesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -458,6 +459,28 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 				 getString("_UI_ObjectSchema_type_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_type_feature", "_UI_ObjectSchema_type"),
 				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__TYPE,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Enum feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEnumPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ObjectSchema_enum_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_enum_feature", "_UI_ObjectSchema_type"),
+				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__ENUM,
 				 false,
 				 false,
 				 false,

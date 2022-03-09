@@ -6,32 +6,31 @@ package jsonMetaschemaMM.provider;
 import java.util.Collection;
 import java.util.List;
 
-import jsonMetaschemaMM.JsonMetaschemaMMFactory;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
-import jsonMetaschemaMM.TypeSchemaDefinition;
+import jsonMetaschemaMM.TypeAnyOf2;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link jsonMetaschemaMM.TypeSchemaDefinition} object.
+ * This is the item provider adapter for a {@link jsonMetaschemaMM.TypeAnyOf2} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypeSchemaDefinitionItemProvider extends KeywordDefinitionItemProvider {
+public class TypeAnyOf2ItemProvider extends TypeAnyOfItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeSchemaDefinitionItemProvider(AdapterFactory adapterFactory) {
+	public TypeAnyOf2ItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -46,49 +45,42 @@ public class TypeSchemaDefinitionItemProvider extends KeywordDefinitionItemProvi
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addItemsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Items feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(JsonMetaschemaMMPackage.Literals.TYPE_SCHEMA_DEFINITION__ANY_OF);
-		}
-		return childrenFeatures;
+	protected void addItemsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypeAnyOf2_items_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypeAnyOf2_items_feature", "_UI_TypeAnyOf2_type"),
+				 JsonMetaschemaMMPackage.Literals.TYPE_ANY_OF2__ITEMS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns TypeSchemaDefinition.gif.
+	 * This returns TypeAnyOf2.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TypeSchemaDefinition"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/TypeAnyOf2"));
 	}
 
 	/**
@@ -99,7 +91,7 @@ public class TypeSchemaDefinitionItemProvider extends KeywordDefinitionItemProvi
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_TypeSchemaDefinition_type");
+		return getString("_UI_TypeAnyOf2_type");
 	}
 
 
@@ -114,9 +106,9 @@ public class TypeSchemaDefinitionItemProvider extends KeywordDefinitionItemProvi
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TypeSchemaDefinition.class)) {
-			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION__ANY_OF:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(TypeAnyOf2.class)) {
+			case JsonMetaschemaMMPackage.TYPE_ANY_OF2__ITEMS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -132,16 +124,6 @@ public class TypeSchemaDefinitionItemProvider extends KeywordDefinitionItemProvi
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JsonMetaschemaMMPackage.Literals.TYPE_SCHEMA_DEFINITION__ANY_OF,
-				 JsonMetaschemaMMFactory.eINSTANCE.createTypeAnyOf2()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JsonMetaschemaMMPackage.Literals.TYPE_SCHEMA_DEFINITION__ANY_OF,
-				 JsonMetaschemaMMFactory.eINSTANCE.createTypeAnyOf1()));
 	}
 
 }

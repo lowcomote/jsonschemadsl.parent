@@ -2,50 +2,56 @@
  */
 package jsonMetaschemaMM.impl;
 
-import java.util.Collection;
-
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.SimpleTypes;
-import jsonMetaschemaMM.TypesAnyOf2;
+import jsonMetaschemaMM.TypeAnyOf1;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Types Any Of2</b></em>'.
+ * An implementation of the model object '<em><b>Type Any Of1</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link jsonMetaschemaMM.impl.TypesAnyOf2Impl#getItems <em>Items</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.TypeAnyOf1Impl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TypesAnyOf2Impl extends MinimalEObjectImpl.Container implements TypesAnyOf2 {
+public class TypeAnyOf1Impl extends TypeAnyOfImpl implements TypeAnyOf1 {
 	/**
-	 * The cached value of the '{@link #getItems() <em>Items</em>}' attribute list.
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getItems()
+	 * @see #getType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SimpleTypes> items;
+	protected static final SimpleTypes TYPE_EDEFAULT = SimpleTypes.ARRAY;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected SimpleTypes type = TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TypesAnyOf2Impl() {
+	protected TypeAnyOf1Impl() {
 		super();
 	}
 
@@ -56,7 +62,7 @@ public class TypesAnyOf2Impl extends MinimalEObjectImpl.Container implements Typ
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return JsonMetaschemaMMPackage.Literals.TYPES_ANY_OF2;
+		return JsonMetaschemaMMPackage.Literals.TYPE_ANY_OF1;
 	}
 
 	/**
@@ -65,11 +71,21 @@ public class TypesAnyOf2Impl extends MinimalEObjectImpl.Container implements Typ
 	 * @generated
 	 */
 	@Override
-	public EList<SimpleTypes> getItems() {
-		if (items == null) {
-			items = new EDataTypeUniqueEList<SimpleTypes>(SimpleTypes.class, this, JsonMetaschemaMMPackage.TYPES_ANY_OF2__ITEMS);
-		}
-		return items;
+	public SimpleTypes getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setType(SimpleTypes newType) {
+		SimpleTypes oldType = type;
+		type = newType == null ? TYPE_EDEFAULT : newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, JsonMetaschemaMMPackage.TYPE_ANY_OF1__TYPE, oldType, type));
 	}
 
 	/**
@@ -80,8 +96,8 @@ public class TypesAnyOf2Impl extends MinimalEObjectImpl.Container implements Typ
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.TYPES_ANY_OF2__ITEMS:
-				return getItems();
+			case JsonMetaschemaMMPackage.TYPE_ANY_OF1__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -91,13 +107,11 @@ public class TypesAnyOf2Impl extends MinimalEObjectImpl.Container implements Typ
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.TYPES_ANY_OF2__ITEMS:
-				getItems().clear();
-				getItems().addAll((Collection<? extends SimpleTypes>)newValue);
+			case JsonMetaschemaMMPackage.TYPE_ANY_OF1__TYPE:
+				setType((SimpleTypes)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -111,8 +125,8 @@ public class TypesAnyOf2Impl extends MinimalEObjectImpl.Container implements Typ
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.TYPES_ANY_OF2__ITEMS:
-				getItems().clear();
+			case JsonMetaschemaMMPackage.TYPE_ANY_OF1__TYPE:
+				setType(TYPE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -126,8 +140,8 @@ public class TypesAnyOf2Impl extends MinimalEObjectImpl.Container implements Typ
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case JsonMetaschemaMMPackage.TYPES_ANY_OF2__ITEMS:
-				return items != null && !items.isEmpty();
+			case JsonMetaschemaMMPackage.TYPE_ANY_OF1__TYPE:
+				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -142,10 +156,10 @@ public class TypesAnyOf2Impl extends MinimalEObjectImpl.Container implements Typ
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (items: ");
-		result.append(items);
+		result.append(" (type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}
 
-} //TypesAnyOf2Impl
+} //TypeAnyOf1Impl

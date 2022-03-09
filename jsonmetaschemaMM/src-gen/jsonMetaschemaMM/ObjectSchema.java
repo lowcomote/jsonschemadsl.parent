@@ -32,6 +32,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getNot <em>Not</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getRef <em>Ref</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getType <em>Type</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.ObjectSchema#getEnum <em>Enum</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}</li>
  * </ul>
  *
@@ -229,18 +230,6 @@ public interface ObjectSchema extends Schema {
 	NotSchemaDefinition getNot();
 
 	/**
-	 * Returns the value of the '<em><b>Schema Object Additional Properties</b></em>' reference list.
-	 * The list contents are of type {@link jsonMetaschemaMM.SchemaObjectAdditionalProperties}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Schema Object Additional Properties</em>' reference list.
-	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_SchemaObjectAdditionalProperties()
-	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
-	 * @generated
-	 */
-	EList<SchemaObjectAdditionalProperties> getSchemaObjectAdditionalProperties();
-
-	/**
 	 * Returns the value of the '<em><b>Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -261,6 +250,40 @@ public interface ObjectSchema extends Schema {
 	 * @generated
 	 */
 	TypeSchemaDefinition getType();
+
+	/**
+	 * Returns the value of the '<em><b>Enum</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Enum</em>' containment reference.
+	 * @see #setEnum(EnumSchemaDefinition)
+	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Enum()
+	 * @model containment="true" transient="true" volatile="true" derived="true" ordered="false"
+	 * @generated
+	 */
+	EnumSchemaDefinition getEnum();
+
+	/**
+	 * Sets the value of the '{@link jsonMetaschemaMM.ObjectSchema#getEnum <em>Enum</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enum</em>' containment reference.
+	 * @see #getEnum()
+	 * @generated
+	 */
+	void setEnum(EnumSchemaDefinition value);
+
+	/**
+	 * Returns the value of the '<em><b>Schema Object Additional Properties</b></em>' reference list.
+	 * The list contents are of type {@link jsonMetaschemaMM.SchemaObjectAdditionalProperties}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Schema Object Additional Properties</em>' reference list.
+	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_SchemaObjectAdditionalProperties()
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @generated
+	 */
+	EList<SchemaObjectAdditionalProperties> getSchemaObjectAdditionalProperties();
 
 	/**
 	 * <!-- begin-user-doc -->

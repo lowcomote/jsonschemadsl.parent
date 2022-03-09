@@ -6,32 +6,26 @@ package jsonMetaschemaMM.provider;
 import java.util.Collection;
 import java.util.List;
 
-import jsonMetaschemaMM.JsonMetaschemaMMPackage;
-import jsonMetaschemaMM.TypesAnyOf2;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link jsonMetaschemaMM.TypesAnyOf2} object.
+ * This is the item provider adapter for a {@link jsonMetaschemaMM.TypeAnyOf} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TypesAnyOf2ItemProvider 
+public class TypeAnyOfItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +39,7 @@ public class TypesAnyOf2ItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypesAnyOf2ItemProvider(AdapterFactory adapterFactory) {
+	public TypeAnyOfItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -60,42 +54,8 @@ public class TypesAnyOf2ItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addItemsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Items feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addItemsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TypesAnyOf2_items_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TypesAnyOf2_items_feature", "_UI_TypesAnyOf2_type"),
-				 JsonMetaschemaMMPackage.Literals.TYPES_ANY_OF2__ITEMS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns TypesAnyOf2.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TypesAnyOf2"));
 	}
 
 	/**
@@ -106,7 +66,7 @@ public class TypesAnyOf2ItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_TypesAnyOf2_type");
+		return getString("_UI_TypeAnyOf_type");
 	}
 
 
@@ -120,12 +80,6 @@ public class TypesAnyOf2ItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(TypesAnyOf2.class)) {
-			case JsonMetaschemaMMPackage.TYPES_ANY_OF2__ITEMS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
