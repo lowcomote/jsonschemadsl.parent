@@ -1,4 +1,4 @@
--- OCL contraints for /Users/Alessandro.colantoni/eclipse-lowcomote-jsonschema-workspace/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/testcurrentimplementation
+-- OCL contraints for /GIthub/2021/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/testcurrentimplementation
 import 'http://jku.bise.at/testcurrentimplementation'
 
 package testcurrentimplementation
