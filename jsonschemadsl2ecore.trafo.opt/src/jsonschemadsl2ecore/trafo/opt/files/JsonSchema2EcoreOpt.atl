@@ -54,7 +54,6 @@ rule JsonSchemaToEPackage {
 abstract rule mapSchemaToEClass{ 
 	from schema : JSchemaMM!Schema
 	using {
---		eClassName:String = if schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then schema.buildEClassname().concat('Items') else schema.buildEClassname() endif;
 		eClassName:String = schema.buildEClassname(); ---we don't need to concat 'Items' because the class is being generated from the schema inside items. So the buildEClassname has alredy 'Items' concatenated
 	}
 	to 
@@ -66,181 +65,73 @@ abstract rule mapSchemaToEClass{
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName())};
 			thisModule.keywords <- thisModule.keywords->union(eClass.eStructuralFeatures) ;
 		}else if(schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)){ ----- schema is in AdditionalProperties
-			eClass.eStructuralFeatures <-  Sequence{thisModule.createKeyEAttribute('key')};
+--			eClass.eStructuralFeatures <-  Sequence{thisModule.createKeyEAttribute('key')};
+--			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createKeyEAttribute('key')});
+			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> debug('mapSchemaToEClass eClass.eStructuralFeatures BEFORE') -> union(Sequence{thisModule.createKeyEAttribute('key')})-> debug('mapSchemaToEClass eClass.eStructuralFeatures AFTER');
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName() )};
 		}
 	}	
 } 
 
-
-
 rule mapBooleanSchemaToEClass extends mapSchemaToEClass{
---	from booleanSchema: JSchemaMM!BooleanSchema(not booleanSchema.refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema))
 	from schema: JSchemaMM!BooleanSchema(not schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) and schema.value=true)
 	to 
 		eClass : Ecore!EClass (
-			eStructuralFeatures  <- Sequence{thisModule.createContainmentToJsonDocument(schema.getKey()->debug('schema.getKey()'))}->debug('Sequence{thisModule.createContainmentToJsonDocument')
+			eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey())})
 		)
-
 }
 			
 rule mapObjectSchemaToEClass extends mapSchemaToEClass{
---	from objectSchema : JSchemaMM!ObjectSchema
 	from schema : JSchemaMM!ObjectSchema
 	to 
 		eClass : Ecore!EClass
 	do{
-		eClass->debug('mapObjectSchemaToEClass.eClass');
-		if(not schema.ref.oclIsUndefined()){
-			eClass.eReferences <- Sequence{schema.ref};
-		}else if (not schema.enum.oclIsUndefined()){
+		if(not schema.ref.oclIsUndefined()){ --- "$ref" is present
+			eClass.eStructuralFeatures <- Sequence{schema.ref};
+			
+		}else if (not schema.enum.oclIsUndefined()){ --- "enum" is present
 			----- TODO implement
 		}else if (schema.type.oclIsUndefined()){  ---- "type" is missing
 			----- TODO implement
-		}else if(schema.hasSimpleType()->debug('hasSimpleType')){ 
-			if(schema.type.anyOf.type->debug('type') =  #"\"object\"" or schema.type.anyOf.type =  #"\"array\"" or schema.type.anyOf.type =  #"\"null\""){
---				eClass.eReferences <- Sequence{thisModule.mapSimpleTypeToEReference(schema, eClass.name, schema.type.anyOf.type )};
---				eClass.eReferences <- Sequence{thisModule.mapSimpleTypeToEReference(eClass.name, schema.getKey(), schema.type.anyOf.type, schema.additionalProperties, schema.items )}->debug('mapObjectSchemaToEClass.eClass.eReferences');
---				eClass.eStructuralFeatures  <- Sequence{thisModule.mapSimpleTypeToEReference(schema, eClass.name , schema.type.anyOf.type)}->debug('mapObjectSchemaToEClass.eClass.eReferences');
-				thisModule.mapSimpleTypeToEReference(schema, eClass , schema.type.anyOf.type);
-				
-				
-			}else{ 
---				eClass.eAttributes <- Sequence{thisModule.mapSimpleTypeToEAttribute(schema, eClass.name, schema.type.anyOf.type )};
-				eClass.eStructuralFeatures <- Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(schema.type.anyOf.type))};
-			}
---			eClass.eStructuralFeatures <- Sequence{thisModule.mapSimpleTypeToEStructuralFeature(objectSchema, eClass.name, objectSchema.type.anyOf.type )};
-		}	
-
---		else if (objectSchema.hasSimpleTypeScalar){ ---- "type" is present and ( "type": "integer" or "type": "number" or "type": "boolean" or "type": "string")
---			eClass.eStructuralFeatures <- Sequence{thisModule.mapScalarTypeToEAttribute(objectSchema.getKey(),objectSchema.type.getEDataType())};
---		}else if(objectSchema.hasSimpleTypeObject){  ----"type" is present and  "type": "object" 
---			eClass.eStructuralFeatures <-Sequence{thisModule.createPropertiesContainment(objectSchema.getKey, eClass.name.concat('Properties'))};
---			if(objectSchema.additionalProperties.oclIsUndefined()){ ------ additionalProperties missing
---				thisModule.createDefaultAdditionalPropertiesEClass(eClass.name);
---			}
---		}else if (objectSchema.hasSimpleTypeArray){ ----- "type" is present and  "type": "array"  
---			if(objectSchema.items.oclIsUndefined()) {---the keyword "items" is missing
---				eClass.eStructuralFeatures <- Sequence{thisModule.createEClassForMissingItems(objectSchema)};
---			}else { ---- the keyword "items" is present
---				eClass.eStructuralFeatures <- Sequence{objectSchema.items};
---			}
---		}else if(objectSchema.hasSimpleTypeNull){ ------- "type" is present and "type": "null"
---			----- TODO implement
---		}
-		
-		else if(schema.hasArrayOfTypes){ ----"type" is present and  is and array of "types" : "type":[...]
+		}else if(schema.hasSimpleType()){
+			thisModule.mapSimpleTypeToEStructuralFeatures(schema, eClass , schema.type.anyOf.type);
+		}else if(schema.hasArrayOfTypes){ ----"type" is present and  is and array of "types" : "type":[...]
 			----- TODO implement
 			--------------------------
 			for (sympleType in schema.type.items){ 
 				
 			}
-			
-			
 		}
-		
 	}
 }
 ---- schema objectSchema having the "type" keyword
----- eClassName : String , ----- objectSchema.buildEClassname() name of the EClass that is mapped to objectSchema having the "type" keyword
+---- eClass  -----  EClass that is mapped to objectSchema having the "type" keyword
 ---- simpleType:JSchemaMM!SimpleTypes, ----- the simple type we are mapping to the eStructuralFeature
-rule mapSimpleTypeToEReference(schema : JSchemaMM!ObjectSchema, eClass : Ecore!EClass, simpleType:JSchemaMM!SimpleTypes)  {
-	
---	to eReference : Ecore!EReference
+rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass : Ecore!EClass, simpleType:JSchemaMM!SimpleTypes)  {
 	do{
-		
---		eClassName.debug('mapSimpleTypeToEReference::: entry eClassName');
-		eClass.name.debug('mapSimpleTypeToEReference::: entry eClassName');
-		simpleType.debug('mapSimpleTypeToEReference::: entry simpleType');
-		simpleType.toString().debug('mapSimpleTypeToEReference::: entry simpleType.toString()');
-		
-		  
-		if(simpleType->debug('mapSimpleTypeToEReference.simpleType') = #"\"object\"" ){   
---			eReference->debug('mapSimpleTypeToEReference:Properties eReference BEFORE');
---			eReference = thisModule.createPropertiesContainment(schema.getKey(), eClass.name.concat('Properties'))->debug('mapSimpleTypeToEReference:thisModule.createPropertiesContainment');
---			eReference->debug('mapSimpleTypeToEReference:Properties eReference AFTER');
-			eClass.eStructuralFeatures <-Sequence{thisModule.createPropertiesContainment(schema.getKey(), eClass.name.concat('Properties'))->debug('mapSimpleTypeToEReference:thisModule.createPropertiesContainment')};
-			if(schema.additionalProperties.oclIsUndefined()){ ------ additionalProperties missing
+		if (simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\""){ 
+--			eClass.eStructuralFeatures  <- Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(schema.type.anyOf.type))};
+			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures->debug('mapSimpleTypeToEStructuralFeatures eClass.eStructuralFeatures BEFORE').union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(schema.type.anyOf.type))})->debug('mapSimpleTypeToEStructuralFeatures eClass.eStructuralFeatures AFTER');
+		}else if(simpleType = #"\"object\"" ){   
+--			eClass.eStructuralFeatures <-Sequence{thisModule.createPropertiesContainment(schema.getKey(), eClass.name.concat('Properties'))};
+			eClass.eStructuralFeatures <-Sequence{thisModule.createPropertiesContainment(schema.getKey(), eClass.name.concat('Properties'))};
+			if(schema.additionalProperties.oclIsUndefined()){ ------ the keyword "additionalProperties" is missing
 				thisModule.createDefaultAdditionalPropertiesEClass(eClass.name);
 			}
---			thisModule.createPropertiesContainment(schema.getKey(), eClass.name.concat('Properties'))->debug('mapSimpleTypeToEReference:thisModule.createPropertiesContainment');
---		}else if (objectSchema.hasSimpleTypeArray){ ----- "type" is present and  "type": "array"  
-		}else if (simpleType = #"\"array\""){ ----- "type" is present and  "type": "array"  	
+		}else if (simpleType = #"\"array\""){  
 			if(schema.items.oclIsUndefined()) {---the keyword "items" is missing
---				eStructuralFeature =  thisModule.createEClassForMissingItems(objectSchema);
---				eReference =  thisModule.createEClassForMissingItems(eClassName, schema.getKey());
-				eClass.eStructuralFeatures <- Sequence{thisModule.createEClassForMissingItems(eClass.name, schema.getKey())};
+				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(eClass.name, schema.getKey())});
 			}else if(schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){ ---- the keyword "items" is present and is not a tuple
-				
---				eReference = schema.items.anyOf.anyOf1;
-				eClass.eStructuralFeatures <- Sequence{schema.items.anyOf.anyOf1};
+--				eClass.eStructuralFeatures <- Sequence{schema.items.anyOf};
+				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.items.anyOf});
 			}else{ ---- the keyword "items" is present and is a tuple
 				-----TODO Implement
 			}
 		}else if(simpleType = #"\"null\""){ ------- "type" is present and "type": "null"
 			----- TODO implement
 		}
-		------- Last line is what is returned
---		eReference->debug('mapSimpleTypeToEReference:eReference');
---		eReference;
 	}
 }
-
---unique lazy  rule mapSimpleTypeToEReference extends mapSimpleTypeToEStructuralFeature{
---	from objectSchema : JSchemaMM!ObjectSchema,  ----- objectSchema having the type keyword
---		eClassName : String, ----- name of the EClass that is mapped to objectSchema
---		simpleType:String ----- the simple type we are mapping to the eStructuralFeature
---	to eReference : Ecore!EReference
---}
-
---unique lazy  rule mapSimpleTypeToEAttribute extends mapSimpleTypeToEStructuralFeature{
---	from objectSchema : JSchemaMM!ObjectSchema,  ----- objectSchema having the type keyword
---		eClassName : String, ----- name of the EClass that is mapped to objectSchema
---		simpleType:String ----- the simple type we are mapping to the eStructuralFeature
---	to eAttribute : Ecore!EAttribute
---}
-
-
----- this rule map a simple type to a feature. It has to be called if objectSchema.hasSimpleType (it has a type and it is a simple one)
---lazy abstract rule mapSimpleTypeToEStructuralFeature{ 
-----	from key:String, simpleType:String, eClassName : String
---	from objectSchema : JSchemaMM!ObjectSchema,  ----- objectSchema having the type keyword
---		eClassName : String, ----- name of the EClass that is mapped to objectSchema having the "type" keyword
---		simpleType:String ----- the simple type we are mapping to the eStructuralFeature
---		
---		
---	to 
---		eStructuralFeature : Ecore!EStructuralFeature
---
---	do { 
-----		if (objectSchema.hasSimpleTypeScalar){ ---- "type" is present and ( "type": "integer" or "type": "number" or "type": "boolean" or "type": "string")
---		if (thisModule.isScalar(simpleType)){ 	
-----			eStructuralFeature <- thisModule.mapScalarTypeToEAttribute(objectSchema.getKey(),objectSchema.type.getEDataType());
---			eStructuralFeature = thisModule.mapScalarTypeToEAttribute(objectSchema.getKey(),thisModule.scalarTypeMapping.get(simpleType));
-----		}else if(objectSchema.hasSimpleTypeObject){  ----"type" is present and  "type": "object" 
---		}else if(simpleType = #"\"object\"" ){   
---			eStructuralFeature = thisModule.createPropertiesContainment(objectSchema.getKey()->debug('mapSimpleTypeToEStructuralFeature:objectSchema.getKey'), eClassName.concat('Properties')->debug('eClassName'+eClassName));
---			if(objectSchema.additionalProperties.oclIsUndefined()){ ------ additionalProperties missing
---				thisModule.createDefaultAdditionalPropertiesEClass(eClassName);
---			}
-----		}else if (objectSchema.hasSimpleTypeArray){ ----- "type" is present and  "type": "array"  
---		}else if (simpleType = #"\"array\""){ ----- "type" is present and  "type": "array"  	
---			if(objectSchema.items.oclIsUndefined()) {---the keyword "items" is missing
-----				eStructuralFeature =  thisModule.createEClassForMissingItems(objectSchema);
---				eStructuralFeature =  thisModule.createEClassForMissingItems(eClassName, objectSchema.getKey());
---			}else if(objectSchema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){ ---- the keyword "items" is present and is not a tuple
---				
---				eStructuralFeature = objectSchema.items.anyOf.anyOf1;
---			}else{ ---- the keyword "items" is present and is a tuple
---				-----TODO Implement
---			}
---		}else if(simpleType = #"\"null\""){ ------- "type" is present and "type": "null"
---			----- TODO implement
---		}
---	}
---	
---}
-	
 
 lazy rule mapScalarTypeToEAttribute{
 	from name : String, eType:Ecore!EDataType
@@ -256,13 +147,10 @@ lazy rule mapScalarTypeToEAttribute{
 
 
 lazy rule createPropertiesContainment{
-	--from typeSchemaDefinition: JSchemaMM!TypeSchemaDefinition (typeSchemaDefinition.findSimpleType() = #"\"object\"")	
 	from referenceName:String, propertiesEClassName:String
 	to 
 		eReference :Ecore!EReference ( 
---			name <- typeSchemaDefinition.refImmediateComposite().getKey(),
 			name <- referenceName,
---			eType <- thisModule.createAbstractEClass(typeSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties')),
 			eType <- thisModule.createAbstractEClass(propertiesEClassName),
 			containment <- true,
 			lowerBound <- 0,
@@ -288,7 +176,7 @@ rule mapItemsAnyOf1ToContainment{
 	from itemsAnyOf1:JSchemaMM!ItemsAnyOf1
 	to 
 		eReference :Ecore!EReference ( 
-			name <- itemsAnyOf1.refImmediateComposite().refImmediateComposite().getKey(),
+			name <- itemsAnyOf1.refImmediateComposite().refImmediateComposite().getKey()->debug('mapItemsAnyOf1ToContainment:getKey'),
 			eType <- itemsAnyOf1.anyOf1,
 			containment <- true,
 			lowerBound <- 0,
@@ -321,128 +209,47 @@ lazy rule createEClassForMissingItems{
 	do{
 		thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
 		thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
+		eReference;
 	}
 	
 }
---rule mapItemsToEClass{
---	from items:JSchemaMM!ItemsSchemaDefinition(items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1))----- "items" is not a tuple
---	to 
---		eReference :Ecore!EReference ( 
---			name <- items.refImmediateComposite().getKey(),
---			eType <- items.anyOf.anyOf1,
---			containment <- true,
---			lowerBound <- 0,
---			upperBound <- -1
---		)
---	do{
---		thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
---		thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
---	}
---}
-
---lazy rule createEClassForMissingItems{
---	from enclosingObjectSchema:JSchemaMM!ObjectSchema
---	to 
---		eClass:  Ecore!EClass (
---			name <- enclosingObjectSchema.buildEClassname().concat('Items'),
---			eStructuralFeatures <- Sequence{thisModule.createContainmentToJsonDocument(('items'))}
---		),
---		eReference :Ecore!EReference ( 
---			name <- enclosingObjectSchema.getKey(),
---			eType <- eClass,
---			containment <- true,
---			lowerBound <- 0,
---			upperBound <- -1
---		)
---	do{
---		thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
---		thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
---	}
---	
---}
 
 
-----------TODO this rule has been temporarly deleted
----- This rule creates an EClass for a type list in the array of types
---lazy rule createEClassForTypeInArrayOfTypes{
-----	from objectSchema :JSchemaMM!ObjectSchema, simpleType :String, superEClass : Ecore!EClass
---	from 
---		objectSchema : JSchemaMM!ObjectSchema,  ----- objectSchema having the type keyword
---		eClassName : String, ----- name of the EClass that is mapped to objectSchema
---		simpleType:String ----- current simpleType in the array of types which we are creating the EClass for
---	to 
---		eClass : Ecore!EClass (
---			 eSuperTypes <- Sequence{thisModule.createAbstractEClass(eClassName.concat('Type'))}, 
---			 eStructuralFeatures  <- Sequence{thisModule.mapSimpleTypeToEStructuralFeature(objectSchema, eClassName , simpleType )}
---
---		)
---	do{ 
---		if(not objectSchema.isRootOrDefinitionOrSchemaObjectAdditionalProperties()){ 
---			eClass.eSuperTypes.eSuperTypes <- Sequence{thisModule.createAbstractEClass(eClassName.concat('Properties'))};
---		}
---	}
---		
---		
---		
---}
 
-
---abstract rule mapAdditionalPropertiesEClass {
---	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition
---	using {
---		additionalPropertiesName : String = additionalPropertiesSchemaDefinition.additionalProperties.buildEClassname();
---		propertiesEClassName : String = 	additionalPropertiesSchemaDefinition.refImmediateComposite().buildEClassname().concat('Properties');
---	}
---	to
---		eClass : Ecore!EClass (
---		 	name <-	additionalPropertiesName->debug('additionalPropertiesName'),
---			eSuperTypes <-  Set{thisModule.createAbstractEClass(propertiesEClassName)}
---		)
---}
---
---rule mapObjectSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEClass{
---	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalItemsSchemaDefinition(additionalPropertiesSchemaDefinition.additionalProperties.oclIsTypeOf(JSchemaMM!ObjectSchema))
---	using {
---		additionalPropertiesObjectSchema : JSchemaMM!ObjectSchema = additionalPropertiesSchemaDefinition.additionalProperties;
---	}
---	to
---		eClass : Ecore!EClass (
---			eStructuralFeatures <- Sequence{
---										thisModule.createKeyEAttribute('key'),
---										if not additionalPropertiesObjectSchema.ref.oclIsUndefined() then additionalPropertiesObjectSchema.ref 
---										else additionalPropertiesObjectSchema.additionalProperties 
---										endif
---									}.flatten() 
---		),
---		key : Ecore!EAttribute		
---}
---
---rule mapBooleanSchemaAdditionalPropertiesEClass extends mapAdditionalPropertiesEClass{
---	from additionalPropertiesSchemaDefinition : JSchemaMM!AdditionalPropertiesSchemaDefinition (
---		additionalPropertiesSchemaDefinition.additionalProperties.oclIsTypeOf(JSchemaMM!BooleanSchema) and 
---		additionalPropertiesSchemaDefinition.additionalProperties.value=true
---	)
---	to
---		eClass : Ecore!EClass (
---			eAttributes <-  Sequence{thisModule.createKeyEAttribute('key')->debug('thisModule.createKeyEAttribute')},
---			eReferences <- Sequence{thisModule.createContainmentToJsonDocument('additionalProperties')}
-----			eStructuralFeatures <- Sequence{thisModule.createKeyEAttribute('key'), thisModule.createContainmentToJsonDocument('additionalProperties')}.flatten()
---		)
---}
-
---lazy rule createKeyEAttribute{
---	from keyName:String 
-rule createKeyEAttribute(keyName:String){
+----- objectSchema: objectSchema having the type keyword
+----- enclosingEClass:  name of the EClass that is mapped to objectSchema
+----- simpleType: current simpleType in the array of types which we are creating the EClass for
+rule createEClassForTypeInArrayOfTypes(objectSchema : JSchemaMM!ObjectSchema, enclosingEClass : Ecore!EClass , simpleType:JSchemaMM!SimpleTypes){
 	to 
-	key : Ecore!EAttribute(
-			name<- keyName->debug('keyName'),
+		eClass : Ecore!EClass (
+			 eSuperTypes <- Sequence{thisModule.createAbstractEClass(enclosingEClass.name.concat('Type'))}, 
+			 ---schema : JSchemaMM!ObjectSchema, eClass : Ecore!EClass, simpleType:JSchemaMM!SimpleTypes
+			 eStructuralFeatures  <- Sequence{thisModule.mapSimpleTypeToEStructuralFeature(objectSchema, enclosingEClass , simpleType )}
+
+		)
+	do{ 
+		if(not objectSchema.isRootOrDefinitionOrSchemaObjectAdditionalProperties()){ 
+			eClass.eSuperTypes.eSuperTypes <- Sequence{thisModule.createAbstractEClass(enclosingEClass.name.concat('Properties'))};
+		}
+	}
+}	
+
+
+
+
+--rule createKeyEAttribute(keyName:String){
+lazy rule createKeyEAttribute{
+	from keyName:String 
+	to 
+		key : Ecore!EAttribute(
+			name<- keyName,
 			lowerBound <- 1,
 			upperBound <- 1,
 			eType <- Ecore!EString
 	) 
 	do {
-		key->debug('createKeyEAttribute');
 		thisModule.keyValues <- thisModule.keyValues->union(Sequence{key});
+		key;
 	}
 }
 
@@ -456,9 +263,6 @@ lazy rule  createContainmentToJsonDocument{
 			upperBound <- 1,
 			eType <- JSchemaMM!JsonDocument
 		)
-	do{ 
-		containment->debug('createContainmentToJsonDocument');
-	}
 }
 
 ---------------------------------------------------------------------
@@ -480,16 +284,15 @@ rule mapRefSchemaToEReference{
 													endif ;
 	} to		
 		eReference :Ecore!EReference ( 
-			name <- refSchemaDefinition.refImmediateComposite().getKey()->debug('ref key'),
+			name <- refSchemaDefinition.refImmediateComposite().getKey(),
 --			eType <- refSchemaDefinition.findSchemaByJsonPointer().oclAsType(JSchemaMM!ObjectSchema),
-			eType <- refSchemaDefinition.findSchemaByJsonPointer()->debug('ref jsonpointer'),
+			eType <- refSchemaDefinition.findSchemaByJsonPointer(),
 			containment <- true, 
 			lowerBound <- 1,
 			upperBound <- 1			
 		)
 	do {
-		eReference->debug('mapRefSchemaToEReference');
-		if (isJsonPointerSchemaTypeArray->debug('isJsonPointerSchemaTypeArray')){ 
+		if (isJsonPointerSchemaTypeArray){ 
 			thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
 		}	
 	}	
