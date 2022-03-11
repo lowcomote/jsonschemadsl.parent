@@ -306,37 +306,37 @@ helper context JSchemaMM!Schema def: buildPropertiesAbstractClassName(): String=
 	self.buildEClassname().concat('Properties'); 
 
 ----"type" is present and it is a simple type (not an array of types)
-helper context JSchemaMM!ObjectSchema def: hasSimpleType: Boolean=
+helper context JSchemaMM!ObjectSchema def: hasSimpleType(): Boolean=
 	if not self.type.oclIsUndefined()
-	then  self.type.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+	then  self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
 	else false
 	endif;
 
 ----"type" is present and ( "type": "integer" or "type": "number" or "type": "boolean" or "type": "string")
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeScalar: Boolean=
+helper context JSchemaMM!ObjectSchema def: hasSimpleTypeScalar(): Boolean=
 	if not self.type.oclIsUndefined()
-	then if self.type.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.type = #"\"string\"" or self.type.type = #"\"integer\"" or self.type.type = #"\"number\"" or self.type.type= #"\"boolean\""
+	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"string\"" or self.type.anyOf.type = #"\"integer\"" or self.type.anyOf.type = #"\"number\"" or self.type.anyOf.type= #"\"boolean\""
 		else false
 		endif
 	else false
 	endif;
 
 ----"type" is present and  "type": "object"  
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeObject: Boolean=
+helper context JSchemaMM!ObjectSchema def: hasSimpleTypeObject(): Boolean=
 	if not self.type.oclIsUndefined()
-	then if self.type.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.type = #"\"object\"" 
+	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"object\"" 
 		else false
 		endif
 	else false
 	endif;
 
 ----"type" is present and  "type": "array"  
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeArray: Boolean=
+helper context JSchemaMM!ObjectSchema def: hasSimpleTypeArray(): Boolean=
 	if not self.type.oclIsUndefined()
-	then if self.type.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.type = #"\"array\"" 
+	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"array\"" 
 		else false
 		endif
 	else false
@@ -344,10 +344,10 @@ helper context JSchemaMM!ObjectSchema def: hasSimpleTypeArray: Boolean=
 
 
 ----"type" is present and  "type": "null"  
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeNull: Boolean=
+helper context JSchemaMM!ObjectSchema def: hasSimpleTypeNull(): Boolean=
 	if not self.type.oclIsUndefined()
-	then if self.type.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.type = #"\"null\"" 
+	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"null\"" 
 		else false
 		endif
 	else false
@@ -356,7 +356,7 @@ helper context JSchemaMM!ObjectSchema def: hasSimpleTypeNull: Boolean=
 ----"type" is present and  is and array of types : "type":[...]
 helper context JSchemaMM!ObjectSchema def: hasArrayOfTypes: Boolean=
 	if not self.type.oclIsUndefined()
-	then self.type.oclIsTypeOf(JSchemaMM!TypeAnyOf2) 
+	then self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf2) 
 	else false
 	endif;
 
