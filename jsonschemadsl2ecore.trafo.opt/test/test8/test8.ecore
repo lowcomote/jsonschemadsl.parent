@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="testcurrentimplementation" nsURI="http://jku.bise.at/testcurrentimplementation"
+    nsPrefix="testcurrentimplementation">
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRoot">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="testcurrentimplementationRoot"
+        upperBound="-1" eType="#//TestcurrentimplementationRootPropertiesAbstract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Family">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="family" upperBound="-1"
+        eType="#//FamilyPropertiesAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pippo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pippo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FamilyAdditionalPropertiesMembername"
+      eSuperTypes="#//FamilyAdditionalPropertiesPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="membername" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FamilyAdditionalPropertiesRelativekind"
+      eSuperTypes="#//FamilyAdditionalPropertiesPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="relativekind" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootName" eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootSurname"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootAge" eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootAdult"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="adult" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootScore"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="score" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootJob" eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="job" upperBound="-1" eType="#//TestcurrentimplementationRootJobPropertiesAbstract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootJobRole"
+      eSuperTypes="#//TestcurrentimplementationRootJobPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootJobLevel"
+      eSuperTypes="#//TestcurrentimplementationRootJobPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootCar" eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="car" upperBound="-1" eType="#//TestcurrentimplementationRootCarPropertiesAbstract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootCarLicencePlate"
+      eSuperTypes="#//TestcurrentimplementationRootCarPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="licencePlate" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootCarYear"
+      eSuperTypes="#//TestcurrentimplementationRootCarPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootChildrenNames"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="childrenNames" upperBound="-1"
+        eType="#//TestcurrentimplementationRootChildrenNamesItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootSequentialInfo"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequentialInfo" upperBound="-1"
+        eType="#//TestcurrentimplementationRootSequentialInfoItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootSequentialInfo2"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sequentialInfo2" upperBound="-1"
+        eType="#//TestcurrentimplementationRootSequentialInfo2Items" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootGrandParents"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="grandParents" upperBound="-1"
+        eType="#//TestcurrentimplementationRootGrandParentsItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootGrandParentsItemsName"
+      eSuperTypes="#//TestcurrentimplementationRootGrandParentsItemsPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootGrandParentsItemsSurname"
+      eSuperTypes="#//TestcurrentimplementationRootGrandParentsItemsPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="surname" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootMyFamily"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="myFamily" lowerBound="1"
+        eType="#//Family" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootWives"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wives" upperBound="-1"
+        eType="#//TestcurrentimplementationRootWivesPropertiesAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootExtraFamilies"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extraFamilies" upperBound="-1"
+        eType="#//TestcurrentimplementationRootExtraFamiliesItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootOtherInfo"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="otherInfo" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootPatternProperties0"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternProperties0" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootPatternProperties1"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternProperties1" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootPatternProperties3"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patternProperties3" lowerBound="1"
+        eType="#//Family" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootPatternProperties2"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="patternProperties2" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FamilyAdditionalProperties" eSuperTypes="#//FamilyPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" upperBound="-1"
+        eType="#//FamilyAdditionalPropertiesPropertiesAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootWivesAdditionalProperties"
+      eSuperTypes="#//TestcurrentimplementationRootWivesPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="#//Family" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootAdditionalProperties"
+      eSuperTypes="#//TestcurrentimplementationRootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalProperties" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FamilyAdditionalPropertiesAdditionalProperties"
+      eSuperTypes="#//FamilyAdditionalPropertiesPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootChildrenNamesItems">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootGrandParentsItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//TestcurrentimplementationRootGrandParentsItemsPropertiesAbstract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootExtraFamiliesItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="#//Family"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootSequentialInfoItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonSchema"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootSequentialInfo2Items">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonSchema"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootCarAdditionalProperties"
+      eSuperTypes="#//TestcurrentimplementationRootCarPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootGrandParentsItemsAdditionalProperties"
+      eSuperTypes="#//TestcurrentimplementationRootGrandParentsItemsPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FamilyAdditionalPropertiesPropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootPropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootJobPropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootCarPropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootGrandParentsItemsPropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FamilyPropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TestcurrentimplementationRootWivesPropertiesAbstract"
+      abstract="true"/>
+</ecore:EPackage>
