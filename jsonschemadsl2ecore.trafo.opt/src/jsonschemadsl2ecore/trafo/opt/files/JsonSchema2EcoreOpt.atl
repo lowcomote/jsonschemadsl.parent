@@ -25,15 +25,11 @@ rule JsonSchemaToEPackage {
 		jsonSchema : JSchemaMM!JsonSchema
 	to 
 		ePackage : Ecore!EPackage (
---			name <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
 			name <- thisModule.packageName,
---			nsPrefix <- jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
 			nsPrefix <- thisModule.packageName,
---			nsURI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment()
 			nsURI <- thisModule.nsURI
 		),
 		jsonGrammar : JsonGrammarMM!JsonGrammar (
---			nsURI <- 'http://jku.bise.at/' + jsonSchema.eResource().getURI().trimFileExtension().lastSegment(),
 			nsURI <- thisModule.nsURI,
 			detailedGrammar <- detailedGrammar
 		), 
@@ -58,7 +54,12 @@ abstract rule mapSchemaToEClass{
 	}
 	to 
 		eClass : Ecore!EClass (
-			name<- eClassName->debug('eClassName')
+			name<- eClassName->debug('eClassName'),
+			eStructuralFeatures <- eClass.eStructuralFeatures 
+				-> union (	if schema.isInAdditionalProperties()  or schema.isKeySchemaPairInPatternProperties()
+							then Sequence{thisModule.createKeyEAttribute('key')}
+							else Sequence{}
+							endif)
 		)
 	do{
 		if(schema.isKeySchemaPairInProperties() or schema.isKeySchemaPairInPatternProperties() ){
@@ -67,7 +68,12 @@ abstract rule mapSchemaToEClass{
 		}else if(schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)){ ----- schema is in AdditionalProperties
 --			eClass.eStructuralFeatures <-  Sequence{thisModule.createKeyEAttribute('key')};
 --			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createKeyEAttribute('key')});
-			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> debug('mapSchemaToEClass eClass.eStructuralFeatures BEFORE') -> union(Sequence{thisModule.createKeyEAttribute('key')})-> debug('mapSchemaToEClass eClass.eStructuralFeatures AFTER');
+			eClass.debug('mapSchemaToEClass:eClass');
+			eClass.eStructuralFeatures.debug('mapSchemaToEClass eClass.eStructuralFeatures BEFORE');
+			
+--			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createKeyEAttribute('key')})-> debug('mapSchemaToEClass eClass.eStructuralFeatures UNION');
+			
+			eClass.eStructuralFeatures.debug('mapSchemaToEClass eClass.eStructuralFeatures AFTER');
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName() )};
 		}
 	}	
@@ -77,8 +83,17 @@ rule mapBooleanSchemaToEClass extends mapSchemaToEClass{
 	from schema: JSchemaMM!BooleanSchema(not schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) and schema.value=true)
 	to 
 		eClass : Ecore!EClass (
-			eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey())})
+--			eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey())})
 		)
+	do{ --- we have to assign eStructuralFeatures in the imperative block, because the union wouldn't work, if a part if different features are added from the two targets of the abstract and concrete rule
+		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey())});
+	}
+		
+--	do{ ---- We have to duplicate this code in both mapBooleanSchemaToEClass and mapObjectSchemaToEClass because otherwise the eClass.eStructuralFeatures are not added
+--		if(schema.isInAdditionalProperties()->debug('schema.isInAdditionalProperties()') or schema.isKeySchemaPairInPatternProperties()) { 
+--			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> debug('mapBooleanSchemaToEClass eClass.eStructuralFeatures BEFORE') -> union(Sequence{thisModule.createKeyEAttribute('key')})-> debug('mapBooleanSchemaToEClass eClass.eStructuralFeatures AFTER');
+--		}
+--	}
 }
 			
 rule mapObjectSchemaToEClass extends mapSchemaToEClass{
@@ -87,7 +102,8 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 		eClass : Ecore!EClass
 	do{
 		if(not schema.ref.oclIsUndefined()){ --- "$ref" is present
-			eClass.eStructuralFeatures <- Sequence{schema.ref};
+--			eClass.eStructuralFeatures <- Sequence{schema.ref};
+			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.ref});
 			
 		}else if (not schema.enum.oclIsUndefined()){ --- "enum" is present
 			----- TODO implement
@@ -102,6 +118,7 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 				
 			}
 		}
+		
 	}
 }
 ---- schema objectSchema having the "type" keyword
@@ -109,12 +126,15 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 ---- simpleType:JSchemaMM!SimpleTypes, ----- the simple type we are mapping to the eStructuralFeature
 rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass : Ecore!EClass, simpleType:JSchemaMM!SimpleTypes)  {
 	do{
+		
 		if (simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\""){ 
+			eClass.debug('mapSimpleTypeToEStructuralFeatures:eClass');
 --			eClass.eStructuralFeatures  <- Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(schema.type.anyOf.type))};
-			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures->debug('mapSimpleTypeToEStructuralFeatures eClass.eStructuralFeatures BEFORE').union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(schema.type.anyOf.type))})->debug('mapSimpleTypeToEStructuralFeatures eClass.eStructuralFeatures AFTER');
+			eClass.eStructuralFeatures->debug('mapSimpleTypeToEStructuralFeatures eClass.eStructuralFeatures BEFORE');
+			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(schema.type.anyOf.type))})->debug('mapSimpleTypeToEStructuralFeatures eClass.eStructuralFeatures AFTER');
 		}else if(simpleType = #"\"object\"" ){   
 --			eClass.eStructuralFeatures <-Sequence{thisModule.createPropertiesContainment(schema.getKey(), eClass.name.concat('Properties'))};
-			eClass.eStructuralFeatures <-Sequence{thisModule.createPropertiesContainment(schema.getKey(), eClass.name.concat('Properties'))};
+			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), eClass.name.concat('Properties'))});
 			if(schema.additionalProperties.oclIsUndefined()){ ------ the keyword "additionalProperties" is missing
 				thisModule.createDefaultAdditionalPropertiesEClass(eClass.name);
 			}
@@ -130,6 +150,11 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 		}else if(simpleType = #"\"null\""){ ------- "type" is present and "type": "null"
 			----- TODO implement
 		}
+		
+--		---- We have to duplicate this code in both mapBooleanSchemaToEClass and mapObjectSchemaToEClass because otherwise the eClass.eStructuralFeatures are not added
+--		if(schema.isInAdditionalProperties() or schema.isKeySchemaPairInPatternProperties()) { 
+--			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> debug('mapSimpleTypeToEStructuralFeatures eClass.eStructuralFeatures BEFORE') -> union(Sequence{thisModule.createKeyEAttribute('key')})-> debug('mapSimpleTypeToEStructuralFeatures eClass.eStructuralFeatures AFTER');
+--		}
 	}
 }
 
@@ -268,8 +293,6 @@ lazy rule  createContainmentToJsonDocument{
 ---------------------------------------------------------------------
 ---------------------------------------------------------------------
 -----------------------------------------------------------------------
-
-
 
 ---- TODO manage jsonPointerSchema.hasArrayOfTypes
 rule mapRefSchemaToEReference{

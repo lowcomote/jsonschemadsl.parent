@@ -302,6 +302,10 @@ helper context JSchemaMM!TypeSchemaDefinition def: findSimpleType() :String=
 
 --- NEW 
 
+--------TODO move next to isKeySchemaPairInPatternProperties
+helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition);
+--------TODO move nexto to buildClassName
 helper context JSchemaMM!Schema def: buildPropertiesAbstractClassName(): String=
 	self.buildEClassname().concat('Properties'); 
 
