@@ -3,18 +3,18 @@
   <detailedGrammar>
     <keywords xsi:type="ecore:EAttribute" href="test7.ecore#//FamilyAdditionalPropertiesMembername/membername"/>
     <keywords xsi:type="ecore:EAttribute" href="test7.ecore#//FamilyAdditionalPropertiesRelativekind/relativekind"/>
+    <curlyBracesReferences href="test7.ecore#//Test7Root/test7Root"/>
     <curlyBracesReferences href="test7.ecore#//Family/family"/>
     <curlyBracesReferences href="test7.ecore#//FamilyAdditionalProperties/additionalProperties"/>
-    <curlyBracesReferences href="test7.ecore#//Test7Root/test7Root"/>
     <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
     <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
-    <keyValue href="test7.ecore#//Test7RootPatternProperties0/key"/>
-    <keyValue href="test7.ecore#//Test7RootPatternProperties1/key"/>
-    <keyValue href="test7.ecore#//Test7RootPatternProperties3/key"/>
+    <keyValue href="test7.ecore#//FamilyAdditionalPropertiesAdditionalProperties/key"/>
     <keyValue href="test7.ecore#//Test7RootPatternProperties2/key"/>
     <keyValue href="test7.ecore#//FamilyAdditionalProperties/key"/>
     <keyValue href="test7.ecore#//Test7RootAdditionalProperties/key"/>
-    <keyValue href="test7.ecore#//FamilyAdditionalPropertiesAdditionalProperties/key"/>
+    <keyValue href="test7.ecore#//Test7RootPatternProperties0/key"/>
+    <keyValue href="test7.ecore#//Test7RootPatternProperties1/key"/>
+    <keyValue href="test7.ecore#//Test7RootPatternProperties3/key"/>
     <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
   </detailedGrammar>
 </jsongrammar:JsonGrammar>
