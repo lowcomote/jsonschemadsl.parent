@@ -1,51 +1,53 @@
 <?xml version="1.0" encoding="ASCII"?>
-<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/testcurrentimplementation">
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test8">
   <detailedGrammar>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//FamilyAdditionalPropertiesMembername/membername"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//FamilyAdditionalPropertiesRelativekind/relativekind"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootName/name"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootSurname/surname"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootAge/age"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootAdult/adult"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootScore/score"/>
-    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootJob/job"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootJobRole/role"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootJobLevel/level"/>
-    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootCar/car"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootCarLicencePlate/licencePlate"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootCarYear/year"/>
-    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootChildrenNames/childrenNames"/>
-    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootSequentialInfo/sequentialInfo"/>
-    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootSequentialInfo2/sequentialInfo2"/>
-    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootGrandParents/grandParents"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootGrandParentsItemsName/name"/>
-    <keywords xsi:type="ecore:EAttribute" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootGrandParentsItemsSurname/surname"/>
-    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootMyFamily/myFamily"/>
-    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootWives/wives"/>
-    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootExtraFamilies/extraFamilies"/>
-    <keywords xsi:type="ecore:EReference" href="testcurrentimplementation.ecore#//TestcurrentimplementationRootOtherInfo/otherInfo"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//Family/family"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//FamilyAdditionalProperties/additionalProperties"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRoot/testcurrentimplementationRoot"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootJob/job"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootWives/wives"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootCar/car"/>
-    <curlyBracesReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootGrandParentsItems/items"/>
+    <keywords xsi:type="ecore:EReference" href="test8.ecore#//Test8RootOtherInfo/otherInfo"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//FamilyAdditionalPropertiesMembername/membername"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//FamilyAdditionalPropertiesRelativekind/relativekind"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//Test8RootName/name"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//Test8RootSurname/surname"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//Test8RootAge/age"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//Test8RootAdult/adult"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//Test8RootScore/score"/>
+    <keywords xsi:type="ecore:EReference" href="test8.ecore#//Test8RootJob/job"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//Test8RootJobRole/role"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//Test8RootJobLevel/level"/>
+    <keywords xsi:type="ecore:EReference" href="test8.ecore#//Test8RootCar/car"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//Test8RootCarLicencePlate/licencePlate"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//Test8RootCarYear/year"/>
+    <keywords xsi:type="ecore:EReference" href="test8.ecore#//Test8RootSequentialInfo/sequentialInfo"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//Test8RootGrandParentsItemsName/name"/>
+    <keywords xsi:type="ecore:EAttribute" href="test8.ecore#//Test8RootGrandParentsItemsSurname/surname"/>
+    <keywords xsi:type="ecore:EReference" href="test8.ecore#//Test8RootWives/wives"/>
+    <keywords xsi:type="ecore:EReference" href="test8.ecore#//Test8RootChildrenNames/childrenNames"/>
+    <keywords xsi:type="ecore:EReference" href="test8.ecore#//Test8RootSequentialInfo2/sequentialInfo2"/>
+    <keywords xsi:type="ecore:EReference" href="test8.ecore#//Test8RootGrandParents/grandParents"/>
+    <keywords xsi:type="ecore:EReference" href="test8.ecore#//Test8RootExtraFamilies/extraFamilies"/>
+    <keywords xsi:type="ecore:EReference" href="test8.ecore#//Test8RootMyFamily/myFamily"/>
+    <curlyBracesReferences href="test8.ecore#//Test8Root/test8Root"/>
+    <curlyBracesReferences href="test8.ecore#//Family/family"/>
+    <curlyBracesReferences href="test8.ecore#//FamilyAdditionalProperties/additionalProperties"/>
+    <curlyBracesReferences href="test8.ecore#//Test8RootJob/job"/>
+    <curlyBracesReferences href="test8.ecore#//Test8RootCar/car"/>
+    <curlyBracesReferences href="test8.ecore#//Test8RootGrandParentsItems/items"/>
+    <curlyBracesReferences href="test8.ecore#//Test8RootWives/wives"/>
     <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
-    <bracketsReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootChildrenNames/childrenNames"/>
-    <bracketsReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootGrandParents/grandParents"/>
-    <bracketsReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootExtraFamilies/extraFamilies"/>
-    <bracketsReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootSequentialInfo/sequentialInfo"/>
-    <bracketsReferences href="testcurrentimplementation.ecore#//TestcurrentimplementationRootSequentialInfo2/sequentialInfo2"/>
+    <bracketsReferences href="test8.ecore#//Test8RootSequentialInfo/sequentialInfo"/>
+    <bracketsReferences href="test8.ecore#//Test8RootChildrenNames/childrenNames"/>
+    <bracketsReferences href="test8.ecore#//Test8RootSequentialInfo2/sequentialInfo2"/>
+    <bracketsReferences href="test8.ecore#//Test8RootGrandParents/grandParents"/>
+    <bracketsReferences href="test8.ecore#//Test8RootExtraFamilies/extraFamilies"/>
     <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
-    <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootPatternProperties0/key"/>
-    <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootPatternProperties1/key"/>
-    <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootPatternProperties3/key"/>
-    <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootPatternProperties2/key"/>
-    <keyValue href="testcurrentimplementation.ecore#//FamilyAdditionalProperties/key"/>
-    <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootWivesAdditionalProperties/key"/>
-    <keyValue href="testcurrentimplementation.ecore#//TestcurrentimplementationRootAdditionalProperties/key"/>
-    <keyValue href="testcurrentimplementation.ecore#//FamilyAdditionalPropertiesAdditionalProperties/key"/>
+    <keyValue href="test8.ecore#//FamilyAdditionalPropertiesAdditionalProperties/key"/>
+    <keyValue href="test8.ecore#//Test8RootPatternProperties2/key"/>
+    <keyValue href="test8.ecore#//FamilyAdditionalProperties/key"/>
+    <keyValue href="test8.ecore#//Test8RootWivesAdditionalProperties/key"/>
+    <keyValue href="test8.ecore#//Test8RootAdditionalProperties/key"/>
+    <keyValue href="test8.ecore#//Test8RootPatternProperties0/key"/>
+    <keyValue href="test8.ecore#//Test8RootPatternProperties1/key"/>
+    <keyValue href="test8.ecore#//Test8RootPatternProperties3/key"/>
+    <keyValue href="test8.ecore#//Test8RootCarAdditionalProperties/key"/>
+    <keyValue href="test8.ecore#//Test8RootGrandParentsItemsAdditionalProperties/key"/>
     <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
   </detailedGrammar>
 </jsongrammar:JsonGrammar>
