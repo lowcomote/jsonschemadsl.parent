@@ -8,6 +8,7 @@
     <curlyBracesReferences href="test3.ecore#//Test3RootCar/car"/>
     <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
     <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="test3.ecore#//Test3RootCarAdditionalProperties/key"/>
     <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
   </detailedGrammar>
 </jsongrammar:JsonGrammar>

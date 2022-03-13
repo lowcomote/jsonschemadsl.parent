@@ -16,11 +16,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Test3RootCarYear" eSuperTypes="#//Test3RootCarPropertiesAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test3RootPropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test3RootCarPropertiesAbstract" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Test3RootCarAdditionalProperties" eSuperTypes="#//Test3RootCarPropertiesAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
-        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+        eType="ecore:EClass /jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//JsonDocument"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Test3RootPropertiesAbstract" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Test3RootCarPropertiesAbstract" abstract="true"/>
 </ecore:EPackage>
