@@ -4,13 +4,13 @@
     <keywords xsi:type="ecore:EAttribute" href="test1.ecore#//FamilyAdditionalPropertiesMembername/membername"/>
     <keywords xsi:type="ecore:EAttribute" href="test1.ecore#//FamilyAdditionalPropertiesRelativekind/relativekind"/>
     <keywords xsi:type="ecore:EReference" href="test1.ecore#//Test1RootMyFamily/myFamily"/>
+    <curlyBracesReferences href="test1.ecore#//Test1Root/test1Root"/>
     <curlyBracesReferences href="test1.ecore#//Family/family"/>
     <curlyBracesReferences href="test1.ecore#//FamilyAdditionalProperties/additionalProperties"/>
-    <curlyBracesReferences href="test1.ecore#//Test1Root/test1Root"/>
     <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
     <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
-    <keyValue href="test1.ecore#//FamilyAdditionalProperties/key"/>
     <keyValue href="test1.ecore#//FamilyAdditionalPropertiesAdditionalProperties/key"/>
+    <keyValue href="test1.ecore#//FamilyAdditionalProperties/key"/>
     <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
   </detailedGrammar>
 </jsongrammar:JsonGrammar>
