@@ -16,9 +16,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="childrenNames" upperBound="-1"
         eType="#//Test4RootChildrenNamesItems" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test4RootChildrenNamesItems">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Test4RootGrandParents" eSuperTypes="#//Test4RootPropertiesAbstract">
     <eStructuralFeatures xsi:type="ecore:EReference" name="grandParents" upperBound="-1"
         eType="#//Test4RootGrandParentsItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test4RootGrandParentsItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Test4RootGrandParentsItemsPropertiesAbstract" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Test4RootGrandParentsItemsName" eSuperTypes="#//Test4RootGrandParentsItemsPropertiesAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -32,20 +39,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalProperties" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Test4RootChildrenNamesItems">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Test4RootGrandParentsItems">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//Test4RootGrandParentsItemsPropertiesAbstract" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test4RootPropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test4RootGrandParentsItemsPropertiesAbstract"
+      abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Test4RootGrandParentsItemsAdditionalProperties"
       eSuperTypes="#//Test4RootGrandParentsItemsPropertiesAbstract">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
-        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+        eType="ecore:EClass /jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//JsonDocument"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Test4RootPropertiesAbstract" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Test4RootGrandParentsItemsPropertiesAbstract"
-      abstract="true"/>
 </ecore:EPackage>
