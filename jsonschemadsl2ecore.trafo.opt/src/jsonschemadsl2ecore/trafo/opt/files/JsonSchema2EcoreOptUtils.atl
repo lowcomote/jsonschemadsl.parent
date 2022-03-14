@@ -72,6 +72,16 @@ helper def : scalarTypeMapping : Map(String, Ecore!EDataType) =
 		(#"\"boolean\"", Ecore!EBoolean)
 	};
 
+helper def : typeToStringMapping : Map(String, String) =
+	Map{
+		(#"\"string\"", 'string'),
+		(#"\"integer\"", 'integer'),
+		(#"\"number\"",'number'),
+		(#"\"boolean\"", 'boolean'),
+		(#"\"object\"", 'object'),
+		(#"\"array\"", 'array'),
+		(#"\"null\"", 'null')
+	};
 
 helper def: getRootName() : String = 
 	thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension().lastSegment();

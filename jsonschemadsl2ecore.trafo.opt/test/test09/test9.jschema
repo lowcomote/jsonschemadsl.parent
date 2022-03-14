@@ -1,0 +1,17 @@
+{
+	
+	"type":"object",
+	"properties":{
+		
+		"job":{
+			"type":["object","string"],
+			"properties":{
+				"role":{"type": "string"},
+				"level":{"type": "integer"}
+			},
+			"additionalProperties":false
+		}
+	},
+	"additionalProperties":false
+ 
+}
