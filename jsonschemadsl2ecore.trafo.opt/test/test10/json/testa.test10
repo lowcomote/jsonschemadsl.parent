@@ -1,0 +1,10 @@
+{
+	"name":"alessandro",
+	"surname": "colantoni",
+	"childrenNames":["al","1"],
+	"grandParents": [{"name":"alessandro"},{"pippo":1,"pippetto":{"gimno":1}},{"surname":"colantoni"}],
+	"prop1":"alessandro",
+	"prop2":{
+		"age":49
+	}
+}

@@ -93,7 +93,7 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 		}else if(schema.hasSimpleType()){
 			thisModule.mapSimpleTypeToEStructuralFeatures(schema, eClass , schema.type.anyOf.type, eClass.name); 
 		}else if(schema.hasArrayOfTypes){ ----"type" is present and  is and array of "types" : "type":[...]
-			----- TODO implement
+			----- TODO implement in progress
 			--------------------------
 			eClass.abstract<- true;
 			for (sympleType in schema.type.anyOf.items){ 
@@ -120,12 +120,14 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), schema.buildPropertiesAbstractClassName(), schema.isKeySchemaPairInProperties())});
 			if(schema.additionalProperties.oclIsUndefined()){ ------ the keyword "additionalProperties" is missing
 --				thisModule.createDefaultAdditionalPropertiesEClass(eClass.name);
-				thisModule.createDefaultAdditionalPropertiesEClass(eClassName);
+--				thisModule.createDefaultAdditionalPropertiesEClass(eClassName);
+				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname());
 			}
 		}else if (simpleType = #"\"array\""){  
 			if(schema.items.oclIsUndefined()) {---the keyword "items" is missing
 --				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(eClass.name, schema.getKey())});
-				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(eClassName, schema.getKey())});
+--				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(eClassName, schema.getKey())});
+				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey())});
 			}else if(schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){ ---- the keyword "items" is present and is not a tuple
 				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.items.anyOf});
 			}else{ ---- the keyword "items" is present and is a tuple 
@@ -229,7 +231,7 @@ lazy rule createEClassForMissingItems{
 ----- simpleType: current simpleType in the array of types which we are creating the EClass for
 rule createEClassForTypeInArrayOfTypes(objectSchema : JSchemaMM!ObjectSchema, enclosingEClass : Ecore!EClass , simpleType:JSchemaMM!SimpleTypes){
 	using {
-		eClassName:String = enclosingEClass.name.concat('Type').concat(thisModule.typeToStringMapping.get(simpleType).toCamelCase())->debug('enclosingEClass.name.concat(thisModule.typeToStringMapping.get(simpleType).toCamelCase())');
+		eClassName:String = enclosingEClass.name.concat('Type').concat(thisModule.typeToStringMapping.get(simpleType).toCamelCase());
 	}
 	to 
 		eClass : Ecore!EClass (

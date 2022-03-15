@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test10">
+  <detailedGrammar>
+    <keywords xsi:type="ecore:EAttribute" href="test10.ecore#//Test10RootName/name"/>
+    <keywords xsi:type="ecore:EAttribute" href="test10.ecore#//Test10RootSurname/surname"/>
+    <keywords xsi:type="ecore:EAttribute" href="test10.ecore#//Test10RootChildrenNamesTypeString/childrenNames"/>
+    <keywords xsi:type="ecore:EAttribute" href="test10.ecore#//Test10RootGrandParentsTypeString/grandParents"/>
+    <keywords xsi:type="ecore:EAttribute" href="test10.ecore#//Test10RootGrandParentsItemsName/name"/>
+    <keywords xsi:type="ecore:EAttribute" href="test10.ecore#//Test10RootGrandParentsItemsSurname/surname"/>
+    <keywords xsi:type="ecore:EReference" href="test10.ecore#//Test10RootChildrenNamesTypeArray/childrenNames"/>
+    <keywords xsi:type="ecore:EReference" href="test10.ecore#//Test10RootGrandParentsTypeArray/grandParents"/>
+    <curlyBracesReferences href="test10.ecore#//Test10Root/test10Root"/>
+    <curlyBracesReferences href="test10.ecore#//Test10RootGrandParentsItems/items"/>
+    <curlyBracesReferences href="test10.ecore#//Test10RootAdditionalPropertiesTypeObject/additionalProperties"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <bracketsReferences href="test10.ecore#//Test10RootChildrenNamesTypeArray/childrenNames"/>
+    <bracketsReferences href="test10.ecore#//Test10RootGrandParentsTypeArray/grandParents"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="test10.ecore#//Test10RootAdditionalProperties/key"/>
+    <keyValue href="test10.ecore#//Test10RootGrandParentsItemsAdditionalProperties/key"/>
+    <keyValue href="test10.ecore#//Test10RootAdditionalPropertiesAdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>
