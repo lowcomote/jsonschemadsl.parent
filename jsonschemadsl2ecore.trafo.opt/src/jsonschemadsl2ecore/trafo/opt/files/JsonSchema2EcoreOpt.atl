@@ -93,8 +93,6 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 		}else if(schema.hasSimpleType()){
 			thisModule.mapSimpleTypeToEStructuralFeatures(schema, eClass , schema.type.anyOf.type, eClass.name); 
 		}else if(schema.hasArrayOfTypes){ ----"type" is present and  is and array of "types" : "type":[...]
-			----- TODO implement in progress
-			--------------------------
 			eClass.abstract<- true;
 			for (sympleType in schema.type.anyOf.items){ 
 				thisModule.createEClassForTypeInArrayOfTypes(schema, eClass , sympleType);
@@ -349,14 +347,24 @@ unique lazy rule createAbstractEClass{
 -------------------- OCL Generation --------------------------------
 
 lazy rule minimumConstraintToOcl {
-	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition
+	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition(minimumSchemaDefinition.refImmediateComposite().hasTypeNumeric())
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
 	}
 	do {
---		thisModule.appendMinimumConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Minimum', minimumSchemaDefinition.minimum);
-		thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
-	}
+--		thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
+			thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+		}else{ 
+			if(enclosingSchema.hasTypeInteger()){ 
+				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeInteger'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+			}
+			if(enclosingSchema.hasTypeNumber()){ 
+				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeNumber'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+			}
+		}
+		
+	}	
 }
 
 

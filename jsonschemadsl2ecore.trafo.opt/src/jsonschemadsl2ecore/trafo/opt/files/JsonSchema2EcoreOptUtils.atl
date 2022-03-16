@@ -376,6 +376,29 @@ helper context JSchemaMM!ObjectSchema def: hasArrayOfTypes: Boolean=
 
 helper def: isScalar(simpleType:String) : Boolean =
 	simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\"";
+
+---- missing type or "type":"integer" or "type":[...,"integer",...]
+helper context JSchemaMM!ObjectSchema def: hasTypeInteger(): Boolean=
+	if self.type.oclIsUndefined() ---- it has all types
+	then true
+	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"integer\""
+		else self.type.anyOf.items.includes(#"\"integer\"")
+		endif
+	endif;
+
+---- missing type or "type":"number" or "type":[...,"number",...]
+helper context JSchemaMM!ObjectSchema def: hasTypeNumber(): Boolean=
+	if self.type.oclIsUndefined() ---- it has all types
+	then true
+	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"number\""
+		else self.type.anyOf.items.includes(#"\"number\"")
+		endif
+	endif;
+
+helper context JSchemaMM!ObjectSchema def: hasTypeNumeric(): Boolean=
+	self.hasTypeInteger() or  self.hasTypeNumber();
 ------------
 
 
