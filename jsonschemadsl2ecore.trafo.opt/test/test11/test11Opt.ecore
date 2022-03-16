@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test11" nsURI="http://jku.bise.at/test11" nsPrefix="test11">
+  <eClassifiers xsi:type="ecore:EClass" name="Test11Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test11Root" upperBound="-1"
+        eType="#//Test11RootPropertiesAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test11RootProp1" abstract="true" eSuperTypes="#//Test11RootPropertiesAbstract"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test11RootProp1Items" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test11RootPropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test11RootAdditionalProperties" eSuperTypes="#//Test11RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass ../../jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test11RootProp1TypeArray" eSuperTypes="#//Test11RootProp1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" upperBound="-1"
+        eType="#//Test11RootProp1Items" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test11RootProp1TypeString" eSuperTypes="#//Test11RootProp1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test11RootProp1ItemsTypeInteger" eSuperTypes="#//Test11RootProp1Items">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test11RootProp1ItemsTypeString" eSuperTypes="#//Test11RootProp1Items">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test11RootProp1ItemsTypeObject" eSuperTypes="#//Test11RootProp1Items">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Test11RootProp1ItemsPropertiesAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test11RootProp1ItemsPropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test11RootProp1ItemsAdditionalProperties"
+      eSuperTypes="#//Test11RootProp1ItemsPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass ../../jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

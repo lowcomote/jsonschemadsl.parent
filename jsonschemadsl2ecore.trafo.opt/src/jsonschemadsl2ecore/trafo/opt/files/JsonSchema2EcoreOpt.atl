@@ -114,7 +114,7 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 --			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(schema.type.anyOf.type), schema.isKeySchemaPairInProperties())});
 			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(simpleType), schema.isKeySchemaPairInProperties())});
 		}else if(simpleType = #"\"object\"" ){
-			eClass.name->debug('mapSimpleTypeToEStructuralFeatures: eClass.name');
+--			eClass.name->debug('mapSimpleTypeToEStructuralFeatures: eClass.name');
 --			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), eClass.name.concat('Properties'), schema.isKeySchemaPairInProperties())});
 --			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), eClassName.concat('Properties'), schema.isKeySchemaPairInProperties())});
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), schema.buildPropertiesAbstractClassName(), schema.isKeySchemaPairInProperties())});
@@ -241,7 +241,7 @@ rule createEClassForTypeInArrayOfTypes(objectSchema : JSchemaMM!ObjectSchema, en
 --			 eStructuralFeatures  <- Sequence{thisModule.mapSimpleTypeToEStructuralFeatures(objectSchema, enclosingEClass , simpleType ->debug('createEClassForTypeInArrayOfTypes:sympleType') )}
 		)
 	do{
-		eClass.name->debug('createEClassForTypeInArrayOfTypes::eClass.name');
+--		eClass.name->debug('createEClassForTypeInArrayOfTypes::eClass.name');
 		thisModule.mapSimpleTypeToEStructuralFeatures(objectSchema, eClass , simpleType, eClassName);
 --		thisModule.mapSimpleTypeToEStructuralFeatures(objectSchema, enclosingEClass , simpleType);
 --		eClass.eSuperTypes  <- Sequence{thisModule.createAbstractTypeEClass(enclosingEClass.name, not objectSchema.isRootOrDefinitionOrSchemaObjectAdditionalProperties())};
