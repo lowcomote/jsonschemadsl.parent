@@ -1,0 +1,15 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test13
+import 'http://jku.bise.at/test13'
+
+package test13
+
+	context test13::Test13RootPatternProperties0 
+
+	inv Test13RootPatternProperties0patternProperties0Regex ('the key must match the regular expression ^S_'):
+	if  key.matches('^S_')
+	then true
+	else null
+	endif
+
+endpackage
+

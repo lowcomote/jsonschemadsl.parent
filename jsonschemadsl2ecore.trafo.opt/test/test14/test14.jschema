@@ -1,0 +1,10 @@
+{    
+	"type":"object",
+	
+	"additionalProperties":false,
+	"patternProperties":{
+		"^S_": { "type": ["string","array","object"] },
+    	"^P_": { "type": "string" }
+	}
+ 
+}

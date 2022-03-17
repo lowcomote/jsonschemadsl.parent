@@ -63,6 +63,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="not" ordered="false" unique="false"
         eType="#//NotSchemaDefinition" changeable="false" volatile="true" transient="true"
         derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" ordered="false" unique="false"
+        eType="#//RefSchemaDefinition" changeable="false" volatile="true" transient="true"
+        derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" unique="false"
+        eType="#//TypeSchemaDefinition" changeable="false" volatile="true" transient="true"
+        derived="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enum" ordered="false" unique="false"
+        eType="#//EnumSchemaDefinition" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemaObjectAdditionalProperties"
         ordered="false" unique="false" upperBound="-1" eType="#//SchemaObjectAdditionalProperties"
         changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
@@ -187,9 +196,7 @@
         eType="#//KeyValuePair" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeSchemaDefinition" eSuperTypes="#//KeywordDefinition">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeAnyOf1" eType="#//SimpleTypes"
-        defaultValueLiteral="&quot;array&quot;"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="typesAnyOf2" eType="#//TypesAnyOf2"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf" lowerBound="1" eType="#//TypeAnyOf"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AdditionalPropertiesSchemaDefinition"
@@ -349,7 +356,7 @@
         eType="#//Value" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="TypesAnyOf2">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeAnyOf2" eSuperTypes="#//TypeAnyOf">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" upperBound="-1"
         eType="#//SimpleTypes"/>
   </eClassifiers>
@@ -406,4 +413,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf2" lowerBound="1"
         eType="#//SchemaArray" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeAnyOf1" eSuperTypes="#//TypeAnyOf">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//SimpleTypes"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeAnyOf" abstract="true"/>
 </ecore:EPackage>

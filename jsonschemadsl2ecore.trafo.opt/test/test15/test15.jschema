@@ -1,0 +1,10 @@
+{
+	"type":"object",
+	"properties":{   
+		"prop1":{"type":["integer","string"]},
+		"prop2":{"type":"boolean"},
+		"prop3":{"type":"integer"}
+	},     
+	"additionalProperties":false,
+	"required":["prop1","prop3"] 
+}  

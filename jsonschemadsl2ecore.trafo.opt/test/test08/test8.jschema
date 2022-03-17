@@ -1,0 +1,83 @@
+{
+	"definitions":{
+		"family":{
+			"type":"object",
+			"additionalProperties":{
+				"type":"object",
+				"properties":{
+					"membername":{"type": "string"},
+					"relativekind":{"type": "string"}
+				},
+				"additionalProperties":true
+			}
+		}
+	},
+	"type":"object",
+	"properties":{
+		"name":{"type": "string"},
+		"surname":{"type": "string"},
+		"age":{"type": "integer"},
+		"adult":{"type": "boolean"},
+		"score":{"type": "number"},
+		"job":{
+			"type":"object",
+			"properties":{
+				"role":{"type": "string"},
+				"level":{"type": "integer"}
+			},
+			"additionalProperties":false,
+			"pippo": {"type": "integer"}
+		},
+		"car":{
+			"type":"object",
+			"properties":{
+				"licencePlate":{"type": "string"},
+				"year":{"type": "integer"}
+			}
+		},
+		"otherInfo":true,
+		"childrenNames":{
+			"type":"array",
+			"items":{"type": "string"}
+		},
+		"sequentialInfo":{
+			"type":"array"
+		},
+		"sequentialInfo2":{
+			"type":"array",
+			"items":true
+		},
+		"grandParents":{
+			"type":"array",
+			"items":{
+				"type":"object",
+				"properties":{
+					"name":{"type": "string"},
+					"surname":{"type": "string"}
+				}
+			}
+		},
+		"myFamily":{
+			"$ref":"#/definitions/family"
+		},
+		"wives":{
+			"type":"object",
+			"additionalProperties":{"$ref":"#/definitions/family"}
+		},
+		"extraFamilies":{
+			"type":"array",
+			"items":{"$ref":"#/definitions/family"}
+		}
+		
+		
+		
+	},
+	"additionalProperties":{"type": "integer"},
+	"patternProperties":{
+		"^S_": { "type": "string" },
+    	"^I_": { "type": "integer" },
+    	"^P_": true,
+    	"^H_":{	"$ref":"#/definitions/family" }
+	}
+ 
+}

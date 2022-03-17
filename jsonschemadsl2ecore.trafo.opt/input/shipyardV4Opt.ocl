@@ -1,4 +1,4 @@
--- OCL contraints for /Users/Alessandro.colantoni/eclipse-lowcomote-jsonschema-workspace/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/shipyardV4
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/shipyardV4
 import 'http://jku.bise.at/shipyardV4'
 
 package shipyardV4
@@ -54,14 +54,14 @@ package shipyardV4
 	context shipyardV4::Shipyard 
 
 	inv ShipyardRequiredspec ('Shipyard requires the property spec'):
-	if  self.Shipyard->select(p|p.oclType()=shipyardV4::ShipyardSpec1)->size()>0
+	if  self.Shipyard->select(p|p.oclType()=shipyardV4::ShipyardSpec)->size()>0
 	then true
 	else null
 	endif
 
-	context shipyardV4::ShipyardSpec 
+	context shipyardV4::ShipyardSpec1 
 
-	inv ShipyardSpecRequiredstages ('ShipyardSpec requires the property stages'):
+	inv ShipyardSpec1Requiredstages ('ShipyardSpec1 requires the property stages'):
 	if  self.ShipyardSpec->select(p|p.oclType()=shipyardV4::ShipyardSpecStages)->size()>0
 	then true
 	else null

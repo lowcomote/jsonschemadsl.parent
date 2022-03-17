@@ -64,7 +64,7 @@ helper def: jsonGrammarRoot(): JsonGrammarMM!JsonGrammar = if (thisModule.jsonGr
 --	};
 	
 	
-helper def : simpleTypeMapping : Map(String, Ecore!EDataType) =
+helper def : scalarTypeMapping : Map(String, Ecore!EDataType) =
 	Map{
 		(#"\"string\"", Ecore!EString),
 		(#"\"integer\"", Ecore!EInt),
@@ -72,6 +72,16 @@ helper def : simpleTypeMapping : Map(String, Ecore!EDataType) =
 		(#"\"boolean\"", Ecore!EBoolean)
 	};
 
+helper def : typeToStringMapping : Map(String, String) =
+	Map{
+		(#"\"string\"", 'string'),
+		(#"\"integer\"", 'integer'),
+		(#"\"number\"",'number'),
+		(#"\"boolean\"", 'boolean'),
+		(#"\"object\"", 'object'),
+		(#"\"array\"", 'array'),
+		(#"\"null\"", 'null')
+	};
 
 helper def: getRootName() : String = 
 	thisModule.retrieveRootSchema().eResource().getURI().trimFileExtension().lastSegment();
@@ -82,7 +92,6 @@ helper def: retrieveRootSchema() : JSchemaMM!Schema=
 ---------- NEWW
 --- This is similar to the inv UnsolvableReference in fullvalidation.ocl
 helper context JSchemaMM!RefSchemaDefinition def: findSchemaByJsonPointer() : JSchemaMM!Schema=
---	if false =  self.isAbsoluteReference() then
 	if true =  self.isOnlyFragment() then
 		let jsonPointer : Sequence(String) = self.getJsonPointerAsList() in
 		if  jsonPointer.oclIsUndefined() then OclUndefined
@@ -254,8 +263,8 @@ else
 	if parent.oclIsTypeOf(JSchemaMM!KeySchemaPair) then
 		if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!DefinitionsSchemaDefinition) then OclUndefined -- other roots
 		else
-			-- parent.refImmediateComposite() is PropertiesSchemaDefinition or PatternPropertiesSchemaDefinition
-			-- we return the enclosing schema of the PropertiesSchemaDefinition
+			--- parent.refImmediateComposite() is PropertiesSchemaDefinition or PatternPropertiesSchemaDefinition
+			--- we return the enclosing schema of the PropertiesSchemaDefinition
 			parent.refImmediateComposite().refImmediateComposite()
 		endif
 	else
@@ -289,20 +298,121 @@ if not parentNode.oclIsUndefined() then parentNode.buildEClassname().concat(loca
 else localName
 endif; 
 
--- TODO refactor when type is refactored with the new anyOf
+--- TODO verify the refactor with the new anyOf
 helper context JSchemaMM!TypeSchemaDefinition def: findSimpleType() :String=
-	if not self.typeAnyOf1.oclIsUndefined()
-	then self.typeAnyOf1
+	if not self.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1)
+	then self.anyOf.type
 	else OclUndefined
 	endif;
-	
+--	if not self.typeAnyOf1.oclIsUndefined()
+--	then self.typeAnyOf1
+--	else OclUndefined
+--	endif;
+
+
+--- NEW 
+
+--------TODO move next to isKeySchemaPairInPatternProperties
+helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition);
+--------TODO move nexto to buildClassName
+helper context JSchemaMM!Schema def: buildPropertiesAbstractClassName(): String=
+	self.buildEClassname().concat('Properties'); 
+
+----"type" is present and it is a simple type (not an array of types)
+helper context JSchemaMM!ObjectSchema def: hasSimpleType(): Boolean=
+	if not self.type.oclIsUndefined()
+	then  self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+	else false
+	endif;
+
+----"type" is present and ( "type": "integer" or "type": "number" or "type": "boolean" or "type": "string")
+helper context JSchemaMM!ObjectSchema def: hasSimpleTypeScalar(): Boolean=
+	if not self.type.oclIsUndefined()
+	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"string\"" or self.type.anyOf.type = #"\"integer\"" or self.type.anyOf.type = #"\"number\"" or self.type.anyOf.type= #"\"boolean\""
+		else false
+		endif
+	else false
+	endif;
+
+----"type" is present and  "type": "object"  
+helper context JSchemaMM!ObjectSchema def: hasSimpleTypeObject(): Boolean=
+	if not self.type.oclIsUndefined()
+	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"object\"" 
+		else false
+		endif
+	else false
+	endif;
+
+----"type" is present and  "type": "array"  
+helper context JSchemaMM!ObjectSchema def: hasSimpleTypeArray(): Boolean=
+	if not self.type.oclIsUndefined()
+	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"array\"" 
+		else false
+		endif
+	else false
+	endif;
+
+
+----"type" is present and  "type": "null"  
+helper context JSchemaMM!ObjectSchema def: hasSimpleTypeNull(): Boolean=
+	if not self.type.oclIsUndefined()
+	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"null\"" 
+		else false
+		endif
+	else false
+	endif;
+
+----"type" is present and  is and array of types : "type":[...]
+helper context JSchemaMM!ObjectSchema def: hasArrayOfTypes: Boolean=
+	if not self.type.oclIsUndefined()
+	then self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf2) 
+	else false
+	endif;
+
+helper def: isScalar(simpleType:String) : Boolean =
+	simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\"";
+
+---- missing type or "type":"integer" or "type":[...,"integer",...]
+helper context JSchemaMM!ObjectSchema def: hasTypeInteger(): Boolean=
+	if self.type.oclIsUndefined() ---- it has all types
+	then true
+	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"integer\""
+		else self.type.anyOf.items.includes(#"\"integer\"")
+		endif
+	endif;
+
+---- missing type or "type":"number" or "type":[...,"number",...]
+helper context JSchemaMM!ObjectSchema def: hasTypeNumber(): Boolean=
+	if self.type.oclIsUndefined() ---- it has all types
+	then true
+	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"number\""
+		else self.type.anyOf.items.includes(#"\"number\"")
+		endif
+	endif;
+
+helper context JSchemaMM!ObjectSchema def: hasTypeNumeric(): Boolean=
+	self.hasTypeInteger() or  self.hasTypeNumber();
+------------
+
+
+
+
+ 
+
 
 helper context JSchemaMM!TypeSchemaDefinition def: getEDataType() : Ecore!EDataType=
 	let simpleType : String = self.findSimpleType()
 	in
 		if simpleType.oclIsUndefined()
 		then OclUndefined
-		else thisModule.simpleTypeMapping.get(simpleType)
+		else thisModule.scalarTypeMapping.get(simpleType)
 		endif;
 
 
