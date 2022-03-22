@@ -15,7 +15,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtend.lib.macro,
  jsonmetaschemaMM;bundle-version="1.0.4",
  at.jku.bise.ecore.json.grammar;bundle-version="1.0.1"
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: jsonschemadsl2ecore.trafo.opt
 Bundle-ActivationPolicy: lazy
 Export-Package: jsonschemadsl2ecore.trafo.opt.utils

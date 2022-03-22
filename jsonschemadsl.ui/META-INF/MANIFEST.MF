@@ -18,7 +18,7 @@ Require-Bundle: jsonschemadsl;bundle-version="1.0.4",
  org.eclipse.compare,
  org.eclipse.xtext.builder
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: at.jku.bise.ui.contentassist,
  jsonschemadsl.ui.internal,
  at.jku.bise.ui.quickfix
