@@ -109,23 +109,16 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 	do{
 		
 		if (simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\""){ 
---			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(schema.type.anyOf.type), schema.isKeySchemaPairInProperties())});
 			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(simpleType), schema.isKeySchemaPairInProperties())});
 		}else if(simpleType = #"\"object\"" ){
---			eClass.name->debug('mapSimpleTypeToEStructuralFeatures: eClass.name');
---			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), eClass.name.concat('Properties'), schema.isKeySchemaPairInProperties())});
---			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), eClassName.concat('Properties'), schema.isKeySchemaPairInProperties())});
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), schema.buildPropertiesAbstractClassName(), schema.isKeySchemaPairInProperties())});
 			if(schema.additionalProperties.oclIsUndefined()){ ------ the keyword "additionalProperties" is missing
---				thisModule.createDefaultAdditionalPropertiesEClass(eClass.name);
---				thisModule.createDefaultAdditionalPropertiesEClass(eClassName);
 				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname());
 			}
 		}else if (simpleType = #"\"array\""){  
 			if(schema.items.oclIsUndefined()) {---the keyword "items" is missing
---				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(eClass.name, schema.getKey())});
---				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(eClassName, schema.getKey())});
-				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey())});
+--				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey())});
+				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey(), schema.isKeySchemaPairInProperties())});
 			}else if(schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){ ---- the keyword "items" is present and is not a tuple
 				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.items.anyOf});
 			}else{ ---- the keyword "items" is present and is a tuple 
@@ -168,7 +161,7 @@ lazy rule createPropertiesContainment{
 	do {
 		thisModule.curlyBracesEReferences <- thisModule.curlyBracesEReferences->union(Sequence{eReference}); 
 		if(addToKeywords){ 
-			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference}) ;
+			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference->debug('createPropertiesContainment')}) ;
 		}
 		eReference;
 	}	
@@ -195,13 +188,13 @@ rule mapItemsAnyOf1ToContainment{
 			upperBound <- -1
 		)
 	do{
-		thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
+		thisModule.keywords <- thisModule.keywords->union(Sequence{eReference->debug('mapItemsAnyOf1ToContainment eReference:')});
 		thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
 	}
 }
 
 lazy rule createEClassForMissingItems{
-	from enclosingEClassName:String, referenceName:String
+	from enclosingEClassName:String, referenceName:String, addToKeywords:Boolean
 	to 
 		eClass:  Ecore!EClass (
 			name <- enclosingEClassName.concat('Items'),
@@ -215,7 +208,9 @@ lazy rule createEClassForMissingItems{
 			upperBound <- -1
 		)
 	do{
-		thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
+		if(addToKeywords){
+			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference->debug('createEClassForMissingItems  :::   '.concat(referenceName))});
+		}
 		thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
 		eReference;
 	}
@@ -278,7 +273,7 @@ lazy rule  createContainmentToJsonDocument{
 		)
 	do{ 
 		if(addToKeywords){ 
-			thisModule.keywords <- thisModule.keywords->union(Sequence{containment});
+			thisModule.keywords <- thisModule.keywords->union(Sequence{containment->debug('createContainmentToJsonDocument containment:::')});
 		}
 		containment;
 	}
