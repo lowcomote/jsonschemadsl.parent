@@ -20,7 +20,7 @@ Require-Bundle: org.eclipse.xtext,
  jsonschemadsl2ecore.trafo;bundle-version="1.0.4",
  jsonmetaschemaMM;bundle-version="1.0.4",
  jsonschemadsl2ecore.trafo.opt;bundle-version="1.0.4"
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: at.jku.bise,
  at.jku.bise.scoping,
  at.jku.bise.generator,
