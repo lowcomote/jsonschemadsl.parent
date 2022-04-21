@@ -67,6 +67,10 @@ abstract rule mapSchemaToEClass{
 		}else if(schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)){ ----- schema is in AdditionalProperties
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName() )};
 		}
+		if(schema.isRoot()){
+			thisModule.jsonGrammarRoot().detailedGrammar.rootEClass <- schema;
+		}	
+		--thisModule.jsonGrammarRoot().detailedGrammar.keywords <- thisModule.keywords;	
 	}	
 } 
 

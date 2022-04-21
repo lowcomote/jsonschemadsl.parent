@@ -162,6 +162,10 @@ helper  def: popFirst(jsonPointer:Sequence(String)): Sequence(String)=
 helper context JSchemaMM!KeySchemaPair  def : isEnclosedInDefinitions() : Boolean = 
 self.refImmediateComposite().oclIsTypeOf(JSchemaMM!DefinitionsSchemaDefinition);
 
+
+helper context JSchemaMM!Schema  def : isRoot() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) ;
+
 helper context JSchemaMM!Schema  def : isRootOrDefinitionOrSchemaObjectAdditionalProperties() : Boolean =
 	let parent : OclAny = self.refImmediateComposite() in
 	if parent.oclIsTypeOf(JSchemaMM!JsonSchema) or parent.oclIsTypeOf(JSchemaMM!SchemaObjectAdditionalProperties) then true
