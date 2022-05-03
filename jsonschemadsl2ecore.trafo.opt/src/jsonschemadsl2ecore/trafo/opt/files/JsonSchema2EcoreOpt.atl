@@ -90,9 +90,18 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 		if(not schema.ref.oclIsUndefined()){ --- "$ref" is present
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.ref});
 		}else if (not schema.enum.oclIsUndefined()){ --- "enum" is present
+			
 			----- TODO implement
+			
 		}else if (schema.type.oclIsUndefined()){  ---- "type" is missing
-			----- TODO implement
+			eClass.abstract<- true;
+			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"string\"");
+			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"integer\"");
+			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"number\"");
+			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"boolean\"");
+			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"object\"");
+			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"array\"");
+			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"null\"");
 		}else if(schema.hasSimpleType()){
 			thisModule.mapSimpleTypeToEStructuralFeatures(schema, eClass , schema.type.anyOf.type, eClass.name); 
 		}else if(schema.hasArrayOfTypes){ ----"type" is present and  is and array of "types" : "type":[...]
@@ -125,10 +134,11 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 			}else if(schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){ ---- the keyword "items" is present and is not a tuple
 				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.items.anyOf});
 			}else{ ---- the keyword "items" is present and is a tuple 
+				
 				-----TODO Implement
+				
 			}
 		}else if(simpleType = #"\"null\""){ ------- "type" is present and "type": "null"
-			----- TODO implement
 			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapNullTypeToEReference(schema.getKey(), schema.isKeySchemaPairInProperties())});
 		}
 	}
