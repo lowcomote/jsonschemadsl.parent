@@ -40,7 +40,6 @@ rule JsonSchemaToEPackage {
 	}
 }
 
------------------------NEW--------------------------
 
 --rule mapRootBooleanSchemaTrueToJsonDocument{
 --	from booleanSchema: JSchemaMM!BooleanSchema(booleanSchema.refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) and booleanSchema.value=true)
@@ -130,7 +129,26 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 			}
 		}else if(simpleType = #"\"null\""){ ------- "type" is present and "type": "null"
 			----- TODO implement
+			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapNullTypeToEReference(schema.getKey(), schema.isKeySchemaPairInProperties())});
 		}
+	}
+}
+----------- NEW
+lazy rule mapNullTypeToEReference{
+	from name : String, addToKeywords:Boolean
+	to 
+		eAttribute : Ecore!EReference (
+			name<-name,
+			containment <- true,
+			lowerBound <- 1,
+			upperBound <- 1,
+			eType <- JSchemaMM!NullValue
+		)
+	do{ 
+		if(addToKeywords){ 
+			thisModule.keywords <- thisModule.keywords->union(Sequence{eAttribute}) ;
+		}
+		eAttribute;
 	}
 }
 
