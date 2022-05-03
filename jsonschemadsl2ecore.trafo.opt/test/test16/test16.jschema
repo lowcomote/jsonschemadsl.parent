@@ -1,0 +1,7 @@
+{ 
+	"type":"object",
+	"additionalProperties":false,
+	"properties":{
+		"prop1":{"type":"null"}
+	}
+} 
