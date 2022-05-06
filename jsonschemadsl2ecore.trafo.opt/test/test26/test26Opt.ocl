@@ -1,0 +1,15 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test26
+import 'http://jku.bise.at/test26'
+
+package test26
+
+	context test26::Test26RootTypeInteger
+
+	inv Test26RootMinimum('The value of Test26RootTypeInteger must be greater or equal than 1.0'):
+	if test26Root >= 1.0
+	then true
+	else null
+	endif
+
+endpackage
+

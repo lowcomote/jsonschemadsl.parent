@@ -71,7 +71,7 @@ KeywordDefinition returns KeywordDefinition:
 ;
 
 Value returns Value:
-	IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
+	=>IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
 //	BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
 //	IntegerValue | BooleanValue
 ;
@@ -98,7 +98,8 @@ BooleanSchema returns BooleanSchema:
 //	;
 
 MaximumSchemaDefinition returns MaximumSchemaDefinition:
-	'"maximum"' ':' maximum=EDOUBLE
+//	'"maximum"' ':' maximum=EDOUBLE
+	'"maximum"' ':' maximum=EDouble
 ;
 //	'MaximumSchemaDefinition'
 //	'{'
@@ -290,7 +291,8 @@ MaxPropertiesSchemaDefinition returns MaxPropertiesSchemaDefinition:
 //	'}';
 
 MinimumSchemaDefinition returns MinimumSchemaDefinition:
-	'"minimum"' ':' minimum=EDOUBLE
+//	'"minimum"' ':' minimum=EDOUBLE
+	'"minimum"' ':' minimum=EDouble
 ;
 //	'MinimumSchemaDefinition'
 //	'{'
@@ -568,12 +570,9 @@ ContentEncodingSchemaDefinition returns ContentEncodingSchemaDefinition:
 //	'}';
 
 MultipleOfSchemaDefinition returns MultipleOfSchemaDefinition:
-	'"multipleOf"' ':' multipleOf=EDOUBLE
+//	'"multipleOf"' ':' multipleOf=EDOUBLE
+	'"multipleOf"' ':' multipleOf=EDouble
 ;
-//	'MultipleOfSchemaDefinition'
-//	'{'
-//		'multipleOf' multipleOf=EDouble
-//	'}';
 
 /**
  * TODO validate "format": "regex"
@@ -607,7 +606,8 @@ NotSchemaDefinition returns NotSchemaDefinition:
 //	'}';
 
 ExclusiveMaximumSchemaDefinition returns ExclusiveMaximumSchemaDefinition:
-	'"exclusiveMaximum"' ':' exclusiveMaximum=EDOUBLE
+//	'"exclusiveMaximum"' ':' exclusiveMaximum=EDOUBLE
+	'"exclusiveMaximum"' ':' exclusiveMaximum=EDouble
 ;
 //	'ExclusiveMaximumSchemaDefinition'
 //	'{'
@@ -651,12 +651,9 @@ ContentMediaTypeSchemaDefinition returns ContentMediaTypeSchemaDefinition:
 //	'}';
 
 ExclusiveMinimumSchemaDefinition returns ExclusiveMinimumSchemaDefinition:
-	'"exclusiveMinimum"' ':' exclusiveMinimum=EDOUBLE
+//	'"exclusiveMinimum"' ':' exclusiveMinimum=EDOUBLE
+	'"exclusiveMinimum"' ':' exclusiveMinimum=EDouble
 ;
-//	'ExclusiveMinimumSchemaDefinition'
-//	'{'
-//		'exclusiveMinimum' exclusiveMinimum=EDouble
-//	'}';
 
 
 /**
@@ -726,7 +723,8 @@ Value_Impl returns Value:
 	;
  */
 IntegerValue returns IntegerValue:
-	value=EINT
+//	value=EINT
+	value=EInt
 ;
 //	'IntegerValue'
 //	'{'
@@ -765,7 +763,8 @@ ObjectValue returns ObjectValue:
 
 
 NumberValue returns NumberValue:
-	value=EDOUBLE
+//	value=EDOUBLE
+	value=EDouble
 ;
 //	'NumberValue'
 //	'{'
@@ -802,7 +801,8 @@ SchemaArray returns SchemaArray:
 	}
  */
 NonNegativeIntegerDefault0 returns NonNegativeIntegerDefault0:
-	value=EINT
+//	value=EINT
+	value=EInt
 ;
 //	'NonNegativeIntegerDefault0'
 //	'{'
@@ -831,7 +831,8 @@ KeySchemaPair returns KeySchemaPair:
 	}
  */
 NonNegativeInteger returns NonNegativeInteger:
-	value=EINT
+//	value=EINT
+	value=EInt
 ;
 
 
@@ -874,21 +875,20 @@ StringArray returns StringArray:
 
 
 
-/**
- * Not auto generated. Manually introduced
- */
-//terminal JSON_NUMBER returns ecore::EFloat:
-//	'-'? ('0'|'1'..'9' ('0'..'9')*) ('.' ('0'..'9')+)? (('E'|'e')('+'|'-')('0'..'9')+)?
-//;
-//EDouble returns ecore::EDouble:
-//	JSON_NUMBER
-//;
 
-terminal EINT returns ecore::EInt:
+EDouble returns ecore::EDouble:
+	E_INT | E_DOUBLE
+;
+
+EInt returns ecore::EInt:
+	E_INT 
+;
+
+terminal E_INT :
 	'-'? INT;
 
 
-terminal EDOUBLE returns ecore::EDouble:
+terminal E_DOUBLE :
 	'-'? INT ('.' INT+)? (('E'|'e') ('+'|'-')? INT)?
 
 ;

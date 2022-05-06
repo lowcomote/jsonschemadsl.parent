@@ -1,0 +1,16 @@
+{
+	"type":["integer","string", "array","object"],
+	"minimum":1,
+	"maximum":5,
+	"maxLength":3,
+	"minItems":4,
+	"minLength":4,
+	"maxItems":5,
+	"multipleOf":4,
+	"minProperties":4,
+	"maxProperties":77,
+	"exclusiveMaximum":4,
+	"exclusiveMinimum": -1
+	
+	
+}
