@@ -195,7 +195,7 @@ lazy rule createPropertiesContainment{
 	do {
 		thisModule.curlyBracesEReferences <- thisModule.curlyBracesEReferences->union(Sequence{eReference}); 
 		if(addToKeywords){ 
-			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference->debug('createPropertiesContainment')}) ;
+			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference}) ;
 		}
 		eReference;
 	}	
@@ -215,14 +215,14 @@ rule mapItemsAnyOf1ToContainment{
 	from itemsAnyOf1:JSchemaMM!ItemsAnyOf1
 	to 
 		eReference :Ecore!EReference ( 
-			name <- itemsAnyOf1.refImmediateComposite().refImmediateComposite().getKey()->debug('mapItemsAnyOf1ToContainment:getKey'),
+			name <- itemsAnyOf1.refImmediateComposite().refImmediateComposite().getKey(),
 			eType <- itemsAnyOf1.anyOf1,
 			containment <- true,
 			lowerBound <- 0,
 			upperBound <- -1
 		)
 	do{
-		thisModule.keywords <- thisModule.keywords->union(Sequence{eReference->debug('mapItemsAnyOf1ToContainment eReference:')});
+		thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
 		thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
 	}
 }
@@ -243,7 +243,7 @@ lazy rule createEClassForMissingItems{
 		)
 	do{
 		if(addToKeywords){
-			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference->debug('createEClassForMissingItems  :::   '.concat(referenceName))});
+			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
 		}
 		thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
 		eReference;
@@ -318,7 +318,7 @@ lazy rule  createContainmentToJsonDocument{
 		)
 	do{ 
 		if(addToKeywords){ 
-			thisModule.keywords <- thisModule.keywords->union(Sequence{containment->debug('createContainmentToJsonDocument containment:::')});
+			thisModule.keywords <- thisModule.keywords->union(Sequence{containment});
 		}
 		containment;
 	}
