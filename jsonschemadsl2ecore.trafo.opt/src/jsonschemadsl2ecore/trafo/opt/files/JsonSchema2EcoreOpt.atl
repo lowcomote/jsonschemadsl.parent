@@ -73,7 +73,8 @@ abstract rule mapSchemaToEClass{
 } 
 
 rule mapBooleanSchemaToEClass extends mapSchemaToEClass{
-	from schema: JSchemaMM!BooleanSchema(not schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) and schema.value=true)
+--	from schema: JSchemaMM!BooleanSchema(not schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) and schema.value=true)
+	from schema: JSchemaMM!BooleanSchema( schema.value=true)
 	to 
 		eClass : Ecore!EClass
 	do{ --- we have to assign eStructuralFeatures in the imperative block, because the union wouldn't work, if a part if different features are added from the two targets of the abstract and concrete rule
