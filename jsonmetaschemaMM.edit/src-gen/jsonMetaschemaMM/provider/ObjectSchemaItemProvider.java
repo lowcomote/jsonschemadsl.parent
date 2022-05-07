@@ -51,14 +51,12 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 			addItemsPropertyDescriptor(object);
 			addAdditionalPropertiesPropertyDescriptor(object);
 			addContainsPropertyDescriptor(object);
-			addPropertiesPropertyDescriptor(object);
 			addDefinitionsPropertyDescriptor(object);
 			addPatternPropertiesPropertyDescriptor(object);
 			addDependenciesPropertyDescriptor(object);
 			addPropertyNamesPropertyDescriptor(object);
 			addIfPropertyDescriptor(object);
 			addThenPropertyDescriptor(object);
-			addElsePropertyDescriptor(object);
 			addAllOfPropertyDescriptor(object);
 			addAnyOfPropertyDescriptor(object);
 			addOneOfPropertyDescriptor(object);
@@ -151,28 +149,6 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 				 getString("_UI_ObjectSchema_contains_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_contains_feature", "_UI_ObjectSchema_type"),
 				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__CONTAINS,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Properties feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addPropertiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ObjectSchema_properties_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_properties_feature", "_UI_ObjectSchema_type"),
-				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__PROPERTIES,
 				 false,
 				 false,
 				 false,
@@ -305,28 +281,6 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 				 getString("_UI_ObjectSchema_then_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_then_feature", "_UI_ObjectSchema_type"),
 				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__THEN,
-				 false,
-				 false,
-				 false,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Else feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addElsePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ObjectSchema_else_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_else_feature", "_UI_ObjectSchema_type"),
-				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__ELSE,
 				 false,
 				 false,
 				 false,

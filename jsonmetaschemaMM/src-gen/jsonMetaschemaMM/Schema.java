@@ -21,6 +21,7 @@ public interface Schema extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model unique="false" required="true" ordered="false" jsonPointerUnique="false" jsonPointerMany="true" currentIndexUnique="false" currentIndexRequired="true" currentIndexOrdered="false"
+	 *        annotation="http://www.eclipse.org/emf/2002/GenModel"
 	 * @generated
 	 */
 	Schema findSchemaByJsonPointer(EList<String> jsonPointer, int currentIndex);

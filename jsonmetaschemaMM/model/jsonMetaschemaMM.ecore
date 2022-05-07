@@ -5,10 +5,16 @@
   <eClassifiers xsi:type="ecore:EClass" name="ObjectSchema" eSuperTypes="#//Schema">
     <eOperations name="findSchemaByKey" ordered="false" unique="false" lowerBound="1"
         eType="#//Schema">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return getSchemaObjectAdditionalProperties().stream().filter(s -> key.equals(s.getKey())).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);"/>
+      </eAnnotations>
       <eParameters name="key" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eOperations name="findSchemaByJsonPointer" ordered="false" unique="false" lowerBound="1"
         eType="#//Schema">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="Schema schema = null;&#xA;if(currentIndex==jsonPointer.size()) {&#xA;&#x9;schema=this;&#xA;}else if(0 &lt;= currentIndex &amp;&amp; currentIndex &lt; jsonPointer.size()) {&#xA;&#x9;String currentToken = jsonPointer.get(currentIndex);&#xA;&#x9;Integer nextIndex= currentIndex +1;&#xA;&#x9;Schema nextSchema = null;&#xA;&#x9;if(&quot;additionalItems&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getAdditionalItems().getAdditionalItems();&#xA;&#x9;}else if (&quot;items&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;if(getItems().getAnyOf() instanceof jsonMetaschemaMM.ItemsAnyOf1) {&#xA;&#x9;&#x9;&#x9;nextSchema= ((jsonMetaschemaMM.ItemsAnyOf1)getItems().getAnyOf()).getAnyOf1();&#xA;&#x9;&#x9;}else { // getItems().getAnyOf() instanceof jsonMetaschemaMM.ItemsAnyOf2&#xA;&#x9;&#x9;&#x9;nextSchema = ((jsonMetaschemaMM.ItemsAnyOf2)getItems().getAnyOf()).getAnyOf2().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}&#xA;&#x9;}else if (&quot;additionalProperties&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getAdditionalProperties().getAdditionalProperties();&#xA;&#x9;}else if (&quot;contains&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getContains().getContains();&#xA;&#x9;}else if (&quot;definitions&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;nextSchema = getDefinitions().findSchemaByKey(&quot;\&quot;&quot;+jsonPointer.get(nextIndex)+&quot;\&quot;&quot;);&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}&#xA;&#x9;}else if (&quot;properties&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;nextSchema = getProperties().findSchemaByKey(&quot;\&quot;&quot;+jsonPointer.get(nextIndex)+&quot;\&quot;&quot;);&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}&#xA;&#x9;}else if (&quot;patternProperties&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;nextSchema = getPatternProperties().findSchemaByKey(&quot;\&quot;&quot;+jsonPointer.get(nextIndex)+&quot;\&quot;&quot;);&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}&#xA;&#x9;}else if (&quot;dependencies&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;if(nextIndex &lt;jsonPointer.size()) {&#xA;&#x9;&#x9;&#x9;nextSchema = getDependencies().findSchemaByKey(&quot;\&quot;&quot;+jsonPointer.get(nextIndex)+&quot;\&quot;&quot;);&#xA;&#x9;&#x9;&#x9;nextIndex++;&#xA;&#x9;&#x9;}&#xA;&#x9;}else if (&quot;propertyNames&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getPropertyNames().getPropertyNames();&#xA;&#x9;}else if (&quot;if&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getIf().getIf();&#xA;&#x9;}else if (&quot;then&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getThen().getThen();&#xA;&#x9;}else if (&quot;else&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getElse().getElse();&#xA;&#x9;}else if (&quot;allOf&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getAllOf().getAllOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));&#xA;&#x9;&#x9;nextIndex++;&#xA;&#x9;}else if (&quot;anyOf&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getAnyOf().getAnyOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));&#xA;&#x9;&#x9;nextIndex++;&#xA;&#x9;}else if (&quot;oneOf&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getOneOf().getOneOf().findSchemaByIndex(Integer.parseInt(jsonPointer.get(nextIndex)));&#xA;&#x9;&#x9;nextIndex++;&#xA;&#x9;}else if (&quot;not&quot;.equals(currentToken)) {&#xA;&#x9;&#x9;nextSchema = getNot().getNot();&#xA;&#x9;}else {&#xA;&#x9;&#x9;nextSchema = findSchemaByKey(currentToken);&#xA;&#x9;}&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;if(nextSchema!=null) {&#xA;&#x9;&#x9;schema = nextSchema.findSchemaByJsonPointer(jsonPointer, nextIndex);&#xA;&#x9;}&#xA;}&#xA;return schema;"/>
+      </eAnnotations>
       <eParameters name="jsonPointer" unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="currentIndex" ordered="false" unique="false" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -17,64 +23,243 @@
         eType="#//KeywordDefinition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" ordered="false"
         unique="false" eType="#//AdditionalItemsSchemaDefinition" changeable="false"
-        volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return (AdditionalItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AdditionalItemsSchemaDefinition).findFirst().orElse(null);"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" ordered="false"
         unique="false" eType="#//ItemsSchemaDefinition" changeable="false" volatile="true"
-        transient="true" derived="true" resolveProxies="false"/>
+        transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return (ItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ItemsSchemaDefinition).findFirst().orElse(null);"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" ordered="false"
         unique="false" eType="#//AdditionalPropertiesSchemaDefinition" changeable="false"
-        volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return (AdditionalPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AdditionalPropertiesSchemaDefinition).findFirst().orElse(null);"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains" ordered="false"
         unique="false" eType="#//ContainsSchemaDefinition" changeable="false" volatile="true"
-        transient="true" derived="true" resolveProxies="false"/>
+        transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return (ContainsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ContainsSchemaDefinition).findFirst().orElse(null);"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" ordered="false"
         unique="false" eType="#//PropertiesSchemaDefinition" changeable="false" volatile="true"
-        transient="true" derived="true" resolveProxies="false"/>
+        transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="None"/>
+        <details key="get" value="return (PropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PropertiesSchemaDefinition).findFirst().orElse(null);"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="definitions" ordered="false"
         unique="false" eType="#//DefinitionsSchemaDefinition" changeable="false" volatile="true"
-        transient="true" derived="true" resolveProxies="false"/>
+        transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return (DefinitionsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof DefinitionsSchemaDefinition).findFirst().orElse(null);"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="patternProperties" ordered="false"
         unique="false" eType="#//PatternPropertiesSchemaDefinition" changeable="false"
-        volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return (PatternPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PatternPropertiesSchemaDefinition).findFirst().orElse(null);"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" ordered="false"
         unique="false" eType="#//DependenciesSchemaDefinition" changeable="false"
-        volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return (DependenciesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof DependenciesSchemaDefinition).findFirst().orElse(null);"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyNames" ordered="false"
         unique="false" eType="#//PropertyNamesSchemaDefinition" changeable="false"
-        volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        volatile="true" transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return (PropertyNamesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PropertyNamesSchemaDefinition).findFirst().orElse(null);"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="if" ordered="false" unique="false"
         eType="#//IfSchemaDefinition" changeable="false" volatile="true" transient="true"
-        derived="true" resolveProxies="false"/>
+        derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return (IfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof IfSchemaDefinition).findFirst().orElse(null);"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="then" ordered="false" unique="false"
         eType="#//ThenSchemaDefinition" changeable="false" volatile="true" transient="true"
-        derived="true" resolveProxies="false"/>
+        derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return (ThenSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ThenSchemaDefinition).findFirst().orElse(null);"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="else" ordered="false" unique="false"
         eType="#//ElseSchemaDefinition" changeable="false" volatile="true" transient="true"
-        derived="true" resolveProxies="false"/>
+        derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="property" value="None"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="get" value="return (ElseSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ElseSchemaDefinition).findFirst().orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="allOf" ordered="false"
         unique="false" eType="#//AllOfSchemaDefinition" changeable="false" volatile="true"
-        transient="true" derived="true" resolveProxies="false"/>
+        transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="get" value="return (AllOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AllOfSchemaDefinition).findFirst().orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf" ordered="false"
         unique="false" eType="#//AnyOfSchemaDefinition" changeable="false" volatile="true"
-        transient="true" derived="true" resolveProxies="false"/>
+        transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="get" value="return (AnyOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AnyOfSchemaDefinition).findFirst().orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="oneOf" ordered="false"
         unique="false" eType="#//OneOfSchemaDefinition" changeable="false" volatile="true"
-        transient="true" derived="true" resolveProxies="false"/>
+        transient="true" derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="get" value="return (OneOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof OneOfSchemaDefinition).findFirst().orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="not" ordered="false" unique="false"
         eType="#//NotSchemaDefinition" changeable="false" volatile="true" transient="true"
-        derived="true" resolveProxies="false"/>
+        derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="get" value="return (NotSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof NotSchemaDefinition).findFirst().orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" ordered="false" unique="false"
         eType="#//RefSchemaDefinition" changeable="false" volatile="true" transient="true"
-        derived="true" resolveProxies="false"/>
+        derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return (RefSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof RefSchemaDefinition).findFirst().orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" ordered="false" unique="false"
         eType="#//TypeSchemaDefinition" changeable="false" volatile="true" transient="true"
-        derived="true" resolveProxies="false"/>
+        derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="get" value="return (TypeSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof TypeSchemaDefinition).findFirst().orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="enum" ordered="false" unique="false"
-        eType="#//EnumSchemaDefinition" volatile="true" transient="true" derived="true"
-        containment="true" resolveProxies="false"/>
+        eType="#//EnumSchemaDefinition" changeable="false" volatile="true" transient="true"
+        derived="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="get" value="return (EnumSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof EnumSchemaDefinition).findFirst().orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schemaObjectAdditionalProperties"
         ordered="false" unique="false" upperBound="-1" eType="#//SchemaObjectAdditionalProperties"
-        changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false"/>
+        changeable="false" volatile="true" transient="true" derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="get" value="return new org.eclipse.emf.common.util.BasicEList&lt;SchemaObjectAdditionalProperties>((Collection&lt;? extends SchemaObjectAdditionalProperties>) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).collect(java.util.stream.Collectors.toList()))  ;"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MaximumSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" lowerBound="1"
@@ -129,6 +314,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="DefinitionsSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eOperations name="findSchemaByKey" ordered="false" unique="false" lowerBound="1"
         eType="#//Schema">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return getKeySchemaPairs().stream().filter(ksp -> key.equals(ksp.getKey())).findFirst().map(KeySchemaPair::getValue).orElse(null);"/>
+      </eAnnotations>
       <eParameters name="key" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="keySchemaPairs" upperBound="-1"
@@ -148,6 +336,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="SchemaArray">
     <eOperations name="findSchemaByIndex" ordered="false" unique="false" lowerBound="1"
         eType="#//Schema">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="Schema schema =null;&#xA;if(0 &lt;= index &amp;&amp; index &lt; getItems().size()) {&#xA;&#x9;schema = getItems().get(index);&#xA;}&#xA;return schema;"/>
+      </eAnnotations>
       <eParameters name="index" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" upperBound="-1"
@@ -186,6 +377,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Schema" abstract="true">
     <eOperations name="findSchemaByJsonPointer" ordered="false" unique="false" lowerBound="1"
         eType="#//Schema">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel"/>
       <eParameters name="jsonPointer" unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="currentIndex" ordered="false" unique="false" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -217,6 +409,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DependenciesSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eOperations name="findSchemaByKey" ordered="false" unique="false" eType="#//Schema">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="Schema schema = null; &#xA;jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties schemaObjectDependenciesAdditionalProperties = (jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties) getProperties().stream().filter(p -> p instanceof jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties &amp;&amp; key.equals(((jsonMetaschemaMM.SchemaObjectDependenciesAdditionalProperties)p).getKey())).findFirst().orElse(null);&#xA;if(schemaObjectDependenciesAdditionalProperties!=null ) {&#xA;&#x9;jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf additionalPropertiesAnyOf= schemaObjectDependenciesAdditionalProperties.getAdditionalProperties();&#xA;&#x9;if(additionalPropertiesAnyOf instanceof jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf1) {&#xA;&#x9;&#x9;schema = ((jsonMetaschemaMM.SchemaObjectDependenciesAdditionalPropertiesAnyOf1)additionalPropertiesAnyOf).getAnyOf1();&#xA;&#x9;}&#xA;}&#xA;return schema;&#xA;"/>
+      </eAnnotations>
       <eParameters name="key" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
@@ -240,6 +435,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="PatternPropertiesSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eOperations name="findSchemaByKey" ordered="false" unique="false" lowerBound="1"
         eType="#//Schema">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return getKeySchemaPairs().stream().filter(ksp -> key.equals(ksp.getKey())).findFirst().map(KeySchemaPair::getValue).orElse(null);"/>
+      </eAnnotations>
       <eParameters name="key" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="keySchemaPairs" upperBound="-1"
@@ -306,17 +504,36 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RefSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eOperations name="isFormatUriReference" ordered="false" unique="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="boolean isUri = true; &#xA;try {&#xA;&#x9;jakarta.ws.rs.core.UriBuilder.fromUri(getRef());&#xA;} catch (Exception e) {&#xA;&#x9;isUri=false;&#xA;}&#xA;return isUri;"/>
+      </eAnnotations>
+    </eOperations>
     <eOperations name="getFragment" ordered="false" unique="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eOperations name="getJsonPointerAsList" unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="try {&#xA;&#x9;return getRef().substring(getRef().indexOf(&quot;#&quot;), getRef().length());&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="getJsonPointerAsList" unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="EList&lt;String> jsonPointerAsList = new org.eclipse.emf.common.util.BasicEList&lt;String>();&#xA;try {&#xA;&#x9;String fragment = getFragment();&#xA;&#x9;if(fragment!=null &amp;&amp; !fragment.isBlank()) {&#xA;&#x9;&#x9;fragment = fragment.substring(1,fragment.length()); // take off &quot;#&quot;&#xA;&#x9;&#x9;if(&quot;/&quot;.equals(fragment.substring(0, 1)) ) {&#xA;&#x9;&#x9;&#x9;fragment = fragment.substring(1,fragment.length());&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;jsonPointerAsList.addAll(java.util.Arrays.asList(fragment.split(&quot;/&quot;)));&#xA;&#x9;}&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}&#xA;return jsonPointerAsList;"/>
+      </eAnnotations>
+    </eOperations>
     <eOperations name="isOnlyFragment" ordered="false" unique="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return getRef().equals(getFragment());"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JsonSchema">
     <eOperations name="findSchemaByJsonPointer" ordered="false" unique="false" lowerBound="1"
         eType="#//Schema">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="try {&#xA;&#x9;return getSchema().findSchemaByJsonPointer(jsonPointer,0);&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}"/>
+      </eAnnotations>
       <eParameters name="jsonPointer" unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="schema" eType="#//Schema"
@@ -342,6 +559,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="PropertiesSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eOperations name="findSchemaByKey" ordered="false" unique="false" lowerBound="1"
         eType="#//Schema">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return getKeySchemaPairs().stream().filter(ksp -> key.equals(ksp.getKey())).findFirst().map(KeySchemaPair::getValue).orElse(null);"/>
+      </eAnnotations>
       <eParameters name="key" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="keySchemaPairs" upperBound="-1"
@@ -363,6 +583,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="BooleanSchema" eSuperTypes="#//Schema">
     <eOperations name="findSchemaByJsonPointer" ordered="false" unique="false" lowerBound="1"
         eType="#//Schema">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if(currentIndex==jsonPointer.size()) {&#xA;&#x9;return this;&#xA;} else {&#xA;&#x9;return null;&#xA;}"/>
+      </eAnnotations>
       <eParameters name="jsonPointer" unique="false" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="currentIndex" ordered="false" unique="false" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
