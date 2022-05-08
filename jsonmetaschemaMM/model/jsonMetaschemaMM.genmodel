@@ -33,7 +33,7 @@
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/contains"
           suppressedGetVisibility="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true"
           suppressedUnsetVisibility="true" get="return (ContainsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ContainsSchemaDefinition).findFirst().orElse(null);"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/properties"
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/properties"
           suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
           get="return (PropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof PropertiesSchemaDefinition).findFirst().orElse(null);"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/definitions"
@@ -54,7 +54,7 @@
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/then"
           suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
           get="return (ThenSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ThenSchemaDefinition).findFirst().orElse(null);"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/else"
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/else"
           suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
           get="return (ElseSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ElseSchemaDefinition).findFirst().orElse(null);"/>
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/allOf"

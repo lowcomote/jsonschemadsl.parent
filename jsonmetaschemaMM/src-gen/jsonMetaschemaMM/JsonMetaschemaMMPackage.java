@@ -115,7 +115,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__KEYWORD_DEFINITION = SCHEMA_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Additional Items</b></em>' containment reference.
+	 * The feature id for the '<em><b>Additional Items</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -124,7 +124,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__ADDITIONAL_ITEMS = SCHEMA_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Items</b></em>' containment reference.
+	 * The feature id for the '<em><b>Items</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -133,7 +133,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__ITEMS = SCHEMA_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Additional Properties</b></em>' containment reference.
+	 * The feature id for the '<em><b>Additional Properties</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -142,7 +142,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__ADDITIONAL_PROPERTIES = SCHEMA_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Contains</b></em>' containment reference.
+	 * The feature id for the '<em><b>Contains</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -151,7 +151,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__CONTAINS = SCHEMA_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Properties</b></em>' containment reference.
+	 * The feature id for the '<em><b>Properties</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -160,7 +160,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__PROPERTIES = SCHEMA_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Definitions</b></em>' containment reference.
+	 * The feature id for the '<em><b>Definitions</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -169,7 +169,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__DEFINITIONS = SCHEMA_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Pattern Properties</b></em>' containment reference.
+	 * The feature id for the '<em><b>Pattern Properties</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -178,7 +178,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__PATTERN_PROPERTIES = SCHEMA_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Dependencies</b></em>' containment reference.
+	 * The feature id for the '<em><b>Dependencies</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -187,7 +187,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__DEPENDENCIES = SCHEMA_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Property Names</b></em>' containment reference.
+	 * The feature id for the '<em><b>Property Names</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -196,7 +196,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__PROPERTY_NAMES = SCHEMA_FEATURE_COUNT + 9;
 
 	/**
-	 * The feature id for the '<em><b>If</b></em>' containment reference.
+	 * The feature id for the '<em><b>If</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -205,7 +205,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__IF = SCHEMA_FEATURE_COUNT + 10;
 
 	/**
-	 * The feature id for the '<em><b>Then</b></em>' containment reference.
+	 * The feature id for the '<em><b>Then</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -214,7 +214,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__THEN = SCHEMA_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Else</b></em>' containment reference.
+	 * The feature id for the '<em><b>Else</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -223,7 +223,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__ELSE = SCHEMA_FEATURE_COUNT + 12;
 
 	/**
-	 * The feature id for the '<em><b>All Of</b></em>' containment reference.
+	 * The feature id for the '<em><b>All Of</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -232,7 +232,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__ALL_OF = SCHEMA_FEATURE_COUNT + 13;
 
 	/**
-	 * The feature id for the '<em><b>Any Of</b></em>' containment reference.
+	 * The feature id for the '<em><b>Any Of</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -241,7 +241,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__ANY_OF = SCHEMA_FEATURE_COUNT + 14;
 
 	/**
-	 * The feature id for the '<em><b>One Of</b></em>' containment reference.
+	 * The feature id for the '<em><b>One Of</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -250,7 +250,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__ONE_OF = SCHEMA_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Not</b></em>' containment reference.
+	 * The feature id for the '<em><b>Not</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -259,7 +259,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__NOT = SCHEMA_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Ref</b></em>' containment reference.
+	 * The feature id for the '<em><b>Ref</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -268,7 +268,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__REF = SCHEMA_FEATURE_COUNT + 17;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * The feature id for the '<em><b>Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -277,7 +277,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__TYPE = SCHEMA_FEATURE_COUNT + 18;
 
 	/**
-	 * The feature id for the '<em><b>Enum</b></em>' containment reference.
+	 * The feature id for the '<em><b>Enum</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3266,10 +3266,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_KeywordDefinition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getAdditionalItems <em>Additional Items</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getAdditionalItems <em>Additional Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Additional Items</em>'.
+	 * @return the meta object for the reference '<em>Additional Items</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getAdditionalItems()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3277,10 +3277,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_AdditionalItems();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getItems <em>Items</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getItems <em>Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Items</em>'.
+	 * @return the meta object for the reference '<em>Items</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getItems()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3288,10 +3288,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Items();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getAdditionalProperties <em>Additional Properties</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getAdditionalProperties <em>Additional Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Additional Properties</em>'.
+	 * @return the meta object for the reference '<em>Additional Properties</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getAdditionalProperties()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3299,10 +3299,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_AdditionalProperties();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getContains <em>Contains</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getContains <em>Contains</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Contains</em>'.
+	 * @return the meta object for the reference '<em>Contains</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getContains()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3310,10 +3310,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Contains();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getProperties <em>Properties</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getProperties <em>Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Properties</em>'.
+	 * @return the meta object for the reference '<em>Properties</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getProperties()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3321,10 +3321,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Properties();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getDefinitions <em>Definitions</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getDefinitions <em>Definitions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Definitions</em>'.
+	 * @return the meta object for the reference '<em>Definitions</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getDefinitions()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3332,10 +3332,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Definitions();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getPatternProperties <em>Pattern Properties</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getPatternProperties <em>Pattern Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Pattern Properties</em>'.
+	 * @return the meta object for the reference '<em>Pattern Properties</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getPatternProperties()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3343,10 +3343,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_PatternProperties();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getDependencies <em>Dependencies</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getDependencies <em>Dependencies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Dependencies</em>'.
+	 * @return the meta object for the reference '<em>Dependencies</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getDependencies()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3354,10 +3354,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Dependencies();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getPropertyNames <em>Property Names</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getPropertyNames <em>Property Names</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Property Names</em>'.
+	 * @return the meta object for the reference '<em>Property Names</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getPropertyNames()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3365,10 +3365,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_PropertyNames();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getIf <em>If</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getIf <em>If</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>If</em>'.
+	 * @return the meta object for the reference '<em>If</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getIf()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3376,10 +3376,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_If();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getThen <em>Then</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getThen <em>Then</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Then</em>'.
+	 * @return the meta object for the reference '<em>Then</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getThen()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3387,10 +3387,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Then();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getElse <em>Else</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getElse <em>Else</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Else</em>'.
+	 * @return the meta object for the reference '<em>Else</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getElse()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3398,10 +3398,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Else();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getAllOf <em>All Of</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getAllOf <em>All Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>All Of</em>'.
+	 * @return the meta object for the reference '<em>All Of</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getAllOf()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3409,10 +3409,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_AllOf();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getAnyOf <em>Any Of</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getAnyOf <em>Any Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Any Of</em>'.
+	 * @return the meta object for the reference '<em>Any Of</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getAnyOf()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3420,10 +3420,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_AnyOf();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getOneOf <em>One Of</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getOneOf <em>One Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>One Of</em>'.
+	 * @return the meta object for the reference '<em>One Of</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getOneOf()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3431,10 +3431,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_OneOf();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getNot <em>Not</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getNot <em>Not</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Not</em>'.
+	 * @return the meta object for the reference '<em>Not</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getNot()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3442,10 +3442,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Not();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getRef <em>Ref</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getRef <em>Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Ref</em>'.
+	 * @return the meta object for the reference '<em>Ref</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getRef()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3453,10 +3453,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Ref();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getType <em>Type</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Type</em>'.
+	 * @return the meta object for the reference '<em>Type</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getType()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -3464,10 +3464,10 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Type();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.ObjectSchema#getEnum <em>Enum</em>}'.
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getEnum <em>Enum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Enum</em>'.
+	 * @return the meta object for the reference '<em>Enum</em>'.
 	 * @see jsonMetaschemaMM.ObjectSchema#getEnum()
 	 * @see #getObjectSchema()
 	 * @generated
@@ -5271,7 +5271,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__KEYWORD_DEFINITION = eINSTANCE.getObjectSchema_KeywordDefinition();
 
 		/**
-		 * The meta object literal for the '<em><b>Additional Items</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Additional Items</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5279,7 +5279,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__ADDITIONAL_ITEMS = eINSTANCE.getObjectSchema_AdditionalItems();
 
 		/**
-		 * The meta object literal for the '<em><b>Items</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Items</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5287,7 +5287,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__ITEMS = eINSTANCE.getObjectSchema_Items();
 
 		/**
-		 * The meta object literal for the '<em><b>Additional Properties</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Additional Properties</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5295,7 +5295,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__ADDITIONAL_PROPERTIES = eINSTANCE.getObjectSchema_AdditionalProperties();
 
 		/**
-		 * The meta object literal for the '<em><b>Contains</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Contains</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5303,7 +5303,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__CONTAINS = eINSTANCE.getObjectSchema_Contains();
 
 		/**
-		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Properties</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5311,7 +5311,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__PROPERTIES = eINSTANCE.getObjectSchema_Properties();
 
 		/**
-		 * The meta object literal for the '<em><b>Definitions</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Definitions</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5319,7 +5319,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__DEFINITIONS = eINSTANCE.getObjectSchema_Definitions();
 
 		/**
-		 * The meta object literal for the '<em><b>Pattern Properties</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Pattern Properties</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5327,7 +5327,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__PATTERN_PROPERTIES = eINSTANCE.getObjectSchema_PatternProperties();
 
 		/**
-		 * The meta object literal for the '<em><b>Dependencies</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Dependencies</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5335,7 +5335,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__DEPENDENCIES = eINSTANCE.getObjectSchema_Dependencies();
 
 		/**
-		 * The meta object literal for the '<em><b>Property Names</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Property Names</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5343,7 +5343,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__PROPERTY_NAMES = eINSTANCE.getObjectSchema_PropertyNames();
 
 		/**
-		 * The meta object literal for the '<em><b>If</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>If</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5351,7 +5351,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__IF = eINSTANCE.getObjectSchema_If();
 
 		/**
-		 * The meta object literal for the '<em><b>Then</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Then</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5359,7 +5359,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__THEN = eINSTANCE.getObjectSchema_Then();
 
 		/**
-		 * The meta object literal for the '<em><b>Else</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Else</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5367,7 +5367,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__ELSE = eINSTANCE.getObjectSchema_Else();
 
 		/**
-		 * The meta object literal for the '<em><b>All Of</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>All Of</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5375,7 +5375,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__ALL_OF = eINSTANCE.getObjectSchema_AllOf();
 
 		/**
-		 * The meta object literal for the '<em><b>Any Of</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Any Of</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5383,7 +5383,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__ANY_OF = eINSTANCE.getObjectSchema_AnyOf();
 
 		/**
-		 * The meta object literal for the '<em><b>One Of</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>One Of</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5391,7 +5391,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__ONE_OF = eINSTANCE.getObjectSchema_OneOf();
 
 		/**
-		 * The meta object literal for the '<em><b>Not</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Not</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5399,7 +5399,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__NOT = eINSTANCE.getObjectSchema_Not();
 
 		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5407,7 +5407,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__REF = eINSTANCE.getObjectSchema_Ref();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5415,7 +5415,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__TYPE = eINSTANCE.getObjectSchema_Type();
 
 		/**
-		 * The meta object literal for the '<em><b>Enum</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Enum</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

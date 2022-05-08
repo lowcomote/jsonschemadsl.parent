@@ -132,37 +132,9 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAdditionalItems(AdditionalItemsSchemaDefinition newAdditionalItems, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Additional Items' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public ItemsSchemaDefinition getItems() {
 		return (ItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ItemsSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetItems(ItemsSchemaDefinition newItems, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Items' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -180,37 +152,9 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAdditionalProperties(AdditionalPropertiesSchemaDefinition newAdditionalProperties, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Additional Properties' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public ContainsSchemaDefinition getContains() {
 		return (ContainsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ContainsSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetContains(ContainsSchemaDefinition newContains, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Contains' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -228,37 +172,9 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProperties(PropertiesSchemaDefinition newProperties, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Properties' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public DefinitionsSchemaDefinition getDefinitions() {
 		return (DefinitionsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof DefinitionsSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDefinitions(DefinitionsSchemaDefinition newDefinitions, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Definitions' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -276,37 +192,9 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPatternProperties(PatternPropertiesSchemaDefinition newPatternProperties, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Pattern Properties' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public DependenciesSchemaDefinition getDependencies() {
 		return (DependenciesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof DependenciesSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetDependencies(DependenciesSchemaDefinition newDependencies, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Dependencies' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -324,37 +212,9 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPropertyNames(PropertyNamesSchemaDefinition newPropertyNames, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Property Names' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public IfSchemaDefinition getIf() {
 		return (IfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof IfSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIf(IfSchemaDefinition newIf, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'If' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -372,37 +232,9 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetThen(ThenSchemaDefinition newThen, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Then' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public ElseSchemaDefinition getElse() {
 		return (ElseSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ElseSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetElse(ElseSchemaDefinition newElse, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Else' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -420,37 +252,9 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetAllOf(AllOfSchemaDefinition newAllOf, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'All Of' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public AnyOfSchemaDefinition getAnyOf() {
 		return (AnyOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof AnyOfSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAnyOf(AnyOfSchemaDefinition newAnyOf, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Any Of' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -468,37 +272,9 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOneOf(OneOfSchemaDefinition newOneOf, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'One Of' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotSchemaDefinition getNot() {
 		return (NotSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof NotSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetNot(NotSchemaDefinition newNot, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Not' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -516,20 +292,6 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRef(RefSchemaDefinition newRef, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Ref' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public TypeSchemaDefinition getType() {
 		return (TypeSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof TypeSchemaDefinition).findFirst().orElse(null);
@@ -540,37 +302,9 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetType(TypeSchemaDefinition newType, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Type' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public EnumSchemaDefinition getEnum() {
 		return (EnumSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof EnumSchemaDefinition).findFirst().orElse(null);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetEnum(EnumSchemaDefinition newEnum, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Enum' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -680,44 +414,6 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__KEYWORD_DEFINITION:
 				return ((InternalEList<?>)getKeywordDefinition()).basicRemove(otherEnd, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ADDITIONAL_ITEMS:
-				return basicSetAdditionalItems(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ITEMS:
-				return basicSetItems(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ADDITIONAL_PROPERTIES:
-				return basicSetAdditionalProperties(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__CONTAINS:
-				return basicSetContains(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PROPERTIES:
-				return basicSetProperties(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__DEFINITIONS:
-				return basicSetDefinitions(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PATTERN_PROPERTIES:
-				return basicSetPatternProperties(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__DEPENDENCIES:
-				return basicSetDependencies(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__PROPERTY_NAMES:
-				return basicSetPropertyNames(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__IF:
-				return basicSetIf(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__THEN:
-				return basicSetThen(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ELSE:
-				return basicSetElse(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ALL_OF:
-				return basicSetAllOf(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ANY_OF:
-				return basicSetAnyOf(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ONE_OF:
-				return basicSetOneOf(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__NOT:
-				return basicSetNot(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__REF:
-				return basicSetRef(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__TYPE:
-				return basicSetType(null, msgs);
-			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ENUM:
-				return basicSetEnum(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
