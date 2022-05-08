@@ -7,7 +7,9 @@ import jsonMM.NullEnum;
 import jsonMM.NullValue;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -33,6 +35,7 @@ public class NullValueImpl extends ValueImpl implements NullValue {
 	 * @ordered
 	 */
 	protected static final NullEnum VALUE_EDEFAULT = NullEnum.NULL;
+
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->

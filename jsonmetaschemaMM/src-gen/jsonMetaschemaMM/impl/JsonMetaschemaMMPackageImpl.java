@@ -26,7 +26,6 @@ import jsonMetaschemaMM.ExclusiveMinimumSchemaDefinition;
 import jsonMetaschemaMM.FormatSchemaDefinition;
 import jsonMetaschemaMM.IdSchemaDefinition;
 import jsonMetaschemaMM.IfSchemaDefinition;
-import jsonMetaschemaMM.IntegerValue;
 import jsonMetaschemaMM.ItemsAnyOf;
 import jsonMetaschemaMM.ItemsAnyOf1;
 import jsonMetaschemaMM.ItemsAnyOf2;
@@ -114,13 +113,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	private EClass maximumSchemaDefinitionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass integerValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -980,26 +972,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	@Override
 	public EAttribute getMaximumSchemaDefinition_Maximum() {
 		return (EAttribute)maximumSchemaDefinitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getIntegerValue() {
-		return integerValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getIntegerValue_Value() {
-		return (EAttribute)integerValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2669,9 +2641,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		maximumSchemaDefinitionEClass = createEClass(MAXIMUM_SCHEMA_DEFINITION);
 		createEAttribute(maximumSchemaDefinitionEClass, MAXIMUM_SCHEMA_DEFINITION__MAXIMUM);
 
-		integerValueEClass = createEClass(INTEGER_VALUE);
-		createEAttribute(integerValueEClass, INTEGER_VALUE__VALUE);
-
 		writeOnlySchemaDefinitionEClass = createEClass(WRITE_ONLY_SCHEMA_DEFINITION);
 		createEAttribute(writeOnlySchemaDefinitionEClass, WRITE_ONLY_SCHEMA_DEFINITION__WRITE_ONLY);
 
@@ -2941,7 +2910,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		// Add supertypes to classes
 		objectSchemaEClass.getESuperTypes().add(this.getSchema());
 		maximumSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
-		integerValueEClass.getESuperTypes().add(this.getValue());
 		writeOnlySchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		commentSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		enumSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
@@ -3036,9 +3004,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(maximumSchemaDefinitionEClass, MaximumSchemaDefinition.class, "MaximumSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMaximumSchemaDefinition_Maximum(), ecorePackage.getEDouble(), "maximum", null, 1, 1, MaximumSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(integerValueEClass, IntegerValue.class, "IntegerValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntegerValue_Value(), ecorePackage.getEInt(), "value", null, 1, 1, IntegerValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(writeOnlySchemaDefinitionEClass, WriteOnlySchemaDefinition.class, "WriteOnlySchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getWriteOnlySchemaDefinition_WriteOnly(), ecorePackage.getEBoolean(), "writeOnly", null, 1, 1, WriteOnlySchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -72,11 +72,6 @@ public class JsonMMAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseIntegerValue(IntegerValue object) {
-			return createIntegerValueAdapter();
-		}
-
-		@Override
 		public Adapter caseArrayValue(ArrayValue object) {
 			return createArrayValueAdapter();
 		}
@@ -146,20 +141,6 @@ public class JsonMMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStringValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jsonMM.IntegerValue <em>Integer Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMM.IntegerValue
-	 * @generated
-	 */
-	public Adapter createIntegerValueAdapter() {
 		return null;
 	}
 

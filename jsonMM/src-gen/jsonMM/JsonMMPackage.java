@@ -65,7 +65,7 @@ public interface JsonMMPackage extends EPackage {
 	 * @see jsonMM.impl.JsonMMPackageImpl#getValue()
 	 * @generated
 	 */
-	int VALUE = 8;
+	int VALUE = 7;
 
 	/**
 	 * The number of structural features of the '<em>Value</em>' class.
@@ -123,43 +123,6 @@ public interface JsonMMPackage extends EPackage {
 	int STRING_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jsonMM.impl.IntegerValueImpl <em>Integer Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jsonMM.impl.IntegerValueImpl
-	 * @see jsonMM.impl.JsonMMPackageImpl#getIntegerValue()
-	 * @generated
-	 */
-	int INTEGER_VALUE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_VALUE__VALUE = VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Integer Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Integer Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link jsonMM.impl.ArrayValueImpl <em>Array Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -167,7 +130,7 @@ public interface JsonMMPackage extends EPackage {
 	 * @see jsonMM.impl.JsonMMPackageImpl#getArrayValue()
 	 * @generated
 	 */
-	int ARRAY_VALUE = 2;
+	int ARRAY_VALUE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference list.
@@ -204,7 +167,7 @@ public interface JsonMMPackage extends EPackage {
 	 * @see jsonMM.impl.JsonMMPackageImpl#getNullValue()
 	 * @generated
 	 */
-	int NULL_VALUE = 3;
+	int NULL_VALUE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -241,7 +204,7 @@ public interface JsonMMPackage extends EPackage {
 	 * @see jsonMM.impl.JsonMMPackageImpl#getNumberValue()
 	 * @generated
 	 */
-	int NUMBER_VALUE = 4;
+	int NUMBER_VALUE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -278,7 +241,7 @@ public interface JsonMMPackage extends EPackage {
 	 * @see jsonMM.impl.JsonMMPackageImpl#getJsonDocument()
 	 * @generated
 	 */
-	int JSON_DOCUMENT = 5;
+	int JSON_DOCUMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -315,7 +278,7 @@ public interface JsonMMPackage extends EPackage {
 	 * @see jsonMM.impl.JsonMMPackageImpl#getObjectValue()
 	 * @generated
 	 */
-	int OBJECT_VALUE = 6;
+	int OBJECT_VALUE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Keyvaluepair</b></em>' containment reference list.
@@ -352,7 +315,7 @@ public interface JsonMMPackage extends EPackage {
 	 * @see jsonMM.impl.JsonMMPackageImpl#getBooleanValue()
 	 * @generated
 	 */
-	int BOOLEAN_VALUE = 7;
+	int BOOLEAN_VALUE = 6;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -389,7 +352,7 @@ public interface JsonMMPackage extends EPackage {
 	 * @see jsonMM.impl.JsonMMPackageImpl#getKeyValuePair()
 	 * @generated
 	 */
-	int KEY_VALUE_PAIR = 9;
+	int KEY_VALUE_PAIR = 8;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -435,7 +398,7 @@ public interface JsonMMPackage extends EPackage {
 	 * @see jsonMM.impl.JsonMMPackageImpl#getNullEnum()
 	 * @generated
 	 */
-	int NULL_ENUM = 10;
+	int NULL_ENUM = 9;
 
 	/**
 	 * Returns the meta object for class '{@link jsonMM.StringValue <em>String Value</em>}'.
@@ -457,27 +420,6 @@ public interface JsonMMPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getStringValue_Value();
-
-	/**
-	 * Returns the meta object for class '{@link jsonMM.IntegerValue <em>Integer Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Integer Value</em>'.
-	 * @see jsonMM.IntegerValue
-	 * @generated
-	 */
-	EClass getIntegerValue();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jsonMM.IntegerValue#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see jsonMM.IntegerValue#getValue()
-	 * @see #getIntegerValue()
-	 * @generated
-	 */
-	EAttribute getIntegerValue_Value();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMM.ArrayValue <em>Array Value</em>}'.
@@ -697,24 +639,6 @@ public interface JsonMMPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute STRING_VALUE__VALUE = eINSTANCE.getStringValue_Value();
-
-		/**
-		 * The meta object literal for the '{@link jsonMM.impl.IntegerValueImpl <em>Integer Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jsonMM.impl.IntegerValueImpl
-		 * @see jsonMM.impl.JsonMMPackageImpl#getIntegerValue()
-		 * @generated
-		 */
-		EClass INTEGER_VALUE = eINSTANCE.getIntegerValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INTEGER_VALUE__VALUE = eINSTANCE.getIntegerValue_Value();
 
 		/**
 		 * The meta object literal for the '{@link jsonMM.impl.ArrayValueImpl <em>Array Value</em>}' class.

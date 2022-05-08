@@ -136,11 +136,6 @@ public class ArrayValueItemProvider extends ValueItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(JsonMetaschemaMMPackage.Literals.ARRAY_VALUE__VALUE,
-				 JsonMetaschemaMMFactory.eINSTANCE.createIntegerValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JsonMetaschemaMMPackage.Literals.ARRAY_VALUE__VALUE,
 				 JsonMetaschemaMMFactory.eINSTANCE.createBooleanValue()));
 
 		newChildDescriptors.add

@@ -98,9 +98,6 @@
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MaximumSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//MaximumSchemaDefinition/maximum"/>
     </genClasses>
-    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//IntegerValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//IntegerValue/value"/>
-    </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//WriteOnlySchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//WriteOnlySchemaDefinition/writeOnly"/>
     </genClasses>

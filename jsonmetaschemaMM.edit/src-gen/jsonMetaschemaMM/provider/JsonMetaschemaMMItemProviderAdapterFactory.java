@@ -118,29 +118,6 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.IntegerValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected IntegerValueItemProvider integerValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jsonMetaschemaMM.IntegerValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createIntegerValueAdapter() {
-		if (integerValueItemProvider == null) {
-			integerValueItemProvider = new IntegerValueItemProvider(this);
-		}
-
-		return integerValueItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.WriteOnlySchemaDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1811,7 +1788,6 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 	public void dispose() {
 		if (objectSchemaItemProvider != null) objectSchemaItemProvider.dispose();
 		if (maximumSchemaDefinitionItemProvider != null) maximumSchemaDefinitionItemProvider.dispose();
-		if (integerValueItemProvider != null) integerValueItemProvider.dispose();
 		if (writeOnlySchemaDefinitionItemProvider != null) writeOnlySchemaDefinitionItemProvider.dispose();
 		if (commentSchemaDefinitionItemProvider != null) commentSchemaDefinitionItemProvider.dispose();
 		if (enumSchemaDefinitionItemProvider != null) enumSchemaDefinitionItemProvider.dispose();

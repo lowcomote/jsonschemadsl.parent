@@ -31,15 +31,6 @@ public interface JsonMMFactory extends EFactory {
 	StringValue createStringValue();
 
 	/**
-	 * Returns a new object of class '<em>Integer Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Integer Value</em>'.
-	 * @generated
-	 */
-	IntegerValue createIntegerValue();
-
-	/**
 	 * Returns a new object of class '<em>Array Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

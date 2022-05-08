@@ -40,15 +40,6 @@ public interface JsonMetaschemaMMFactory extends EFactory {
 	MaximumSchemaDefinition createMaximumSchemaDefinition();
 
 	/**
-	 * Returns a new object of class '<em>Integer Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Integer Value</em>'.
-	 * @generated
-	 */
-	IntegerValue createIntegerValue();
-
-	/**
 	 * Returns a new object of class '<em>Write Only Schema Definition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

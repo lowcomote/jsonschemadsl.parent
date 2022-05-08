@@ -80,13 +80,6 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JsonMetaschemaMMPackage.INTEGER_VALUE: {
-				IntegerValue integerValue = (IntegerValue)theEObject;
-				T result = caseIntegerValue(integerValue);
-				if (result == null) result = caseValue(integerValue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case JsonMetaschemaMMPackage.WRITE_ONLY_SCHEMA_DEFINITION: {
 				WriteOnlySchemaDefinition writeOnlySchemaDefinition = (WriteOnlySchemaDefinition)theEObject;
 				T result = caseWriteOnlySchemaDefinition(writeOnlySchemaDefinition);
@@ -628,21 +621,6 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMaximumSchemaDefinition(MaximumSchemaDefinition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Integer Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Integer Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIntegerValue(IntegerValue object) {
 		return null;
 	}
 

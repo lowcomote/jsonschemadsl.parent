@@ -59,7 +59,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 		switch (eClass.getClassifierID()) {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA: return createObjectSchema();
 			case JsonMetaschemaMMPackage.MAXIMUM_SCHEMA_DEFINITION: return createMaximumSchemaDefinition();
-			case JsonMetaschemaMMPackage.INTEGER_VALUE: return createIntegerValue();
 			case JsonMetaschemaMMPackage.WRITE_ONLY_SCHEMA_DEFINITION: return createWriteOnlySchemaDefinition();
 			case JsonMetaschemaMMPackage.COMMENT_SCHEMA_DEFINITION: return createCommentSchemaDefinition();
 			case JsonMetaschemaMMPackage.ENUM_SCHEMA_DEFINITION: return createEnumSchemaDefinition();
@@ -187,17 +186,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	public MaximumSchemaDefinition createMaximumSchemaDefinition() {
 		MaximumSchemaDefinitionImpl maximumSchemaDefinition = new MaximumSchemaDefinitionImpl();
 		return maximumSchemaDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public IntegerValue createIntegerValue() {
-		IntegerValueImpl integerValue = new IntegerValueImpl();
-		return integerValue;
 	}
 
 	/**

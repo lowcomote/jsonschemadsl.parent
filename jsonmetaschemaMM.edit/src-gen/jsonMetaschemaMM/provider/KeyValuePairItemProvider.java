@@ -182,11 +182,6 @@ public class KeyValuePairItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JsonMetaschemaMMPackage.Literals.KEY_VALUE_PAIR__VALUE,
-				 JsonMetaschemaMMFactory.eINSTANCE.createIntegerValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JsonMetaschemaMMPackage.Literals.KEY_VALUE_PAIR__VALUE,
 				 JsonMetaschemaMMFactory.eINSTANCE.createBooleanValue()));
 
 		newChildDescriptors.add

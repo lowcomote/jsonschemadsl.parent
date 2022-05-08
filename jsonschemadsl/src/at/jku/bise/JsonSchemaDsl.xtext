@@ -71,9 +71,8 @@ KeywordDefinition returns KeywordDefinition:
 ;
 
 Value returns Value:
-	=>IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
-//	BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
-//	IntegerValue | BooleanValue
+//	=>IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
+	BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
 ;
 
 
@@ -722,10 +721,11 @@ Value_Impl returns Value:
 	'Value'
 	;
  */
-IntegerValue returns IntegerValue:
-//	value=EINT
-	value=EInt
-;
+ 
+////  IntegerValue is not part of json specification
+//IntegerValue returns IntegerValue:
+//	value=EInt
+//;
 //	'IntegerValue'
 //	'{'
 //		'value' value=EInt

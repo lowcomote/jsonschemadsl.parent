@@ -76,10 +76,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 				return createMaximumSchemaDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseIntegerValue(IntegerValue object) {
-				return createIntegerValueAdapter();
-			}
-			@Override
 			public Adapter caseWriteOnlySchemaDefinition(WriteOnlySchemaDefinition object) {
 				return createWriteOnlySchemaDefinitionAdapter();
 			}
@@ -424,20 +420,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMaximumSchemaDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.IntegerValue <em>Integer Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.IntegerValue
-	 * @generated
-	 */
-	public Adapter createIntegerValueAdapter() {
 		return null;
 	}
 

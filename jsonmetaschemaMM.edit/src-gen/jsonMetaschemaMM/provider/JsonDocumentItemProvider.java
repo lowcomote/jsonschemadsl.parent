@@ -151,11 +151,6 @@ public class JsonDocumentItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(JsonMetaschemaMMPackage.Literals.JSON_DOCUMENT__VALUE,
-				 JsonMetaschemaMMFactory.eINSTANCE.createIntegerValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(JsonMetaschemaMMPackage.Literals.JSON_DOCUMENT__VALUE,
 				 JsonMetaschemaMMFactory.eINSTANCE.createBooleanValue()));
 
 		newChildDescriptors.add
