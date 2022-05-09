@@ -63,14 +63,55 @@ abstract rule mapSchemaToEClass{
 	do{
 		if(schema.isKeySchemaPairInProperties() or schema.isKeySchemaPairInPatternProperties() ){
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName())};
+			----- TODO add annotation to eclass for pattern properties
+			------IN PROGRESS ......
+			if(schema.isKeySchemaPairInPatternProperties()){
+				eClass.eAnnotations <- Sequence{thisModule.createPatternPropertiesAnnotation(schema.refImmediateComposite().key)};
+			}	
 		}else if(schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)){ ----- schema is in AdditionalProperties
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName() )};
+		----- TODO add annotation to eclass for additional properties
+		------IN PROGRESS ......
+			eClass.eAnnotations <- Sequence{thisModule.createAdditionalPropertiesAnnotation()};
 		}
 		if(schema.isRoot()){
 			thisModule.jsonGrammarRoot().detailedGrammar.rootEClass <- schema;
 		}	
 	}	
 } 
+
+rule createAdditionalPropertiesAnnotation(){
+	to
+		eAnnotation: Ecore!EAnnotation(
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- 'AdditionalProperties',
+			value <- 'true'
+		)
+	do{
+		eAnnotation;
+	}	
+}
+
+rule createPatternPropertiesAnnotation(pattern : String){
+	to
+		eAnnotation: Ecore!EAnnotation(
+			details <- Sequence{entrySet1, entrySet2}
+		),
+		entrySet1:Ecore!EStringToStringMapEntry(
+			key <- 'PatternProperties',
+			value <- 'true'
+		),
+		entrySet2:Ecore!EStringToStringMapEntry(
+			key <- 'pattern',
+			value <- pattern
+		)
+		
+	do{
+		eAnnotation;
+	}	
+}
 
 rule mapBooleanSchemaToEClass extends mapSchemaToEClass{
 --	from schema: JSchemaMM!BooleanSchema(not schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) and schema.value=true)
@@ -208,7 +249,8 @@ lazy rule createDefaultAdditionalPropertiesEClass  {
 		eClass : Ecore!EClass (
 		 	name <-	schemaBuildedClassName.concat('AdditionalProperties'),
 			eStructuralFeatures <- Set{thisModule.createKeyEAttribute('key'), thisModule.createContainmentToJsonDocument('additionalProperties',false)}.flatten(),
-			eSuperTypes <-  Set{thisModule.createAbstractEClass(schemaBuildedClassName.concat('Properties'))}
+			eSuperTypes <-  Set{thisModule.createAbstractEClass(schemaBuildedClassName.concat('Properties'))},
+			eAnnotations <- Sequence{thisModule.createAdditionalPropertiesAnnotation()}
 		)
 }
 
