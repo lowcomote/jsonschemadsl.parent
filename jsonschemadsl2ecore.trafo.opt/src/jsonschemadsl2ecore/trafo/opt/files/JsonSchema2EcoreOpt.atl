@@ -67,6 +67,8 @@ abstract rule mapSchemaToEClass{
 			------IN PROGRESS ......
 			if(schema.isKeySchemaPairInPatternProperties()){
 				eClass.eAnnotations <- Sequence{thisModule.createPatternPropertiesAnnotation(schema.refImmediateComposite().key)};
+				eClass.eOperations <- Sequence{thisModule.createPatternPropertiesMatcher(schema.refImmediateComposite().key), thisModule.createKeyPatternPropertiesMatcher(schema.refImmediateComposite().key)};
+--				eClass.eOperations <- Sequence{thisModule.createPatternPropertiesMatcher(schema.refImmediateComposite().key)};
 			}	
 		}else if(schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)){ ----- schema is in AdditionalProperties
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName() )};
@@ -91,6 +93,63 @@ rule createAdditionalPropertiesAnnotation(){
 		)
 	do{
 		eAnnotation;
+	}	
+}
+
+rule createKeyPatternPropertiesMatcher(pattern : String){
+	to
+		eOperation:Ecore!EOperation(
+			name<- 'lookingAt',
+			ordered <- false,
+			unique <-false,
+			lowerBound <- 1,
+			upperBound <- 1,
+			eType <- Ecore!EBoolean,
+			eAnnotations <- Sequence{eAnnotation}
+		),
+		eAnnotation: Ecore!EAnnotation(
+			source <- 'http://www.eclipse.org/emf/2002/GenModel',
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- 'body',
+			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m = p.matcher(this.key);\nreturn m.lookingAt();'
+		)
+		
+	do{
+		eOperation;
+	}	
+}
+
+rule createPatternPropertiesMatcher(pattern : String){
+	to
+		eOperation:Ecore!EOperation(
+			name<- 'lookingAt',
+			ordered <- false,
+			unique <-false,
+			lowerBound <- 1,
+			upperBound <- 1,
+			eType <- Ecore!EBoolean,
+			eParameters <- Sequence{eParameter},
+			eAnnotations <- Sequence{eAnnotation}
+		),
+		eParameter:Ecore!EParameter(
+			name<-'toBeEvaluated',
+			eType <- Ecore!EString,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		eAnnotation: Ecore!EAnnotation(
+			source <- 'http://www.eclipse.org/emf/2002/GenModel',
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- 'body',
+			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m = p.matcher(toBeEvaluated);\nreturn m.lookingAt();'
+		)
+		
+	do{
+		eOperation;
 	}	
 }
 
