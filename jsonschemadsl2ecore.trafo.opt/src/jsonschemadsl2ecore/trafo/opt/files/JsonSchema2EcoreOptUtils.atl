@@ -314,7 +314,7 @@ helper context JSchemaMM!TypeSchemaDefinition def: findSimpleType() :String=
 --	endif;
 
 
---- NEW 
+
 
 --------TODO move next to isKeySchemaPairInPatternProperties
 helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
@@ -421,16 +421,43 @@ helper context JSchemaMM!TypeSchemaDefinition def: getEDataType() : Ecore!EDataT
 
 
 
-
-
-
 helper context String def: stripFirstAndLast() : String=
 self.substring(2, self.size()-1);	
 
 helper context String def : toCamelCase() : String=
 	self.substring(1, 1).toUpperCase() + self.substring(2,self.size());	
 
+----------------------------
+helper context JSchemaMM!ObjectSchema def: findPatternPropertiesKeys(): Sequence(String) =
+	let patternProperties : JSchemaMM!PatternPropertiesSchemaDefinition = self.patternProperties in
+	if patternProperties.oclIsUndefined() 
+	then Sequence{}
+	else patternProperties.getKeySchemaPairs()->collect(keySchemaPair | keySchemaPair.key)
+	endif;
+	
+helper context JSchemaMM!ObjectSchema def: findPropertiesKeys(): Sequence(String) =
+	let properties : JSchemaMM!PropertiesSchemaDefinition = self.properties in
+	if properties.oclIsUndefined() 
+	then Sequence{}
+	else properties.getKeySchemaPairs()->collect(keySchemaPair | keySchemaPair.key)
+	endif;
 
+
+helper context JSchemaMM!PatternPropertiesSchemaDefinition def: findPatternPropertiesKeysOtherThen(key:String): Sequence(String) =
+	self.keySchemaPairs->select(keySchemaPair | not keySchemaPair.key.equals(key))->collect(keySchemaPair | keySchemaPair.key)
+;
+
+helper def: createBodyForValidateKeyOnDefinedPatternProperties(patterns:Sequence(String)) : String=
+	patterns->iterate(pattern; body: String = '' | 
+		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.lookingAt()){return '+pattern+';}\n\n')
+	).concat('return null;\n\n')
+;
+
+helper def: createBodyForValidateKeyOnDefinedProperties(properties:Sequence(String)) : String=
+	properties->iterate(property; body: String = '' | 
+		body.concat('if (this.key.equals('+property+')){return '+property+';}\n\n')
+	).concat('return null;\n\n')
+;
 
 ---------- OCL helpers
 
