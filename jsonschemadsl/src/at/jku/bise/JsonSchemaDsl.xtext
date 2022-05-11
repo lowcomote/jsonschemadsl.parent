@@ -926,7 +926,8 @@ KEYWORD: '"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"descrip
 	'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |  
 	'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
 	'"patternProperties"' | '"dependencies"' | '"propertyNames"' | '"const"' | '"enum"' | '"type"' | '"format"' | '"contentMediaType"' | '"contentEncoding"' |
-	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"'
+	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"' | 
+	'"array"' | '"boolean"' | '"integer"' | '"null"' | '"number"' | '"object"' | '"string"'
 ;
 
 
