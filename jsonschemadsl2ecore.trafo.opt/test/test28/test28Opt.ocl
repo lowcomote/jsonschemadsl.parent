@@ -1,0 +1,199 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test28
+import 'http://jku.bise.at/test28'
+
+package test28
+
+	context test28::Test28RootAdditionalProperties 
+
+	inv Test28RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootAdditionalProperties 
+
+	inv Test28RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootProp4AdditionalProperties 
+
+	inv Test28RootProp4AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootProp4AdditionalProperties 
+
+	inv Test28RootProp4AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootProp6AdditionalProperties 
+
+	inv Test28RootProp6AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootProp6AdditionalProperties 
+
+	inv Test28RootProp6AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootProp6PatternProperties0 
+
+	inv Test28RootProp6PatternProperties0ValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootProp6PatternProperties0 
+
+	inv Test28RootProp6PatternProperties0ValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties0 
+
+	inv Test28RootPatternProperties0ValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties0 
+
+	inv Test28RootPatternProperties0ValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties1 
+
+	inv Test28RootPatternProperties1ValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties1 
+
+	inv Test28RootPatternProperties1ValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties2 
+
+	inv Test28RootPatternProperties2ValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties2 
+
+	inv Test28RootPatternProperties2ValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties2AdditionalProperties 
+
+	inv Test28RootPatternProperties2AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties2AdditionalProperties 
+
+	inv Test28RootPatternProperties2AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties3 
+
+	inv Test28RootPatternProperties3ValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties3 
+
+	inv Test28RootPatternProperties3ValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootProp2
+
+	inv Test28RootProp2Minimum('The value of Test28RootProp2 must be greater or equal than 2.0'):
+	if prop2 >= 2.0
+	then true
+	else null
+	endif
+
+	context test28::Test28RootProp6PatternProperties0 
+
+	inv Test28RootProp6PatternProperties0patternProperties0Regex ('the key must match the regular expression a{2}'):
+	if  self.find()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties0 
+
+	inv Test28RootPatternProperties0patternProperties0Regex ('the key must match the regular expression ale'):
+	if  self.find()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties1 
+
+	inv Test28RootPatternProperties1patternProperties1Regex ('the key must match the regular expression ^P_'):
+	if  self.find()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties2 
+
+	inv Test28RootPatternProperties2patternProperties2Regex ('the key must match the regular expression P'):
+	if  self.find()
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties3 
+
+	inv Test28RootPatternProperties3patternProperties3Regex ('the key must match the regular expression prop1'):
+	if  self.find()
+	then true
+	else null
+	endif
+
+endpackage
+

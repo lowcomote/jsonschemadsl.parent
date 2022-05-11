@@ -54,17 +54,50 @@ class OclGenerator {
 		OclWriter.append(fileName, generateRegexInPatternPropertiesConstraint(packageName, contextClass, inv, regex,  propertyName))
 	}
 	
-	
+	/**
+	 * It uses find(). 
+	 * No need to pass the regex. the method to validate the key against the regex is generated in the contextClass
+	 * 
+	 */
 	def static generateRegexInPatternPropertiesConstraint(String packageName, String contextClass, String inv, String regex, String propertyName)'''
 			context «packageName»::«contextClass» 
 		
 			inv «inv»Regex ('the key must match the regular expression «regex»'):
-			if  «propertyName».matches('«regex»')
+«««			if  «propertyName».matches('«regex»')
+			if  self.find()
 			then true
 			else null
 			endif
 	'''
-
+	
+	def static appendValidatorOnProperties(URI fileName, String packageName, String contextClass, String inv) {
+		OclWriter.append(fileName,generateValidatorOnProperties( packageName,  contextClass,  inv))
+	}
+	
+	def static generateValidatorOnProperties(String packageName, String contextClass, String inv)'''
+			context «packageName»::«contextClass» 
+		
+			inv «inv»ValidatorOnProperties (' key can not be equals to a defined property'):
+			if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+			then true
+			else null
+			endif
+	'''
+	
+	
+	def static appendValidatorOnPatternProperties(URI fileName, String packageName, String contextClass, String inv) {
+		OclWriter.append(fileName,generateValidatorOnPatternProperties( packageName,  contextClass,  inv))
+	}
+	
+	def static generateValidatorOnPatternProperties(String packageName, String contextClass, String inv)'''
+			context «packageName»::«contextClass» 
+		
+			inv «inv»ValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+			if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+			then true
+			else null
+			endif
+	'''
 
 
 	def static endPackage (URI fileName){

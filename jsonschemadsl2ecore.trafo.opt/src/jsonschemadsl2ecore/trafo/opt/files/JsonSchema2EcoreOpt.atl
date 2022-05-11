@@ -63,8 +63,6 @@ abstract rule mapSchemaToEClass{
 	do{
 		if(schema.isKeySchemaPairInProperties() or schema.isKeySchemaPairInPatternProperties() ){
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName())};
-			----- TODO add annotation to eclass for pattern properties
-			------IN PROGRESS ......
 			if(schema.isKeySchemaPairInPatternProperties()){
 				eClass.eAnnotations <- Sequence{thisModule.createPatternPropertiesAnnotation(schema.refImmediateComposite().key)};
 				eClass.eOperations <- Sequence{thisModule.createPatternPropertiesMatcher(schema.refImmediateComposite().key), 
@@ -72,16 +70,18 @@ abstract rule mapSchemaToEClass{
 												thisModule.createValidatorOnPatternProperties(schema.refImmediateComposite().refImmediateComposite().findPatternPropertiesKeysOtherThen(schema.refImmediateComposite().key)),
 												thisModule.createValidatorOnProperties(schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().findPropertiesKeys())
 										};
-				
+				thisModule.appendValidatorOnProperties(thisModule.packageName, eClassName, eClassName);
+				thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClassName, eClassName);
 --				eClass.eOperations <- Sequence{thisModule.createPatternPropertiesMatcher(schema.refImmediateComposite().key)};
 			}	
 		}else if(schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)){ ----- schema is in AdditionalProperties
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName() )};
-		----- TODO add annotation to eclass for additional properties
-		------IN PROGRESS ......
 			eClass.eAnnotations <- Sequence{thisModule.createAdditionalPropertiesAnnotation()};
 			eClass.eOperations <- Sequence{thisModule.createValidatorOnPatternProperties(schema.refImmediateComposite().refImmediateComposite().findPatternPropertiesKeys()),
 											thisModule.createValidatorOnProperties(schema.refImmediateComposite().refImmediateComposite().findPropertiesKeys())};
+			
+			thisModule.appendValidatorOnProperties(thisModule.packageName, eClassName, eClassName);
+			thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClassName, eClassName);								
 			
 		}
 		if(schema.isRoot()){
@@ -159,7 +159,7 @@ rule createAdditionalPropertiesAnnotation(){
 rule createKeyPatternPropertiesMatcher(pattern : String){
 	to
 		eOperation:Ecore!EOperation(
-			name<- 'lookingAt',
+			name<- 'find',
 			ordered <- false,
 			unique <-false,
 			lowerBound <- 1,
@@ -173,7 +173,7 @@ rule createKeyPatternPropertiesMatcher(pattern : String){
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
 			key <- 'body',
-			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m = p.matcher(this.key);\nreturn m.lookingAt();'
+			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m = p.matcher(this.key);\nreturn m.find();'
 		)
 		
 	do{
@@ -184,7 +184,7 @@ rule createKeyPatternPropertiesMatcher(pattern : String){
 rule createPatternPropertiesMatcher(pattern : String){
 	to
 		eOperation:Ecore!EOperation(
-			name<- 'lookingAt',
+			name<- 'find',
 			ordered <- false,
 			unique <-false,
 			lowerBound <- 1,
@@ -205,7 +205,7 @@ rule createPatternPropertiesMatcher(pattern : String){
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
 			key <- 'body',
-			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m = p.matcher(toBeEvaluated);\nreturn m.lookingAt();'
+			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m = p.matcher(toBeEvaluated);\nreturn m.find();'
 		)
 		
 	do{
@@ -365,14 +365,23 @@ lazy rule createPropertiesContainment{
 
 lazy rule createDefaultAdditionalPropertiesEClass  {
 	from schemaBuildedClassName:String, properties : Sequence(String), patterns : Sequence(String)
+	using {
+		eClassName:String = schemaBuildedClassName.concat('AdditionalProperties');
+	}
 	to
 		eClass : Ecore!EClass (
-		 	name <-	schemaBuildedClassName.concat('AdditionalProperties'),
+--		 	name <-	schemaBuildedClassName.concat('AdditionalProperties'),
+			name <-	eClassName,
 			eStructuralFeatures <- Set{thisModule.createKeyEAttribute('key'), thisModule.createContainmentToJsonDocument('additionalProperties',false)}.flatten(),
 			eSuperTypes <-  Set{thisModule.createAbstractEClass(schemaBuildedClassName.concat('Properties'))},
 			eAnnotations <- Sequence{thisModule.createAdditionalPropertiesAnnotation()},
 			eOperations <- Sequence{thisModule.createValidatorOnPatternProperties(patterns),thisModule.createValidatorOnProperties(properties)}
 		)
+	do{
+		thisModule.appendValidatorOnProperties(thisModule.packageName, eClassName, eClassName);
+		thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClassName, eClassName);
+		eClass;
+	}	
 }
 
 rule mapItemsAnyOf1ToContainment{
@@ -415,8 +424,7 @@ lazy rule createEClassForMissingItems{
 	
 }
 
-----------------------------------------
---------- TODO NEW IN Progress ....
+
 lazy rule createContainmentForArrayOfTypes {
 	from objectSchema : JSchemaMM!ObjectSchema, enclosingEClass : Ecore!EClass ,  sympleTypes:Sequence(JSchemaMM!SimpleTypes)
 	to 
@@ -445,7 +453,8 @@ rule createEClassForTypeInArrayOfTypes(objectSchema : JSchemaMM!ObjectSchema, en
 	}
 	to 
 		eClass : Ecore!EClass (
-			name <- eClassName
+			name <- eClassName,
+			eAnnotations <- Sequence{thisModule.createArrayOfTypesAnnotation(simpleType)}
 		)
 	do{
 		thisModule.mapSimpleTypeToEStructuralFeatures(objectSchema, eClass , simpleType, eClassName);
@@ -453,6 +462,20 @@ rule createEClassForTypeInArrayOfTypes(objectSchema : JSchemaMM!ObjectSchema, en
 		eClass.eSuperTypes  <- Sequence{thisModule.createAbstractEClass(enclosingEClass.name)};
 	}
 }	
+
+rule createArrayOfTypesAnnotation(simpleType:JSchemaMM!SimpleTypes){
+	to
+		eAnnotation: Ecore!EAnnotation(
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- 'ArrayOfTypes',
+			value <- simpleType.toString().substring(2, simpleType.toString().size()).stripFirstAndLast()
+		)
+	do{
+		eAnnotation;
+	}	
+}
 
 --rule createKeyEAttribute(keyName:String){
 lazy rule createKeyEAttribute{
@@ -531,22 +554,7 @@ unique lazy rule createAbstractEClass{
 		)	
 }
 
---unique lazy rule createAbstractTypeEClass{
---	from name:String, setSuperType:Boolean
---	to
---		eClass : Ecore!EClass (
---			name <- name.concat('TypeAbstract'),
---			eSuperTypes <- if setSuperType then Sequence{thisModule.createAbstractEClass(name.concat('Properties'))}
---						   else Sequence{}	 endif,
---			abstract<- true
---		)	
-----	do{ 
-----		if(setSuperType){ 
-----			eClass.eSuperTypes <-Sequence{thisModule.createAbstractEClass(name.concat('Properties'))};
-----		}
-----		eClass;
-----	}
---}
+
 
 -------------------- OCL Generation --------------------------------
 

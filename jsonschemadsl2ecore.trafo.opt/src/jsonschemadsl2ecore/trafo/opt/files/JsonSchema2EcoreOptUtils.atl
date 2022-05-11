@@ -449,7 +449,7 @@ helper context JSchemaMM!PatternPropertiesSchemaDefinition def: findPatternPrope
 
 helper def: createBodyForValidateKeyOnDefinedPatternProperties(patterns:Sequence(String)) : String=
 	patterns->iterate(pattern; body: String = '' | 
-		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.lookingAt()){return '+pattern+';}\n\n')
+		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.find()){return '+pattern+';}\n\n')
 	).concat('return null;\n\n')
 ;
 
@@ -473,7 +473,14 @@ helper def : appendRequiredInPropertiesConstraint(packageName: String, contextCl
 	
 helper def : appendRegexInPatternPropertiesConstraint(packageName: String, contextClass: String, inv:String, regex : String,  propertyName : String): OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRegexInPatternPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, regex, propertyName});
-	
+
+helper def : appendValidatorOnProperties(packageName: String, contextClass: String,  inv: String): OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendValidatorOnProperties', Sequence{thisModule.oclFileUri, packageName, contextClass,  inv});
+
+helper def : appendValidatorOnPatternProperties(packageName: String, contextClass: String,  inv: String): OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendValidatorOnPatternProperties', Sequence{thisModule.oclFileUri, packageName, contextClass,  inv});
+
+
 helper  def : endPackage() : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('endPackage',Sequence{thisModule.oclFileUri});
 	
