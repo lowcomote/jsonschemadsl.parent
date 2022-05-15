@@ -56,9 +56,9 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"type"="string"       |Y                    |Y                         ||
 |"type"="object"       |Y                    |Y                         ||
 |"type"="array"        |Y                    |Y                         ||
-|"type"="null"         |Y                    |N                         ||
-|"type" not present    |Y                    |N                         | the case wher type is not specified |
-|"type"(array of types)|Y                    |N                         | e.g., "type":["integer", string]|
+|"type"="null"         |Y                    |Y                         ||
+|"type" not present    |Y                    |Y                         | the case wher type is not specified |
+|"type"(array of types)|Y                    |Y                         | e.g., "type":["integer", string]|
 |"format"              |Y                    |N                         ||
 |"contentMediaType"    |Y                    |N                         ||
 |"contentEncoding"     |Y                    |N                         ||

@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jsonschemadsl</groupId>
-	<version>1.0.4-SNAPSHOT</version>
+	<version>1.1.0</version>
 	<artifactId>jsonschemadsl.parent</artifactId>
 	<packaging>pom</packaging>
 
@@ -108,6 +108,7 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
+					<!-- <pomDependencies>wrapAsBundle</pomDependencies>-->
 					<target>
 						<artifact>
 							<groupId>jsonschemadsl</groupId>

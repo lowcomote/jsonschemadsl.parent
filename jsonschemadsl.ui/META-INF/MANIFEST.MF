@@ -3,12 +3,12 @@ Automatic-Module-Name: jsonschemadsl.ui
 Bundle-ManifestVersion: 2
 Bundle-Name: jsonschemadsl.ui
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.4.qualifier
+Bundle-Version: 1.1.0
 Bundle-SymbolicName: jsonschemadsl.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: jsonschemadsl;bundle-version="1.0.4",
- jsonschemadsl.ide;bundle-version="1.0.4",
- jsonmetaschemaMM;bundle-version="1.0.4",
+Require-Bundle: jsonschemadsl;bundle-version="1.1.0",
+ jsonschemadsl.ide;bundle-version="1.1.0",
+ jsonmetaschemaMM;bundle-version="1.1.0",
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,

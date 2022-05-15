@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Jschemaoclgenerator
 Bundle-SymbolicName: jschemaoclgenerator
-Bundle-Version: 1.0.4.qualifier
+Bundle-Version: 1.1.0
 Automatic-Module-Name: jschemaoclgenerator
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Require-Bundle: com.google.guava,
