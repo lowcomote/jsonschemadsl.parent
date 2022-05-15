@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test28">
+  <detailedGrammar>
+    <keywords xsi:type="ecore:EAttribute" href="test28.ecore#//Test28RootProp1/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test28.ecore#//Test28RootProp2/prop2"/>
+    <keywords xsi:type="ecore:EAttribute" href="test28.ecore#//Test28RootProp3/prop3"/>
+    <keywords xsi:type="ecore:EReference" href="test28.ecore#//Test28RootProp4/prop4"/>
+    <keywords xsi:type="ecore:EReference" href="test28.ecore#//Test28RootProp5/prop5"/>
+    <keywords xsi:type="ecore:EAttribute" href="test28.ecore#//Test28RootProp5Prop6/prop6"/>
+    <keywords xsi:type="ecore:EAttribute" href="test28.ecore#//Test28RootProp6TypeString/prop6"/>
+    <keywords xsi:type="ecore:EAttribute" href="test28.ecore#//Test28RootProp6TypeInteger/prop6"/>
+    <keywords xsi:type="ecore:EAttribute" href="test28.ecore#//Test28RootProp6TypeNumber/prop6"/>
+    <keywords xsi:type="ecore:EAttribute" href="test28.ecore#//Test28RootProp6TypeBoolean/prop6"/>
+    <keywords xsi:type="ecore:EReference" href="test28.ecore#//Test28RootProp6TypeObject/prop6"/>
+    <keywords xsi:type="ecore:EReference" href="test28.ecore#//Test28RootProp6TypeArray/prop6"/>
+    <keywords xsi:type="ecore:EReference" href="test28.ecore#//Test28RootProp6TypeNull/prop6"/>
+    <curlyBracesReferences href="test28.ecore#//Test28Root/test28Root"/>
+    <curlyBracesReferences href="test28.ecore#//Test28RootProp4/prop4"/>
+    <curlyBracesReferences href="test28.ecore#//Test28RootProp5/prop5"/>
+    <curlyBracesReferences href="test28.ecore#//Test28RootProp6TypeObject/prop6"/>
+    <curlyBracesReferences href="test28.ecore#//Test28RootPatternProperties2/patternProperties2"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <bracketsReferences href="test28.ecore#//Test28RootProp6TypeArray/prop6"/>
+    <bracketsReferences href="test28.ecore#//Test28RootPatternProperties1/patternProperties1"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="test28.ecore#//Test28RootProp4AdditionalProperties/key"/>
+    <keyValue href="test28.ecore#//Test28RootProp6PatternProperties0/key"/>
+    <keyValue href="test28.ecore#//Test28RootPatternProperties0/key"/>
+    <keyValue href="test28.ecore#//Test28RootPatternProperties1/key"/>
+    <keyValue href="test28.ecore#//Test28RootPatternProperties2/key"/>
+    <keyValue href="test28.ecore#//Test28RootPatternProperties3/key"/>
+    <keyValue href="test28.ecore#//Test28RootAdditionalProperties/key"/>
+    <keyValue href="test28.ecore#//Test28RootProp6AdditionalProperties/key"/>
+    <keyValue href="test28.ecore#//Test28RootPatternProperties2AdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
+    <rootEClass href="test28.ecore#//Test28Root"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>

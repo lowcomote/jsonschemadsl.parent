@@ -59,7 +59,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 		switch (eClass.getClassifierID()) {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA: return createObjectSchema();
 			case JsonMetaschemaMMPackage.MAXIMUM_SCHEMA_DEFINITION: return createMaximumSchemaDefinition();
-			case JsonMetaschemaMMPackage.INTEGER_VALUE: return createIntegerValue();
 			case JsonMetaschemaMMPackage.WRITE_ONLY_SCHEMA_DEFINITION: return createWriteOnlySchemaDefinition();
 			case JsonMetaschemaMMPackage.COMMENT_SCHEMA_DEFINITION: return createCommentSchemaDefinition();
 			case JsonMetaschemaMMPackage.ENUM_SCHEMA_DEFINITION: return createEnumSchemaDefinition();
@@ -117,7 +116,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 			case JsonMetaschemaMMPackage.PROPERTIES_SCHEMA_DEFINITION: return createPropertiesSchemaDefinition();
 			case JsonMetaschemaMMPackage.PROPERTY_NAMES_SCHEMA_DEFINITION: return createPropertyNamesSchemaDefinition();
 			case JsonMetaschemaMMPackage.ARRAY_VALUE: return createArrayValue();
-			case JsonMetaschemaMMPackage.TYPES_ANY_OF2: return createTypesAnyOf2();
+			case JsonMetaschemaMMPackage.TYPE_ANY_OF2: return createTypeAnyOf2();
 			case JsonMetaschemaMMPackage.BOOLEAN_SCHEMA: return createBooleanSchema();
 			case JsonMetaschemaMMPackage.NON_NEGATIVE_INTEGER: return createNonNegativeInteger();
 			case JsonMetaschemaMMPackage.NON_NEGATIVE_INTEGER_DEFAULT0: return createNonNegativeIntegerDefault0();
@@ -127,6 +126,7 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 			case JsonMetaschemaMMPackage.SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF2: return createSchemaObjectDependenciesAdditionalPropertiesAnyOf2();
 			case JsonMetaschemaMMPackage.ITEMS_ANY_OF1: return createItemsAnyOf1();
 			case JsonMetaschemaMMPackage.ITEMS_ANY_OF2: return createItemsAnyOf2();
+			case JsonMetaschemaMMPackage.TYPE_ANY_OF1: return createTypeAnyOf1();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -186,17 +186,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	public MaximumSchemaDefinition createMaximumSchemaDefinition() {
 		MaximumSchemaDefinitionImpl maximumSchemaDefinition = new MaximumSchemaDefinitionImpl();
 		return maximumSchemaDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public IntegerValue createIntegerValue() {
-		IntegerValueImpl integerValue = new IntegerValueImpl();
-		return integerValue;
 	}
 
 	/**
@@ -832,9 +821,9 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public TypesAnyOf2 createTypesAnyOf2() {
-		TypesAnyOf2Impl typesAnyOf2 = new TypesAnyOf2Impl();
-		return typesAnyOf2;
+	public TypeAnyOf2 createTypeAnyOf2() {
+		TypeAnyOf2Impl typeAnyOf2 = new TypeAnyOf2Impl();
+		return typeAnyOf2;
 	}
 
 	/**
@@ -934,6 +923,17 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	public ItemsAnyOf2 createItemsAnyOf2() {
 		ItemsAnyOf2Impl itemsAnyOf2 = new ItemsAnyOf2Impl();
 		return itemsAnyOf2;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TypeAnyOf1 createTypeAnyOf1() {
+		TypeAnyOf1Impl typeAnyOf1 = new TypeAnyOf1Impl();
+		return typeAnyOf1;
 	}
 
 	/**

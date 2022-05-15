@@ -59,8 +59,6 @@ public class JsonMMFactoryImpl extends EFactoryImpl implements JsonMMFactory {
 		switch (eClass.getClassifierID()) {
 		case JsonMMPackage.STRING_VALUE:
 			return createStringValue();
-		case JsonMMPackage.INTEGER_VALUE:
-			return createIntegerValue();
 		case JsonMMPackage.ARRAY_VALUE:
 			return createArrayValue();
 		case JsonMMPackage.NULL_VALUE:
@@ -118,16 +116,6 @@ public class JsonMMFactoryImpl extends EFactoryImpl implements JsonMMFactory {
 	public StringValue createStringValue() {
 		StringValueImpl stringValue = new StringValueImpl();
 		return stringValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public IntegerValue createIntegerValue() {
-		IntegerValueImpl integerValue = new IntegerValueImpl();
-		return integerValue;
 	}
 
 	/**

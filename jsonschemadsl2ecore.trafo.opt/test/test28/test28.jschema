@@ -1,0 +1,32 @@
+{ 
+	"type":"object", 
+	"properties":{  
+		"prop1":{"type":"string"},
+		"prop2":{"type":"integer", "minimum":2},
+		"prop3":{"type":"number"},
+		"prop4":{
+			"type":"object", 
+			"additionalProperties":{"type":"string"}
+		},
+		"prop5":{ 
+			"type":"object", 
+			"properties":{
+				"prop6":{"type":"string"}
+			},
+			"additionalProperties":false
+		},
+		"prop6":{
+			"patternProperties":{
+				"a{2}":{"type":"string"}
+			} 
+		} 
+		   
+	},
+	"patternProperties":{
+		"ale":{"type":"boolean"},
+		"^P_":{"type":"array"}, 
+		"P":{"type":"object"},
+		"prop1":{"type":"string"}
+	}
+	 
+}  

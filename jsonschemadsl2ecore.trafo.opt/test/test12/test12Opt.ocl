@@ -1,0 +1,39 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test12
+import 'http://jku.bise.at/test12'
+
+package test12
+
+	context test12::Test12RootProp1TypeInteger
+
+	inv Test12RootProp1Minimum('The value of Test12RootProp1TypeInteger must be greater or equal than 3.0'):
+	if prop1 >= 3.0
+	then true
+	else null
+	endif
+
+	context test12::Test12RootProp1TypeNumber
+
+	inv Test12RootProp1Minimum('The value of Test12RootProp1TypeNumber must be greater or equal than 3.0'):
+	if prop1 >= 3.0
+	then true
+	else null
+	endif
+
+	context test12::Test12RootProp2
+
+	inv Test12RootProp2Minimum('The value of Test12RootProp2 must be greater or equal than 5.0'):
+	if prop2 >= 5.0
+	then true
+	else null
+	endif
+
+	context test12::Test12RootProp3
+
+	inv Test12RootProp3Minimum('The value of Test12RootProp3 must be greater or equal than 7.0'):
+	if prop3 >= 7.0
+	then true
+	else null
+	endif
+
+endpackage
+

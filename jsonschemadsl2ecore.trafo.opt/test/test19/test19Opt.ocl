@@ -1,0 +1,15 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test19
+import 'http://jku.bise.at/test19'
+
+package test19
+
+	context test19::Test19Root
+
+	inv Test19RootMinimum('The value of Test19Root must be greater or equal than 3.0'):
+	if test19Root >= 3.0
+	then true
+	else null
+	endif
+
+endpackage
+

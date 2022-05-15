@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: jsonmetaschemaMM;singleton:=true
 Automatic-Module-Name: jsonmetaschemaMM
-Bundle-Version: 1.0.3
+Bundle-Version: 1.1.0
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -14,7 +14,7 @@ Export-Package: jsonMetaschemaMM,
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime,
  org.eclipse.ui;bundle-version="3.118.0",
- jakarta.ws.rs-api-3.0.0.wrapper;bundle-version="1.0.3"
+ jakarta.ws.rs-api;bundle-version="3.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: jsonMetaschemaMM.Activator
 

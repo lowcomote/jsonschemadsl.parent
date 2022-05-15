@@ -80,13 +80,6 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JsonMetaschemaMMPackage.INTEGER_VALUE: {
-				IntegerValue integerValue = (IntegerValue)theEObject;
-				T result = caseIntegerValue(integerValue);
-				if (result == null) result = caseValue(integerValue);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case JsonMetaschemaMMPackage.WRITE_ONLY_SCHEMA_DEFINITION: {
 				WriteOnlySchemaDefinition writeOnlySchemaDefinition = (WriteOnlySchemaDefinition)theEObject;
 				T result = caseWriteOnlySchemaDefinition(writeOnlySchemaDefinition);
@@ -498,9 +491,10 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case JsonMetaschemaMMPackage.TYPES_ANY_OF2: {
-				TypesAnyOf2 typesAnyOf2 = (TypesAnyOf2)theEObject;
-				T result = caseTypesAnyOf2(typesAnyOf2);
+			case JsonMetaschemaMMPackage.TYPE_ANY_OF2: {
+				TypeAnyOf2 typeAnyOf2 = (TypeAnyOf2)theEObject;
+				T result = caseTypeAnyOf2(typeAnyOf2);
+				if (result == null) result = caseTypeAnyOf(typeAnyOf2);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -583,6 +577,19 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case JsonMetaschemaMMPackage.TYPE_ANY_OF1: {
+				TypeAnyOf1 typeAnyOf1 = (TypeAnyOf1)theEObject;
+				T result = caseTypeAnyOf1(typeAnyOf1);
+				if (result == null) result = caseTypeAnyOf(typeAnyOf1);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case JsonMetaschemaMMPackage.TYPE_ANY_OF: {
+				TypeAnyOf typeAnyOf = (TypeAnyOf)theEObject;
+				T result = caseTypeAnyOf(typeAnyOf);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -614,21 +621,6 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMaximumSchemaDefinition(MaximumSchemaDefinition object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Integer Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Integer Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIntegerValue(IntegerValue object) {
 		return null;
 	}
 
@@ -1533,17 +1525,17 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Types Any Of2</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Type Any Of2</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Types Any Of2</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Type Any Of2</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTypesAnyOf2(TypesAnyOf2 object) {
+	public T caseTypeAnyOf2(TypeAnyOf2 object) {
 		return null;
 	}
 
@@ -1724,6 +1716,36 @@ public class JsonMetaschemaMMSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseItemsAnyOf2(ItemsAnyOf2 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type Any Of1</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type Any Of1</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypeAnyOf1(TypeAnyOf1 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Type Any Of</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Type Any Of</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTypeAnyOf(TypeAnyOf object) {
 		return null;
 	}
 

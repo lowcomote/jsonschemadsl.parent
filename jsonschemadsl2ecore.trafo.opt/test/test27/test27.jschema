@@ -1,0 +1,24 @@
+{ 
+	"type":"object", 
+	"properties":{  
+		"prop1":{"type":"string"},
+		"prop2":{"type":"integer", "minimum":2},
+		"prop3":{"type":"number"},
+		"prop4":{
+			"type":"object",
+			"additionalProperties":{"type":"string"}
+		},
+		"prop5":{ 
+			"type":"object",
+			"properties":{
+				"prop6":{"type":"string"}
+			},
+			"additionalProperties":false
+		}
+		  
+	},
+	"patternProperties":{
+		"ale":{"type":"boolean"}
+	}
+	 
+}  

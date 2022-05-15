@@ -1,0 +1,9 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":["array","string"],
+			"items":{"type": ["integer", "string", "object"]}
+		}
+	}
+}

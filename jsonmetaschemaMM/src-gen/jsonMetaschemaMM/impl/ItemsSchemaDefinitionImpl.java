@@ -5,6 +5,7 @@ package jsonMetaschemaMM.impl;
 import jsonMetaschemaMM.ItemsAnyOf;
 import jsonMetaschemaMM.ItemsSchemaDefinition;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 

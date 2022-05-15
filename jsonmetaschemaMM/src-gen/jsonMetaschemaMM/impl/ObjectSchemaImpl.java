@@ -14,6 +14,7 @@ import jsonMetaschemaMM.ContainsSchemaDefinition;
 import jsonMetaschemaMM.DefinitionsSchemaDefinition;
 import jsonMetaschemaMM.DependenciesSchemaDefinition;
 import jsonMetaschemaMM.ElseSchemaDefinition;
+import jsonMetaschemaMM.EnumSchemaDefinition;
 import jsonMetaschemaMM.IfSchemaDefinition;
 import jsonMetaschemaMM.ItemsSchemaDefinition;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
@@ -24,9 +25,11 @@ import jsonMetaschemaMM.OneOfSchemaDefinition;
 import jsonMetaschemaMM.PatternPropertiesSchemaDefinition;
 import jsonMetaschemaMM.PropertiesSchemaDefinition;
 import jsonMetaschemaMM.PropertyNamesSchemaDefinition;
+import jsonMetaschemaMM.RefSchemaDefinition;
 import jsonMetaschemaMM.Schema;
 import jsonMetaschemaMM.SchemaObjectAdditionalProperties;
 import jsonMetaschemaMM.ThenSchemaDefinition;
+import jsonMetaschemaMM.TypeSchemaDefinition;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -63,6 +66,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getAnyOf <em>Any Of</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getOneOf <em>One Of</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getNot <em>Not</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getType <em>Type</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getEnum <em>Enum</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}</li>
  * </ul>
  *
@@ -274,13 +280,31 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
-	public boolean isSetNot() {
-		// TODO: implement this method to return whether the 'Not' reference is set
-		// Ensure that you remove @generated or mark it @generated NOT
-//		throw new UnsupportedOperationException();
-		return getNot()!=null;
+	@Override
+	public RefSchemaDefinition getRef() {
+		return (RefSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof RefSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TypeSchemaDefinition getType() {
+		return (TypeSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof TypeSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EnumSchemaDefinition getEnum() {
+		return (EnumSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof EnumSchemaDefinition).findFirst().orElse(null);
 	}
 
 	/**
@@ -436,6 +460,12 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getOneOf();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__NOT:
 				return getNot();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__REF:
+				return getRef();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__TYPE:
+				return getType();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ENUM:
+				return getEnum();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES:
 				return getSchemaObjectAdditionalProperties();
 		}
@@ -516,6 +546,12 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getOneOf() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__NOT:
 				return getNot() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__REF:
+				return getRef() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__TYPE:
+				return getType() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__ENUM:
+				return getEnum() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES:
 				return !getSchemaObjectAdditionalProperties().isEmpty();
 		}

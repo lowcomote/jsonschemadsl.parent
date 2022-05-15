@@ -3,7 +3,7 @@ Automatic-Module-Name: jsonschemadsl
 Bundle-ManifestVersion: 2
 Bundle-Name: jsonschemadsl
 Bundle-Vendor: My Company
-Bundle-Version: 1.0.3
+Bundle-Version: 1.1.0
 Bundle-SymbolicName: jsonschemadsl; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
@@ -17,9 +17,9 @@ Require-Bundle: org.eclipse.xtext,
  org.eclipse.ocl.xtext.completeocl,
  org.eclipse.core.resources;bundle-version="3.13.800",
  org.eclipse.ui;bundle-version="3.118.0",
- jsonschemadsl2ecore.trafo;bundle-version="1.0.3",
- jsonmetaschemaMM;bundle-version="1.0.3",
- jsonschemadsl2ecore.trafo.opt;bundle-version="1.0.3"
+ jsonschemadsl2ecore.trafo;bundle-version="1.1.0",
+ jsonmetaschemaMM;bundle-version="1.1.0",
+ jsonschemadsl2ecore.trafo.opt;bundle-version="1.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: at.jku.bise,
  at.jku.bise.scoping,

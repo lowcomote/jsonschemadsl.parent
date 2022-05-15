@@ -15,9 +15,6 @@
     <genClasses ecoreClass="jsonMM.ecore#//StringValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//StringValue/value"/>
     </genClasses>
-    <genClasses ecoreClass="jsonMM.ecore#//IntegerValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//IntegerValue/value"/>
-    </genClasses>
     <genClasses ecoreClass="jsonMM.ecore#//ArrayValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMM.ecore#//ArrayValue/value"/>
     </genClasses>

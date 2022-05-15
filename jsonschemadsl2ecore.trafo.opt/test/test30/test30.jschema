@@ -1,0 +1,12 @@
+{
+	"type":"object",
+	"properties":{
+		"array":{"type":"array"},
+		"integer":{"type":"integer"},
+		"number":{"type":"number"},
+		"object":{"type":"object"},
+		"null":{"type":"null"},
+		"string":{"type":"string"},
+		"boolean":{"type":"boolean"}
+	}
+} 

@@ -4,7 +4,6 @@ package jsonMM.impl;
 
 import jsonMM.ArrayValue;
 import jsonMM.BooleanValue;
-import jsonMM.IntegerValue;
 import jsonMM.JsonDocument;
 import jsonMM.JsonMMFactory;
 import jsonMM.JsonMMPackage;
@@ -37,13 +36,6 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 * @generated
 	 */
 	private EClass stringValueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass integerValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,24 +180,6 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 */
 	public EAttribute getStringValue_Value() {
 		return (EAttribute) stringValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getIntegerValue() {
-		return integerValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIntegerValue_Value() {
-		return (EAttribute) integerValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -393,9 +367,6 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 		stringValueEClass = createEClass(STRING_VALUE);
 		createEAttribute(stringValueEClass, STRING_VALUE__VALUE);
 
-		integerValueEClass = createEClass(INTEGER_VALUE);
-		createEAttribute(integerValueEClass, INTEGER_VALUE__VALUE);
-
 		arrayValueEClass = createEClass(ARRAY_VALUE);
 		createEReference(arrayValueEClass, ARRAY_VALUE__VALUE);
 
@@ -454,7 +425,6 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 
 		// Add supertypes to classes
 		stringValueEClass.getESuperTypes().add(this.getValue());
-		integerValueEClass.getESuperTypes().add(this.getValue());
 		arrayValueEClass.getESuperTypes().add(this.getValue());
 		nullValueEClass.getESuperTypes().add(this.getValue());
 		numberValueEClass.getESuperTypes().add(this.getValue());
@@ -465,11 +435,6 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 		initEClass(stringValueEClass, StringValue.class, "StringValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getStringValue_Value(), ecorePackage.getEString(), "value", null, 1, 1, StringValue.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(integerValueEClass, IntegerValue.class, "IntegerValue", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntegerValue_Value(), ecorePackage.getEInt(), "value", null, 1, 1, IntegerValue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(arrayValueEClass, ArrayValue.class, "ArrayValue", !IS_ABSTRACT, !IS_INTERFACE,

@@ -19,7 +19,6 @@ package jsonMM;
  * @generated
  */
 public interface NullValue extends Value {
-
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * The literals are from the enumeration {@link jsonMM.NullEnum}.
@@ -44,4 +43,5 @@ public interface NullValue extends Value {
 	 * @generated
 	 */
 	void setValue(NullEnum value);
+
 } // NullValue

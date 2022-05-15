@@ -66,7 +66,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSchema()
 	 * @generated
 	 */
-	int SCHEMA = 27;
+	int SCHEMA = 26;
 
 	/**
 	 * The number of structural features of the '<em>Schema</em>' class.
@@ -259,13 +259,40 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__NOT = SCHEMA_FEATURE_COUNT + 16;
 
 	/**
+	 * The feature id for the '<em><b>Ref</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__REF = SCHEMA_FEATURE_COUNT + 17;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__TYPE = SCHEMA_FEATURE_COUNT + 18;
+
+	/**
+	 * The feature id for the '<em><b>Enum</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__ENUM = SCHEMA_FEATURE_COUNT + 19;
+
+	/**
 	 * The feature id for the '<em><b>Schema Object Additional Properties</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES = SCHEMA_FEATURE_COUNT + 17;
+	int OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES = SCHEMA_FEATURE_COUNT + 20;
 
 	/**
 	 * The number of structural features of the '<em>Object Schema</em>' class.
@@ -274,7 +301,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 18;
+	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 21;
 
 	/**
 	 * The operation id for the '<em>Find Schema By Key</em>' operation.
@@ -311,7 +338,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getKeywordDefinition()
 	 * @generated
 	 */
-	int KEYWORD_DEFINITION = 48;
+	int KEYWORD_DEFINITION = 47;
 
 	/**
 	 * The number of structural features of the '<em>Keyword Definition</em>' class.
@@ -369,71 +396,6 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int MAXIMUM_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ValueImpl <em>Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jsonMetaschemaMM.impl.ValueImpl
-	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getValue()
-	 * @generated
-	 */
-	int VALUE = 62;
-
-	/**
-	 * The number of structural features of the '<em>Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link jsonMetaschemaMM.impl.IntegerValueImpl <em>Integer Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see jsonMetaschemaMM.impl.IntegerValueImpl
-	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getIntegerValue()
-	 * @generated
-	 */
-	int INTEGER_VALUE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_VALUE__VALUE = VALUE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Integer Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Integer Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INTEGER_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.WriteOnlySchemaDefinitionImpl <em>Write Only Schema Definition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,7 +403,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getWriteOnlySchemaDefinition()
 	 * @generated
 	 */
-	int WRITE_ONLY_SCHEMA_DEFINITION = 3;
+	int WRITE_ONLY_SCHEMA_DEFINITION = 2;
 
 	/**
 	 * The feature id for the '<em><b>Write Only</b></em>' attribute.
@@ -478,7 +440,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getCommentSchemaDefinition()
 	 * @generated
 	 */
-	int COMMENT_SCHEMA_DEFINITION = 4;
+	int COMMENT_SCHEMA_DEFINITION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Comment</b></em>' attribute.
@@ -515,7 +477,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getEnumSchemaDefinition()
 	 * @generated
 	 */
-	int ENUM_SCHEMA_DEFINITION = 5;
+	int ENUM_SCHEMA_DEFINITION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -552,7 +514,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getUniqueItemsSchemaDefinition()
 	 * @generated
 	 */
-	int UNIQUE_ITEMS_SCHEMA_DEFINITION = 6;
+	int UNIQUE_ITEMS_SCHEMA_DEFINITION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Unique Items</b></em>' attribute.
@@ -589,7 +551,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getAnyOfSchemaDefinition()
 	 * @generated
 	 */
-	int ANY_OF_SCHEMA_DEFINITION = 7;
+	int ANY_OF_SCHEMA_DEFINITION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Any Of</b></em>' containment reference.
@@ -626,7 +588,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getStringArray()
 	 * @generated
 	 */
-	int STRING_ARRAY = 8;
+	int STRING_ARRAY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' attribute list.
@@ -663,7 +625,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getTitleSchemaDefinition()
 	 * @generated
 	 */
-	int TITLE_SCHEMA_DEFINITION = 9;
+	int TITLE_SCHEMA_DEFINITION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -700,7 +662,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsSchemaDefinition()
 	 * @generated
 	 */
-	int ITEMS_SCHEMA_DEFINITION = 10;
+	int ITEMS_SCHEMA_DEFINITION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Any Of</b></em>' containment reference.
@@ -737,7 +699,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getDefaultSchemaDefinition()
 	 * @generated
 	 */
-	int DEFAULT_SCHEMA_DEFINITION = 11;
+	int DEFAULT_SCHEMA_DEFINITION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Default</b></em>' containment reference.
@@ -774,7 +736,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getThenSchemaDefinition()
 	 * @generated
 	 */
-	int THEN_SCHEMA_DEFINITION = 12;
+	int THEN_SCHEMA_DEFINITION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Then</b></em>' containment reference.
@@ -811,7 +773,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getMinLengthSchemaDefinition()
 	 * @generated
 	 */
-	int MIN_LENGTH_SCHEMA_DEFINITION = 13;
+	int MIN_LENGTH_SCHEMA_DEFINITION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Min Length</b></em>' containment reference.
@@ -848,7 +810,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getDefinitionsSchemaDefinition()
 	 * @generated
 	 */
-	int DEFINITIONS_SCHEMA_DEFINITION = 14;
+	int DEFINITIONS_SCHEMA_DEFINITION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Key Schema Pairs</b></em>' containment reference list.
@@ -887,6 +849,34 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int DEFINITIONS_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ValueImpl <em>Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMetaschemaMM.impl.ValueImpl
+	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getValue()
+	 * @generated
+	 */
+	int VALUE = 61;
+
+	/**
+	 * The number of structural features of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -894,7 +884,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getBooleanValue()
 	 * @generated
 	 */
-	int BOOLEAN_VALUE = 15;
+	int BOOLEAN_VALUE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -931,7 +921,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getMinItemsSchemaDefinition()
 	 * @generated
 	 */
-	int MIN_ITEMS_SCHEMA_DEFINITION = 16;
+	int MIN_ITEMS_SCHEMA_DEFINITION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Min Items</b></em>' containment reference.
@@ -968,7 +958,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getOneOfSchemaDefinition()
 	 * @generated
 	 */
-	int ONE_OF_SCHEMA_DEFINITION = 17;
+	int ONE_OF_SCHEMA_DEFINITION = 16;
 
 	/**
 	 * The feature id for the '<em><b>One Of</b></em>' containment reference.
@@ -1005,7 +995,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSchemaArray()
 	 * @generated
 	 */
-	int SCHEMA_ARRAY = 18;
+	int SCHEMA_ARRAY = 17;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -1051,7 +1041,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getMaxPropertiesSchemaDefinition()
 	 * @generated
 	 */
-	int MAX_PROPERTIES_SCHEMA_DEFINITION = 19;
+	int MAX_PROPERTIES_SCHEMA_DEFINITION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Max Properties</b></em>' containment reference.
@@ -1088,7 +1078,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getNullValue()
 	 * @generated
 	 */
-	int NULL_VALUE = 20;
+	int NULL_VALUE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1125,7 +1115,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getMinimumSchemaDefinition()
 	 * @generated
 	 */
-	int MINIMUM_SCHEMA_DEFINITION = 21;
+	int MINIMUM_SCHEMA_DEFINITION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Minimum</b></em>' attribute.
@@ -1162,7 +1152,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getStringValue()
 	 * @generated
 	 */
-	int STRING_VALUE = 22;
+	int STRING_VALUE = 21;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1199,7 +1189,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getJsonDocument()
 	 * @generated
 	 */
-	int JSON_DOCUMENT = 23;
+	int JSON_DOCUMENT = 22;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1236,7 +1226,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getMaxItemsSchemaDefinition()
 	 * @generated
 	 */
-	int MAX_ITEMS_SCHEMA_DEFINITION = 24;
+	int MAX_ITEMS_SCHEMA_DEFINITION = 23;
 
 	/**
 	 * The feature id for the '<em><b>Max Items</b></em>' containment reference.
@@ -1273,7 +1263,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getFormatSchemaDefinition()
 	 * @generated
 	 */
-	int FORMAT_SCHEMA_DEFINITION = 25;
+	int FORMAT_SCHEMA_DEFINITION = 24;
 
 	/**
 	 * The feature id for the '<em><b>Format</b></em>' attribute.
@@ -1310,7 +1300,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getReadOnlySchemaDefinition()
 	 * @generated
 	 */
-	int READ_ONLY_SCHEMA_DEFINITION = 26;
+	int READ_ONLY_SCHEMA_DEFINITION = 25;
 
 	/**
 	 * The feature id for the '<em><b>Read Only</b></em>' attribute.
@@ -1347,7 +1337,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getObjectValue()
 	 * @generated
 	 */
-	int OBJECT_VALUE = 28;
+	int OBJECT_VALUE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Keyvaluepair</b></em>' containment reference list.
@@ -1384,25 +1374,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getTypeSchemaDefinition()
 	 * @generated
 	 */
-	int TYPE_SCHEMA_DEFINITION = 29;
+	int TYPE_SCHEMA_DEFINITION = 28;
 
 	/**
-	 * The feature id for the '<em><b>Type Any Of1</b></em>' attribute.
+	 * The feature id for the '<em><b>Any Of</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_SCHEMA_DEFINITION__TYPE_ANY_OF1 = KEYWORD_DEFINITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Types Any Of2</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_SCHEMA_DEFINITION__TYPES_ANY_OF2 = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
+	int TYPE_SCHEMA_DEFINITION__ANY_OF = KEYWORD_DEFINITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Type Schema Definition</em>' class.
@@ -1411,7 +1392,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 2;
+	int TYPE_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Type Schema Definition</em>' class.
@@ -1430,7 +1411,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getAdditionalPropertiesSchemaDefinition()
 	 * @generated
 	 */
-	int ADDITIONAL_PROPERTIES_SCHEMA_DEFINITION = 30;
+	int ADDITIONAL_PROPERTIES_SCHEMA_DEFINITION = 29;
 
 	/**
 	 * The feature id for the '<em><b>Additional Properties</b></em>' containment reference.
@@ -1467,7 +1448,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getElseSchemaDefinition()
 	 * @generated
 	 */
-	int ELSE_SCHEMA_DEFINITION = 31;
+	int ELSE_SCHEMA_DEFINITION = 30;
 
 	/**
 	 * The feature id for the '<em><b>Else</b></em>' containment reference.
@@ -1504,7 +1485,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getIdSchemaDefinition()
 	 * @generated
 	 */
-	int ID_SCHEMA_DEFINITION = 32;
+	int ID_SCHEMA_DEFINITION = 31;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1541,7 +1522,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getConstSchemaDefinition()
 	 * @generated
 	 */
-	int CONST_SCHEMA_DEFINITION = 33;
+	int CONST_SCHEMA_DEFINITION = 32;
 
 	/**
 	 * The feature id for the '<em><b>Const</b></em>' containment reference.
@@ -1578,7 +1559,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getDependenciesSchemaDefinition()
 	 * @generated
 	 */
-	int DEPENDENCIES_SCHEMA_DEFINITION = 34;
+	int DEPENDENCIES_SCHEMA_DEFINITION = 33;
 
 	/**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -1624,7 +1605,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getNumberValue()
 	 * @generated
 	 */
-	int NUMBER_VALUE = 35;
+	int NUMBER_VALUE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1661,7 +1642,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getRequiredSchemaDefinition()
 	 * @generated
 	 */
-	int REQUIRED_SCHEMA_DEFINITION = 36;
+	int REQUIRED_SCHEMA_DEFINITION = 35;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' containment reference.
@@ -1698,7 +1679,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getDescriptionSchemaDefinition()
 	 * @generated
 	 */
-	int DESCRIPTION_SCHEMA_DEFINITION = 37;
+	int DESCRIPTION_SCHEMA_DEFINITION = 36;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1735,7 +1716,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getMinPropertiesSchemaDefinition()
 	 * @generated
 	 */
-	int MIN_PROPERTIES_SCHEMA_DEFINITION = 38;
+	int MIN_PROPERTIES_SCHEMA_DEFINITION = 37;
 
 	/**
 	 * The feature id for the '<em><b>Min Properties</b></em>' containment reference.
@@ -1772,7 +1753,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getPatternPropertiesSchemaDefinition()
 	 * @generated
 	 */
-	int PATTERN_PROPERTIES_SCHEMA_DEFINITION = 39;
+	int PATTERN_PROPERTIES_SCHEMA_DEFINITION = 38;
 
 	/**
 	 * The feature id for the '<em><b>Key Schema Pairs</b></em>' containment reference list.
@@ -1818,7 +1799,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getAdditionalItemsSchemaDefinition()
 	 * @generated
 	 */
-	int ADDITIONAL_ITEMS_SCHEMA_DEFINITION = 40;
+	int ADDITIONAL_ITEMS_SCHEMA_DEFINITION = 39;
 
 	/**
 	 * The feature id for the '<em><b>Additional Items</b></em>' containment reference.
@@ -1855,7 +1836,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getKeyValuePair()
 	 * @generated
 	 */
-	int KEY_VALUE_PAIR = 41;
+	int KEY_VALUE_PAIR = 40;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1901,7 +1882,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getExamplesSchemaDefinition()
 	 * @generated
 	 */
-	int EXAMPLES_SCHEMA_DEFINITION = 42;
+	int EXAMPLES_SCHEMA_DEFINITION = 41;
 
 	/**
 	 * The feature id for the '<em><b>Examples</b></em>' containment reference list.
@@ -1938,7 +1919,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getIfSchemaDefinition()
 	 * @generated
 	 */
-	int IF_SCHEMA_DEFINITION = 43;
+	int IF_SCHEMA_DEFINITION = 42;
 
 	/**
 	 * The feature id for the '<em><b>If</b></em>' containment reference.
@@ -1975,7 +1956,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getAllOfSchemaDefinition()
 	 * @generated
 	 */
-	int ALL_OF_SCHEMA_DEFINITION = 44;
+	int ALL_OF_SCHEMA_DEFINITION = 43;
 
 	/**
 	 * The feature id for the '<em><b>All Of</b></em>' containment reference.
@@ -2012,7 +1993,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getContentEncodingSchemaDefinition()
 	 * @generated
 	 */
-	int CONTENT_ENCODING_SCHEMA_DEFINITION = 45;
+	int CONTENT_ENCODING_SCHEMA_DEFINITION = 44;
 
 	/**
 	 * The feature id for the '<em><b>Content Encoding</b></em>' attribute.
@@ -2049,7 +2030,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getMultipleOfSchemaDefinition()
 	 * @generated
 	 */
-	int MULTIPLE_OF_SCHEMA_DEFINITION = 46;
+	int MULTIPLE_OF_SCHEMA_DEFINITION = 45;
 
 	/**
 	 * The feature id for the '<em><b>Multiple Of</b></em>' attribute.
@@ -2086,7 +2067,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getPatternSchemaDefinition()
 	 * @generated
 	 */
-	int PATTERN_SCHEMA_DEFINITION = 47;
+	int PATTERN_SCHEMA_DEFINITION = 46;
 
 	/**
 	 * The feature id for the '<em><b>Pattern</b></em>' attribute.
@@ -2123,7 +2104,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getContainsSchemaDefinition()
 	 * @generated
 	 */
-	int CONTAINS_SCHEMA_DEFINITION = 49;
+	int CONTAINS_SCHEMA_DEFINITION = 48;
 
 	/**
 	 * The feature id for the '<em><b>Contains</b></em>' containment reference.
@@ -2160,7 +2141,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getNotSchemaDefinition()
 	 * @generated
 	 */
-	int NOT_SCHEMA_DEFINITION = 50;
+	int NOT_SCHEMA_DEFINITION = 49;
 
 	/**
 	 * The feature id for the '<em><b>Not</b></em>' containment reference.
@@ -2197,7 +2178,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getExclusiveMaximumSchemaDefinition()
 	 * @generated
 	 */
-	int EXCLUSIVE_MAXIMUM_SCHEMA_DEFINITION = 51;
+	int EXCLUSIVE_MAXIMUM_SCHEMA_DEFINITION = 50;
 
 	/**
 	 * The feature id for the '<em><b>Exclusive Maximum</b></em>' attribute.
@@ -2234,7 +2215,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getMaxLengthSchemaDefinition()
 	 * @generated
 	 */
-	int MAX_LENGTH_SCHEMA_DEFINITION = 52;
+	int MAX_LENGTH_SCHEMA_DEFINITION = 51;
 
 	/**
 	 * The feature id for the '<em><b>Max Length</b></em>' containment reference.
@@ -2271,7 +2252,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getRefSchemaDefinition()
 	 * @generated
 	 */
-	int REF_SCHEMA_DEFINITION = 53;
+	int REF_SCHEMA_DEFINITION = 52;
 
 	/**
 	 * The feature id for the '<em><b>Ref</b></em>' attribute.
@@ -2344,7 +2325,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getJsonSchema()
 	 * @generated
 	 */
-	int JSON_SCHEMA = 54;
+	int JSON_SCHEMA = 53;
 
 	/**
 	 * The feature id for the '<em><b>Schema</b></em>' containment reference.
@@ -2390,7 +2371,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getKeySchemaPair()
 	 * @generated
 	 */
-	int KEY_SCHEMA_PAIR = 55;
+	int KEY_SCHEMA_PAIR = 54;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -2436,7 +2417,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getContentMediaTypeSchemaDefinition()
 	 * @generated
 	 */
-	int CONTENT_MEDIA_TYPE_SCHEMA_DEFINITION = 56;
+	int CONTENT_MEDIA_TYPE_SCHEMA_DEFINITION = 55;
 
 	/**
 	 * The feature id for the '<em><b>Content Media Type</b></em>' attribute.
@@ -2473,7 +2454,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getExclusiveMinimumSchemaDefinition()
 	 * @generated
 	 */
-	int EXCLUSIVE_MINIMUM_SCHEMA_DEFINITION = 57;
+	int EXCLUSIVE_MINIMUM_SCHEMA_DEFINITION = 56;
 
 	/**
 	 * The feature id for the '<em><b>Exclusive Minimum</b></em>' attribute.
@@ -2510,7 +2491,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSchemaSchemaDefinition()
 	 * @generated
 	 */
-	int SCHEMA_SCHEMA_DEFINITION = 58;
+	int SCHEMA_SCHEMA_DEFINITION = 57;
 
 	/**
 	 * The feature id for the '<em><b>Schema</b></em>' attribute.
@@ -2547,7 +2528,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getPropertiesSchemaDefinition()
 	 * @generated
 	 */
-	int PROPERTIES_SCHEMA_DEFINITION = 59;
+	int PROPERTIES_SCHEMA_DEFINITION = 58;
 
 	/**
 	 * The feature id for the '<em><b>Key Schema Pairs</b></em>' containment reference list.
@@ -2593,7 +2574,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getPropertyNamesSchemaDefinition()
 	 * @generated
 	 */
-	int PROPERTY_NAMES_SCHEMA_DEFINITION = 60;
+	int PROPERTY_NAMES_SCHEMA_DEFINITION = 59;
 
 	/**
 	 * The feature id for the '<em><b>Property Names</b></em>' containment reference.
@@ -2630,7 +2611,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getArrayValue()
 	 * @generated
 	 */
-	int ARRAY_VALUE = 61;
+	int ARRAY_VALUE = 60;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' containment reference list.
@@ -2660,14 +2641,42 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int ARRAY_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link jsonMetaschemaMM.impl.TypesAnyOf2Impl <em>Types Any Of2</em>}' class.
+	 * The meta object id for the '{@link jsonMetaschemaMM.impl.TypeAnyOfImpl <em>Type Any Of</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see jsonMetaschemaMM.impl.TypesAnyOf2Impl
-	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getTypesAnyOf2()
+	 * @see jsonMetaschemaMM.impl.TypeAnyOfImpl
+	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getTypeAnyOf()
 	 * @generated
 	 */
-	int TYPES_ANY_OF2 = 63;
+	int TYPE_ANY_OF = 76;
+
+	/**
+	 * The number of structural features of the '<em>Type Any Of</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_ANY_OF_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Type Any Of</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_ANY_OF_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link jsonMetaschemaMM.impl.TypeAnyOf2Impl <em>Type Any Of2</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMetaschemaMM.impl.TypeAnyOf2Impl
+	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getTypeAnyOf2()
+	 * @generated
+	 */
+	int TYPE_ANY_OF2 = 62;
 
 	/**
 	 * The feature id for the '<em><b>Items</b></em>' attribute list.
@@ -2676,25 +2685,25 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPES_ANY_OF2__ITEMS = 0;
+	int TYPE_ANY_OF2__ITEMS = TYPE_ANY_OF_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Types Any Of2</em>' class.
+	 * The number of structural features of the '<em>Type Any Of2</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPES_ANY_OF2_FEATURE_COUNT = 1;
+	int TYPE_ANY_OF2_FEATURE_COUNT = TYPE_ANY_OF_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Types Any Of2</em>' class.
+	 * The number of operations of the '<em>Type Any Of2</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPES_ANY_OF2_OPERATION_COUNT = 0;
+	int TYPE_ANY_OF2_OPERATION_COUNT = TYPE_ANY_OF_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.BooleanSchemaImpl <em>Boolean Schema</em>}' class.
@@ -2704,7 +2713,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getBooleanSchema()
 	 * @generated
 	 */
-	int BOOLEAN_SCHEMA = 64;
+	int BOOLEAN_SCHEMA = 63;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2750,7 +2759,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getNonNegativeInteger()
 	 * @generated
 	 */
-	int NON_NEGATIVE_INTEGER = 65;
+	int NON_NEGATIVE_INTEGER = 64;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2787,7 +2796,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getNonNegativeIntegerDefault0()
 	 * @generated
 	 */
-	int NON_NEGATIVE_INTEGER_DEFAULT0 = 66;
+	int NON_NEGATIVE_INTEGER_DEFAULT0 = 65;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -2824,7 +2833,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSchemaObjectAdditionalProperties()
 	 * @generated
 	 */
-	int SCHEMA_OBJECT_ADDITIONAL_PROPERTIES = 67;
+	int SCHEMA_OBJECT_ADDITIONAL_PROPERTIES = 66;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -2870,7 +2879,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSchemaObjectDependenciesProperties()
 	 * @generated
 	 */
-	int SCHEMA_OBJECT_DEPENDENCIES_PROPERTIES = 68;
+	int SCHEMA_OBJECT_DEPENDENCIES_PROPERTIES = 67;
 
 	/**
 	 * The number of structural features of the '<em>Schema Object Dependencies Properties</em>' class.
@@ -2898,7 +2907,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSchemaObjectDependenciesAdditionalProperties()
 	 * @generated
 	 */
-	int SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES = 69;
+	int SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES = 68;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -2944,7 +2953,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSchemaObjectDependenciesAdditionalPropertiesAnyOf()
 	 * @generated
 	 */
-	int SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF = 72;
+	int SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF = 71;
 
 	/**
 	 * The number of structural features of the '<em>Schema Object Dependencies Additional Properties Any Of</em>' class.
@@ -2972,7 +2981,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSchemaObjectDependenciesAdditionalPropertiesAnyOf1()
 	 * @generated
 	 */
-	int SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF1 = 70;
+	int SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF1 = 69;
 
 	/**
 	 * The feature id for the '<em><b>Any Of1</b></em>' containment reference.
@@ -3009,7 +3018,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSchemaObjectDependenciesAdditionalPropertiesAnyOf2()
 	 * @generated
 	 */
-	int SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF2 = 71;
+	int SCHEMA_OBJECT_DEPENDENCIES_ADDITIONAL_PROPERTIES_ANY_OF2 = 70;
 
 	/**
 	 * The feature id for the '<em><b>Any Of2</b></em>' containment reference.
@@ -3046,7 +3055,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf()
 	 * @generated
 	 */
-	int ITEMS_ANY_OF = 73;
+	int ITEMS_ANY_OF = 72;
 
 	/**
 	 * The number of structural features of the '<em>Items Any Of</em>' class.
@@ -3074,7 +3083,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf1()
 	 * @generated
 	 */
-	int ITEMS_ANY_OF1 = 74;
+	int ITEMS_ANY_OF1 = 73;
 
 	/**
 	 * The feature id for the '<em><b>Any Of1</b></em>' containment reference.
@@ -3111,7 +3120,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getItemsAnyOf2()
 	 * @generated
 	 */
-	int ITEMS_ANY_OF2 = 75;
+	int ITEMS_ANY_OF2 = 74;
 
 	/**
 	 * The feature id for the '<em><b>Any Of2</b></em>' containment reference.
@@ -3141,6 +3150,43 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int ITEMS_ANY_OF2_OPERATION_COUNT = ITEMS_ANY_OF_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link jsonMetaschemaMM.impl.TypeAnyOf1Impl <em>Type Any Of1</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see jsonMetaschemaMM.impl.TypeAnyOf1Impl
+	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getTypeAnyOf1()
+	 * @generated
+	 */
+	int TYPE_ANY_OF1 = 75;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_ANY_OF1__TYPE = TYPE_ANY_OF_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Type Any Of1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_ANY_OF1_FEATURE_COUNT = TYPE_ANY_OF_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Type Any Of1</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_ANY_OF1_OPERATION_COUNT = TYPE_ANY_OF_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3148,7 +3194,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getSimpleTypes()
 	 * @generated
 	 */
-	int SIMPLE_TYPES = 76;
+	int SIMPLE_TYPES = 77;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.NullEnum <em>Null Enum</em>}' enum.
@@ -3158,7 +3204,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getNullEnum()
 	 * @generated
 	 */
-	int NULL_ENUM = 77;
+	int NULL_ENUM = 78;
 
 
 	/**
@@ -3359,6 +3405,39 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Not();
 
 	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getRef <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Ref</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getRef()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Ref();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getType()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Type();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getEnum <em>Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Enum</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getEnum()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Enum();
+
+	/**
 	 * Returns the meta object for the reference list '{@link jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3409,27 +3488,6 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMaximumSchemaDefinition_Maximum();
-
-	/**
-	 * Returns the meta object for class '{@link jsonMetaschemaMM.IntegerValue <em>Integer Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Integer Value</em>'.
-	 * @see jsonMetaschemaMM.IntegerValue
-	 * @generated
-	 */
-	EClass getIntegerValue();
-
-	/**
-	 * Returns the meta object for the attribute '{@link jsonMetaschemaMM.IntegerValue#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see jsonMetaschemaMM.IntegerValue#getValue()
-	 * @see #getIntegerValue()
-	 * @generated
-	 */
-	EAttribute getIntegerValue_Value();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.WriteOnlySchemaDefinition <em>Write Only Schema Definition</em>}'.
@@ -4007,26 +4065,15 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EClass getTypeSchemaDefinition();
 
 	/**
-	 * Returns the meta object for the attribute '{@link jsonMetaschemaMM.TypeSchemaDefinition#getTypeAnyOf1 <em>Type Any Of1</em>}'.
+	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.TypeSchemaDefinition#getAnyOf <em>Any Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type Any Of1</em>'.
-	 * @see jsonMetaschemaMM.TypeSchemaDefinition#getTypeAnyOf1()
+	 * @return the meta object for the containment reference '<em>Any Of</em>'.
+	 * @see jsonMetaschemaMM.TypeSchemaDefinition#getAnyOf()
 	 * @see #getTypeSchemaDefinition()
 	 * @generated
 	 */
-	EAttribute getTypeSchemaDefinition_TypeAnyOf1();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link jsonMetaschemaMM.TypeSchemaDefinition#getTypesAnyOf2 <em>Types Any Of2</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Types Any Of2</em>'.
-	 * @see jsonMetaschemaMM.TypeSchemaDefinition#getTypesAnyOf2()
-	 * @see #getTypeSchemaDefinition()
-	 * @generated
-	 */
-	EReference getTypeSchemaDefinition_TypesAnyOf2();
+	EReference getTypeSchemaDefinition_AnyOf();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.AdditionalPropertiesSchemaDefinition <em>Additional Properties Schema Definition</em>}'.
@@ -4802,25 +4849,25 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EClass getValue();
 
 	/**
-	 * Returns the meta object for class '{@link jsonMetaschemaMM.TypesAnyOf2 <em>Types Any Of2</em>}'.
+	 * Returns the meta object for class '{@link jsonMetaschemaMM.TypeAnyOf2 <em>Type Any Of2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Types Any Of2</em>'.
-	 * @see jsonMetaschemaMM.TypesAnyOf2
+	 * @return the meta object for class '<em>Type Any Of2</em>'.
+	 * @see jsonMetaschemaMM.TypeAnyOf2
 	 * @generated
 	 */
-	EClass getTypesAnyOf2();
+	EClass getTypeAnyOf2();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link jsonMetaschemaMM.TypesAnyOf2#getItems <em>Items</em>}'.
+	 * Returns the meta object for the attribute list '{@link jsonMetaschemaMM.TypeAnyOf2#getItems <em>Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute list '<em>Items</em>'.
-	 * @see jsonMetaschemaMM.TypesAnyOf2#getItems()
-	 * @see #getTypesAnyOf2()
+	 * @see jsonMetaschemaMM.TypeAnyOf2#getItems()
+	 * @see #getTypeAnyOf2()
 	 * @generated
 	 */
-	EAttribute getTypesAnyOf2_Items();
+	EAttribute getTypeAnyOf2_Items();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.BooleanSchema <em>Boolean Schema</em>}'.
@@ -5074,6 +5121,37 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getItemsAnyOf2_AnyOf2();
 
 	/**
+	 * Returns the meta object for class '{@link jsonMetaschemaMM.TypeAnyOf1 <em>Type Any Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Type Any Of1</em>'.
+	 * @see jsonMetaschemaMM.TypeAnyOf1
+	 * @generated
+	 */
+	EClass getTypeAnyOf1();
+
+	/**
+	 * Returns the meta object for the attribute '{@link jsonMetaschemaMM.TypeAnyOf1#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see jsonMetaschemaMM.TypeAnyOf1#getType()
+	 * @see #getTypeAnyOf1()
+	 * @generated
+	 */
+	EAttribute getTypeAnyOf1_Type();
+
+	/**
+	 * Returns the meta object for class '{@link jsonMetaschemaMM.TypeAnyOf <em>Type Any Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Type Any Of</em>'.
+	 * @see jsonMetaschemaMM.TypeAnyOf
+	 * @generated
+	 */
+	EClass getTypeAnyOf();
+
+	/**
 	 * Returns the meta object for enum '{@link jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5263,6 +5341,30 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EReference OBJECT_SCHEMA__NOT = eINSTANCE.getObjectSchema_Not();
 
 		/**
+		 * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__REF = eINSTANCE.getObjectSchema_Ref();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__TYPE = eINSTANCE.getObjectSchema_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Enum</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__ENUM = eINSTANCE.getObjectSchema_Enum();
+
+		/**
 		 * The meta object literal for the '<em><b>Schema Object Additional Properties</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5303,24 +5405,6 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MAXIMUM_SCHEMA_DEFINITION__MAXIMUM = eINSTANCE.getMaximumSchemaDefinition_Maximum();
-
-		/**
-		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.IntegerValueImpl <em>Integer Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see jsonMetaschemaMM.impl.IntegerValueImpl
-		 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getIntegerValue()
-		 * @generated
-		 */
-		EClass INTEGER_VALUE = eINSTANCE.getIntegerValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INTEGER_VALUE__VALUE = eINSTANCE.getIntegerValue_Value();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.WriteOnlySchemaDefinitionImpl <em>Write Only Schema Definition</em>}' class.
@@ -5817,20 +5901,12 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EClass TYPE_SCHEMA_DEFINITION = eINSTANCE.getTypeSchemaDefinition();
 
 		/**
-		 * The meta object literal for the '<em><b>Type Any Of1</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Any Of</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TYPE_SCHEMA_DEFINITION__TYPE_ANY_OF1 = eINSTANCE.getTypeSchemaDefinition_TypeAnyOf1();
-
-		/**
-		 * The meta object literal for the '<em><b>Types Any Of2</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPE_SCHEMA_DEFINITION__TYPES_ANY_OF2 = eINSTANCE.getTypeSchemaDefinition_TypesAnyOf2();
+		EReference TYPE_SCHEMA_DEFINITION__ANY_OF = eINSTANCE.getTypeSchemaDefinition_AnyOf();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.AdditionalPropertiesSchemaDefinitionImpl <em>Additional Properties Schema Definition</em>}' class.
@@ -6491,14 +6567,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EClass VALUE = eINSTANCE.getValue();
 
 		/**
-		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.TypesAnyOf2Impl <em>Types Any Of2</em>}' class.
+		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.TypeAnyOf2Impl <em>Type Any Of2</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see jsonMetaschemaMM.impl.TypesAnyOf2Impl
-		 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getTypesAnyOf2()
+		 * @see jsonMetaschemaMM.impl.TypeAnyOf2Impl
+		 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getTypeAnyOf2()
 		 * @generated
 		 */
-		EClass TYPES_ANY_OF2 = eINSTANCE.getTypesAnyOf2();
+		EClass TYPE_ANY_OF2 = eINSTANCE.getTypeAnyOf2();
 
 		/**
 		 * The meta object literal for the '<em><b>Items</b></em>' attribute list feature.
@@ -6506,7 +6582,7 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TYPES_ANY_OF2__ITEMS = eINSTANCE.getTypesAnyOf2_Items();
+		EAttribute TYPE_ANY_OF2__ITEMS = eINSTANCE.getTypeAnyOf2_Items();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.BooleanSchemaImpl <em>Boolean Schema</em>}' class.
@@ -6723,6 +6799,34 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ITEMS_ANY_OF2__ANY_OF2 = eINSTANCE.getItemsAnyOf2_AnyOf2();
+
+		/**
+		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.TypeAnyOf1Impl <em>Type Any Of1</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jsonMetaschemaMM.impl.TypeAnyOf1Impl
+		 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getTypeAnyOf1()
+		 * @generated
+		 */
+		EClass TYPE_ANY_OF1 = eINSTANCE.getTypeAnyOf1();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TYPE_ANY_OF1__TYPE = eINSTANCE.getTypeAnyOf1_Type();
+
+		/**
+		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.TypeAnyOfImpl <em>Type Any Of</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see jsonMetaschemaMM.impl.TypeAnyOfImpl
+		 * @see jsonMetaschemaMM.impl.JsonMetaschemaMMPackageImpl#getTypeAnyOf()
+		 * @generated
+		 */
+		EClass TYPE_ANY_OF = eINSTANCE.getTypeAnyOf();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.SimpleTypes <em>Simple Types</em>}' enum.

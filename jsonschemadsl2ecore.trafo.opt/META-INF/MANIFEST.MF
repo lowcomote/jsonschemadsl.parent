@@ -2,19 +2,19 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Opt
 Bundle-SymbolicName: jsonschemadsl2ecore.trafo.opt;singleton:=true
-Bundle-Version: 1.0.3
+Bundle-Version: 1.1.0
 Bundle-Activator: jsonschemadsl2ecore.trafo.opt.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- jschemaoclgenerator;bundle-version="1.0.3",
- jku.se.atl.transformation.utils;bundle-version="1.0.3",
+ jschemaoclgenerator;bundle-version="1.1.0",
+ jku.se.atl.transformation.utils;bundle-version="1.1.0",
  org.eclipse.m2m.atl.emftvm,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- at.jku.bise.ecore.json.grammar;bundle-version="1.0.0",
- jsonmetaschemaMM;bundle-version="1.0.3"
+ jsonmetaschemaMM;bundle-version="1.0.4",
+ at.jku.bise.ecore.json.grammar;bundle-version="2.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: jsonschemadsl2ecore.trafo.opt
 Bundle-ActivationPolicy: lazy

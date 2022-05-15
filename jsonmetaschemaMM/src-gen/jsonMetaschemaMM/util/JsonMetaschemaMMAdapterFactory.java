@@ -76,10 +76,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 				return createMaximumSchemaDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseIntegerValue(IntegerValue object) {
-				return createIntegerValueAdapter();
-			}
-			@Override
 			public Adapter caseWriteOnlySchemaDefinition(WriteOnlySchemaDefinition object) {
 				return createWriteOnlySchemaDefinitionAdapter();
 			}
@@ -320,8 +316,8 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 				return createValueAdapter();
 			}
 			@Override
-			public Adapter caseTypesAnyOf2(TypesAnyOf2 object) {
-				return createTypesAnyOf2Adapter();
+			public Adapter caseTypeAnyOf2(TypeAnyOf2 object) {
+				return createTypeAnyOf2Adapter();
 			}
 			@Override
 			public Adapter caseBooleanSchema(BooleanSchema object) {
@@ -372,6 +368,14 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 				return createItemsAnyOf2Adapter();
 			}
 			@Override
+			public Adapter caseTypeAnyOf1(TypeAnyOf1 object) {
+				return createTypeAnyOf1Adapter();
+			}
+			@Override
+			public Adapter caseTypeAnyOf(TypeAnyOf object) {
+				return createTypeAnyOfAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -416,20 +420,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMaximumSchemaDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.IntegerValue <em>Integer Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.IntegerValue
-	 * @generated
-	 */
-	public Adapter createIntegerValueAdapter() {
 		return null;
 	}
 
@@ -1274,16 +1264,16 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.TypesAnyOf2 <em>Types Any Of2</em>}'.
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.TypeAnyOf2 <em>Type Any Of2</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.TypesAnyOf2
+	 * @see jsonMetaschemaMM.TypeAnyOf2
 	 * @generated
 	 */
-	public Adapter createTypesAnyOf2Adapter() {
+	public Adapter createTypeAnyOf2Adapter() {
 		return null;
 	}
 
@@ -1452,6 +1442,34 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createItemsAnyOf2Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.TypeAnyOf1 <em>Type Any Of1</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jsonMetaschemaMM.TypeAnyOf1
+	 * @generated
+	 */
+	public Adapter createTypeAnyOf1Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.TypeAnyOf <em>Type Any Of</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see jsonMetaschemaMM.TypeAnyOf
+	 * @generated
+	 */
+	public Adapter createTypeAnyOfAdapter() {
 		return null;
 	}
 

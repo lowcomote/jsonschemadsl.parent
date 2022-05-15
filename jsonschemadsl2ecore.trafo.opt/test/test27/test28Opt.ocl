@@ -1,0 +1,47 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test28
+import 'http://jku.bise.at/test28'
+
+package test28
+
+	context test28::Test28RootProp2
+
+	inv Test28RootProp2Minimum('The value of Test28RootProp2 must be greater or equal than 2.0'):
+	if prop2 >= 2.0
+	then true
+	else null
+	endif
+  
+	context test28::Test28RootProp6PatternProperties0 
+
+	inv Test28RootProp6PatternProperties0patternProperties0Regex ('the key must match the regular expression a{2}'):
+	if  key.matches('a{2}')
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties0 
+
+	inv Test28RootPatternProperties0patternProperties0Regex ('the key must match the regular expression ale'):
+	if  key.matches('ale')
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties1 
+
+	inv Test28RootPatternProperties1patternProperties1Regex ('the key must match the regular expression ^P_'):
+	if  key.matches('^P_')
+	then true
+	else null
+	endif
+
+	context test28::Test28RootPatternProperties2 
+
+	inv Test28RootPatternProperties2patternProperties2Regex ('the key must match the regular expression P'):
+	if  key.matches('P')
+	then true
+	else null
+	endif
+
+endpackage
+

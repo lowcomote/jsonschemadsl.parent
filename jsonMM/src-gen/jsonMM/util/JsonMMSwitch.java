@@ -75,15 +75,6 @@ public class JsonMMSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case JsonMMPackage.INTEGER_VALUE: {
-			IntegerValue integerValue = (IntegerValue) theEObject;
-			T result = caseIntegerValue(integerValue);
-			if (result == null)
-				result = caseValue(integerValue);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case JsonMMPackage.ARRAY_VALUE: {
 			ArrayValue arrayValue = (ArrayValue) theEObject;
 			T result = caseArrayValue(arrayValue);
@@ -167,21 +158,6 @@ public class JsonMMSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStringValue(StringValue object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Integer Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Integer Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseIntegerValue(IntegerValue object) {
 		return null;
 	}
 

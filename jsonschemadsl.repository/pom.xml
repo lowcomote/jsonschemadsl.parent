@@ -4,10 +4,12 @@
 	<parent>
 		<groupId>jsonschemadsl</groupId>
 		<artifactId>jsonschemadsl.parent</artifactId>
-		<version>1.0.3</version>
+		<version>1.1.0</version>
 	</parent>
 	<artifactId>jsonschemadsl.repository</artifactId>
 	<packaging>eclipse-repository</packaging>
+	
+	
 
 	<build>
 		<pluginManagement>
@@ -44,8 +46,41 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+		
+		<!--
+		<plugins>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>  
+							<artifactItems>
+								<artifactItem>
+									<groupId>jakarta.ws.rs</groupId>
+		    						<artifactId>jakarta.ws.rs-api</artifactId>
+		   							<version>3.0.0</version>
+									<outputDirectory>target/repository/plugins</outputDirectory>                          
+                            	</artifactItem>
+								
+							</artifactItems>
+							
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+		</plugins>
+		-->
 	</build>
-
+	
 	<dependencies>
+		
 	</dependencies>
+	
 </project>

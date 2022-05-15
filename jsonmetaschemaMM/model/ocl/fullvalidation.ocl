@@ -40,20 +40,32 @@ inv missingType ('The keyword "type" should be present'):
 	
  	
 	
--- TODO refactor when type is refactored with the new anyOf
+---  TODO refactor when type is refactored with the new anyOf
+--context ObjectSchema
+--inv missingAdditionalProperties ('The keyword "additionalProperties" should be specified explicitly'):
+--	let typeSchemaDefinitionSequence : Sequence(TypeSchemaDefinition) = keywordDefinition->select(k|k.oclIsTypeOf(TypeSchemaDefinition)) in
+--	if typeSchemaDefinitionSequence ->size()>0 then
+--		let typeSchemaDefinition: TypeSchemaDefinition = typeSchemaDefinitionSequence->first() in
+--		if not typeSchemaDefinition.typeAnyOf1.oclIsUndefined() then
+--			if typeSchemaDefinition.typeAnyOf1= SimpleTypes::object    --SimpleTypes::object ----#"\ and "object\"") 
+--			then self.keywordDefinition->select(k|k.oclIsTypeOf(AdditionalPropertiesSchemaDefinition))->size()>0
+--			else true
+--			endif
+--		else true ---TODO manage this case in the refactoring
+--		endif 
+--	else true
+--	endif
+
 context ObjectSchema
 inv missingAdditionalProperties ('The keyword "additionalProperties" should be specified explicitly'):
-	let typeSchemaDefinitionSequence : Sequence(TypeSchemaDefinition) = keywordDefinition->select(k|k.oclIsTypeOf(TypeSchemaDefinition)) in
-	if typeSchemaDefinitionSequence ->size()>0 then
-		let typeSchemaDefinition: TypeSchemaDefinition = typeSchemaDefinitionSequence->first() in
-		if not typeSchemaDefinition.typeAnyOf1.oclIsUndefined() then
-			if typeSchemaDefinition.typeAnyOf1= SimpleTypes::object    --SimpleTypes::object ----#"\ and "object\"") 
-			then self.keywordDefinition->select(k|k.oclIsTypeOf(AdditionalPropertiesSchemaDefinition))->size()>0
+	if not type.oclIsUndefined() then 
+		if type.anyOf.oclIsTypeOf(TypeAnyOf1) then 
+			if type.anyOf.oclAsType(TypeAnyOf1).type = SimpleTypes::object then not additionalProperties.oclIsUndefined()
 			else true
 			endif
-		else true ---TODO manage this case in the refactoring
-		endif 
-	else true
+		else true --- TODO manage case of array of types containing "object"
+		endif	
+	else true --- TODO manage case of array of types with all types
 	endif
 
 

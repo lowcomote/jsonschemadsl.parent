@@ -2,7 +2,7 @@
 <feature
       id="jsonschemadsl.feature"
       label="JsonSchemaDsl Feature "
-      version="1.0.3">
+      version="1.1.0">
 
    <plugin
          id="jsonschemadsl"
@@ -75,7 +75,7 @@
          unpack="false"/>
 
    <plugin
-         id="jakarta.ws.rs-api-3.0.0.wrapper"
+         id="jakarta.ws.rs-api"
          download-size="0"
          install-size="0"
          version="0.0.0"
