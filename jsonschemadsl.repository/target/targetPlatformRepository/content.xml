@@ -12242,8 +12242,8 @@
         <provided namespace='java.package' name='com.sun.net.httpserver' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.jdi.connect' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.events' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.swing.plaf' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.text.html' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.swing.plaf' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.datatransfer' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.jdi.event' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.dynalink' version='0.0.0'/>
@@ -12251,8 +12251,8 @@
         <provided namespace='java.package' name='java.net.spi' version='0.0.0'/>
         <provided namespace='java.package' name='java.rmi.activation' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.colorchooser' version='0.0.0'/>
-        <provided namespace='java.package' name='java.util.logging' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml' version='0.0.0'/>
+        <provided namespace='java.package' name='java.util.logging' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.dynalink.support' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.auth.x500' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.stream' version='0.0.0'/>
@@ -12271,11 +12271,11 @@
         <provided namespace='java.package' name='javax.transaction.xa' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.transform.stax' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.traversal' version='0.0.0'/>
-        <provided namespace='java.package' name='jdk.swing.interop' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt' version='0.0.0'/>
+        <provided namespace='java.package' name='jdk.swing.interop' version='0.0.0'/>
         <provided namespace='java.package' name='java.text' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.swing.undo' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.management' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.swing.undo' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.transform.stream' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.datatype' version='0.0.0'/>
         <provided namespace='java.package' name='javax.print' version='0.0.0'/>
@@ -12293,8 +12293,8 @@
         <provided namespace='java.package' name='javax.naming.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.imageio.plugins.bmp' version='0.0.0'/>
         <provided namespace='java.package' name='sun.misc' version='0.0.0'/>
-        <provided namespace='java.package' name='java.time.format' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.nashorn.api.scripting' version='0.0.0'/>
+        <provided namespace='java.package' name='java.time.format' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.concurrent' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.auth.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.sound.sampled' version='0.0.0'/>
@@ -12306,8 +12306,8 @@
         <provided namespace='java.package' name='javax.swing.tree' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.function' version='0.0.0'/>
         <provided namespace='java.package' name='javax.net' version='0.0.0'/>
-        <provided namespace='java.package' name='java.awt.image.renderable' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.dynalink.linker' version='0.0.0'/>
+        <provided namespace='java.package' name='java.awt.image.renderable' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.nio.file' version='0.0.0'/>
         <provided namespace='java.package' name='org.w3c.dom.ls' version='0.0.0'/>
         <provided namespace='java.package' name='javax.smartcardio' version='0.0.0'/>
@@ -12330,16 +12330,16 @@
         <provided namespace='java.package' name='javax.management.openmbean' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.text.rtf' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.javadoc.doclet' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.xml.crypto' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.print' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.crypto' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf.multi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.imageio.event' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.channels.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.net.ssl' version='0.0.0'/>
-        <provided namespace='java.package' name='java.rmi.registry' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.stream.events' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.print.attribute' version='0.0.0'/>
+        <provided namespace='java.package' name='java.rmi.registry' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.java.accessibility.util' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.print.attribute' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.file.attribute' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.management.jfr' version='0.0.0'/>
@@ -12356,8 +12356,8 @@
         <provided namespace='java.package' name='java.lang.reflect' version='0.0.0'/>
         <provided namespace='java.package' name='java.security' version='0.0.0'/>
         <provided namespace='java.package' name='org.xml.sax.helpers' version='0.0.0'/>
-        <provided namespace='java.package' name='com.sun.tools.attach' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.jshell' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.tools.attach' version='0.0.0'/>
         <provided namespace='java.package' name='javax.print.attribute.standard' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.jshell.tool' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.javadoc' version='0.0.0'/>
@@ -12366,8 +12366,8 @@
         <provided namespace='java.package' name='jdk.security.jarsigner' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.security.auth' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.auth.kerberos' version='0.0.0'/>
-        <provided namespace='java.package' name='java.sql' version='0.0.0'/>
         <provided namespace='java.package' name='javax.crypto' version='0.0.0'/>
+        <provided namespace='java.package' name='java.sql' version='0.0.0'/>
         <provided namespace='java.package' name='java.util' version='0.0.0'/>
         <provided namespace='java.package' name='java.security.acl' version='0.0.0'/>
         <provided namespace='java.package' name='java.time.temporal' version='0.0.0'/>
@@ -12390,8 +12390,8 @@
         <provided namespace='java.package' name='javax.xml.crypto.dsig' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.tools.javac' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.jdi' version='0.0.0'/>
-        <provided namespace='java.package' name='com.sun.security.jgss' version='0.0.0'/>
         <provided namespace='java.package' name='java.nio.charset.spi' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.security.jgss' version='0.0.0'/>
         <provided namespace='java.package' name='java.text.spi' version='0.0.0'/>
         <provided namespace='java.package' name='java.util.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.management.timer' version='0.0.0'/>
@@ -12399,8 +12399,8 @@
         <provided namespace='java.package' name='java.nio.file.spi' version='0.0.0'/>
         <provided namespace='java.package' name='javax.xml.crypto.dsig.keyinfo' version='0.0.0'/>
         <provided namespace='java.package' name='javax.accessibility' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.xml.namespace' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.source.tree' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.namespace' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.font' version='0.0.0'/>
         <provided namespace='java.package' name='java.security.interfaces' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.tools.attach.spi' version='0.0.0'/>
@@ -12413,8 +12413,8 @@
         <provided namespace='java.package' name='java.util.concurrent.locks' version='0.0.0'/>
         <provided namespace='java.package' name='javax.swing.plaf.nimbus' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.event' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.swing.border' version='0.0.0'/>
         <provided namespace='java.package' name='javax.sql.rowset.spi' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.swing.border' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.jfr.consumer' version='0.0.0'/>
         <provided namespace='java.package' name='javax.imageio.plugins.tiff' version='0.0.0'/>
         <provided namespace='java.package' name='javax.management.remote' version='0.0.0'/>
@@ -12424,10 +12424,10 @@
         <provided namespace='java.package' name='com.sun.security.auth.callback' version='0.0.0'/>
         <provided namespace='java.package' name='javax.security.sasl' version='0.0.0'/>
         <provided namespace='java.package' name='com.sun.security.auth.module' version='0.0.0'/>
-        <provided namespace='java.package' name='javax.xml.crypto.dom' version='0.0.0'/>
         <provided namespace='java.package' name='javax.naming.ldap' version='0.0.0'/>
-        <provided namespace='java.package' name='java.time.zone' version='0.0.0'/>
+        <provided namespace='java.package' name='javax.xml.crypto.dom' version='0.0.0'/>
         <provided namespace='java.package' name='jdk.nashorn.api.tree' version='0.0.0'/>
+        <provided namespace='java.package' name='java.time.zone' version='0.0.0'/>
         <provided namespace='java.package' name='netscape.javascript' version='0.0.0'/>
         <provided namespace='java.package' name='java.awt.im.spi' version='0.0.0'/>
         <provided namespace='java.package' name='java.beans.beancontext' version='0.0.0'/>
