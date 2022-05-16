@@ -7,7 +7,7 @@
 
 module JsonSchema2EcoreOpt;
 --create ecoreM : Ecore, jsonGrammar : JsonGrammarMM, jschemaOut: JSchemaMM from jschema : JSchemaMM;
-create ecoreM : Ecore, jsonGrammar : JsonGrammarMM  from jschema : JSchemaMM;
+create ecoreM : Ecore, jsonGrammar : JsonGrammarMM, relatedSchemas : RelatedSchemasMM   from jschema : JSchemaMM;
 
 
 uses JsonSchema2EcoreOptUtils;
@@ -33,7 +33,8 @@ rule JsonSchemaToEPackage {
 			nsURI <- thisModule.nsURI,
 			detailedGrammar <- detailedGrammar
 		), 
-		detailedGrammar : JsonGrammarMM!DetailedGrammar ()
+		detailedGrammar : JsonGrammarMM!DetailedGrammar (),
+		relatedSchemas : RelatedSchemasMM!RelatedSchemas()
 	do {
 		---------- Create ocl file -----
 		thisModule.createOclFile();

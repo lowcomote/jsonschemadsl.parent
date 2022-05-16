@@ -24,6 +24,7 @@ public class JsonSchemaMToEcoreRunner implements IApplication{
 	public final static String OUTPUT_MODEL = "output";
 	public final static String ECORE_MODEL = JSON_SCHEMA_MODEL_NAME + ".ecore";
 	public final static String JSON_GRAMMAR_MODEL = JSON_SCHEMA_MODEL_NAME + "-grammar.jsongrammar";
+	public final static String RELATED_SCHEMAS_MODEL = JSON_SCHEMA_MODEL_NAME + ".relatedSchemas";
 	public final static String TRACE_MODEL = JSON_SCHEMA_MODEL_NAME + "-trace-model.xmi";
 	
 	
@@ -33,6 +34,7 @@ public class JsonSchemaMToEcoreRunner implements IApplication{
 				getModelFile(JSONSCHEMA_MODEL),
 				getOutputModelFile(ECORE_MODEL), 
 				getOutputModelFile(JSON_GRAMMAR_MODEL), 
+				getOutputModelFile(RELATED_SCHEMAS_MODEL),
 				TRACE_MODEL);		
 		return null;
 	}
