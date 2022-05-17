@@ -2,12 +2,13 @@
 -- @nsURI JSchemaMM=http://at.jku.bise/jsonMetaschemaMM
 -- @nsURI Ecore=http://www.eclipse.org/emf/2002/Ecore
 -- @nsURI JsonGrammarMM=http://at.jku.bise/jsongrammar/1.0
+-- @nsURI RelatedSchemasMM=http://at.jku.bise/relatedSchemas
 -- @nsURI CompleteOclMM=http://www.eclipse.org/ocl/2015/CompleteOCLCS
 
 
 module JsonSchema2EcoreOpt;
 --create ecoreM : Ecore, jsonGrammar : JsonGrammarMM, jschemaOut: JSchemaMM from jschema : JSchemaMM;
-create ecoreM : Ecore, jsonGrammar : JsonGrammarMM, relatedSchemas : RelatedSchemasMM   from jschema : JSchemaMM;
+create ecoreM : Ecore, jsonGrammar : JsonGrammarMM, relatedSchemas : RelatedSchemasMM   from jschema : JSchemaMM ;
 
 
 uses JsonSchema2EcoreOptUtils;
@@ -239,7 +240,8 @@ rule mapBooleanSchemaToEClass extends mapSchemaToEClass{
 	to 
 		eClass : Ecore!EClass
 	do{ --- we have to assign eStructuralFeatures in the imperative block, because the union wouldn't work, if a part if different features are added from the two targets of the abstract and concrete rule
-		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.isKeySchemaPairInProperties())});
+--		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.isKeySchemaPairInProperties())});
+		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword())});
 	}
 }
 			
@@ -255,22 +257,10 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 			----- TODO implement
 			
 		}else if (schema.type.oclIsUndefined()){  ---- "type" is missing
---			eClass.abstract<- true; 
---			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"string\"");
---			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"integer\"");
---			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"number\"");
---			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"boolean\"");
---			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"object\"");
---			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"array\"");
---			thisModule.createEClassForTypeInArrayOfTypes(schema, eClass ,  #"\"null\"");
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentForArrayOfTypes(schema, eClass, Sequence{#"\"string\"", #"\"integer\"", #"\"number\"", #"\"boolean\"", #"\"object\"", #"\"array\"", #"\"null\""} )});
 		}else if(schema.hasSimpleType()){
 			thisModule.mapSimpleTypeToEStructuralFeatures(schema, eClass , schema.type.anyOf.type, eClass.name); 
 		}else if(schema.hasArrayOfTypes){ ----"type" is present and  is and array of "types" : "type":[...]
---			eClass.abstract<- true;
---			for (sympleType in schema.type.anyOf.items){ 
---				thisModule.createEClassForTypeInArrayOfTypes(schema, eClass , sympleType);
---			}
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentForArrayOfTypes(schema, eClass, schema.type.anyOf.items )});
 		}
 	}
@@ -286,16 +276,19 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 	
 	do{
 		if (simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\""){ 
-			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(simpleType), schema.isKeySchemaPairInProperties())});
+--			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(simpleType), schema.isKeySchemaPairInProperties())});
+			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(simpleType), schema.needsKeyword())});
 		}else if(simpleType = #"\"object\"" ){
-			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), schema.buildPropertiesAbstractClassName(), schema.isKeySchemaPairInProperties())});
+--			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), schema.buildPropertiesAbstractClassName(), schema.isKeySchemaPairInProperties())});
+			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword())});
 			if(schema.additionalProperties.oclIsUndefined()){ ------ the keyword "additionalProperties" is missing
 --				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname());
 				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname(), schema.findPropertiesKeys(),  schema.findPatternPropertiesKeys());
 			}
 		}else if (simpleType = #"\"array\""){  
 			if(schema.items.oclIsUndefined()) {---the keyword "items" is missing
-				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey(), schema.isKeySchemaPairInProperties())});
+--				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey(), schema.isKeySchemaPairInProperties())});
+				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey(), schema.needsKeyword())});
 			}else if(schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){ ---- the keyword "items" is present and is not a tuple
 				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.items.anyOf});
 			}else{ ---- the keyword "items" is present and is a tuple 
@@ -304,7 +297,8 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 				
 			}
 		}else if(simpleType = #"\"null\""){ ------- "type" is present and "type": "null"
-			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapNullTypeToEReference(schema.getKey(), schema.isKeySchemaPairInProperties())});
+--			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapNullTypeToEReference(schema.getKey(), schema.isKeySchemaPairInProperties())});
+			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapNullTypeToEReference(schema.getKey(), schema.needsKeyword())});
 		}
 	}
 }
@@ -539,7 +533,8 @@ rule mapRefSchemaToEReference{
 	do {
 		if (isJsonPointerSchemaTypeArray){ 
 			thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
-		}if(refSchemaDefinition.refImmediateComposite().isKeySchemaPairInProperties()) { 
+--		}if(refSchemaDefinition.refImmediateComposite().isKeySchemaPairInProperties()) { 
+		}if(refSchemaDefinition.refImmediateComposite().needsKeyword()) { 
 			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference}) ;
 		}
 	}	
@@ -555,6 +550,44 @@ unique lazy rule createAbstractEClass{
 		)	
 }
 
+----------------------- RELATED SCHEMAS
+
+rule mapAllOf{
+	from allOfSchemaDefinition:JSchemaMM!AllOfSchemaDefinition
+	to 
+		allOf:RelatedSchemasMM!AllOf(
+			allOfs<-allOfSchemaDefinition.allOf.items
+		)
+	do	{
+		thisModule.createRelatedEnclosingSchema(allOfSchemaDefinition.refImmediateComposite().resolve()).allOf<-allOf;
+		allOf;
+	}
+}
+
+rule mapAnyOf{
+	from anyOfSchemaDefinition:JSchemaMM!AnyOfSchemaDefinition
+	to 
+		anyOf:RelatedSchemasMM!AnyOf(
+			anyOfs<-anyOfSchemaDefinition.anyOf.items
+		)
+	do	{
+		thisModule.createRelatedEnclosingSchema(anyOfSchemaDefinition.refImmediateComposite().resolve()).anyOf<-anyOf;
+		anyOf;
+	}
+}
+
+unique lazy rule createRelatedEnclosingSchema{
+	from eClass :Ecore!EClass
+	to
+		enclosingSchema: RelatedSchemasMM!EnclosingSchema(
+			enclosingSchema<-eClass
+		)  
+	do{
+		thisModule.relatedSchemasRoot().enclosingschemas<-thisModule.relatedSchemasRoot().enclosingschemas->union(Sequence{enclosingSchema});
+		enclosingSchema;
+	}	
+	
+}
 
 
 -------------------- OCL Generation --------------------------------

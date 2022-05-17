@@ -44,6 +44,17 @@ helper def: jsonGrammarRoot(): JsonGrammarMM!JsonGrammar = if (thisModule.jsonGr
 															 endif;
 
 
+--Return RelatedSchemas Objects
+helper def: relatedSchemasObjects() : Sequence(RelatedSchemasMM!RelatedSchemas) = RelatedSchemasMM!RelatedSchemas.allInstancesFrom('relatedSchemas');
+
+--Return the root JsonGrammar Object
+helper def: relatedSchemasRoot(): RelatedSchemasMM!RelatedSchemas = if (thisModule.relatedSchemasObjects().size() > 0) then
+																thisModule.relatedSchemasObjects()->first()
+															 else
+															 	OclUndefined
+															 endif;
+
+
 --helper def: keywordDefinitionMap : Map (String, OclAny) = ------ TODO should it be OclType????
 --	Map{
 --		('additionalItems',JSchemaMM!AdditionalItemsSchemaDefinition), 
@@ -186,7 +197,11 @@ helper context JSchemaMM!Schema  def : isKeySchemaPairInPatternProperties() : Bo
 		parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition) 
 	else false
 	endif;
-	
+
+
+
+helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition);
 	 
 helper context JSchemaMM!Schema def: getKey() : String=
 let parent : OclAny = self.refImmediateComposite() in
@@ -203,47 +218,46 @@ else
 		else
 			if parent.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition) then 'additionalProperties'
 			else
---				if parent.oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition) then 'patternProperties'.concat(parent.keySchemaPairs.indexOf(self).toString())
---				else
-					if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then 'additionalItems'
+				if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then 'additionalItems'
+				else 
+					if parent.oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then 'items'
 					else 
---						if parent.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'
-						if parent.oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then 'items'
-						else 
-							if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
-							    ---- TODO change when refactoring ItemsSchemaDefinition
---								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'.concat(parent.items.indexOf(self).toString())
-								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then 'items'.concat(parent.items.indexOf(self).toString())
-								else 
-									if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition) then 'allOf'.concat(parent.items.indexOf(self).toString())
-									else
-										if  parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition) then 'anyOf'.concat(parent.items.indexOf(self).toString())
-										else
-											if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition) then 'oneOf'.concat(parent.items.indexOf(self).toString())
-											else  OclUndefined --- This case should not exist
-											endif
-										endif 
-									endif	
-									
+						if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
+						    if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then 'items'.concat(parent.items.indexOf(self).toString())
+							else 
+--								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition) then 'allOf'.concat(parent.items.indexOf(self).toString())
+								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition) 
+										or parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition)
+										or parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition)
+									then parent.refImmediateComposite().refImmediateComposite().getKey()
+								else  OclUndefined --- This case should not exist	
+--								else 
+--									if  parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition) then 'anyOf'.concat(parent.items.indexOf(self).toString())
+--									else
+--										if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition) then 'oneOf'.concat(parent.items.indexOf(self).toString())
+--										else  OclUndefined --- This case should not exist
+--										endif
+--									endif 
 								endif	
+								
+							endif	
+						else
+							if parent.oclIsTypeOf(JSchemaMM!NotSchemaDefinition) then 'not'
 							else
-								if parent.oclIsTypeOf(JSchemaMM!NotSchemaDefinition) then 'not'
+								if parent.oclIsTypeOf(JSchemaMM!IfSchemaDefinition) then 'if'
 								else
-									if parent.oclIsTypeOf(JSchemaMM!IfSchemaDefinition) then 'if'
-									else
-										if parent.oclIsTypeOf(JSchemaMM!ThenSchemaDefinition) then 'then'
+									if parent.oclIsTypeOf(JSchemaMM!ThenSchemaDefinition) then 'then'
+									else 
+										if parent.oclIsTypeOf(JSchemaMM!ElseSchemaDefinition) then 'else'
 										else 
-											if parent.oclIsTypeOf(JSchemaMM!ElseSchemaDefinition) then 'else'
+											if parent.oclIsTypeOf(JSchemaMM!PropertyNamesSchemaDefinition) then 'propertyNames'
 											else 
-												if parent.oclIsTypeOf(JSchemaMM!PropertyNamesSchemaDefinition) then 'propertyNames'
+												if parent.oclIsTypeOf(JSchemaMM!ContainsSchemaDefinition) then 'contains'
 												else 
-													if parent.oclIsTypeOf(JSchemaMM!ContainsSchemaDefinition) then 'contains'
-													else 
-														if parent.oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1) then 'dependencies'.concat(parent.refImmediateComposite().refImmediateComposite().properties.indexOf(parent.refImmediateComposite()).toString())
-														else OclUndefined ---- TODO  add other keywords pointing to Schema (check if are already all)
-														endif 
+													if parent.oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1) then 'dependencies'.concat(parent.refImmediateComposite().refImmediateComposite().properties.indexOf(parent.refImmediateComposite()).toString())
+													else OclUndefined ---- TODO  add other keywords pointing to Schema (check if are already all)
 													endif 
-												endif
+												endif 
 											endif
 										endif
 									endif
@@ -251,15 +265,67 @@ else
 							endif
 						endif
 					endif
---				endif		
+				endif
 			endif
 		endif 
 	endif
 endif;
 
+helper context JSchemaMM!Schema def: getRelatedSchemaKey() : String= 
+	if self.isInRelatedSchema() then
+		if self.isInCombinedSchema() then self.getCombinedSchemaKey()
+		else
+			if self.isInConditionalSchema() then self.getConditionalSchemaKey() 
+			else
+				if self.isInDependenciesSchema() then self.getDependenciesSchemaKey()
+				else
+					if self.isInContainsSchema() then self.getContainsSchemaKey()
+					else OclUndefined --- This case should not be possible
+					endif
+				endif 	
+			endif	
+		endif	
+	else OclUndefined
+	endif
+;
 
+helper context JSchemaMM!Schema def: getCombinedSchemaKey() : String= 
+	if self.isInCombinedSchema() then
+		if self.isInAllOf() then 'allOf'.concat(self.refImmediateComposite().items.indexOf(self).toString())
+		else
+			if self.isInAnyOf() then 'anyOf'.concat(self.refImmediateComposite().items.indexOf(self).toString())
+			else
+				if self.isInOneOf() then 'oneOf'.concat(self.refImmediateComposite().items.indexOf(self).toString())
+				else
+					if self.isInNot() then 'not'
+					else OclUndefined ---- This should not be possible
+					endif	
+				endif	
+			endif	
+		endif	
+	else OclUndefined
+	endif	
+;
 
--- TODO complete with all the containment pointing to Schema
+helper context JSchemaMM!Schema def: getConditionalSchemaKey() : String= 
+	if self.isInConditionalSchema() then OclUndefined  ---- TODO
+	else OclUndefined
+	endif
+;	
+
+helper context JSchemaMM!Schema def: getDependenciesSchemaKey() : String= 
+	if self.isInDependenciesSchema() then OclUndefined  ---- TODO
+	else OclUndefined
+	endif
+;
+
+helper context JSchemaMM!Schema def: getContainsSchemaKey() : String= 
+	if self.isInContainsSchema() then OclUndefined  ---- TODO
+	else OclUndefined
+	endif
+;
+
+--- TODO complete with all the containment pointing to Schema
 helper context JSchemaMM!Schema def: getParentNode(): JSchemaMM!Schema=
 let parent : OclAny = self.refImmediateComposite() in
 if parent.oclIsTypeOf(JSchemaMM!JsonSchema) then OclUndefined --root
@@ -278,15 +344,20 @@ else
 	        else 
 	        	if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then parent.refImmediateComposite() -- we return the schema enclosing the AdditionalItemsSchemaDefinition
 	        	else 
---	        		if parent.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then  parent.refImmediateComposite() -- we return the schema enclosing the ItemsSchemaDefinition
 					if parent.oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then  parent.refImmediateComposite().refImmediateComposite() -- we return the schema enclosing the ItemsSchemaDefinition 
 	        		else 
 	        			if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
---							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then parent.refImmediateComposite().refImmediateComposite() --we return the schema enclosing the ItemsSchemaDefinition that encloses the schema array
-							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then parent.refImmediateComposite().refImmediateComposite().refImmediateComposite()  --we return the schema enclosing the ItemsSchemaDefinition that encloses the schema array
-							else OclUndefined --add AllOfSchemaDefinition,  AnyOfSchemaDefinition, OneOfSchemaDefinition 
+							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then parent.refImmediateComposite().refImmediateComposite().refImmediateComposite()  --- we return the schema enclosing the ItemsSchemaDefinition that encloses the schema array
+							else
+								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition) 
+										or parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition)
+										or parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition)
+									then parent.refImmediateComposite().refImmediateComposite() --- return the schema enclosing the AllOfSchemaDefinition
+								else OclUndefined --- add   AnyOfSchemaDefinition, OneOfSchemaDefinition 
+								endif	
+								
 							endif	
-						else OclUndefined -- -- TODO to be completed with the containmentes pointing to Schema
+						else OclUndefined ---- TODO to be completed with the containmentes pointing to Schema
 						endif
 					endif
 				endif
@@ -294,34 +365,94 @@ else
 		endif
 	endif	
 endif;
-	
-helper context JSchemaMM!Schema def: buildEClassname(): String=
-let localName : String = self.getKey().toCamelCase() in
-let parentNode: JSchemaMM!Schema = self.getParentNode() in
-if not parentNode.oclIsUndefined() then parentNode.buildEClassname().concat(localName)
-else localName
-endif; 
 
---- TODO verify the refactor with the new anyOf
+
+
+helper context JSchemaMM!Schema def: buildEClassname(): String=
+let key : String = 	if self.isInRelatedSchema() then self.getRelatedSchemaKey()
+					else self.getKey()
+					endif
+in					
+--	let localName : String = self.getKey().toCamelCase() in
+	let localName : String = key.toCamelCase() in
+	let parentNode: JSchemaMM!Schema = self.getParentNode() in
+	if not parentNode.oclIsUndefined() then parentNode.buildEClassname().concat(localName)
+	else localName
+	endif; 
+
+helper context JSchemaMM!Schema def: buildPropertiesAbstractClassName(): String=
+	self.buildEClassname().concat('Properties'); 
+
+
+
+helper context JSchemaMM!Schema  def : isInRelatedSchema() : Boolean =
+	self.isInCombinedSchema() or self.isInConditionalSchema() or self.isInDependenciesSchema() or self.isInContainsSchema();
+
+helper context JSchemaMM!Schema  def : isInConditionalSchema() : Boolean =
+	false; ---- TODO	
+	
+helper context JSchemaMM!Schema  def : isInDependenciesSchema() : Boolean =
+	false; ---- TODO	
+
+helper context JSchemaMM!Schema  def : isInContainsSchema() : Boolean =
+	false; ---- TODO	
+
+helper context JSchemaMM!Schema  def : isInCombinedSchema() : Boolean =
+	self.isInAllOf() or self.isInAnyOf() or self.isInOneOf() or self.isInNot();
+
+helper context JSchemaMM!Schema  def : isInAllOf() : Boolean =
+	self.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isInAnyOf() : Boolean =
+	self.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isInOneOf() : Boolean =
+	self.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isInNot() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!NotSchemaDefinition);
+
+
+
+helper context JSchemaMM!Schema  def : needsKeyword() : Boolean =
+	self.isKeySchemaPairInProperties() or 
+	if self.isInCombinedSchema() then self.getCombinedEnclosingSchema().isKeySchemaPairInProperties()
+	else false
+	endif
+;
+
+		
+helper context JSchemaMM!Schema def : getCombinedEnclosingSchema() : JSchemaMM!Schema =		
+	if self.isInAllOf() or self.isInAnyOf() or self.isInOneOf() then self.getAllAnyOneOfEnclosingSchema()
+	else self.getNotEnclosingSchema() ---- if it is not self.isInNot() OclUndefined will be returned 
+	endif	
+;	
+
+helper context JSchemaMM!Schema def : getAllAnyOneOfEnclosingSchema() : JSchemaMM!Schema =
+	if self.isInAllOf() or self.isInAnyOf() or self.isInOneOf()
+	then self.refImmediateComposite().refImmediateComposite().refImmediateComposite()
+	else OclUndefined
+	endif
+;
+
+helper context JSchemaMM!Schema def : getNotEnclosingSchema() : JSchemaMM!Schema =
+	if self.isInNot()
+	then self.refImmediateComposite().refImmediateComposite()
+	else OclUndefined
+	endif
+;
+
 helper context JSchemaMM!TypeSchemaDefinition def: findSimpleType() :String=
 	if not self.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1)
 	then self.anyOf.type
 	else OclUndefined
 	endif;
---	if not self.typeAnyOf1.oclIsUndefined()
---	then self.typeAnyOf1
---	else OclUndefined
---	endif;
 
 
 
 
---------TODO move next to isKeySchemaPairInPatternProperties
-helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
-	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition);
---------TODO move nexto to buildClassName
-helper context JSchemaMM!Schema def: buildPropertiesAbstractClassName(): String=
-	self.buildEClassname().concat('Properties'); 
+
+
 
 ----"type" is present and it is a simple type (not an array of types)
 helper context JSchemaMM!ObjectSchema def: hasSimpleType(): Boolean=

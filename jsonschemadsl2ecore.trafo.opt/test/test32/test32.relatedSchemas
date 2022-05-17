@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test32.ecore#//Test32Root"/>
+    <allOf>
+      <allOfs href="test32.ecore#//Test32RootAllOf0"/>
+    </allOf>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>

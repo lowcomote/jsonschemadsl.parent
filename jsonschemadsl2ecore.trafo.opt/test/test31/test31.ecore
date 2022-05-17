@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test31" nsURI="http://jku.bise.at/test31" nsPrefix="test31">
+  <eClassifiers xsi:type="ecore:EClass" name="Test31Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test31Root" upperBound="-1"
+        eType="#//Test31RootPropertiesAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1" eSuperTypes="#//Test31RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf0">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" lowerBound="1" eType="#//Test31RootProp1AllOf1Abstract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf2">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" upperBound="-1"
+        eType="#//Test31RootProp1AllOf2PropertiesAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AnyOf0">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2" eSuperTypes="#//Test31RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop2" lowerBound="1" eType="#//Test31RootProp2Abstract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootPropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootAdditionalProperties" eSuperTypes="#//Test31RootPropertiesAbstract">
+    <eAnnotations>
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this.key.equals(&quot;prop1&quot;)){return &quot;prop1&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop2&quot;)){return &quot;prop2&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1Abstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1TypeString" eSuperTypes="#//Test31RootProp1AllOf1Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="string"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1TypeInteger" eSuperTypes="#//Test31RootProp1AllOf1Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="integer"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1TypeNumber" eSuperTypes="#//Test31RootProp1AllOf1Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="number"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1TypeBoolean" eSuperTypes="#//Test31RootProp1AllOf1Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="boolean"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1TypeObject" eSuperTypes="#//Test31RootProp1AllOf1Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="object"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" upperBound="-1"
+        eType="#//Test31RootProp1AllOf1PropertiesAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1PropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1AdditionalProperties"
+      eSuperTypes="#//Test31RootProp1AllOf1PropertiesAbstract">
+    <eAnnotations>
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1TypeArray" eSuperTypes="#//Test31RootProp1AllOf1Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="array"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" upperBound="-1"
+        eType="#//Test31RootProp1AllOf1Items" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1Items">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf1TypeNull" eSuperTypes="#//Test31RootProp1AllOf1Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="null"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//NullValue"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf2PropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp1AllOf2AdditionalProperties"
+      eSuperTypes="#//Test31RootProp1AllOf2PropertiesAbstract">
+    <eAnnotations>
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2Abstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2TypeString" eSuperTypes="#//Test31RootProp2Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="string"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2TypeInteger" eSuperTypes="#//Test31RootProp2Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="integer"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2TypeNumber" eSuperTypes="#//Test31RootProp2Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="number"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2TypeBoolean" eSuperTypes="#//Test31RootProp2Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="boolean"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2TypeObject" eSuperTypes="#//Test31RootProp2Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="object"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop2" upperBound="-1"
+        eType="#//Test31RootProp2PropertiesAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2PropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2AdditionalProperties"
+      eSuperTypes="#//Test31RootProp2PropertiesAbstract">
+    <eAnnotations>
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2TypeArray" eSuperTypes="#//Test31RootProp2Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="array"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop2" upperBound="-1"
+        eType="#//Test31RootProp2Items" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2Items">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test31RootProp2TypeNull" eSuperTypes="#//Test31RootProp2Abstract">
+    <eAnnotations>
+      <details key="ArrayOfTypes" value="null"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop2" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//NullValue"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
