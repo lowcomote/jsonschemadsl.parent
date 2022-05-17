@@ -576,6 +576,30 @@ rule mapAnyOf{
 	}
 }
 
+rule mapOneOf{
+	from oneOfSchemaDefinition:JSchemaMM!OneOfSchemaDefinition
+	to 
+		oneOf:RelatedSchemasMM!OneOf(
+			oneOfs<-oneOfSchemaDefinition.oneOf.items
+		)
+	do	{
+		thisModule.createRelatedEnclosingSchema(oneOfSchemaDefinition.refImmediateComposite().resolve()).oneOf<-oneOf;
+		oneOf;
+	}
+}
+
+rule mapNot{
+	from notSchemaDefinition:JSchemaMM!NotSchemaDefinition
+	to 
+		notEClass:RelatedSchemasMM!Not(
+			not<-notSchemaDefinition.not
+		)
+	do	{
+		thisModule.createRelatedEnclosingSchema(notSchemaDefinition.refImmediateComposite().resolve()).not<-notEClass;
+		notEClass;
+	}
+}
+
 unique lazy rule createRelatedEnclosingSchema{
 	from eClass :Ecore!EClass
 	to

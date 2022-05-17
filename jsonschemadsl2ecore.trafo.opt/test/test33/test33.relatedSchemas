@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test33.ecore#//Test33Root"/>
+    <oneOf>
+      <oneOfs href="test33.ecore#//Test33RootOneOf0"/>
+      <oneOfs href="test33.ecore#//Test33RootOneOf1"/>
+    </oneOf>
+    <not>
+      <not href="test33.ecore#//Test33RootNot"/>
+    </not>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>
