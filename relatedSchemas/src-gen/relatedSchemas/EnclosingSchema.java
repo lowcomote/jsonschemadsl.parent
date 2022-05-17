@@ -30,22 +30,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface EnclosingSchema extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Enclosing Schema</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Enclosing Schema</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Enclosing Schema</em>' containment reference.
+	 * @return the value of the '<em>Enclosing Schema</em>' reference.
 	 * @see #setEnclosingSchema(EClass)
 	 * @see relatedSchemas.RelatedSchemasPackage#getEnclosingSchema_EnclosingSchema()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EClass getEnclosingSchema();
 
 	/**
-	 * Sets the value of the '{@link relatedSchemas.EnclosingSchema#getEnclosingSchema <em>Enclosing Schema</em>}' containment reference.
+	 * Sets the value of the '{@link relatedSchemas.EnclosingSchema#getEnclosingSchema <em>Enclosing Schema</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Enclosing Schema</em>' containment reference.
+	 * @param value the new value of the '<em>Enclosing Schema</em>' reference.
 	 * @see #getEnclosingSchema()
 	 * @generated
 	 */

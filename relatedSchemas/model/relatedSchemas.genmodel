@@ -13,10 +13,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//RelatedSchemas/enclosingschemas"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//AnyOf">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//AnyOf/anyOfs"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//AnyOf/anyOfs"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//EnclosingSchema">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/enclosingSchema"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/enclosingSchema"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/anyOf"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/allOf"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/oneOf"/>
@@ -26,24 +26,24 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/contains"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//AllOf">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//AllOf/allOfs"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//AllOf/allOfs"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//OneOf">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//OneOf/oneOfs"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//OneOf/oneOfs"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//Not">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Not/not"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Not/not"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//IfThenElse">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//IfThenElse/if"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//IfThenElse/then"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//IfThenElse/else"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//IfThenElse/if"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//IfThenElse/then"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//IfThenElse/else"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//Dependency">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Dependency/dependency"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Dependency/dependency"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//Contains">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Contains/contains"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Contains/contains"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

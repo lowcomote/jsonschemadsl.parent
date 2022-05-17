@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated relatedSchemas -->
       <package
-            uri="http://www.example.org/relatedSchemas"
+            uri="http://at.jku.bise/relatedSchemas"
             class="relatedSchemas.RelatedSchemasPackage"
             genModel="model/relatedSchemas.genmodel"/>
    </extension>

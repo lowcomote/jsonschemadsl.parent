@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated relatedSchemas -->
       <factory
-            uri="http://www.example.org/relatedSchemas"
+            uri="http://at.jku.bise/relatedSchemas"
             class="relatedSchemas.provider.RelatedSchemasItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider

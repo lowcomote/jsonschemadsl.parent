@@ -3,7 +3,6 @@
 package relatedSchemas.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -29,7 +28,7 @@ import relatedSchemas.RelatedSchemasPackage;
  */
 public class DependencyImpl extends MinimalEObjectImpl.Container implements Dependency {
 	/**
-	 * The cached value of the '{@link #getDependency() <em>Dependency</em>}' containment reference.
+	 * The cached value of the '{@link #getDependency() <em>Dependency</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDependency()
@@ -63,6 +62,15 @@ public class DependencyImpl extends MinimalEObjectImpl.Container implements Depe
 	 * @generated
 	 */
 	public EClass getDependency() {
+		if (dependency != null && dependency.eIsProxy()) {
+			InternalEObject oldDependency = (InternalEObject) dependency;
+			dependency = (EClass) eResolveProxy(oldDependency);
+			if (dependency != oldDependency) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							RelatedSchemasPackage.DEPENDENCY__DEPENDENCY, oldDependency, dependency));
+			}
+		}
 		return dependency;
 	}
 
@@ -71,18 +79,8 @@ public class DependencyImpl extends MinimalEObjectImpl.Container implements Depe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDependency(EClass newDependency, NotificationChain msgs) {
-		EClass oldDependency = dependency;
-		dependency = newDependency;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					RelatedSchemasPackage.DEPENDENCY__DEPENDENCY, oldDependency, newDependency);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
+	public EClass basicGetDependency() {
+		return dependency;
 	}
 
 	/**
@@ -91,34 +89,11 @@ public class DependencyImpl extends MinimalEObjectImpl.Container implements Depe
 	 * @generated
 	 */
 	public void setDependency(EClass newDependency) {
-		if (newDependency != dependency) {
-			NotificationChain msgs = null;
-			if (dependency != null)
-				msgs = ((InternalEObject) dependency).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.DEPENDENCY__DEPENDENCY, null, msgs);
-			if (newDependency != null)
-				msgs = ((InternalEObject) newDependency).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.DEPENDENCY__DEPENDENCY, null, msgs);
-			msgs = basicSetDependency(newDependency, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
+		EClass oldDependency = dependency;
+		dependency = newDependency;
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.DEPENDENCY__DEPENDENCY,
-					newDependency, newDependency));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case RelatedSchemasPackage.DEPENDENCY__DEPENDENCY:
-			return basicSetDependency(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+					oldDependency, dependency));
 	}
 
 	/**
@@ -130,7 +105,9 @@ public class DependencyImpl extends MinimalEObjectImpl.Container implements Depe
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case RelatedSchemasPackage.DEPENDENCY__DEPENDENCY:
-			return getDependency();
+			if (resolve)
+				return getDependency();
+			return basicGetDependency();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

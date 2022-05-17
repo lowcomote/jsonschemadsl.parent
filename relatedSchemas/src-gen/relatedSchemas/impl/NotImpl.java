@@ -3,7 +3,6 @@
 package relatedSchemas.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -29,7 +28,7 @@ import relatedSchemas.RelatedSchemasPackage;
  */
 public class NotImpl extends MinimalEObjectImpl.Container implements Not {
 	/**
-	 * The cached value of the '{@link #getNot() <em>Not</em>}' containment reference.
+	 * The cached value of the '{@link #getNot() <em>Not</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getNot()
@@ -63,6 +62,15 @@ public class NotImpl extends MinimalEObjectImpl.Container implements Not {
 	 * @generated
 	 */
 	public EClass getNot() {
+		if (not != null && not.eIsProxy()) {
+			InternalEObject oldNot = (InternalEObject) not;
+			not = (EClass) eResolveProxy(oldNot);
+			if (not != oldNot) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RelatedSchemasPackage.NOT__NOT, oldNot,
+							not));
+			}
+		}
 		return not;
 	}
 
@@ -71,18 +79,8 @@ public class NotImpl extends MinimalEObjectImpl.Container implements Not {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNot(EClass newNot, NotificationChain msgs) {
-		EClass oldNot = not;
-		not = newNot;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					RelatedSchemasPackage.NOT__NOT, oldNot, newNot);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
+	public EClass basicGetNot() {
+		return not;
 	}
 
 	/**
@@ -91,33 +89,10 @@ public class NotImpl extends MinimalEObjectImpl.Container implements Not {
 	 * @generated
 	 */
 	public void setNot(EClass newNot) {
-		if (newNot != not) {
-			NotificationChain msgs = null;
-			if (not != null)
-				msgs = ((InternalEObject) not).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.NOT__NOT, null, msgs);
-			if (newNot != null)
-				msgs = ((InternalEObject) newNot).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.NOT__NOT, null, msgs);
-			msgs = basicSetNot(newNot, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.NOT__NOT, newNot, newNot));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case RelatedSchemasPackage.NOT__NOT:
-			return basicSetNot(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		EClass oldNot = not;
+		not = newNot;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.NOT__NOT, oldNot, not));
 	}
 
 	/**
@@ -129,7 +104,9 @@ public class NotImpl extends MinimalEObjectImpl.Container implements Not {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case RelatedSchemasPackage.NOT__NOT:
-			return getNot();
+			if (resolve)
+				return getNot();
+			return basicGetNot();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}

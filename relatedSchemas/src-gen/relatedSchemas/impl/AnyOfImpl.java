@@ -4,17 +4,13 @@ package relatedSchemas.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import relatedSchemas.AnyOf;
 import relatedSchemas.RelatedSchemasPackage;
@@ -34,7 +30,7 @@ import relatedSchemas.RelatedSchemasPackage;
  */
 public class AnyOfImpl extends MinimalEObjectImpl.Container implements AnyOf {
 	/**
-	 * The cached value of the '{@link #getAnyOfs() <em>Any Ofs</em>}' containment reference list.
+	 * The cached value of the '{@link #getAnyOfs() <em>Any Ofs</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAnyOfs()
@@ -69,23 +65,9 @@ public class AnyOfImpl extends MinimalEObjectImpl.Container implements AnyOf {
 	 */
 	public EList<EClass> getAnyOfs() {
 		if (anyOfs == null) {
-			anyOfs = new EObjectContainmentEList<EClass>(EClass.class, this, RelatedSchemasPackage.ANY_OF__ANY_OFS);
+			anyOfs = new EObjectResolvingEList<EClass>(EClass.class, this, RelatedSchemasPackage.ANY_OF__ANY_OFS);
 		}
 		return anyOfs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case RelatedSchemasPackage.ANY_OF__ANY_OFS:
-			return ((InternalEList<?>) getAnyOfs()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

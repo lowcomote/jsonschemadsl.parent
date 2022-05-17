@@ -4,17 +4,13 @@ package relatedSchemas.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import relatedSchemas.OneOf;
 import relatedSchemas.RelatedSchemasPackage;
@@ -34,7 +30,7 @@ import relatedSchemas.RelatedSchemasPackage;
  */
 public class OneOfImpl extends MinimalEObjectImpl.Container implements OneOf {
 	/**
-	 * The cached value of the '{@link #getOneOfs() <em>One Ofs</em>}' containment reference list.
+	 * The cached value of the '{@link #getOneOfs() <em>One Ofs</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOneOfs()
@@ -69,23 +65,9 @@ public class OneOfImpl extends MinimalEObjectImpl.Container implements OneOf {
 	 */
 	public EList<EClass> getOneOfs() {
 		if (oneOfs == null) {
-			oneOfs = new EObjectContainmentEList<EClass>(EClass.class, this, RelatedSchemasPackage.ONE_OF__ONE_OFS);
+			oneOfs = new EObjectResolvingEList<EClass>(EClass.class, this, RelatedSchemasPackage.ONE_OF__ONE_OFS);
 		}
 		return oneOfs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case RelatedSchemasPackage.ONE_OF__ONE_OFS:
-			return ((InternalEList<?>) getOneOfs()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

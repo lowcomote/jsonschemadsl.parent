@@ -23,22 +23,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Contains extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Contains</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Contains</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Contains</em>' containment reference.
+	 * @return the value of the '<em>Contains</em>' reference.
 	 * @see #setContains(EClass)
 	 * @see relatedSchemas.RelatedSchemasPackage#getContains_Contains()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EClass getContains();
 
 	/**
-	 * Sets the value of the '{@link relatedSchemas.Contains#getContains <em>Contains</em>}' containment reference.
+	 * Sets the value of the '{@link relatedSchemas.Contains#getContains <em>Contains</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Contains</em>' containment reference.
+	 * @param value the new value of the '<em>Contains</em>' reference.
 	 * @see #getContains()
 	 * @generated
 	 */

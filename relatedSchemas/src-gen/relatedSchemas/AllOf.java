@@ -25,13 +25,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AllOf extends EObject {
 	/**
-	 * Returns the value of the '<em><b>All Ofs</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>All Ofs</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.EClass}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>All Ofs</em>' containment reference list.
+	 * @return the value of the '<em>All Ofs</em>' reference list.
 	 * @see relatedSchemas.RelatedSchemasPackage#getAllOf_AllOfs()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<EClass> getAllOfs();

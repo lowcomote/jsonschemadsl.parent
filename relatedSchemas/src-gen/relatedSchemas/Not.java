@@ -23,22 +23,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Not extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Not</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Not</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Not</em>' containment reference.
+	 * @return the value of the '<em>Not</em>' reference.
 	 * @see #setNot(EClass)
 	 * @see relatedSchemas.RelatedSchemasPackage#getNot_Not()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EClass getNot();
 
 	/**
-	 * Sets the value of the '{@link relatedSchemas.Not#getNot <em>Not</em>}' containment reference.
+	 * Sets the value of the '{@link relatedSchemas.Not#getNot <em>Not</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Not</em>' containment reference.
+	 * @param value the new value of the '<em>Not</em>' reference.
 	 * @see #getNot()
 	 * @generated
 	 */

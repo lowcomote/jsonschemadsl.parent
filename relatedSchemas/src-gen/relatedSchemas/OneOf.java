@@ -25,13 +25,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface OneOf extends EObject {
 	/**
-	 * Returns the value of the '<em><b>One Ofs</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>One Ofs</b></em>' reference list.
 	 * The list contents are of type {@link org.eclipse.emf.ecore.EClass}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>One Ofs</em>' containment reference list.
+	 * @return the value of the '<em>One Ofs</em>' reference list.
 	 * @see relatedSchemas.RelatedSchemasPackage#getOneOf_OneOfs()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EList<EClass> getOneOfs();

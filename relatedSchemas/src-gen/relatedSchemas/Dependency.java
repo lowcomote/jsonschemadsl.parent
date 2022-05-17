@@ -23,22 +23,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Dependency extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Dependency</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Dependency</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependency</em>' containment reference.
+	 * @return the value of the '<em>Dependency</em>' reference.
 	 * @see #setDependency(EClass)
 	 * @see relatedSchemas.RelatedSchemasPackage#getDependency_Dependency()
-	 * @model containment="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	EClass getDependency();
 
 	/**
-	 * Sets the value of the '{@link relatedSchemas.Dependency#getDependency <em>Dependency</em>}' containment reference.
+	 * Sets the value of the '{@link relatedSchemas.Dependency#getDependency <em>Dependency</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dependency</em>' containment reference.
+	 * @param value the new value of the '<em>Dependency</em>' reference.
 	 * @see #getDependency()
 	 * @generated
 	 */

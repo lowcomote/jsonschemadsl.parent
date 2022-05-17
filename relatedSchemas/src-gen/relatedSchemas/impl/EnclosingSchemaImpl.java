@@ -43,7 +43,7 @@ import relatedSchemas.RelatedSchemasPackage;
  */
 public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements EnclosingSchema {
 	/**
-	 * The cached value of the '{@link #getEnclosingSchema() <em>Enclosing Schema</em>}' containment reference.
+	 * The cached value of the '{@link #getEnclosingSchema() <em>Enclosing Schema</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEnclosingSchema()
@@ -147,6 +147,16 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public EClass getEnclosingSchema() {
+		if (enclosingSchema != null && enclosingSchema.eIsProxy()) {
+			InternalEObject oldEnclosingSchema = (InternalEObject) enclosingSchema;
+			enclosingSchema = (EClass) eResolveProxy(oldEnclosingSchema);
+			if (enclosingSchema != oldEnclosingSchema) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							RelatedSchemasPackage.ENCLOSING_SCHEMA__ENCLOSING_SCHEMA, oldEnclosingSchema,
+							enclosingSchema));
+			}
+		}
 		return enclosingSchema;
 	}
 
@@ -155,18 +165,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEnclosingSchema(EClass newEnclosingSchema, NotificationChain msgs) {
-		EClass oldEnclosingSchema = enclosingSchema;
-		enclosingSchema = newEnclosingSchema;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					RelatedSchemasPackage.ENCLOSING_SCHEMA__ENCLOSING_SCHEMA, oldEnclosingSchema, newEnclosingSchema);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
+	public EClass basicGetEnclosingSchema() {
+		return enclosingSchema;
 	}
 
 	/**
@@ -175,20 +175,11 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	 * @generated
 	 */
 	public void setEnclosingSchema(EClass newEnclosingSchema) {
-		if (newEnclosingSchema != enclosingSchema) {
-			NotificationChain msgs = null;
-			if (enclosingSchema != null)
-				msgs = ((InternalEObject) enclosingSchema).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__ENCLOSING_SCHEMA, null, msgs);
-			if (newEnclosingSchema != null)
-				msgs = ((InternalEObject) newEnclosingSchema).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__ENCLOSING_SCHEMA, null, msgs);
-			msgs = basicSetEnclosingSchema(newEnclosingSchema, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
+		EClass oldEnclosingSchema = enclosingSchema;
+		enclosingSchema = newEnclosingSchema;
+		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET,
-					RelatedSchemasPackage.ENCLOSING_SCHEMA__ENCLOSING_SCHEMA, newEnclosingSchema, newEnclosingSchema));
+					RelatedSchemasPackage.ENCLOSING_SCHEMA__ENCLOSING_SCHEMA, oldEnclosingSchema, enclosingSchema));
 	}
 
 	/**
@@ -549,8 +540,6 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ENCLOSING_SCHEMA:
-			return basicSetEnclosingSchema(null, msgs);
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ANY_OF:
 			return basicSetAnyOf(null, msgs);
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ALL_OF:
@@ -578,7 +567,9 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ENCLOSING_SCHEMA:
-			return getEnclosingSchema();
+			if (resolve)
+				return getEnclosingSchema();
+			return basicGetEnclosingSchema();
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ANY_OF:
 			return getAnyOf();
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ALL_OF:

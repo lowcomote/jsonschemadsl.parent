@@ -25,66 +25,66 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface IfThenElse extends EObject {
 	/**
-	 * Returns the value of the '<em><b>If</b></em>' containment reference.
+	 * Returns the value of the '<em><b>If</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>If</em>' containment reference.
+	 * @return the value of the '<em>If</em>' reference.
 	 * @see #setIf(EClass)
 	 * @see relatedSchemas.RelatedSchemasPackage#getIfThenElse_If()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EClass getIf();
 
 	/**
-	 * Sets the value of the '{@link relatedSchemas.IfThenElse#getIf <em>If</em>}' containment reference.
+	 * Sets the value of the '{@link relatedSchemas.IfThenElse#getIf <em>If</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>If</em>' containment reference.
+	 * @param value the new value of the '<em>If</em>' reference.
 	 * @see #getIf()
 	 * @generated
 	 */
 	void setIf(EClass value);
 
 	/**
-	 * Returns the value of the '<em><b>Then</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Then</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Then</em>' containment reference.
+	 * @return the value of the '<em>Then</em>' reference.
 	 * @see #setThen(EClass)
 	 * @see relatedSchemas.RelatedSchemasPackage#getIfThenElse_Then()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EClass getThen();
 
 	/**
-	 * Sets the value of the '{@link relatedSchemas.IfThenElse#getThen <em>Then</em>}' containment reference.
+	 * Sets the value of the '{@link relatedSchemas.IfThenElse#getThen <em>Then</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Then</em>' containment reference.
+	 * @param value the new value of the '<em>Then</em>' reference.
 	 * @see #getThen()
 	 * @generated
 	 */
 	void setThen(EClass value);
 
 	/**
-	 * Returns the value of the '<em><b>Else</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Else</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Else</em>' containment reference.
+	 * @return the value of the '<em>Else</em>' reference.
 	 * @see #setElse(EClass)
 	 * @see relatedSchemas.RelatedSchemasPackage#getIfThenElse_Else()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EClass getElse();
 
 	/**
-	 * Sets the value of the '{@link relatedSchemas.IfThenElse#getElse <em>Else</em>}' containment reference.
+	 * Sets the value of the '{@link relatedSchemas.IfThenElse#getElse <em>Else</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Else</em>' containment reference.
+	 * @param value the new value of the '<em>Else</em>' reference.
 	 * @see #getElse()
 	 * @generated
 	 */

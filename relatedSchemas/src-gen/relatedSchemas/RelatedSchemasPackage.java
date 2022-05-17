@@ -37,7 +37,7 @@ public interface RelatedSchemasPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.example.org/relatedSchemas";
+	String eNS_URI = "http://at.jku.bise/relatedSchemas";
 
 	/**
 	 * The package namespace name.
@@ -103,7 +103,7 @@ public interface RelatedSchemasPackage extends EPackage {
 	int ANY_OF = 1;
 
 	/**
-	 * The feature id for the '<em><b>Any Ofs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Any Ofs</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -140,7 +140,7 @@ public interface RelatedSchemasPackage extends EPackage {
 	int ENCLOSING_SCHEMA = 2;
 
 	/**
-	 * The feature id for the '<em><b>Enclosing Schema</b></em>' containment reference.
+	 * The feature id for the '<em><b>Enclosing Schema</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -240,7 +240,7 @@ public interface RelatedSchemasPackage extends EPackage {
 	int ALL_OF = 3;
 
 	/**
-	 * The feature id for the '<em><b>All Ofs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>All Ofs</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -277,7 +277,7 @@ public interface RelatedSchemasPackage extends EPackage {
 	int ONE_OF = 4;
 
 	/**
-	 * The feature id for the '<em><b>One Ofs</b></em>' containment reference list.
+	 * The feature id for the '<em><b>One Ofs</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -314,7 +314,7 @@ public interface RelatedSchemasPackage extends EPackage {
 	int NOT = 5;
 
 	/**
-	 * The feature id for the '<em><b>Not</b></em>' containment reference.
+	 * The feature id for the '<em><b>Not</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -351,7 +351,7 @@ public interface RelatedSchemasPackage extends EPackage {
 	int IF_THEN_ELSE = 6;
 
 	/**
-	 * The feature id for the '<em><b>If</b></em>' containment reference.
+	 * The feature id for the '<em><b>If</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -360,7 +360,7 @@ public interface RelatedSchemasPackage extends EPackage {
 	int IF_THEN_ELSE__IF = 0;
 
 	/**
-	 * The feature id for the '<em><b>Then</b></em>' containment reference.
+	 * The feature id for the '<em><b>Then</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -369,7 +369,7 @@ public interface RelatedSchemasPackage extends EPackage {
 	int IF_THEN_ELSE__THEN = 1;
 
 	/**
-	 * The feature id for the '<em><b>Else</b></em>' containment reference.
+	 * The feature id for the '<em><b>Else</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -406,7 +406,7 @@ public interface RelatedSchemasPackage extends EPackage {
 	int DEPENDENCY = 7;
 
 	/**
-	 * The feature id for the '<em><b>Dependency</b></em>' containment reference.
+	 * The feature id for the '<em><b>Dependency</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -443,7 +443,7 @@ public interface RelatedSchemasPackage extends EPackage {
 	int CONTAINS = 8;
 
 	/**
-	 * The feature id for the '<em><b>Contains</b></em>' containment reference.
+	 * The feature id for the '<em><b>Contains</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -501,10 +501,10 @@ public interface RelatedSchemasPackage extends EPackage {
 	EClass getAnyOf();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link relatedSchemas.AnyOf#getAnyOfs <em>Any Ofs</em>}'.
+	 * Returns the meta object for the reference list '{@link relatedSchemas.AnyOf#getAnyOfs <em>Any Ofs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Any Ofs</em>'.
+	 * @return the meta object for the reference list '<em>Any Ofs</em>'.
 	 * @see relatedSchemas.AnyOf#getAnyOfs()
 	 * @see #getAnyOf()
 	 * @generated
@@ -522,10 +522,10 @@ public interface RelatedSchemasPackage extends EPackage {
 	EClass getEnclosingSchema();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link relatedSchemas.EnclosingSchema#getEnclosingSchema <em>Enclosing Schema</em>}'.
+	 * Returns the meta object for the reference '{@link relatedSchemas.EnclosingSchema#getEnclosingSchema <em>Enclosing Schema</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Enclosing Schema</em>'.
+	 * @return the meta object for the reference '<em>Enclosing Schema</em>'.
 	 * @see relatedSchemas.EnclosingSchema#getEnclosingSchema()
 	 * @see #getEnclosingSchema()
 	 * @generated
@@ -620,10 +620,10 @@ public interface RelatedSchemasPackage extends EPackage {
 	EClass getAllOf();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link relatedSchemas.AllOf#getAllOfs <em>All Ofs</em>}'.
+	 * Returns the meta object for the reference list '{@link relatedSchemas.AllOf#getAllOfs <em>All Ofs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>All Ofs</em>'.
+	 * @return the meta object for the reference list '<em>All Ofs</em>'.
 	 * @see relatedSchemas.AllOf#getAllOfs()
 	 * @see #getAllOf()
 	 * @generated
@@ -641,10 +641,10 @@ public interface RelatedSchemasPackage extends EPackage {
 	EClass getOneOf();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link relatedSchemas.OneOf#getOneOfs <em>One Ofs</em>}'.
+	 * Returns the meta object for the reference list '{@link relatedSchemas.OneOf#getOneOfs <em>One Ofs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>One Ofs</em>'.
+	 * @return the meta object for the reference list '<em>One Ofs</em>'.
 	 * @see relatedSchemas.OneOf#getOneOfs()
 	 * @see #getOneOf()
 	 * @generated
@@ -662,10 +662,10 @@ public interface RelatedSchemasPackage extends EPackage {
 	EClass getNot();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link relatedSchemas.Not#getNot <em>Not</em>}'.
+	 * Returns the meta object for the reference '{@link relatedSchemas.Not#getNot <em>Not</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Not</em>'.
+	 * @return the meta object for the reference '<em>Not</em>'.
 	 * @see relatedSchemas.Not#getNot()
 	 * @see #getNot()
 	 * @generated
@@ -683,10 +683,10 @@ public interface RelatedSchemasPackage extends EPackage {
 	EClass getIfThenElse();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link relatedSchemas.IfThenElse#getIf <em>If</em>}'.
+	 * Returns the meta object for the reference '{@link relatedSchemas.IfThenElse#getIf <em>If</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>If</em>'.
+	 * @return the meta object for the reference '<em>If</em>'.
 	 * @see relatedSchemas.IfThenElse#getIf()
 	 * @see #getIfThenElse()
 	 * @generated
@@ -694,10 +694,10 @@ public interface RelatedSchemasPackage extends EPackage {
 	EReference getIfThenElse_If();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link relatedSchemas.IfThenElse#getThen <em>Then</em>}'.
+	 * Returns the meta object for the reference '{@link relatedSchemas.IfThenElse#getThen <em>Then</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Then</em>'.
+	 * @return the meta object for the reference '<em>Then</em>'.
 	 * @see relatedSchemas.IfThenElse#getThen()
 	 * @see #getIfThenElse()
 	 * @generated
@@ -705,10 +705,10 @@ public interface RelatedSchemasPackage extends EPackage {
 	EReference getIfThenElse_Then();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link relatedSchemas.IfThenElse#getElse <em>Else</em>}'.
+	 * Returns the meta object for the reference '{@link relatedSchemas.IfThenElse#getElse <em>Else</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Else</em>'.
+	 * @return the meta object for the reference '<em>Else</em>'.
 	 * @see relatedSchemas.IfThenElse#getElse()
 	 * @see #getIfThenElse()
 	 * @generated
@@ -726,10 +726,10 @@ public interface RelatedSchemasPackage extends EPackage {
 	EClass getDependency();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link relatedSchemas.Dependency#getDependency <em>Dependency</em>}'.
+	 * Returns the meta object for the reference '{@link relatedSchemas.Dependency#getDependency <em>Dependency</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Dependency</em>'.
+	 * @return the meta object for the reference '<em>Dependency</em>'.
 	 * @see relatedSchemas.Dependency#getDependency()
 	 * @see #getDependency()
 	 * @generated
@@ -747,10 +747,10 @@ public interface RelatedSchemasPackage extends EPackage {
 	EClass getContains();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link relatedSchemas.Contains#getContains <em>Contains</em>}'.
+	 * Returns the meta object for the reference '{@link relatedSchemas.Contains#getContains <em>Contains</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Contains</em>'.
+	 * @return the meta object for the reference '<em>Contains</em>'.
 	 * @see relatedSchemas.Contains#getContains()
 	 * @see #getContains()
 	 * @generated
@@ -809,7 +809,7 @@ public interface RelatedSchemasPackage extends EPackage {
 		EClass ANY_OF = eINSTANCE.getAnyOf();
 
 		/**
-		 * The meta object literal for the '<em><b>Any Ofs</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Any Ofs</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -827,7 +827,7 @@ public interface RelatedSchemasPackage extends EPackage {
 		EClass ENCLOSING_SCHEMA = eINSTANCE.getEnclosingSchema();
 
 		/**
-		 * The meta object literal for the '<em><b>Enclosing Schema</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Enclosing Schema</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -901,7 +901,7 @@ public interface RelatedSchemasPackage extends EPackage {
 		EClass ALL_OF = eINSTANCE.getAllOf();
 
 		/**
-		 * The meta object literal for the '<em><b>All Ofs</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>All Ofs</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -919,7 +919,7 @@ public interface RelatedSchemasPackage extends EPackage {
 		EClass ONE_OF = eINSTANCE.getOneOf();
 
 		/**
-		 * The meta object literal for the '<em><b>One Ofs</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>One Ofs</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -937,7 +937,7 @@ public interface RelatedSchemasPackage extends EPackage {
 		EClass NOT = eINSTANCE.getNot();
 
 		/**
-		 * The meta object literal for the '<em><b>Not</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Not</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -955,7 +955,7 @@ public interface RelatedSchemasPackage extends EPackage {
 		EClass IF_THEN_ELSE = eINSTANCE.getIfThenElse();
 
 		/**
-		 * The meta object literal for the '<em><b>If</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>If</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -963,7 +963,7 @@ public interface RelatedSchemasPackage extends EPackage {
 		EReference IF_THEN_ELSE__IF = eINSTANCE.getIfThenElse_If();
 
 		/**
-		 * The meta object literal for the '<em><b>Then</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Then</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -971,7 +971,7 @@ public interface RelatedSchemasPackage extends EPackage {
 		EReference IF_THEN_ELSE__THEN = eINSTANCE.getIfThenElse_Then();
 
 		/**
-		 * The meta object literal for the '<em><b>Else</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Else</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -989,7 +989,7 @@ public interface RelatedSchemasPackage extends EPackage {
 		EClass DEPENDENCY = eINSTANCE.getDependency();
 
 		/**
-		 * The meta object literal for the '<em><b>Dependency</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Dependency</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1007,7 +1007,7 @@ public interface RelatedSchemasPackage extends EPackage {
 		EClass CONTAINS = eINSTANCE.getContains();
 
 		/**
-		 * The meta object literal for the '<em><b>Contains</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Contains</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

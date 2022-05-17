@@ -70,7 +70,6 @@ public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements 
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ENCLOSING_SCHEMA);
 			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ANY_OF);
 			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ALL_OF);
 			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ONE_OF);
@@ -139,7 +138,6 @@ public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements 
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EnclosingSchema.class)) {
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ENCLOSING_SCHEMA:
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ANY_OF:
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ALL_OF:
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ONE_OF:

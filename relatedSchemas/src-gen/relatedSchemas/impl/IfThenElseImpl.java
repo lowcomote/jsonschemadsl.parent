@@ -3,7 +3,6 @@
 package relatedSchemas.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -31,7 +30,7 @@ import relatedSchemas.RelatedSchemasPackage;
  */
 public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfThenElse {
 	/**
-	 * The cached value of the '{@link #getIf() <em>If</em>}' containment reference.
+	 * The cached value of the '{@link #getIf() <em>If</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIf()
@@ -41,7 +40,7 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	protected EClass if_;
 
 	/**
-	 * The cached value of the '{@link #getThen() <em>Then</em>}' containment reference.
+	 * The cached value of the '{@link #getThen() <em>Then</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getThen()
@@ -51,7 +50,7 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	protected EClass then;
 
 	/**
-	 * The cached value of the '{@link #getElse() <em>Else</em>}' containment reference.
+	 * The cached value of the '{@link #getElse() <em>Else</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getElse()
@@ -85,6 +84,15 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	 * @generated
 	 */
 	public EClass getIf() {
+		if (if_ != null && if_.eIsProxy()) {
+			InternalEObject oldIf = (InternalEObject) if_;
+			if_ = (EClass) eResolveProxy(oldIf);
+			if (if_ != oldIf) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RelatedSchemasPackage.IF_THEN_ELSE__IF,
+							oldIf, if_));
+			}
+		}
 		return if_;
 	}
 
@@ -93,18 +101,8 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIf(EClass newIf, NotificationChain msgs) {
-		EClass oldIf = if_;
-		if_ = newIf;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					RelatedSchemasPackage.IF_THEN_ELSE__IF, oldIf, newIf);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
+	public EClass basicGetIf() {
+		return if_;
 	}
 
 	/**
@@ -113,20 +111,10 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	 * @generated
 	 */
 	public void setIf(EClass newIf) {
-		if (newIf != if_) {
-			NotificationChain msgs = null;
-			if (if_ != null)
-				msgs = ((InternalEObject) if_).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.IF_THEN_ELSE__IF, null, msgs);
-			if (newIf != null)
-				msgs = ((InternalEObject) newIf).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.IF_THEN_ELSE__IF, null, msgs);
-			msgs = basicSetIf(newIf, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.IF_THEN_ELSE__IF, newIf,
-					newIf));
+		EClass oldIf = if_;
+		if_ = newIf;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.IF_THEN_ELSE__IF, oldIf, if_));
 	}
 
 	/**
@@ -135,6 +123,15 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	 * @generated
 	 */
 	public EClass getThen() {
+		if (then != null && then.eIsProxy()) {
+			InternalEObject oldThen = (InternalEObject) then;
+			then = (EClass) eResolveProxy(oldThen);
+			if (then != oldThen) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RelatedSchemasPackage.IF_THEN_ELSE__THEN,
+							oldThen, then));
+			}
+		}
 		return then;
 	}
 
@@ -143,18 +140,8 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetThen(EClass newThen, NotificationChain msgs) {
-		EClass oldThen = then;
-		then = newThen;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					RelatedSchemasPackage.IF_THEN_ELSE__THEN, oldThen, newThen);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
+	public EClass basicGetThen() {
+		return then;
 	}
 
 	/**
@@ -163,20 +150,11 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	 * @generated
 	 */
 	public void setThen(EClass newThen) {
-		if (newThen != then) {
-			NotificationChain msgs = null;
-			if (then != null)
-				msgs = ((InternalEObject) then).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.IF_THEN_ELSE__THEN, null, msgs);
-			if (newThen != null)
-				msgs = ((InternalEObject) newThen).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.IF_THEN_ELSE__THEN, null, msgs);
-			msgs = basicSetThen(newThen, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.IF_THEN_ELSE__THEN, newThen,
-					newThen));
+		EClass oldThen = then;
+		then = newThen;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.IF_THEN_ELSE__THEN, oldThen,
+					then));
 	}
 
 	/**
@@ -185,6 +163,15 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	 * @generated
 	 */
 	public EClass getElse() {
+		if (else_ != null && else_.eIsProxy()) {
+			InternalEObject oldElse = (InternalEObject) else_;
+			else_ = (EClass) eResolveProxy(oldElse);
+			if (else_ != oldElse) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RelatedSchemasPackage.IF_THEN_ELSE__ELSE,
+							oldElse, else_));
+			}
+		}
 		return else_;
 	}
 
@@ -193,18 +180,8 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetElse(EClass newElse, NotificationChain msgs) {
-		EClass oldElse = else_;
-		else_ = newElse;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					RelatedSchemasPackage.IF_THEN_ELSE__ELSE, oldElse, newElse);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
+	public EClass basicGetElse() {
+		return else_;
 	}
 
 	/**
@@ -213,38 +190,11 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	 * @generated
 	 */
 	public void setElse(EClass newElse) {
-		if (newElse != else_) {
-			NotificationChain msgs = null;
-			if (else_ != null)
-				msgs = ((InternalEObject) else_).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.IF_THEN_ELSE__ELSE, null, msgs);
-			if (newElse != null)
-				msgs = ((InternalEObject) newElse).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.IF_THEN_ELSE__ELSE, null, msgs);
-			msgs = basicSetElse(newElse, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.IF_THEN_ELSE__ELSE, newElse,
-					newElse));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case RelatedSchemasPackage.IF_THEN_ELSE__IF:
-			return basicSetIf(null, msgs);
-		case RelatedSchemasPackage.IF_THEN_ELSE__THEN:
-			return basicSetThen(null, msgs);
-		case RelatedSchemasPackage.IF_THEN_ELSE__ELSE:
-			return basicSetElse(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		EClass oldElse = else_;
+		else_ = newElse;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.IF_THEN_ELSE__ELSE, oldElse,
+					else_));
 	}
 
 	/**
@@ -256,11 +206,17 @@ public class IfThenElseImpl extends MinimalEObjectImpl.Container implements IfTh
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case RelatedSchemasPackage.IF_THEN_ELSE__IF:
-			return getIf();
+			if (resolve)
+				return getIf();
+			return basicGetIf();
 		case RelatedSchemasPackage.IF_THEN_ELSE__THEN:
-			return getThen();
+			if (resolve)
+				return getThen();
+			return basicGetThen();
 		case RelatedSchemasPackage.IF_THEN_ELSE__ELSE:
-			return getElse();
+			if (resolve)
+				return getElse();
+			return basicGetElse();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
