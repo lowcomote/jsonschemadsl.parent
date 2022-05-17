@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test34" nsURI="http://jku.bise.at/test34" nsPrefix="test34">
+  <eClassifiers xsi:type="ecore:EClass" name="Test34Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test34Root" upperBound="-1"
+        eType="#//Test34RootPropertiesAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test34RootProp1" eSuperTypes="#//Test34RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test34RootProp1OneOf0">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test34RootProp1Not">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test34RootPropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test34RootAdditionalProperties" eSuperTypes="#//Test34RootPropertiesAbstract">
+    <eAnnotations>
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this.key.equals(&quot;prop1&quot;)){return &quot;prop1&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
