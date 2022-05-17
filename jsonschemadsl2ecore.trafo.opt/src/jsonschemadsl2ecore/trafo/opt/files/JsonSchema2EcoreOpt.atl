@@ -600,6 +600,39 @@ rule mapNot{
 	}
 }
 
+rule mapIf{
+	from ifSchemaDefinition:JSchemaMM!IfSchemaDefinition
+	do	{
+		thisModule.createRelatedIfThenElse(ifSchemaDefinition.refImmediateComposite().resolve()).if<-ifSchemaDefinition.if.resolve();
+	}
+}
+
+rule mapThen{
+	from thenSchemaDefinition:JSchemaMM!ThenSchemaDefinition
+	do	{
+		thisModule.createRelatedIfThenElse(thenSchemaDefinition.refImmediateComposite().resolve()).then<-thenSchemaDefinition.then.resolve();
+	}
+}
+
+rule mapElse{
+	from elseSchemaDefinition:JSchemaMM!ElseSchemaDefinition
+	do	{
+		thisModule.createRelatedIfThenElse(elseSchemaDefinition.refImmediateComposite().resolve()).else<-elseSchemaDefinition.else.resolve();
+	}
+}
+
+
+unique lazy rule createRelatedIfThenElse{
+	from eClass :Ecore!EClass
+	to
+		ifThenElse:RelatedSchemasMM!IfThenElse(
+		)
+	do{
+		thisModule.createRelatedEnclosingSchema(eClass).ifThenElse<-ifThenElse;
+		ifThenElse;
+	}	
+}
+
 unique lazy rule createRelatedEnclosingSchema{
 	from eClass :Ecore!EClass
 	to

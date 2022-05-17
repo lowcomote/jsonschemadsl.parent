@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test36.ecore#//Test36Root"/>
+    <ifThenElse>
+      <if href="test36.ecore#//Test36RootIf"/>
+      <then href="test36.ecore#//Test36RootThen"/>
+      <else href="test36.ecore#//Test36RootElse"/>
+    </ifThenElse>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>

@@ -313,7 +313,14 @@ helper context JSchemaMM!Schema def: getCombinedSchemaKey() : String=
 ;
 
 helper context JSchemaMM!Schema def: getConditionalSchemaKey() : String= 
-	if self.isInConditionalSchema() then OclUndefined  ---- TODO
+	if self.isInConditionalSchema() then 
+		if self.isInIf() then 'if'
+		else if self.isInThen() then 'then' 
+			else if self.isInElse() then 'else' 
+				else OclUndefined  ---- This condition should be unreachable
+				endif
+			endif
+		endif
 	else OclUndefined
 	endif
 ;	
@@ -402,7 +409,7 @@ helper context JSchemaMM!Schema  def : isInRelatedSchema() : Boolean =
 	self.isInCombinedSchema() or self.isInConditionalSchema() or self.isInDependenciesSchema() or self.isInContainsSchema();
 
 helper context JSchemaMM!Schema  def : isInConditionalSchema() : Boolean =
-	false; ---- TODO	
+	self.isInIf() or self.isInThen() or self.isInElse();  
 	
 helper context JSchemaMM!Schema  def : isInDependenciesSchema() : Boolean =
 	false; ---- TODO	
@@ -425,13 +432,23 @@ helper context JSchemaMM!Schema  def : isInOneOf() : Boolean =
 helper context JSchemaMM!Schema  def : isInNot() : Boolean =
 	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!NotSchemaDefinition);
 
+helper context JSchemaMM!Schema  def : isInIf() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!IfSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isInThen() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!ThenSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isInElse() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!ElseSchemaDefinition);
 
 
 helper context JSchemaMM!Schema  def : needsKeyword() : Boolean =
 	self.isKeySchemaPairInProperties() or 
-	if self.isInCombinedSchema() then self.getCombinedEnclosingSchema().isKeySchemaPairInProperties()
-	else false
-	endif
+		if self.isInCombinedSchema() then self.getCombinedEnclosingSchema().isKeySchemaPairInProperties()
+		else if self.isInConditionalSchema() then self.getConditionalEnclosingSchema().isKeySchemaPairInProperties()
+			else false
+			endif
+		endif
 ;
 
 		
@@ -440,6 +457,12 @@ helper context JSchemaMM!Schema def : getCombinedEnclosingSchema() : JSchemaMM!S
 	else self.getNotEnclosingSchema() ---- if it is not self.isInNot() OclUndefined will be returned 
 	endif	
 ;	
+	
+helper context JSchemaMM!Schema def : getConditionalEnclosingSchema() : JSchemaMM!Schema =		
+	if self.isInConditionalSchema() then self.refImmediateComposite().refImmediateComposite()
+	else OclUndefined  
+	endif	
+;		
 
 helper context JSchemaMM!Schema def : getAllAnyOneOfEnclosingSchema() : JSchemaMM!Schema =
 	if self.isInAllOf() or self.isInAnyOf() or self.isInOneOf()

@@ -1,0 +1,21 @@
+{
+	"type":"object",
+	"if":{
+	    "type":"object",
+	    "properties":{
+	         "name":{"type":"string"}
+		}
+	},
+	"then":{
+		"type":"object",
+        "properties":{
+             "surname":{"type":"string"}
+         }
+	},
+	"else":{
+		"type":"object",
+        "properties":{
+             "fullname":{"type":"string"}
+		}
+	}
+}

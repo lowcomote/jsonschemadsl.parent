@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test35.ecore#//Test35RootProp1"/>
+    <ifThenElse>
+      <if href="test35.ecore#//Test35RootProp1If"/>
+      <then href="test35.ecore#//Test35RootProp1Then"/>
+      <else href="test35.ecore#//Test35RootProp1Else"/>
+    </ifThenElse>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>
