@@ -1,16 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: relatedSchemas.edit;singleton:=true
-Automatic-Module-Name: relatedSchemas.edit
+Bundle-SymbolicName: jsongrammarMM.edit;singleton:=true
+Automatic-Module-Name: jsongrammarMM.edit
 Bundle-Version: 2.0.0
 Bundle-ClassPath: .
-Bundle-Activator: relatedSchemas.provider.RelatedSchemasEditPlugin$Implementation
+Bundle-Activator: jsongrammarmm.jsongrammar.provider.JsongrammarEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Export-Package: relatedSchemas.provider
+Export-Package: jsongrammarmm.jsongrammar.provider
 Require-Bundle: org.eclipse.core.runtime,
- relatedSchemas;bundle-version="2.0.0";visibility:=reexport,
+ jsongrammarMM;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

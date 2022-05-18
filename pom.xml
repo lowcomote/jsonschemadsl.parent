@@ -44,6 +44,13 @@
 		<module>relatedSchemas</module>
 		<module>relatedSchemas.edit</module>
 		<module>relatedSchemas.editor</module>
+		<module>jsongrammarMM</module>
+		<module>jsongrammarMM.edit</module>
+		<module>xtextgenerator</module>
+		
+
+
+
 
 		<!-- <module>jakarta.ws.rs-api-3.0.0.wrapper</module>-->
 	</modules>

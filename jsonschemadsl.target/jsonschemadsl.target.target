@@ -50,10 +50,6 @@
 			<repository location="https://download.eclipse.org/releases/2020-09"/>
 			<unit id="org.eclipse.sdk.feature.group" version="4.17.0.v20200902-1800"/>
 		</location>
-		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<repository location="https://jku-win-se.github.io/JsonBasedXtextGrammar/"/>
-			<unit id="at.jku.bise.ecore.json.grammar.feature.feature.group" version="2.0.0"/>
-		</location>
 		<location includeSource="true" missingManifest="generate" type="Maven">
 			<groupId>jakarta.ws.rs</groupId>
 			<artifactId>jakarta.ws.rs-api</artifactId>
