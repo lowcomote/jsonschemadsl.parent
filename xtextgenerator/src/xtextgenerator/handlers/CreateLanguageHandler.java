@@ -61,6 +61,7 @@ public class CreateLanguageHandler extends AbstractHandler{
 
 	public final static String JSCHEMA_EXTENSION = "jschema";
 	public final static String JSON_GRAMMAR_EXTENSION = "jsongrammar";
+	public final static String RELATED_SCHEMAS_EXTENSION = "relatedSchemas";
 	public final static String OCL_EXTENSION = "ocl";
 	public final static String ECORE_SUFFIX= "Opt";
 	public final static String ECORE_EXTENSION = "ecore";
@@ -106,6 +107,14 @@ public class CreateLanguageHandler extends AbstractHandler{
 		IFile jsonGrammarFile = workspace.getRoot().getFile(jsonGrammarFilePath);
 		
 		/**
+		 * discover relatedSchemas file
+		 */
+		String relatedSchemasFileName = filename+"."+RELATED_SCHEMAS_EXTENSION;
+		IPath relatedSchemasFilePath = modelPath.append(relatedSchemasFileName);
+		IFile relatedSchemasFile = workspace.getRoot().getFile(relatedSchemasFilePath);
+		
+		
+		/**
 		 * genmodel and source generation. genmodel selection after creation
 		 */
 		GenModel genModel =generateGenmodelFile( workspace,  filename,  modelPath, rootProjectPath, resourceSet );
@@ -128,6 +137,9 @@ public class CreateLanguageHandler extends AbstractHandler{
 		
 		WizardDialog dialog = new WizardDialog(activeShell, wizard);
 		wizard.setJsonGrammarFile(jsonGrammarFile);
+		
+		wizard.setRelatedSchemasFile(relatedSchemasFile);
+		
 		wizard.setGenModelSelection(genModelURI);
 		wizard.setOclFile(oclFile);
 		wizard.addMainPage();

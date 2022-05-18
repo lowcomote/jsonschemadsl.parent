@@ -19,6 +19,7 @@ public class XtextJsonGrammarProjectInfo extends XtextProjectInfo {
 	
 	private final RuntimeProjectDescriptorJSON runtimeProjectJsonGrammar = new RuntimeProjectDescriptorJSON(this);
 	private IFile jsonGrammarFile = null;
+	private IFile relatedSchemasFile = null;
 	
 	@Override
 	public Set<ProjectDescriptor> getEnabledProjects() {
@@ -41,6 +42,17 @@ public class XtextJsonGrammarProjectInfo extends XtextProjectInfo {
 		return this.jsonGrammarFile;
 	}
 	
+	
+	
+	
+	public IFile getRelatedSchemasFile() {
+		return relatedSchemasFile;
+	}
+
+	public void setRelatedSchemasFile(IFile relatedSchemasFile) {
+		this.relatedSchemasFile = relatedSchemasFile;
+	}
+
 	@Override
 	public boolean needsTychoBuild() {
 		return needsMavenBuild() && getRuntimeProject().isEclipsePluginProject();

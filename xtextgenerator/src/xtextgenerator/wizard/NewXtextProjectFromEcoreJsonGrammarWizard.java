@@ -51,6 +51,7 @@ import xtextgenerator.wizard.OclValidatorGenerator;
 public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWizard {
 		
 	public static final String JSON_GRAMMAR_CREATION_PAGE_NAME ="Selection Custom JSON Grammar Specification";
+	public static final String RELATED_SCHEMAS_CREATION_PAGE_NAME ="Selection Related Schemas model";
 	public static final String E_PACKAGE_CREATION_PAGE_NAME = "ePackageSelectionPage";
 	public static final String MAIN_PAGE ="mainPage";
 	public static final String ADVANCED_PAGE = "advancedPage";
@@ -70,6 +71,7 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 	
 //	private WizardSelectImportedEPackagePage ePackageSelectionPage  = null;
 	private WizardNewJSonGrammarCreationPage grammarSelectionPage = null;
+	private WizardRelatedSchemasPage wizardRelatedSchemasPage = null;
 	private WizardJsonGrammarSelectImportedEPackagePage ePackageSelectionPage  = null;
 	private WizardOclCreationPage oclSelectionPage= null;
 	private WizardJsonGrammarNewXtextProjectCreationPage mainPage = null;
@@ -93,6 +95,7 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 //		grammarSelectionPage = new WizardNewJSonGrammarCreationPage(JSON_GRAMMAR_CREATION_PAGE_NAME, selection, jdtHelper);
 //		addPage(grammarSelectionPage);
 		addGrammarSelectionPage();
+		addRelatedSchemasSelectionPage();
 //		addPage(ePackageSelectionPage); //$NON-NLS-1$	
 		addEPackageSelectionPage();
 		addOclSelectionPage();
@@ -106,6 +109,9 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 //		XtextJsonGrammarProjectInfo projectInfo = (XtextJsonGrammarProjectInfo) super.getProjectInfo();
 		XtextJsonGrammarProjectInfo projectInfo = (XtextJsonGrammarProjectInfo) createXtextJsonGrammarProjectInfo();
 		projectInfo.setJsonGrammarFile(this.grammarSelectionPage.getJsonGrammarFile());
+		
+		projectInfo.setRelatedSchemasFile(this.wizardRelatedSchemasPage.getRelatedSchemasFile());
+		
 		RuntimeProjectDescriptor runtimeProjectDescriptor = projectInfo.getRuntimeProject();
 		runtimeProjectDescriptor.setWithPluginXml(false);
 		Ecore2XtextConfiguration ecore2Xtext = projectInfo.getEcore2Xtext();
@@ -178,6 +184,13 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 		}
 	}
 	
+	public void addRelatedSchemasSelectionPage() {
+		if(wizardRelatedSchemasPage==null) {
+			wizardRelatedSchemasPage = new WizardRelatedSchemasPage(RELATED_SCHEMAS_CREATION_PAGE_NAME, selection, jdtHelper);
+			addPage(wizardRelatedSchemasPage);
+		}
+	}
+	
 	public void addEPackageSelectionPage() {
 		if(ePackageSelectionPage==null) {
 //			ePackageSelectionPage = new WizardSelectImportedEPackagePage(E_PACKAGE_CREATION_PAGE_NAME, selection, jdtHelper);  
@@ -225,6 +238,11 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 	public void setJsonGrammarFile(IFile jsonGrammarFile) {
 		addGrammarSelectionPage();
 		grammarSelectionPage.setJsonGrammarFile(jsonGrammarFile);
+	}
+	
+	public void setRelatedSchemasFile(IFile relatedSchemasFile) {
+		addRelatedSchemasSelectionPage();
+		wizardRelatedSchemasPage.setRelatedSchemasFile(relatedSchemasFile);
 	}
 	
 	public void setGenModelSelection(URI genModelURI) {
