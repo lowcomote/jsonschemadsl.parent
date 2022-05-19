@@ -9,4 +9,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="test32Root" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test32RootAnyOf0">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test32Root" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
 </ecore:EPackage>

@@ -109,15 +109,23 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 //		XtextJsonGrammarProjectInfo projectInfo = (XtextJsonGrammarProjectInfo) super.getProjectInfo();
 		XtextJsonGrammarProjectInfo projectInfo = (XtextJsonGrammarProjectInfo) createXtextJsonGrammarProjectInfo();
 		projectInfo.setJsonGrammarFile(this.grammarSelectionPage.getJsonGrammarFile());
-		
 		projectInfo.setRelatedSchemasFile(this.wizardRelatedSchemasPage.getRelatedSchemasFile());
 		
-		RuntimeProjectDescriptor runtimeProjectDescriptor = projectInfo.getRuntimeProject();
+//		RuntimeProjectDescriptor runtimeProjectDescriptor = projectInfo.getRuntimeProject();
+		// Cast to RuntimeProjectDescriptorJSON and set detailedJsonGrammar and relatedSchemas
+		RuntimeProjectDescriptorJSON runtimeProjectDescriptor = (RuntimeProjectDescriptorJSON) projectInfo.getRuntimeProject();
+		
+		
+		
 		runtimeProjectDescriptor.setWithPluginXml(false);
 		Ecore2XtextConfiguration ecore2Xtext = projectInfo.getEcore2Xtext();
 		ecore2Xtext.getEPackageInfos().addAll(ePackageSelectionPage.getEPackageInfos());
 		ecore2Xtext.setRootElementClass(ePackageSelectionPage.getRootElementClass());
 		ecore2Xtext.setDefaultEPackageInfo(ePackageSelectionPage.getDefaultEPackageInfo());
+		
+		runtimeProjectDescriptor.setDetailedGrammar();
+		runtimeProjectDescriptor.setRelatedSchemas();
+		
 		return projectInfo;
 	}
 	

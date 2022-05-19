@@ -43,24 +43,29 @@ import com.google.common.collect.Iterables;
 
 import xtextgenerator.wizard.Ecore2XtextJSONGrammarCreator;
 
-public class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor {
+public class RuntimeProjectDescriptorJSON_JAVAOld extends RuntimeProjectDescriptor {
 	
 //	private final Ecore2XtextJSONGrammarCreatorJava grammarCreator = new Ecore2XtextJSONGrammarCreatorJava();
-	private final Ecore2XtextJSONGrammarCreator grammarCreator = new Ecore2XtextJSONGrammarCreator();
+//	private final Ecore2XtextJSONGrammarCreator grammarCreator = new Ecore2XtextJSONGrammarCreator();
 	
-	public RuntimeProjectDescriptorJSON(WizardConfiguration config) {
+	public RuntimeProjectDescriptorJSON_JAVAOld(WizardConfiguration config) {
 		super(config);		
 	}
 	
-	@Override
-	public CharSequence grammar() {
-		CharSequence grammar = null;
-		if (this.isFromExistingEcoreModels())
-			grammar = grammarCreator.grammar(this.getConfig());
-		else
-			defaultGrammar();
-		return grammar;
-	}
+//	@Override
+//	public CharSequence grammar() {
+//		CharSequence grammar = null;
+//		if (this.isFromExistingEcoreModels())
+//			grammar = grammarCreator.grammar(this.getConfig());
+//		else
+//			defaultGrammar();
+//		return grammar;
+//	}
+//	
+////	@Override
+////	public Iterable getFiles() {
+//		return super.getFiles();
+//	}
 	
 	private CharSequence defaultGrammar() {
 	    StringConcatenation _builder = new StringConcatenation();
