@@ -46,6 +46,7 @@
 		<module>relatedSchemas.editor</module>
 		<module>jsongrammarMM</module>
 		<module>jsongrammarMM.edit</module>
+		<module>jsongrammarMM.editor</module>
 		<module>xtextgenerator</module>
 		
 
