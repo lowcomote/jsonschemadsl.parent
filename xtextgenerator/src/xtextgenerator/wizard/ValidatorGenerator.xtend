@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.ENamedElement
 import java.util.List
+import relatedSchemas.AnyOf
 
 class ValidatorGenerator {
 	
@@ -39,6 +40,7 @@ class ValidatorGenerator {
 			import java.io.IOException;
 			import java.io.InputStream;
 			import java.util.List;
+			import java.util.ArrayList;
 			import org.eclipse.xtext.resource.XtextResource;
 			import org.eclipse.xtext.validation.IResourceValidator;
 			import org.eclipse.xtext.validation.Issue;
@@ -54,6 +56,10 @@ class ValidatorGenerator {
 					«IF  enclosingSchema.allOf!==null»
 					
 						«generateAllOfValidation(enclosingSchema.enclosingSchema,enclosingSchema.allOf)»
+					«ENDIF»	
+					«IF  enclosingSchema.anyOf!==null»
+					
+						«generateAnyOfValidation(enclosingSchema.enclosingSchema,enclosingSchema.anyOf)»
 					«ENDIF»	
 				«ENDFOR»
 			«ENDIF»
@@ -99,6 +105,41 @@ class ValidatorGenerator {
 						}
 					}
 				«ENDFOR»
+			}
+		'''
+	}
+	
+	def private static generateAnyOfValidation(EClass enclosingClass, AnyOf anyOf){
+		val String enclosingClassType = (enclosingClass.EPackage).name+"."+enclosingClass.name
+		'''
+			@Check
+			public void anyOfValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
+				String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+				InputStream in = new ByteArrayInputStream(enclosingEClassText.getBytes());
+				ResourceSet reset = new ResourceSetImpl();
+				boolean validSchemaFound = false;
+				«FOR EClass anyOfEClass :anyOf.anyOfs»
+					if(!validSchemaFound){
+						Resource resource«anyOf.anyOfs.indexOf(anyOfEClass)» = reset.createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(anyOfEClass)»"));
+						try {
+							resource«anyOf.anyOfs.indexOf(anyOfEClass)».load(in, reset.getLoadOptions());
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+						if(resource«anyOf.anyOfs.indexOf(anyOfEClass)».getErrors().isEmpty()) {
+							XtextResource xtextResource = (XtextResource)resource«anyOf.anyOfs.indexOf(anyOfEClass)»;
+							IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
+							List<Issue> issues = resourceValidator.validate(resource«anyOf.anyOfs.indexOf(anyOfEClass)», CheckMode.ALL, CancelIndicator.NullImpl);
+							if(issues.isEmpty()){
+								validSchemaFound=true;
+							}	
+							
+						}
+					}
+				«ENDFOR»
+				if(!validSchemaFound){
+					error("No valid schema found in the AnyOf «enclosingClass.name»", null);
+				}	
 			}
 		'''
 	}
