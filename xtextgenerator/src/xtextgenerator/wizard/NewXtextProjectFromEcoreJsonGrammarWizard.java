@@ -20,6 +20,8 @@ import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.ENamedElement;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.ui.util.IJdtHelper;
 import org.eclipse.xtext.ui.wizard.IProjectInfo;
 import org.eclipse.xtext.ui.wizard.XtextNewProjectWizard;
@@ -41,6 +43,8 @@ import org.osgi.framework.BundleException;
 
 import com.google.inject.Inject;
 
+import relatedSchemas.EnclosingSchema;
+import relatedSchemas.RelatedSchemas;
 import xtextgenerator.utils.ManifestChanger;
 import xtextgenerator.wizard.OclValidatorGenerator;
 
@@ -77,7 +81,7 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 	private WizardJsonGrammarNewXtextProjectCreationPage mainPage = null;
 	private AdvancedJsonGrammarNewProjectPage advancedPage = null;
 
-	
+	private RuntimeProjectDescriptorJSON runtimeProjectDescriptorJSON = null;
 	/**
 	 * Constructs a new wizard
 	 */
@@ -114,7 +118,7 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 //		RuntimeProjectDescriptor runtimeProjectDescriptor = projectInfo.getRuntimeProject();
 		// Cast to RuntimeProjectDescriptorJSON and set detailedJsonGrammar and relatedSchemas
 		RuntimeProjectDescriptorJSON runtimeProjectDescriptor = (RuntimeProjectDescriptorJSON) projectInfo.getRuntimeProject();
-		
+		this.runtimeProjectDescriptorJSON = runtimeProjectDescriptor;
 		
 		
 		runtimeProjectDescriptor.setWithPluginXml(false);
@@ -313,7 +317,8 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 			result = addOclDependency();
 		}
 		if(result) {
-			result =generateOclValidator();
+//			result =generateOclValidator();
+			result =generateAllValidators();
 		}
 		if(result) {
 			result = launchGenerateMwe2();
@@ -353,6 +358,7 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 	}
 
 	/**
+	 * Add org.eclipse.ocl.xtext.completeocl dependency to the Manifest.MF
 	 * https://www.eclipse.org/forums/index.php/t/109193/
 	 * https://rtist.hcldoc.com/help/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fosgi%2Futil%2FManifestElement.html
 	 * @return
@@ -415,6 +421,62 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 			return false;
 		}
 		
+	}
+	
+	private boolean generateAllValidators() {
+		String projectName = getProjectName();
+		String languageToLastDot = getLanguageToLastDot();
+		RelatedSchemas relatedSchemas =runtimeProjectDescriptorJSON.getRelatedSchemas();
+		EClass mainRootElementClass = ePackageSelectionPage.getRootElementClass();
+		IPath validationFolderPath = ResourcesPlugin.getWorkspace().getRoot().getLocation()
+				.append(projectName+DOT_PARENT).append(projectName).append(SOURCE_FOLDER); 
+		String classPackage = languageToLastDot+"."+VALIDATION_FOLDER;
+		String[] classPackageSplit = classPackage.split("\\.");
+		for (String split :classPackageSplit) {
+			validationFolderPath = validationFolderPath.append(split);
+		}
+		File validationDirectory =validationFolderPath.toFile();
+		if(!validationDirectory.exists()) {
+			validationDirectory.mkdir();
+		}
+		String modelPackage = this.ePackageSelectionPage.getEPackageInfos().iterator().next().getEPackageJavaFQN();
+		String oclPath = this.oclSelectionPage.getOclFile().getFullPath().toString();
+//		boolean isMainRootElementClassProcessed = false;
+		
+//		for (EnclosingSchema enclosingSchema : relatedSchemas.getEnclosingschemas()) {
+		for (EClass rootElementEclass : runtimeProjectDescriptorJSON.getRootElementEnclosingSchemaMap().keySet()) {
+			boolean isMainRootElementClass = rootElementEclass == mainRootElementClass;
+			String className;
+			String fileName;
+			if(isMainRootElementClass) {
+//				isMainRootElementClassProcessed = true;
+				String languageFromLastDot = getLanguageFromLastDot();
+				className = languageFromLastDot+VALIDATOR_CLASS_SUFFIX;
+			}else {
+				className = rootElementEclass.getName()+VALIDATOR_CLASS_SUFFIX;
+			}
+			IPath validationFilePath = validationFolderPath.append(className).addFileExtension("java");
+			fileName = validationFilePath.toString(); 
+			try {
+				ValidatorGenerator.create(fileName, classPackage, className, modelPackage, oclPath, runtimeProjectDescriptorJSON.getRootElementEnclosingSchemaMap().get(rootElementEclass), isMainRootElementClass);
+			} catch (IOException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+//		if(!isMainRootElementClassProcessed) {
+//			String languageFromLastDot = getLanguageFromLastDot();
+//			String className = languageFromLastDot+VALIDATOR_CLASS_SUFFIX;
+//			IPath validationFilePath = validationFolderPath.append(className).addFileExtension("java");
+//			String fileName = validationFilePath.toString(); 
+//			try {
+//				ValidatorGenerator.create(fileName, classPackage, className, modelPackage, oclPath, null, true);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//				return false;
+//			}
+//		}
+		return true;
 	}
 
 	private String getLanguageToLastDot(){

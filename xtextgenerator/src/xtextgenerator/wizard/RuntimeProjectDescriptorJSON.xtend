@@ -18,6 +18,10 @@ import org.eclipse.xtext.util.JUnitVersion
 import org.eclipse.xtext.util.Strings
 import java.util.ArrayList
 import java.util.List
+import java.util.HashMap
+import java.util.Map
+import java.util.ArrayDeque
+import xtextgenerator.ui.utils.Ecore2XtextJSONExtensions
 
 class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	
@@ -25,7 +29,7 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	DetailedGrammar detailedJsonGrammar = null;
 	RelatedSchemas relatedSchemas = null;
 	List<EClass> subRootElementClasses = new ArrayList<EClass>()
-	
+	Map<EClass, List<EnclosingSchema>> rootElementEnclosingSchemaMap = new HashMap<EClass, List<EnclosingSchema>>();
 	
 	new(WizardConfiguration config) {
 		super(config);
@@ -42,6 +46,15 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 		val XtextJsonGrammarProjectInfo xtextJsonGrammarProject = config as XtextJsonGrammarProjectInfo;
 		this.relatedSchemas = loadRelatedSchemas(xtextJsonGrammarProject.relatedSchemasFile, config.ecore2Xtext.rootElementClass.eResource.resourceSet);
 	}
+	
+	def RelatedSchemas getRelatedSchemas(){
+		return this.relatedSchemas;
+	}
+	
+	def getRootElementEnclosingSchemaMap(){
+		return this.rootElementEnclosingSchemaMap
+	}
+	
 	override grammar() {
 //		if (fromExistingEcoreModels)
 //			grammarCreator.grammar(config)
@@ -52,6 +65,7 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 		if (this.isFromExistingEcoreModels()){
 			val String languageName = this.config.language.name
 			val EClass rootElementClass = this.config.ecore2Xtext.rootElementClass
+			mapRootToEnclosingSchema(rootElementClass)
 //			grammarCreator.grammar(this.getConfig(), rootElementClass, languageName)
 			grammarCreator.grammar(this.getConfig(),  languageName)
 		}else{
@@ -64,12 +78,16 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	}
 	
 	override getFiles() {
+		val mainRootElementClass = this.config.ecore2Xtext.rootElementClass
 		findSubRootElementClasses
 		var allFiles = newArrayList
 		allFiles +=  super.files
 		allFiles  += subGrammarFiles
+		this.config.ecore2Xtext.setRootElementClass(mainRootElementClass)
 		return allFiles
 	}
+	
+	
 	
 	private def findSubRootElementClasses(){
 		subRootElementClasses.removeAll(subRootElementClasses) 
@@ -117,6 +135,34 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 				subRootElementClasses.add(rootElementClass)
 			}
 		}
+	}
+	
+	private def mapRootToEnclosingSchema(EClass rootElementClass){
+		if(!rootElementEnclosingSchemaMap.containsKey(rootElementClass)){
+			val List<EClass> processedEClasses = new ArrayList<EClass>()
+			val List<EnclosingSchema> enclosingSchemas = findClosureEnclosingSchema(rootElementClass, processedEClasses)
+			rootElementEnclosingSchemaMap.put(rootElementClass,enclosingSchemas)
+		}
+	}
+	
+	private def List<EnclosingSchema> findClosureEnclosingSchema(EClass containingEClass, List<EClass> processedEClasses){//containingEClass.getEAllContainments()
+		if(!processedEClasses.contains(containingEClass)){
+			processedEClasses.add(containingEClass);
+			val List<EClass> containedEClasses = containingEClass.EReferences.filter[r|r.containment].map[EType as EClass].toList
+			val List<EClass> containedSubClasses = new ArrayList<EClass>();
+			for (EClass containedEClass : containedEClasses){
+				containedSubClasses.addAll(Ecore2XtextJSONExtensions.subClasses(containedEClass).toList)
+			}
+			containedEClasses.addAll(containedSubClasses);
+			val List<EnclosingSchema> enclosingSchemas = relatedSchemas.enclosingschemas.filter[enclosingschema|containedEClasses.contains(enclosingschema.enclosingSchema)].toList
+			for (EClass containedEClass : containedEClasses){
+				enclosingSchemas.addAll(findClosureEnclosingSchema(containedEClass, processedEClasses))
+			}
+			return enclosingSchemas
+		}else{
+			return new ArrayList<EnclosingSchema>();
+		}
+		
 	}
 	
 	private def getSubGrammarFiles(){
@@ -179,6 +225,7 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	
 	private def PlainTextFile createSubGrammarFile(EClass rootElementClass){
 //		val String languageName = this.config.language.name+"."+rootElementClass.name
+		mapRootToEnclosingSchema(rootElementClass)
 		val String languageName = getLanguageName(rootElementClass)
 		this.config.ecore2Xtext.setRootElementClass(rootElementClass)
 //		val charSequenceGrammar = newGrammarCreator.grammar(this.getConfig(), rootElementClass, languageName)
@@ -192,7 +239,7 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 		mainLanguageName.substring(0, mainLanguageName.lastIndexOf(".") )+"."+rootElementClass.name
 	}
 	
-	def String getExtension(EClass rootElementClass){
+	def static String  getExtension(EClass rootElementClass){
 		rootElementClass.name.toLowerCase
 	}
 	
