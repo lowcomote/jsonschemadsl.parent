@@ -13,6 +13,7 @@ import java.util.List
 import relatedSchemas.AnyOf
 import relatedSchemas.OneOf
 import relatedSchemas.Not
+import relatedSchemas.IfThenElse
 
 class ValidatorGenerator {
 	
@@ -71,6 +72,11 @@ class ValidatorGenerator {
 					
 						«generateNotValidation(enclosingSchema.enclosingSchema,enclosingSchema.not)»
 					«ENDIF»
+					«IF  enclosingSchema.ifThenElse!==null»
+					
+						«generateIfThenElseValidation(enclosingSchema.enclosingSchema,enclosingSchema.ifThenElse)»
+					«ENDIF»
+
 				«ENDFOR»
 			«ENDIF»
 			}
@@ -218,6 +224,85 @@ class ValidatorGenerator {
 				if(isValid){
 					error("The Not schema must not be valid", null);
 				}	
+			}
+		'''
+	}
+	
+	def private static generateIfThenElseValidation(EClass enclosingClass, IfThenElse ifThenElse){
+		val String enclosingClassType = (enclosingClass.EPackage).name+"."+enclosingClass.name
+		'''
+			@Check
+			public void ifThenElseValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
+				«IF ifThenElse.^if !==null»
+					String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+					InputStream inIf = new ByteArrayInputStream(enclosingEClassText.getBytes());
+					ResourceSet resetIf = new ResourceSetImpl();
+					Resource resourceIf = resetIf.createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(ifThenElse.^if)»"));
+					boolean isIfSchemaValid = false;
+					try {
+						resourceIf.load(inIf, resetIf.getLoadOptions());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					if(resourceIf.getErrors().isEmpty()) {
+						XtextResource xtextResource = (XtextResource)resourceIf;
+						IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
+						List<Issue> issues = resourceValidator.validate(resourceIf, CheckMode.ALL, CancelIndicator.NullImpl);
+						if(issues.isEmpty()){
+							isIfSchemaValid=true;
+						}	
+						
+					}
+					if(isIfSchemaValid){
+						«IF ifThenElse.then!==null»
+							boolean isThenValid = false;
+							InputStream inThen = new ByteArrayInputStream(enclosingEClassText.getBytes());
+							ResourceSet resetThen = new ResourceSetImpl();
+							Resource resourceThen = resetThen.createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(ifThenElse.then)»"));
+							try {
+								resourceThen.load(inThen, resetThen.getLoadOptions());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+							if(resourceThen.getErrors().isEmpty()) {
+								XtextResource xtextResource = (XtextResource)resourceThen;
+								IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
+								List<Issue> issues = resourceValidator.validate(resourceThen, CheckMode.ALL, CancelIndicator.NullImpl);
+								if(issues.isEmpty()){
+									isThenValid=true;
+								}	
+								
+							}
+							if(!isThenValid){
+								error("The IF Schema is valid but the THEN is not valid", null);
+							}
+						«ENDIF»
+					}else{
+						«IF ifThenElse.^else!==null»
+							boolean isElseValid = false;
+							InputStream inElse = new ByteArrayInputStream(enclosingEClassText.getBytes());
+							ResourceSet resetElse = new ResourceSetImpl();
+							Resource resourceElse = resetElse.createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(ifThenElse.^else)»"));
+							try {
+								resourceElse.load(inElse, resetElse.getLoadOptions());
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+							if(resourceElse.getErrors().isEmpty()) {
+								XtextResource xtextResource = (XtextResource)resourceElse;
+								IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
+								List<Issue> issues = resourceValidator.validate(resourceElse, CheckMode.ALL, CancelIndicator.NullImpl);
+								if(issues.isEmpty()){
+									isElseValid=true;
+								}	
+								
+							}
+							if(!isElseValid){
+								error("The IF Schema is not valid and the ELSE either", null);
+							}
+						«ENDIF»
+					}
+				«ENDIF»
 			}
 		'''
 	}
