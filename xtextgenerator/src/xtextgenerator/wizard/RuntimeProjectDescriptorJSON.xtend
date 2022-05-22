@@ -141,11 +141,16 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 		if(!rootElementEnclosingSchemaMap.containsKey(rootElementClass)){
 			val List<EClass> processedEClasses = new ArrayList<EClass>()
 			val List<EnclosingSchema> enclosingSchemas = findClosureEnclosingSchema(rootElementClass, processedEClasses)
+			val EnclosingSchema rootAsEnclosingSchema = relatedSchemas.enclosingschemas.findFirst[enclosingschema|enclosingschema.enclosingSchema===rootElementClass]
+			if(rootAsEnclosingSchema!==null){
+				enclosingSchemas.add(rootAsEnclosingSchema)
+			}
 			rootElementEnclosingSchemaMap.put(rootElementClass,enclosingSchemas)
+			
 		}
 	}
 	
-	private def List<EnclosingSchema> findClosureEnclosingSchema(EClass containingEClass, List<EClass> processedEClasses){//containingEClass.getEAllContainments()
+	private def List<EnclosingSchema> findClosureEnclosingSchema(EClass containingEClass, List<EClass> processedEClasses){
 		if(!processedEClasses.contains(containingEClass)){
 			processedEClasses.add(containingEClass);
 			val List<EClass> containedEClasses = containingEClass.EReferences.filter[r|r.containment].map[EType as EClass].toList
