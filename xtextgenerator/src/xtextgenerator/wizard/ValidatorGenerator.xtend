@@ -11,6 +11,8 @@ import org.eclipse.emf.ecore.EPackage
 import org.eclipse.emf.ecore.ENamedElement
 import java.util.List
 import relatedSchemas.AnyOf
+import relatedSchemas.OneOf
+import relatedSchemas.Not
 
 class ValidatorGenerator {
 	
@@ -61,6 +63,14 @@ class ValidatorGenerator {
 					
 						«generateAnyOfValidation(enclosingSchema.enclosingSchema,enclosingSchema.anyOf)»
 					«ENDIF»	
+					«IF  enclosingSchema.oneOf!==null»
+					
+						«generateOneOfValidation(enclosingSchema.enclosingSchema,enclosingSchema.oneOf)»
+					«ENDIF»	
+					«IF  enclosingSchema.not!==null»
+					
+						«generateNotValidation(enclosingSchema.enclosingSchema,enclosingSchema.not)»
+					«ENDIF»
 				«ENDFOR»
 			«ENDIF»
 			}
@@ -79,17 +89,18 @@ class ValidatorGenerator {
 	}
 	
 	def private static generateAllOfValidation(EClass enclosingClass, AllOf allOf){
-		val String enclosingClassType = (enclosingClass.eContainer as ENamedElement).name+"."+enclosingClass.name
+//		val String enclosingClassType = (enclosingClass.eContainer as ENamedElement).name+"."+enclosingClass.name
+		val String enclosingClassType = (enclosingClass.EPackage).name+"."+enclosingClass.name
 		'''
 			@Check
 			public void allOfValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
 				String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
-				InputStream in = new ByteArrayInputStream(enclosingEClassText.getBytes());
-				ResourceSet reset = new ResourceSetImpl();
 				«FOR EClass allOfEClass :allOf.allOfs»
-					Resource resource«allOf.allOfs.indexOf(allOfEClass)» = reset.createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(allOfEClass)»"));
+					InputStream in«allOf.allOfs.indexOf(allOfEClass)» = new ByteArrayInputStream(enclosingEClassText.getBytes());
+					ResourceSet reset«allOf.allOfs.indexOf(allOfEClass)» = new ResourceSetImpl();
+					Resource resource«allOf.allOfs.indexOf(allOfEClass)» = reset«allOf.allOfs.indexOf(allOfEClass)».createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(allOfEClass)»"));
 					try {
-						resource«allOf.allOfs.indexOf(allOfEClass)».load(in, reset.getLoadOptions());
+						resource«allOf.allOfs.indexOf(allOfEClass)».load(in«allOf.allOfs.indexOf(allOfEClass)», reset«allOf.allOfs.indexOf(allOfEClass)».getLoadOptions());
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
@@ -115,14 +126,14 @@ class ValidatorGenerator {
 			@Check
 			public void anyOfValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
 				String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
-				InputStream in = new ByteArrayInputStream(enclosingEClassText.getBytes());
-				ResourceSet reset = new ResourceSetImpl();
 				boolean validSchemaFound = false;
 				«FOR EClass anyOfEClass :anyOf.anyOfs»
 					if(!validSchemaFound){
-						Resource resource«anyOf.anyOfs.indexOf(anyOfEClass)» = reset.createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(anyOfEClass)»"));
+						InputStream in«anyOf.anyOfs.indexOf(anyOfEClass)» = new ByteArrayInputStream(enclosingEClassText.getBytes());
+						ResourceSet reset«anyOf.anyOfs.indexOf(anyOfEClass)» = new ResourceSetImpl();
+						Resource resource«anyOf.anyOfs.indexOf(anyOfEClass)» = reset«anyOf.anyOfs.indexOf(anyOfEClass)».createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(anyOfEClass)»"));
 						try {
-							resource«anyOf.anyOfs.indexOf(anyOfEClass)».load(in, reset.getLoadOptions());
+							resource«anyOf.anyOfs.indexOf(anyOfEClass)».load(in«anyOf.anyOfs.indexOf(anyOfEClass)», reset«anyOf.anyOfs.indexOf(anyOfEClass)».getLoadOptions());
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
@@ -144,6 +155,72 @@ class ValidatorGenerator {
 		'''
 	}
 	
+	def private static generateOneOfValidation(EClass enclosingClass, OneOf oneOf){
+		val String enclosingClassType = (enclosingClass.EPackage).name+"."+enclosingClass.name
+		'''
+			@Check
+			public void oneOfValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
+				String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+				int validSchemasCount = 0;
+				«FOR EClass oneOfEClass :oneOf.oneOfs»
+					InputStream in«oneOf.oneOfs.indexOf(oneOfEClass)» = new ByteArrayInputStream(enclosingEClassText.getBytes());
+					ResourceSet reset«oneOf.oneOfs.indexOf(oneOfEClass)» = new ResourceSetImpl();
+					Resource resource«oneOf.oneOfs.indexOf(oneOfEClass)» = reset«oneOf.oneOfs.indexOf(oneOfEClass)».createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(oneOfEClass)»"));
+					try {
+						resource«oneOf.oneOfs.indexOf(oneOfEClass)».load(in«oneOf.oneOfs.indexOf(oneOfEClass)», reset«oneOf.oneOfs.indexOf(oneOfEClass)».getLoadOptions());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					if(resource«oneOf.oneOfs.indexOf(oneOfEClass)».getErrors().isEmpty()) {
+						XtextResource xtextResource = (XtextResource)resource«oneOf.oneOfs.indexOf(oneOfEClass)»;
+						IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
+						List<Issue> issues = resourceValidator.validate(resource«oneOf.oneOfs.indexOf(oneOfEClass)», CheckMode.ALL, CancelIndicator.NullImpl);
+						if(issues.isEmpty()){
+							validSchemasCount++;
+						}	
+						
+					}
+				«ENDFOR»
+				if(validSchemasCount==0){
+					error("No valid schema found in the OneOf «enclosingClass.name»", null);
+				}else if(validSchemasCount>1){
+					error("Found "+validSchemasCount+" valid schemas in the OneOf «enclosingClass.name»", null);
+				}	
+			}
+		'''
+	}
+	
+	def private static generateNotValidation(EClass enclosingClass, Not not){
+		val String enclosingClassType = (enclosingClass.EPackage).name+"."+enclosingClass.name
+		'''
+			@Check
+			public void notValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
+				String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+				InputStream in = new ByteArrayInputStream(enclosingEClassText.getBytes());
+				ResourceSet reset = new ResourceSetImpl();
+				Resource resource = reset.createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(not.not)»"));
+				boolean isValid=false;
+				try {
+					resource.load(in, reset.getLoadOptions());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				if(resource.getErrors().isEmpty()) {
+					XtextResource xtextResource = (XtextResource)resource;
+					IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
+					List<Issue> issues = resourceValidator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl);
+					if(issues.isEmpty()){
+						isValid=true;
+					}	
+					
+				}
+				 
+				if(isValid){
+					error("The Not schema must not be valid", null);
+				}	
+			}
+		'''
+	}
 	
 	
 }
