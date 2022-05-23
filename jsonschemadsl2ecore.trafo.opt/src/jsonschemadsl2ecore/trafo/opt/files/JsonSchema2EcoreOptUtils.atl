@@ -47,13 +47,16 @@ helper def: jsonGrammarRoot(): JsonGrammarMM!JsonGrammar = if (thisModule.jsonGr
 --Return RelatedSchemas Objects
 helper def: relatedSchemasObjects() : Sequence(RelatedSchemasMM!RelatedSchemas) = RelatedSchemasMM!RelatedSchemas.allInstancesFrom('relatedSchemas');
 
---Return the root JsonGrammar Object
+--Return the root RelatedSchemas
 helper def: relatedSchemasRoot(): RelatedSchemasMM!RelatedSchemas = if (thisModule.relatedSchemasObjects().size() > 0) then
 																thisModule.relatedSchemasObjects()->first()
 															 else
 															 	OclUndefined
 															 endif;
 
+
+--EnclosingSchemas
+helper def: enclosingSchemas : Sequence(RelatedSchemasMM!EnclosingSchema) = Sequence{};
 
 --helper def: keywordDefinitionMap : Map (String, OclAny) = ------ TODO should it be OclType????
 --	Map{

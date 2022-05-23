@@ -640,7 +640,8 @@ unique lazy rule createRelatedEnclosingSchema{
 			enclosingSchema<-eClass
 		)  
 	do{
-		thisModule.relatedSchemasRoot().enclosingschemas<-thisModule.relatedSchemasRoot().enclosingschemas->union(Sequence{enclosingSchema});
+--		thisModule.relatedSchemasRoot().enclosingschemas<-thisModule.relatedSchemasRoot().enclosingschemas->union(Sequence{enclosingSchema});
+		thisModule.enclosingSchemas <- thisModule.enclosingSchemas ->union(Sequence{enclosingSchema});
 		enclosingSchema;
 	}	
 	
@@ -728,6 +729,8 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		thisModule.jsonGrammarRoot().detailedGrammar.curlyBracesEClass <- thisModule.curlyBracesEClass;
 		thisModule.jsonGrammarRoot().detailedGrammar.bracketsEClass <- thisModule.bracketsEClass;
 		
+		------ Related Schemas
+		thisModule.relatedSchemasRoot().enclosingschemas<-thisModule.enclosingSchemas;
 		
 		-----  Refine Class names for unicity	-----------
 		
