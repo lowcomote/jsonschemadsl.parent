@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test39">
+  <detailedGrammar>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamily/family"/>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamilyAllOf0/family"/>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamilyAllOf0PersonalInfo/personalInfo"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyAllOf0PersonalInfoName/name"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyAllOf0PersonalInfoSurname/surname"/>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamilyAllOf1/family"/>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamilyAllOf1ProfessionalInfo/professionalInfo"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyAllOf1ProfessionalInfoJob/job"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyAllOf1ProfessionalInfoLevel/level"/>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamilyAllOf1ProfessionalInfoNot/professionalInfo"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyAllOf1ProfessionalInfoNotAge/age"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyIfTypeString/family"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyIfTypeInteger/family"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyIfTypeNumber/family"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyIfTypeBoolean/family"/>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamilyIfTypeObject/family"/>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamilyIfTypeArray/family"/>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamilyIfTypeNull/family"/>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamilyIfAnyOf0/family"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyIfAnyOf0Father/father"/>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamilyIfAnyOf1/family"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyIfAnyOf1Mother/mother"/>
+    <keywords xsi:type="ecore:EReference" href="test39.ecore#//Test39RootFamilyThen/family"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootFamilyThenGrandparent/grandparent"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootAnyOf0Email/email"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootAnyOf1Telephone/telephone"/>
+    <keywords xsi:type="ecore:EAttribute" href="test39.ecore#//Test39RootAnyOf1AllOf0Country/country"/>
+    <curlyBracesReferences href="test39.ecore#//Test39Root/test39Root"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootFamily/family"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootFamilyAllOf0/family"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootFamilyAllOf0PersonalInfo/personalInfo"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootFamilyAllOf1/family"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootFamilyAllOf1ProfessionalInfo/professionalInfo"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootFamilyAllOf1ProfessionalInfoNot/professionalInfo"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootFamilyIfTypeObject/family"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootFamilyIfAnyOf0/family"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootFamilyIfAnyOf1/family"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootFamilyThen/family"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootAnyOf0/test39Root"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootAnyOf1/test39Root"/>
+    <curlyBracesReferences href="test39.ecore#//Test39RootAnyOf1AllOf0/test39Root"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <bracketsReferences href="test39.ecore#//Test39RootFamilyIfTypeArray/family"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="test39.ecore#//Test39RootAdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootFamilyAdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootFamilyAllOf0AdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootFamilyAllOf0PersonalInfoAdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootFamilyAllOf1AdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootFamilyAllOf1ProfessionalInfoAdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootFamilyAllOf1ProfessionalInfoNotAdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootFamilyIfAdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootFamilyIfAnyOf0AdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootFamilyIfAnyOf1AdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootFamilyThenAdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootAnyOf0AdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootAnyOf1AdditionalProperties/key"/>
+    <keyValue href="test39.ecore#//Test39RootAnyOf1AllOf0AdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
+    <rootEClass href="test39.ecore#//Test39Root"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>

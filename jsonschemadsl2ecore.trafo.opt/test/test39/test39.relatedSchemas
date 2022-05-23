@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test39.ecore#//Test39RootFamily"/>
+    <allOf>
+      <allOfs href="test39.ecore#//Test39RootFamilyAllOf0"/>
+      <allOfs href="test39.ecore#//Test39RootFamilyAllOf1"/>
+    </allOf>
+    <ifThenElse>
+      <if href="test39.ecore#//Test39RootFamilyIf"/>
+      <then href="test39.ecore#//Test39RootFamilyThen"/>
+    </ifThenElse>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test39.ecore#//Test39RootAnyOf1"/>
+    <allOf>
+      <allOfs href="test39.ecore#//Test39RootAnyOf1AllOf0"/>
+    </allOf>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test39.ecore#//Test39RootFamilyIf"/>
+    <anyOf>
+      <anyOfs href="test39.ecore#//Test39RootFamilyIfAnyOf0"/>
+      <anyOfs href="test39.ecore#//Test39RootFamilyIfAnyOf1"/>
+    </anyOf>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test39.ecore#//Test39Root"/>
+    <anyOf>
+      <anyOfs href="test39.ecore#//Test39RootAnyOf0"/>
+      <anyOfs href="test39.ecore#//Test39RootAnyOf1"/>
+    </anyOf>
+    <ifThenElse>
+      <then href="test39.ecore#//Test39RootThen"/>
+      <else href="test39.ecore#//Test39RootElse"/>
+    </ifThenElse>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test39.ecore#//Test39RootFamilyAllOf1ProfessionalInfo"/>
+    <not>
+      <not href="test39.ecore#//Test39RootFamilyAllOf1ProfessionalInfoNot"/>
+    </not>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>

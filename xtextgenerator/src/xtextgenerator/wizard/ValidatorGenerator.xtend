@@ -222,7 +222,7 @@ class ValidatorGenerator {
 				}
 				 
 				if(isValid){
-					error("The Not schema must not be valid", null);
+					error("The Not «enclosingClass.name» schema must not be valid", null);
 				}	
 			}
 		'''
@@ -274,7 +274,7 @@ class ValidatorGenerator {
 								
 							}
 							if(!isThenValid){
-								error("The IF Schema is valid but the THEN is not valid", null);
+								error("The IF «enclosingClass.name» Schema is valid but the THEN «enclosingClass.name» is not valid", null);
 							}
 						«ENDIF»
 					}else{
@@ -298,7 +298,7 @@ class ValidatorGenerator {
 								
 							}
 							if(!isElseValid){
-								error("The IF Schema is not valid and the ELSE either", null);
+								error("The IF «enclosingClass.name» Schema is not valid and the ELSE «enclosingClass.name» either", null);
 							}
 						«ENDIF»
 					}

@@ -1,0 +1,167 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test40
+import 'http://jku.bise.at/test40'
+
+package test40
+
+	context test40::Test40RootAdditionalProperties 
+
+	inv Test40RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootAdditionalProperties 
+
+	inv Test40RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootChildrenAdditionalProperties 
+
+	inv Test40RootChildrenAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootChildrenAdditionalProperties 
+
+	inv Test40RootChildrenAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootChildrenIfAdditionalProperties 
+
+	inv Test40RootChildrenIfAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootChildrenIfAdditionalProperties 
+
+	inv Test40RootChildrenIfAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootChildrenElseAdditionalProperties 
+
+	inv Test40RootChildrenElseAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootChildrenElseAdditionalProperties 
+
+	inv Test40RootChildrenElseAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootIfAdditionalProperties 
+
+	inv Test40RootIfAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootIfAdditionalProperties 
+
+	inv Test40RootIfAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootThenAdditionalProperties 
+
+	inv Test40RootThenAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootThenAdditionalProperties 
+
+	inv Test40RootThenAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootElseAdditionalProperties 
+
+	inv Test40RootElseAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootElseAdditionalProperties 
+
+	inv Test40RootElseAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test40::Test40RootChildrenIf 
+
+	inv Test40RootChildrenIfRequiredson ('Test40RootChildrenIf requires the property son'):
+	if  self.children->select(p|p.oclIsKindOf(test40::Test40RootChildrenIfSon))->size()>0
+	then true
+	else null
+	endif
+
+	context test40::Test40RootChildrenElse 
+
+	inv Test40RootChildrenElseRequireddaughter ('Test40RootChildrenElse requires the property daughter'):
+	if  self.children->select(p|p.oclIsKindOf(test40::Test40RootChildrenElseDaughter))->size()>0
+	then true
+	else null
+	endif
+
+	context test40::Test40RootIf 
+
+	inv Test40RootIfRequiredfather ('Test40RootIf requires the property father'):
+	if  self.test40Root->select(p|p.oclIsKindOf(test40::Test40RootIfFather))->size()>0
+	then true
+	else null
+	endif
+
+	context test40::Test40RootThen 
+
+	inv Test40RootThenRequiredgrandfather ('Test40RootThen requires the property grandfather'):
+	if  self.test40Root->select(p|p.oclIsKindOf(test40::Test40RootThenGrandfather))->size()>0
+	then true
+	else null
+	endif
+
+	context test40::Test40RootElse 
+
+	inv Test40RootElseRequiredmother ('Test40RootElse requires the property mother'):
+	if  self.test40Root->select(p|p.oclIsKindOf(test40::Test40RootElseMother))->size()>0
+	then true
+	else null
+	endif
+
+	context test40::Test40RootElse 
+
+	inv Test40RootElseRequiredgrandmother ('Test40RootElse requires the property grandmother'):
+	if  self.test40Root->select(p|p.oclIsKindOf(test40::Test40RootElseGrandmother))->size()>0
+	then true
+	else null
+	endif
+
+endpackage
+
