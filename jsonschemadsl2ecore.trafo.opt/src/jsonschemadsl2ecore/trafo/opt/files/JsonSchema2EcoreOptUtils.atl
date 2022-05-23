@@ -445,15 +445,46 @@ helper context JSchemaMM!Schema  def : isInElse() : Boolean =
 	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!ElseSchemaDefinition);
 
 
+--helper context JSchemaMM!Schema  def : needsKeyword() : Boolean =
+--	self.isKeySchemaPairInProperties() or 
+--		if self.isInCombinedSchema() then self.getCombinedEnclosingSchema().isKeySchemaPairInProperties()
+--		else if self.isInConditionalSchema() then self.getConditionalEnclosingSchema().isKeySchemaPairInProperties()
+--			else false
+--			endif
+--		endif
+--;
+
 helper context JSchemaMM!Schema  def : needsKeyword() : Boolean =
-	self.isKeySchemaPairInProperties() or 
-		if self.isInCombinedSchema() then self.getCombinedEnclosingSchema().isKeySchemaPairInProperties()
-		else if self.isInConditionalSchema() then self.getConditionalEnclosingSchema().isKeySchemaPairInProperties()
-			else false
-			endif
+	self.isKeySchemaPairInProperties() or
+		if self.isInRelatedSchema() then self.getRecursiveRelatedEnclosingSchema().isKeySchemaPairInProperties()
+		else false
 		endif
 ;
 
+
+------------------
+helper context JSchemaMM!Schema  def : getRecursiveRelatedEnclosingSchema() : JSchemaMM!Schema =	
+	if self.isInRelatedSchema() 
+	then 
+		let enclosingSchema :JSchemaMM!Schema = self. getRelatedEnclosingSchema()
+		in if enclosingSchema.isInRelatedSchema() then enclosingSchema.getRecursiveRelatedEnclosingSchema()
+			else enclosingSchema
+			endif
+	else OclUndefined
+	endif
+;
+
+helper context JSchemaMM!Schema def : getRelatedEnclosingSchema() : JSchemaMM!Schema =	
+	if self.isInCombinedSchema() then 	self.getCombinedEnclosingSchema()
+	else if self.isInConditionalSchema() then self.getConditionalEnclosingSchema()
+		else if self.isInDependenciesSchema() then self.getDependenciesEnclosingSchema()
+			else if self.isInContainsSchema() then self.getContainsEnclosingSchema()
+				else OclUndefined ----- self is not in a related schemas
+				endif
+			endif	
+		endif	
+	endif	
+;
 		
 helper context JSchemaMM!Schema def : getCombinedEnclosingSchema() : JSchemaMM!Schema =		
 	if self.isInAllOf() or self.isInAnyOf() or self.isInOneOf() then self.getAllAnyOneOfEnclosingSchema()
@@ -480,6 +511,23 @@ helper context JSchemaMM!Schema def : getNotEnclosingSchema() : JSchemaMM!Schema
 	else OclUndefined
 	endif
 ;
+
+helper context JSchemaMM!Schema def : getDependenciesEnclosingSchema() : JSchemaMM!Schema =
+	if self.isInDependenciesSchema()
+	then OclUndefined ---------- TODO
+	else OclUndefined
+	endif
+;
+
+helper context JSchemaMM!Schema def : getContainsEnclosingSchema() : JSchemaMM!Schema =
+	if self.isInContainsSchema()
+	then OclUndefined ---------- TODO
+	else OclUndefined
+	endif
+;
+
+
+
 
 helper context JSchemaMM!TypeSchemaDefinition def: findSimpleType() :String=
 	if not self.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1)

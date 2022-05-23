@@ -1,0 +1,16 @@
+{ 
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":"integer",
+			"allOf":[
+				{"type":"integer"}
+			]
+		},
+		"prop2":{
+			"type":"object",
+			"anyOf":[{"type":"object"}]
+		}
+		
+	} 
+}

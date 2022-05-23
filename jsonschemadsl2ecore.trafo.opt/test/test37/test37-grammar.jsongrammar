@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test37">
+  <detailedGrammar>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0OneOf0TypeString/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0OneOf0TypeInteger/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0OneOf0TypeNumber/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0OneOf0TypeBoolean/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf0OneOf0TypeObject/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf0OneOf0TypeArray/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf0OneOf0TypeNull/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0OneOf1TypeString/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0OneOf1TypeInteger/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0OneOf1TypeNumber/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0OneOf1TypeBoolean/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf0OneOf1TypeObject/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf0OneOf1TypeArray/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf0OneOf1TypeNull/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0NotTypeString/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0NotTypeInteger/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0NotTypeNumber/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf0NotTypeBoolean/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf0NotTypeObject/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf0NotTypeArray/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf0NotTypeNull/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf1TypeString/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf1TypeInteger/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf1TypeNumber/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test37.ecore#//Test37RootProp1AllOf1TypeBoolean/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf1TypeObject/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf1TypeArray/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test37.ecore#//Test37RootProp1AllOf1TypeNull/prop1"/>
+    <curlyBracesReferences href="test37.ecore#//Test37Root/test37Root"/>
+    <curlyBracesReferences href="test37.ecore#//Test37RootProp1AllOf0OneOf0TypeObject/prop1"/>
+    <curlyBracesReferences href="test37.ecore#//Test37RootProp1AllOf0OneOf1TypeObject/prop1"/>
+    <curlyBracesReferences href="test37.ecore#//Test37RootProp1AllOf0NotTypeObject/prop1"/>
+    <curlyBracesReferences href="test37.ecore#//Test37RootProp1AllOf1TypeObject/prop1"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <bracketsReferences href="test37.ecore#//Test37RootProp1AllOf0OneOf0TypeArray/prop1"/>
+    <bracketsReferences href="test37.ecore#//Test37RootProp1AllOf0OneOf1TypeArray/prop1"/>
+    <bracketsReferences href="test37.ecore#//Test37RootProp1AllOf0NotTypeArray/prop1"/>
+    <bracketsReferences href="test37.ecore#//Test37RootProp1AllOf1TypeArray/prop1"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="test37.ecore#//Test37RootAdditionalProperties/key"/>
+    <keyValue href="test37.ecore#//Test37RootProp1AllOf0OneOf0AdditionalProperties/key"/>
+    <keyValue href="test37.ecore#//Test37RootProp1AllOf0OneOf1AdditionalProperties/key"/>
+    <keyValue href="test37.ecore#//Test37RootProp1AllOf0NotAdditionalProperties/key"/>
+    <keyValue href="test37.ecore#//Test37RootProp1AllOf1AdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
+    <rootEClass href="test37.ecore#//Test37Root"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>
