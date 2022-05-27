@@ -147,10 +147,12 @@ rule createValidatorOnPatternProperties(patterns: Sequence(String)){
 rule createAdditionalPropertiesAnnotation(){
 	to
 		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.ADDITIONAL_PROPERTIES,
 			details <- Sequence{entrySet}
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
-			key <- 'AdditionalProperties',
+--			key <- 'AdditionalProperties',
+			key <- thisModule.ADDITIONAL_PROPERTIES,
 			value <- 'true'
 		)
 	do{
@@ -218,10 +220,12 @@ rule createPatternPropertiesMatcher(pattern : String){
 rule createPatternPropertiesAnnotation(pattern : String){
 	to
 		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.PATTERN_PROPERTIES,
 			details <- Sequence{entrySet1, entrySet2}
 		),
 		entrySet1:Ecore!EStringToStringMapEntry(
-			key <- 'PatternProperties',
+--			key <- 'PatternProperties',
+			key <- thisModule.PATTERN_PROPERTIES,
 			value <- 'true'
 		),
 		entrySet2:Ecore!EStringToStringMapEntry(
@@ -233,6 +237,8 @@ rule createPatternPropertiesAnnotation(pattern : String){
 		eAnnotation;
 	}	
 }
+
+---------------------------------------------
 
 rule mapBooleanSchemaToEClass extends mapSchemaToEClass{
 --	from schema: JSchemaMM!BooleanSchema(not schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) and schema.value=true)
@@ -280,7 +286,8 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(simpleType), schema.needsKeyword())});
 		}else if(simpleType = #"\"object\"" ){
 --			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), schema.buildPropertiesAbstractClassName(), schema.isKeySchemaPairInProperties())});
-			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword())});
+--			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword())});
+			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword())});
 			if(schema.additionalProperties.oclIsUndefined()){ ------ the keyword "additionalProperties" is missing
 --				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname());
 				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname(), schema.findPropertiesKeys(),  schema.findPatternPropertiesKeys());
@@ -302,6 +309,10 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 		}
 	}
 }
+
+
+
+
 
 lazy rule mapNullTypeToEReference{
 	from name : String, addToKeywords:Boolean
@@ -444,7 +455,8 @@ lazy rule createContainmentForArrayOfTypes {
 ----- simpleType: current simpleType in the array of types which we are creating the EClass for
 rule createEClassForTypeInArrayOfTypes(objectSchema : JSchemaMM!ObjectSchema, enclosingEClass : Ecore!EClass , simpleType:JSchemaMM!SimpleTypes){
 	using {
-		eClassName:String = enclosingEClass.name.concat('Type').concat(thisModule.typeToStringMapping.get(simpleType).toCamelCase());
+--		eClassName:String = enclosingEClass.name.concat('Type').concat(thisModule.typeToStringMapping.get(simpleType).toCamelCase());
+		eClassName:String = enclosingEClass.buildEClassNameForArrayOfTypes(simpleType);
 	}
 	to 
 		eClass : Ecore!EClass (
@@ -461,11 +473,14 @@ rule createEClassForTypeInArrayOfTypes(objectSchema : JSchemaMM!ObjectSchema, en
 rule createArrayOfTypesAnnotation(simpleType:JSchemaMM!SimpleTypes){
 	to
 		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.ARRAY_OF_TYPES,
 			details <- Sequence{entrySet}
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
-			key <- 'ArrayOfTypes',
-			value <- simpleType.toString().substring(2, simpleType.toString().size()).stripFirstAndLast()
+--			key <- 'ArrayOfTypes',
+			key <- thisModule.ARRAY_OF_TYPES,
+--			value <- simpleType.toString().substring(2, simpleType.toString().size()).stripFirstAndLast()
+			value <- thisModule.stripSimpleType(simpleType)
 		)
 	do{
 		eAnnotation;
@@ -661,10 +676,12 @@ lazy rule minimumConstraintToOcl {
 			thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
 		}else{ 
 			if(enclosingSchema.hasTypeInteger()){ 
-				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeInteger'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+--				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeInteger'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"integer\""), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
 			}
 			if(enclosingSchema.hasTypeNumber()){ 
-				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeNumber'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+--				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeNumber'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"number\""), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
 			}
 		}
 		
@@ -716,6 +733,170 @@ lazy rule patternPropertiesRegexToOcl{
 	}
 }
 
+----------------- Derived Attributes
+--rule createDerivedAttibutes(keySchemaPairs : Sequence(JSchemaMM!KeySchemaPair)){
+rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
+	using {
+		derivedFeatures : Sequence(Ecore!EAttribute)= Sequence{};
+	}
+	do{
+		if(objectSchema.hasTypeObject()){ -----it has Type object, it is arrayOfTypes with object or type is missing
+			if(not objectSchema.properties.oclIsUndefined()){
+				for(keySchemaPair in objectSchema.properties.keySchemaPairs){
+					if(keySchemaPair.value.hasSimpleTypeScalar()){
+						derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedAttibute(objectSchema.getKeyForPropertiesContainment(),keySchemaPair)});
+					}else if(keySchemaPair.value.hasSimpleTypeObject()){
+						derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedReference(objectSchema.getKeyForPropertiesContainment(),keySchemaPair)});
+					}else if (keySchemaPair.value.hasSimpleTypeArray()){
+						derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReferenceMappingTheKey(objectSchema.getKeyForPropertiesContainment(),keySchemaPair, -1)});
+					}else if(keySchemaPair.value.hasSimpleTypeNull()){
+						derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReferenceMappingTheKey(objectSchema.getKeyForPropertiesContainment(),keySchemaPair, 1)});
+					}else if(keySchemaPair.value.hasArrayOfTypes or keySchemaPair.value.type.oclIsUndefined()){
+						derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReferenceMappingTheKey(objectSchema.getKeyForPropertiesContainment(),keySchemaPair, 1)});
+					}	
+				} 
+			}
+		}
+		derivedFeatures;
+		
+	}
+}
+
+
+
+
+rule createDerivedAttibute(propertyName:String, keySchemaPair : JSchemaMM!KeySchemaPair){
+	using {
+		key:String =keySchemaPair.key.stripFirstAndLast();
+	}
+	to
+		derivedAttribute : Ecore!EAttribute(
+--			name <- keySchemaPair.key.stripFirstAndLast(),
+			name <- key,
+			derived <- true,
+			eType <- keySchemaPair.value.resolve().getEStructuralFeature(key).getEType(),
+			changeable <- false,
+			ordered <- false,
+			unique <-false,
+			lowerBound <- 0,
+			upperBound <- 1, 
+			transient <- true,
+			volatile <- true,
+			eAnnotations <- Sequence{eAnnotation}
+		),
+		eAnnotation: Ecore!EAnnotation(
+			source <- 'http://www.eclipse.org/emf/2002/GenModel',
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- 'get',
+			value <-  thisModule.createGetterForDerivedFeaturesMappingTheKey(propertyName, keySchemaPair)
+		)
+	do{
+		derivedAttribute;
+	}	
+}
+
+rule createDerivedReference(propertyName:String, keySchemaPair : JSchemaMM!KeySchemaPair) {
+	using {
+		key:String =keySchemaPair.key.stripFirstAndLast();
+	}
+	to
+		derivedReference : Ecore!EReference(
+			name <- key,
+			derived <- true,
+			eType <- 	keySchemaPair.value.resolve(),
+			changeable <- false,
+			ordered <- false,
+			resolveProxies <- false,
+			unique <-false,
+			lowerBound <- 0,
+			upperBound <- 1, 
+			transient <- true,
+			volatile <- true,
+			eAnnotations <- Sequence{eAnnotation}
+		),
+		eAnnotation: Ecore!EAnnotation(
+			source <- 'http://www.eclipse.org/emf/2002/GenModel',
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- 'get',
+			value <-  thisModule.createGetterForDerivedReference(propertyName, keySchemaPair)
+		)
+	do{
+		derivedReference;
+	}
+}
+
+rule createDerivedReferenceMappingTheKey(propertyName:String, keySchemaPair : JSchemaMM!KeySchemaPair, upperBound:Integer) {
+	using {
+		key:String =keySchemaPair.key.stripFirstAndLast();
+	}
+	to
+		derivedReference : Ecore!EReference(
+			name <- key,
+			derived <- true,
+			eType <- 	keySchemaPair.value.resolve().getEStructuralFeature(key).getEType(),
+			changeable <- false,
+			ordered <- false,
+			resolveProxies <- false,
+			unique <-false,
+			lowerBound <- 0,
+--			upperBound <- -1, 
+			upperBound <- upperBound, 
+			transient <- true,
+			volatile <- true,
+			eAnnotations <- Sequence{eAnnotation}
+		),
+		eAnnotation: Ecore!EAnnotation(
+			source <- 'http://www.eclipse.org/emf/2002/GenModel',
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- 'get',
+--			value <-  thisModule.createGetterForDerivedAttributes(propertyName, keySchemaPair)
+			value <-  thisModule.createGetterForDerivedFeaturesMappingTheKey(propertyName, keySchemaPair)
+		)
+	do{
+		derivedReference;
+	}
+}
+
+
+----- TODO in progeress.......
+rule createGetKeyOperation(propertyName:String, properties: Sequence(String), propertiesAbstractEClass : Ecore!EClass){
+	to
+		eOperation:Ecore!EOperation(
+			name<- 'get',
+			ordered <- false,
+			unique <-false,
+			lowerBound <- 1,
+			upperBound <- 1,
+			eType <- Ecore!EJavaObject, 
+			eParameters <- Sequence{eParameter},
+			eAnnotations <- Sequence{eAnnotation}
+		),
+		eParameter:Ecore!EParameter(
+			name<-'key',
+			eType <- Ecore!EString,
+			lowerBound <- 1,
+			upperBound <- 1
+		),
+		eAnnotation: Ecore!EAnnotation(
+			source <- 'http://www.eclipse.org/emf/2002/GenModel',
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- 'body',
+			value <-  thisModule.createBodyForGetKey(propertyName, properties, propertiesAbstractEClass) 
+		)
+	do{
+		eOperation;
+	}
+		
+}
+
 
 
 endpoint rule CompletEPackageAndJsonGrammar() {
@@ -758,7 +939,32 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 				thisModule.patternPropertiesRegexToOcl(ksp);
 			}
 		}
+		
+		------------------ Derived Attributes and operation get (String key)
+		for(objectSchema in JSchemaMM!ObjectSchema.allInstancesFrom('jschema')){
+			if(objectSchema.hasSimpleTypeObject()){
+				if(not objectSchema.properties.oclIsUndefined()){
+					objectSchema.resolve().eStructuralFeatures <- objectSchema.resolve().eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
+				}
+				----eType <- keySchemaPair.value.resolve().getEStructuralFeature(key).getEType(),
+				-----
+				
+				objectSchema.resolve().eOperations <- objectSchema.resolve().eOperations-> union (Sequence{thisModule.createGetKeyOperation(objectSchema.getKeyForPropertiesContainment(),  objectSchema.findPropertiesKeys(), objectSchema.resolve().getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
+				
+			}else if(objectSchema.hasTypeObject()){--- if here surely not hasSimpleTypeObject. So it is missing type or "type":[...,"object",...]
+				---- Look for subclass with annotation 'ArrayOfTypes'  = object
+				if(not objectSchema.properties.oclIsUndefined()){
+					objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures <- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
+				}
+				------- for object in array of types we use objectSchema.getKey() and not objectSchema.getKeyForPropertiesContainment()
+				objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
+						<- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
+--						-> union (Sequence{thisModule.createGetKeyOperation(objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.resolve().getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
+						-> union (Sequence{thisModule.createGetKeyOperation(objectSchema.getKey(),objectSchema.findPropertiesKeys(),  objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").getEStructuralFeature(objectSchema.getKey()).getEType())});
 			
+			}
+		}
+		
 		thisModule.endPackage();
 		
 	}

@@ -2,6 +2,9 @@
 
 library JsonSchema2EcoreOptUtils;
 
+helper def: ARRAY_OF_TYPES: String = 'ArrayOfTypes';
+helper def: ADDITIONAL_PROPERTIES: String =  'AdditionalProperties';
+helper def: PATTERN_PROPERTIES: String ='PatternProperties';
 --Keywords
 helper def: keywords : Sequence(Ecore!EStructuralFeature) = Sequence{};
 
@@ -205,7 +208,12 @@ helper context JSchemaMM!Schema  def : isKeySchemaPairInPatternProperties() : Bo
 
 helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
 	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition);
-	 
+
+
+helper context JSchemaMM!Schema  def : getKeyForPropertiesContainment(): String=
+	self.getKey() ----- TODO manage here the check if there are not keys in self.properties.keySchemaPairs == sef.getKey   use findPropertiesKeys
+;	
+
 helper context JSchemaMM!Schema def: getKey() : String=
 let parent : OclAny = self.refImmediateComposite() in
 if parent.oclIsTypeOf(JSchemaMM!JsonSchema) then thisModule.getRootName() + 'Root'  
@@ -389,7 +397,9 @@ else
 	endif	
 endif;
 
-
+helper context Ecore!EClass def: buildEClassNameForArrayOfTypes(simpleType:JSchemaMM!SimpleTypes): String=
+	self.name.concat('Type').concat(thisModule.typeToStringMapping.get(simpleType).toCamelCase())
+;	
 
 helper context JSchemaMM!Schema def: buildEClassname(): String=
 let key : String = 	if self.isInRelatedSchema() then self.getRelatedSchemaKey()
@@ -621,6 +631,16 @@ helper context JSchemaMM!ObjectSchema def: hasTypeNumber(): Boolean=
 
 helper context JSchemaMM!ObjectSchema def: hasTypeNumeric(): Boolean=
 	self.hasTypeInteger() or  self.hasTypeNumber();
+
+---- missing type or "type":"object" or "type":[...,"object",...]
+helper context JSchemaMM!ObjectSchema def: hasTypeObject(): Boolean=
+	if self.type.oclIsUndefined() ---- it has all types
+	then true
+	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"object\""
+		else self.type.anyOf.items.includes(#"\"object\"")
+		endif
+	endif;
 ------------
 
 
@@ -644,6 +664,10 @@ self.substring(2, self.size()-1);
 
 helper context String def : toCamelCase() : String=
 	self.substring(1, 1).toUpperCase() + self.substring(2,self.size());	
+
+helper def : stripSimpleType(simpleType:JSchemaMM!SimpleTypes):String=
+	simpleType.toString().substring(2, simpleType.toString().size()).stripFirstAndLast()
+;
 
 ----------------------------
 helper context JSchemaMM!ObjectSchema def: findPatternPropertiesKeys(): Sequence(String) =
@@ -677,6 +701,55 @@ helper def: createBodyForValidateKeyOnDefinedProperties(properties:Sequence(Stri
 	).concat('return null;\n\n')
 ;
 
+--helper def: createGetterForDerivedAttributes(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
+helper def: createGetterForDerivedFeaturesMappingTheKey(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
+	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
+	'return this.'+propertyName+'.stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().toCamelCase()+'()).orElse(null);'
+;
+
+helper def: createGetterForDerivedReference(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
+	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
+	'return this.'+propertyName+'.stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).orElse(null);'
+;
+	
+helper context Ecore!EClass def:subClass(simpleType:JSchemaMM!SimpleTypes): Ecore!EClass =
+	let subclasses : Sequence(Ecore!EClass) =
+		self.ePackage.eClassifiers->select(eClass| eClass.oclIsTypeOf(Ecore!EClass))->select(eClass | eClass.eAllSuperTypes.includes(self))->select(eClass|eClass.getEAnnotation(thisModule.ARRAY_OF_TYPES).details->exists(entrySet | entrySet.key = thisModule.ARRAY_OF_TYPES and entrySet.value = thisModule.stripSimpleType(simpleType)))
+	in
+		if subclasses.isEmpty() then OclUndefined
+		else subclasses.first()
+		endif
+;	
+
+-------- TODO in progress
+helper def: createBodyForGetKey(propertyName:String,  properties:Sequence(String) , propertiesAbstractEClass : Ecore!EClass) :String =
+	properties->iterate(property; body: String = '' | 
+		body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+	).concat('java.util.List<java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList<java.lang.Class>();\n\n' )
+	
+	
+	.concat(propertiesAbstractEClass.ePackage.eClassifiers->select(subClass | subClass.eAllSuperTypes.includes(propertiesAbstractEClass))
+		->select(subClass | not subClass.getEAnnotation(thisModule.ADDITIONAL_PROPERTIES).oclIsUndefined() or not subClass.getEAnnotation(thisModule.PATTERN_PROPERTIES).oclIsUndefined())
+		->iterate(additionalOrPatternPropertyClass; body: String = '' |
+			body.concat('additionalOrPatternPropertyClasses.add('+propertiesAbstractEClass.ePackage.name+'.'+additionalOrPatternPropertyClass.name+'.class); \n\n')
+			)
+	).concat('for ('+ propertiesAbstractEClass.name + ' child : this.'+propertyName+'){\n')
+	.concat('\tif (additionalOrPatternPropertyClasses.contains(child.getClass())){\n')
+	.concat('\t\ttry{\n')
+	.concat('\t\t\tjava.lang.reflect.Field keyField = child.getClass().getDeclaredField("key");\n')
+	.concat('\t\t\tif (keyField.get(child).equals(key)) {\n')
+	.concat('\t\t\t\tjava.lang.reflect.Field valueField = child.getClass().getDeclaredField("value");\n')
+	.concat('\t\t\t\treturn valueField.get(child);\n')
+	.concat('\t\t\t}\n')
+	.concat('\t\t} catch (Exception e) {\n')
+	.concat('\t\t\te.printStackTrace();\n')
+	.concat('\t\t\tthrow new RuntimeException(e);\n')
+	.concat('\t\t}\n')
+	.concat('\t}\n')
+	.concat('}\n')
+	.concat('return null;\n')
+;
+	 
 ---------- OCL helpers
 
 helper def : createOclFile() : OclAny=
