@@ -238,6 +238,22 @@ rule createPatternPropertiesAnnotation(pattern : String){
 	}	
 }
 
+
+rule createKeywordAnnotation(keyword:String){
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.KEYWORD,
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- thisModule.KEYWORD,
+			value <- keyword
+		)
+	do{
+		eAnnotation;
+	}	
+}
+
 ---------------------------------------------
 
 rule mapBooleanSchemaToEClass extends mapSchemaToEClass{
@@ -287,7 +303,7 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 		}else if(simpleType = #"\"object\"" ){
 --			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), schema.buildPropertiesAbstractClassName(), schema.isKeySchemaPairInProperties())});
 --			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKey(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword())});
-			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword())});
+			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword(), schema.getKey())});
 			if(schema.additionalProperties.oclIsUndefined()){ ------ the keyword "additionalProperties" is missing
 --				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname());
 				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname(), schema.findPropertiesKeys(),  schema.findPatternPropertiesKeys());
@@ -322,7 +338,8 @@ lazy rule mapNullTypeToEReference{
 			containment <- true,
 			lowerBound <- 1,
 			upperBound <- 1,
-			eType <- JSchemaMM!NullValue
+			eType <- JSchemaMM!NullValue,
+			eAnnotations <- eAttribute.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(name)} else Sequence{} endif)
 		)
 	do{ 
 		if(addToKeywords){ 
@@ -339,7 +356,9 @@ lazy rule mapScalarTypeToEAttribute{
 			name<-name,
 			lowerBound <-1,
 			upperBound <- 1,
-			eType <- eType
+			eType <- eType,
+			eAnnotations <- eAttribute.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(name)} else Sequence{} endif)
+			
 		)
 	do{ 
 		if(addToKeywords){ 
@@ -350,15 +369,15 @@ lazy rule mapScalarTypeToEAttribute{
 }
 
 lazy rule createPropertiesContainment{
-	from referenceName:String, propertiesEClassName:String, addToKeywords:Boolean
+	from referenceName:String, propertiesEClassName:String, addToKeywords:Boolean, keyword : String
 	to 
 		eReference :Ecore!EReference ( 
 			name <- referenceName,
 			eType <- thisModule.createAbstractEClass(propertiesEClassName),
 			containment <- true,
 			lowerBound <- 0,
-			upperBound <- -1
-			
+			upperBound <- -1,
+			eAnnotations <- eReference.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(keyword)} else Sequence{} endif)
 		)
 	do {
 		thisModule.curlyBracesEReferences <- thisModule.curlyBracesEReferences->union(Sequence{eReference}); 
@@ -398,7 +417,9 @@ rule mapItemsAnyOf1ToContainment{
 			eType <- itemsAnyOf1.anyOf1,
 			containment <- true,
 			lowerBound <- 0,
-			upperBound <- -1
+			upperBound <- -1,
+			eAnnotations <- eReference.eAnnotations -> union (Sequence{thisModule.createKeywordAnnotation(eReference.name)})
+			
 		)
 	do{
 		thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
@@ -418,7 +439,8 @@ lazy rule createEClassForMissingItems{
 			eType <- eClass,
 			containment <- true,
 			lowerBound <- 0,
-			upperBound <- -1
+			upperBound <- -1,
+			eAnnotations <- eReference.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(eReference.name)} else Sequence{} endif)
 		)
 	do{
 		if(addToKeywords){
@@ -511,7 +533,8 @@ lazy rule  createContainmentToJsonDocument{
 			containment <- true,
 			lowerBound <- 1,
 			upperBound <- 1,
-			eType <- JSchemaMM!JsonDocument
+			eType <- JSchemaMM!JsonDocument,
+			eAnnotations <- containment.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(containment.name)} else Sequence{} endif)
 		)
 	do{ 
 		if(addToKeywords){ 
@@ -543,7 +566,8 @@ rule mapRefSchemaToEReference{
 			eType <- refSchemaDefinition.findSchemaByJsonPointer(),
 			containment <- true, 
 			lowerBound <- 1,
-			upperBound <- 1			
+			upperBound <- 1,
+			eAnnotations <- eReference.eAnnotations -> union (if refSchemaDefinition.refImmediateComposite().needsKeyword() then Sequence{thisModule.createKeywordAnnotation(eReference.name)} else Sequence{} endif) 
 		)
 	do {
 		if (isJsonPointerSchemaTypeArray){ 
@@ -864,7 +888,7 @@ rule createDerivedReferenceMappingTheKey(propertyName:String, keySchemaPair : JS
 }
 
 
------ TODO in progeress.......
+
 rule createGetKeyOperation(propertyName:String, properties: Sequence(String), propertiesAbstractEClass : Ecore!EClass){
 	to
 		eOperation:Ecore!EOperation(
@@ -959,8 +983,7 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 				------- for object in array of types we use objectSchema.getKey() and not objectSchema.getKeyForPropertiesContainment()
 				objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
 						<- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
---						-> union (Sequence{thisModule.createGetKeyOperation(objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.resolve().getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
-						-> union (Sequence{thisModule.createGetKeyOperation(objectSchema.getKey(),objectSchema.findPropertiesKeys(),  objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").getEStructuralFeature(objectSchema.getKey()).getEType())});
+						-> union (Sequence{thisModule.createGetKeyOperation(objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
 			
 			}
 		}

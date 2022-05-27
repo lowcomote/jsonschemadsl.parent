@@ -5,6 +5,7 @@ library JsonSchema2EcoreOptUtils;
 helper def: ARRAY_OF_TYPES: String = 'ArrayOfTypes';
 helper def: ADDITIONAL_PROPERTIES: String =  'AdditionalProperties';
 helper def: PATTERN_PROPERTIES: String ='PatternProperties';
+helper def: KEYWORD: String ='Keyword';
 --Keywords
 helper def: keywords : Sequence(Ecore!EStructuralFeature) = Sequence{};
 
@@ -211,7 +212,8 @@ helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
 
 
 helper context JSchemaMM!Schema  def : getKeyForPropertiesContainment(): String=
-	self.getKey() ----- TODO manage here the check if there are not keys in self.properties.keySchemaPairs == sef.getKey   use findPropertiesKeys
+--	self.getKey() ----- TODO manage here the check if there are not keys in self.properties.keySchemaPairs == sef.getKey   use findPropertiesKeys
+	'propertiesTemp'
 ;	
 
 helper context JSchemaMM!Schema def: getKey() : String=
@@ -455,14 +457,7 @@ helper context JSchemaMM!Schema  def : isInElse() : Boolean =
 	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!ElseSchemaDefinition);
 
 
---helper context JSchemaMM!Schema  def : needsKeyword() : Boolean =
---	self.isKeySchemaPairInProperties() or 
---		if self.isInCombinedSchema() then self.getCombinedEnclosingSchema().isKeySchemaPairInProperties()
---		else if self.isInConditionalSchema() then self.getConditionalEnclosingSchema().isKeySchemaPairInProperties()
---			else false
---			endif
---		endif
---;
+
 
 helper context JSchemaMM!Schema  def : needsKeyword() : Boolean =
 	self.isKeySchemaPairInProperties() or
@@ -721,7 +716,7 @@ helper context Ecore!EClass def:subClass(simpleType:JSchemaMM!SimpleTypes): Ecor
 		endif
 ;	
 
--------- TODO in progress
+
 helper def: createBodyForGetKey(propertyName:String,  properties:Sequence(String) , propertiesAbstractEClass : Ecore!EClass) :String =
 	properties->iterate(property; body: String = '' | 
 		body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')

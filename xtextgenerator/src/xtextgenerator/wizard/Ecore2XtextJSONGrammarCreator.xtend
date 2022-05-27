@@ -313,10 +313,13 @@ class Ecore2XtextJSONGrammarCreator {
 		//	""
 		//else
 		if (it.isKeyword) {
-			this.keywords.add(it.name);
+//			this.keywords.add(it.name);
+			this.keywords.add(it.getEAnnotation('Keyword').details.get('Keyword'));
+			
 			''' 
 				//Keywords
-				'"«it.name»"' «jsonSeparator»
+«««				'"«it.name»"' «jsonSeparator»
+				'"«it.getEAnnotation('Keyword').details.get('Keyword')»"' «jsonSeparator»
 			'''
 		} else if (it instanceof EReference) {
 			'''
