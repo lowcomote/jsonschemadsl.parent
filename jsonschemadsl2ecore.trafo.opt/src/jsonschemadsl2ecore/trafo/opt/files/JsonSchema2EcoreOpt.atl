@@ -411,14 +411,18 @@ lazy rule createDefaultAdditionalPropertiesEClass  {
 
 rule mapItemsAnyOf1ToContainment{
 	from itemsAnyOf1:JSchemaMM!ItemsAnyOf1
+	using {
+		eReferenceName : String = itemsAnyOf1.refImmediateComposite().refImmediateComposite().getKey();
+	}
 	to 
 		eReference :Ecore!EReference ( 
-			name <- itemsAnyOf1.refImmediateComposite().refImmediateComposite().getKey(),
+--			name <- itemsAnyOf1.refImmediateComposite().refImmediateComposite().getKey(),
+			name <- eReferenceName,
 			eType <- itemsAnyOf1.anyOf1,
 			containment <- true,
 			lowerBound <- 0,
 			upperBound <- -1,
-			eAnnotations <- eReference.eAnnotations -> union (Sequence{thisModule.createKeywordAnnotation(eReference.name)})
+			eAnnotations <- eReference.eAnnotations -> union (Sequence{thisModule.createKeywordAnnotation(eReferenceName)})
 			
 		)
 	do{
@@ -440,7 +444,7 @@ lazy rule createEClassForMissingItems{
 			containment <- true,
 			lowerBound <- 0,
 			upperBound <- -1,
-			eAnnotations <- eReference.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(eReference.name)} else Sequence{} endif)
+			eAnnotations <- eReference.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(referenceName)} else Sequence{} endif)
 		)
 	do{
 		if(addToKeywords){
@@ -534,7 +538,7 @@ lazy rule  createContainmentToJsonDocument{
 			lowerBound <- 1,
 			upperBound <- 1,
 			eType <- JSchemaMM!JsonDocument,
-			eAnnotations <- containment.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(containment.name)} else Sequence{} endif)
+			eAnnotations <- containment.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(containmentName)} else Sequence{} endif)
 		)
 	do{ 
 		if(addToKeywords){ 
@@ -559,15 +563,17 @@ rule mapRefSchemaToEReference{
 														then true else false endif
 													else false
 													endif ;
+        eReferenceName : String = refSchemaDefinition.refImmediateComposite().getKey();
 	} to		
 		eReference :Ecore!EReference ( 
-			name <- refSchemaDefinition.refImmediateComposite().getKey(),
+--			name <- refSchemaDefinition.refImmediateComposite().getKey(),
+			name <- eReferenceName,
 --			eType <- refSchemaDefinition.findSchemaByJsonPointer().oclAsType(JSchemaMM!ObjectSchema),
 			eType <- refSchemaDefinition.findSchemaByJsonPointer(),
 			containment <- true, 
 			lowerBound <- 1,
 			upperBound <- 1,
-			eAnnotations <- eReference.eAnnotations -> union (if refSchemaDefinition.refImmediateComposite().needsKeyword() then Sequence{thisModule.createKeywordAnnotation(eReference.name)} else Sequence{} endif) 
+			eAnnotations <- eReference.eAnnotations -> union (if refSchemaDefinition.refImmediateComposite().needsKeyword() then Sequence{thisModule.createKeywordAnnotation(eReferenceName)} else Sequence{} endif) 
 		)
 	do {
 		if (isJsonPointerSchemaTypeArray){ 
