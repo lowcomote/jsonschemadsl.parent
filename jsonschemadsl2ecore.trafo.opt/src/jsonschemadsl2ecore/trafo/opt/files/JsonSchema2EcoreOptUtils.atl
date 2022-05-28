@@ -211,9 +211,25 @@ helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
 	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition);
 
 
-helper context JSchemaMM!Schema  def : getKeyForPropertiesContainment(): String=
+helper context JSchemaMM!ObjectSchema  def : getKeyForPropertiesContainment(): String=
 --	self.getKey() ----- TODO manage here the check if there are not keys in self.properties.keySchemaPairs == sef.getKey   use findPropertiesKeys
-	'propertiesTemp'
+--	'propertiesTemp'
+	if not self.properties.oclIsUndefined() then
+		if not self.properties.keySchemaPairs.containsKey(self.getKey()) then self.getKey()
+		else thisModule.buildPropertiesContainmentName(self.properties.keySchemaPairs, self.getKey(), 1)
+		endif
+	else OclUndefined
+	endif
+;	
+
+helper def:buildPropertiesContainmentName(keySchemaPairs:Sequence(JSchemaMM!KeySchemaPair), key:String, i:Integer) : String=
+	if keySchemaPairs.containsKey(key+i.toString()) then thisModule.buildPropertiesContainmentName(keySchemaPairs, key, i+1)
+	else key+i.toString()
+	endif
+;	
+
+helper context Sequence(JSchemaMM!KeySchemaPair) def: containsKey(key:String) :Boolean=
+	self->exists(keySchemaPair | keySchemaPair.key.stripFirstAndLast()=key )
 ;	
 
 helper context JSchemaMM!Schema def: getKey() : String=
