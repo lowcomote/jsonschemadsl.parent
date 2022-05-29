@@ -31,24 +31,36 @@ class OclGenerator {
 			endif
 	'''
 	
-//	def static appendRequiredInPropertiesConstraint (String fileName, String contextClass, String inv, String requiredProperty, String requiredClassType){
-	def static appendRequiredInPropertiesConstraint (URI fileName, String packageName, String contextClass, String inv, String requiredProperty, String requiredClassType, String propertyName){
-		OclWriter.append(fileName, generateRequiredInPropertiesConstraint(packageName, contextClass, inv, requiredProperty, requiredClassType, propertyName))
+	def static appendRequiredInPropertiesConstraint (URI fileName, String packageName, String contextClass, String inv, String requiredProperty){
+		OclWriter.append(fileName, generateRequiredInPropertiesConstraint(packageName, contextClass, inv, requiredProperty))
 	}
-	/**
-	 * e.g, if  self.test15Root->select(p|p.oclIsKindOf(test15::Test15RootProp1))->size()>0
-	 */
-	def static generateRequiredInPropertiesConstraint(String packageName, String contextClass, String inv, String requiredProperty, String requiredClassType, String propertyName)'''
+	
+	def static generateRequiredInPropertiesConstraint(String packageName, String contextClass, String inv, String requiredProperty)'''
 			context «packageName»::«contextClass» 
 		
 			inv «inv»«requiredProperty» ('«contextClass» requires the property «requiredProperty»'):
-«««			if  self.«propertyName.underscoreIfNecessary»->select(p|p.oclType()=«packageName»::«requiredClassType»)->size()>0
-			if  self.«propertyName.underscoreIfNecessary»->select(p|p.oclIsKindOf(«packageName»::«requiredClassType»))->size()>0
+			if  not self.get('«requiredProperty»').oclIsUndefined()
 			then true
 			else null
 			endif
 	'''
 	
+//	def static appendRequiredInPropertiesConstraint_old (URI fileName, String packageName, String contextClass, String inv, String requiredProperty, String requiredClassType, String propertyName){
+//		OclWriter.append(fileName, generateRequiredInPropertiesConstraint_old(packageName, contextClass, inv, requiredProperty, requiredClassType, propertyName))
+//	}
+//	
+//	/**
+//	 * e.g, if  self.test15Root->select(p|p.oclIsKindOf(test15::Test15RootProp1))->size()>0
+//	 */
+//	def static generateRequiredInPropertiesConstraint_old(String packageName, String contextClass, String inv, String requiredProperty, String requiredClassType, String propertyName)'''
+//			context «packageName»::«contextClass» 
+//		
+//			inv «inv»«requiredProperty» ('«contextClass» requires the property «requiredProperty»'):
+//			if  self.«propertyName.underscoreIfNecessary»->select(p|p.oclIsKindOf(«packageName»::«requiredClassType»))->size()>0
+//			then true
+//			else null
+//			endif
+//	'''
 	
 	def static appendRegexInPatternPropertiesConstraint(URI fileName, String packageName, String contextClass,  String inv, String regex, String propertyName){
 		OclWriter.append(fileName, generateRegexInPatternPropertiesConstraint(packageName, contextClass, inv, regex,  propertyName))

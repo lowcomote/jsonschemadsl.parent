@@ -1,0 +1,119 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test46
+import 'http://jku.bise.at/test46'
+
+package test46
+
+	context test46::Test46RootAdditionalProperties 
+
+	inv Test46RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46RootAdditionalProperties 
+
+	inv Test46RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46RootGinoAdditionalProperties 
+
+	inv Test46RootGinoAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46RootGinoAdditionalProperties 
+
+	inv Test46RootGinoAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46RootObjectAdditionalProperties 
+
+	inv Test46RootObjectAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46RootObjectAdditionalProperties 
+
+	inv Test46RootObjectAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46RootPatternProperties0 
+
+	inv Test46RootPatternProperties0ValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46RootPatternProperties0 
+
+	inv Test46RootPatternProperties0ValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46RootGinoTypeObject 
+
+	inv Test46RootGinoTypeObjectRequiredprop1 ('Test46RootGinoTypeObject requires the property prop1'):
+	if  not self.get('prop1').oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46RootObject 
+
+	inv Test46RootObjectRequiredprop2 ('Test46RootObject requires the property prop2'):
+	if  not self.get('prop2').oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46RootObject 
+
+	inv Test46RootObjectRequiredprop4 ('Test46RootObject requires the property prop4'):
+	if  not self.get('prop4').oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46Root 
+
+	inv Test46RootRequiredS_sss ('Test46Root requires the property S_sss'):
+	if  not self.get('S_sss').oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46Root 
+
+	inv Test46RootRequiredpino ('Test46Root requires the property pino'):
+	if  not self.get('pino').oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test46::Test46RootPatternProperties0 
+
+	inv Test46RootPatternProperties0patternProperties0Regex ('the key must match the regular expression ^S_'):
+	if  self.find()
+	then true
+	else null
+	endif
+
+endpackage
+

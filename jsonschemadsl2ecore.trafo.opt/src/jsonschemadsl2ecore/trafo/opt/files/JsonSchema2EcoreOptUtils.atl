@@ -763,11 +763,13 @@ helper def: createBodyForGetKey(propertyName:String,  properties:Sequence(String
 			body.concat('additionalOrPatternPropertyClasses.add('+propertiesAbstractEClass.ePackage.name+'.'+additionalOrPatternPropertyClass.name+'.class); \n\n')
 			)
 	).concat('for ('+ propertiesAbstractEClass.name + ' child : this.'+propertyName+'){\n')
-	.concat('\tif (additionalOrPatternPropertyClasses.contains(child.getClass())){\n')
+--	.concat('\tif (additionalOrPatternPropertyClasses.contains(child.getClass())){\n')
+	.concat('\tif (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){\n')
 	.concat('\t\ttry{\n')
 	.concat('\t\t\tjava.lang.reflect.Field keyField = child.getClass().getDeclaredField("key");\n')
 	.concat('\t\t\tif (keyField.get(child).equals(key)) {\n')
-	.concat('\t\t\t\tjava.lang.reflect.Field valueField = child.getClass().getDeclaredField("value");\n')
+--	.concat('\t\t\t\tjava.lang.reflect.Field valueField = child.getClass().getDeclaredField("value");\n')
+	.concat('\t\t\t\tjava.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals("additionalProperties") || field.getName().startsWith("patternProperties") ).findAny().get();\n')
 	.concat('\t\t\t\treturn valueField.get(child);\n')
 	.concat('\t\t\t}\n')
 	.concat('\t\t} catch (Exception e) {\n')
@@ -787,9 +789,12 @@ helper def : createOclFile() : OclAny=
 helper def : appendMinimumConstraint(packageName: String, contextClass: String, inv:String, minimum: Real, propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, minimum, propertyName});
 
-helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String, propertyName : String) : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, requiredProperty, requiredClassType, propertyName});
-	
+--helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String, propertyName : String) : OclAny=
+--	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, requiredProperty, requiredClassType, propertyName});
+
+helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, inv:String, requiredProperty: String) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, requiredProperty});
+
 	
 helper def : appendRegexInPatternPropertiesConstraint(packageName: String, contextClass: String, inv:String, regex : String,  propertyName : String): OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRegexInPatternPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, regex, propertyName});

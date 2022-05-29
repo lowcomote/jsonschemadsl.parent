@@ -722,31 +722,47 @@ lazy rule minimumConstraintToOcl {
 lazy rule requiredInPropertiesToOcl{
 	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
 	using {
-		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
+--		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
+		enclosingEClassName : String = if requiredSchemaDefinition.refImmediateComposite().hasSimpleTypeObject() then requiredSchemaDefinition.refImmediateComposite().resolve().name
+										 else	requiredSchemaDefinition.refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#"\"object\"")
+										 endif;
 		required : Sequence(String) = requiredSchemaDefinition.required.values;
-		propertyName : String = enclosingSchema.getKey();
-		
-		inPropertiesRequiredKeySchemaPairs : Sequence(JSchemaMM!KeySchemaPair)= 
-			let propertiesSchemaDefinitions : Sequence(JSchemaMM!PropertiesSchemaDefinition) = 
-				enclosingSchema.keywordDefinition->select(k|k.oclIsTypeOf(JSchemaMM!PropertiesSchemaDefinition))
-			in
-				if propertiesSchemaDefinitions.isEmpty() then Sequence{}
-				else
-					propertiesSchemaDefinitions->first().keySchemaPairs->select(ksp| required->includes(ksp.key.stripFirstAndLast()))
-				endif;
-				
-	
-		inPropertiesRequiredSchemas : Sequence(JSchemaMM!Schema)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.value);	
-		inPropertiesRequiredKeys : Sequence(String)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.key);	
-		requiredNotInProperties:Sequence(String) = required->excludingAll(inPropertiesRequiredKeys);
 	}
 	do{
-		for (p in inPropertiesRequiredKeySchemaPairs) {
---			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName+'::'+enclosingSchema.buildEClassname(), enclosingSchema.buildEClassname()+'Required', p.key.stripFirstAndLast(), p.value.buildEClassname());
-			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName, enclosingSchema.resolve().name,  enclosingSchema.resolve().name+'Required', p.key.stripFirstAndLast(), p.value.resolve().name, propertyName);
+		for (property in required) {
+--			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName, enclosingSchema.resolve().name,  enclosingSchema.resolve().name+'Required', property);
+			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName, enclosingEClassName,  enclosingEClassName+'Required', property);
 		}
 	}
 }
+
+--lazy rule requiredInPropertiesToOcl_old{
+--	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
+--	using {
+--		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
+--		required : Sequence(String) = requiredSchemaDefinition.required.values;
+--		propertyName : String = enclosingSchema.getKey();
+--		
+--		inPropertiesRequiredKeySchemaPairs : Sequence(JSchemaMM!KeySchemaPair)= 
+--			let propertiesSchemaDefinitions : Sequence(JSchemaMM!PropertiesSchemaDefinition) = 
+--				enclosingSchema.keywordDefinition->select(k|k.oclIsTypeOf(JSchemaMM!PropertiesSchemaDefinition))
+--			in
+--				if propertiesSchemaDefinitions.isEmpty() then Sequence{}
+--				else
+--					propertiesSchemaDefinitions->first().keySchemaPairs->select(ksp| required->includes(ksp.key.stripFirstAndLast()))
+--				endif;
+--				
+--	
+--		inPropertiesRequiredSchemas : Sequence(JSchemaMM!Schema)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.value);	
+--		inPropertiesRequiredKeys : Sequence(String)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.key);	
+--		requiredNotInProperties:Sequence(String) = required->excludingAll(inPropertiesRequiredKeys);
+--	}
+--	do{
+--		for (p in inPropertiesRequiredKeySchemaPairs) {
+--			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName, enclosingSchema.resolve().name,  enclosingSchema.resolve().name+'Required', p.key.stripFirstAndLast(), p.value.resolve().name, propertyName);
+--		}
+--	}
+--}
 
 lazy rule patternPropertiesRegexToOcl{
 	---- keySchemaPair isInPatternProperties
@@ -873,41 +889,6 @@ rule createDerivedReference(key:String, eType:Ecore!EClassifier, getterValue:Str
 	}
 }
 
------ TODO delete
-rule createDerivedReferenceMappingTheKey(propertyName:String, keySchemaPair : JSchemaMM!KeySchemaPair, upperBound:Integer) {
-	using {
-		key:String =keySchemaPair.key.stripFirstAndLast();
-	}
-	to
-		derivedReference : Ecore!EReference(
-			name <- key,
-			derived <- true,
-			eType <- 	keySchemaPair.value.resolve().getEStructuralFeature(key).getEType(),
-			changeable <- false,
-			ordered <- false,
-			resolveProxies <- false,
-			unique <-false,
-			lowerBound <- 0,
---			upperBound <- -1, 
-			upperBound <- upperBound, 
-			transient <- true,
-			volatile <- true,
-			unsettable <- false,
-			eAnnotations <- Sequence{eAnnotation}
-		),
-		eAnnotation: Ecore!EAnnotation(
-			source <- 'http://www.eclipse.org/emf/2002/GenModel',
-			details <- thisModule.createCommonAnnotationDetails()-> append(getter)
-		),
-		getter:Ecore!EStringToStringMapEntry(
-			key <- 'get',
-			value <-  thisModule.createGetterForDerivedFeaturesMappingTheKey(propertyName, keySchemaPair)
-		)
-	do{
-		derivedReference;
-	}
-}
-
 
 rule createCommonAnnotationDetails(){
 	
@@ -1006,7 +987,9 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		}	
 
 		for (r in JSchemaMM!RequiredSchemaDefinition.allInstancesFrom('jschema')){
-			thisModule.requiredInPropertiesToOcl(r);
+			if(r.refImmediateComposite().hasTypeObject() and r.refImmediateComposite().ref.oclIsUndefined()){
+				thisModule.requiredInPropertiesToOcl(r);
+			}	
 		}
 		
 		for(ksp in JSchemaMM!KeySchemaPair.allInstancesFrom('jschema')){

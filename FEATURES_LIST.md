@@ -32,7 +32,7 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"pattern"             |N                    |N                         |Create an EOperation that check if it is a regex|
 |"additionalItems"     |Y                    |N                         ||
 |"items" (List)        |Y                    |Y                         ||
-|"items" (Tuple        |Y                    |N                         ||
+|"items" (Tuple)       |Y                    |N                         ||
 |"maxItems"            |Y                    |N                         |Generate an OCL constraint (like "minimum")|
 |"minItems"            |Y                    |N                         |Generate an OCL constraint (like "minimum")|
 |"uniqueItems"         |Y                    |N                         ||
@@ -40,8 +40,8 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"maxProperties"       |Y                    |N                         |Generate an OCL constraint (like "minimum")|
 |"minProperties"       |Y                    |N                         |Generate an OCL constraint (like "minimum")|
 |"required"(properties)|Y                    |Y                         ||
-|"required"(patt.prop.)|Y                    |N                         ||
-|"required"(add. prop.)|Y                    |N                         ||
+|"required"(patt.prop.)|Y                    |Y                         ||
+|"required"(add. prop.)|Y                    |Y                         ||
 |"additionalProperties"|Y                    |Y                         | |
 |"definitions"         |Y                    |Y                         | |
 |"properties"          |Y                    |Y                         | |
@@ -62,13 +62,13 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"format"              |Y                    |N                         ||
 |"contentMediaType"    |Y                    |N                         ||
 |"contentEncoding"     |Y                    |N                         ||
-|"if"                  |Y                    |N                         ||
-|"then"                |Y                    |N                         ||
-|"else"                |Y                    |N                         ||
-|"allOf"               |Y                    |N                         ||
-|"anyOf"               |Y                    |N                         ||
-|"oneOf"               |Y                    |N                         ||
-|"not"                 |Y                    |N                         ||
+|"if"                  |Y                    |Y                         ||
+|"then"                |Y                    |Y                         ||
+|"else"                |Y                    |Y                         ||
+|"allOf"               |Y                    |Y                         ||
+|"anyOf"               |Y                    |Y                         ||
+|"oneOf"               |Y                    |Y                         ||
+|"not"                 |Y                    |Y                         ||
 
 Legend:  
 Y -> Supported  
