@@ -1,0 +1,16 @@
+{
+	"type":"object",
+	"properties":{
+		"test45Root":{"type":"string"},
+		"prop":{
+			"type":"object",
+			"properties":{
+				"prop":{"type":"string"},
+				"prop1":{"type":"boolean"},
+				"prop2":{"type":"integer"},
+				"prop3":{"type":"number"},
+				"prop4":{"type":"string"}
+			}
+		}
+	}  
+} 

@@ -1,0 +1,19 @@
+{ 
+	"type": "object",
+	"properties":{
+		"name": {"type": "string"},
+		"surname":{"type": "string"},
+		"job":{
+			 "type":["object","string"],
+          		"properties":{
+               		"role":{"type": "string"},
+               		"level":{"type": "integer"},
+               		"adult":{"type": "boolean"},
+               		"score":{"type": "number"}
+        		},
+        		"additionalProperties":false
+       	} 
+	},
+    "additionalProperties":false
+}     
+    

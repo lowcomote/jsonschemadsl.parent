@@ -1,0 +1,39 @@
+{
+	"type": "object",
+	"properties":{
+		"name": {"type": "string"},
+		"surname":{"type": "string"},
+		"info":{
+			"type":"object",
+			"properties":{
+				"extraInfo":{
+					"type":"object",
+					"properties":{
+						"comment":{"type": "string"}
+					}
+				} 
+			}    
+		},       
+		"job":{ 
+			"type":["object","string"],  
+      		"properties":{
+           		"role":{"type": "string"},
+           		"level":{"type": "integer"},
+           		"company":{ 
+           			"type":"object",
+           			"properties":{
+           				"address":{"type": "string"}
+           			}
+           		}
+    		},
+    		"patternProperties":{
+    			"ale{2}":{"type": "string"}
+    		}  
+       	}   
+	},
+	"patternProperties":{
+		"gino{2}":{"type": "integer"}
+	},
+    "additionalProperties":true
+}    
+    
