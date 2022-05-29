@@ -85,9 +85,12 @@ helper def: enclosingSchemas : Sequence(RelatedSchemasMM!EnclosingSchema) = Sequ
 helper def : scalarTypeMapping : Map(String, Ecore!EDataType) =
 	Map{
 		(#"\"string\"", Ecore!EString),
-		(#"\"integer\"", Ecore!EInt),
-		(#"\"number\"", Ecore!EDouble),
-		(#"\"boolean\"", Ecore!EBoolean)
+--		(#"\"integer\"", Ecore!EInt),
+		(#"\"integer\"", Ecore!EIntegerObject),
+--		(#"\"number\"", Ecore!EDouble),
+		(#"\"number\"", Ecore!EDoubleObject),
+--		(#"\"boolean\"", Ecore!EBoolean)
+		(#"\"boolean\"", Ecore!EBooleanObject)
 	};
 
 helper def : typeToStringMapping : Map(String, String) =
@@ -218,7 +221,7 @@ helper context JSchemaMM!ObjectSchema  def : getKeyForPropertiesContainment(): S
 		if not self.properties.keySchemaPairs.containsKey(self.getKey()) then self.getKey()
 		else thisModule.buildPropertiesContainmentName(self.properties.keySchemaPairs, self.getKey(), 1)
 		endif
-	else OclUndefined
+	else self.getKey()
 	endif
 ;	
 
@@ -713,15 +716,30 @@ helper def: createBodyForValidateKeyOnDefinedProperties(properties:Sequence(Stri
 ;
 
 --helper def: createGetterForDerivedAttributes(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
-helper def: createGetterForDerivedFeaturesMappingTheKey(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
+--helper def: createGetterForDerivedFeaturesMappingTheKey(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
+helper def: createGetterForDerivedFeature(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
 	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
-	'return this.'+propertyName+'.stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().toCamelCase()+'()).orElse(null);'
+--	'if (this.'+propertyName+'!=null){\n'
+--	+'\treturn this.'+propertyName+'.stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().toCamelCase()+'()).orElse(null);\n'
+--	+'}\n'
+--	+'return null;'
+	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().toCamelCase()+'()).orElse(null);'
 ;
 
 helper def: createGetterForDerivedReference(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
 	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
-	'return this.'+propertyName+'.stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).orElse(null);'
+--	'if (this.'+propertyName+'!=null){\n'
+--	+'return this.'+propertyName+'.stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).orElse(null);\n'
+--	+'}\n'
+--	+'return null;'
+	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).orElse(null);'
+	
 ;
+	
+helper def:	createGetterForDerivedReferenceList(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
+	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
+	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().toCamelCase()+'()).orElse(new org.eclipse.emf.common.util.BasicEList<>());'
+;	
 	
 helper context Ecore!EClass def:subClass(simpleType:JSchemaMM!SimpleTypes): Ecore!EClass =
 	let subclasses : Sequence(Ecore!EClass) =

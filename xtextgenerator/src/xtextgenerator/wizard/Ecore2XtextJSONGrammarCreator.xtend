@@ -282,6 +282,8 @@ class Ecore2XtextJSONGrammarCreator {
 			case 'EString': 'VALID_STRING'
 			case 'EDouble': 'E_INT | E_DOUBLE'
 			case 'EInt': 'E_INT'
+			case 'EDoubleObject': 'E_INT | E_DOUBLE'
+			case 'EIntegerObject': 'E_INT'
 			default : it.dataTypeRuleBody
 		};
 //		if('EString'.equals(name)){
