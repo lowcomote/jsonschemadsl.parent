@@ -645,6 +645,38 @@ rule mapNot{
 	}
 }
 
+---- This rule has to be lazy, and called from the endpoint because we have to be sure that, in case of array of types the enclosing class (with TypeObject ending) has been created
+unique lazy rule mapDependency{
+	from dependenciesAdditionalPropertiesAnyOf1:JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1(dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasTypeObject())
+	using {
+		enclosingEClass: Ecore!EClass = if dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasSimpleTypeObject()
+										then dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve()
+										else thisModule.allEClass()->select(eClass | eClass.name= dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassNameForArrayOfTypes(#"\"object\""))     ---- is array of type
+										endif;
+	}
+	to 
+		dependency:RelatedSchemasMM!Dependency(
+			dependency <- dependenciesAdditionalPropertiesAnyOf1.anyOf1,
+			property <- dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().key.stripFirstAndLast() 
+		)
+	do	{
+--		thisModule.createDependencies(enclosingEClass).dependencies->includes(dependency);
+		thisModule.createDependencies(enclosingEClass).dependencies<- thisModule.createDependencies(enclosingEClass).dependencies->append(dependency);
+--		dependency;
+	}
+}
+
+unique lazy rule createDependencies{
+	from eClass :Ecore!EClass
+	to
+		dependencies:RelatedSchemasMM!Dependencies(
+		)
+	do{
+		thisModule.createRelatedEnclosingSchema(eClass).dependencies<-dependencies;
+		dependencies;
+	}	
+}
+
 rule mapIf{
 	from ifSchemaDefinition:JSchemaMM!IfSchemaDefinition
 	do	{
@@ -983,6 +1015,10 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		thisModule.jsonGrammarRoot().detailedGrammar.bracketsEClass <- thisModule.bracketsEClass;
 		
 		------ Related Schemas
+		----- Dependencies
+		for (dependenciesAdditionalPropertiesAnyOf1 in JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1.allInstancesFrom('jschema')){
+			thisModule.mapDependency(dependenciesAdditionalPropertiesAnyOf1);   
+		}	
 		thisModule.relatedSchemasRoot().enclosingschemas<-thisModule.enclosingSchemas;
 		
 		-----  Refine Class names for unicity	-----------
@@ -1041,6 +1077,8 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 				}
 			}
 		}
+		
+		
 		
 		thisModule.endPackage();
 		

@@ -85,13 +85,13 @@ public interface RelatedSchemasFactory extends EFactory {
 	IfThenElse createIfThenElse();
 
 	/**
-	 * Returns a new object of class '<em>Dependency</em>'.
+	 * Returns a new object of class '<em>Dependencies</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Dependency</em>'.
+	 * @return a new object of class '<em>Dependencies</em>'.
 	 * @generated
 	 */
-	Dependency createDependency();
+	Dependencies createDependencies();
 
 	/**
 	 * Returns a new object of class '<em>Contains</em>'.
@@ -101,6 +101,15 @@ public interface RelatedSchemasFactory extends EFactory {
 	 * @generated
 	 */
 	Contains createContains();
+
+	/**
+	 * Returns a new object of class '<em>Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Dependency</em>'.
+	 * @generated
+	 */
+	Dependency createDependency();
 
 	/**
 	 * Returns the package supported by this factory.

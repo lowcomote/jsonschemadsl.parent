@@ -291,7 +291,8 @@ else
 											else 
 												if parent.oclIsTypeOf(JSchemaMM!ContainsSchemaDefinition) then 'contains'
 												else 
-													if parent.oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1) then 'dependencies'.concat(parent.refImmediateComposite().refImmediateComposite().properties.indexOf(parent.refImmediateComposite()).toString())
+													if parent.oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1) --then 'dependencies'.concat(parent.refImmediateComposite().refImmediateComposite().properties.indexOf(parent.refImmediateComposite()).toString())
+													then parent.refImmediateComposite().refImmediateComposite().refImmediateComposite().getKey()
 													else OclUndefined ---- TODO  add other keywords pointing to Schema (check if are already all)
 													endif 
 												endif 
@@ -358,7 +359,8 @@ helper context JSchemaMM!Schema def: getConditionalSchemaKey() : String=
 ;	
 
 helper context JSchemaMM!Schema def: getDependenciesSchemaKey() : String= 
-	if self.isInDependenciesSchema() then OclUndefined  ---- TODO
+	if self.isInDependenciesSchema() ---then OclUndefined  ---- TODO
+	then 'dependencies'.concat(self.refImmediateComposite().refImmediateComposite().refImmediateComposite().properties.indexOf(self.refImmediateComposite().refImmediateComposite()).toString())
 	else OclUndefined
 	endif
 ;
@@ -396,8 +398,8 @@ else
 								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition) 
 										or parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition)
 										or parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition)
-								then parent.refImmediateComposite().refImmediateComposite() --- return the schema enclosing the AllOfSchemaDefinition
-								else OclUndefined --- add   AnyOfSchemaDefinition, OneOfSchemaDefinition 
+								then parent.refImmediateComposite().refImmediateComposite() --- return the schema enclosing the AllOf/AnyOf/OneOf SchemaDefinition
+								else OclUndefined --- This case should not be possible
 								endif	
 							endif	
 						else  ---
@@ -408,7 +410,11 @@ else
 								or parent.oclIsTypeOf(JSchemaMM!ElseSchemaDefinition)
 								or parent.oclIsTypeOf(JSchemaMM!ContainsSchemaDefinition)
 							then parent.refImmediateComposite()
-							else OclUndefined ---- TODO to be completed with the containmentes pointing to Schema
+							else 
+								if parent.oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1)
+								then parent.refImmediateComposite().refImmediateComposite().refImmediateComposite()
+								else  OclUndefined ---- TODO to be completed with the containmentes pointing to Schema. Or check if we are done
+								endif
 							endif	
 						endif
 					endif
@@ -446,7 +452,8 @@ helper context JSchemaMM!Schema  def : isInConditionalSchema() : Boolean =
 	self.isInIf() or self.isInThen() or self.isInElse();  
 	
 helper context JSchemaMM!Schema  def : isInDependenciesSchema() : Boolean =
-	false; ---- TODO	
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1)
+;
 
 helper context JSchemaMM!Schema  def : isInContainsSchema() : Boolean =
 	false; ---- TODO	
@@ -538,7 +545,7 @@ helper context JSchemaMM!Schema def : getNotEnclosingSchema() : JSchemaMM!Schema
 
 helper context JSchemaMM!Schema def : getDependenciesEnclosingSchema() : JSchemaMM!Schema =
 	if self.isInDependenciesSchema()
-	then OclUndefined ---------- TODO
+	then self.refImmediateComposite().refImmediateComposite().refImmediateComposite().refImmediateComposite()
 	else OclUndefined
 	endif
 ;

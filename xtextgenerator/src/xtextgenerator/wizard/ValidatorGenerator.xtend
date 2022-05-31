@@ -6,14 +6,12 @@ import java.io.IOException
 import relatedSchemas.AllOf
 import org.eclipse.emf.ecore.EClass
 import relatedSchemas.EnclosingSchema
-import org.eclipse.emf.ecore.util.EcoreUtil
-import org.eclipse.emf.ecore.EPackage
-import org.eclipse.emf.ecore.ENamedElement
 import java.util.List
 import relatedSchemas.AnyOf
 import relatedSchemas.OneOf
 import relatedSchemas.Not
 import relatedSchemas.IfThenElse
+import relatedSchemas.Dependency
 
 class ValidatorGenerator {
 	
@@ -76,7 +74,12 @@ class ValidatorGenerator {
 					
 						«generateIfThenElseValidation(enclosingSchema.enclosingSchema,enclosingSchema.ifThenElse)»
 					«ENDIF»
-
+					«IF  enclosingSchema.dependencies!==null»
+						«FOR dependency :enclosingSchema.dependencies.dependencies»
+						
+							«generateDependenciesValidation(enclosingSchema.enclosingSchema, dependency)»
+						«ENDFOR»
+					«ENDIF»
 				«ENDFOR»
 			«ENDIF»
 			}
@@ -303,6 +306,38 @@ class ValidatorGenerator {
 						«ENDIF»
 					}
 				«ENDIF»
+			}
+		'''
+	}
+	
+	
+	def private static generateDependenciesValidation(EClass enclosingClass, Dependency dependency){
+		val String enclosingClassType = (enclosingClass.EPackage).name+"."+enclosingClass.name
+		'''
+			@Check
+			public void dependenciesValidation«enclosingClass.name»«dependency.property»(«enclosingClassType» enclosingEClass){
+				if(enclosingEClass.get("«dependency.property»")!=null){
+					String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+					InputStream in = new ByteArrayInputStream(enclosingEClassText.getBytes());
+					ResourceSet reset = new ResourceSetImpl();
+					Resource resource = reset.createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(dependency.dependency)»"));
+					try {
+						resource.load(in, reset.getLoadOptions());
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+					for (Diagnostic diagnostic : resource.getErrors()) {
+						error(diagnostic.getMessage(), null);
+					}				
+					if(resource.getErrors().isEmpty()) {
+						XtextResource xtextResource = (XtextResource)resource;
+						IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
+						List<Issue> issues = resourceValidator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl);
+						for(Issue issue :issues) {
+							error(issue.getMessage(), null);
+						}
+					}
+				}	
 			}
 		'''
 	}

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import relatedSchemas.AllOf;
 import relatedSchemas.AnyOf;
 import relatedSchemas.Contains;
-import relatedSchemas.Dependency;
+import relatedSchemas.Dependencies;
 import relatedSchemas.EnclosingSchema;
 import relatedSchemas.IfThenElse;
 import relatedSchemas.Not;
@@ -35,7 +35,7 @@ import relatedSchemas.RelatedSchemasPackage;
  *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getOneOf <em>One Of</em>}</li>
  *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getNot <em>Not</em>}</li>
  *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getIfThenElse <em>If Then Else</em>}</li>
- *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getDependency <em>Dependency</em>}</li>
+ *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getContains <em>Contains</em>}</li>
  * </ul>
  *
@@ -103,14 +103,14 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	protected IfThenElse ifThenElse;
 
 	/**
-	 * The cached value of the '{@link #getDependency() <em>Dependency</em>}' containment reference.
+	 * The cached value of the '{@link #getDependencies() <em>Dependencies</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDependency()
+	 * @see #getDependencies()
 	 * @generated
 	 * @ordered
 	 */
-	protected Dependency dependency;
+	protected Dependencies dependencies;
 
 	/**
 	 * The cached value of the '{@link #getContains() <em>Contains</em>}' containment reference.
@@ -437,8 +437,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Dependency getDependency() {
-		return dependency;
+	public Dependencies getDependencies() {
+		return dependencies;
 	}
 
 	/**
@@ -446,12 +446,12 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDependency(Dependency newDependency, NotificationChain msgs) {
-		Dependency oldDependency = dependency;
-		dependency = newDependency;
+	public NotificationChain basicSetDependencies(Dependencies newDependencies, NotificationChain msgs) {
+		Dependencies oldDependencies = dependencies;
+		dependencies = newDependencies;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCY, oldDependency, newDependency);
+					RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCIES, oldDependencies, newDependencies);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -465,21 +465,21 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDependency(Dependency newDependency) {
-		if (newDependency != dependency) {
+	public void setDependencies(Dependencies newDependencies) {
+		if (newDependencies != dependencies) {
 			NotificationChain msgs = null;
-			if (dependency != null)
-				msgs = ((InternalEObject) dependency).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCY, null, msgs);
-			if (newDependency != null)
-				msgs = ((InternalEObject) newDependency).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCY, null, msgs);
-			msgs = basicSetDependency(newDependency, msgs);
+			if (dependencies != null)
+				msgs = ((InternalEObject) dependencies).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCIES, null, msgs);
+			if (newDependencies != null)
+				msgs = ((InternalEObject) newDependencies).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCIES, null, msgs);
+			msgs = basicSetDependencies(newDependencies, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCY,
-					newDependency, newDependency));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCIES,
+					newDependencies, newDependencies));
 	}
 
 	/**
@@ -550,8 +550,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 			return basicSetNot(null, msgs);
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__IF_THEN_ELSE:
 			return basicSetIfThenElse(null, msgs);
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCY:
-			return basicSetDependency(null, msgs);
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCIES:
+			return basicSetDependencies(null, msgs);
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
 			return basicSetContains(null, msgs);
 		}
@@ -580,8 +580,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 			return getNot();
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__IF_THEN_ELSE:
 			return getIfThenElse();
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCY:
-			return getDependency();
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCIES:
+			return getDependencies();
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
 			return getContains();
 		}
@@ -614,8 +614,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__IF_THEN_ELSE:
 			setIfThenElse((IfThenElse) newValue);
 			return;
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCY:
-			setDependency((Dependency) newValue);
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCIES:
+			setDependencies((Dependencies) newValue);
 			return;
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
 			setContains((Contains) newValue);
@@ -650,8 +650,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__IF_THEN_ELSE:
 			setIfThenElse((IfThenElse) null);
 			return;
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCY:
-			setDependency((Dependency) null);
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCIES:
+			setDependencies((Dependencies) null);
 			return;
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
 			setContains((Contains) null);
@@ -680,8 +680,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 			return not != null;
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__IF_THEN_ELSE:
 			return ifThenElse != null;
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCY:
-			return dependency != null;
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCIES:
+			return dependencies != null;
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
 			return contains != null;
 		}

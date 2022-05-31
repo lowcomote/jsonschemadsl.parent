@@ -21,17 +21,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import relatedSchemas.EnclosingSchema;
+import relatedSchemas.Dependencies;
 import relatedSchemas.RelatedSchemasFactory;
 import relatedSchemas.RelatedSchemasPackage;
 
 /**
- * This is the item provider adapter for a {@link relatedSchemas.EnclosingSchema} object.
+ * This is the item provider adapter for a {@link relatedSchemas.Dependencies} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class DependenciesItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -39,7 +39,7 @@ public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnclosingSchemaItemProvider(AdapterFactory adapterFactory) {
+	public DependenciesItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -70,13 +70,7 @@ public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements 
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ANY_OF);
-			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ALL_OF);
-			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ONE_OF);
-			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__NOT);
-			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__IF_THEN_ELSE);
-			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__DEPENDENCIES);
-			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__CONTAINS);
+			childrenFeatures.add(RelatedSchemasPackage.Literals.DEPENDENCIES__DEPENDENCIES);
 		}
 		return childrenFeatures;
 	}
@@ -95,14 +89,14 @@ public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements 
 	}
 
 	/**
-	 * This returns EnclosingSchema.gif.
+	 * This returns Dependencies.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/EnclosingSchema"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Dependencies"));
 	}
 
 	/**
@@ -123,7 +117,7 @@ public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements 
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_EnclosingSchema_type");
+		return getString("_UI_Dependencies_type");
 	}
 
 	/**
@@ -137,14 +131,8 @@ public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements 
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(EnclosingSchema.class)) {
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ANY_OF:
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ALL_OF:
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ONE_OF:
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__NOT:
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__IF_THEN_ELSE:
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCIES:
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
+		switch (notification.getFeatureID(Dependencies.class)) {
+		case RelatedSchemasPackage.DEPENDENCIES__DEPENDENCIES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -162,26 +150,8 @@ public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements 
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ANY_OF,
-				RelatedSchemasFactory.eINSTANCE.createAnyOf()));
-
-		newChildDescriptors.add(createChildParameter(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ALL_OF,
-				RelatedSchemasFactory.eINSTANCE.createAllOf()));
-
-		newChildDescriptors.add(createChildParameter(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ONE_OF,
-				RelatedSchemasFactory.eINSTANCE.createOneOf()));
-
-		newChildDescriptors.add(createChildParameter(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__NOT,
-				RelatedSchemasFactory.eINSTANCE.createNot()));
-
-		newChildDescriptors.add(createChildParameter(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__IF_THEN_ELSE,
-				RelatedSchemasFactory.eINSTANCE.createIfThenElse()));
-
-		newChildDescriptors.add(createChildParameter(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__DEPENDENCIES,
-				RelatedSchemasFactory.eINSTANCE.createDependencies()));
-
-		newChildDescriptors.add(createChildParameter(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__CONTAINS,
-				RelatedSchemasFactory.eINSTANCE.createContains()));
+		newChildDescriptors.add(createChildParameter(RelatedSchemasPackage.Literals.DEPENDENCIES__DEPENDENCIES,
+				RelatedSchemasFactory.eINSTANCE.createDependency()));
 	}
 
 	/**

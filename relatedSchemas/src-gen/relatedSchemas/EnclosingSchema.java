@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link relatedSchemas.EnclosingSchema#getOneOf <em>One Of</em>}</li>
  *   <li>{@link relatedSchemas.EnclosingSchema#getNot <em>Not</em>}</li>
  *   <li>{@link relatedSchemas.EnclosingSchema#getIfThenElse <em>If Then Else</em>}</li>
- *   <li>{@link relatedSchemas.EnclosingSchema#getDependency <em>Dependency</em>}</li>
+ *   <li>{@link relatedSchemas.EnclosingSchema#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link relatedSchemas.EnclosingSchema#getContains <em>Contains</em>}</li>
  * </ul>
  *
@@ -162,26 +162,26 @@ public interface EnclosingSchema extends EObject {
 	void setIfThenElse(IfThenElse value);
 
 	/**
-	 * Returns the value of the '<em><b>Dependency</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Dependencies</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dependency</em>' containment reference.
-	 * @see #setDependency(Dependency)
-	 * @see relatedSchemas.RelatedSchemasPackage#getEnclosingSchema_Dependency()
+	 * @return the value of the '<em>Dependencies</em>' containment reference.
+	 * @see #setDependencies(Dependencies)
+	 * @see relatedSchemas.RelatedSchemasPackage#getEnclosingSchema_Dependencies()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Dependency getDependency();
+	Dependencies getDependencies();
 
 	/**
-	 * Sets the value of the '{@link relatedSchemas.EnclosingSchema#getDependency <em>Dependency</em>}' containment reference.
+	 * Sets the value of the '{@link relatedSchemas.EnclosingSchema#getDependencies <em>Dependencies</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dependency</em>' containment reference.
-	 * @see #getDependency()
+	 * @param value the new value of the '<em>Dependencies</em>' containment reference.
+	 * @see #getDependencies()
 	 * @generated
 	 */
-	void setDependency(Dependency value);
+	void setDependencies(Dependencies value);
 
 	/**
 	 * Returns the value of the '<em><b>Contains</b></em>' containment reference.

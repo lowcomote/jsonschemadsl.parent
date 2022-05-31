@@ -70,10 +70,12 @@ public class RelatedSchemasFactoryImpl extends EFactoryImpl implements RelatedSc
 			return createNot();
 		case RelatedSchemasPackage.IF_THEN_ELSE:
 			return createIfThenElse();
-		case RelatedSchemasPackage.DEPENDENCY:
-			return createDependency();
+		case RelatedSchemasPackage.DEPENDENCIES:
+			return createDependencies();
 		case RelatedSchemasPackage.CONTAINS:
 			return createContains();
+		case RelatedSchemasPackage.DEPENDENCY:
+			return createDependency();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -154,9 +156,9 @@ public class RelatedSchemasFactoryImpl extends EFactoryImpl implements RelatedSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Dependency createDependency() {
-		DependencyImpl dependency = new DependencyImpl();
-		return dependency;
+	public Dependencies createDependencies() {
+		DependenciesImpl dependencies = new DependenciesImpl();
+		return dependencies;
 	}
 
 	/**
@@ -167,6 +169,16 @@ public class RelatedSchemasFactoryImpl extends EFactoryImpl implements RelatedSc
 	public Contains createContains() {
 		ContainsImpl contains = new ContainsImpl();
 		return contains;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Dependency createDependency() {
+		DependencyImpl dependency = new DependencyImpl();
+		return dependency;
 	}
 
 	/**

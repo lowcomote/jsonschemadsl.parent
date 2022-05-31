@@ -22,7 +22,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/oneOf"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/not"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/ifThenElse"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/dependency"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/dependencies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/contains"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//AllOf">
@@ -39,11 +39,15 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//IfThenElse/then"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//IfThenElse/else"/>
     </genClasses>
-    <genClasses ecoreClass="relatedSchemas.ecore#//Dependency">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Dependency/dependency"/>
+    <genClasses ecoreClass="relatedSchemas.ecore#//Dependencies">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Dependencies/dependencies"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//Contains">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Contains/contains"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//Dependency">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Dependency/dependency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relatedSchemas.ecore#//Dependency/property"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

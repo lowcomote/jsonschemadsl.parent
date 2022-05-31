@@ -2,6 +2,7 @@
  */
 package relatedSchemas;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -194,13 +195,13 @@ public interface RelatedSchemasPackage extends EPackage {
 	int ENCLOSING_SCHEMA__IF_THEN_ELSE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Dependency</b></em>' containment reference.
+	 * The feature id for the '<em><b>Dependencies</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENCLOSING_SCHEMA__DEPENDENCY = 6;
+	int ENCLOSING_SCHEMA__DEPENDENCIES = 6;
 
 	/**
 	 * The feature id for the '<em><b>Contains</b></em>' containment reference.
@@ -396,41 +397,41 @@ public interface RelatedSchemasPackage extends EPackage {
 	int IF_THEN_ELSE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link relatedSchemas.impl.DependencyImpl <em>Dependency</em>}' class.
+	 * The meta object id for the '{@link relatedSchemas.impl.DependenciesImpl <em>Dependencies</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see relatedSchemas.impl.DependencyImpl
-	 * @see relatedSchemas.impl.RelatedSchemasPackageImpl#getDependency()
+	 * @see relatedSchemas.impl.DependenciesImpl
+	 * @see relatedSchemas.impl.RelatedSchemasPackageImpl#getDependencies()
 	 * @generated
 	 */
-	int DEPENDENCY = 7;
+	int DEPENDENCIES = 7;
 
 	/**
-	 * The feature id for the '<em><b>Dependency</b></em>' reference.
+	 * The feature id for the '<em><b>Dependencies</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCY__DEPENDENCY = 0;
+	int DEPENDENCIES__DEPENDENCIES = 0;
 
 	/**
-	 * The number of structural features of the '<em>Dependency</em>' class.
+	 * The number of structural features of the '<em>Dependencies</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCY_FEATURE_COUNT = 1;
+	int DEPENDENCIES_FEATURE_COUNT = 1;
 
 	/**
-	 * The number of operations of the '<em>Dependency</em>' class.
+	 * The number of operations of the '<em>Dependencies</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEPENDENCY_OPERATION_COUNT = 0;
+	int DEPENDENCIES_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link relatedSchemas.impl.ContainsImpl <em>Contains</em>}' class.
@@ -468,6 +469,52 @@ public interface RelatedSchemasPackage extends EPackage {
 	 * @ordered
 	 */
 	int CONTAINS_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link relatedSchemas.impl.DependencyImpl <em>Dependency</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see relatedSchemas.impl.DependencyImpl
+	 * @see relatedSchemas.impl.RelatedSchemasPackageImpl#getDependency()
+	 * @generated
+	 */
+	int DEPENDENCY = 9;
+
+	/**
+	 * The feature id for the '<em><b>Dependency</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDENCY__DEPENDENCY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDENCY__PROPERTY = 1;
+
+	/**
+	 * The number of structural features of the '<em>Dependency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDENCY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Dependency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEPENDENCY_OPERATION_COUNT = 0;
 
 	/**
 	 * Returns the meta object for class '{@link relatedSchemas.RelatedSchemas <em>Related Schemas</em>}'.
@@ -588,15 +635,15 @@ public interface RelatedSchemasPackage extends EPackage {
 	EReference getEnclosingSchema_IfThenElse();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link relatedSchemas.EnclosingSchema#getDependency <em>Dependency</em>}'.
+	 * Returns the meta object for the containment reference '{@link relatedSchemas.EnclosingSchema#getDependencies <em>Dependencies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Dependency</em>'.
-	 * @see relatedSchemas.EnclosingSchema#getDependency()
+	 * @return the meta object for the containment reference '<em>Dependencies</em>'.
+	 * @see relatedSchemas.EnclosingSchema#getDependencies()
 	 * @see #getEnclosingSchema()
 	 * @generated
 	 */
-	EReference getEnclosingSchema_Dependency();
+	EReference getEnclosingSchema_Dependencies();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link relatedSchemas.EnclosingSchema#getContains <em>Contains</em>}'.
@@ -716,25 +763,25 @@ public interface RelatedSchemasPackage extends EPackage {
 	EReference getIfThenElse_Else();
 
 	/**
-	 * Returns the meta object for class '{@link relatedSchemas.Dependency <em>Dependency</em>}'.
+	 * Returns the meta object for class '{@link relatedSchemas.Dependencies <em>Dependencies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Dependency</em>'.
-	 * @see relatedSchemas.Dependency
+	 * @return the meta object for class '<em>Dependencies</em>'.
+	 * @see relatedSchemas.Dependencies
 	 * @generated
 	 */
-	EClass getDependency();
+	EClass getDependencies();
 
 	/**
-	 * Returns the meta object for the reference '{@link relatedSchemas.Dependency#getDependency <em>Dependency</em>}'.
+	 * Returns the meta object for the containment reference list '{@link relatedSchemas.Dependencies#getDependencies <em>Dependencies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Dependency</em>'.
-	 * @see relatedSchemas.Dependency#getDependency()
-	 * @see #getDependency()
+	 * @return the meta object for the containment reference list '<em>Dependencies</em>'.
+	 * @see relatedSchemas.Dependencies#getDependencies()
+	 * @see #getDependencies()
 	 * @generated
 	 */
-	EReference getDependency_Dependency();
+	EReference getDependencies_Dependencies();
 
 	/**
 	 * Returns the meta object for class '{@link relatedSchemas.Contains <em>Contains</em>}'.
@@ -756,6 +803,38 @@ public interface RelatedSchemasPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getContains_Contains();
+
+	/**
+	 * Returns the meta object for class '{@link relatedSchemas.Dependency <em>Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Dependency</em>'.
+	 * @see relatedSchemas.Dependency
+	 * @generated
+	 */
+	EClass getDependency();
+
+	/**
+	 * Returns the meta object for the reference '{@link relatedSchemas.Dependency#getDependency <em>Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Dependency</em>'.
+	 * @see relatedSchemas.Dependency#getDependency()
+	 * @see #getDependency()
+	 * @generated
+	 */
+	EReference getDependency_Dependency();
+
+	/**
+	 * Returns the meta object for the attribute '{@link relatedSchemas.Dependency#getProperty <em>Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Property</em>'.
+	 * @see relatedSchemas.Dependency#getProperty()
+	 * @see #getDependency()
+	 * @generated
+	 */
+	EAttribute getDependency_Property();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -875,12 +954,12 @@ public interface RelatedSchemasPackage extends EPackage {
 		EReference ENCLOSING_SCHEMA__IF_THEN_ELSE = eINSTANCE.getEnclosingSchema_IfThenElse();
 
 		/**
-		 * The meta object literal for the '<em><b>Dependency</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Dependencies</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENCLOSING_SCHEMA__DEPENDENCY = eINSTANCE.getEnclosingSchema_Dependency();
+		EReference ENCLOSING_SCHEMA__DEPENDENCIES = eINSTANCE.getEnclosingSchema_Dependencies();
 
 		/**
 		 * The meta object literal for the '<em><b>Contains</b></em>' containment reference feature.
@@ -979,22 +1058,22 @@ public interface RelatedSchemasPackage extends EPackage {
 		EReference IF_THEN_ELSE__ELSE = eINSTANCE.getIfThenElse_Else();
 
 		/**
-		 * The meta object literal for the '{@link relatedSchemas.impl.DependencyImpl <em>Dependency</em>}' class.
+		 * The meta object literal for the '{@link relatedSchemas.impl.DependenciesImpl <em>Dependencies</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see relatedSchemas.impl.DependencyImpl
-		 * @see relatedSchemas.impl.RelatedSchemasPackageImpl#getDependency()
+		 * @see relatedSchemas.impl.DependenciesImpl
+		 * @see relatedSchemas.impl.RelatedSchemasPackageImpl#getDependencies()
 		 * @generated
 		 */
-		EClass DEPENDENCY = eINSTANCE.getDependency();
+		EClass DEPENDENCIES = eINSTANCE.getDependencies();
 
 		/**
-		 * The meta object literal for the '<em><b>Dependency</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Dependencies</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DEPENDENCY__DEPENDENCY = eINSTANCE.getDependency_Dependency();
+		EReference DEPENDENCIES__DEPENDENCIES = eINSTANCE.getDependencies_Dependencies();
 
 		/**
 		 * The meta object literal for the '{@link relatedSchemas.impl.ContainsImpl <em>Contains</em>}' class.
@@ -1013,6 +1092,32 @@ public interface RelatedSchemasPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONTAINS__CONTAINS = eINSTANCE.getContains_Contains();
+
+		/**
+		 * The meta object literal for the '{@link relatedSchemas.impl.DependencyImpl <em>Dependency</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see relatedSchemas.impl.DependencyImpl
+		 * @see relatedSchemas.impl.RelatedSchemasPackageImpl#getDependency()
+		 * @generated
+		 */
+		EClass DEPENDENCY = eINSTANCE.getDependency();
+
+		/**
+		 * The meta object literal for the '<em><b>Dependency</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DEPENDENCY__DEPENDENCY = eINSTANCE.getDependency_Dependency();
+
+		/**
+		 * The meta object literal for the '<em><b>Property</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEPENDENCY__PROPERTY = eINSTANCE.getDependency_Property();
 
 	}
 

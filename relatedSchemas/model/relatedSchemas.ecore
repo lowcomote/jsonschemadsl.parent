@@ -21,7 +21,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="not" eType="#//Not" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ifThenElse" eType="#//IfThenElse"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" eType="#//Dependency"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" eType="#//Dependencies"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains" eType="#//Contains"
         containment="true"/>
@@ -42,12 +42,18 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="then" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="else" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Dependency">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" lowerBound="1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Dependencies">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"
+        eType="#//Dependency" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Contains">
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dependency">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

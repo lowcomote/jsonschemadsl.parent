@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link relatedSchemas.Dependency#getDependency <em>Dependency</em>}</li>
+ *   <li>{@link relatedSchemas.Dependency#getProperty <em>Property</em>}</li>
  * </ul>
  *
  * @see relatedSchemas.RelatedSchemasPackage#getDependency()
@@ -43,5 +44,27 @@ public interface Dependency extends EObject {
 	 * @generated
 	 */
 	void setDependency(EClass value);
+
+	/**
+	 * Returns the value of the '<em><b>Property</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Property</em>' attribute.
+	 * @see #setProperty(String)
+	 * @see relatedSchemas.RelatedSchemasPackage#getDependency_Property()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getProperty();
+
+	/**
+	 * Sets the value of the '{@link relatedSchemas.Dependency#getProperty <em>Property</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Property</em>' attribute.
+	 * @see #getProperty()
+	 * @generated
+	 */
+	void setProperty(String value);
 
 } // Dependency

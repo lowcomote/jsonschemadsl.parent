@@ -115,9 +115,9 @@ public class RelatedSchemasSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case RelatedSchemasPackage.DEPENDENCY: {
-			Dependency dependency = (Dependency) theEObject;
-			T result = caseDependency(dependency);
+		case RelatedSchemasPackage.DEPENDENCIES: {
+			Dependencies dependencies = (Dependencies) theEObject;
+			T result = caseDependencies(dependencies);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -125,6 +125,13 @@ public class RelatedSchemasSwitch<T> extends Switch<T> {
 		case RelatedSchemasPackage.CONTAINS: {
 			Contains contains = (Contains) theEObject;
 			T result = caseContains(contains);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RelatedSchemasPackage.DEPENDENCY: {
+			Dependency dependency = (Dependency) theEObject;
+			T result = caseDependency(dependency);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -240,17 +247,17 @@ public class RelatedSchemasSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Dependency</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Dependencies</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Dependency</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Dependencies</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseDependency(Dependency object) {
+	public T caseDependencies(Dependencies object) {
 		return null;
 	}
 
@@ -266,6 +273,21 @@ public class RelatedSchemasSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseContains(Contains object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Dependency</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Dependency</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDependency(Dependency object) {
 		return null;
 	}
 

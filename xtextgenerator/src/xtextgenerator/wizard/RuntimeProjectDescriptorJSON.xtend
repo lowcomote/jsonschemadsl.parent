@@ -22,6 +22,7 @@ import java.util.HashMap
 import java.util.Map
 import java.util.ArrayDeque
 import xtextgenerator.ui.utils.Ecore2XtextJSONExtensions
+import relatedSchemas.Dependency
 
 class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	
@@ -126,9 +127,15 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 				}
 				 
 			}
-			if(enclosingSchema.dependency !== null){
-				val EClass rootElementClass = enclosingSchema.dependency.dependency
-				subRootElementClasses.add(rootElementClass)
+//			if(enclosingSchema.dependency !== null){
+//				val EClass rootElementClass = enclosingSchema.dependency.dependency
+//				subRootElementClasses.add(rootElementClass)
+//			}
+			if(enclosingSchema.dependencies !== null){
+				for(Dependency dependency:enclosingSchema.dependencies.dependencies){
+					val EClass rootElementClass =dependency.dependency
+					subRootElementClasses.add(rootElementClass)
+				}
 			}
 			if(enclosingSchema.contains !== null){
 				val EClass rootElementClass = enclosingSchema.contains.contains

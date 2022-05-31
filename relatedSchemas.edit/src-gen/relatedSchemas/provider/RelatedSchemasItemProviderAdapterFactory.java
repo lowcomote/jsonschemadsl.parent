@@ -234,26 +234,26 @@ public class RelatedSchemasItemProviderAdapterFactory extends RelatedSchemasAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link relatedSchemas.Dependency} instances.
+	 * This keeps track of the one adapter used for all {@link relatedSchemas.Dependencies} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DependencyItemProvider dependencyItemProvider;
+	protected DependenciesItemProvider dependenciesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link relatedSchemas.Dependency}.
+	 * This creates an adapter for a {@link relatedSchemas.Dependencies}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDependencyAdapter() {
-		if (dependencyItemProvider == null) {
-			dependencyItemProvider = new DependencyItemProvider(this);
+	public Adapter createDependenciesAdapter() {
+		if (dependenciesItemProvider == null) {
+			dependenciesItemProvider = new DependenciesItemProvider(this);
 		}
 
-		return dependencyItemProvider;
+		return dependenciesItemProvider;
 	}
 
 	/**
@@ -277,6 +277,29 @@ public class RelatedSchemasItemProviderAdapterFactory extends RelatedSchemasAdap
 		}
 
 		return containsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link relatedSchemas.Dependency} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DependencyItemProvider dependencyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link relatedSchemas.Dependency}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDependencyAdapter() {
+		if (dependencyItemProvider == null) {
+			dependencyItemProvider = new DependencyItemProvider(this);
+		}
+
+		return dependencyItemProvider;
 	}
 
 	/**
@@ -392,10 +415,12 @@ public class RelatedSchemasItemProviderAdapterFactory extends RelatedSchemasAdap
 			notItemProvider.dispose();
 		if (ifThenElseItemProvider != null)
 			ifThenElseItemProvider.dispose();
-		if (dependencyItemProvider != null)
-			dependencyItemProvider.dispose();
+		if (dependenciesItemProvider != null)
+			dependenciesItemProvider.dispose();
 		if (containsItemProvider != null)
 			containsItemProvider.dispose();
+		if (dependencyItemProvider != null)
+			dependencyItemProvider.dispose();
 	}
 
 }

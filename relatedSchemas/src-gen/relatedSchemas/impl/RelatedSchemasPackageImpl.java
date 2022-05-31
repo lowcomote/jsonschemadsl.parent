@@ -2,6 +2,7 @@
  */
 package relatedSchemas.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -11,6 +12,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import relatedSchemas.AllOf;
 import relatedSchemas.AnyOf;
 import relatedSchemas.Contains;
+import relatedSchemas.Dependencies;
 import relatedSchemas.Dependency;
 import relatedSchemas.EnclosingSchema;
 import relatedSchemas.IfThenElse;
@@ -81,7 +83,7 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass dependencyEClass = null;
+	private EClass dependenciesEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -89,6 +91,13 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 	 * @generated
 	 */
 	private EClass containsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dependencyEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -258,7 +267,7 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEnclosingSchema_Dependency() {
+	public EReference getEnclosingSchema_Dependencies() {
 		return (EReference) enclosingSchemaEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -366,8 +375,8 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDependency() {
-		return dependencyEClass;
+	public EClass getDependencies() {
+		return dependenciesEClass;
 	}
 
 	/**
@@ -375,8 +384,8 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDependency_Dependency() {
-		return (EReference) dependencyEClass.getEStructuralFeatures().get(0);
+	public EReference getDependencies_Dependencies() {
+		return (EReference) dependenciesEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -395,6 +404,33 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 	 */
 	public EReference getContains_Contains() {
 		return (EReference) containsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDependency() {
+		return dependencyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDependency_Dependency() {
+		return (EReference) dependencyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDependency_Property() {
+		return (EAttribute) dependencyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -439,7 +475,7 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 		createEReference(enclosingSchemaEClass, ENCLOSING_SCHEMA__ONE_OF);
 		createEReference(enclosingSchemaEClass, ENCLOSING_SCHEMA__NOT);
 		createEReference(enclosingSchemaEClass, ENCLOSING_SCHEMA__IF_THEN_ELSE);
-		createEReference(enclosingSchemaEClass, ENCLOSING_SCHEMA__DEPENDENCY);
+		createEReference(enclosingSchemaEClass, ENCLOSING_SCHEMA__DEPENDENCIES);
 		createEReference(enclosingSchemaEClass, ENCLOSING_SCHEMA__CONTAINS);
 
 		allOfEClass = createEClass(ALL_OF);
@@ -456,11 +492,15 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 		createEReference(ifThenElseEClass, IF_THEN_ELSE__THEN);
 		createEReference(ifThenElseEClass, IF_THEN_ELSE__ELSE);
 
-		dependencyEClass = createEClass(DEPENDENCY);
-		createEReference(dependencyEClass, DEPENDENCY__DEPENDENCY);
+		dependenciesEClass = createEClass(DEPENDENCIES);
+		createEReference(dependenciesEClass, DEPENDENCIES__DEPENDENCIES);
 
 		containsEClass = createEClass(CONTAINS);
 		createEReference(containsEClass, CONTAINS__CONTAINS);
+
+		dependencyEClass = createEClass(DEPENDENCY);
+		createEReference(dependencyEClass, DEPENDENCY__DEPENDENCY);
+		createEAttribute(dependencyEClass, DEPENDENCY__PROPERTY);
 	}
 
 	/**
@@ -525,7 +565,7 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 		initEReference(getEnclosingSchema_IfThenElse(), this.getIfThenElse(), null, "ifThenElse", null, 0, 1,
 				EnclosingSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnclosingSchema_Dependency(), this.getDependency(), null, "dependency", null, 0, 1,
+		initEReference(getEnclosingSchema_Dependencies(), this.getDependencies(), null, "dependencies", null, 0, 1,
 				EnclosingSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnclosingSchema_Contains(), this.getContains(), null, "contains", null, 0, 1,
@@ -559,10 +599,10 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(dependenciesEClass, Dependencies.class, "Dependencies", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDependency_Dependency(), ecorePackage.getEClass(), null, "dependency", null, 1, 1,
-				Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+		initEReference(getDependencies_Dependencies(), this.getDependency(), null, "dependencies", null, 0, -1,
+				Dependencies.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(containsEClass, Contains.class, "Contains", !IS_ABSTRACT, !IS_INTERFACE,
@@ -570,6 +610,14 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 		initEReference(getContains_Contains(), ecorePackage.getEClass(), null, "contains", null, 1, 1, Contains.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dependencyEClass, Dependency.class, "Dependency", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDependency_Dependency(), ecorePackage.getEClass(), null, "dependency", null, 1, 1,
+				Dependency.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDependency_Property(), ecorePackage.getEString(), "property", null, 1, 1, Dependency.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

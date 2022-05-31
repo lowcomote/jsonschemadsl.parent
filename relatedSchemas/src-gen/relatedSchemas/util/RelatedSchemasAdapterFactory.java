@@ -102,13 +102,18 @@ public class RelatedSchemasAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseDependency(Dependency object) {
-			return createDependencyAdapter();
+		public Adapter caseDependencies(Dependencies object) {
+			return createDependenciesAdapter();
 		}
 
 		@Override
 		public Adapter caseContains(Contains object) {
 			return createContainsAdapter();
+		}
+
+		@Override
+		public Adapter caseDependency(Dependency object) {
+			return createDependencyAdapter();
 		}
 
 		@Override
@@ -229,16 +234,16 @@ public class RelatedSchemasAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link relatedSchemas.Dependency <em>Dependency</em>}'.
+	 * Creates a new adapter for an object of class '{@link relatedSchemas.Dependencies <em>Dependencies</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see relatedSchemas.Dependency
+	 * @see relatedSchemas.Dependencies
 	 * @generated
 	 */
-	public Adapter createDependencyAdapter() {
+	public Adapter createDependenciesAdapter() {
 		return null;
 	}
 
@@ -253,6 +258,20 @@ public class RelatedSchemasAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createContainsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link relatedSchemas.Dependency <em>Dependency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see relatedSchemas.Dependency
+	 * @generated
+	 */
+	public Adapter createDependencyAdapter() {
 		return null;
 	}
 
