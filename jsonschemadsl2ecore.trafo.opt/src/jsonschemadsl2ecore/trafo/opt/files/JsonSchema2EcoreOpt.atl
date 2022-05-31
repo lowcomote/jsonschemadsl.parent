@@ -736,6 +736,21 @@ lazy rule requiredInPropertiesToOcl{
 	}
 }
 
+lazy rule dependenciesArrayOcl{
+	from dependenciesAdditionalPropertiesAnyOf2 : JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf2(dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasTypeObject())
+	using {
+		enclosingEClassName : String = if dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasSimpleTypeObject() then dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve().name
+										 else	dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#"\"object\"")
+										 endif;	
+		property : String = dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().key.stripFirstAndLast();
+		values : Sequence(String) = dependenciesAdditionalPropertiesAnyOf2.anyOf2.values;
+	}
+	do{
+		thisModule.appendDependenciesArrayOcl(thisModule.packageName, enclosingEClassName, enclosingEClassName+'DependenciesArray', property, values);
+	}
+}
+
+
 --lazy rule requiredInPropertiesToOcl_old{
 --	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
 --	using {
@@ -765,6 +780,7 @@ lazy rule requiredInPropertiesToOcl{
 --}
 
 lazy rule patternPropertiesRegexToOcl{
+	--- TODO add condition that the patterproperties has an eclosing schema that hasTypeObject()
 	---- keySchemaPair isInPatternProperties
 	from keySchemaPair: JSchemaMM!KeySchemaPair(keySchemaPair.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition))
 	using {
@@ -996,6 +1012,10 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 			if(ksp.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition)){
 				thisModule.patternPropertiesRegexToOcl(ksp);
 			}
+		}
+		
+		for(dependenciesAdditionalPropertiesAnyOf2 in JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf2.allInstancesFrom('jschema')){
+			thisModule.dependenciesArrayOcl(dependenciesAdditionalPropertiesAnyOf2);
 		}
 		
 		------------------ Derived Attributes and operation get (String key)

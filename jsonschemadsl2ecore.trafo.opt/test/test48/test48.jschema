@@ -1,0 +1,36 @@
+{ 
+	"type":"object",
+	"properties":{
+		"prop3":{
+			"type":"array",
+			"dependencies":{
+				"propZ":["propY","propW"]
+			}
+		},
+		"prop4":{ 
+			"type":"object",
+			"properties":{
+				"prop5":{"type":"boolean"}
+			},
+			"patternProperties":{
+				"^I":{"type":"integer"},
+				"^S":{"type":"string"}
+			},
+			"dependencies":{
+				"prop5":["Ingrid","prop51"],
+				"Iland":["Sardegna"], 
+				"prop51":["prop52"]
+			}
+		},
+		"prop6":{
+			"dependencies":{
+				"prop8":["prop8A","prop8B"],
+				"prop9":["prop9C","prop9D"]
+			}
+		}
+	},
+	"dependencies":{
+		"prop1":["propA","propB"],
+		"prop2":["propC","propD"]
+	}
+}  

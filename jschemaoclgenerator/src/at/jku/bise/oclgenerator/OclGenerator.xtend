@@ -1,6 +1,7 @@
 package at.jku.bise.oclgenerator
 
 import org.eclipse.emf.common.util.URI
+import java.util.List
 
 class OclGenerator {
 
@@ -43,6 +44,27 @@ class OclGenerator {
 			then true
 			else null
 			endif
+	'''
+	
+	def static appendDependenciesArray (URI fileName, String packageName, String contextClass, String inv, String property, List<String> values){
+		OclWriter.append(fileName, generateDependenciesArray(packageName, contextClass, inv, property, values))
+	}
+	
+	def static generateDependenciesArray(String packageName, String contextClass, String inv, String property, List<String> values)'''
+		«FOR value : values»
+			context «packageName»::«contextClass» 
+		
+			inv «inv»«property»«value» ('«contextClass» requires that if property «property» is present, also the property «value» must exist'):
+			if  not self.get('«property»').oclIsUndefined()
+			then 
+				if not self.get('«value»').oclIsUndefined() then true
+				else null
+				endif				
+			else true
+			endif
+			
+		«ENDFOR»
+		
 	'''
 	
 //	def static appendRequiredInPropertiesConstraint_old (URI fileName, String packageName, String contextClass, String inv, String requiredProperty, String requiredClassType, String propertyName){

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test47">
+  <detailedGrammar>
+    <curlyBracesReferences href="test47.ecore#//Test47Root/test47Root"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="test47.ecore#//Test47RootAdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
+    <rootEClass href="test47.ecore#//Test47Root"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>
