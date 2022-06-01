@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test55.ecore#//Test55Root"/>
+    <allOf>
+      <allOfs href="test55.ecore#//Test55RootAllOf0"/>
+      <allOfs href="test55.ecore#//Test55RootAllOf1"/>
+      <allOfs href="test55.ecore#//Test55RootAllOf2"/>
+    </allOf>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>
