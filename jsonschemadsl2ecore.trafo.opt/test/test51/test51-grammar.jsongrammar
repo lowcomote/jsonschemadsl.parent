@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test51">
+  <detailedGrammar>
+    <keywords xsi:type="ecore:EAttribute" href="test51.ecore#//Test51RootName/name"/>
+    <keywords xsi:type="ecore:EAttribute" href="test51.ecore#//Test51RootCredit_card/credit_card"/>
+    <keywords xsi:type="ecore:EAttribute" href="test51.ecore#//Test51RootDependencies0Billing_address/billing_address"/>
+    <keywords xsi:type="ecore:EAttribute" href="test51.ecore#//Test51RootDependencies1Billing_address2/billing_address2"/>
+    <curlyBracesReferences href="test51.ecore#//Test51RootTypeObject/test51Root"/>
+    <curlyBracesReferences href="test51.ecore#//Test51RootDependencies0TypeObject/test51Root"/>
+    <curlyBracesReferences href="test51.ecore#//Test51RootDependencies1TypeObject/test51Root"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <bracketsReferences href="test51.ecore#//Test51RootTypeArray/test51Root"/>
+    <bracketsReferences href="test51.ecore#//Test51RootDependencies0TypeArray/test51Root"/>
+    <bracketsReferences href="test51.ecore#//Test51RootDependencies1TypeArray/test51Root"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="test51.ecore#//Test51RootAdditionalProperties/key"/>
+    <keyValue href="test51.ecore#//Test51RootDependencies0AdditionalProperties/key"/>
+    <keyValue href="test51.ecore#//Test51RootDependencies1AdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
+    <rootEClass href="test51.ecore#//Test51Root"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>

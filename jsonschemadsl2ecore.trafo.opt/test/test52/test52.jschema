@@ -1,0 +1,35 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":"integer",
+			"dependencies":{
+				"prop1A":{
+					"required":["prop1B"]
+				}
+			}
+		},
+		"prop2":{
+			"type":"object",
+			"dependencies":{
+				"prop3":{"type":"boolean"}
+			}
+		},
+		"prop4":{
+			"type":"object",
+			"dependencies":{
+				"prop5":{
+					"dependencies":{
+						"prop6":{"type":"boolean"}
+					}
+					
+				}
+				 
+			}
+		}
+		
+	},
+	"patternProperties":{
+		"^S_":{"type":"string"}
+	}
+}

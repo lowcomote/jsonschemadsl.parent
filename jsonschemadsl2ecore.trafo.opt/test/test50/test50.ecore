@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test50" nsURI="http://jku.bise.at/test50" nsPrefix="test50">
+  <eClassifiers xsi:type="ecore:EClass" name="Test50Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test50Root" lowerBound="1"
+        eType="#//Test50RootAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootName" eSuperTypes="#//Test50RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="name"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootCredit_card" eSuperTypes="#//Test50RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="credit_card" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="credit_card"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test50Root" lowerBound="1"
+        eType="#//Test50RootDependencies0Abstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0Billing_address"
+      eSuperTypes="#//Test50RootDependencies0PropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="billing_address" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="billing_address"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootTypeString" eSuperTypes="#//Test50RootAbstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="string"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test50Root" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootTypeInteger" eSuperTypes="#//Test50RootAbstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="integer"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test50Root" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootTypeNumber" eSuperTypes="#//Test50RootAbstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="number"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test50Root" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootTypeBoolean" eSuperTypes="#//Test50RootAbstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="boolean"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test50Root" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootTypeObject" eSuperTypes="#//Test50RootAbstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="object"/>
+    </eAnnotations>
+    <eOperations name="get" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (&quot;name&quot;.equals(key) ){return this.getName();}&#xA;&#xA;if (&quot;credit_card&quot;.equals(key) ){return this.getCredit_card();}&#xA;&#xA;java.util.List&lt;java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList&lt;java.lang.Class>();&#xA;&#xA;additionalOrPatternPropertyClasses.add(test50.Test50RootAdditionalProperties.class); &#xA;&#xA;for (Test50RootPropertiesAbstract child : this.test50Root){&#xA;&#x9;if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){&#xA;&#x9;&#x9;try{&#xA;&#x9;&#x9;&#x9;java.lang.reflect.Field keyField = child.getClass().getDeclaredField(&quot;key&quot;);&#xA;&#x9;&#x9;&#x9;if (keyField.get(child).equals(key)) {&#xA;&#x9;&#x9;&#x9;&#x9;java.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals(&quot;additionalProperties&quot;) || field.getName().startsWith(&quot;patternProperties&quot;) ).findAny().get();&#xA;&#x9;&#x9;&#x9;&#x9;return valueField.get(child);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} catch (Exception e) {&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xA;&#x9;&#x9;&#x9;throw new RuntimeException(e);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;return null;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test50Root" upperBound="-1"
+        eType="#//Test50RootPropertiesAbstract" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" changeable="false"
+        volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest50Root().stream().filter(test50.Test50RootName.class::isInstance).findAny().map(test50.Test50RootName.class::cast).map(instance->instance.getName()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="credit_card" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest50Root().stream().filter(test50.Test50RootCredit_card.class::isInstance).findAny().map(test50.Test50RootCredit_card.class::cast).map(instance->instance.getCredit_card()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootPropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootAdditionalProperties" eSuperTypes="#//Test50RootPropertiesAbstract">
+    <eAnnotations source="AdditionalProperties">
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this.key.equals(&quot;name&quot;)){return &quot;name&quot;;}&#xA;&#xA;if (this.key.equals(&quot;credit_card&quot;)){return &quot;credit_card&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootTypeArray" eSuperTypes="#//Test50RootAbstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="array"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test50Root" upperBound="-1"
+        eType="#//Test50RootItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootTypeNull" eSuperTypes="#//Test50RootAbstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="null"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test50Root" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//NullValue" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0Abstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0TypeString" eSuperTypes="#//Test50RootDependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="string"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test50Root" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0TypeInteger"
+      eSuperTypes="#//Test50RootDependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="integer"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test50Root" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0TypeNumber" eSuperTypes="#//Test50RootDependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="number"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test50Root" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0TypeBoolean"
+      eSuperTypes="#//Test50RootDependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="boolean"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test50Root" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0TypeObject" eSuperTypes="#//Test50RootDependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="object"/>
+    </eAnnotations>
+    <eOperations name="get" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (&quot;billing_address&quot;.equals(key) ){return this.getBilling_address();}&#xA;&#xA;java.util.List&lt;java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList&lt;java.lang.Class>();&#xA;&#xA;additionalOrPatternPropertyClasses.add(test50.Test50RootDependencies0AdditionalProperties.class); &#xA;&#xA;for (Test50RootDependencies0PropertiesAbstract child : this.test50Root){&#xA;&#x9;if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){&#xA;&#x9;&#x9;try{&#xA;&#x9;&#x9;&#x9;java.lang.reflect.Field keyField = child.getClass().getDeclaredField(&quot;key&quot;);&#xA;&#x9;&#x9;&#x9;if (keyField.get(child).equals(key)) {&#xA;&#x9;&#x9;&#x9;&#x9;java.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals(&quot;additionalProperties&quot;) || field.getName().startsWith(&quot;patternProperties&quot;) ).findAny().get();&#xA;&#x9;&#x9;&#x9;&#x9;return valueField.get(child);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} catch (Exception e) {&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xA;&#x9;&#x9;&#x9;throw new RuntimeException(e);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;return null;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test50Root" upperBound="-1"
+        eType="#//Test50RootDependencies0PropertiesAbstract" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="billing_address" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest50Root().stream().filter(test50.Test50RootDependencies0Billing_address.class::isInstance).findAny().map(test50.Test50RootDependencies0Billing_address.class::cast).map(instance->instance.getBilling_address()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0PropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0AdditionalProperties"
+      eSuperTypes="#//Test50RootDependencies0PropertiesAbstract">
+    <eAnnotations source="AdditionalProperties">
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this.key.equals(&quot;billing_address&quot;)){return &quot;billing_address&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0TypeArray" eSuperTypes="#//Test50RootDependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="array"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test50Root" upperBound="-1"
+        eType="#//Test50RootDependencies0Items" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0Items">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test50RootDependencies0TypeNull" eSuperTypes="#//Test50RootDependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="null"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test50Root" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//NullValue" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

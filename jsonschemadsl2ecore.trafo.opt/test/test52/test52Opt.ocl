@@ -1,0 +1,119 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test52
+import 'http://jku.bise.at/test52'
+
+package test52
+
+	context test52::Test52RootAdditionalProperties 
+
+	inv Test52RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootAdditionalProperties 
+
+	inv Test52RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootProp1Dependencies0AdditionalProperties 
+
+	inv Test52RootProp1Dependencies0AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootProp1Dependencies0AdditionalProperties 
+
+	inv Test52RootProp1Dependencies0AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootProp2AdditionalProperties 
+
+	inv Test52RootProp2AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootProp2AdditionalProperties 
+
+	inv Test52RootProp2AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootProp4AdditionalProperties 
+
+	inv Test52RootProp4AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootProp4AdditionalProperties 
+
+	inv Test52RootProp4AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootProp4Dependencies0AdditionalProperties 
+
+	inv Test52RootProp4Dependencies0AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootProp4Dependencies0AdditionalProperties 
+
+	inv Test52RootProp4Dependencies0AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootPatternProperties0 
+
+	inv Test52RootPatternProperties0ValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootPatternProperties0 
+
+	inv Test52RootPatternProperties0ValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootProp1Dependencies0TypeObject 
+
+	inv Test52RootProp1Dependencies0TypeObjectRequiredprop1B ('Test52RootProp1Dependencies0TypeObject requires the property prop1B'):
+	if  not self.get('prop1B').oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test52::Test52RootPatternProperties0 
+
+	inv Test52RootPatternProperties0patternProperties0Regex ('the key must match the regular expression ^S_'):
+	if  self.find()
+	then true
+	else null
+	endif
+
+endpackage
+

@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test52" nsURI="http://jku.bise.at/test52" nsPrefix="test52">
+  <eClassifiers xsi:type="ecore:EClass" name="Test52Root">
+    <eOperations name="get" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (&quot;prop1&quot;.equals(key) ){return this.getProp1();}&#xA;&#xA;if (&quot;prop2&quot;.equals(key) ){return this.getProp2();}&#xA;&#xA;if (&quot;prop4&quot;.equals(key) ){return this.getProp4();}&#xA;&#xA;java.util.List&lt;java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList&lt;java.lang.Class>();&#xA;&#xA;additionalOrPatternPropertyClasses.add(test52.Test52RootPatternProperties0.class); &#xA;&#xA;additionalOrPatternPropertyClasses.add(test52.Test52RootAdditionalProperties.class); &#xA;&#xA;for (Test52RootPropertiesAbstract child : this.test52Root){&#xA;&#x9;if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){&#xA;&#x9;&#x9;try{&#xA;&#x9;&#x9;&#x9;java.lang.reflect.Field keyField = child.getClass().getDeclaredField(&quot;key&quot;);&#xA;&#x9;&#x9;&#x9;if (keyField.get(child).equals(key)) {&#xA;&#x9;&#x9;&#x9;&#x9;java.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals(&quot;additionalProperties&quot;) || field.getName().startsWith(&quot;patternProperties&quot;) ).findAny().get();&#xA;&#x9;&#x9;&#x9;&#x9;return valueField.get(child);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} catch (Exception e) {&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xA;&#x9;&#x9;&#x9;throw new RuntimeException(e);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;return null;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test52Root" upperBound="-1"
+        eType="#//Test52RootPropertiesAbstract" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest52Root().stream().filter(test52.Test52RootProp1.class::isInstance).findAny().map(test52.Test52RootProp1.class::cast).map(instance->instance.getProp1()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop2" ordered="false"
+        unique="false" eType="#//Test52RootProp2" changeable="false" volatile="true"
+        transient="true" derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest52Root().stream().filter(test52.Test52RootProp2.class::isInstance).findAny().map(test52.Test52RootProp2.class::cast).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop4" ordered="false"
+        unique="false" eType="#//Test52RootProp4" changeable="false" volatile="true"
+        transient="true" derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest52Root().stream().filter(test52.Test52RootProp4.class::isInstance).findAny().map(test52.Test52RootProp4.class::cast).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1" eSuperTypes="#//Test52RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" lowerBound="1" eType="#//Test52RootProp1Dependencies0Abstract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp2" eSuperTypes="#//Test52RootPropertiesAbstract">
+    <eOperations name="get" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.List&lt;java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList&lt;java.lang.Class>();&#xA;&#xA;additionalOrPatternPropertyClasses.add(test52.Test52RootProp2AdditionalProperties.class); &#xA;&#xA;for (Test52RootProp2PropertiesAbstract child : this.prop2){&#xA;&#x9;if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){&#xA;&#x9;&#x9;try{&#xA;&#x9;&#x9;&#x9;java.lang.reflect.Field keyField = child.getClass().getDeclaredField(&quot;key&quot;);&#xA;&#x9;&#x9;&#x9;if (keyField.get(child).equals(key)) {&#xA;&#x9;&#x9;&#x9;&#x9;java.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals(&quot;additionalProperties&quot;) || field.getName().startsWith(&quot;patternProperties&quot;) ).findAny().get();&#xA;&#x9;&#x9;&#x9;&#x9;return valueField.get(child);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} catch (Exception e) {&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xA;&#x9;&#x9;&#x9;throw new RuntimeException(e);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;return null;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop2" upperBound="-1"
+        eType="#//Test52RootProp2PropertiesAbstract" containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp2Dependencies0">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4" eSuperTypes="#//Test52RootPropertiesAbstract">
+    <eOperations name="get" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.List&lt;java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList&lt;java.lang.Class>();&#xA;&#xA;additionalOrPatternPropertyClasses.add(test52.Test52RootProp4AdditionalProperties.class); &#xA;&#xA;for (Test52RootProp4PropertiesAbstract child : this.prop4){&#xA;&#x9;if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){&#xA;&#x9;&#x9;try{&#xA;&#x9;&#x9;&#x9;java.lang.reflect.Field keyField = child.getClass().getDeclaredField(&quot;key&quot;);&#xA;&#x9;&#x9;&#x9;if (keyField.get(child).equals(key)) {&#xA;&#x9;&#x9;&#x9;&#x9;java.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals(&quot;additionalProperties&quot;) || field.getName().startsWith(&quot;patternProperties&quot;) ).findAny().get();&#xA;&#x9;&#x9;&#x9;&#x9;return valueField.get(child);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} catch (Exception e) {&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xA;&#x9;&#x9;&#x9;throw new RuntimeException(e);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;return null;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop4" upperBound="-1"
+        eType="#//Test52RootProp4PropertiesAbstract" containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop4"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop4" lowerBound="1" eType="#//Test52RootProp4Dependencies0Abstract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0Dependencies0">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop4" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop4"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootPatternProperties0" eSuperTypes="#//Test52RootPropertiesAbstract">
+    <eAnnotations source="PatternProperties">
+      <details key="PatternProperties" value="true"/>
+      <details key="pattern" value="&quot;^S_&quot;"/>
+    </eAnnotations>
+    <eOperations name="find" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p = java.util.regex.Pattern.compile(&quot;^S_&quot;);&#xA;java.util.regex.Matcher m = p.matcher(toBeEvaluated);&#xA;return m.find();"/>
+      </eAnnotations>
+      <eParameters name="toBeEvaluated" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="find" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p = java.util.regex.Pattern.compile(&quot;^S_&quot;);&#xA;java.util.regex.Matcher m = p.matcher(this.key);&#xA;return m.find();"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this.key.equals(&quot;prop1&quot;)){return &quot;prop1&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop2&quot;)){return &quot;prop2&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop4&quot;)){return &quot;prop4&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternProperties0" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootPropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootAdditionalProperties" eSuperTypes="#//Test52RootPropertiesAbstract">
+    <eAnnotations source="AdditionalProperties">
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p0 = java.util.regex.Pattern.compile(&quot;^S_&quot;);&#xA;java.util.regex.Matcher m0 = p0.matcher(this.key);&#xA;if (m0.find()){return &quot;^S_&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this.key.equals(&quot;prop1&quot;)){return &quot;prop1&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop2&quot;)){return &quot;prop2&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop4&quot;)){return &quot;prop4&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0Abstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0TypeString"
+      eSuperTypes="#//Test52RootProp1Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="string"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0TypeInteger"
+      eSuperTypes="#//Test52RootProp1Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="integer"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0TypeNumber"
+      eSuperTypes="#//Test52RootProp1Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="number"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0TypeBoolean"
+      eSuperTypes="#//Test52RootProp1Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="boolean"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0TypeObject"
+      eSuperTypes="#//Test52RootProp1Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="object"/>
+    </eAnnotations>
+    <eOperations name="get" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.List&lt;java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList&lt;java.lang.Class>();&#xA;&#xA;additionalOrPatternPropertyClasses.add(test52.Test52RootProp1Dependencies0AdditionalProperties.class); &#xA;&#xA;for (Test52RootProp1Dependencies0PropertiesAbstract child : this.prop1){&#xA;&#x9;if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){&#xA;&#x9;&#x9;try{&#xA;&#x9;&#x9;&#x9;java.lang.reflect.Field keyField = child.getClass().getDeclaredField(&quot;key&quot;);&#xA;&#x9;&#x9;&#x9;if (keyField.get(child).equals(key)) {&#xA;&#x9;&#x9;&#x9;&#x9;java.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals(&quot;additionalProperties&quot;) || field.getName().startsWith(&quot;patternProperties&quot;) ).findAny().get();&#xA;&#x9;&#x9;&#x9;&#x9;return valueField.get(child);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} catch (Exception e) {&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xA;&#x9;&#x9;&#x9;throw new RuntimeException(e);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;return null;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" upperBound="-1"
+        eType="#//Test52RootProp1Dependencies0PropertiesAbstract" containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0PropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0AdditionalProperties"
+      eSuperTypes="#//Test52RootProp1Dependencies0PropertiesAbstract">
+    <eAnnotations source="AdditionalProperties">
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0TypeArray"
+      eSuperTypes="#//Test52RootProp1Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="array"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" upperBound="-1"
+        eType="#//Test52RootProp1Dependencies0Items" containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0Items">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp1Dependencies0TypeNull"
+      eSuperTypes="#//Test52RootProp1Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="null"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//NullValue"
+        containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp2PropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp2AdditionalProperties"
+      eSuperTypes="#//Test52RootProp2PropertiesAbstract">
+    <eAnnotations source="AdditionalProperties">
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4PropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4AdditionalProperties"
+      eSuperTypes="#//Test52RootProp4PropertiesAbstract">
+    <eAnnotations source="AdditionalProperties">
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0Abstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0TypeString"
+      eSuperTypes="#//Test52RootProp4Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="string"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop4" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop4"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0TypeInteger"
+      eSuperTypes="#//Test52RootProp4Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="integer"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop4" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop4"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0TypeNumber"
+      eSuperTypes="#//Test52RootProp4Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="number"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop4" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop4"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0TypeBoolean"
+      eSuperTypes="#//Test52RootProp4Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="boolean"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop4" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop4"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0TypeObject"
+      eSuperTypes="#//Test52RootProp4Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="object"/>
+    </eAnnotations>
+    <eOperations name="get" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.List&lt;java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList&lt;java.lang.Class>();&#xA;&#xA;additionalOrPatternPropertyClasses.add(test52.Test52RootProp4Dependencies0AdditionalProperties.class); &#xA;&#xA;for (Test52RootProp4Dependencies0PropertiesAbstract child : this.prop4){&#xA;&#x9;if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){&#xA;&#x9;&#x9;try{&#xA;&#x9;&#x9;&#x9;java.lang.reflect.Field keyField = child.getClass().getDeclaredField(&quot;key&quot;);&#xA;&#x9;&#x9;&#x9;if (keyField.get(child).equals(key)) {&#xA;&#x9;&#x9;&#x9;&#x9;java.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals(&quot;additionalProperties&quot;) || field.getName().startsWith(&quot;patternProperties&quot;) ).findAny().get();&#xA;&#x9;&#x9;&#x9;&#x9;return valueField.get(child);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} catch (Exception e) {&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xA;&#x9;&#x9;&#x9;throw new RuntimeException(e);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;return null;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop4" upperBound="-1"
+        eType="#//Test52RootProp4Dependencies0PropertiesAbstract" containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop4"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0PropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0AdditionalProperties"
+      eSuperTypes="#//Test52RootProp4Dependencies0PropertiesAbstract">
+    <eAnnotations source="AdditionalProperties">
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0TypeArray"
+      eSuperTypes="#//Test52RootProp4Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="array"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop4" upperBound="-1"
+        eType="#//Test52RootProp4Dependencies0Items" containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop4"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0Items">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test52RootProp4Dependencies0TypeNull"
+      eSuperTypes="#//Test52RootProp4Dependencies0Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="null"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop4" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMetaschemaMM#//NullValue"
+        containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop4"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

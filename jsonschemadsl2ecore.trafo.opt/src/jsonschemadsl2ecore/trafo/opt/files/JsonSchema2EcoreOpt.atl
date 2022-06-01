@@ -6,7 +6,7 @@
 -- @nsURI CompleteOclMM=http://www.eclipse.org/ocl/2015/CompleteOCLCS
 
 
-module JsonSchema2EcoreOpt;
+module JsonSchema2EcoreOpt; 
 --create ecoreM : Ecore, jsonGrammar : JsonGrammarMM, jschemaOut: JSchemaMM from jschema : JSchemaMM;
 create ecoreM : Ecore, jsonGrammar : JsonGrammarMM, relatedSchemas : RelatedSchemasMM   from jschema : JSchemaMM ;
 
@@ -651,14 +651,14 @@ unique lazy rule mapDependency{
 	using {
 		enclosingEClass: Ecore!EClass = if dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasSimpleTypeObject()
 										then dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve()
-										else thisModule.allEClass()->select(eClass | eClass.name= dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildEClassNameForArrayOfTypes(#"\"object\""))     ---- is array of type
+										else thisModule.allEClass()->select(eClass | eClass.name= dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#"\"object\""))->first()    ---- is array of type
 										endif;
 	}
 	to 
 		dependency:RelatedSchemasMM!Dependency(
 			dependency <- dependenciesAdditionalPropertiesAnyOf1.anyOf1,
 			property <- dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().key.stripFirstAndLast() 
-		)
+		) 
 	do	{
 --		thisModule.createDependencies(enclosingEClass).dependencies->includes(dependency);
 		thisModule.createDependencies(enclosingEClass).dependencies<- thisModule.createDependencies(enclosingEClass).dependencies->append(dependency);
@@ -752,7 +752,7 @@ lazy rule minimumConstraintToOcl {
 
 
 lazy rule requiredInPropertiesToOcl{
-	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
+	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition(requiredSchemaDefinition.refImmediateComposite().hasTypeObject() and requiredSchemaDefinition.refImmediateComposite().ref.oclIsUndefined())
 	using {
 --		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
 		enclosingEClassName : String = if requiredSchemaDefinition.refImmediateComposite().hasSimpleTypeObject() then requiredSchemaDefinition.refImmediateComposite().resolve().name
@@ -812,7 +812,6 @@ lazy rule dependenciesArrayOcl{
 --}
 
 lazy rule patternPropertiesRegexToOcl{
-	--- TODO add condition that the patterproperties has an eclosing schema that hasTypeObject()
 	---- keySchemaPair isInPatternProperties
 	from keySchemaPair: JSchemaMM!KeySchemaPair(keySchemaPair.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition))
 	using {
@@ -1022,8 +1021,6 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		thisModule.relatedSchemasRoot().enclosingschemas<-thisModule.enclosingSchemas;
 		
 		-----  Refine Class names for unicity	-----------
-		
-
 					
 		for (eClass in thisModule.allEClass()){
 			for (eClass2 in thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name)) {
@@ -1039,15 +1036,17 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		}	
 
 		for (r in JSchemaMM!RequiredSchemaDefinition.allInstancesFrom('jschema')){
-			if(r.refImmediateComposite().hasTypeObject() and r.refImmediateComposite().ref.oclIsUndefined()){
-				thisModule.requiredInPropertiesToOcl(r);
-			}	
+--			if(r.refImmediateComposite().hasTypeObject() and r.refImmediateComposite().ref.oclIsUndefined()){
+--				thisModule.requiredInPropertiesToOcl(r);
+--			}	
+			thisModule.requiredInPropertiesToOcl(r);
 		}
 		
 		for(ksp in JSchemaMM!KeySchemaPair.allInstancesFrom('jschema')){
-			if(ksp.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition)){
-				thisModule.patternPropertiesRegexToOcl(ksp);
-			}
+--			if(ksp.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition)){
+--				thisModule.patternPropertiesRegexToOcl(ksp);
+--			}
+			thisModule.patternPropertiesRegexToOcl(ksp);
 		}
 		
 		for(dependenciesAdditionalPropertiesAnyOf2 in JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf2.allInstancesFrom('jschema')){

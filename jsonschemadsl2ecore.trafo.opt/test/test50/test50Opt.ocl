@@ -1,0 +1,55 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test50
+import 'http://jku.bise.at/test50'
+
+package test50
+
+	context test50::Test50RootAdditionalProperties 
+
+	inv Test50RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test50::Test50RootAdditionalProperties 
+
+	inv Test50RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test50::Test50RootDependencies0AdditionalProperties 
+
+	inv Test50RootDependencies0AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test50::Test50RootDependencies0AdditionalProperties 
+
+	inv Test50RootDependencies0AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test50::Test50RootTypeObject 
+
+	inv Test50RootTypeObjectRequiredname ('Test50RootTypeObject requires the property name'):
+	if  not self.get('name').oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test50::Test50RootDependencies0TypeObject 
+
+	inv Test50RootDependencies0TypeObjectRequiredbilling_address ('Test50RootDependencies0TypeObject requires the property billing_address'):
+	if  not self.get('billing_address').oclIsUndefined()
+	then true
+	else null
+	endif
+
+endpackage
+

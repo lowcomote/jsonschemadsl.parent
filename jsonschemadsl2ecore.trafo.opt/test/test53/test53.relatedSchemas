@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test53.ecore#//Test53RootProp4"/>
+    <dependencies>
+      <dependencies property="prop5">
+        <dependency href="test53.ecore#//Test53RootProp4Dependencies0"/>
+      </dependencies>
+    </dependencies>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test53.ecore#//Test53RootProp4Dependencies0TypeObject"/>
+    <dependencies>
+      <dependencies property="prop6">
+        <dependency href="test53.ecore#//Test53RootProp4Dependencies0Dependencies0"/>
+      </dependencies>
+    </dependencies>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test53.ecore#//Test53RootProp4Dependencies0Dependencies0"/>
+    <dependencies>
+      <dependencies property="prop10">
+        <dependency href="test53.ecore#//Test53RootProp4Dependencies0Dependencies0Dependencies0"/>
+      </dependencies>
+    </dependencies>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>

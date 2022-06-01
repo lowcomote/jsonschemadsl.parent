@@ -1,0 +1,79 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test51
+import 'http://jku.bise.at/test51'
+
+package test51
+
+	context test51::Test51RootAdditionalProperties 
+
+	inv Test51RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test51::Test51RootAdditionalProperties 
+
+	inv Test51RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test51::Test51RootDependencies0AdditionalProperties 
+
+	inv Test51RootDependencies0AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test51::Test51RootDependencies0AdditionalProperties 
+
+	inv Test51RootDependencies0AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test51::Test51RootDependencies1AdditionalProperties 
+
+	inv Test51RootDependencies1AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test51::Test51RootDependencies1AdditionalProperties 
+
+	inv Test51RootDependencies1AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test51::Test51RootTypeObject 
+
+	inv Test51RootTypeObjectRequiredname ('Test51RootTypeObject requires the property name'):
+	if  not self.get('name').oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test51::Test51RootDependencies0TypeObject 
+
+	inv Test51RootDependencies0TypeObjectRequiredbilling_address ('Test51RootDependencies0TypeObject requires the property billing_address'):
+	if  not self.get('billing_address').oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test51::Test51RootDependencies1TypeObject 
+
+	inv Test51RootDependencies1TypeObjectRequiredbilling_address2 ('Test51RootDependencies1TypeObject requires the property billing_address2'):
+	if  not self.get('billing_address2').oclIsUndefined()
+	then true
+	else null
+	endif
+
+endpackage
+
