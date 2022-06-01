@@ -46,7 +46,7 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"definitions"         |Y                    |Y                         | |
 |"properties"          |Y                    |Y                         | |
 |"patternProperties"   |Y                    |Y                         | |
-|"dependencies"        |Y                    |N                         ||
+|"dependencies"        |Y                    |Y                         ||
 |"propertyNames"       |Y                    |N                         ||
 |"const"               |Y                    |N                         ||
 |"enum"                |Y                    |N                         ||
