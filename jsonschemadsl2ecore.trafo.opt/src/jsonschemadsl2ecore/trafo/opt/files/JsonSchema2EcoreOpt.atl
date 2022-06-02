@@ -3,12 +3,13 @@
 -- @nsURI Ecore=http://www.eclipse.org/emf/2002/Ecore
 -- @nsURI JsonGrammarMM=http://at.jku.bise/jsongrammar/1.0
 -- @nsURI RelatedSchemasMM=http://at.jku.bise/relatedSchemas
+-- @nsURI JsonMM=http://at.jku.bise/jsonMM
 -- @nsURI CompleteOclMM=http://www.eclipse.org/ocl/2015/CompleteOCLCS
 
 
 module JsonSchema2EcoreOpt; 
 --create ecoreM : Ecore, jsonGrammar : JsonGrammarMM, jschemaOut: JSchemaMM from jschema : JSchemaMM;
-create ecoreM : Ecore, jsonGrammar : JsonGrammarMM, relatedSchemas : RelatedSchemasMM   from jschema : JSchemaMM ;
+create ecoreM : Ecore, jsonGrammar : JsonGrammarMM, relatedSchemas : RelatedSchemasMM   from jschema : JSchemaMM, jsonMM:JsonMM ;
 
 
 uses JsonSchema2EcoreOptUtils;
@@ -338,7 +339,8 @@ lazy rule mapNullTypeToEReference{
 			containment <- true,
 			lowerBound <- 1,
 			upperBound <- 1,
-			eType <- JSchemaMM!NullValue,
+--			eType <- JSchemaMM!NullValue,
+			eType <- JsonMM!NullValue,
 			eAnnotations <- eAttribute.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(name)} else Sequence{} endif)
 		)
 	do{ 
@@ -537,7 +539,8 @@ lazy rule  createContainmentToJsonDocument{
 			containment <- true,
 			lowerBound <- 1,
 			upperBound <- 1,
-			eType <- JSchemaMM!JsonDocument,
+--			eType <- JSchemaMM!JsonDocument,
+			eType <- JsonMM!JsonDocument,
 			eAnnotations <- containment.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(containmentName)} else Sequence{} endif)
 		)
 	do{ 

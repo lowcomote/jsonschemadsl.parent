@@ -72,7 +72,8 @@ public class CreateLanguageHandler extends AbstractHandler{
 
 	public final static String GEN_MODEL_XML_ENCODING = "UTF-8";
 	public final static String GEN_MODEL_DIR = "src-gen";
-	public final static String JSON_METASCHEMA_MM_NS_URI = "http://at.jku.bise/jsonMetaschemaMM";
+//	public final static String JSON_METASCHEMA_MM_NS_URI = "http://at.jku.bise/jsonMetaschemaMM";
+	public final static String JSON_MM_NS_URI = "http://at.jku.bise/jsonMM";
 	
 	
 	@Override
@@ -272,7 +273,8 @@ public class CreateLanguageHandler extends AbstractHandler{
 		ExternalCrossReferencer externalCrossReferencer = new ExternalCrossReferencer(resourceSet);
 		Map<EObject,java.util.Collection<EStructuralFeature.Setting>> externalCrossReferences =externalCrossReferencer.findExternalCrossReferences();
 		if(!externalCrossReferences.isEmpty()) {
-			boolean isJsonMetaschemaPresent=false;
+//			boolean isJsonMetaschemaPresent=false;
+			boolean isJsonMMPresent=false;
 //			String jsonMetaschemaMMNsURIString =jsonMetaschemaMM.JsonMetaschemaMMPackage.eINSTANCE.getNsURI();
 			for (Map.Entry<EObject, Collection<EStructuralFeature.Setting>> entry : externalCrossReferences.entrySet()) {
 				 EObject eObject = entry.getKey();
@@ -280,20 +282,30 @@ public class CreateLanguageHandler extends AbstractHandler{
 				 if (rootEObject instanceof EPackage) {
 					 EPackage externalEPackage = (EPackage)rootEObject;
 //					 if(externalEPackage.getNsURI().equals(jsonMetaschemaMMNsURIString)) {
-					 if(externalEPackage.getNsURI().equals(JSON_METASCHEMA_MM_NS_URI)) {
-						 isJsonMetaschemaPresent=true;
+//					 if(externalEPackage.getNsURI().equals(JSON_METASCHEMA_MM_NS_URI)) {
+					 if(externalEPackage.getNsURI().equals(JSON_MM_NS_URI)) {
+//						 isJsonMetaschemaPresent=true;
+						 isJsonMMPresent=true;
 						 break;
 					 }
 				 }
 			}
-			if(isJsonMetaschemaPresent) {
-				URI jsonMetaschemaMMGenmodelURI =URI.createPlatformResourceURI("/jsonmetaschemaMM/model/jsonMetaschemaMM.genmodel",true);
-				Resource jsonMetaschemaMMGenmodelResource = resourceSet.getResource(jsonMetaschemaMMGenmodelURI, true);
+//			if(isJsonMetaschemaPresent) {
+//				URI jsonMetaschemaMMGenmodelURI =URI.createPlatformResourceURI("/jsonmetaschemaMM/model/jsonMetaschemaMM.genmodel",true);
+//				Resource jsonMetaschemaMMGenmodelResource = resourceSet.getResource(jsonMetaschemaMMGenmodelURI, true);
+//			
+//				GenModel jsonMetaschemaMMGenmodel = (GenModel)EcoreUtil.getObjectByType(jsonMetaschemaMMGenmodelResource.getContents(), GenModelPackage.Literals.GEN_MODEL);
+//				List<GenPackage> jsonMetaschemaMMGenPackages =jsonMetaschemaMMGenmodel.getGenPackages();
+////				List<GenPackage> jsonMetaschemaMMGenPackages = ((GenModel) jsonMetaschemaMMGenmodelResource.getContents().get(0)).getGenPackages();
+//				genModel.getUsedGenPackages().addAll(jsonMetaschemaMMGenPackages);
+//			}
+			if(isJsonMMPresent) {
+				URI jsonMMGenmodelURI =URI.createPlatformResourceURI("/jsonMM/model/jsonMM.genmodel",true);
+				Resource jsonMMGenmodelResource = resourceSet.getResource(jsonMMGenmodelURI, true);
 			
-				GenModel jsonMetaschemaMMGenmodel = (GenModel)EcoreUtil.getObjectByType(jsonMetaschemaMMGenmodelResource.getContents(), GenModelPackage.Literals.GEN_MODEL);
-				List<GenPackage> jsonMetaschemaMMGenPackages =jsonMetaschemaMMGenmodel.getGenPackages();
-//				List<GenPackage> jsonMetaschemaMMGenPackages = ((GenModel) jsonMetaschemaMMGenmodelResource.getContents().get(0)).getGenPackages();
-				genModel.getUsedGenPackages().addAll(jsonMetaschemaMMGenPackages);
+				GenModel jsonMMGenmodel = (GenModel)EcoreUtil.getObjectByType(jsonMMGenmodelResource.getContents(), GenModelPackage.Literals.GEN_MODEL);
+				List<GenPackage> jsonMMGenPackages =jsonMMGenmodel.getGenPackages();
+				genModel.getUsedGenPackages().addAll(jsonMMGenPackages);
 			}
 		}
 

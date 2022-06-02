@@ -47,6 +47,9 @@
 		<module>jsongrammarMM</module>
 		<module>jsongrammarMM.edit</module>
 		<module>jsongrammarMM.editor</module>
+		<module>jsonMM</module>
+		<module>jsonMM.edit</module>
+		<module>jsonMM.editor</module>
 		<module>xtextgenerator</module>
 		
 

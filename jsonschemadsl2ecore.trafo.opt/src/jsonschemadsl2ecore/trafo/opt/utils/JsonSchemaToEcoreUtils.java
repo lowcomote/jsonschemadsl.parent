@@ -5,6 +5,7 @@ import java.net.URL;
 
 import jku.se.atl.transformation.utils.ATLExecutorEMFTVM;
 import jku.se.atl.transformation.utils.ATLExecutorEMFTVM.ModelKind;
+import jsonMM.JsonMMPackage;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsongrammarmm.jsongrammar.JsongrammarPackage;
 import jsonschemadsl2ecore.trafo.opt.Activator;
@@ -17,6 +18,7 @@ import org.osgi.framework.Bundle;
 public class JsonSchemaToEcoreUtils {
 	
 	public static String JSON_SCHEMA_META_MODEL = "JSchemaMM";
+	public static String JSON_META_MODEL = "JsonMM";
 	public static String IN_JSON_SCHEMA_MODEL = "jschema";	
 	public static String ECORE_META_MODEL = "Ecore";
 	public static String OUT_ECORE_MM = "ecoreM";
@@ -49,6 +51,7 @@ public class JsonSchemaToEcoreUtils {
 			String ecoreModelUri, String grammarModelUri, String relatedSchemasModelUri) throws IOException {
 		ATLExecutorEMFTVM exec = new ATLExecutorEMFTVM();
 		exec.loadMetaModels(JSON_SCHEMA_META_MODEL, JsonMetaschemaMMPackage.eINSTANCE.getNsURI());
+		exec.loadMetaModels(JSON_META_MODEL, JsonMMPackage.eINSTANCE.getNsURI());
 		exec.loadMetaModels(ECORE_META_MODEL, EcorePackage.eINSTANCE.getNsURI());
 		exec.loadMetaModels(JSON_GRAMMAR_META_MODEL, JsongrammarPackage.eINSTANCE.getNsURI());
 		exec.loadMetaModels(RELATED_SCHEMAS_META_MODEL, RelatedSchemasPackage.eINSTANCE.getNsURI());
