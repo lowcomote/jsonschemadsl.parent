@@ -1,0 +1,55 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test57
+import 'http://jku.bise.at/test57'
+
+package test57
+
+	context test57::Test57RootAdditionalProperties 
+
+	inv Test57RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test57::Test57RootAdditionalProperties 
+
+	inv Test57RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test57::Test57RootProp1TypeInteger
+
+	inv Test57RootProp1ExclusiveMinimum('The value of Test57RootProp1TypeInteger must be greater than 3.0'):
+	if prop1 > 3.0
+	then true
+	else null
+	endif
+
+	context test57::Test57RootProp1TypeNumber
+
+	inv Test57RootProp1ExclusiveMinimum('The value of Test57RootProp1TypeNumber must be greater than 3.0'):
+	if prop1 > 3.0
+	then true
+	else null
+	endif
+
+	context test57::Test57RootProp2
+
+	inv Test57RootProp2ExclusiveMinimum('The value of Test57RootProp2 must be greater than 5.0'):
+	if prop2 > 5.0
+	then true
+	else null
+	endif
+
+	context test57::Test57RootProp3
+
+	inv Test57RootProp3ExclusiveMinimum('The value of Test57RootProp3 must be greater than 7.0'):
+	if prop3 > 7.0
+	then true
+	else null
+	endif
+
+endpackage
+
