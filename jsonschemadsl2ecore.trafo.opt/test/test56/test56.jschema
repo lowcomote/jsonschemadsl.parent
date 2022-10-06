@@ -1,0 +1,22 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":["integer","number","boolean"],
+			"maximum":3.0 
+		}, 
+		"prop2":{
+			"type":"integer",
+			"maximum":5.0 
+		}, 
+		"prop3":{
+			"type":"number",
+			"maximum":7.0 
+		}, 
+		"prop4":{
+			"type":"boolean",
+			"maximum":8.0 
+		} 
+	}
+ 
+}

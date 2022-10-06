@@ -753,6 +753,26 @@ lazy rule minimumConstraintToOcl {
 	}	
 }
 
+lazy rule maximumConstraintToOcl {
+	from maximumSchemaDefinition : JSchemaMM!MaximumSchemaDefinition(maximumSchemaDefinition.refImmediateComposite().hasTypeNumeric())
+	using {
+		enclosingSchema : JSchemaMM!ObjectSchema = maximumSchemaDefinition.refImmediateComposite();
+	}
+	do {
+		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
+			thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
+		}else{ 
+			if(enclosingSchema.hasTypeInteger()){ 
+				thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"integer\""), enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
+			}
+			if(enclosingSchema.hasTypeNumber()){ 
+				thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"number\""), enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
+			}
+		}
+		
+	}	
+}
+
 
 lazy rule requiredInPropertiesToOcl{
 	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition(requiredSchemaDefinition.refImmediateComposite().hasTypeObject() and requiredSchemaDefinition.refImmediateComposite().ref.oclIsUndefined())
@@ -1037,6 +1057,10 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		for (m in JSchemaMM!MinimumSchemaDefinition.allInstancesFrom('jschema')){
 			thisModule.minimumConstraintToOcl(m);
 		}	
+		
+		for (m in JSchemaMM!MaximumSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.maximumConstraintToOcl(m);
+		}
 
 		for (r in JSchemaMM!RequiredSchemaDefinition.allInstancesFrom('jschema')){
 --			if(r.refImmediateComposite().hasTypeObject() and r.refImmediateComposite().ref.oclIsUndefined()){

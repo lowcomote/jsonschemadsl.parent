@@ -799,6 +799,10 @@ helper def : createOclFile() : OclAny=
 helper def : appendMinimumConstraint(packageName: String, contextClass: String, inv:String, minimum: Real, propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, minimum, propertyName});
 
+helper def : appendMaximumConstraint(packageName: String, contextClass: String, inv:String, maximum: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaximumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, maximum, propertyName});
+
+
 --helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String, propertyName : String) : OclAny=
 --	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, requiredProperty, requiredClassType, propertyName});
 
