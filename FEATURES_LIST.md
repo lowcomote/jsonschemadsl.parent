@@ -24,7 +24,7 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"examples"            |Y                    |N                         ||
 |"multipleOf"          |Y                    |N                         |Generate an OCL constraint (like "minimum")|
 |"maximum"             |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
-|"exclusiveMaximum"    |Y                    |N                         |Generate an OCL constraint (like "minimum")|
+|"exclusiveMaximum"    |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"minimum":            |Y                    |Y                         | |
 |"exclusiveMinimum"    |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"maxLength"           |Y                    |N                         |Generate an OCL constraint (like "minimum")|
