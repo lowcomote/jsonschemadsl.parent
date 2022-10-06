@@ -1,0 +1,55 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test58
+import 'http://jku.bise.at/test58'
+
+package test58
+
+	context test58::Test58RootAdditionalProperties 
+
+	inv Test58RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test58::Test58RootAdditionalProperties 
+
+	inv Test58RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test58::Test58RootProp1TypeInteger
+
+	inv Test58RootProp1ExclusiveMaximum('The value of Test58RootProp1TypeInteger must be lower than 3.0'):
+	if prop1 < 3.0
+	then true
+	else null
+	endif
+
+	context test58::Test58RootProp1TypeNumber
+
+	inv Test58RootProp1ExclusiveMaximum('The value of Test58RootProp1TypeNumber must be lower than 3.0'):
+	if prop1 < 3.0
+	then true
+	else null
+	endif
+
+	context test58::Test58RootProp2
+
+	inv Test58RootProp2ExclusiveMaximum('The value of Test58RootProp2 must be lower than 5.0'):
+	if prop2 < 5.0
+	then true
+	else null
+	endif
+
+	context test58::Test58RootProp3
+
+	inv Test58RootProp3ExclusiveMaximum('The value of Test58RootProp3 must be lower than 7.0'):
+	if prop3 < 7.0
+	then true
+	else null
+	endif
+
+endpackage
+

@@ -769,7 +769,6 @@ lazy rule exclusiveMinimumConstraintToOcl {
 				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"number\""), enclosingSchema.resolve().name+'ExclusiveMinimum', exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey());
 			}
 		}
-		
 	}	
 }
 
@@ -789,9 +788,29 @@ lazy rule maximumConstraintToOcl {
 				thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"number\""), enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
 			}
 		}
-		
 	}	
 }
+
+lazy rule exclusiveMaximumConstraintToOcl {
+	from exclusiveMaximumSchemaDefinition : JSchemaMM!ExclusiveMaximumSchemaDefinition(exclusiveMaximumSchemaDefinition.refImmediateComposite().hasTypeNumeric())
+	using {
+		enclosingSchema : JSchemaMM!ObjectSchema = exclusiveMaximumSchemaDefinition.refImmediateComposite();
+	}
+	do {
+		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
+			thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'ExclusiveMaximum', exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey());
+		}else{ 
+			if(enclosingSchema.hasTypeInteger()){ 
+				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"integer\""), enclosingSchema.resolve().name+'ExclusiveMaximum', exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey());
+			}
+			if(enclosingSchema.hasTypeNumber()){ 
+				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"number\""), enclosingSchema.resolve().name+'ExclusiveMaximum', exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey());
+			}
+		}
+	}	
+}
+
+
 
 
 lazy rule requiredInPropertiesToOcl{
@@ -1084,6 +1103,10 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		
 		for (m in JSchemaMM!MaximumSchemaDefinition.allInstancesFrom('jschema')){
 			thisModule.maximumConstraintToOcl(m);
+		}
+		
+		for (m in JSchemaMM!ExclusiveMaximumSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.exclusiveMaximumConstraintToOcl(m);
 		}
 
 		for (r in JSchemaMM!RequiredSchemaDefinition.allInstancesFrom('jschema')){

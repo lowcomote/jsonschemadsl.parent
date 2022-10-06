@@ -17,8 +17,8 @@ public class JsonSchemaMToEcoreRunner implements IApplication{
 //	public final static String JSON_SCHEMA_MODEL_NAME = "shipyard2";
 //	public final static String JSON_SCHEMA_MODEL_NAME = "shipyardLike";
 //	public final static String JSON_SCHEMA_MODEL_NAME = "shipyard";
-//	public final static String JSON_SCHEMA_MODEL_NAME = "test57";
-	public final static String JSON_SCHEMA_MODEL_NAME = "testcurrentimplementation";
+	public final static String JSON_SCHEMA_MODEL_NAME = "test58";
+//	public final static String JSON_SCHEMA_MODEL_NAME = "testcurrentimplementation";
 	public final static String JSONSCHEMA_MODEL_EXTENSION = "jschema";
 	public final static String JSONSCHEMA_MODEL = "input/" + JSON_SCHEMA_MODEL_NAME + "." + JSONSCHEMA_MODEL_EXTENSION;
 	public final static String OUTPUT_MODEL = "output";
