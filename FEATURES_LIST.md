@@ -22,7 +22,7 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"readOnly"            |Y                    |N                         ||
 |"writeOnly"           |Y                    |N                         ||
 |"examples"            |Y                    |N                         ||
-|"multipleOf"          |Y                    |N                         |Generate an OCL constraint (like "minimum")|
+|"multipleOf"          |Y                    |Y                        |Generate an OCL constraint (like "minimum")|
 |"maximum"             |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"exclusiveMaximum"    |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"minimum":            |Y                    |Y                         | |
