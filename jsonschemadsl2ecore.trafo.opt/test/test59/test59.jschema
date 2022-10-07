@@ -1,0 +1,22 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":["integer","number","boolean"],
+			"multipleOf":3.0 
+		}, 
+		"prop2":{
+			"type":"integer",
+			"multipleOf":5.0 
+		}, 
+		"prop3":{
+			"type":"number",
+			"multipleOf":7.0 
+		}, 
+		"prop4":{
+			"type":"boolean",
+			"multipleOf":8.0 
+		} 
+	}
+ 
+}

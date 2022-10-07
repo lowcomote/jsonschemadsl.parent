@@ -34,6 +34,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getType <em>Type</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getEnum <em>Enum</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.ObjectSchema#getMultipleOf <em>Multiple Of</em>}</li>
  * </ul>
  *
  * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema()
@@ -273,6 +274,17 @@ public interface ObjectSchema extends Schema {
 	 * @generated
 	 */
 	EList<SchemaObjectAdditionalProperties> getSchemaObjectAdditionalProperties();
+
+	/**
+	 * Returns the value of the '<em><b>Multiple Of</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Multiple Of</em>' reference.
+	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_MultipleOf()
+	 * @model resolveProxies="false" transient="true" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true"
+	 * @generated
+	 */
+	MultipleOfSchemaDefinition getMultipleOf();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -260,6 +260,17 @@
         <details key="get" value="return new org.eclipse.emf.common.util.BasicEList&lt;SchemaObjectAdditionalProperties>((Collection&lt;? extends SchemaObjectAdditionalProperties>) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).collect(java.util.stream.Collectors.toList()))  ;"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multipleOf" ordered="false"
+        unique="false" eType="#//MultipleOfSchemaDefinition" volatile="true" transient="true"
+        derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="property" value="Readonly"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="get" value="return (MultipleOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MultipleOfSchemaDefinition).findFirst().orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MaximumSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" lowerBound="1"

@@ -67,6 +67,7 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 			addTypePropertyDescriptor(object);
 			addEnumPropertyDescriptor(object);
 			addSchemaObjectAdditionalPropertiesPropertyDescriptor(object);
+			addMultipleOfPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -506,6 +507,28 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 				 false,
 				 false,
 				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Multiple Of feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMultipleOfPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ObjectSchema_multipleOf_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_multipleOf_feature", "_UI_ObjectSchema_type"),
+				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__MULTIPLE_OF,
+				 false,
+				 false,
+				 true,
 				 null,
 				 null,
 				 null));

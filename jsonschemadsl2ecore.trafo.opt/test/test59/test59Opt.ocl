@@ -1,0 +1,55 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test59
+import 'http://jku.bise.at/test59'
+
+package test59
+
+	context test59::Test59RootAdditionalProperties 
+
+	inv Test59RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test59::Test59RootAdditionalProperties 
+
+	inv Test59RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test59::Test59RootProp1TypeInteger
+
+	inv Test59RootProp1MultipleOf('The value of Test59RootProp1TypeInteger must be multiple of 3.0'):
+	if self.multipleOfValidation()
+	then true
+	else null
+	endif
+
+	context test59::Test59RootProp1TypeNumber
+
+	inv Test59RootProp1MultipleOf('The value of Test59RootProp1TypeNumber must be multiple of 3.0'):
+	if self.multipleOfValidation()
+	then true
+	else null
+	endif
+
+	context test59::Test59RootProp2
+
+	inv Test59RootProp2MultipleOf('The value of Test59RootProp2 must be multiple of 5.0'):
+	if self.multipleOfValidation()
+	then true
+	else null
+	endif
+
+	context test59::Test59RootProp3
+
+	inv Test59RootProp3MultipleOf('The value of Test59RootProp3 must be multiple of 7.0'):
+	if self.multipleOfValidation()
+	then true
+	else null
+	endif
+
+endpackage
+

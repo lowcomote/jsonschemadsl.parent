@@ -19,6 +19,7 @@ import jsonMetaschemaMM.IfSchemaDefinition;
 import jsonMetaschemaMM.ItemsSchemaDefinition;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.KeywordDefinition;
+import jsonMetaschemaMM.MultipleOfSchemaDefinition;
 import jsonMetaschemaMM.NotSchemaDefinition;
 import jsonMetaschemaMM.ObjectSchema;
 import jsonMetaschemaMM.OneOfSchemaDefinition;
@@ -70,6 +71,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getType <em>Type</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getEnum <em>Enum</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMultipleOf <em>Multiple Of</em>}</li>
  * </ul>
  *
  * @generated
@@ -323,6 +325,27 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * @generated
 	 */
 	@Override
+	public MultipleOfSchemaDefinition getMultipleOf() {
+		return (MultipleOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MultipleOfSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMultipleOf(MultipleOfSchemaDefinition newMultipleOf) {
+		// TODO: implement this method to set the 'Multiple Of' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Schema findSchemaByKey(final String key) {
 		return getSchemaObjectAdditionalProperties().stream().filter(s -> key.equals(s.getKey())).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);
 	}
@@ -468,6 +491,8 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getEnum();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES:
 				return getSchemaObjectAdditionalProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
+				return getMultipleOf();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -485,6 +510,9 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				getKeywordDefinition().clear();
 				getKeywordDefinition().addAll((Collection<? extends KeywordDefinition>)newValue);
 				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
+				setMultipleOf((MultipleOfSchemaDefinition)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -499,6 +527,9 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__KEYWORD_DEFINITION:
 				getKeywordDefinition().clear();
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
+				setMultipleOf((MultipleOfSchemaDefinition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -554,6 +585,8 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getEnum() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES:
 				return !getSchemaObjectAdditionalProperties().isEmpty();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
+				return getMultipleOf() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -76,7 +76,20 @@ class OclGenerator {
 			endif
 	'''
 	
+	def static appendMultipleOfConstraint (URI fileName, String packageName, String contextClass, String inv, Double multipleOf, String propertyName){
+		OclWriter.append(fileName, generateMultipleOfConstraint(packageName, contextClass, inv, multipleOf, propertyName))
+	}
 	
+	def static generateMultipleOfConstraint(String packageName, String contextClass, String inv, Double multipleOf, String propertyName)'''
+			context «packageName»::«contextClass»
+		
+			inv «inv»('The value of «contextClass» must be multiple of «multipleOf»'):
+«««			if java.math.BigDecimal.valueOf(«propertyName.underscoreIfNecessary»).remainder(java.math.BigDecimal.valueOf( «multipleOf»), java.math.MathContext.UNLIMITED).compareTo(java.math.BigDecimal.ZERO).equals(0)
+			if self.multipleOfValidation()
+			then true
+			else null
+			endif
+	'''
 	
 	
 	def static appendRequiredInPropertiesConstraint (URI fileName, String packageName, String contextClass, String inv, String requiredProperty){

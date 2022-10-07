@@ -85,6 +85,9 @@
       <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/schemaObjectAdditionalProperties"
           suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
           get="return new org.eclipse.emf.common.util.BasicEList&lt;SchemaObjectAdditionalProperties>((Collection&lt;? extends SchemaObjectAdditionalProperties>) getKeywordDefinition().stream().filter(kd -> kd instanceof SchemaObjectAdditionalProperties).collect(java.util.stream.Collectors.toList()))  ;"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
+          ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/multipleOf"
+          get="return (MultipleOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MultipleOfSchemaDefinition).findFirst().orElse(null);"/>
       <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByKey"
           body="return getSchemaObjectAdditionalProperties().stream().filter(s -> key.equals(s.getKey())).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);">
         <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByKey/key"/>

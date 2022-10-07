@@ -811,6 +811,8 @@ helper def : appendExclusiveMaximumConstraint(packageName: String, contextClass:
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendExclusiveMaximumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, exclusiveMaximum, propertyName});
 
 
+helper def : appendMultipleOfConstraint(packageName: String, contextClass: String, inv:String, multipleOf: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMultipleOfConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, multipleOf, propertyName});
 
 
 --helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String, propertyName : String) : OclAny=
