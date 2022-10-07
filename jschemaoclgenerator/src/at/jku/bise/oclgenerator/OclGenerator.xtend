@@ -84,13 +84,24 @@ class OclGenerator {
 			context «packageName»::«contextClass»
 		
 			inv «inv»('The value of «contextClass» must be multiple of «multipleOf»'):
-«««			if java.math.BigDecimal.valueOf(«propertyName.underscoreIfNecessary»).remainder(java.math.BigDecimal.valueOf( «multipleOf»), java.math.MathContext.UNLIMITED).compareTo(java.math.BigDecimal.ZERO).equals(0)
 			if self.multipleOfValidation()
 			then true
 			else null
 			endif
 	'''
+	def static appendMinLengthConstraint (URI fileName, String packageName, String contextClass, String inv, Integer minLength, String propertyName){
+		OclWriter.append(fileName, generateMinLengthConstraint(packageName, contextClass, inv, minLength, propertyName))
+	}
 	
+	def static generateMinLengthConstraint(String packageName, String contextClass, String inv, Integer minLength, String propertyName)'''
+			context «packageName»::«contextClass»
+		
+			inv «inv»('The length of «contextClass» must be lower than «minLength»'):
+			if «propertyName.underscoreIfNecessary».size() >= «minLength»
+			then true
+			else null
+			endif
+	'''
 	
 	def static appendRequiredInPropertiesConstraint (URI fileName, String packageName, String contextClass, String inv, String requiredProperty){
 		OclWriter.append(fileName, generateRequiredInPropertiesConstraint(packageName, contextClass, inv, requiredProperty))

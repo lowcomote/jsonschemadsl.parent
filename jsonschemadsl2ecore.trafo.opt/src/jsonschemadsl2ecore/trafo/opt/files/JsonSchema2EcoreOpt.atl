@@ -821,7 +821,6 @@ lazy rule multipleOfConstraintToOcl {
 		
 		
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
---			enclosingSchema.resolve().eOperations <- enclosingSchema.resolve().eOperations-> union (Sequence{thisModule.createMultipleOfEOperation(enclosingSchema.getKey(), multipleOfSchemaDefinition )});
 			thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'MultipleOf', multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey());
 		}else{ 
 			if(enclosingSchema.hasTypeInteger()){ 
@@ -860,36 +859,19 @@ rule createMultipleOfValidationEOperation( enclosingSchema : JSchemaMM!ObjectSch
 		eOperation;
 	}
 }
------ TODO deprecated ... delete this
-rule createMultipleOfEOperation( propertyName:String, multipleOfSchemaDefinition : JSchemaMM!MultipleOfSchemaDefinition){
---	from multipleOfSchemaDefinition : JSchemaMM!MultipleOfSchemaDefinition(multipleOfSchemaDefinition.refImmediateComposite().hasTypeNumeric())
---	using {
---		enclosingSchema : JSchemaMM!ObjectSchema = multipleOfSchemaDefinition.refImmediateComposite();
---	}
-	to
-		eOperation:Ecore!EOperation(
-			name<- 'multipleOfValidation',
-			ordered <- false,
-			unique <-false,
-			lowerBound <- 1,
-			upperBound <- 1,
-			eType <- Ecore!EBoolean,
-			eAnnotations <- Sequence{eAnnotation}
-		),
-		eAnnotation: Ecore!EAnnotation(
-			source <- 'http://www.eclipse.org/emf/2002/GenModel',
-			details <- Sequence{entrySet}
-		),
-		entrySet:Ecore!EStringToStringMapEntry(
-			key <- 'body',
-			value <- 'return java.math.BigDecimal.valueOf(this.'+propertyName+').remainder(java.math.BigDecimal.valueOf('+multipleOfSchemaDefinition.multipleOf.toString()+'), java.math.MathContext.UNLIMITED).compareTo(java.math.BigDecimal.ZERO) ==0;'
---			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m = p.matcher(toBeEvaluated);\nreturn m.find();'
-		)
-		
-	do{
---		enclosingSchema.resolve().eOperations <- enclosingSchema.resolve().eOperations-> union (Sequence{eOperation});
-		
-		eOperation;
+
+
+lazy rule minLengthConstraintToOcl {
+	from minLengthSchemaDefinition : JSchemaMM!MinLengthSchemaDefinition(minLengthSchemaDefinition.refImmediateComposite().hasTypeString())
+	using {
+		enclosingSchema : JSchemaMM!ObjectSchema = minLengthSchemaDefinition.refImmediateComposite();
+	}
+	do {
+		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is string because of hasTypeString()
+			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'MinLength', minLengthSchemaDefinition.minLength.value, enclosingSchema.getKey());
+		}else{ ---- we are sure it contains string because of hasTypeString()
+			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"string\""), enclosingSchema.resolve().name+'MinLength', minLengthSchemaDefinition.minLength.value, enclosingSchema.getKey());
+		}
 	}	
 }
 
@@ -1194,6 +1176,9 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 			thisModule.multipleOfConstraintToOcl(m);
 		}
 		
+		for (m in JSchemaMM!MinLengthSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.minLengthConstraintToOcl(m);
+		}
 
 		for (r in JSchemaMM!RequiredSchemaDefinition.allInstancesFrom('jschema')){
 --			if(r.refImmediateComposite().hasTypeObject() and r.refImmediateComposite().ref.oclIsUndefined()){

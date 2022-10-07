@@ -656,6 +656,17 @@ helper context JSchemaMM!ObjectSchema def: hasTypeNumber(): Boolean=
 helper context JSchemaMM!ObjectSchema def: hasTypeNumeric(): Boolean=
 	self.hasTypeInteger() or  self.hasTypeNumber();
 
+
+---- missing type or "type":"string" or "type":[...,"string",...]
+helper context JSchemaMM!ObjectSchema def: hasTypeString(): Boolean=
+	if self.type.oclIsUndefined() ---- it has all types
+	then true
+	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		then self.type.anyOf.type = #"\"string\""
+		else self.type.anyOf.items.includes(#"\"string\"")
+		endif
+	endif;
+
 ---- missing type or "type":"object" or "type":[...,"object",...]
 helper context JSchemaMM!ObjectSchema def: hasTypeObject(): Boolean=
 	if self.type.oclIsUndefined() ---- it has all types
@@ -814,6 +825,8 @@ helper def : appendExclusiveMaximumConstraint(packageName: String, contextClass:
 helper def : appendMultipleOfConstraint(packageName: String, contextClass: String, inv:String, multipleOf: Real, propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMultipleOfConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, multipleOf, propertyName});
 
+helper def : appendMinLengthConstraint(packageName: String, contextClass: String, inv:String, minLength: Integer, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinLengthConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, minLength, propertyName});
 
 --helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String, propertyName : String) : OclAny=
 --	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, requiredProperty, requiredClassType, propertyName});
