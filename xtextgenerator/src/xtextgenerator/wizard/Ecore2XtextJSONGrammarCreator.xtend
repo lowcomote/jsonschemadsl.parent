@@ -107,32 +107,30 @@ class Ecore2XtextJSONGrammarCreator {
 			}
 		]).join(" | ")
 		
-//		if(list.exists[c|needsSyntacticPredicate(c)]){
-//			list = orderedSubClasses(list)
-//			list=list.filter([c|needsConcreteRule(c)])
-//			list.map([
-//				if(needsSyntacticPredicate){
-//					"=>" + concreteRuleName
-//				}else{
-//					concreteRuleName
-//				}
-//			]).join(" | ")
-//		}else{
-//			list=list.filter([c|needsConcreteRule(c)])
-//			list.map([concreteRuleName]).join(" | ")
-//		}
+
 	}
 	
 	def needsSyntacticPredicate(EClass eClazz){
-//		eClazz.EAnnotations.exists[annotation|annotation.details.containsKey('AdditionalProperties') || annotation.details.containsKey('PatternProperties')]
-		isAdditionalProperty(eClazz) || isPatternProperty(eClazz) || isIntegerInArrayOfTypes(eClazz)
+//		isAdditionalProperty(eClazz) || isPatternProperty(eClazz) || isIntegerInArrayOfTypes(eClazz)
+		/**
+		 * We put a syntactic predicate to number in array of types since also integer are mapped as Double
+		 */
+		isAdditionalProperty(eClazz) || isPatternProperty(eClazz) || isNumberInArrayOfTypes(eClazz)
 	}
 	
 	/**
 	 * An Integer in an Array Of Types could generate an ambiguous grammar if there is also a Number 
 	 */
-	def isIntegerInArrayOfTypes(EClass eClazz){
+	private def isIntegerInArrayOfTypes(EClass eClazz){
 		eClazz.EAnnotations.exists[annotation | annotation.details.get("ArrayOfTypes").equals("integer")]
+	}
+	
+	/**
+	 * A  Number in an Array Of Types could generate an ambiguous grammar if there is also an Integer 
+	 * because both are transformed to a Double, because for example 2.0 is a valid integer in JSON Schema
+	 */
+	def isNumberInArrayOfTypes(EClass eClazz){
+		eClazz.EAnnotations.exists[annotation | annotation.details.get("ArrayOfTypes").equals("number")]
 	}
 	
 	def isAdditionalProperty(EClass eClazz){
@@ -147,31 +145,29 @@ class Ecore2XtextJSONGrammarCreator {
 		var propertiesEClasses = new ArrayList<EClass>();
 		var patternPropertiesEClasses = new ArrayList<EClass>();
 		var EClass additionalPropertiesEClass =null;
+		var EClass numberInArrayEClass =null;
 		var orderedSubClasses = new ArrayList<EClass>();
 		for (eClass : alternativeEClasses){
-			var boolean isPatternOrAdditionalProperty = false;
-			if(!isPatternOrAdditionalProperty){
+			var boolean isNumnberInArrayPatternOrAdditionalProperty = false;
+			if(!isNumnberInArrayPatternOrAdditionalProperty){
 				if(isAdditionalProperty(eClass)){
-					isPatternOrAdditionalProperty=true
+					isNumnberInArrayPatternOrAdditionalProperty=true;
 					additionalPropertiesEClass=eClass;
 				}else if (isPatternProperty(eClass)){
-					isPatternOrAdditionalProperty=true;
+					isNumnberInArrayPatternOrAdditionalProperty=true;
 					patternPropertiesEClasses.add(eClass);
+				}else if(isNumberInArrayOfTypes(eClass)){
+					isNumnberInArrayPatternOrAdditionalProperty=true;
+					numberInArrayEClass=eClass;
 				}
-//				for (eAnnotation : eClass.EAnnotations){
-//					if (eAnnotation.details.containsKey('AdditionalProperties')){
-//						isPatternOrAdditionalProperty=true
-//						additionalPropertiesEClass=eClass;
-//						
-//					}else if(eAnnotation.details.containsKey('PatternProperties')){
-//						isPatternOrAdditionalProperty=true;
-//						patternPropertiesEClasses.add(eClass);
-//					}
-//				}
+
 			}
-			if(!isPatternOrAdditionalProperty){
+			if(!isNumnberInArrayPatternOrAdditionalProperty){
 				propertiesEClasses.add(eClass);
 			}
+		}
+		if(numberInArrayEClass !== null){
+			orderedSubClasses.add(numberInArrayEClass);
 		}
 		orderedSubClasses.addAll(propertiesEClasses);
 		orderedSubClasses.addAll(patternPropertiesEClasses);
@@ -310,17 +306,11 @@ class Ecore2XtextJSONGrammarCreator {
 	}
 	
 	def assignmentKeywordJSON(EStructuralFeature it) {
-		//TODO figure it out Why?
-		//if (isPrefixBooleanFeature(it))
-		//	""
-		//else
 		if (it.isKeyword) {
-//			this.keywords.add(it.name);
 			this.keywords.add(it.getEAnnotation('Keyword').details.get('Keyword'));
 			
 			''' 
 				//Keywords
-«««				'"«it.name»"' «jsonSeparator»
 				'"«it.getEAnnotation('Keyword').details.get('Keyword')»"' «jsonSeparator»
 			'''
 		} else if (it instanceof EReference) {

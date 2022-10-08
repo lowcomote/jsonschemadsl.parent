@@ -300,7 +300,12 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 	do{
 		if (simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\""){ 
 			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(simpleType), schema.needsKeyword())});
----- 		TODO manage the case symple type is numeric (i.e., integer or number) for adding  multipleOfValidation eOperation 
+			---- manage the case simpleType is Integer to add OCL validation as scalarTypeMapping returns Duoble as 1.0 is a valid integer for JSON Schema
+			if(simpleType = #"\"integer\""){
+				thisModule.appendIntegerConstraint(thisModule.packageName, eClassName, eClassName+'IsInteger',  schema.getKey().toString());
+			}
+
+ 			---- manage the case symple type is numeric (i.e., integer or number) for adding  multipleOfValidation eOperation 
 			if ((simpleType = #"\"integer\"" or simpleType = #"\"number\"")and not schema.multipleOf.oclIsUndefined()){
 				eClass.eOperations <- eClass.eOperations-> union (Sequence{thisModule.createMultipleOfValidationEOperation( schema)});
 			}

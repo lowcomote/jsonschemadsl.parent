@@ -103,6 +103,29 @@ class OclGenerator {
 			endif
 	'''
 	
+	def static appendIntegerConstraint (URI fileName, String packageName, String contextClass, String inv, String propertyName){
+		OclWriter.append(fileName, generateIntegerConstraint(packageName, contextClass, inv,  propertyName))
+	}
+	
+//	def static generateIntegerConstraint(String packageName, String contextClass, String inv,  String propertyName)'''
+//			context «packageName»::«contextClass»
+//		
+//			inv «inv»('The value of «contextClass».«propertyName» must be integer'):
+//			if self.validateIsInteger
+//			then true
+//			else null
+//			endif
+//	'''
+	def static generateIntegerConstraint(String packageName, String contextClass, String inv,  String propertyName)'''
+			context «packageName»::«contextClass»
+		
+			inv «inv»('The value of «contextClass».«propertyName» must be integer'):
+			if «propertyName.underscoreIfNecessary».floor() = «propertyName.underscoreIfNecessary»
+			then true
+			else null
+			endif
+	'''
+	
 	def static appendRequiredInPropertiesConstraint (URI fileName, String packageName, String contextClass, String inv, String requiredProperty){
 		OclWriter.append(fileName, generateRequiredInPropertiesConstraint(packageName, contextClass, inv, requiredProperty))
 	}

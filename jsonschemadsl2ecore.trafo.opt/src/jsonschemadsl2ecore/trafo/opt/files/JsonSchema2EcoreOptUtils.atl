@@ -2,6 +2,11 @@
 
 library JsonSchema2EcoreOptUtils;
 
+helper def: INTEGER_VALIDATION_METHOD: String = 'validateIsInteger';
+
+--helper def: JSON_SCHEMA_TYPE_INTEGER: String = 'JsonSchemaTypeInteger';
+--helper def: PROPERTY_NAME: String = 'PropertyName';
+
 helper def: ARRAY_OF_TYPES: String = 'ArrayOfTypes';
 helper def: ADDITIONAL_PROPERTIES: String =  'AdditionalProperties';
 helper def: PATTERN_PROPERTIES: String ='PatternProperties';
@@ -88,11 +93,9 @@ helper def: enclosingSchemas : Sequence(RelatedSchemasMM!EnclosingSchema) = Sequ
 helper def : scalarTypeMapping : Map(String, Ecore!EDataType) =
 	Map{
 		(#"\"string\"", Ecore!EString),
---		(#"\"integer\"", Ecore!EInt),
-		(#"\"integer\"", Ecore!EIntegerObject),
---		(#"\"number\"", Ecore!EDouble),
+--		(#"\"integer\"", Ecore!EIntegerObject),
+		(#"\"integer\"", Ecore!EDoubleObject), ----- 1.0 is considered a valid integer in JSON Schema
 		(#"\"number\"", Ecore!EDoubleObject),
---		(#"\"boolean\"", Ecore!EBoolean)
 		(#"\"boolean\"", Ecore!EBooleanObject)
 	};
 
@@ -827,6 +830,11 @@ helper def : appendMultipleOfConstraint(packageName: String, contextClass: Strin
 
 helper def : appendMinLengthConstraint(packageName: String, contextClass: String, inv:String, minLength: Integer, propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinLengthConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, minLength, propertyName});
+
+helper def : appendIntegerConstraint(packageName: String, contextClass: String, inv:String,  propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendIntegerConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv,  propertyName});
+
+
 
 --helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String, propertyName : String) : OclAny=
 --	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, requiredProperty, requiredClassType, propertyName});
