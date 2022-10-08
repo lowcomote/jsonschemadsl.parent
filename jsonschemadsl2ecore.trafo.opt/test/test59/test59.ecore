@@ -23,7 +23,7 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" ordered="false"
-        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
         changeable="false" volatile="true" transient="true" derived="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="suppressedIsSetVisibility" value="true"/>
@@ -64,25 +64,13 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Test59RootProp2" eSuperTypes="#//Test59RootPropertiesAbstract">
-    <eOperations name="multipleOfValidation" ordered="false" unique="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="return java.math.BigDecimal.valueOf(this.prop2).remainder(java.math.BigDecimal.valueOf(5.0), java.math.MathContext.UNLIMITED).compareTo(java.math.BigDecimal.ZERO) ==0;"/>
-      </eAnnotations>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
       <eAnnotations source="Keyword">
         <details key="Keyword" value="prop2"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Test59RootProp3" eSuperTypes="#//Test59RootPropertiesAbstract">
-    <eOperations name="multipleOfValidation" ordered="false" unique="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="return java.math.BigDecimal.valueOf(this.prop3).remainder(java.math.BigDecimal.valueOf(7.0), java.math.MathContext.UNLIMITED).compareTo(java.math.BigDecimal.ZERO) ==0;"/>
-      </eAnnotations>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop3" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
       <eAnnotations source="Keyword">
         <details key="Keyword" value="prop3"/>
@@ -122,13 +110,7 @@
     <eAnnotations source="ArrayOfTypes">
       <details key="ArrayOfTypes" value="integer"/>
     </eAnnotations>
-    <eOperations name="multipleOfValidation" ordered="false" unique="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="return java.math.BigDecimal.valueOf(this.prop1).remainder(java.math.BigDecimal.valueOf(3.0), java.math.MathContext.UNLIMITED).compareTo(java.math.BigDecimal.ZERO) ==0;"/>
-      </eAnnotations>
-    </eOperations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
       <eAnnotations source="Keyword">
         <details key="Keyword" value="prop1"/>
       </eAnnotations>
@@ -138,12 +120,6 @@
     <eAnnotations source="ArrayOfTypes">
       <details key="ArrayOfTypes" value="number"/>
     </eAnnotations>
-    <eOperations name="multipleOfValidation" ordered="false" unique="false" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="body" value="return java.math.BigDecimal.valueOf(this.prop1).remainder(java.math.BigDecimal.valueOf(3.0), java.math.MathContext.UNLIMITED).compareTo(java.math.BigDecimal.ZERO) ==0;"/>
-      </eAnnotations>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
       <eAnnotations source="Keyword">
         <details key="Keyword" value="prop1"/>
