@@ -16,7 +16,7 @@
     <semanticResources>ocl/fullvalidation.ocl</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_SBu5YGjDEeutyv0gtBO7yg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_SCd5MWjDEeutyv0gtBO7yg" name="jsonMetaschemaMM" repPath="#_SCZnwGjDEeutyv0gtBO7yg" changeId="d0c73a95-c6c7-460d-be27-8c7e4591f565">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_SCd5MWjDEeutyv0gtBO7yg" name="jsonMetaschemaMM" repPath="#_SCZnwGjDEeutyv0gtBO7yg" changeId="dd91ffc9-8526-40f5-9b31-582b44ec216e">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="jsonMetaschemaMM.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -5208,7 +5208,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_s7cm8mn5EeutgpGWKULuJw" name="value : EInt" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_s7cm8mn5EeutgpGWKULuJw" name="value : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="jsonMetaschemaMM.ecore#//NonNegativeInteger/value"/>
         <semanticElements xmi:type="ecore:EAttribute" href="jsonMetaschemaMM.ecore#//NonNegativeInteger/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ySQ6oWn5EeutgpGWKULuJw" labelAlignment="LEFT" description="_eWbqkWjWEeutyv0gtBO7yg">
@@ -5227,7 +5227,7 @@
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_0lb3Imn5EeutgpGWKULuJw" name="value : EInt = 0" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_0lb3Imn5EeutgpGWKULuJw" name="value : EDouble = 0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="jsonMetaschemaMM.ecore#//NonNegativeIntegerDefault0/value"/>
         <semanticElements xmi:type="ecore:EAttribute" href="jsonMetaschemaMM.ecore#//NonNegativeIntegerDefault0/value"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_3jj1JGn5EeutgpGWKULuJw" labelAlignment="LEFT" description="_eWbqkWjWEeutyv0gtBO7yg">

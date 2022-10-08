@@ -802,7 +802,8 @@ SchemaArray returns SchemaArray:
  */
 NonNegativeIntegerDefault0 returns NonNegativeIntegerDefault0:
 //	value=EINT
-	value=EInt
+//	value=EInt
+	value=EDouble
 ;
 //	'NonNegativeIntegerDefault0'
 //	'{'
@@ -832,7 +833,8 @@ KeySchemaPair returns KeySchemaPair:
  */
 NonNegativeInteger returns NonNegativeInteger:
 //	value=EINT
-	value=EInt
+//	value=EInt
+	value=EDouble
 ;
 
 

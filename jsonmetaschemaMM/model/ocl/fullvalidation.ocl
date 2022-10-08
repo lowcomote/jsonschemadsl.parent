@@ -6,10 +6,17 @@ context NonNegativeInteger
 inv Minimum0 ('The value must be >= 0'):
 if value <0 then null else true endif
 
+context NonNegativeInteger
+inv IsInteger ('The value must be an Integer'):
+if value.floor() = value then true else null endif
+
 context NonNegativeIntegerDefault0
 inv MinimumDefault0 ('The value must be >= 0'):
 if value <0 then null else true endif
 
+context NonNegativeIntegerDefault0
+inv IsInteger ('The value must be an Integer'):
+if value.floor() = value then true else null endif
 
  
 

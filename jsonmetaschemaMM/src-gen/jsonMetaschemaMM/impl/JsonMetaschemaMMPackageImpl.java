@@ -3237,10 +3237,10 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		addEParameter(op, ecorePackage.getEInt(), "currentIndex", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(nonNegativeIntegerEClass, NonNegativeInteger.class, "NonNegativeInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNonNegativeInteger_Value(), ecorePackage.getEInt(), "value", null, 1, 1, NonNegativeInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNonNegativeInteger_Value(), ecorePackage.getEDouble(), "value", null, 1, 1, NonNegativeInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nonNegativeIntegerDefault0EClass, NonNegativeIntegerDefault0.class, "NonNegativeIntegerDefault0", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNonNegativeIntegerDefault0_Value(), ecorePackage.getEInt(), "value", "0", 1, 1, NonNegativeIntegerDefault0.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNonNegativeIntegerDefault0_Value(), ecorePackage.getEDouble(), "value", "0", 1, 1, NonNegativeIntegerDefault0.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(schemaObjectAdditionalPropertiesEClass, SchemaObjectAdditionalProperties.class, "SchemaObjectAdditionalProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSchemaObjectAdditionalProperties_Key(), ecorePackage.getEString(), "key", null, 1, 1, SchemaObjectAdditionalProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
