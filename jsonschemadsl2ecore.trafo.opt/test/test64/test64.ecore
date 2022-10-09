@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test64" nsURI="http://jku.bise.at/test64" nsPrefix="test64">
+  <eClassifiers xsi:type="ecore:EClass" name="Test64Root">
+    <eOperations name="get" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (&quot;prop1&quot;.equals(key) ){return this.getProp1();}&#xA;&#xA;if (&quot;prop2&quot;.equals(key) ){return this.getProp2();}&#xA;&#xA;if (&quot;prop3&quot;.equals(key) ){return this.getProp3();}&#xA;&#xA;java.util.List&lt;java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList&lt;java.lang.Class>();&#xA;&#xA;additionalOrPatternPropertyClasses.add(test64.Test64RootAdditionalProperties.class); &#xA;&#xA;for (Test64RootPropertiesAbstract child : this.test64Root){&#xA;&#x9;if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){&#xA;&#x9;&#x9;try{&#xA;&#x9;&#x9;&#x9;java.lang.reflect.Field keyField = child.getClass().getDeclaredField(&quot;key&quot;);&#xA;&#x9;&#x9;&#x9;if (keyField.get(child).equals(key)) {&#xA;&#x9;&#x9;&#x9;&#x9;java.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals(&quot;additionalProperties&quot;) || field.getName().startsWith(&quot;patternProperties&quot;) ).findAny().get();&#xA;&#x9;&#x9;&#x9;&#x9;return valueField.get(child);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} catch (Exception e) {&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xA;&#x9;&#x9;&#x9;throw new RuntimeException(e);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;return null;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test64Root" upperBound="-1"
+        eType="#//Test64RootPropertiesAbstract" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" ordered="false"
+        unique="false" eType="#//Test64RootProp1Abstract" changeable="false" volatile="true"
+        transient="true" derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest64Root().stream().filter(test64.Test64RootProp1.class::isInstance).findAny().map(test64.Test64RootProp1.class::cast).map(instance->instance.getProp1()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest64Root().stream().filter(test64.Test64RootProp2.class::isInstance).findAny().map(test64.Test64RootProp2.class::cast).map(instance->instance.getProp2()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop3" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest64Root().stream().filter(test64.Test64RootProp3.class::isInstance).findAny().map(test64.Test64RootProp3.class::cast).map(instance->instance.getProp3()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test64RootProp1" eSuperTypes="#//Test64RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" lowerBound="1" eType="#//Test64RootProp1Abstract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test64RootProp2" eSuperTypes="#//Test64RootPropertiesAbstract">
+    <eOperations name="regexMatch" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p = java.util.regex.Pattern.compile(&quot;^b*$&quot;);&#xA;java.util.regex.Matcher m = p.matcher(this.prop2);&#xA;return m.find();"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test64RootProp3" eSuperTypes="#//Test64RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop3" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop3"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test64RootAdditionalProperties" eSuperTypes="#//Test64RootPropertiesAbstract">
+    <eAnnotations source="AdditionalProperties">
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this.key.equals(&quot;prop1&quot;)){return &quot;prop1&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop2&quot;)){return &quot;prop2&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop3&quot;)){return &quot;prop3&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="regexMatch" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p = java.util.regex.Pattern.compile(&quot;^ADD_&quot;);&#xA;java.util.regex.Matcher m = p.matcher(this.additionalProperties);&#xA;return m.find();"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalProperties" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test64RootPropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test64RootProp1Abstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test64RootProp1TypeInteger" eSuperTypes="#//Test64RootProp1Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="integer"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test64RootProp1TypeString" eSuperTypes="#//Test64RootProp1Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="string"/>
+    </eAnnotations>
+    <eOperations name="regexMatch" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p = java.util.regex.Pattern.compile(&quot;^a*$&quot;);&#xA;java.util.regex.Matcher m = p.matcher(this.prop1);&#xA;return m.find();"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

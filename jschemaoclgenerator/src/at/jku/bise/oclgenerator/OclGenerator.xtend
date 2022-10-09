@@ -126,6 +126,22 @@ class OclGenerator {
 			else null
 			endif
 	'''
+
+	def static appendPatternConstraint (URI fileName, String packageName, String contextClass, String inv, String regex){
+		OclWriter.append(fileName, generatePatternConstraint(packageName, contextClass, inv, regex))
+	}
+	
+	def static generatePatternConstraint(String packageName, String contextClass, String inv, String regex)'''
+			context «packageName»::«contextClass»
+		
+			inv «inv»('The value of «contextClass» must match the regular expression «regex»'):
+			if self.regexMatch()
+			then true
+			else null
+			endif
+	'''
+	
+
 	
 	def static appendIntegerConstraint (URI fileName, String packageName, String contextClass, String inv, String propertyName){
 		OclWriter.append(fileName, generateIntegerConstraint(packageName, contextClass, inv,  propertyName))

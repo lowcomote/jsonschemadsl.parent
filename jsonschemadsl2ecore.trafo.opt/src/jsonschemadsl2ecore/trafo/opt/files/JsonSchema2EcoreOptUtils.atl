@@ -834,6 +834,8 @@ helper def : appendMinLengthConstraint(packageName: String, contextClass: String
 helper def : appendMaxLengthConstraint(packageName: String, contextClass: String, inv:String, maxLength: Real, propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxLengthConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, maxLength, propertyName});
 
+helper def : appendPatternConstraint(packageName: String, contextClass: String, inv:String, regex: String) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendPatternConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, regex});
 
 helper def : appendIntegerConstraint(packageName: String, contextClass: String, inv:String,  propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendIntegerConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv,  propertyName});

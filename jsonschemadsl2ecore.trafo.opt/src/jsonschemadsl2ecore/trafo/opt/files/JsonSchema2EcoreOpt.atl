@@ -93,7 +93,6 @@ abstract rule mapSchemaToEClass{
 	}	
 } 
 
---rule createAdditionalPropertiesValidatorOnPatternProperties(properties : Sequence(String), patterns: Sequence(String)){
 	
 rule createValidatorOnProperties(properties: Sequence(String)){
 	to
@@ -892,6 +891,51 @@ lazy rule maxLengthConstraintToOcl {
 	}	
 }
 
+lazy rule patternConstraintToOcl {
+	from patternSchemaDefinition : JSchemaMM!PatternSchemaDefinition(patternSchemaDefinition.refImmediateComposite().hasTypeString())
+	using {
+		enclosingSchema : JSchemaMM!ObjectSchema = patternSchemaDefinition.refImmediateComposite();
+	}
+	do {
+		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is string because of hasTypeString()
+			enclosingSchema.resolve().eOperations <- enclosingSchema.resolve().eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey())});
+			thisModule.appendPatternConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Pattern', patternSchemaDefinition.pattern.toString());
+		}else{ ---- we are sure it contains string because of hasTypeString()
+			for (eClass in thisModule.allEClass()){
+				if(eClass.name = enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"string\"")){
+					eClass.eOperations <- eClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey())});
+				}
+			}
+			thisModule.appendPatternConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"string\""), enclosingSchema.resolve().name+'Pattern', patternSchemaDefinition.pattern.toString());
+		}
+	}	
+}
+
+
+rule createPatternMatcher(pattern : String, propertyName:String){
+	to
+		eOperation:Ecore!EOperation(
+			name<- 'regexMatch',
+			ordered <- false,
+			unique <-false,
+			lowerBound <- 1,
+			upperBound <- 1,
+			eType <- Ecore!EBoolean,
+			eAnnotations <- Sequence{eAnnotation}
+		),
+		eAnnotation: Ecore!EAnnotation(
+			source <- 'http://www.eclipse.org/emf/2002/GenModel',
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- 'body',
+			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile("'+pattern+'");\njava.util.regex.Matcher m = p.matcher(this.'+propertyName+');\nreturn m.find();'
+		)
+		
+	do{
+		eOperation;
+	}	
+}
 
 lazy rule requiredInPropertiesToOcl{
 	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition(requiredSchemaDefinition.refImmediateComposite().hasTypeObject() and requiredSchemaDefinition.refImmediateComposite().ref.oclIsUndefined())
@@ -1174,6 +1218,12 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		for (m in JSchemaMM!MaxLengthSchemaDefinition.allInstancesFrom('jschema')){
 			thisModule.maxLengthConstraintToOcl(m);
 		}
+		
+		for (m in JSchemaMM!PatternSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.patternConstraintToOcl(m);
+		}
+		
+		
 
 		for (r in JSchemaMM!RequiredSchemaDefinition.allInstancesFrom('jschema')){
 --			if(r.refImmediateComposite().hasTypeObject() and r.refImmediateComposite().ref.oclIsUndefined()){

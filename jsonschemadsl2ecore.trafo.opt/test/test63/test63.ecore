@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test63" nsURI="http://jku.bise.at/test63" nsPrefix="test63">
+  <eClassifiers xsi:type="ecore:EClass" name="Test63Root">
+    <eOperations name="get" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (&quot;prop1&quot;.equals(key) ){return this.getProp1();}&#xA;&#xA;if (&quot;prop2&quot;.equals(key) ){return this.getProp2();}&#xA;&#xA;if (&quot;prop3&quot;.equals(key) ){return this.getProp3();}&#xA;&#xA;java.util.List&lt;java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList&lt;java.lang.Class>();&#xA;&#xA;additionalOrPatternPropertyClasses.add(test63.Test63RootPatternProperties0.class); &#xA;&#xA;additionalOrPatternPropertyClasses.add(test63.Test63RootAdditionalProperties.class); &#xA;&#xA;for (Test63RootPropertiesAbstract child : this.test63Root){&#xA;&#x9;if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){&#xA;&#x9;&#x9;try{&#xA;&#x9;&#x9;&#x9;java.lang.reflect.Field keyField = child.getClass().getDeclaredField(&quot;key&quot;);&#xA;&#x9;&#x9;&#x9;if (keyField.get(child).equals(key)) {&#xA;&#x9;&#x9;&#x9;&#x9;java.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals(&quot;additionalProperties&quot;) || field.getName().startsWith(&quot;patternProperties&quot;) ).findAny().get();&#xA;&#x9;&#x9;&#x9;&#x9;return valueField.get(child);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} catch (Exception e) {&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xA;&#x9;&#x9;&#x9;throw new RuntimeException(e);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;return null;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test63Root" upperBound="-1"
+        eType="#//Test63RootPropertiesAbstract" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" ordered="false"
+        unique="false" eType="#//Test63RootProp1Abstract" changeable="false" volatile="true"
+        transient="true" derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest63Root().stream().filter(test63.Test63RootProp1.class::isInstance).findAny().map(test63.Test63RootProp1.class::cast).map(instance->instance.getProp1()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest63Root().stream().filter(test63.Test63RootProp2.class::isInstance).findAny().map(test63.Test63RootProp2.class::cast).map(instance->instance.getProp2()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop3" ordered="false"
+        unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest63Root().stream().filter(test63.Test63RootProp3.class::isInstance).findAny().map(test63.Test63RootProp3.class::cast).map(instance->instance.getProp3()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test63RootProp1" eSuperTypes="#//Test63RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" lowerBound="1" eType="#//Test63RootProp1Abstract"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test63RootProp2" eSuperTypes="#//Test63RootPropertiesAbstract">
+    <eOperations name="regexMatch" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p = java.util.regex.Pattern.compile(&quot;^b*$&quot;);&#xA;java.util.regex.Matcher m = p.matcher(this.prop2);&#xA;return m.find();"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop2" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test63RootProp3" eSuperTypes="#//Test63RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop3" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop3"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test63RootPatternProperties0" eSuperTypes="#//Test63RootPropertiesAbstract">
+    <eAnnotations source="PatternProperties">
+      <details key="PatternProperties" value="true"/>
+      <details key="pattern" value="&quot;^S_&quot;"/>
+    </eAnnotations>
+    <eOperations name="find" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p = java.util.regex.Pattern.compile(&quot;^S_&quot;);&#xA;java.util.regex.Matcher m = p.matcher(toBeEvaluated);&#xA;return m.find();"/>
+      </eAnnotations>
+      <eParameters name="toBeEvaluated" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="find" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p = java.util.regex.Pattern.compile(&quot;^S_&quot;);&#xA;java.util.regex.Matcher m = p.matcher(this.key);&#xA;return m.find();"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this.key.equals(&quot;prop1&quot;)){return &quot;prop1&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop2&quot;)){return &quot;prop2&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop3&quot;)){return &quot;prop3&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="regexMatch" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p = java.util.regex.Pattern.compile(&quot;PP&quot;);&#xA;java.util.regex.Matcher m = p.matcher(this.patternProperties0);&#xA;return m.find();"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="patternProperties0" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test63RootPropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test63RootAdditionalProperties" eSuperTypes="#//Test63RootPropertiesAbstract">
+    <eAnnotations source="AdditionalProperties">
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p0 = java.util.regex.Pattern.compile(&quot;^S_&quot;);&#xA;java.util.regex.Matcher m0 = p0.matcher(this.key);&#xA;if (m0.find()){return &quot;^S_&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this.key.equals(&quot;prop1&quot;)){return &quot;prop1&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop2&quot;)){return &quot;prop2&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop3&quot;)){return &quot;prop3&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test63RootProp1Abstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test63RootProp1TypeInteger" eSuperTypes="#//Test63RootProp1Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="integer"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test63RootProp1TypeString" eSuperTypes="#//Test63RootProp1Abstract">
+    <eAnnotations source="ArrayOfTypes">
+      <details key="ArrayOfTypes" value="string"/>
+    </eAnnotations>
+    <eOperations name="regexMatch" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.regex.Pattern  p = java.util.regex.Pattern.compile(&quot;^a*$&quot;);&#xA;java.util.regex.Matcher m = p.matcher(this.prop1);&#xA;return m.find();"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="prop1" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,55 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test64
+import 'http://jku.bise.at/test64'
+
+package test64
+
+	context test64::Test64RootProp1TypeInteger
+
+	inv Test64RootProp1TypeIntegerIsInteger('The value of Test64RootProp1TypeInteger.prop1 must be integer'):
+	if prop1.floor() = prop1
+	then true
+	else null
+	endif
+
+	context test64::Test64RootAdditionalProperties 
+
+	inv Test64RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test64::Test64RootAdditionalProperties 
+
+	inv Test64RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test64::Test64RootProp1TypeString
+
+	inv Test64RootProp1Pattern('The value of Test64RootProp1TypeString must match the regular expression ^a*$'):
+	if self.regexMatch()
+	then true
+	else null
+	endif
+
+	context test64::Test64RootProp2
+
+	inv Test64RootProp2Pattern('The value of Test64RootProp2 must match the regular expression ^b*$'):
+	if self.regexMatch()
+	then true
+	else null
+	endif
+
+	context test64::Test64RootAdditionalProperties
+
+	inv Test64RootAdditionalPropertiesPattern('The value of Test64RootAdditionalProperties must match the regular expression ^ADD_'):
+	if self.regexMatch()
+	then true
+	else null
+	endif
+
+endpackage
+

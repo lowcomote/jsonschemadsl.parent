@@ -22,14 +22,14 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"readOnly"            |Y                    |N                         ||
 |"writeOnly"           |Y                    |N                         ||
 |"examples"            |Y                    |N                         ||
-|"multipleOf"          |Y                    |Y                        |Generate an OCL constraint (like "minimum")|
+|"multipleOf"          |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"maximum"             |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"exclusiveMaximum"    |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"minimum":            |Y                    |Y                         | |
 |"exclusiveMinimum"    |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"maxLength"           |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"minLength"           |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
-|"pattern"             |N                    |N                         |Create an EOperation that check if it is a regex|
+|"pattern"             |N                    |Y                         |Create an EOperation that check if it is a regex|
 |"additionalItems"     |Y                    |N                         ||
 |"items" (List)        |Y                    |Y                         ||
 |"items" (Tuple)       |Y                    |N                         ||
