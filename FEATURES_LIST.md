@@ -27,8 +27,8 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"exclusiveMaximum"    |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"minimum":            |Y                    |Y                         | |
 |"exclusiveMinimum"    |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
-|"maxLength"           |Y                    |N                         |Generate an OCL constraint (like "minimum")|
-|"minLength"           |Y                    |N                         |Generate an OCL constraint (like "minimum")|
+|"maxLength"           |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
+|"minLength"           |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"pattern"             |N                    |N                         |Create an EOperation that check if it is a regex|
 |"additionalItems"     |Y                    |N                         ||
 |"items" (List)        |Y                    |Y                         ||

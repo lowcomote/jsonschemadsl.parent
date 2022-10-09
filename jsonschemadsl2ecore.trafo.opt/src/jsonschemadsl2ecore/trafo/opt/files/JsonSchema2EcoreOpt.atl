@@ -837,31 +837,31 @@ lazy rule multipleOfConstraintToOcl {
 }
 
 
-rule createMultipleOfValidationEOperation( enclosingSchema : JSchemaMM!ObjectSchema){---- .....TODO
-	to
-		eOperation:Ecore!EOperation(
-			name<- 'multipleOfValidation',
-			ordered <- false,
-			unique <-false,
-			lowerBound <- 1,
-			upperBound <- 1,
-			eType <- Ecore!EBoolean,
-			eAnnotations <- Sequence{eAnnotation}
-		),
-		eAnnotation: Ecore!EAnnotation(
-			source <- 'http://www.eclipse.org/emf/2002/GenModel',
-			details <- Sequence{entrySet}
-		),
-		entrySet:Ecore!EStringToStringMapEntry(
-			key <- 'body',
-			value <- 'return java.math.BigDecimal.valueOf(this.'+enclosingSchema.getKey()+').remainder(java.math.BigDecimal.valueOf('+enclosingSchema.multipleOf.multipleOf.toString()+'), java.math.MathContext.UNLIMITED).compareTo(java.math.BigDecimal.ZERO) ==0;'
-		)
-		
-	do{
-		
-		eOperation;
-	}
-}
+--rule createMultipleOfValidationEOperation( enclosingSchema : JSchemaMM!ObjectSchema){---- .....TODO
+--	to
+--		eOperation:Ecore!EOperation(
+--			name<- 'multipleOfValidation',
+--			ordered <- false,
+--			unique <-false,
+--			lowerBound <- 1,
+--			upperBound <- 1,
+--			eType <- Ecore!EBoolean,
+--			eAnnotations <- Sequence{eAnnotation}
+--		),
+--		eAnnotation: Ecore!EAnnotation(
+--			source <- 'http://www.eclipse.org/emf/2002/GenModel',
+--			details <- Sequence{entrySet}
+--		),
+--		entrySet:Ecore!EStringToStringMapEntry(
+--			key <- 'body',
+--			value <- 'return java.math.BigDecimal.valueOf(this.'+enclosingSchema.getKey()+').remainder(java.math.BigDecimal.valueOf('+enclosingSchema.multipleOf.multipleOf.toString()+'), java.math.MathContext.UNLIMITED).compareTo(java.math.BigDecimal.ZERO) ==0;'
+--		)
+--		
+--	do{
+--		
+--		eOperation;
+--	}
+--}
 
 
 lazy rule minLengthConstraintToOcl {
@@ -874,6 +874,20 @@ lazy rule minLengthConstraintToOcl {
 			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'MinLength', minLengthSchemaDefinition.minLength.value, enclosingSchema.getKey());
 		}else{ ---- we are sure it contains string because of hasTypeString()
 			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"string\""), enclosingSchema.resolve().name+'MinLength', minLengthSchemaDefinition.minLength.value, enclosingSchema.getKey());
+		}
+	}	
+}
+
+lazy rule maxLengthConstraintToOcl {
+	from maxLengthSchemaDefinition : JSchemaMM!MaxLengthSchemaDefinition(maxLengthSchemaDefinition.refImmediateComposite().hasTypeString())
+	using {
+		enclosingSchema : JSchemaMM!ObjectSchema = maxLengthSchemaDefinition.refImmediateComposite();
+	}
+	do {
+		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is string because of hasTypeString()
+			thisModule.appendMaxLengthConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'MaxLength', maxLengthSchemaDefinition.maxLength.value, enclosingSchema.getKey());
+		}else{ ---- we are sure it contains string because of hasTypeString()
+			thisModule.appendMaxLengthConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"string\""), enclosingSchema.resolve().name+'MaxLength', maxLengthSchemaDefinition.maxLength.value, enclosingSchema.getKey());
 		}
 	}	
 }
@@ -911,33 +925,7 @@ lazy rule dependenciesArrayOcl{
 }
 
 
---lazy rule requiredInPropertiesToOcl_old{
---	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition
---	using {
---		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
---		required : Sequence(String) = requiredSchemaDefinition.required.values;
---		propertyName : String = enclosingSchema.getKey();
---		
---		inPropertiesRequiredKeySchemaPairs : Sequence(JSchemaMM!KeySchemaPair)= 
---			let propertiesSchemaDefinitions : Sequence(JSchemaMM!PropertiesSchemaDefinition) = 
---				enclosingSchema.keywordDefinition->select(k|k.oclIsTypeOf(JSchemaMM!PropertiesSchemaDefinition))
---			in
---				if propertiesSchemaDefinitions.isEmpty() then Sequence{}
---				else
---					propertiesSchemaDefinitions->first().keySchemaPairs->select(ksp| required->includes(ksp.key.stripFirstAndLast()))
---				endif;
---				
---	
---		inPropertiesRequiredSchemas : Sequence(JSchemaMM!Schema)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.value);	
---		inPropertiesRequiredKeys : Sequence(String)= inPropertiesRequiredKeySchemaPairs->collect(ksp | ksp.key);	
---		requiredNotInProperties:Sequence(String) = required->excludingAll(inPropertiesRequiredKeys);
---	}
---	do{
---		for (p in inPropertiesRequiredKeySchemaPairs) {
---			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName, enclosingSchema.resolve().name,  enclosingSchema.resolve().name+'Required', p.key.stripFirstAndLast(), p.value.resolve().name, propertyName);
---		}
---	}
---}
+
 
 lazy rule patternPropertiesRegexToOcl{
 	---- keySchemaPair isInPatternProperties
@@ -1181,6 +1169,10 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		
 		for (m in JSchemaMM!MinLengthSchemaDefinition.allInstancesFrom('jschema')){
 			thisModule.minLengthConstraintToOcl(m);
+		}
+		
+		for (m in JSchemaMM!MaxLengthSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.maxLengthConstraintToOcl(m);
 		}
 
 		for (r in JSchemaMM!RequiredSchemaDefinition.allInstancesFrom('jschema')){

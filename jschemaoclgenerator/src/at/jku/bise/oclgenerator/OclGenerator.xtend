@@ -113,6 +113,20 @@ class OclGenerator {
 			endif
 	'''
 	
+	def static appendMaxLengthConstraint (URI fileName, String packageName, String contextClass, String inv, Double maxLength, String propertyName){
+		OclWriter.append(fileName, generateMaxLengthConstraint(packageName, contextClass, inv, maxLength, propertyName))
+	}
+	
+	def static generateMaxLengthConstraint(String packageName, String contextClass, String inv, Double maxLength, String propertyName)'''
+			context «packageName»::«contextClass»
+		
+			inv «inv»('The length of «contextClass» must be lower than «maxLength»'):
+			if «propertyName.underscoreIfNecessary».size() <= «maxLength»
+			then true
+			else null
+			endif
+	'''
+	
 	def static appendIntegerConstraint (URI fileName, String packageName, String contextClass, String inv, String propertyName){
 		OclWriter.append(fileName, generateIntegerConstraint(packageName, contextClass, inv,  propertyName))
 	}
