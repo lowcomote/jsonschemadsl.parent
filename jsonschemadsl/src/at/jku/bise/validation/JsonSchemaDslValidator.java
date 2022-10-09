@@ -3,12 +3,18 @@
  */
 package at.jku.bise.validation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.ocl.xtext.completeocl.validation.CompleteOCLEObjectValidator;
+import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.EValidatorRegistrar;
 
 
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
+import jsonMetaschemaMM.KeySchemaPair;
+import jsonMetaschemaMM.PatternPropertiesSchemaDefinition;
 import jsonMetaschemaMM.Activator;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -62,5 +68,22 @@ public class JsonSchemaDslValidator extends AbstractJsonSchemaDslValidator {
 	        
 	        
 	        
+	 }
+	 
+	 @Check
+	 public void patternsValidator(PatternPropertiesSchemaDefinition patternPropertiesSchemaDefinition){
+		 List<String> invalidPatterns = new ArrayList<String>();
+		 for (KeySchemaPair keySchemaPair : patternPropertiesSchemaDefinition.getKeySchemaPairs()) {
+			 try{
+				 java.util.regex.Pattern.compile(keySchemaPair.getKey());
+			 }catch (java.util.regex.PatternSyntaxException e){
+				 invalidPatterns.add(keySchemaPair.getKey());
+			 }
+		 }
+		 if(!invalidPatterns.isEmpty()) {
+			 for (String invalidPattern: invalidPatterns) {
+				 error("The pattern "+invalidPattern+" is not a valida regular expression", null);
+			 }
+		 }
 	 }
 }
