@@ -490,6 +490,12 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PatternSchemaDefinition" eSuperTypes="#//KeywordDefinition">
+    <eOperations name="isValidPattern" ordered="false" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="try{&#xA;&#x9;java.util.regex.Pattern.compile(this.pattern);&#xA;}catch (java.util.regex.PatternSyntaxException e){&#xA;&#x9;return false;&#xA;}&#xA;return true;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="pattern" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

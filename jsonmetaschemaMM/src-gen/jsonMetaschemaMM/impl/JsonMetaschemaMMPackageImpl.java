@@ -1940,6 +1940,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getPatternSchemaDefinition__IsValidPattern() {
+		return patternSchemaDefinitionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getKeywordDefinition() {
 		return keywordDefinitionEClass;
 	}
@@ -2791,6 +2801,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		patternSchemaDefinitionEClass = createEClass(PATTERN_SCHEMA_DEFINITION);
 		createEAttribute(patternSchemaDefinitionEClass, PATTERN_SCHEMA_DEFINITION__PATTERN);
+		createEOperation(patternSchemaDefinitionEClass, PATTERN_SCHEMA_DEFINITION___IS_VALID_PATTERN);
 
 		keywordDefinitionEClass = createEClass(KEYWORD_DEFINITION);
 
@@ -3167,6 +3178,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(patternSchemaDefinitionEClass, PatternSchemaDefinition.class, "PatternSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternSchemaDefinition_Pattern(), ecorePackage.getEString(), "pattern", null, 1, 1, PatternSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getPatternSchemaDefinition__IsValidPattern(), ecorePackage.getEBooleanObject(), "isValidPattern", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(keywordDefinitionEClass, KeywordDefinition.class, "KeywordDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

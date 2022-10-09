@@ -111,4 +111,9 @@ if true = self.isOnlyFragment() then
 else true
 endif
 
+context PatternSchemaDefinition
+inv IsValidPattern ('The pattern '+self.pattern+' is not a valid regular expression'):
+if self.isValidPattern() then true  else null endif
+
+
 endpackage

@@ -2097,13 +2097,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int PATTERN_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Is Valid Pattern</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PATTERN_SCHEMA_DEFINITION___IS_VALID_PATTERN = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Pattern Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATTERN_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int PATTERN_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ContainsSchemaDefinitionImpl <em>Contains Schema Definition</em>}' class.
@@ -4505,6 +4514,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EAttribute getPatternSchemaDefinition_Pattern();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.PatternSchemaDefinition#isValidPattern() <em>Is Valid Pattern</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Valid Pattern</em>' operation.
+	 * @see jsonMetaschemaMM.PatternSchemaDefinition#isValidPattern()
+	 * @generated
+	 */
+	EOperation getPatternSchemaDefinition__IsValidPattern();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.KeywordDefinition <em>Keyword Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6283,6 +6302,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PATTERN_SCHEMA_DEFINITION__PATTERN = eINSTANCE.getPatternSchemaDefinition_Pattern();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Valid Pattern</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation PATTERN_SCHEMA_DEFINITION___IS_VALID_PATTERN = eINSTANCE.getPatternSchemaDefinition__IsValidPattern();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.KeywordDefinitionImpl <em>Keyword Definition</em>}' class.

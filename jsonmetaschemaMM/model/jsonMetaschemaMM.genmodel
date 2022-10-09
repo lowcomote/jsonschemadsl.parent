@@ -255,6 +255,8 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//PatternSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//PatternSchemaDefinition/pattern"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//PatternSchemaDefinition/isValidPattern"
+          body="try{&#xA;&#x9;java.util.regex.Pattern.compile(this.pattern);&#xA;}catch (java.util.regex.PatternSyntaxException e){&#xA;&#x9;return false;&#xA;}&#xA;return true;&#xA;"/>
     </genClasses>
     <genClasses image="false" ecoreClass="jsonMetaschemaMM.ecore#//KeywordDefinition"/>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ContainsSchemaDefinition">
