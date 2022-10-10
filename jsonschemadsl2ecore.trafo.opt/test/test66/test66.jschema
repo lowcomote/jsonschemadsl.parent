@@ -1,0 +1,35 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":["object","string"],
+			"maxProperties":0
+		}, 
+		"prop2":{
+			"type":"object",
+			"maxProperties":3.0
+		}, 
+		"prop3":{
+			"type":"object",
+			"maxProperties":0
+		},
+		"prop4":{
+			"type":"object"
+		},
+		"prop5":{
+			"type":["object","string"],
+			"maxProperties":3
+		},
+		"prop6":{
+			"type":"object",
+			"maxProperties":1
+		},
+		"prop7":{
+			"type":"object",
+			"maxProperties":0.0
+		}
+	},
+ 	"additionalProperties":{ "type":"string", "pattern":"^ADD_" },
+ 	"minProperties":2,
+ 	"maxProperties":5
+}

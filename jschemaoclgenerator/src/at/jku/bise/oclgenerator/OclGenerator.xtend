@@ -141,6 +141,19 @@ class OclGenerator {
 			endif
 	'''
 	
+	def static appendMaxProperties0Constraint (URI fileName, String packageName, String contextClass, String inv,  String propertyName){
+		OclWriter.append(fileName, generateMaxProperties0Constraint(packageName, contextClass, inv, propertyName))
+	}
+	
+	def static generateMaxProperties0Constraint(String packageName, String contextClass, String inv, String propertyName)'''
+			context «packageName»::«contextClass»
+		
+			inv «inv»('No properties are allowed for  «contextClass»'):
+			if  «propertyName.underscoreIfNecessary»->isEmpty()
+			then true
+			else null
+			endif
+	'''
 
 	
 	def static appendIntegerConstraint (URI fileName, String packageName, String contextClass, String inv, String propertyName){

@@ -312,7 +312,10 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 		
 		}else if(simpleType = #"\"object\"" ){
 --			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword(), schema.getKey(), schema.minProperties->debug('minProperties'), schema.maxProperties->debug('maxProperties'))->debug('createPropertiesContainment')});
-			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword(), schema.getKey(), schema.propertiesLowerBound()->debug('thisModule.propertiesLowerBound'), schema.propertiesUpperBound()->debug('thisModule.propertiesUpperBound'))->debug('createPropertiesContainment')});
+			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword(), schema.getKey(), schema.propertiesLowerBound(), schema.propertiesUpperBound())});
+			if(not schema.maxProperties.oclIsUndefined() and schema.maxProperties.maxProperties.value.floor() = 0 ){
+				thisModule.appendMaxProperties0Constraint(thisModule.packageName, eClassName, eClassName+'MaxProperties0', schema.getKeyForPropertiesContainment());
+			}
 			if(schema.additionalProperties.oclIsUndefined()){ ------ the keyword "additionalProperties" is missing
 				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname(), schema.findPropertiesKeys(),  schema.findPatternPropertiesKeys());
 			}
@@ -386,8 +389,6 @@ lazy rule createPropertiesContainment{
 			containment <- true,
 --			lowerBound <- 0,
 --			upperBound <- -1,
---			lowerBound <- if not minPropertiesSchemaDefinition->debug('minPropertiesSchemaDefinition').oclIsUndefined() then minPropertiesSchemaDefinition.minProperties else 0 endif ,
---			upperBound <- if not maxPropertiesSchemaDefinition->debug('maxPropertiesSchemaDefinition').oclIsUndefined() then maxPropertiesSchemaDefinition.maxProperties else -1 endif,
 			lowerBound <- lowerBound,
 			upperBound <- upperBound,
 			eAnnotations <- eReference.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(keyword)} else Sequence{} endif)
@@ -1132,8 +1133,8 @@ rule createCommonAnnotationDetails(){
 	
 }
 
-
-rule createGetKeyOperation(propertyName:String, properties: Sequence(String), propertiesAbstractEClass : Ecore!EClass){
+--rule createGetKeyOperation(propertyName:String, properties: Sequence(String), propertiesAbstractEClass : Ecore!EClass){
+rule createGetKeyOperation(objectSchema:JSchemaMM!ObjectSchema, propertyName:String, properties: Sequence(String), propertiesAbstractEClass : Ecore!EClass){
 	to
 		eOperation:Ecore!EOperation(
 			name<- 'get',
@@ -1157,7 +1158,8 @@ rule createGetKeyOperation(propertyName:String, properties: Sequence(String), pr
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
 			key <- 'body',
-			value <-  thisModule.createBodyForGetKey(propertyName, properties, propertiesAbstractEClass) 
+--			value <-  thisModule.createBodyForGetKey(propertyName, properties, propertiesAbstractEClass) 
+			value <-  thisModule.createBodyForGetKey(objectSchema, propertyName, properties, propertiesAbstractEClass) 
 		)
 	do{
 		eOperation;
@@ -1255,19 +1257,22 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 					if(not objectSchema.properties.oclIsUndefined()){
 						objectSchema.resolve().eStructuralFeatures <- objectSchema.resolve().eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
 					}
-					
-					objectSchema.resolve().eOperations <- objectSchema.resolve().eOperations-> union (Sequence{thisModule.createGetKeyOperation(objectSchema.getKeyForPropertiesContainment(),  objectSchema.findPropertiesKeys(), objectSchema.resolve().getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
-					
+					----- manage the case upper bound is 0 (the get(key) operation would have a compilation error)
+--					objectSchema.resolve().eOperations <- objectSchema.resolve().eOperations-> union (Sequence{thisModule.createGetKeyOperation(objectSchema.getKeyForPropertiesContainment(),  objectSchema.findPropertiesKeys(), objectSchema.resolve().getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
+--					if(objectSchema.maxProperties.oclIsUndefined() or objectSchema.maxProperties.maxProperties.value > 0){
+					objectSchema.resolve().eOperations <- objectSchema.resolve().eOperations-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),  objectSchema.findPropertiesKeys(), objectSchema.resolve().getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
+--					}
 				}else if(objectSchema.hasTypeObject()){--- if here surely not hasSimpleTypeObject. So it is missing type or "type":[...,"object",...]
 					---- Look for subclass with annotation 'ArrayOfTypes'  = object
 					if(not objectSchema.properties.oclIsUndefined()){
 						objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures <- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
 					}
 					------- for object in array of types we use objectSchema.getKey() and not objectSchema.getKeyForPropertiesContainment()
+--					if(objectSchema.maxProperties.oclIsUndefined() or objectSchema.maxProperties.maxProperties.value > 0){
 					objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
 							<- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
-							-> union (Sequence{thisModule.createGetKeyOperation(objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
-				
+							-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
+--					}
 				}
 			}
 		}

@@ -1,0 +1,167 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test66
+import 'http://jku.bise.at/test66'
+
+package test66
+
+	context test66::Test66RootProp1TypeObject
+
+	inv Test66RootProp1TypeObjectMaxProperties0('No properties are allowed for  Test66RootProp1TypeObject'):
+	if  prop1->isEmpty()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp1AdditionalProperties 
+
+	inv Test66RootProp1AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp1AdditionalProperties 
+
+	inv Test66RootProp1AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp2AdditionalProperties 
+
+	inv Test66RootProp2AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp2AdditionalProperties 
+
+	inv Test66RootProp2AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp3
+
+	inv Test66RootProp3MaxProperties0('No properties are allowed for  Test66RootProp3'):
+	if  prop3->isEmpty()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp3AdditionalProperties 
+
+	inv Test66RootProp3AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp3AdditionalProperties 
+
+	inv Test66RootProp3AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp4AdditionalProperties 
+
+	inv Test66RootProp4AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp4AdditionalProperties 
+
+	inv Test66RootProp4AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp5AdditionalProperties 
+
+	inv Test66RootProp5AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp5AdditionalProperties 
+
+	inv Test66RootProp5AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp6AdditionalProperties 
+
+	inv Test66RootProp6AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp6AdditionalProperties 
+
+	inv Test66RootProp6AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp7
+
+	inv Test66RootProp7MaxProperties0('No properties are allowed for  Test66RootProp7'):
+	if  prop7->isEmpty()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp7AdditionalProperties 
+
+	inv Test66RootProp7AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootProp7AdditionalProperties 
+
+	inv Test66RootProp7AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootAdditionalProperties 
+
+	inv Test66RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootAdditionalProperties 
+
+	inv Test66RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test66::Test66RootAdditionalProperties
+
+	inv Test66RootAdditionalPropertiesPattern('The value of Test66RootAdditionalProperties must match the regular expression ^ADD_'):
+	if self.regexMatch()
+	then true
+	else null
+	endif
+
+endpackage
+

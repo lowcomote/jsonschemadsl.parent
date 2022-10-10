@@ -775,34 +775,62 @@ helper context Ecore!EClass def:subClass(simpleType:JSchemaMM!SimpleTypes): Ecor
 ;	
 
 
-helper def: createBodyForGetKey(propertyName:String,  properties:Sequence(String) , propertiesAbstractEClass : Ecore!EClass) :String =
-	properties->iterate(property; body: String = '' | 
-		body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
-	).concat('java.util.List<java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList<java.lang.Class>();\n\n' )
+--helper def: createBodyForGetKey(propertyName:String,  properties:Sequence(String) , propertiesAbstractEClass : Ecore!EClass) :String =
+helper def: createBodyForGetKey(objectSchema:JSchemaMM!ObjectSchema, propertyName:String,  properties:Sequence(String) , propertiesAbstractEClass : Ecore!EClass) :String =
 	
-	
-	.concat(propertiesAbstractEClass.ePackage.eClassifiers->select(subClass | subClass.eAllSuperTypes.includes(propertiesAbstractEClass))
-		->select(subClass | not subClass.getEAnnotation(thisModule.ADDITIONAL_PROPERTIES).oclIsUndefined() or not subClass.getEAnnotation(thisModule.PATTERN_PROPERTIES).oclIsUndefined())
-		->iterate(additionalOrPatternPropertyClass; body: String = '' |
-			body.concat('additionalOrPatternPropertyClasses.add('+propertiesAbstractEClass.ePackage.name+'.'+additionalOrPatternPropertyClass.name+'.class); \n\n')
-			)
-	).concat('for ('+ propertiesAbstractEClass.name + ' child : this.'+propertyName+'){\n')
---	.concat('\tif (additionalOrPatternPropertyClasses.contains(child.getClass())){\n')
-	.concat('\tif (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){\n')
-	.concat('\t\ttry{\n')
-	.concat('\t\t\tjava.lang.reflect.Field keyField = child.getClass().getDeclaredField("key");\n')
-	.concat('\t\t\tif (keyField.get(child).equals(key)) {\n')
---	.concat('\t\t\t\tjava.lang.reflect.Field valueField = child.getClass().getDeclaredField("value");\n')
-	.concat('\t\t\t\tjava.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals("additionalProperties") || field.getName().startsWith("patternProperties") ).findAny().get();\n')
-	.concat('\t\t\t\treturn valueField.get(child);\n')
-	.concat('\t\t\t}\n')
-	.concat('\t\t} catch (Exception e) {\n')
-	.concat('\t\t\te.printStackTrace();\n')
-	.concat('\t\t\tthrow new RuntimeException(e);\n')
-	.concat('\t\t}\n')
-	.concat('\t}\n')
-	.concat('}\n')
-	.concat('return null;\n')
+	if objectSchema.maxProperties.oclIsUndefined() or objectSchema.maxProperties.maxProperties.value.floor()<>1
+	then
+		properties->iterate(property; body: String = '' | 
+			body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+		).concat('java.util.List<java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList<java.lang.Class>();\n\n' )
+		
+		
+		.concat(propertiesAbstractEClass.ePackage.eClassifiers->select(subClass | subClass.eAllSuperTypes.includes(propertiesAbstractEClass))
+			->select(subClass | not subClass.getEAnnotation(thisModule.ADDITIONAL_PROPERTIES).oclIsUndefined() or not subClass.getEAnnotation(thisModule.PATTERN_PROPERTIES).oclIsUndefined())
+			->iterate(additionalOrPatternPropertyClass; body: String = '' |
+				body.concat('additionalOrPatternPropertyClasses.add('+propertiesAbstractEClass.ePackage.name+'.'+additionalOrPatternPropertyClass.name+'.class); \n\n')
+				)
+		).concat('for ('+ propertiesAbstractEClass.name + ' child : this.'+propertyName+'){\n')
+		.concat('\tif (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){\n')
+		.concat('\t\ttry{\n')
+		.concat('\t\t\tjava.lang.reflect.Field keyField = child.getClass().getDeclaredField("key");\n')
+		.concat('\t\t\tif (keyField.get(child).equals(key)) {\n')
+		.concat('\t\t\t\tjava.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals("additionalProperties") || field.getName().startsWith("patternProperties") ).findAny().get();\n')
+		.concat('\t\t\t\treturn valueField.get(child);\n')
+		.concat('\t\t\t}\n')
+		.concat('\t\t} catch (Exception e) {\n')
+		.concat('\t\t\te.printStackTrace();\n')
+		.concat('\t\t\tthrow new RuntimeException(e);\n')
+		.concat('\t\t}\n')
+		.concat('\t}\n')
+		.concat('}\n')
+		.concat('return null;\n')
+	else 
+		properties->iterate(property; body: String = '' | 
+			body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+		).concat('java.util.List<java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList<java.lang.Class>();\n\n' )
+		
+		
+		.concat(propertiesAbstractEClass.ePackage.eClassifiers->select(subClass | subClass.eAllSuperTypes.includes(propertiesAbstractEClass))
+			->select(subClass | not subClass.getEAnnotation(thisModule.ADDITIONAL_PROPERTIES).oclIsUndefined() or not subClass.getEAnnotation(thisModule.PATTERN_PROPERTIES).oclIsUndefined())
+			->iterate(additionalOrPatternPropertyClass; body: String = '' |
+				body.concat('additionalOrPatternPropertyClasses.add('+propertiesAbstractEClass.ePackage.name+'.'+additionalOrPatternPropertyClass.name+'.class); \n\n')
+				)
+		).concat(propertiesAbstractEClass.name + ' child = this.'+propertyName+';\n')
+		.concat('if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){\n')
+		.concat('\ttry{\n')
+		.concat('\t\tjava.lang.reflect.Field keyField = child.getClass().getDeclaredField("key");\n')
+		.concat('\t\tif (keyField.get(child).equals(key)) {\n')
+		.concat('\t\t\tjava.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals("additionalProperties") || field.getName().startsWith("patternProperties") ).findAny().get();\n')
+		.concat('\t\t\treturn valueField.get(child);\n')
+		.concat('\t\t}\n')
+		.concat('\t} catch (Exception e) {\n')
+		.concat('\t\te.printStackTrace();\n')
+		.concat('\t\tthrow new RuntimeException(e);\n')
+		.concat('\t}\n')
+		.concat('}\n')
+		.concat('return null;\n')
+	endif
 ;
 	 
 
@@ -811,7 +839,7 @@ if not self.minProperties.oclIsUndefined() then self.minProperties.minProperties
 
 
 helper context JSchemaMM!ObjectSchema def:propertiesUpperBound(): Integer =
-if not self.maxProperties.oclIsUndefined() then self.maxProperties.maxProperties.value.floor() else -1 endif ; 
+if not self.maxProperties.oclIsUndefined() and self.maxProperties.maxProperties.value.floor()>0 then self.maxProperties.maxProperties.value.floor() else -1 endif ; 
 
 
 ---------- OCL helpers
@@ -845,6 +873,11 @@ helper def : appendMaxLengthConstraint(packageName: String, contextClass: String
 
 helper def : appendPatternConstraint(packageName: String, contextClass: String, inv:String, regex: String) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendPatternConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, regex});
+
+helper def : appendMaxProperties0Constraint(packageName: String, contextClass: String, inv:String,  propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxProperties0Constraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, propertyName});
+
+
 
 helper def : appendIntegerConstraint(packageName: String, contextClass: String, inv:String,  propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendIntegerConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv,  propertyName});
