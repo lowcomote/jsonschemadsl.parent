@@ -304,13 +304,31 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__MULTIPLE_OF = SCHEMA_FEATURE_COUNT + 21;
 
 	/**
+	 * The feature id for the '<em><b>Min Properties</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__MIN_PROPERTIES = SCHEMA_FEATURE_COUNT + 22;
+
+	/**
+	 * The feature id for the '<em><b>Max Properties</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__MAX_PROPERTIES = SCHEMA_FEATURE_COUNT + 23;
+
+	/**
 	 * The number of structural features of the '<em>Object Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 22;
+	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 24;
 
 	/**
 	 * The operation id for the '<em>Find Schema By Key</em>' operation.
@@ -3478,6 +3496,28 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_MultipleOf();
 
 	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getMinProperties <em>Min Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Min Properties</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getMinProperties()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_MinProperties();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getMaxProperties <em>Max Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Max Properties</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getMaxProperties()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_MaxProperties();
+
+	/**
 	 * Returns the meta object for the '{@link jsonMetaschemaMM.ObjectSchema#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5418,6 +5458,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OBJECT_SCHEMA__MULTIPLE_OF = eINSTANCE.getObjectSchema_MultipleOf();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Properties</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__MIN_PROPERTIES = eINSTANCE.getObjectSchema_MinProperties();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Properties</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__MAX_PROPERTIES = eINSTANCE.getObjectSchema_MaxProperties();
 
 		/**
 		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.

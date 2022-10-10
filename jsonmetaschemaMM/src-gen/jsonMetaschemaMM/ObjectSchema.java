@@ -35,6 +35,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getEnum <em>Enum</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getMultipleOf <em>Multiple Of</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.ObjectSchema#getMinProperties <em>Min Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.ObjectSchema#getMaxProperties <em>Max Properties</em>}</li>
  * </ul>
  *
  * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema()
@@ -285,6 +287,28 @@ public interface ObjectSchema extends Schema {
 	 * @generated
 	 */
 	MultipleOfSchemaDefinition getMultipleOf();
+
+	/**
+	 * Returns the value of the '<em><b>Min Properties</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Min Properties</em>' reference.
+	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_MinProperties()
+	 * @model resolveProxies="false" transient="true" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true"
+	 * @generated
+	 */
+	MinPropertiesSchemaDefinition getMinProperties();
+
+	/**
+	 * Returns the value of the '<em><b>Max Properties</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Max Properties</em>' reference.
+	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_MaxProperties()
+	 * @model resolveProxies="false" transient="true" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true"
+	 * @generated
+	 */
+	MaxPropertiesSchemaDefinition getMaxProperties();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -19,6 +19,8 @@ import jsonMetaschemaMM.IfSchemaDefinition;
 import jsonMetaschemaMM.ItemsSchemaDefinition;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.KeywordDefinition;
+import jsonMetaschemaMM.MaxPropertiesSchemaDefinition;
+import jsonMetaschemaMM.MinPropertiesSchemaDefinition;
 import jsonMetaschemaMM.MultipleOfSchemaDefinition;
 import jsonMetaschemaMM.NotSchemaDefinition;
 import jsonMetaschemaMM.ObjectSchema;
@@ -72,6 +74,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getEnum <em>Enum</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMultipleOf <em>Multiple Of</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMinProperties <em>Min Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMaxProperties <em>Max Properties</em>}</li>
  * </ul>
  *
  * @generated
@@ -346,6 +350,48 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * @generated
 	 */
 	@Override
+	public MinPropertiesSchemaDefinition getMinProperties() {
+		return (MinPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MinPropertiesSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinProperties(MinPropertiesSchemaDefinition newMinProperties) {
+		// TODO: implement this method to set the 'Min Properties' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MaxPropertiesSchemaDefinition getMaxProperties() {
+		return (MaxPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MaxPropertiesSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxProperties(MaxPropertiesSchemaDefinition newMaxProperties) {
+		// TODO: implement this method to set the 'Max Properties' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Schema findSchemaByKey(final String key) {
 		return getSchemaObjectAdditionalProperties().stream().filter(s -> key.equals(s.getKey())).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);
 	}
@@ -493,6 +539,10 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getSchemaObjectAdditionalProperties();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
 				return getMultipleOf();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_PROPERTIES:
+				return getMinProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
+				return getMaxProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -513,6 +563,12 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
 				setMultipleOf((MultipleOfSchemaDefinition)newValue);
 				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_PROPERTIES:
+				setMinProperties((MinPropertiesSchemaDefinition)newValue);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
+				setMaxProperties((MaxPropertiesSchemaDefinition)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -530,6 +586,12 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
 				setMultipleOf((MultipleOfSchemaDefinition)null);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_PROPERTIES:
+				setMinProperties((MinPropertiesSchemaDefinition)null);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
+				setMaxProperties((MaxPropertiesSchemaDefinition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -587,6 +649,10 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return !getSchemaObjectAdditionalProperties().isEmpty();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
 				return getMultipleOf() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_PROPERTIES:
+				return getMinProperties() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
+				return getMaxProperties() != null;
 		}
 		return super.eIsSet(featureID);
 	}

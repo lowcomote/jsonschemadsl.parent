@@ -68,6 +68,8 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 			addEnumPropertyDescriptor(object);
 			addSchemaObjectAdditionalPropertiesPropertyDescriptor(object);
 			addMultipleOfPropertyDescriptor(object);
+			addMinPropertiesPropertyDescriptor(object);
+			addMaxPropertiesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -526,6 +528,50 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 				 getString("_UI_ObjectSchema_multipleOf_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_multipleOf_feature", "_UI_ObjectSchema_type"),
 				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__MULTIPLE_OF,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Min Properties feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinPropertiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ObjectSchema_minProperties_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_minProperties_feature", "_UI_ObjectSchema_type"),
+				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__MIN_PROPERTIES,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max Properties feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxPropertiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ObjectSchema_maxProperties_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_maxProperties_feature", "_UI_ObjectSchema_type"),
+				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__MAX_PROPERTIES,
 				 false,
 				 false,
 				 true,

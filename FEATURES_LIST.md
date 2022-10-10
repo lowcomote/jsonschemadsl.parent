@@ -37,8 +37,8 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"minItems"            |Y                    |N                         |Generate an OCL constraint (like "minimum")|
 |"uniqueItems"         |Y                    |N                         ||
 |"contains"            |Y                    |N                         ||
-|"maxProperties"       |Y                    |N                         |Generate an OCL constraint (like "minimum")|
-|"minProperties"       |Y                    |N                         |Generate an OCL constraint (like "minimum")|
+|"maxProperties"       |Y                    |Y                         |Ecore upper bound|
+|"minProperties"       |Y                    |Y                         |Ecore lower bound|
 |"required"(properties)|Y                    |Y                         ||
 |"required"(patt.prop.)|Y                    |Y                         ||
 |"required"(add. prop.)|Y                    |Y                         ||

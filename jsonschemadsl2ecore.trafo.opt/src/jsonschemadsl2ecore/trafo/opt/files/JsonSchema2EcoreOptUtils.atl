@@ -805,6 +805,15 @@ helper def: createBodyForGetKey(propertyName:String,  properties:Sequence(String
 	.concat('return null;\n')
 ;
 	 
+
+helper context JSchemaMM!ObjectSchema def:propertiesLowerBound(): Integer =
+if not self.minProperties.oclIsUndefined() then self.minProperties.minProperties.value.floor() else 0 endif ; 
+
+
+helper context JSchemaMM!ObjectSchema def:propertiesUpperBound(): Integer =
+if not self.maxProperties.oclIsUndefined() then self.maxProperties.maxProperties.value.floor() else -1 endif ; 
+
+
 ---------- OCL helpers
 
 helper def : createOclFile() : OclAny=

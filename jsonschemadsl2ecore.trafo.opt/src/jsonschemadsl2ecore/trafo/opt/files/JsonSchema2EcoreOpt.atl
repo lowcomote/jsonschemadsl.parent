@@ -311,7 +311,8 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 			
 		
 		}else if(simpleType = #"\"object\"" ){
-			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword(), schema.getKey())});
+--			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword(), schema.getKey(), schema.minProperties->debug('minProperties'), schema.maxProperties->debug('maxProperties'))->debug('createPropertiesContainment')});
+			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword(), schema.getKey(), schema.propertiesLowerBound()->debug('thisModule.propertiesLowerBound'), schema.propertiesUpperBound()->debug('thisModule.propertiesUpperBound'))->debug('createPropertiesContainment')});
 			if(schema.additionalProperties.oclIsUndefined()){ ------ the keyword "additionalProperties" is missing
 				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname(), schema.findPropertiesKeys(),  schema.findPatternPropertiesKeys());
 			}
@@ -332,7 +333,6 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 		}
 	}
 }
-
 
 
 
@@ -377,14 +377,19 @@ lazy rule mapScalarTypeToEAttribute{
 }
 
 lazy rule createPropertiesContainment{
-	from referenceName:String, propertiesEClassName:String, addToKeywords:Boolean, keyword : String
+--	from referenceName:String, propertiesEClassName:String, addToKeywords:Boolean, keyword : String, minPropertiesSchemaDefinition:JSchemaMM!MinPropertiesSchemaDefinition,  maxPropertiesSchemaDefinition:JSchemaMM!MaxPropertiesSchemaDefinition
+	from referenceName:String, propertiesEClassName:String, addToKeywords:Boolean, keyword : String, lowerBound:Integer ,  upperBound:Integer
 	to 
 		eReference :Ecore!EReference ( 
 			name <- referenceName,
 			eType <- thisModule.createAbstractEClass(propertiesEClassName),
 			containment <- true,
-			lowerBound <- 0,
-			upperBound <- -1,
+--			lowerBound <- 0,
+--			upperBound <- -1,
+--			lowerBound <- if not minPropertiesSchemaDefinition->debug('minPropertiesSchemaDefinition').oclIsUndefined() then minPropertiesSchemaDefinition.minProperties else 0 endif ,
+--			upperBound <- if not maxPropertiesSchemaDefinition->debug('maxPropertiesSchemaDefinition').oclIsUndefined() then maxPropertiesSchemaDefinition.maxProperties else -1 endif,
+			lowerBound <- lowerBound,
+			upperBound <- upperBound,
 			eAnnotations <- eReference.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(keyword)} else Sequence{} endif)
 		)
 	do {
