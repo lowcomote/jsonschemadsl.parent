@@ -124,10 +124,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 				return createDefinitionsSchemaDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseBooleanValue(BooleanValue object) {
-				return createBooleanValueAdapter();
-			}
-			@Override
 			public Adapter caseMinItemsSchemaDefinition(MinItemsSchemaDefinition object) {
 				return createMinItemsSchemaDefinitionAdapter();
 			}
@@ -144,20 +140,8 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 				return createMaxPropertiesSchemaDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseNullValue(NullValue object) {
-				return createNullValueAdapter();
-			}
-			@Override
 			public Adapter caseMinimumSchemaDefinition(MinimumSchemaDefinition object) {
 				return createMinimumSchemaDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseStringValue(StringValue object) {
-				return createStringValueAdapter();
-			}
-			@Override
-			public Adapter caseJsonDocument(JsonDocument object) {
-				return createJsonDocumentAdapter();
 			}
 			@Override
 			public Adapter caseMaxItemsSchemaDefinition(MaxItemsSchemaDefinition object) {
@@ -174,10 +158,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseSchema(Schema object) {
 				return createSchemaAdapter();
-			}
-			@Override
-			public Adapter caseObjectValue(ObjectValue object) {
-				return createObjectValueAdapter();
 			}
 			@Override
 			public Adapter caseTypeSchemaDefinition(TypeSchemaDefinition object) {
@@ -204,10 +184,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 				return createDependenciesSchemaDefinitionAdapter();
 			}
 			@Override
-			public Adapter caseNumberValue(NumberValue object) {
-				return createNumberValueAdapter();
-			}
-			@Override
 			public Adapter caseRequiredSchemaDefinition(RequiredSchemaDefinition object) {
 				return createRequiredSchemaDefinitionAdapter();
 			}
@@ -226,10 +202,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseAdditionalItemsSchemaDefinition(AdditionalItemsSchemaDefinition object) {
 				return createAdditionalItemsSchemaDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseKeyValuePair(KeyValuePair object) {
-				return createKeyValuePairAdapter();
 			}
 			@Override
 			public Adapter caseExamplesSchemaDefinition(ExamplesSchemaDefinition object) {
@@ -306,14 +278,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePropertyNamesSchemaDefinition(PropertyNamesSchemaDefinition object) {
 				return createPropertyNamesSchemaDefinitionAdapter();
-			}
-			@Override
-			public Adapter caseArrayValue(ArrayValue object) {
-				return createArrayValueAdapter();
-			}
-			@Override
-			public Adapter caseValue(Value object) {
-				return createValueAdapter();
 			}
 			@Override
 			public Adapter caseTypeAnyOf2(TypeAnyOf2 object) {
@@ -592,20 +556,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.BooleanValue <em>Boolean Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.BooleanValue
-	 * @generated
-	 */
-	public Adapter createBooleanValueAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.MinItemsSchemaDefinition <em>Min Items Schema Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -662,20 +612,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.NullValue <em>Null Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.NullValue
-	 * @generated
-	 */
-	public Adapter createNullValueAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.MinimumSchemaDefinition <em>Minimum Schema Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -686,34 +622,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMinimumSchemaDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.StringValue <em>String Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.StringValue
-	 * @generated
-	 */
-	public Adapter createStringValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.JsonDocument <em>Json Document</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.JsonDocument
-	 * @generated
-	 */
-	public Adapter createJsonDocumentAdapter() {
 		return null;
 	}
 
@@ -770,20 +678,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSchemaAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.ObjectValue <em>Object Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.ObjectValue
-	 * @generated
-	 */
-	public Adapter createObjectValueAdapter() {
 		return null;
 	}
 
@@ -872,20 +766,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.NumberValue <em>Number Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.NumberValue
-	 * @generated
-	 */
-	public Adapter createNumberValueAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.RequiredSchemaDefinition <em>Required Schema Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -952,20 +832,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAdditionalItemsSchemaDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.KeyValuePair <em>Key Value Pair</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.KeyValuePair
-	 * @generated
-	 */
-	public Adapter createKeyValuePairAdapter() {
 		return null;
 	}
 
@@ -1232,34 +1098,6 @@ public class JsonMetaschemaMMAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPropertyNamesSchemaDefinitionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.ArrayValue <em>Array Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.ArrayValue
-	 * @generated
-	 */
-	public Adapter createArrayValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link jsonMetaschemaMM.Value <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see jsonMetaschemaMM.Value
-	 * @generated
-	 */
-	public Adapter createValueAdapter() {
 		return null;
 	}
 

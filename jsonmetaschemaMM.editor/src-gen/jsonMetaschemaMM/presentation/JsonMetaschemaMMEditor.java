@@ -157,6 +157,8 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import jsonMetaschemaMM.provider.JsonMetaschemaMMItemProviderAdapterFactory;
 
+import jsonMM.provider.JsonMMItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -711,6 +713,7 @@ public class JsonMetaschemaMMEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new JsonMetaschemaMMItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new JsonMMItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

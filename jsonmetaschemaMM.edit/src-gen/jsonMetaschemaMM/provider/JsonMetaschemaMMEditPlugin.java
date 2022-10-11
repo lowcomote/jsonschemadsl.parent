@@ -2,6 +2,8 @@
  */
 package jsonMetaschemaMM.provider;
 
+import jsonMM.provider.JsonMMEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -38,6 +40,7 @@ public final class JsonMetaschemaMMEditPlugin extends EMFPlugin {
 	public JsonMetaschemaMMEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     JsonMMEditPlugin.INSTANCE,
 		   });
 	}
 

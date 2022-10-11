@@ -71,32 +71,25 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 			case JsonMetaschemaMMPackage.THEN_SCHEMA_DEFINITION: return createThenSchemaDefinition();
 			case JsonMetaschemaMMPackage.MIN_LENGTH_SCHEMA_DEFINITION: return createMinLengthSchemaDefinition();
 			case JsonMetaschemaMMPackage.DEFINITIONS_SCHEMA_DEFINITION: return createDefinitionsSchemaDefinition();
-			case JsonMetaschemaMMPackage.BOOLEAN_VALUE: return createBooleanValue();
 			case JsonMetaschemaMMPackage.MIN_ITEMS_SCHEMA_DEFINITION: return createMinItemsSchemaDefinition();
 			case JsonMetaschemaMMPackage.ONE_OF_SCHEMA_DEFINITION: return createOneOfSchemaDefinition();
 			case JsonMetaschemaMMPackage.SCHEMA_ARRAY: return createSchemaArray();
 			case JsonMetaschemaMMPackage.MAX_PROPERTIES_SCHEMA_DEFINITION: return createMaxPropertiesSchemaDefinition();
-			case JsonMetaschemaMMPackage.NULL_VALUE: return createNullValue();
 			case JsonMetaschemaMMPackage.MINIMUM_SCHEMA_DEFINITION: return createMinimumSchemaDefinition();
-			case JsonMetaschemaMMPackage.STRING_VALUE: return createStringValue();
-			case JsonMetaschemaMMPackage.JSON_DOCUMENT: return createJsonDocument();
 			case JsonMetaschemaMMPackage.MAX_ITEMS_SCHEMA_DEFINITION: return createMaxItemsSchemaDefinition();
 			case JsonMetaschemaMMPackage.FORMAT_SCHEMA_DEFINITION: return createFormatSchemaDefinition();
 			case JsonMetaschemaMMPackage.READ_ONLY_SCHEMA_DEFINITION: return createReadOnlySchemaDefinition();
-			case JsonMetaschemaMMPackage.OBJECT_VALUE: return createObjectValue();
 			case JsonMetaschemaMMPackage.TYPE_SCHEMA_DEFINITION: return createTypeSchemaDefinition();
 			case JsonMetaschemaMMPackage.ADDITIONAL_PROPERTIES_SCHEMA_DEFINITION: return createAdditionalPropertiesSchemaDefinition();
 			case JsonMetaschemaMMPackage.ELSE_SCHEMA_DEFINITION: return createElseSchemaDefinition();
 			case JsonMetaschemaMMPackage.ID_SCHEMA_DEFINITION: return createIdSchemaDefinition();
 			case JsonMetaschemaMMPackage.CONST_SCHEMA_DEFINITION: return createConstSchemaDefinition();
 			case JsonMetaschemaMMPackage.DEPENDENCIES_SCHEMA_DEFINITION: return createDependenciesSchemaDefinition();
-			case JsonMetaschemaMMPackage.NUMBER_VALUE: return createNumberValue();
 			case JsonMetaschemaMMPackage.REQUIRED_SCHEMA_DEFINITION: return createRequiredSchemaDefinition();
 			case JsonMetaschemaMMPackage.DESCRIPTION_SCHEMA_DEFINITION: return createDescriptionSchemaDefinition();
 			case JsonMetaschemaMMPackage.MIN_PROPERTIES_SCHEMA_DEFINITION: return createMinPropertiesSchemaDefinition();
 			case JsonMetaschemaMMPackage.PATTERN_PROPERTIES_SCHEMA_DEFINITION: return createPatternPropertiesSchemaDefinition();
 			case JsonMetaschemaMMPackage.ADDITIONAL_ITEMS_SCHEMA_DEFINITION: return createAdditionalItemsSchemaDefinition();
-			case JsonMetaschemaMMPackage.KEY_VALUE_PAIR: return createKeyValuePair();
 			case JsonMetaschemaMMPackage.EXAMPLES_SCHEMA_DEFINITION: return createExamplesSchemaDefinition();
 			case JsonMetaschemaMMPackage.IF_SCHEMA_DEFINITION: return createIfSchemaDefinition();
 			case JsonMetaschemaMMPackage.ALL_OF_SCHEMA_DEFINITION: return createAllOfSchemaDefinition();
@@ -115,7 +108,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 			case JsonMetaschemaMMPackage.SCHEMA_SCHEMA_DEFINITION: return createSchemaSchemaDefinition();
 			case JsonMetaschemaMMPackage.PROPERTIES_SCHEMA_DEFINITION: return createPropertiesSchemaDefinition();
 			case JsonMetaschemaMMPackage.PROPERTY_NAMES_SCHEMA_DEFINITION: return createPropertyNamesSchemaDefinition();
-			case JsonMetaschemaMMPackage.ARRAY_VALUE: return createArrayValue();
 			case JsonMetaschemaMMPackage.TYPE_ANY_OF2: return createTypeAnyOf2();
 			case JsonMetaschemaMMPackage.BOOLEAN_SCHEMA: return createBooleanSchema();
 			case JsonMetaschemaMMPackage.NON_NEGATIVE_INTEGER: return createNonNegativeInteger();
@@ -142,8 +134,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 		switch (eDataType.getClassifierID()) {
 			case JsonMetaschemaMMPackage.SIMPLE_TYPES:
 				return createSimpleTypesFromString(eDataType, initialValue);
-			case JsonMetaschemaMMPackage.NULL_ENUM:
-				return createNullEnumFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -159,8 +149,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 		switch (eDataType.getClassifierID()) {
 			case JsonMetaschemaMMPackage.SIMPLE_TYPES:
 				return convertSimpleTypesToString(eDataType, instanceValue);
-			case JsonMetaschemaMMPackage.NULL_ENUM:
-				return convertNullEnumToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -326,17 +314,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public BooleanValue createBooleanValue() {
-		BooleanValueImpl booleanValue = new BooleanValueImpl();
-		return booleanValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public MinItemsSchemaDefinition createMinItemsSchemaDefinition() {
 		MinItemsSchemaDefinitionImpl minItemsSchemaDefinition = new MinItemsSchemaDefinitionImpl();
 		return minItemsSchemaDefinition;
@@ -381,42 +358,9 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public NullValue createNullValue() {
-		NullValueImpl nullValue = new NullValueImpl();
-		return nullValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public MinimumSchemaDefinition createMinimumSchemaDefinition() {
 		MinimumSchemaDefinitionImpl minimumSchemaDefinition = new MinimumSchemaDefinitionImpl();
 		return minimumSchemaDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public StringValue createStringValue() {
-		StringValueImpl stringValue = new StringValueImpl();
-		return stringValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public JsonDocument createJsonDocument() {
-		JsonDocumentImpl jsonDocument = new JsonDocumentImpl();
-		return jsonDocument;
 	}
 
 	/**
@@ -450,17 +394,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	public ReadOnlySchemaDefinition createReadOnlySchemaDefinition() {
 		ReadOnlySchemaDefinitionImpl readOnlySchemaDefinition = new ReadOnlySchemaDefinitionImpl();
 		return readOnlySchemaDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ObjectValue createObjectValue() {
-		ObjectValueImpl objectValue = new ObjectValueImpl();
-		return objectValue;
 	}
 
 	/**
@@ -535,17 +468,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public NumberValue createNumberValue() {
-		NumberValueImpl numberValue = new NumberValueImpl();
-		return numberValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public RequiredSchemaDefinition createRequiredSchemaDefinition() {
 		RequiredSchemaDefinitionImpl requiredSchemaDefinition = new RequiredSchemaDefinitionImpl();
 		return requiredSchemaDefinition;
@@ -593,17 +515,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	public AdditionalItemsSchemaDefinition createAdditionalItemsSchemaDefinition() {
 		AdditionalItemsSchemaDefinitionImpl additionalItemsSchemaDefinition = new AdditionalItemsSchemaDefinitionImpl();
 		return additionalItemsSchemaDefinition;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public KeyValuePair createKeyValuePair() {
-		KeyValuePairImpl keyValuePair = new KeyValuePairImpl();
-		return keyValuePair;
 	}
 
 	/**
@@ -810,17 +721,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public ArrayValue createArrayValue() {
-		ArrayValueImpl arrayValue = new ArrayValueImpl();
-		return arrayValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public TypeAnyOf2 createTypeAnyOf2() {
 		TypeAnyOf2Impl typeAnyOf2 = new TypeAnyOf2Impl();
 		return typeAnyOf2;
@@ -953,26 +853,6 @@ public class JsonMetaschemaMMFactoryImpl extends EFactoryImpl implements JsonMet
 	 * @generated
 	 */
 	public String convertSimpleTypesToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NullEnum createNullEnumFromString(EDataType eDataType, String initialValue) {
-		NullEnum result = NullEnum.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertNullEnumToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

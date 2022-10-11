@@ -6,8 +6,9 @@ package jsonMetaschemaMM.provider;
 import java.util.Collection;
 import java.util.List;
 
+import jsonMM.JsonMMFactory;
+
 import jsonMetaschemaMM.ExamplesSchemaDefinition;
-import jsonMetaschemaMM.JsonMetaschemaMMFactory;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -136,7 +137,7 @@ public class ExamplesSchemaDefinitionItemProvider extends KeywordDefinitionItemP
 		newChildDescriptors.add
 			(createChildParameter
 				(JsonMetaschemaMMPackage.Literals.EXAMPLES_SCHEMA_DEFINITION__EXAMPLES,
-				 JsonMetaschemaMMFactory.eINSTANCE.createJsonDocument()));
+				 JsonMMFactory.eINSTANCE.createJsonDocument()));
 	}
 
 }

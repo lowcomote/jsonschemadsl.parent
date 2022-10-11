@@ -2,6 +2,7 @@
  */
 package jsonMetaschemaMM;
 
+import jsonMM.JsonDocument;
 
 /**
  * <!-- begin-user-doc -->

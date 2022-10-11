@@ -2,8 +2,9 @@
  */
 package jsonMetaschemaMM.impl;
 
+import jsonMM.JsonDocument;
+
 import jsonMetaschemaMM.ConstSchemaDefinition;
-import jsonMetaschemaMM.JsonDocument;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 
 import org.eclipse.emf.common.notify.Notification;

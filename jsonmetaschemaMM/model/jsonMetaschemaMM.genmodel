@@ -4,7 +4,8 @@
     editorDirectory="/jsonmetaschemaMM.editor/src-gen" modelPluginID="jsonmetaschemaMM"
     modelName="JsonMetaschemaMM" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="11.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+    usedGenPackages="../../jsonMM/model/jsonMM.genmodel#//jsonMM" operationReflection="true"
+    importOrganizing="true">
   <foreignModel>jsonMetaschemaMM.ecore</foreignModel>
   <genPackages prefix="JsonMetaschemaMM" disposableProviderFactory="true" ecorePackage="jsonMetaschemaMM.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="jsonMetaschemaMM.ecore#//SimpleTypes">
@@ -15,9 +16,6 @@
       <genEnumLiterals ecoreEnumLiteral="jsonMetaschemaMM.ecore#//SimpleTypes/number"/>
       <genEnumLiterals ecoreEnumLiteral="jsonMetaschemaMM.ecore#//SimpleTypes/object"/>
       <genEnumLiterals ecoreEnumLiteral="jsonMetaschemaMM.ecore#//SimpleTypes/string"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="jsonMetaschemaMM.ecore#//NullEnum">
-      <genEnumLiterals ecoreEnumLiteral="jsonMetaschemaMM.ecore#//NullEnum/null"/>
     </genEnums>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ObjectSchema">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/keywordDefinition"/>
@@ -147,9 +145,6 @@
         <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//DefinitionsSchemaDefinition/findSchemaByKey/key"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//BooleanValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//BooleanValue/value"/>
-    </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MinItemsSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//MinItemsSchemaDefinition/minItems"/>
     </genClasses>
@@ -166,17 +161,8 @@
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MaxPropertiesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//MaxPropertiesSchemaDefinition/maxProperties"/>
     </genClasses>
-    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//NullValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//NullValue/value"/>
-    </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MinimumSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//MinimumSchemaDefinition/minimum"/>
-    </genClasses>
-    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//StringValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//StringValue/value"/>
-    </genClasses>
-    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//JsonDocument">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//JsonDocument/value"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//MaxItemsSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//MaxItemsSchemaDefinition/maxItems"/>
@@ -192,9 +178,6 @@
         <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//Schema/findSchemaByJsonPointer/jsonPointer"/>
         <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//Schema/findSchemaByJsonPointer/currentIndex"/>
       </genOperations>
-    </genClasses>
-    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ObjectValue">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectValue/keyvaluepair"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//TypeSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//TypeSchemaDefinition/anyOf"/>
@@ -218,9 +201,6 @@
         <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//DependenciesSchemaDefinition/findSchemaByKey/key"/>
       </genOperations>
     </genClasses>
-    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//NumberValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//NumberValue/value"/>
-    </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//RequiredSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//RequiredSchemaDefinition/required"/>
     </genClasses>
@@ -239,10 +219,6 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//AdditionalItemsSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//AdditionalItemsSchemaDefinition/additionalItems"/>
-    </genClasses>
-    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//KeyValuePair">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//KeyValuePair/key"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//KeyValuePair/value"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition/examples"/>
@@ -318,10 +294,6 @@
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//PropertyNamesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//PropertyNamesSchemaDefinition/propertyNames"/>
     </genClasses>
-    <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ArrayValue">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ArrayValue/value"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="jsonMetaschemaMM.ecore#//Value"/>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//TypeAnyOf2">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//TypeAnyOf2/items"/>
     </genClasses>

@@ -6,8 +6,9 @@ package jsonMetaschemaMM.provider;
 import java.util.Collection;
 import java.util.List;
 
+import jsonMM.JsonMMFactory;
+
 import jsonMetaschemaMM.EnumSchemaDefinition;
-import jsonMetaschemaMM.JsonMetaschemaMMFactory;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -136,7 +137,7 @@ public class EnumSchemaDefinitionItemProvider extends KeywordDefinitionItemProvi
 		newChildDescriptors.add
 			(createChildParameter
 				(JsonMetaschemaMMPackage.Literals.ENUM_SCHEMA_DEFINITION__ITEMS,
-				 JsonMetaschemaMMFactory.eINSTANCE.createJsonDocument()));
+				 JsonMMFactory.eINSTANCE.createJsonDocument()));
 	}
 
 }

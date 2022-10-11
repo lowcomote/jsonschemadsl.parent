@@ -8,9 +8,12 @@ Bundle-ClassPath: .
 Bundle-Activator: jsonMetaschemaMM.provider.JsonMetaschemaMMEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: jsonMetaschemaMM.provider
+Export-Package: 
+ jsonMetaschemaMM.provider
 Require-Bundle: org.eclipse.core.runtime,
  jsonmetaschemaMM;bundle-version="2.0.0";visibility:=reexport,
- org.eclipse.emf.edit;visibility:=reexport
+ org.eclipse.emf.edit;visibility:=reexport,
+ jsonMM;visibility:=reexport,
+ jsonMM.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11

@@ -2,6 +2,7 @@
 grammar at.jku.bise.JsonSchemaDsl with org.eclipse.xtext.common.Terminals
 
 import "http://at.jku.bise/jsonMetaschemaMM" 
+import "http://at.jku.bise/jsonMM" as jsonMM
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 JsonSchema returns JsonSchema:
@@ -70,7 +71,7 @@ KeywordDefinition returns KeywordDefinition:
 //	KeyValuePair
 ;
 
-Value returns Value:
+Value returns jsonMM::Value:
 //	=>IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
 	BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
 ;
@@ -515,7 +516,7 @@ AdditionalItemsSchemaDefinition returns AdditionalItemsSchemaDefinition:
 //		'additionalItems' additionalItems=Schema
 //	'}';
 
-KeyValuePair returns KeyValuePair:
+KeyValuePair returns jsonMM::KeyValuePair:
 	//key=STRING//EString 
 	key=VALID_STRING 
 	':' value=Value
@@ -706,7 +707,7 @@ PropertyNamesSchemaDefinition returns PropertyNamesSchemaDefinition:
 //		('items' '{' items+=JsonDocument ( "," items+=JsonDocument)* '}' )?
 //	'}';
 
-JsonDocument returns JsonDocument:
+JsonDocument returns jsonMM::JsonDocument:
 	value=Value
 ;
 //	{JsonDocument}
@@ -731,22 +732,22 @@ Value_Impl returns Value:
 //		'value' value=EInt
 //	'}';
 
-BooleanValue returns BooleanValue:
+BooleanValue returns jsonMM::BooleanValue:
 	value=EBoolean
 ;
 //	value?='value'
 //	'BooleanValue'
 //	;
 
-NullValue returns NullValue:
-	{NullValue}
+NullValue returns jsonMM::NullValue:
+	{jsonMM::NullValue}
 	value=NullEnum
 ;
 //	{NullValue}
 //	'NullValue'
 //	;
 
-StringValue returns StringValue:
+StringValue returns jsonMM::StringValue:
 	value=VALID_STRING
 ;
 //	'StringValue'
@@ -754,15 +755,15 @@ StringValue returns StringValue:
 //		'value' value=EString
 //	'}';
 
-ObjectValue returns ObjectValue:
-	{ObjectValue}
+ObjectValue returns jsonMM::ObjectValue:
+	{jsonMM::ObjectValue}
 	'{'
 		(keyvaluepair+=KeyValuePair ( "," keyvaluepair+=KeyValuePair)*  )?
 	'}'
 ;
 
 
-NumberValue returns NumberValue:
+NumberValue returns jsonMM::NumberValue:
 //	value=EDOUBLE
 	value=EDouble
 ;
@@ -771,8 +772,8 @@ NumberValue returns NumberValue:
 //		'value' value=EDouble
 //	'}';
 
-ArrayValue returns ArrayValue:
-	{ArrayValue}
+ArrayValue returns jsonMM::ArrayValue:
+	{jsonMM::ArrayValue}
 	'[' (  value+=Value ( "," value+=Value)*  )? ']'
 ;
 //	{ArrayValue}
@@ -838,7 +839,7 @@ NonNegativeInteger returns NonNegativeInteger:
 ;
 
 
-enum NullEnum returns NullEnum:
+enum NullEnum returns jsonMM::NullEnum:
 	null = 'null'
 ;
 

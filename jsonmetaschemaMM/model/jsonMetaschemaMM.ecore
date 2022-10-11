@@ -308,7 +308,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnumSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" upperBound="-1"
-        eType="#//JsonDocument" containment="true"/>
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UniqueItemsSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="uniqueItems" lowerBound="1"
@@ -331,7 +331,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DefaultSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="default" lowerBound="1"
-        eType="#//JsonDocument" containment="true"/>
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ThenSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="then" lowerBound="1" eType="#//Schema"
@@ -351,9 +351,6 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="keySchemaPairs" upperBound="-1"
         eType="#//KeySchemaPair" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MinItemsSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="minItems" lowerBound="1"
@@ -378,19 +375,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="maxProperties" lowerBound="1"
         eType="#//NonNegativeInteger" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NullValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="#//NullEnum"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MinimumSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimum" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="JsonDocument">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Value"
-        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MaxItemsSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="maxItems" lowerBound="1"
@@ -413,10 +400,6 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObjectValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="keyvaluepair" upperBound="-1"
-        eType="#//KeyValuePair" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TypeSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf" lowerBound="1" eType="#//TypeAnyOf"
         containment="true"/>
@@ -434,7 +417,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ConstSchemaDefinition" eSuperTypes="#//KeywordDefinition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="const" lowerBound="1" eType="#//JsonDocument"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="const" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DependenciesSchemaDefinition" eSuperTypes="#//KeywordDefinition">
@@ -446,9 +429,6 @@
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//SchemaObjectDependenciesProperties" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumberValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RequiredSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="required" lowerBound="1"
@@ -477,11 +457,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" lowerBound="1"
         eType="#//Schema" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="KeyValuePair">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Value"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SimpleTypes">
     <eLiterals name="array" literal="&quot;array&quot;"/>
     <eLiterals name="boolean" value="1" literal="&quot;boolean&quot;"/>
@@ -493,7 +468,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExamplesSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="examples" upperBound="-1"
-        eType="#//JsonDocument" containment="true"/>
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IfSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="if" lowerBound="1" eType="#//Schema"
@@ -607,11 +582,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="propertyNames" lowerBound="1"
         eType="#//Schema" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArrayValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
-        eType="#//Value" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="TypeAnyOf2" eSuperTypes="#//TypeAnyOf">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="items" lowerBound="1" upperBound="-1"
         eType="#//SimpleTypes"/>
@@ -660,9 +630,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SchemaObjectDependenciesAdditionalPropertiesAnyOf"
       abstract="true"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="NullEnum">
-    <eLiterals name="null"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ItemsAnyOf" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ItemsAnyOf1" eSuperTypes="#//ItemsAnyOf">
     <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf1" lowerBound="1"

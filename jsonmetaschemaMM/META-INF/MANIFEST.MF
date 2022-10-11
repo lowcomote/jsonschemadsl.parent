@@ -12,6 +12,7 @@ Export-Package: jsonMetaschemaMM,
  jsonMetaschemaMM.impl,
  jsonMetaschemaMM.util
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+ jsonMM;bundle-version="2.0.0";visibility:=reexport,
  org.eclipse.core.runtime,
  org.eclipse.ui;bundle-version="3.118.0",
  jakarta.ws.rs-api;bundle-version="3.0.0"
