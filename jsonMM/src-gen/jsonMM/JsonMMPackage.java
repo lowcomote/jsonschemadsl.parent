@@ -5,6 +5,7 @@ package jsonMM;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -77,13 +78,22 @@ public interface JsonMMPackage extends EPackage {
 	int VALUE_FEATURE_COUNT = 0;
 
 	/**
+	 * The operation id for the '<em>Equals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE___EQUALS__OBJECT = 0;
+
+	/**
 	 * The number of operations of the '<em>Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_OPERATION_COUNT = 0;
+	int VALUE_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMM.impl.StringValueImpl <em>String Value</em>}' class.
@@ -114,13 +124,22 @@ public interface JsonMMPackage extends EPackage {
 	int STRING_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Equals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>String Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+	int STRING_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMM.impl.ArrayValueImpl <em>Array Value</em>}' class.
@@ -151,13 +170,22 @@ public interface JsonMMPackage extends EPackage {
 	int ARRAY_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Equals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARRAY_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Array Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARRAY_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+	int ARRAY_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMM.impl.NullValueImpl <em>Null Value</em>}' class.
@@ -188,13 +216,22 @@ public interface JsonMMPackage extends EPackage {
 	int NULL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Equals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Null Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+	int NULL_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMM.impl.NumberValueImpl <em>Number Value</em>}' class.
@@ -225,13 +262,22 @@ public interface JsonMMPackage extends EPackage {
 	int NUMBER_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Equals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Number Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+	int NUMBER_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMM.impl.JsonDocumentImpl <em>Json Document</em>}' class.
@@ -262,13 +308,22 @@ public interface JsonMMPackage extends EPackage {
 	int JSON_DOCUMENT_FEATURE_COUNT = 1;
 
 	/**
+	 * The operation id for the '<em>Equals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JSON_DOCUMENT___EQUALS__OBJECT = 0;
+
+	/**
 	 * The number of operations of the '<em>Json Document</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JSON_DOCUMENT_OPERATION_COUNT = 0;
+	int JSON_DOCUMENT_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMM.impl.ObjectValueImpl <em>Object Value</em>}' class.
@@ -299,13 +354,22 @@ public interface JsonMMPackage extends EPackage {
 	int OBJECT_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Equals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Object Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+	int OBJECT_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMM.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
@@ -336,13 +400,22 @@ public interface JsonMMPackage extends EPackage {
 	int BOOLEAN_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Equals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Boolean Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+	int BOOLEAN_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMM.impl.KeyValuePairImpl <em>Key Value Pair</em>}' class.
@@ -382,13 +455,22 @@ public interface JsonMMPackage extends EPackage {
 	int KEY_VALUE_PAIR_FEATURE_COUNT = 2;
 
 	/**
+	 * The operation id for the '<em>Equals</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KEY_VALUE_PAIR___EQUALS__OBJECT = 0;
+
+	/**
 	 * The number of operations of the '<em>Key Value Pair</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PAIR_OPERATION_COUNT = 0;
+	int KEY_VALUE_PAIR_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMM.NullEnum <em>Null Enum</em>}' enum.
@@ -422,6 +504,16 @@ public interface JsonMMPackage extends EPackage {
 	EAttribute getStringValue_Value();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMM.StringValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Equals</em>' operation.
+	 * @see jsonMM.StringValue#equals(java.lang.Object)
+	 * @generated
+	 */
+	EOperation getStringValue__Equals__Object();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMM.ArrayValue <em>Array Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -441,6 +533,16 @@ public interface JsonMMPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getArrayValue_Value();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMM.ArrayValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Equals</em>' operation.
+	 * @see jsonMM.ArrayValue#equals(java.lang.Object)
+	 * @generated
+	 */
+	EOperation getArrayValue__Equals__Object();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMM.NullValue <em>Null Value</em>}'.
@@ -464,6 +566,16 @@ public interface JsonMMPackage extends EPackage {
 	EAttribute getNullValue_Value();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMM.NullValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Equals</em>' operation.
+	 * @see jsonMM.NullValue#equals(java.lang.Object)
+	 * @generated
+	 */
+	EOperation getNullValue__Equals__Object();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMM.NumberValue <em>Number Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -483,6 +595,16 @@ public interface JsonMMPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNumberValue_Value();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMM.NumberValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Equals</em>' operation.
+	 * @see jsonMM.NumberValue#equals(java.lang.Object)
+	 * @generated
+	 */
+	EOperation getNumberValue__Equals__Object();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMM.JsonDocument <em>Json Document</em>}'.
@@ -506,6 +628,16 @@ public interface JsonMMPackage extends EPackage {
 	EReference getJsonDocument_Value();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMM.JsonDocument#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Equals</em>' operation.
+	 * @see jsonMM.JsonDocument#equals(java.lang.Object)
+	 * @generated
+	 */
+	EOperation getJsonDocument__Equals__Object();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMM.ObjectValue <em>Object Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -525,6 +657,16 @@ public interface JsonMMPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getObjectValue_Keyvaluepair();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMM.ObjectValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Equals</em>' operation.
+	 * @see jsonMM.ObjectValue#equals(java.lang.Object)
+	 * @generated
+	 */
+	EOperation getObjectValue__Equals__Object();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMM.BooleanValue <em>Boolean Value</em>}'.
@@ -548,6 +690,16 @@ public interface JsonMMPackage extends EPackage {
 	EAttribute getBooleanValue_Value();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMM.BooleanValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Equals</em>' operation.
+	 * @see jsonMM.BooleanValue#equals(java.lang.Object)
+	 * @generated
+	 */
+	EOperation getBooleanValue__Equals__Object();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMM.Value <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -556,6 +708,16 @@ public interface JsonMMPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getValue();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMM.Value#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Equals</em>' operation.
+	 * @see jsonMM.Value#equals(java.lang.Object)
+	 * @generated
+	 */
+	EOperation getValue__Equals__Object();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMM.KeyValuePair <em>Key Value Pair</em>}'.
@@ -588,6 +750,16 @@ public interface JsonMMPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getKeyValuePair_Value();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMM.KeyValuePair#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Equals</em>' operation.
+	 * @see jsonMM.KeyValuePair#equals(java.lang.Object)
+	 * @generated
+	 */
+	EOperation getKeyValuePair__Equals__Object();
 
 	/**
 	 * Returns the meta object for enum '{@link jsonMM.NullEnum <em>Null Enum</em>}'.
@@ -641,6 +813,14 @@ public interface JsonMMPackage extends EPackage {
 		EAttribute STRING_VALUE__VALUE = eINSTANCE.getStringValue_Value();
 
 		/**
+		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation STRING_VALUE___EQUALS__OBJECT = eINSTANCE.getStringValue__Equals__Object();
+
+		/**
 		 * The meta object literal for the '{@link jsonMM.impl.ArrayValueImpl <em>Array Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -657,6 +837,14 @@ public interface JsonMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ARRAY_VALUE__VALUE = eINSTANCE.getArrayValue_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ARRAY_VALUE___EQUALS__OBJECT = eINSTANCE.getArrayValue__Equals__Object();
 
 		/**
 		 * The meta object literal for the '{@link jsonMM.impl.NullValueImpl <em>Null Value</em>}' class.
@@ -677,6 +865,14 @@ public interface JsonMMPackage extends EPackage {
 		EAttribute NULL_VALUE__VALUE = eINSTANCE.getNullValue_Value();
 
 		/**
+		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NULL_VALUE___EQUALS__OBJECT = eINSTANCE.getNullValue__Equals__Object();
+
+		/**
 		 * The meta object literal for the '{@link jsonMM.impl.NumberValueImpl <em>Number Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -693,6 +889,14 @@ public interface JsonMMPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NUMBER_VALUE__VALUE = eINSTANCE.getNumberValue_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NUMBER_VALUE___EQUALS__OBJECT = eINSTANCE.getNumberValue__Equals__Object();
 
 		/**
 		 * The meta object literal for the '{@link jsonMM.impl.JsonDocumentImpl <em>Json Document</em>}' class.
@@ -713,6 +917,14 @@ public interface JsonMMPackage extends EPackage {
 		EReference JSON_DOCUMENT__VALUE = eINSTANCE.getJsonDocument_Value();
 
 		/**
+		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation JSON_DOCUMENT___EQUALS__OBJECT = eINSTANCE.getJsonDocument__Equals__Object();
+
+		/**
 		 * The meta object literal for the '{@link jsonMM.impl.ObjectValueImpl <em>Object Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -729,6 +941,14 @@ public interface JsonMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OBJECT_VALUE__KEYVALUEPAIR = eINSTANCE.getObjectValue_Keyvaluepair();
+
+		/**
+		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation OBJECT_VALUE___EQUALS__OBJECT = eINSTANCE.getObjectValue__Equals__Object();
 
 		/**
 		 * The meta object literal for the '{@link jsonMM.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
@@ -749,6 +969,14 @@ public interface JsonMMPackage extends EPackage {
 		EAttribute BOOLEAN_VALUE__VALUE = eINSTANCE.getBooleanValue_Value();
 
 		/**
+		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation BOOLEAN_VALUE___EQUALS__OBJECT = eINSTANCE.getBooleanValue__Equals__Object();
+
+		/**
 		 * The meta object literal for the '{@link jsonMM.impl.ValueImpl <em>Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -757,6 +985,14 @@ public interface JsonMMPackage extends EPackage {
 		 * @generated
 		 */
 		EClass VALUE = eINSTANCE.getValue();
+
+		/**
+		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation VALUE___EQUALS__OBJECT = eINSTANCE.getValue__Equals__Object();
 
 		/**
 		 * The meta object literal for the '{@link jsonMM.impl.KeyValuePairImpl <em>Key Value Pair</em>}' class.
@@ -783,6 +1019,14 @@ public interface JsonMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference KEY_VALUE_PAIR__VALUE = eINSTANCE.getKeyValuePair_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation KEY_VALUE_PAIR___EQUALS__OBJECT = eINSTANCE.getKeyValuePair__Equals__Object();
 
 		/**
 		 * The meta object literal for the '{@link jsonMM.NullEnum <em>Null Enum</em>}' enum.

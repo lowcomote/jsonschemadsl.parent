@@ -2,6 +2,8 @@
  */
 package jsonMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import jsonMM.JsonMMPackage;
@@ -79,6 +81,28 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean equals(final Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		if (this.getKeyvaluepair().size() != ((ObjectValue) obj).getKeyvaluepair().size())
+			return false;
+		java.util.Collection<KeyValuePair> copyKeyvaluepair = new java.util.ArrayList<KeyValuePair>(
+				this.getKeyvaluepair());
+		for (KeyValuePair keyValuePair : ((ObjectValue) obj).getKeyvaluepair()) {
+			copyKeyvaluepair.remove(keyValuePair);
+		}
+		return copyKeyvaluepair.isEmpty();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -146,6 +170,20 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 			return keyvaluepair != null && !keyvaluepair.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case JsonMMPackage.OBJECT_VALUE___EQUALS__OBJECT:
+			return equals(arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ObjectValueImpl

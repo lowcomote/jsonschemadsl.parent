@@ -50,11 +50,43 @@
 			<repository location="https://download.eclipse.org/releases/2020-09"/>
 			<unit id="org.eclipse.sdk.feature.group" version="4.17.0.v20200902-1800"/>
 		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="http://download.eclipse.org/releases/2021-06"/>
+			<unit id="org.eclipse.emf.compare.diagram.sirius.feature.group" version="3.3.14.202102231741"/>
+			<unit id="org.eclipse.emf.compare.egit.feature.group" version="3.3.14.202102231741"/>
+			<unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="3.3.14.202102231741"/>
+			<unit id="org.eclipse.emf.compare.uml2.feature.group" version="3.3.14.202102231741"/>
+		</location>
 		<location includeSource="true" missingManifest="generate" type="Maven">
 			<groupId>jakarta.ws.rs</groupId>
 			<artifactId>jakarta.ws.rs-api</artifactId>
 			<version>3.0.0</version>
 			<type>jar</type>
+		</location>
+		<location includeDependencyScope="compile" includeSource="true" missingManifest="generate" type="Maven">
+			<groupId>org.skyscreamer</groupId>
+			<artifactId>jsonassert</artifactId>
+			<version>1.5.0</version>
+			<type>jar</type>
+			<instructions><![CDATA[
+Bundle-Name:           Bundle derived from maven artifact ${mvnGroupId}:${mvnArtifactId}:${mvnVersion}
+version:               ${version_cleanup;${mvnVersion}}
+Bundle-SymbolicName:   wrapped.${mvnGroupId}.${mvnArtifactId}
+Bundle-Version:        ${version}
+Require-Bundle:        org.json;bundle-version="0.0.20131108"
+Import-Package:        *;resolution:=optional
+Export-Package:        *;version="${version}";-noimport:=true
+DynamicImport-Package: *
+]]></instructions>
+			<instructions reference="com.vaadin.external.google:android-json::0.0.20131108.vaadin1"><![CDATA[
+Bundle-Name:           Bundle derived from maven artifact ${mvnGroupId}:${mvnArtifactId}:${mvnVersion}
+version:               ${version_cleanup;${mvnVersion}}
+Bundle-SymbolicName:   wrapped.${mvnGroupId}.${mvnArtifactId}
+Bundle-Version:        ${version}
+Import-Package:        *;resolution:=optional
+Export-Package:        org.json
+DynamicImport-Package: *
+]]></instructions>
 		</location>
 	</locations>
 </target>

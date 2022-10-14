@@ -14,29 +14,57 @@
     </genEnums>
     <genClasses ecoreClass="jsonMM.ecore#//StringValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//StringValue/value"/>
+      <genOperations ecoreOperation="jsonMM.ecore#//StringValue/equals" body="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.getValue().equals(((StringValue)obj).getValue());">
+        <genParameters ecoreParameter="jsonMM.ecore#//StringValue/equals/obj"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMM.ecore#//ArrayValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMM.ecore#//ArrayValue/value"/>
+      <genOperations ecoreOperation="jsonMM.ecore#//ArrayValue/equals" body="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;if (this.getValue().size() != ((ArrayValue) obj).getValue().size())&#xA;&#x9;return false;&#xA;java.util.Collection&lt;Value> copyValues = new java.util.ArrayList&lt;Value>(this.getValue());&#xA;for (Value value : ((ArrayValue) obj).getValue()) {&#xA;&#x9;copyValues.remove(value);&#xA;}&#xA;return copyValues.isEmpty();">
+        <genParameters ecoreParameter="jsonMM.ecore#//ArrayValue/equals/obj"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMM.ecore#//NullValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//NullValue/value"/>
+      <genOperations ecoreOperation="jsonMM.ecore#//NullValue/equals" body="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.getValue().equals(((NullValue)obj).getValue());">
+        <genParameters ecoreParameter="jsonMM.ecore#//NullValue/equals/obj"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMM.ecore#//NumberValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//NumberValue/value"/>
+      <genOperations ecoreOperation="jsonMM.ecore#//NumberValue/equals" body="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.getValue()==((NumberValue) obj).getValue();">
+        <genParameters ecoreParameter="jsonMM.ecore#//NumberValue/equals/obj"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMM.ecore#//JsonDocument">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMM.ecore#//JsonDocument/value"/>
+      <genOperations ecoreOperation="jsonMM.ecore#//JsonDocument/equals" body="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.getValue().equals(((JsonDocument)obj).getValue());">
+        <genParameters ecoreParameter="jsonMM.ecore#//JsonDocument/equals/obj"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMM.ecore#//ObjectValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMM.ecore#//ObjectValue/keyvaluepair"/>
+      <genOperations ecoreOperation="jsonMM.ecore#//ObjectValue/equals" body="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;if (this.getKeyvaluepair().size() != ((ObjectValue) obj).getKeyvaluepair().size())&#xA;&#x9;return false;&#xA;java.util.Collection&lt;KeyValuePair> copyKeyvaluepair = new java.util.ArrayList&lt;KeyValuePair>(&#xA;&#x9;&#x9;this.getKeyvaluepair());&#xA;for (KeyValuePair keyValuePair : ((ObjectValue) obj).getKeyvaluepair()) {&#xA;&#x9;copyKeyvaluepair.remove(keyValuePair);&#xA;}&#xA;return copyKeyvaluepair.isEmpty();">
+        <genParameters ecoreParameter="jsonMM.ecore#//ObjectValue/equals/obj"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="jsonMM.ecore#//BooleanValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//BooleanValue/value"/>
+      <genOperations ecoreOperation="jsonMM.ecore#//BooleanValue/equals" body="if (this == obj)&#xA;&#x9;&#x9;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.isValue()==((BooleanValue)obj).isValue();">
+        <genParameters ecoreParameter="jsonMM.ecore#//BooleanValue/equals/obj"/>
+      </genOperations>
     </genClasses>
-    <genClasses image="false" ecoreClass="jsonMM.ecore#//Value"/>
+    <genClasses image="false" ecoreClass="jsonMM.ecore#//Value">
+      <genOperations ecoreOperation="jsonMM.ecore#//Value/equals">
+        <genParameters ecoreParameter="jsonMM.ecore#//Value/equals/obj"/>
+      </genOperations>
+    </genClasses>
     <genClasses ecoreClass="jsonMM.ecore#//KeyValuePair">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMM.ecore#//KeyValuePair/key"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMM.ecore#//KeyValuePair/value"/>
+      <genOperations ecoreOperation="jsonMM.ecore#//KeyValuePair/equals" body="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.getKey().equals(((KeyValuePair)obj).getKey()) &amp;&amp; this.getValue().equals(((KeyValuePair)obj).getValue());">
+        <genParameters ecoreParameter="jsonMM.ecore#//KeyValuePair/equals/obj"/>
+      </genOperations>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

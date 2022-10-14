@@ -41,4 +41,12 @@ public interface BooleanValue extends Value {
 	 */
 	void setValue(boolean value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false" objUnique="false" objRequired="true" objOrdered="false"
+	 * @generated
+	 */
+	boolean equals(Object obj);
+
 } // BooleanValue

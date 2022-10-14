@@ -2,6 +2,8 @@
  */
 package jsonMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import jsonMM.ArrayValue;
@@ -78,6 +80,27 @@ public class ArrayValueImpl extends ValueImpl implements ArrayValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean equals(final Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		if (this.getValue().size() != ((ArrayValue) obj).getValue().size())
+			return false;
+		java.util.Collection<Value> copyValues = new java.util.ArrayList<Value>(this.getValue());
+		for (Value value : ((ArrayValue) obj).getValue()) {
+			copyValues.remove(value);
+		}
+		return copyValues.isEmpty();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -145,6 +168,20 @@ public class ArrayValueImpl extends ValueImpl implements ArrayValue {
 			return value != null && !value.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case JsonMMPackage.ARRAY_VALUE___EQUALS__OBJECT:
+			return equals(arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ArrayValueImpl

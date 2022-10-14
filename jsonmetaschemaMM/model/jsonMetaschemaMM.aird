@@ -3,11 +3,16 @@
   <viewpoint:DAnalysis uid="_R-_ucGjDEeutyv0gtBO7yg" selectedViews="_SBu5YGjDEeutyv0gtBO7yg _kOeWoGjDEeutyv0gtBO7yg _kPLhQGjDEeutyv0gtBO7yg _kRnxQGjDEeutyv0gtBO7yg" version="14.5.1.202106111100">
     <semanticResources>jsonMetaschemaMM.ecore</semanticResources>
     <semanticResources>jsonMetaschemaMM.genmodel</semanticResources>
-    <semanticResources>/jsonMM/model/jsonMM.ecore</semanticResources>
+    <semanticResources>platform:/jsonMM/model/jsonMM.ecore</semanticResources>
     <semanticResources>platform:/resource/jsonMM/model/jsonMM.genmodel</semanticResources>
+    <semanticResources>platform:/resource/jsonMM/model/jsonMM.ecore</semanticResources>
+    <semanticResources>ocl/basicvalidation.ocl.oclas</semanticResources>
+    <semanticResources>ocl/fullvalidation.ocl</semanticResources>
+    <semanticResources>ocl/fullvalidation.ocl.oclas</semanticResources>
+    <semanticResources>ocl/trafovalidation.ocl.oclas</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_SBu5YGjDEeutyv0gtBO7yg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_SCd5MWjDEeutyv0gtBO7yg" name="jsonMetaschemaMM" repPath="#_SCZnwGjDEeutyv0gtBO7yg" changeId="78a4a682-8efe-4b97-b696-69e2f136c08e">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_SCd5MWjDEeutyv0gtBO7yg" name="jsonMetaschemaMM" repPath="#_SCZnwGjDEeutyv0gtBO7yg" changeId="048f19bf-937c-4d13-8937-b49c0649547b">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="jsonMetaschemaMM.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -794,7 +799,7 @@
           <styles xmi:type="notation:TextStyle" xmi:id="_VMNl82oDEeutgpGWKULuJw" textAlignment="Center"/>
           <styles xmi:type="notation:LineTypeStyle" xmi:id="_VMNl9GoDEeutgpGWKULuJw"/>
           <element xsi:nil="true"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VMNl9WoDEeutgpGWKULuJw" x="985" y="-1725" width="225" height="73"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VMNl9WoDEeutgpGWKULuJw" x="1005" y="-1679" width="225" height="73"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_5qH3cKG8Eeu_q7eoHVsmdg" type="2003" element="_5oEpAKG8Eeu_q7eoHVsmdg">
           <children xmi:type="notation:Node" xmi:id="_5qPzQKG8Eeu_q7eoHVsmdg" type="5007"/>
@@ -2080,7 +2085,7 @@
           <styles xmi:type="notation:ArrowStyle" xmi:id="_fcbRgWoDEeutgpGWKULuJw"/>
           <styles xmi:type="notation:LineTypeStyle" xmi:id="_fcbRgmoDEeutgpGWKULuJw"/>
           <element xsi:nil="true"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fcbRg2oDEeutgpGWKULuJw" points="[0, 0, 9, 92]$[-9, -92, 0, 0]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_fcbRg2oDEeutgpGWKULuJw" points="[0, 0, 29, 138]$[-29, -138, 0, 0]"/>
           <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_fccfoGoDEeutgpGWKULuJw" id="(0.0,0.6575342465753424)"/>
           <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_fccfoWoDEeutgpGWKULuJw" id="(0.9890023566378633,0.0)"/>
         </edges>
@@ -2784,6 +2789,22 @@
           <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           <color xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
         </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:FlatContainerStyleDescription" xmi:id="_afnq8EuVEe2pfPp9aQIxvg" arcWidth="8" arcHeight="8" borderSizeComputationExpression="1" tooltipExpression="service:renderTooltip" roundedCorner="true" widthComputationExpression="12" heightComputationExpression="10" backgroundStyle="Liquid">
+          <borderColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          <backgroundColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          <foregroundColor xmi:type="description:UserFixedColor" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@userColorsPalettes[name='Ecore%20Palette']/@entries[name='EClass']"/>
+        </computedStyleDescriptions>
+        <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_aghC1kuVEe2pfPp9aQIxvg" targetArrow="InputClosedArrow" routingStyle="tree">
+          <strokeColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          <beginLabelStyleDescription xmi:type="style:BeginLabelStyleDescription" xmi:id="_aghC10uVEe2pfPp9aQIxvg" showIcon="false" labelExpression="service:superTypesLabel">
+            <labelFormat>italic</labelFormat>
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </beginLabelStyleDescription>
+          <centerLabelStyleDescription xmi:type="style:CenterLabelStyleDescription" xmi:id="_aghC2EuVEe2pfPp9aQIxvg" showIcon="false">
+            <labelColor xmi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </centerLabelStyleDescription>
+        </computedStyleDescriptions>
       </data>
     </ownedAnnotationEntries>
     <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qyYIgGjDEeutyv0gtBO7yg" name="ObjectSchema" tooltipText="" outgoingEdges="_q3xl4GjDEeutyv0gtBO7yg _q4DSsGjDEeutyv0gtBO7yg _ofAEgMPEEeuNW8abaF5ZRw _ofB5sMPEEeuNW8abaF5ZRw _ofDH0MPEEeuNW8abaF5ZRw _ofEV8MPEEeuNW8abaF5ZRw _ofE9A8PEEeuNW8abaF5ZRw _ofGyM8PEEeuNW8abaF5ZRw _ofHZQMPEEeuNW8abaF5ZRw _ofIAVsPEEeuNW8abaF5ZRw _ofJOcMPEEeuNW8abaF5ZRw _ofJ1g8PEEeuNW8abaF5ZRw _ofKclsPEEeuNW8abaF5ZRw _ofLqs8PEEeuNW8abaF5ZRw _ofM40MPEEeuNW8abaF5ZRw _ofNf48PEEeuNW8abaF5ZRw _ofOG9sPEEeuNW8abaF5ZRw _ofPVFsPEEeuNW8abaF5ZRw _yLQbppuSEeyHzfaomr8XQw _7Mbo4JuaEeyHzfaomr8XQw _f0pwXJ7KEeymIKNApMH0HQ _oO32-J8HEeymIKNApMH0HQ _oym3lkYzEe23VZXqXhzdsw _aioK9kloEe2jl6uGkcixxQ _aiox1kloEe2jl6uGkcixxQ" width="12" height="10">
@@ -2873,17 +2894,15 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qylj4GjDEeutyv0gtBO7yg" name="EnumSchemaDefinition" tooltipText="" outgoingEdges="_q4Fu9mjDEeutyv0gtBO7yg" incomingEdges="_f0pwXJ7KEeymIKNApMH0HQ" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qylj4GjDEeutyv0gtBO7yg" name="EnumSchemaDefinition" tooltipText="&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//EnumSchemaDefinition/items}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//EnumSchemaDefinition/items}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//EnumSchemaDefinition/items/@eGenericType}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//EnumSchemaDefinition/items/@eGenericType}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'" outgoingEdges="_q4Fu9mjDEeutyv0gtBO7yg" incomingEdges="_f0pwXJ7KEeymIKNApMH0HQ" width="12" height="10">
       <target xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//EnumSchemaDefinition"/>
       <semanticElements xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//EnumSchemaDefinition"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_vzWUwmjTEeutyv0gtBO7yg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
-      </ownedStyle>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_afoSAUuVEe2pfPp9aQIxvg" labelColor="239,41,41" description="_afnq8EuVEe2pfPp9aQIxvg" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_JeEWMUlrEe2jl6uGkcixxQ" name=" items : JsonDocument" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_JeEWMUlrEe2jl6uGkcixxQ" name=" items" tooltipText="">
         <target xmi:type="ecore:EReference" href="jsonMetaschemaMM.ecore#//EnumSchemaDefinition/items"/>
         <semanticElements xmi:type="ecore:EReference" href="jsonMetaschemaMM.ecore#//EnumSchemaDefinition/items"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_JeE9QUlrEe2jl6uGkcixxQ" labelAlignment="LEFT" description="_JeE9QElrEe2jl6uGkcixxQ" color="114,159,207">
@@ -2971,17 +2990,15 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qy0NYGjDEeutyv0gtBO7yg" name="DefaultSchemaDefinition" tooltipText="" outgoingEdges="_q4ILM2jDEeutyv0gtBO7yg" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qy0NYGjDEeutyv0gtBO7yg" name="DefaultSchemaDefinition" tooltipText="&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//DefaultSchemaDefinition/default}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//DefaultSchemaDefinition/default}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//DefaultSchemaDefinition/default/@eGenericType}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//DefaultSchemaDefinition/default/@eGenericType}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'" outgoingEdges="_q4ILM2jDEeutyv0gtBO7yg" width="12" height="10">
       <target xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//DefaultSchemaDefinition"/>
       <semanticElements xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//DefaultSchemaDefinition"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_SYAnMmjKEeutyv0gtBO7yg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
-      </ownedStyle>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_afqHMUuVEe2pfPp9aQIxvg" labelColor="239,41,41" description="_afnq8EuVEe2pfPp9aQIxvg" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_L544Z0lrEe2jl6uGkcixxQ" name=" default : JsonDocument" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_L544Z0lrEe2jl6uGkcixxQ" name=" default" tooltipText="">
         <target xmi:type="ecore:EReference" href="jsonMetaschemaMM.ecore#//DefaultSchemaDefinition/default"/>
         <semanticElements xmi:type="ecore:EReference" href="jsonMetaschemaMM.ecore#//DefaultSchemaDefinition/default"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_L55fcElrEe2jl6uGkcixxQ" labelAlignment="LEFT" description="_JeE9QElrEe2jl6uGkcixxQ" color="114,159,207">
@@ -3227,17 +3244,15 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qzvacGjDEeutyv0gtBO7yg" name="ConstSchemaDefinition" tooltipText="" outgoingEdges="_q4QuFGjDEeutyv0gtBO7yg" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_qzvacGjDEeutyv0gtBO7yg" name="ConstSchemaDefinition" tooltipText="&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//ConstSchemaDefinition/const}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//ConstSchemaDefinition/const}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//ConstSchemaDefinition/const/@eGenericType}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//ConstSchemaDefinition/const/@eGenericType}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'" outgoingEdges="_q4QuFGjDEeutyv0gtBO7yg" width="12" height="10">
       <target xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//ConstSchemaDefinition"/>
       <semanticElements xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//ConstSchemaDefinition"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_cft-Z2jHEeutyv0gtBO7yg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
-      </ownedStyle>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_afu_s0uVEe2pfPp9aQIxvg" labelColor="239,41,41" description="_afnq8EuVEe2pfPp9aQIxvg" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_PHvUcUlrEe2jl6uGkcixxQ" name=" const : JsonDocument" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_PHvUcUlrEe2jl6uGkcixxQ" name=" const" tooltipText="">
         <target xmi:type="ecore:EReference" href="jsonMetaschemaMM.ecore#//ConstSchemaDefinition/const"/>
         <semanticElements xmi:type="ecore:EReference" href="jsonMetaschemaMM.ecore#//ConstSchemaDefinition/const"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_PHvUcklrEe2jl6uGkcixxQ" labelAlignment="LEFT" description="_JeE9QElrEe2jl6uGkcixxQ" color="114,159,207">
@@ -3405,17 +3420,15 @@
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
       </ownedElements>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_q0ZhwGjDEeutyv0gtBO7yg" name="ExamplesSchemaDefinition" tooltipText="" outgoingEdges="_q4TxZmjDEeutyv0gtBO7yg" width="12" height="10">
+    <ownedDiagramElements xmi:type="diagram:DNodeList" uid="_q0ZhwGjDEeutyv0gtBO7yg" name="ExamplesSchemaDefinition" tooltipText="&#xA;ERROR : The feature 'eType' of 'EReference{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition/examples}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eReferenceType' of 'EReference{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition/examples}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eRawType' of 'EGenericType{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition/examples/@eGenericType}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'&#xA;ERROR : The feature 'eClassifier' of 'EGenericType{platform:/resource/jsonmetaschemaMM/model/jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition/examples/@eGenericType}' contains an unresolved proxy 'EClass{http://at.jku.bise/jsonMM#//JsonDocument}'" outgoingEdges="_q4TxZmjDEeutyv0gtBO7yg" width="12" height="10">
       <target xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition"/>
       <semanticElements xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition"/>
       <arrangeConstraints>KEEP_LOCATION</arrangeConstraints>
       <arrangeConstraints>KEEP_SIZE</arrangeConstraints>
       <arrangeConstraints>KEEP_RATIO</arrangeConstraints>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_RrzWlWjMEeutyv0gtBO7yg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
-        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
-      </ownedStyle>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" uid="_afw04UuVEe2pfPp9aQIxvg" labelColor="239,41,41" description="_afnq8EuVEe2pfPp9aQIxvg" borderSize="1" borderSizeComputationExpression="1" borderColor="239,41,41" backgroundStyle="Liquid" foregroundColor="255,252,216"/>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Npw6lUlrEe2jl6uGkcixxQ" name=" examples : JsonDocument" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_Npw6lUlrEe2jl6uGkcixxQ" name=" examples" tooltipText="">
         <target xmi:type="ecore:EReference" href="jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition/examples"/>
         <semanticElements xmi:type="ecore:EReference" href="jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition/examples"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_Npw6lklrEe2jl6uGkcixxQ" labelAlignment="LEFT" color="114,159,207">
@@ -4056,13 +4069,12 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q4Fu9mjDEeutyv0gtBO7yg" sourceNode="_qylj4GjDEeutyv0gtBO7yg" targetNode="_q0scsGjDEeutyv0gtBO7yg">
       <target xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//EnumSchemaDefinition"/>
       <semanticElements xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//EnumSchemaDefinition"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_vz_N8GjTEeutyv0gtBO7yg" targetArrow="InputClosedArrow" routingStyle="manhattan">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_aghC2UuVEe2pfPp9aQIxvg" description="_aghC1kuVEe2pfPp9aQIxvg" targetArrow="InputClosedArrow" routingStyle="manhattan">
         <customFeatures>routingStyle</customFeatures>
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_vz_N8WjTEeutyv0gtBO7yg" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_aghC2kuVEe2pfPp9aQIxvg" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_vz_N8mjTEeutyv0gtBO7yg" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_aghC20uVEe2pfPp9aQIxvg" showIcon="false" labelColor="239,41,41"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
@@ -4121,13 +4133,12 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q4ILM2jDEeutyv0gtBO7yg" sourceNode="_qy0NYGjDEeutyv0gtBO7yg" targetNode="_q0scsGjDEeutyv0gtBO7yg">
       <target xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//DefaultSchemaDefinition"/>
       <semanticElements xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//DefaultSchemaDefinition"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_SYjZxmjKEeutyv0gtBO7yg" targetArrow="InputClosedArrow" routingStyle="manhattan">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_agi4AEuVEe2pfPp9aQIxvg" description="_aghC1kuVEe2pfPp9aQIxvg" targetArrow="InputClosedArrow" routingStyle="manhattan">
         <customFeatures>routingStyle</customFeatures>
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_SYjZx2jKEeutyv0gtBO7yg" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_agi4AUuVEe2pfPp9aQIxvg" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_SYjZyGjKEeutyv0gtBO7yg" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_agi4AkuVEe2pfPp9aQIxvg" showIcon="false" labelColor="239,41,41"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
@@ -4316,13 +4327,12 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q4QuFGjDEeutyv0gtBO7yg" sourceNode="_qzvacGjDEeutyv0gtBO7yg" targetNode="_q0scsGjDEeutyv0gtBO7yg">
       <target xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//ConstSchemaDefinition"/>
       <semanticElements xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//ConstSchemaDefinition"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_cgNtrGjHEeutyv0gtBO7yg" targetArrow="InputClosedArrow" routingStyle="manhattan">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_agl7UEuVEe2pfPp9aQIxvg" description="_aghC1kuVEe2pfPp9aQIxvg" targetArrow="InputClosedArrow" routingStyle="manhattan">
         <customFeatures>routingStyle</customFeatures>
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_cgNtrWjHEeutyv0gtBO7yg" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_agl7UUuVEe2pfPp9aQIxvg" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_cgNtrmjHEeutyv0gtBO7yg" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_agl7UkuVEe2pfPp9aQIxvg" showIcon="false" labelColor="239,41,41"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
@@ -4407,13 +4417,12 @@
     <ownedDiagramElements xmi:type="diagram:DEdge" uid="_q4TxZmjDEeutyv0gtBO7yg" sourceNode="_q0ZhwGjDEeutyv0gtBO7yg" targetNode="_q0scsGjDEeutyv0gtBO7yg">
       <target xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition"/>
       <semanticElements xmi:type="ecore:EClass" href="jsonMetaschemaMM.ecore#//ExamplesSchemaDefinition"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_RsU7BmjMEeutyv0gtBO7yg" targetArrow="InputClosedArrow" routingStyle="manhattan">
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_agmiZkuVEe2pfPp9aQIxvg" description="_aghC1kuVEe2pfPp9aQIxvg" targetArrow="InputClosedArrow" routingStyle="manhattan">
         <customFeatures>routingStyle</customFeatures>
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_RsU7B2jMEeutyv0gtBO7yg" showIcon="false">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_agmiZ0uVEe2pfPp9aQIxvg" showIcon="false">
           <labelFormat>italic</labelFormat>
         </beginLabelStyle>
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_RsU7CGjMEeutyv0gtBO7yg" showIcon="false"/>
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_agmiaEuVEe2pfPp9aQIxvg" showIcon="false" labelColor="239,41,41"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>

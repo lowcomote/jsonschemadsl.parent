@@ -2,12 +2,16 @@
  */
 package jsonMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import jsonMM.JsonMMPackage;
 import jsonMM.KeyValuePair;
 import jsonMM.Value;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -155,6 +159,22 @@ public class KeyValuePairImpl extends MinimalEObjectImpl.Container implements Ke
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean equals(final Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return this.getKey().equals(((KeyValuePair) obj).getKey())
+				&& this.getValue().equals(((KeyValuePair) obj).getValue());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -230,6 +250,20 @@ public class KeyValuePairImpl extends MinimalEObjectImpl.Container implements Ke
 			return value != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case JsonMMPackage.KEY_VALUE_PAIR___EQUALS__OBJECT:
+			return equals(arguments.get(0));
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
