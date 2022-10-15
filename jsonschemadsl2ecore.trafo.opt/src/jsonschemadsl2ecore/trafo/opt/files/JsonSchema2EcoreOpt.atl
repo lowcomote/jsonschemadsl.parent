@@ -254,6 +254,15 @@ rule createKeywordAnnotation(keyword:String){
 	}	
 }
 
+rule createEnumAnnotation(){
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.ENUM
+		)
+	do{
+		eAnnotation;
+	}	
+}
 ---------------------------------------------
 
 rule mapBooleanSchemaToEClass extends mapSchemaToEClass{
@@ -276,8 +285,10 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.ref});
 		}else if (not schema.enum.oclIsUndefined()){ --- "enum" is present
 			
-			----- TODO implement
-			
+			----- TODO implement IN Progress .....
+			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword())});
+			eClass.eAnnotations <- Sequence{thisModule.createEnumAnnotation()};
+		 
 		}else if (schema.type.oclIsUndefined()){  ---- "type" is missing
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentForArrayOfTypes(schema, eClass, Sequence{#"\"string\"", #"\"integer\"", #"\"number\"", #"\"boolean\"", #"\"object\"", #"\"array\"", #"\"null\""} )});
 		}else if(schema.hasSimpleType()){
@@ -1252,7 +1263,7 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		
 		------------------ Derived Attributes and operation get (String key)
 		for(objectSchema in JSchemaMM!ObjectSchema.allInstancesFrom('jschema')){
-			if(objectSchema.ref.oclIsUndefined()){ --- "$ref" is not present
+			if(objectSchema.ref.oclIsUndefined() and objectSchema.enum.oclIsUndefined()){ --- "$ref" is not present ---- TODO fix also not enum and not const
 				if(objectSchema.hasSimpleTypeObject()){
 					if(not objectSchema.properties.oclIsUndefined()){
 						objectSchema.resolve().eStructuralFeatures <- objectSchema.resolve().eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));

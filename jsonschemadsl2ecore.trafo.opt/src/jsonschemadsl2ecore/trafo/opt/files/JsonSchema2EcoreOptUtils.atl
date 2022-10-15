@@ -11,6 +11,7 @@ helper def: ARRAY_OF_TYPES: String = 'ArrayOfTypes';
 helper def: ADDITIONAL_PROPERTIES: String =  'AdditionalProperties';
 helper def: PATTERN_PROPERTIES: String ='PatternProperties';
 helper def: KEYWORD: String ='Keyword';
+helper def: ENUM: String ='Enum';
 --Keywords
 helper def: keywords : Sequence(Ecore!EStructuralFeature) = Sequence{};
 
