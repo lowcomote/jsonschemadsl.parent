@@ -2,6 +2,8 @@
  */
 package relatedSchemas.provider;
 
+import jsonMM.provider.JsonMMEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -36,7 +38,7 @@ public final class RelatedSchemasEditPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public RelatedSchemasEditPlugin() {
-		super(new ResourceLocator[] {});
+		super(new ResourceLocator[] { JsonMMEditPlugin.INSTANCE, });
 	}
 
 	/**

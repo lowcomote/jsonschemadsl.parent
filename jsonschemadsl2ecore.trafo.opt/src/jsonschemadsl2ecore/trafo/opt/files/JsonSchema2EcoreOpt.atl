@@ -669,6 +669,18 @@ rule mapNot{
 	}
 }
 
+rule mapEnum{
+	from enumSchemaDefinition:JSchemaMM!EnumSchemaDefinition
+	to 
+		enumEClass:RelatedSchemasMM!Enum(
+			enum<-enumSchemaDefinition.items->debug('enumSchemaDefinition.items')
+		)
+	do	{
+		thisModule.createRelatedEnclosingSchema(enumSchemaDefinition.refImmediateComposite().resolve()).enum<-enumEClass;
+		enumEClass;
+	}
+}
+
 ---- This rule has to be lazy, and called from the endpoint because we have to be sure that, in case of array of types the enclosing class (with TypeObject ending) has been created
 unique lazy rule mapDependency{
 	from dependenciesAdditionalPropertiesAnyOf1:JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1(dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasTypeObject())

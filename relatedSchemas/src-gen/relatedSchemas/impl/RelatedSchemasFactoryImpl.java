@@ -10,7 +10,19 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import relatedSchemas.*;
+import relatedSchemas.AllOf;
+import relatedSchemas.AnyOf;
+import relatedSchemas.Const;
+import relatedSchemas.Contains;
+import relatedSchemas.Dependencies;
+import relatedSchemas.Dependency;
+import relatedSchemas.EnclosingSchema;
+import relatedSchemas.IfThenElse;
+import relatedSchemas.Not;
+import relatedSchemas.OneOf;
+import relatedSchemas.RelatedSchemas;
+import relatedSchemas.RelatedSchemasFactory;
+import relatedSchemas.RelatedSchemasPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -76,6 +88,10 @@ public class RelatedSchemasFactoryImpl extends EFactoryImpl implements RelatedSc
 			return createContains();
 		case RelatedSchemasPackage.DEPENDENCY:
 			return createDependency();
+		case RelatedSchemasPackage.ENUM:
+			return createEnum();
+		case RelatedSchemasPackage.CONST:
+			return createConst();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -179,6 +195,26 @@ public class RelatedSchemasFactoryImpl extends EFactoryImpl implements RelatedSc
 	public Dependency createDependency() {
 		DependencyImpl dependency = new DependencyImpl();
 		return dependency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public relatedSchemas.Enum createEnum() {
+		EnumImpl enum_ = new EnumImpl();
+		return enum_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Const createConst() {
+		ConstImpl const_ = new ConstImpl();
+		return const_;
 	}
 
 	/**

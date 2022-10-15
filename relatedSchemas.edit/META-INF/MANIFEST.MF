@@ -11,6 +11,8 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: relatedSchemas.provider
 Require-Bundle: org.eclipse.core.runtime,
- relatedSchemas;bundle-version="2.0.0";visibility:=reexport,
- org.eclipse.emf.edit;visibility:=reexport
+ relatedSchemas;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ jsonMM;visibility:=reexport,
+ jsonMM.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

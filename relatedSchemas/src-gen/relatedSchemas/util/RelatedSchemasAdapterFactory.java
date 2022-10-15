@@ -9,7 +9,18 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import relatedSchemas.*;
+import relatedSchemas.AllOf;
+import relatedSchemas.AnyOf;
+import relatedSchemas.Const;
+import relatedSchemas.Contains;
+import relatedSchemas.Dependencies;
+import relatedSchemas.Dependency;
+import relatedSchemas.EnclosingSchema;
+import relatedSchemas.IfThenElse;
+import relatedSchemas.Not;
+import relatedSchemas.OneOf;
+import relatedSchemas.RelatedSchemas;
+import relatedSchemas.RelatedSchemasPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -114,6 +125,16 @@ public class RelatedSchemasAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseDependency(Dependency object) {
 			return createDependencyAdapter();
+		}
+
+		@Override
+		public Adapter caseEnum(relatedSchemas.Enum object) {
+			return createEnumAdapter();
+		}
+
+		@Override
+		public Adapter caseConst(Const object) {
+			return createConstAdapter();
 		}
 
 		@Override
@@ -272,6 +293,34 @@ public class RelatedSchemasAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDependencyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link relatedSchemas.Enum <em>Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see relatedSchemas.Enum
+	 * @generated
+	 */
+	public Adapter createEnumAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link relatedSchemas.Const <em>Const</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see relatedSchemas.Const
+	 * @generated
+	 */
+	public Adapter createConstAdapter() {
 		return null;
 	}
 

@@ -5,7 +5,8 @@
     editDirectory="/relatedSchemas.edit/src-gen" editorDirectory="/relatedSchemas.editor/src-gen"
     modelPluginID="relatedSchemas" modelName="RelatedSchemas" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
+    copyrightFields="false" usedGenPackages="../../jsonMM/model/jsonMM.genmodel#//jsonMM"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>relatedSchemas.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="RelatedSchemas" disposableProviderFactory="true" ecorePackage="relatedSchemas.ecore#/">
@@ -24,6 +25,8 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/ifThenElse"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/dependencies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/contains"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/enum"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/const"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//AllOf">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//AllOf/allOfs"/>
@@ -48,6 +51,12 @@
     <genClasses ecoreClass="relatedSchemas.ecore#//Dependency">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Dependency/dependency"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relatedSchemas.ecore#//Dependency/property"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//Enum">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Enum/enum"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//Const">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Const/const"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -213,13 +213,31 @@ public interface RelatedSchemasPackage extends EPackage {
 	int ENCLOSING_SCHEMA__CONTAINS = 7;
 
 	/**
+	 * The feature id for the '<em><b>Enum</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENCLOSING_SCHEMA__ENUM = 8;
+
+	/**
+	 * The feature id for the '<em><b>Const</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENCLOSING_SCHEMA__CONST = 9;
+
+	/**
 	 * The number of structural features of the '<em>Enclosing Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENCLOSING_SCHEMA_FEATURE_COUNT = 8;
+	int ENCLOSING_SCHEMA_FEATURE_COUNT = 10;
 
 	/**
 	 * The number of operations of the '<em>Enclosing Schema</em>' class.
@@ -517,6 +535,80 @@ public interface RelatedSchemasPackage extends EPackage {
 	int DEPENDENCY_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link relatedSchemas.impl.EnumImpl <em>Enum</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see relatedSchemas.impl.EnumImpl
+	 * @see relatedSchemas.impl.RelatedSchemasPackageImpl#getEnum()
+	 * @generated
+	 */
+	int ENUM = 10;
+
+	/**
+	 * The feature id for the '<em><b>Enum</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__ENUM = 0;
+
+	/**
+	 * The number of structural features of the '<em>Enum</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Enum</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link relatedSchemas.impl.ConstImpl <em>Const</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see relatedSchemas.impl.ConstImpl
+	 * @see relatedSchemas.impl.RelatedSchemasPackageImpl#getConst()
+	 * @generated
+	 */
+	int CONST = 11;
+
+	/**
+	 * The feature id for the '<em><b>Const</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST__CONST = 0;
+
+	/**
+	 * The number of structural features of the '<em>Const</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Const</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST_OPERATION_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link relatedSchemas.RelatedSchemas <em>Related Schemas</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -655,6 +747,28 @@ public interface RelatedSchemasPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEnclosingSchema_Contains();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link relatedSchemas.EnclosingSchema#getEnum <em>Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Enum</em>'.
+	 * @see relatedSchemas.EnclosingSchema#getEnum()
+	 * @see #getEnclosingSchema()
+	 * @generated
+	 */
+	EReference getEnclosingSchema_Enum();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link relatedSchemas.EnclosingSchema#getConst <em>Const</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Const</em>'.
+	 * @see relatedSchemas.EnclosingSchema#getConst()
+	 * @see #getEnclosingSchema()
+	 * @generated
+	 */
+	EReference getEnclosingSchema_Const();
 
 	/**
 	 * Returns the meta object for class '{@link relatedSchemas.AllOf <em>All Of</em>}'.
@@ -837,6 +951,48 @@ public interface RelatedSchemasPackage extends EPackage {
 	EAttribute getDependency_Property();
 
 	/**
+	 * Returns the meta object for class '{@link relatedSchemas.Enum <em>Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Enum</em>'.
+	 * @see relatedSchemas.Enum
+	 * @generated
+	 */
+	EClass getEnum();
+
+	/**
+	 * Returns the meta object for the reference list '{@link relatedSchemas.Enum#getEnum <em>Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Enum</em>'.
+	 * @see relatedSchemas.Enum#getEnum()
+	 * @see #getEnum()
+	 * @generated
+	 */
+	EReference getEnum_Enum();
+
+	/**
+	 * Returns the meta object for class '{@link relatedSchemas.Const <em>Const</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Const</em>'.
+	 * @see relatedSchemas.Const
+	 * @generated
+	 */
+	EClass getConst();
+
+	/**
+	 * Returns the meta object for the reference '{@link relatedSchemas.Const#getConst <em>Const</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Const</em>'.
+	 * @see relatedSchemas.Const#getConst()
+	 * @see #getConst()
+	 * @generated
+	 */
+	EReference getConst_Const();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -968,6 +1124,22 @@ public interface RelatedSchemasPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENCLOSING_SCHEMA__CONTAINS = eINSTANCE.getEnclosingSchema_Contains();
+
+		/**
+		 * The meta object literal for the '<em><b>Enum</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENCLOSING_SCHEMA__ENUM = eINSTANCE.getEnclosingSchema_Enum();
+
+		/**
+		 * The meta object literal for the '<em><b>Const</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENCLOSING_SCHEMA__CONST = eINSTANCE.getEnclosingSchema_Const();
 
 		/**
 		 * The meta object literal for the '{@link relatedSchemas.impl.AllOfImpl <em>All Of</em>}' class.
@@ -1118,6 +1290,42 @@ public interface RelatedSchemasPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DEPENDENCY__PROPERTY = eINSTANCE.getDependency_Property();
+
+		/**
+		 * The meta object literal for the '{@link relatedSchemas.impl.EnumImpl <em>Enum</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see relatedSchemas.impl.EnumImpl
+		 * @see relatedSchemas.impl.RelatedSchemasPackageImpl#getEnum()
+		 * @generated
+		 */
+		EClass ENUM = eINSTANCE.getEnum();
+
+		/**
+		 * The meta object literal for the '<em><b>Enum</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENUM__ENUM = eINSTANCE.getEnum_Enum();
+
+		/**
+		 * The meta object literal for the '{@link relatedSchemas.impl.ConstImpl <em>Const</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see relatedSchemas.impl.ConstImpl
+		 * @see relatedSchemas.impl.RelatedSchemasPackageImpl#getConst()
+		 * @generated
+		 */
+		EClass CONST = eINSTANCE.getConst();
+
+		/**
+		 * The meta object literal for the '<em><b>Const</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONST__CONST = eINSTANCE.getConst_Const();
 
 	}
 

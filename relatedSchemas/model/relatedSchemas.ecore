@@ -25,6 +25,9 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contains" eType="#//Contains"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enum" eType="#//Enum" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="const" eType="#//Const"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AllOf">
     <eStructuralFeatures xsi:type="ecore:EReference" name="allOfs" lowerBound="1"
@@ -55,5 +58,12 @@
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enum">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enum" lowerBound="1" upperBound="-1"
+        eType="ecore:EClass /jsonMM/model/jsonMM.ecore#//JsonDocument"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Const">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="const" lowerBound="1" eType="ecore:EClass /jsonMM/model/jsonMM.ecore#//JsonDocument"/>
   </eClassifiers>
 </ecore:EPackage>

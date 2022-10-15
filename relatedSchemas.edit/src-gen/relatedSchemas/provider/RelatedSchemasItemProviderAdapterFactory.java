@@ -303,6 +303,52 @@ public class RelatedSchemasItemProviderAdapterFactory extends RelatedSchemasAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link relatedSchemas.Enum} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumItemProvider enumItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link relatedSchemas.Enum}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnumAdapter() {
+		if (enumItemProvider == null) {
+			enumItemProvider = new EnumItemProvider(this);
+		}
+
+		return enumItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link relatedSchemas.Const} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstItemProvider constItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link relatedSchemas.Const}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConstAdapter() {
+		if (constItemProvider == null) {
+			constItemProvider = new ConstItemProvider(this);
+		}
+
+		return constItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -421,6 +467,10 @@ public class RelatedSchemasItemProviderAdapterFactory extends RelatedSchemasAdap
 			containsItemProvider.dispose();
 		if (dependencyItemProvider != null)
 			dependencyItemProvider.dispose();
+		if (enumItemProvider != null)
+			enumItemProvider.dispose();
+		if (constItemProvider != null)
+			constItemProvider.dispose();
 	}
 
 }

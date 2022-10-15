@@ -112,6 +112,24 @@ public interface RelatedSchemasFactory extends EFactory {
 	Dependency createDependency();
 
 	/**
+	 * Returns a new object of class '<em>Enum</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enum</em>'.
+	 * @generated
+	 */
+	Enum createEnum();
+
+	/**
+	 * Returns a new object of class '<em>Const</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Const</em>'.
+	 * @generated
+	 */
+	Const createConst();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

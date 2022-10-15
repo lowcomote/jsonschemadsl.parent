@@ -7,7 +7,18 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import relatedSchemas.*;
+import relatedSchemas.AllOf;
+import relatedSchemas.AnyOf;
+import relatedSchemas.Const;
+import relatedSchemas.Contains;
+import relatedSchemas.Dependencies;
+import relatedSchemas.Dependency;
+import relatedSchemas.EnclosingSchema;
+import relatedSchemas.IfThenElse;
+import relatedSchemas.Not;
+import relatedSchemas.OneOf;
+import relatedSchemas.RelatedSchemas;
+import relatedSchemas.RelatedSchemasPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -132,6 +143,20 @@ public class RelatedSchemasSwitch<T> extends Switch<T> {
 		case RelatedSchemasPackage.DEPENDENCY: {
 			Dependency dependency = (Dependency) theEObject;
 			T result = caseDependency(dependency);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RelatedSchemasPackage.ENUM: {
+			relatedSchemas.Enum enum_ = (relatedSchemas.Enum) theEObject;
+			T result = caseEnum(enum_);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RelatedSchemasPackage.CONST: {
+			Const const_ = (Const) theEObject;
+			T result = caseConst(const_);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -288,6 +313,36 @@ public class RelatedSchemasSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDependency(Dependency object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enum</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enum</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEnum(relatedSchemas.Enum object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Const</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Const</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConst(Const object) {
 		return null;
 	}
 

@@ -155,6 +155,8 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import relatedSchemas.provider.RelatedSchemasItemProviderAdapterFactory;
 
+import jsonMM.provider.JsonMMItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 /**
@@ -676,6 +678,7 @@ public class RelatedSchemasEditor extends MultiPageEditorPart
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new RelatedSchemasItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new JsonMMItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

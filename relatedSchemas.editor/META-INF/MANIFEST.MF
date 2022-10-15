@@ -12,8 +12,9 @@ Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: relatedSchemas.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- relatedSchemas.edit;bundle-version="2.0.0";visibility:=reexport,
+ relatedSchemas.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport
+ org.eclipse.ui.ide;visibility:=reexport,
+ jsonMM.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy

@@ -2,6 +2,8 @@
  */
 package relatedSchemas.impl;
 
+import jsonMM.JsonMMPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -11,6 +13,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import relatedSchemas.AllOf;
 import relatedSchemas.AnyOf;
+import relatedSchemas.Const;
 import relatedSchemas.Contains;
 import relatedSchemas.Dependencies;
 import relatedSchemas.Dependency;
@@ -100,6 +103,20 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 	private EClass dependencyEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enumEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -148,6 +165,9 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 				: new RelatedSchemasPackageImpl();
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		JsonMMPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theRelatedSchemasPackage.createPackageContents();
@@ -278,6 +298,24 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 	 */
 	public EReference getEnclosingSchema_Contains() {
 		return (EReference) enclosingSchemaEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEnclosingSchema_Enum() {
+		return (EReference) enclosingSchemaEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEnclosingSchema_Const() {
+		return (EReference) enclosingSchemaEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -438,6 +476,42 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEnum() {
+		return enumEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEnum_Enum() {
+		return (EReference) enumEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConst() {
+		return constEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getConst_Const() {
+		return (EReference) constEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public RelatedSchemasFactory getRelatedSchemasFactory() {
 		return (RelatedSchemasFactory) getEFactoryInstance();
 	}
@@ -477,6 +551,8 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 		createEReference(enclosingSchemaEClass, ENCLOSING_SCHEMA__IF_THEN_ELSE);
 		createEReference(enclosingSchemaEClass, ENCLOSING_SCHEMA__DEPENDENCIES);
 		createEReference(enclosingSchemaEClass, ENCLOSING_SCHEMA__CONTAINS);
+		createEReference(enclosingSchemaEClass, ENCLOSING_SCHEMA__ENUM);
+		createEReference(enclosingSchemaEClass, ENCLOSING_SCHEMA__CONST);
 
 		allOfEClass = createEClass(ALL_OF);
 		createEReference(allOfEClass, ALL_OF__ALL_OFS);
@@ -501,6 +577,12 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 		dependencyEClass = createEClass(DEPENDENCY);
 		createEReference(dependencyEClass, DEPENDENCY__DEPENDENCY);
 		createEAttribute(dependencyEClass, DEPENDENCY__PROPERTY);
+
+		enumEClass = createEClass(ENUM);
+		createEReference(enumEClass, ENUM__ENUM);
+
+		constEClass = createEClass(CONST);
+		createEReference(constEClass, CONST__CONST);
 	}
 
 	/**
@@ -526,6 +608,9 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 		setName(eNAME);
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
+
+		// Obtain other dependent packages
+		JsonMMPackage theJsonMMPackage = (JsonMMPackage) EPackage.Registry.INSTANCE.getEPackage(JsonMMPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -571,6 +656,12 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 		initEReference(getEnclosingSchema_Contains(), this.getContains(), null, "contains", null, 0, 1,
 				EnclosingSchema.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnclosingSchema_Enum(), this.getEnum(), null, "enum", null, 0, 1, EnclosingSchema.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnclosingSchema_Const(), this.getConst(), null, "const", null, 0, 1, EnclosingSchema.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(allOfEClass, AllOf.class, "AllOf", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAllOf_AllOfs(), ecorePackage.getEClass(), null, "allOfs", null, 1, -1, AllOf.class,
@@ -618,6 +709,17 @@ public class RelatedSchemasPackageImpl extends EPackageImpl implements RelatedSc
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDependency_Property(), ecorePackage.getEString(), "property", null, 1, 1, Dependency.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(enumEClass, relatedSchemas.Enum.class, "Enum", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEnum_Enum(), theJsonMMPackage.getJsonDocument(), null, "enum", null, 1, -1,
+				relatedSchemas.Enum.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(constEClass, Const.class, "Const", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getConst_Const(), theJsonMMPackage.getJsonDocument(), null, "const", null, 1, 1, Const.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

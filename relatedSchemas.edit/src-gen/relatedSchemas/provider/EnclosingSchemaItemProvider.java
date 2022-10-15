@@ -77,6 +77,8 @@ public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements 
 			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__IF_THEN_ELSE);
 			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__DEPENDENCIES);
 			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__CONTAINS);
+			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ENUM);
+			childrenFeatures.add(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__CONST);
 		}
 		return childrenFeatures;
 	}
@@ -145,6 +147,8 @@ public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements 
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__IF_THEN_ELSE:
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__DEPENDENCIES:
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ENUM:
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -182,6 +186,12 @@ public class EnclosingSchemaItemProvider extends ItemProviderAdapter implements 
 
 		newChildDescriptors.add(createChildParameter(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__CONTAINS,
 				RelatedSchemasFactory.eINSTANCE.createContains()));
+
+		newChildDescriptors.add(createChildParameter(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__ENUM,
+				RelatedSchemasFactory.eINSTANCE.createEnum()));
+
+		newChildDescriptors.add(createChildParameter(RelatedSchemasPackage.Literals.ENCLOSING_SCHEMA__CONST,
+				RelatedSchemasFactory.eINSTANCE.createConst()));
 	}
 
 	/**
