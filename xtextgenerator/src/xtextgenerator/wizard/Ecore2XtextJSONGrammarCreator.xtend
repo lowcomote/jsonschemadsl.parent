@@ -289,15 +289,6 @@ class Ecore2XtextJSONGrammarCreator {
 			case 'EIntegerObject': 'E_INT'
 			default : it.dataTypeRuleBody
 		};
-//		if('EString'.equals(name)){
-//			'STRING'
-//		}else if('EDouble'.equals(name)){
-//			
-//		}else{
-//			it.dataTypeRuleBody
-//		}
-		
-		
 	}
 	
 	def jsonSeparator(EStructuralFeature it) {
@@ -394,13 +385,7 @@ class Ecore2XtextJSONGrammarCreator {
 		this.detailedJsonGrammar.curlyBracesReferences.contains(it) === true;
 	}
 	
-//	def JsonGrammar loadJsonGrammar(IFile jsonGrammarFile, ResourceSet reset) {
-//		val Resource resource = reset.getResource(URI.createPlatformResourceURI(jsonGrammarFile.getFullPath().toString(), true), true);
-//		if (resource.getContents().get(0) instanceof JsonGrammar) {
-//			return resource.getContents().get(0) as JsonGrammar;
-//		} else
-//			throw new IllegalArgumentException("Expecting JsonGrammar type of object");
-//	 }
+
 	 
 	def overwriteINT(){
 		'''

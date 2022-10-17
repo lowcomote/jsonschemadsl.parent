@@ -110,7 +110,7 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	 * @generated
 	 */
 	public String toString() {
-		return this.value; //this.value.replaceAll("\\\\\"", "\\\\\\\\\\\\\"");this.value.replaceAll("\"|\\\\\\\\\\\\\\\\\"", "\\\\\"")
+		return this.value;  
 	}
 
 	/**

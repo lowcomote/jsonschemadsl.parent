@@ -48,11 +48,7 @@ class ValidatorGenerator {
 			import org.eclipse.xtext.validation.IResourceValidator;
 			import org.eclipse.xtext.validation.Issue;
 			import org.eclipse.xtext.util.CancelIndicator;
-			
-			import org.json.JSONException;
-			import org.skyscreamer.jsonassert.JSONCompare;
-			import org.skyscreamer.jsonassert.JSONCompareMode;
-			import org.skyscreamer.jsonassert.JSONCompareResult;
+
 			import relatedSchemas.RelatedSchemas;
 			import relatedSchemas.EnclosingSchema;
 			import jsonMM.JsonDocument;
@@ -379,26 +375,6 @@ class ValidatorGenerator {
 				if (enumJsonDocuments.stream().filter(json ->json.equals(enumJson)).findAny().orElse(null) == null){	
 					error("Element "+enumJson.toString()+" not included in the enumeration", null);
 				}
-				
-				
-				
-				
-«««				boolean found = false;
-«««				String enumJsonString = enclosingEClass.get«Character.toUpperCase(enumer.propertyName.charAt(0))»«enumer.propertyName.substring(1)»().toString();
-«««				«FOR JsonDocument jsonDocument :enumer.enum»
-«««					try{
-«««						if(JSONCompare.compareJSON(enumJsonString, "«jsonDocument.toString().replaceAll("\\\\\"", "\"").replaceAll("\"", "\\\\\"")»", JSONCompareMode.NON_EXTENSIBLE).passed()){
-««««««						if(JSONCompare.compareJSON(enumJsonString, "«jsonDocument.toString().replaceAll("\\\\\"", "\"").replaceAll("\"", "\\\\\\\\\"")».", JSONCompareMode.NON_EXTENSIBLE).passed()){	
-«««							found=true;
-«««						}
-«««					}catch (JSONException e) {
-«««						error("Error parsing the Json of «enumer.propertyName» ", null);
-«««					}
-«««						
-«««				«ENDFOR»
-«««				if(!found){
-«««					error("Element "+enumJsonString+" not included in the enumeration", null);
-«««				}	
 			}
 		'''
 	}

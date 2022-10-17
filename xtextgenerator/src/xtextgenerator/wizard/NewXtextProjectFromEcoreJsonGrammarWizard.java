@@ -67,8 +67,8 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 	public static final String LANGUAGE_INFRASTRUCTURE = ") Language Infrastructure";
 	public static final String LAUNCH_EXTENSION ="launch";
 	public static final String OCL_BUNDLE = "org.eclipse.ocl.xtext.completeocl";
-	public static final String JSONASSERT_BUNDLE= "wrapped.org.skyscreamer.jsonassert";
-	public static final String JSON_BUNDLE="org.json";
+//	public static final String JSONASSERT_BUNDLE= "wrapped.org.skyscreamer.jsonassert";
+//	public static final String JSON_BUNDLE="org.json";
 	public static final String RELATED_SCHEMAS_BUNDLE="relatedSchemas";
 	public static final String EMF_CONVERTES_BUNDLE="org.eclipse.emf.converter";
 	
@@ -379,8 +379,8 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 			manifestChanger.addPluginDependency(RELATED_SCHEMAS_BUNDLE);
 			manifestChanger.addPluginDependency(EMF_CONVERTES_BUNDLE);
 			
-			manifestChanger.addPluginDependency(JSONASSERT_BUNDLE);
-			manifestChanger.addPluginDependency(JSON_BUNDLE);;
+//			manifestChanger.addPluginDependency(JSONASSERT_BUNDLE);
+//			manifestChanger.addPluginDependency(JSON_BUNDLE);;
 			manifestChanger.writeManifest();
 //			InputStream in = new FileInputStream(manifestIPath.toString());
 //			Manifest manifest = new Manifest(in);//manifest.getMainAttributes().get("Require-Bundle"); Attributes.Name.

@@ -49,7 +49,7 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"dependencies"        |Y                    |Y                         ||
 |"propertyNames"       |Y                    |N                         ||
 |"const"               |Y                    |N                         ||
-|"enum"                |Y                    |N                         ||
+|"enum"                |Y                    |Y                         | XText validator|
 |"type"="integer"      |Y                    |Y                         ||
 |"type"="number"       |Y                    |Y                         ||
 |"type"="boolean"      |Y                    |Y                         ||
