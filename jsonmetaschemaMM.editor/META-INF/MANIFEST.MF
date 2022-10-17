@@ -8,8 +8,7 @@ Bundle-ClassPath: .
 Bundle-Activator: jsonMetaschemaMM.presentation.JsonMetaschemaMMEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package:  
- jsonMetaschemaMM.presentation
+Export-Package: jsonMetaschemaMM.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  jsonmetaschemaMM.edit;bundle-version="2.0.0";visibility:=reexport,

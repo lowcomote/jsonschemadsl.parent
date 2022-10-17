@@ -322,13 +322,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__MAX_PROPERTIES = SCHEMA_FEATURE_COUNT + 23;
 
 	/**
+	 * The feature id for the '<em><b>Const</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__CONST = SCHEMA_FEATURE_COUNT + 24;
+
+	/**
 	 * The number of structural features of the '<em>Object Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 24;
+	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 25;
 
 	/**
 	 * The operation id for the '<em>Find Schema By Key</em>' operation.
@@ -3175,6 +3184,17 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_MaxProperties();
 
 	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getConst <em>Const</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Const</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getConst()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_Const();
+
+	/**
 	 * Returns the meta object for the '{@link jsonMetaschemaMM.ObjectSchema#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4932,6 +4952,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OBJECT_SCHEMA__MAX_PROPERTIES = eINSTANCE.getObjectSchema_MaxProperties();
+
+		/**
+		 * The meta object literal for the '<em><b>Const</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__CONST = eINSTANCE.getObjectSchema_Const();
 
 		/**
 		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.

@@ -263,6 +263,16 @@ rule createEnumAnnotation(){
 		eAnnotation;
 	}	
 }
+
+rule createConstAnnotation(){
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.CONST
+		)
+	do{
+		eAnnotation;
+	}	
+}
 ---------------------------------------------
 
 rule mapBooleanSchemaToEClass extends mapSchemaToEClass{
@@ -283,13 +293,12 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 	do{ 
 		if(not schema.ref.oclIsUndefined()){ --- "$ref" is present
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.ref});
-		}else if (not schema.enum.oclIsUndefined()){ --- "enum" is present
+		}else if (not schema.enum.oclIsUndefined() or not schema.const.oclIsUndefined()){ --- "enum" or "const" is present 
 			
-			----- TODO implement IN Progress .....
 --			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword())});
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKeyForPropertiesContainment(), schema.needsKeyword())});
-			eClass.eAnnotations <- Sequence{thisModule.createEnumAnnotation()};
-		 
+--			eClass.eAnnotations <- Sequence{thisModule.createEnumAnnotation()};
+			eClass.eAnnotations <- Sequence{} ->union(if not schema.enum.oclIsUndefined() then Sequence{thisModule.createEnumAnnotation()} else Sequence{} endif ) ->union(if not schema.const.oclIsUndefined() then Sequence{thisModule.createConstAnnotation()} else Sequence{} endif ) ;
 		}else if (schema.type.oclIsUndefined()){  ---- "type" is missing
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentForArrayOfTypes(schema, eClass, Sequence{#"\"string\"", #"\"integer\"", #"\"number\"", #"\"boolean\"", #"\"object\"", #"\"array\"", #"\"null\""} )});
 		}else if(schema.hasSimpleType()){
@@ -624,7 +633,8 @@ unique lazy rule createAbstractEClass{
 
 rule mapAllOf{
 --	from allOfSchemaDefinition:JSchemaMM!AllOfSchemaDefinition
-	from allOfSchemaDefinition:JSchemaMM!AllOfSchemaDefinition(allOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+--	from allOfSchemaDefinition:JSchemaMM!AllOfSchemaDefinition(allOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+	from allOfSchemaDefinition:JSchemaMM!AllOfSchemaDefinition(allOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined() and allOfSchemaDefinition.refImmediateComposite().const.oclIsUndefined())
 	to 
 		allOf:RelatedSchemasMM!AllOf(
 			allOfs<-allOfSchemaDefinition.allOf.items
@@ -637,7 +647,8 @@ rule mapAllOf{
 
 rule mapAnyOf{
 --	from anyOfSchemaDefinition:JSchemaMM!AnyOfSchemaDefinition
-	from anyOfSchemaDefinition:JSchemaMM!AnyOfSchemaDefinition(anyOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+--	from anyOfSchemaDefinition:JSchemaMM!AnyOfSchemaDefinition(anyOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+	from anyOfSchemaDefinition:JSchemaMM!AnyOfSchemaDefinition(anyOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined() and anyOfSchemaDefinition.refImmediateComposite().const.oclIsUndefined())
 	to 
 		anyOf:RelatedSchemasMM!AnyOf(
 			anyOfs<-anyOfSchemaDefinition.anyOf.items
@@ -650,7 +661,8 @@ rule mapAnyOf{
 
 rule mapOneOf{
 --	from oneOfSchemaDefinition:JSchemaMM!OneOfSchemaDefinition
-	from oneOfSchemaDefinition:JSchemaMM!OneOfSchemaDefinition(oneOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+--	from oneOfSchemaDefinition:JSchemaMM!OneOfSchemaDefinition(oneOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+	from oneOfSchemaDefinition:JSchemaMM!OneOfSchemaDefinition(oneOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined() and oneOfSchemaDefinition.refImmediateComposite().const.oclIsUndefined())
 	to 
 		oneOf:RelatedSchemasMM!OneOf(
 			oneOfs<-oneOfSchemaDefinition.oneOf.items
@@ -663,7 +675,8 @@ rule mapOneOf{
 
 rule mapNot{
 --	from notSchemaDefinition:JSchemaMM!NotSchemaDefinition
-	from notSchemaDefinition:JSchemaMM!NotSchemaDefinition(notSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+--	from notSchemaDefinition:JSchemaMM!NotSchemaDefinition(notSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+	from notSchemaDefinition:JSchemaMM!NotSchemaDefinition(notSchemaDefinition.refImmediateComposite().enum.oclIsUndefined() and notSchemaDefinition.refImmediateComposite().const.oclIsUndefined())
 	to 
 		notEClass:RelatedSchemasMM!Not(
 			not<-notSchemaDefinition.not
@@ -675,8 +688,6 @@ rule mapNot{
 }
 
 
---- This rule has to be lazy, and called from the endpoint because we have to be sure that  the containers eclasses have been created
------ NOOOOOOOOOOOOOOO
 rule mapEnum{
 	from enumSchemaDefinition:JSchemaMM!EnumSchemaDefinition
 	to 
@@ -686,8 +697,18 @@ rule mapEnum{
 		)
 	do	{
 		thisModule.createConstEnum(enumSchemaDefinition.refImmediateComposite().resolve()).enum<-enumEClass;
---		thisModule.createRelatedEnclosingSchema(enumSchemaDefinition.refImmediateComposite().resolve()).enum<-enumEClass;
---		enumEClass;
+	}
+}
+
+rule mapConst{
+	from constSchemaDefinition:JSchemaMM!ConstSchemaDefinition
+	to 
+		constEClass:RelatedSchemasMM!Const(
+			const<-constSchemaDefinition.const,
+			propertyName<-constSchemaDefinition.refImmediateComposite().getKeyForPropertiesContainment()
+		)
+	do	{
+		thisModule.createConstEnum(constSchemaDefinition.refImmediateComposite().resolve()).const<-constEClass;
 	}
 }
 
@@ -707,8 +728,11 @@ unique lazy rule createConstEnum{
 ---- This rule has to be lazy, and called from the endpoint because we have to be sure that, in case of array of types the enclosing class (with TypeObject ending) has been created
 unique lazy rule mapDependency{
 --	from dependenciesAdditionalPropertiesAnyOf1:JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1(dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasTypeObject())
+--	from dependenciesAdditionalPropertiesAnyOf1:JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1(dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasTypeObject()
+--																												and dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().enum.oclIsUndefined())
 	from dependenciesAdditionalPropertiesAnyOf1:JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1(dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasTypeObject()
-																												and dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().enum.oclIsUndefined())
+																												and dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().enum.oclIsUndefined()
+																												and dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().const.oclIsUndefined())
 	using {
 		enclosingEClass: Ecore!EClass = if dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasSimpleTypeObject()
 										then dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve()
@@ -740,7 +764,8 @@ unique lazy rule createDependencies{
 
 rule mapIf{
 --	from ifSchemaDefinition:JSchemaMM!IfSchemaDefinition
-	from ifSchemaDefinition:JSchemaMM!IfSchemaDefinition(ifSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+--	from ifSchemaDefinition:JSchemaMM!IfSchemaDefinition(ifSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+	from ifSchemaDefinition:JSchemaMM!IfSchemaDefinition(ifSchemaDefinition.refImmediateComposite().enum.oclIsUndefined() and ifSchemaDefinition.refImmediateComposite().const.oclIsUndefined())
 	do	{
 		thisModule.createRelatedIfThenElse(ifSchemaDefinition.refImmediateComposite().resolve()).if<-ifSchemaDefinition.if.resolve();
 	}
@@ -748,7 +773,8 @@ rule mapIf{
 
 rule mapThen{
 --	from thenSchemaDefinition:JSchemaMM!ThenSchemaDefinition
-	from thenSchemaDefinition:JSchemaMM!ThenSchemaDefinition(thenSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+--	from thenSchemaDefinition:JSchemaMM!ThenSchemaDefinition(thenSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+	from thenSchemaDefinition:JSchemaMM!ThenSchemaDefinition(thenSchemaDefinition.refImmediateComposite().enum.oclIsUndefined() and thenSchemaDefinition.refImmediateComposite().const.oclIsUndefined())
 	do	{
 		thisModule.createRelatedIfThenElse(thenSchemaDefinition.refImmediateComposite().resolve()).then<-thenSchemaDefinition.then.resolve();
 	}
@@ -756,7 +782,8 @@ rule mapThen{
 
 rule mapElse{
 --	from elseSchemaDefinition:JSchemaMM!ElseSchemaDefinition
-	from elseSchemaDefinition:JSchemaMM!ElseSchemaDefinition(elseSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+--	from elseSchemaDefinition:JSchemaMM!ElseSchemaDefinition(elseSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
+	from elseSchemaDefinition:JSchemaMM!ElseSchemaDefinition(elseSchemaDefinition.refImmediateComposite().enum.oclIsUndefined() and elseSchemaDefinition.refImmediateComposite().const.oclIsUndefined())
 	do	{
 		thisModule.createRelatedIfThenElse(elseSchemaDefinition.refImmediateComposite().resolve()).else<-elseSchemaDefinition.else.resolve();
 	}
@@ -1291,16 +1318,10 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		
 
 		for (r in JSchemaMM!RequiredSchemaDefinition.allInstancesFrom('jschema')){
---			if(r.refImmediateComposite().hasTypeObject() and r.refImmediateComposite().ref.oclIsUndefined()){
---				thisModule.requiredInPropertiesToOcl(r);
---			}	
 			thisModule.requiredInPropertiesToOcl(r);
 		}
 		
 		for(ksp in JSchemaMM!KeySchemaPair.allInstancesFrom('jschema')){
---			if(ksp.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition)){
---				thisModule.patternPropertiesRegexToOcl(ksp);
---			}
 			thisModule.patternPropertiesRegexToOcl(ksp);
 		}
 		
@@ -1310,7 +1331,7 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		
 		------------------ Derived Attributes and operation get (String key)
 		for(objectSchema in JSchemaMM!ObjectSchema.allInstancesFrom('jschema')){
-			if(objectSchema.ref.oclIsUndefined() and objectSchema.enum.oclIsUndefined()){ --- "$ref" is not present ---- TODO fix also not enum and not const
+			if(objectSchema.ref.oclIsUndefined() and objectSchema.enum.oclIsUndefined() and objectSchema.const.oclIsUndefined()){ --- "$ref" "enum" and "const" are not present 
 				if(objectSchema.hasSimpleTypeObject()){
 					if(not objectSchema.properties.oclIsUndefined()){
 						objectSchema.resolve().eStructuralFeatures <- objectSchema.resolve().eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));

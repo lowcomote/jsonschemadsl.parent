@@ -70,6 +70,7 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 			addMultipleOfPropertyDescriptor(object);
 			addMinPropertiesPropertyDescriptor(object);
 			addMaxPropertiesPropertyDescriptor(object);
+			addConstPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -575,6 +576,28 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 				 false,
 				 false,
 				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Const feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addConstPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ObjectSchema_const_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_const_feature", "_UI_ObjectSchema_type"),
+				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__CONST,
+				 false,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

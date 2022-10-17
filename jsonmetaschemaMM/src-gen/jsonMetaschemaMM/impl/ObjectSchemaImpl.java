@@ -10,6 +10,7 @@ import jsonMetaschemaMM.AdditionalItemsSchemaDefinition;
 import jsonMetaschemaMM.AdditionalPropertiesSchemaDefinition;
 import jsonMetaschemaMM.AllOfSchemaDefinition;
 import jsonMetaschemaMM.AnyOfSchemaDefinition;
+import jsonMetaschemaMM.ConstSchemaDefinition;
 import jsonMetaschemaMM.ContainsSchemaDefinition;
 import jsonMetaschemaMM.DefinitionsSchemaDefinition;
 import jsonMetaschemaMM.DependenciesSchemaDefinition;
@@ -76,6 +77,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMultipleOf <em>Multiple Of</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMinProperties <em>Min Properties</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMaxProperties <em>Max Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getConst <em>Const</em>}</li>
  * </ul>
  *
  * @generated
@@ -392,6 +394,16 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * @generated
 	 */
 	@Override
+	public ConstSchemaDefinition getConst() {
+		return (ConstSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ConstSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Schema findSchemaByKey(final String key) {
 		return getSchemaObjectAdditionalProperties().stream().filter(s -> key.equals(s.getKey())).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);
 	}
@@ -543,6 +555,8 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getMinProperties();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
 				return getMaxProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__CONST:
+				return getConst();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -653,6 +667,8 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getMinProperties() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
 				return getMaxProperties() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__CONST:
+				return getConst() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -12,7 +12,7 @@ import relatedSchemas.OneOf
 import relatedSchemas.Not
 import relatedSchemas.IfThenElse
 import relatedSchemas.Dependency
-import jsonMM.JsonDocument
+
 import org.eclipse.core.resources.IFile
 
 class ValidatorGenerator {
@@ -91,6 +91,10 @@ class ValidatorGenerator {
 						«IF enclosingSchema.constEnum.enum!==null»
 						
 							«generateEnumValidation(enclosingSchema.enclosingSchema, enclosingSchema.constEnum.enum, relatedSchemasFile)»
+						«ENDIF»
+						«IF enclosingSchema.constEnum.const!==null»
+						
+							«generateConstValidation(enclosingSchema.enclosingSchema, enclosingSchema.constEnum.const, relatedSchemasFile)»
 						«ENDIF»
 					«ENDIF»
 				«ENDFOR»
@@ -374,6 +378,30 @@ class ValidatorGenerator {
 				
 				if (enumJsonDocuments.stream().filter(json ->json.equals(enumJson)).findAny().orElse(null) == null){	
 					error("Element "+enumJson.toString()+" not included in the enumeration", null);
+				}
+			}
+		'''
+	}
+	
+	def private static generateConstValidation(EClass enclosingClass, relatedSchemas.Const const,  IFile relatedSchemasFile){
+		val String enclosingClassType = (enclosingClass.EPackage).name+"."+enclosingClass.name
+		'''
+			@Check
+			public void constValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
+				ResourceSet reset  = ConverterUtil.createResourceSet();
+				Resource resource = reset.getResource(URI.createPlatformResourceURI("«relatedSchemasFile.getFullPath().toString()»", true), true);
+				
+				if (! (resource.getContents().get(0) instanceof RelatedSchemas)) {
+					throw new IllegalArgumentException("Expecting RelatedSchema type of object");
+					
+				}  
+				RelatedSchemas relatedSchemas = (RelatedSchemas )resource.getContents().get(0);
+				EnclosingSchema enclosingSchema = relatedSchemas.getEnclosingschemas().stream().filter(es -> es.getEnclosingSchema().getName().equals("«enclosingClass.name»")).findFirst().get();
+				JsonDocument constJsonDocument=enclosingSchema.getConstEnum().getConst().getConst();
+				JsonDocument inputJsonDocument = enclosingEClass.get«Character.toUpperCase(const.propertyName.charAt(0))»«const.propertyName.substring(1)»();
+				
+				if(!constJsonDocument.equals(inputJsonDocument) ){
+					error("Element "+inputJsonDocument.toString()+" is not "+constJsonDocument.toString(), null);
 				}
 			}
 		'''

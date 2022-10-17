@@ -92,6 +92,8 @@
       <genFeatures property="Readonly" notify="false" createChild="false" propertySortChoices="true"
           ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/maxProperties"
           get="return (MaxPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MaxPropertiesSchemaDefinition).findFirst().orElse(null);"/>
+      <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ObjectSchema/const"
+          get="return (ConstSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ConstSchemaDefinition).findFirst().orElse(null);"/>
       <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByKey"
           body="return getSchemaObjectAdditionalProperties().stream().filter(s -> key.equals(s.getKey())).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);">
         <genParameters ecoreParameter="jsonMetaschemaMM.ecore#//ObjectSchema/findSchemaByKey/key"/>

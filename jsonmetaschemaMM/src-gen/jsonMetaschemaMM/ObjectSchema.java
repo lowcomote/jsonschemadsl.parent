@@ -37,6 +37,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getMultipleOf <em>Multiple Of</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getMinProperties <em>Min Properties</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getMaxProperties <em>Max Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.ObjectSchema#getConst <em>Const</em>}</li>
  * </ul>
  *
  * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema()
@@ -309,6 +310,17 @@ public interface ObjectSchema extends Schema {
 	 * @generated
 	 */
 	MaxPropertiesSchemaDefinition getMaxProperties();
+
+	/**
+	 * Returns the value of the '<em><b>Const</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Const</em>' reference.
+	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_Const()
+	 * @model resolveProxies="false" transient="true" changeable="false" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true" suppressedUnsetVisibility="true"
+	 * @generated
+	 */
+	ConstSchemaDefinition getConst();
 
 	/**
 	 * <!-- begin-user-doc -->
