@@ -172,6 +172,8 @@ public class BooleanValueImpl extends ValueImpl implements BooleanValue {
 		switch (operationID) {
 		case JsonMMPackage.BOOLEAN_VALUE___EQUALS__OBJECT:
 			return equals(arguments.get(0));
+		case JsonMMPackage.BOOLEAN_VALUE___TO_STRING:
+			return toString();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -183,14 +185,7 @@ public class BooleanValueImpl extends ValueImpl implements BooleanValue {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(')');
-		return result.toString();
+		return "" + this.value;
 	}
 
 } //BooleanValueImpl

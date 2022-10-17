@@ -32,6 +32,8 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	List<EClass> subRootElementClasses = new ArrayList<EClass>()
 	Map<EClass, List<EnclosingSchema>> rootElementEnclosingSchemaMap = new HashMap<EClass, List<EnclosingSchema>>();
 	
+//	List<EClass> constEnumClasses = new ArrayList<EClass>()
+	
 	new(WizardConfiguration config) {
 		super(config);
 	}
@@ -57,17 +59,11 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	}
 	
 	override grammar() {
-//		if (fromExistingEcoreModels)
-//			grammarCreator.grammar(config)
-//		else
-//			defaultGrammar
-//		val Ecore2XtextJSONGrammarCreator grammarCreator = new Ecore2XtextJSONGrammarCreator(this.detailedJsonGrammar);
 		val Ecore2XtextJSONGrammarCreator grammarCreator = newGrammarCreator;
 		if (this.isFromExistingEcoreModels()){
 			val String languageName = this.config.language.name
 			val EClass rootElementClass = this.config.ecore2Xtext.rootElementClass
 			mapRootToEnclosingSchema(rootElementClass)
-//			grammarCreator.grammar(this.getConfig(), rootElementClass, languageName)
 			grammarCreator.grammar(this.getConfig(),  languageName)
 		}else{
 			defaultGrammar
@@ -81,6 +77,7 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	override getFiles() {
 		val mainRootElementClass = this.config.ecore2Xtext.rootElementClass
 		findSubRootElementClasses
+//		findConstEnumClasses
 		var allFiles = newArrayList
 		allFiles +=  super.files
 		allFiles  += subGrammarFiles
@@ -127,10 +124,6 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 				}
 				 
 			}
-//			if(enclosingSchema.dependency !== null){
-//				val EClass rootElementClass = enclosingSchema.dependency.dependency
-//				subRootElementClasses.add(rootElementClass)
-//			}
 			if(enclosingSchema.dependencies !== null){
 				for(Dependency dependency:enclosingSchema.dependencies.dependencies){
 					val EClass rootElementClass =dependency.dependency
@@ -140,6 +133,24 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 			if(enclosingSchema.contains !== null){
 				val EClass rootElementClass = enclosingSchema.contains.contains
 				subRootElementClasses.add(rootElementClass)
+			}
+		}
+	}
+	
+	
+	private def findConstEnumClasses(){
+//		constEnumClasses.removeAll(constEnumClasses) 
+		for (EnclosingSchema enclosingSchema : relatedSchemas.enclosingschemas){
+			
+			/**
+			 * Enum TODO
+			 */
+			 if(enclosingSchema.constEnum !== null){
+				val EClass rootElementClass = enclosingSchema.enclosingSchema
+				mapRootToEnclosingSchema(rootElementClass)
+//				mapRootToEnclosingSchema(EcoreUtil.getRootContainer(rootElementClass) as EClass)
+				
+//				constEnumClasses.add(rootElementClass)
 			}
 		}
 	}
@@ -186,54 +197,7 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 		return allGrammarFiles
 	}
 	
-//	private def getSubGrammarFiles(){
-//		var allGrammarFiles = newArrayList
-//		for (EnclosingSchema enclosingSchema : relatedSchemas.enclosingschemas){
-//			if(enclosingSchema.anyOf !== null){
-//				for (EClass rootElementClass : enclosingSchema.anyOf.anyOfs){
-//					allGrammarFiles +=  createSubGrammarFile( rootElementClass)
-//				}
-//			}
-//			if(enclosingSchema.allOf !== null){
-//				for (EClass rootElementClass : enclosingSchema.allOf.allOfs){
-//					allGrammarFiles +=  createSubGrammarFile( rootElementClass)
-//				}
-//			}
-//			if(enclosingSchema.oneOf !== null){
-//				for (EClass rootElementClass : enclosingSchema.oneOf.oneOfs){
-//					allGrammarFiles +=  createSubGrammarFile( rootElementClass)
-//				}
-//			}
-//			if(enclosingSchema.not !== null){
-//				val EClass rootElementClass = enclosingSchema.not.not
-//				allGrammarFiles +=  createSubGrammarFile( rootElementClass)
-//			}
-//			if(enclosingSchema.ifThenElse !== null){
-//				if (enclosingSchema.ifThenElse.getIf !==null){
-//					val EClass rootElementClass = enclosingSchema.ifThenElse.getIf
-//					allGrammarFiles +=  createSubGrammarFile( rootElementClass)
-//				}
-//				if (enclosingSchema.ifThenElse.getThen !==null){
-//					val EClass rootElementClass = enclosingSchema.ifThenElse.getThen
-//					allGrammarFiles +=  createSubGrammarFile( rootElementClass)
-//				}
-//				if (enclosingSchema.ifThenElse.getElse !==null){
-//					val EClass rootElementClass = enclosingSchema.ifThenElse.getElse
-//					allGrammarFiles +=  createSubGrammarFile( rootElementClass)
-//				}
-//				 
-//			}
-//			if(enclosingSchema.dependency !== null){
-//				val EClass rootElementClass = enclosingSchema.dependency.dependency
-//				allGrammarFiles +=  createSubGrammarFile( rootElementClass)
-//			}
-//			if(enclosingSchema.contains !== null){
-//				val EClass rootElementClass = enclosingSchema.contains.contains
-//				allGrammarFiles +=  createSubGrammarFile( rootElementClass)
-//			}
-//		}
-//		return allGrammarFiles
-//	}
+
 	
 	private def PlainTextFile createSubGrammarFile(EClass rootElementClass){
 //		val String languageName = this.config.language.name+"."+rootElementClass.name
@@ -272,7 +236,7 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 		if (resource.getContents().get(0) instanceof RelatedSchemas) {
 			return resource.getContents().get(0) as RelatedSchemas;
 		} else
-			throw new IllegalArgumentException("Expecting JsonGrammar type of object");
+			throw new IllegalArgumentException("Expecting RelatedSchema type of object");
 	}
 	
 	override workflow() {

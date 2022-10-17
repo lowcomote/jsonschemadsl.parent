@@ -12,18 +12,20 @@ import relatedSchemas.OneOf
 import relatedSchemas.Not
 import relatedSchemas.IfThenElse
 import relatedSchemas.Dependency
+import jsonMM.JsonDocument
+import org.eclipse.core.resources.IFile
 
 class ValidatorGenerator {
 	
-	def static void create(String fileName, String classPackage, String className, String modelPackage, String oclPath, List<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass) throws IOException {
+	def static void create(String fileName, String classPackage, String className, String modelPackage, String oclPath, List<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile) throws IOException {
 		
 		val BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-	    writer.write(generate ( classPackage,  className,  modelPackage,  oclPath,  enclosingSchemas,  isMainRootElementClass));
+	    writer.write(generate ( classPackage,  className,  modelPackage,  oclPath,  enclosingSchemas,  isMainRootElementClass, relatedSchemasFile));
 	    writer.close();
 	    
 	}
 	
-	def private static String  generate (String classPackage, String className, String modelPackage, String oclPath, List<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass){
+	def private static String  generate (String classPackage, String className, String modelPackage, String oclPath, List<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile){
 		'''
 			package «classPackage»;
 			
@@ -46,6 +48,15 @@ class ValidatorGenerator {
 			import org.eclipse.xtext.validation.IResourceValidator;
 			import org.eclipse.xtext.validation.Issue;
 			import org.eclipse.xtext.util.CancelIndicator;
+			
+			import org.json.JSONException;
+			import org.skyscreamer.jsonassert.JSONCompare;
+			import org.skyscreamer.jsonassert.JSONCompareMode;
+			import org.skyscreamer.jsonassert.JSONCompareResult;
+			import relatedSchemas.RelatedSchemas;
+			import relatedSchemas.EnclosingSchema;
+			import jsonMM.JsonDocument;
+			import org.eclipse.emf.converter.util.ConverterUtil;
 			
 			public class «className» extends Abstract«className» {
 			«IF isMainRootElementClass»				
@@ -79,6 +90,12 @@ class ValidatorGenerator {
 						
 							«generateDependenciesValidation(enclosingSchema.enclosingSchema, dependency)»
 						«ENDFOR»
+					«ENDIF»
+					«IF enclosingSchema.constEnum!==null»
+						«IF enclosingSchema.constEnum.enum!==null»
+						
+							«generateEnumValidation(enclosingSchema.enclosingSchema, enclosingSchema.constEnum.enum, relatedSchemasFile)»
+						«ENDIF»
 					«ENDIF»
 				«ENDFOR»
 			«ENDIF»
@@ -342,5 +359,47 @@ class ValidatorGenerator {
 		'''
 	}
 	
-	
+	def private static generateEnumValidation(EClass enclosingClass, relatedSchemas.Enum enumer,  IFile relatedSchemasFile){
+		val String enclosingClassType = (enclosingClass.EPackage).name+"."+enclosingClass.name
+		'''
+			@Check
+			public void enumValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
+				ResourceSet reset  = ConverterUtil.createResourceSet();
+				Resource resource = reset.getResource(URI.createPlatformResourceURI("«relatedSchemasFile.getFullPath().toString()»", true), true);
+				
+				if (! (resource.getContents().get(0) instanceof RelatedSchemas)) {
+					throw new IllegalArgumentException("Expecting RelatedSchema type of object");
+					
+				}  
+				RelatedSchemas relatedSchemas = (RelatedSchemas )resource.getContents().get(0);
+				EnclosingSchema enclosingSchema = relatedSchemas.getEnclosingschemas().stream().filter(es -> es.getEnclosingSchema().getName().equals("«enclosingClass.name»")).findFirst().get();
+				List<JsonDocument> enumJsonDocuments=enclosingSchema.getConstEnum().getEnum().getEnum();
+				JsonDocument enumJson = enclosingEClass.get«Character.toUpperCase(enumer.propertyName.charAt(0))»«enumer.propertyName.substring(1)»();
+				
+				if (enumJsonDocuments.stream().filter(json ->json.equals(enumJson)).findAny().orElse(null) == null){	
+					error("Element "+enumJson.toString()+" not included in the enumeration", null);
+				}
+				
+				
+				
+				
+«««				boolean found = false;
+«««				String enumJsonString = enclosingEClass.get«Character.toUpperCase(enumer.propertyName.charAt(0))»«enumer.propertyName.substring(1)»().toString();
+«««				«FOR JsonDocument jsonDocument :enumer.enum»
+«««					try{
+«««						if(JSONCompare.compareJSON(enumJsonString, "«jsonDocument.toString().replaceAll("\\\\\"", "\"").replaceAll("\"", "\\\\\"")»", JSONCompareMode.NON_EXTENSIBLE).passed()){
+««««««						if(JSONCompare.compareJSON(enumJsonString, "«jsonDocument.toString().replaceAll("\\\\\"", "\"").replaceAll("\"", "\\\\\\\\\"")».", JSONCompareMode.NON_EXTENSIBLE).passed()){	
+«««							found=true;
+«««						}
+«««					}catch (JSONException e) {
+«««						error("Error parsing the Json of «enumer.propertyName» ", null);
+«««					}
+«««						
+«««				«ENDFOR»
+«««				if(!found){
+«««					error("Element "+enumJsonString+" not included in the enumeration", null);
+«««				}	
+			}
+		'''
+	}
 }

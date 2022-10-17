@@ -25,8 +25,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/ifThenElse"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/dependencies"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/contains"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/enum"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/const"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/constEnum"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//AllOf">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//AllOf/allOfs"/>
@@ -54,9 +53,15 @@
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//Enum">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Enum/enum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relatedSchemas.ecore#//Enum/propertyName"/>
     </genClasses>
     <genClasses ecoreClass="relatedSchemas.ecore#//Const">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Const/const"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relatedSchemas.ecore#//Const/propertyName"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//ConstEnum">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//ConstEnum/enum"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//ConstEnum/const"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

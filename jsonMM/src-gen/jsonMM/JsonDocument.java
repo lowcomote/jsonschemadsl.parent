@@ -51,4 +51,12 @@ public interface JsonDocument extends EObject {
 	 */
 	boolean equals(Object obj);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false"
+	 * @generated
+	 */
+	String toString();
+
 } // JsonDocument

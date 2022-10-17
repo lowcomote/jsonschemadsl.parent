@@ -24,6 +24,7 @@ import relatedSchemas.RelatedSchemasPackage;
  * </p>
  * <ul>
  *   <li>{@link relatedSchemas.impl.ConstImpl#getConst <em>Const</em>}</li>
+ *   <li>{@link relatedSchemas.impl.ConstImpl#getPropertyName <em>Property Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,6 +39,25 @@ public class ConstImpl extends MinimalEObjectImpl.Container implements Const {
 	 * @ordered
 	 */
 	protected JsonDocument const_;
+
+	/**
+	 * The default value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPropertyName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PROPERTY_NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getPropertyName() <em>Property Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPropertyName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String propertyName = PROPERTY_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,6 +123,28 @@ public class ConstImpl extends MinimalEObjectImpl.Container implements Const {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPropertyName() {
+		return propertyName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPropertyName(String newPropertyName) {
+		String oldPropertyName = propertyName;
+		propertyName = newPropertyName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.CONST__PROPERTY_NAME,
+					oldPropertyName, propertyName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -110,6 +152,8 @@ public class ConstImpl extends MinimalEObjectImpl.Container implements Const {
 			if (resolve)
 				return getConst();
 			return basicGetConst();
+		case RelatedSchemasPackage.CONST__PROPERTY_NAME:
+			return getPropertyName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -124,6 +168,9 @@ public class ConstImpl extends MinimalEObjectImpl.Container implements Const {
 		switch (featureID) {
 		case RelatedSchemasPackage.CONST__CONST:
 			setConst((JsonDocument) newValue);
+			return;
+		case RelatedSchemasPackage.CONST__PROPERTY_NAME:
+			setPropertyName((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -140,6 +187,9 @@ public class ConstImpl extends MinimalEObjectImpl.Container implements Const {
 		case RelatedSchemasPackage.CONST__CONST:
 			setConst((JsonDocument) null);
 			return;
+		case RelatedSchemasPackage.CONST__PROPERTY_NAME:
+			setPropertyName(PROPERTY_NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -154,8 +204,27 @@ public class ConstImpl extends MinimalEObjectImpl.Container implements Const {
 		switch (featureID) {
 		case RelatedSchemasPackage.CONST__CONST:
 			return const_ != null;
+		case RelatedSchemasPackage.CONST__PROPERTY_NAME:
+			return PROPERTY_NAME_EDEFAULT == null ? propertyName != null : !PROPERTY_NAME_EDEFAULT.equals(propertyName);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (propertyName: ");
+		result.append(propertyName);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ConstImpl

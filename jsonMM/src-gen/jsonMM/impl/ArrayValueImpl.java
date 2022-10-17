@@ -101,6 +101,25 @@ public class ArrayValueImpl extends ValueImpl implements ArrayValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String toString() {
+		String result = "[";
+		if (value != null) {
+			for (int i = 0; i < value.size(); i++) {
+				result = result.concat(value.get(i).toString());
+				if (i < value.size() - 1) {
+					result = result.concat(",");
+				}
+			}
+		}
+		result = result.concat("]");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -180,6 +199,8 @@ public class ArrayValueImpl extends ValueImpl implements ArrayValue {
 		switch (operationID) {
 		case JsonMMPackage.ARRAY_VALUE___EQUALS__OBJECT:
 			return equals(arguments.get(0));
+		case JsonMMPackage.ARRAY_VALUE___TO_STRING:
+			return toString();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

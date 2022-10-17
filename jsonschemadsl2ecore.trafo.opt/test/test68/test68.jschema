@@ -1,0 +1,10 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"enum":[1,2]
+		},
+		"prop2":{"type":"integer"},
+		"prop3":{"type":"string"}
+	}
+}        

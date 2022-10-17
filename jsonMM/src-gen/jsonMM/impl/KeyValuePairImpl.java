@@ -262,6 +262,8 @@ public class KeyValuePairImpl extends MinimalEObjectImpl.Container implements Ke
 		switch (operationID) {
 		case JsonMMPackage.KEY_VALUE_PAIR___EQUALS__OBJECT:
 			return equals(arguments.get(0));
+		case JsonMMPackage.KEY_VALUE_PAIR___TO_STRING:
+			return toString();
 		}
 		return super.eInvoke(operationID, arguments);
 	}
@@ -273,14 +275,7 @@ public class KeyValuePairImpl extends MinimalEObjectImpl.Container implements Ke
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (key: ");
-		result.append(key);
-		result.append(')');
-		return result.toString();
+		return this.key + ":" + this.value.toString();
 	}
 
 } //KeyValuePairImpl

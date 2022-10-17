@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.util.Switch;
 import relatedSchemas.AllOf;
 import relatedSchemas.AnyOf;
 import relatedSchemas.Const;
+import relatedSchemas.ConstEnum;
 import relatedSchemas.Contains;
 import relatedSchemas.Dependencies;
 import relatedSchemas.Dependency;
@@ -157,6 +158,13 @@ public class RelatedSchemasSwitch<T> extends Switch<T> {
 		case RelatedSchemasPackage.CONST: {
 			Const const_ = (Const) theEObject;
 			T result = caseConst(const_);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case RelatedSchemasPackage.CONST_ENUM: {
+			ConstEnum constEnum = (ConstEnum) theEObject;
+			T result = caseConstEnum(constEnum);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -343,6 +351,21 @@ public class RelatedSchemasSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseConst(Const object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Const Enum</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Const Enum</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseConstEnum(ConstEnum object) {
 		return null;
 	}
 

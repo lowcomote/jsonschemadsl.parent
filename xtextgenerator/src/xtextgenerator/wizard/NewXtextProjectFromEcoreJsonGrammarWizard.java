@@ -67,6 +67,11 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 	public static final String LANGUAGE_INFRASTRUCTURE = ") Language Infrastructure";
 	public static final String LAUNCH_EXTENSION ="launch";
 	public static final String OCL_BUNDLE = "org.eclipse.ocl.xtext.completeocl";
+	public static final String JSONASSERT_BUNDLE= "wrapped.org.skyscreamer.jsonassert";
+	public static final String JSON_BUNDLE="org.json";
+	public static final String RELATED_SCHEMAS_BUNDLE="relatedSchemas";
+	public static final String EMF_CONVERTES_BUNDLE="org.eclipse.emf.converter";
+	
 	public static final String SOURCE_FOLDER="src";
 	public static final String VALIDATION_FOLDER="validation";
 	public static final String VALIDATOR_CLASS_SUFFIX="Validator";
@@ -314,7 +319,7 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 		boolean result = super.performFinish();
 		
 		if(result) {
-			result = addOclDependency();
+			result = addPluginDependency();
 		}
 		if(result) {
 //			result =generateOclValidator();
@@ -363,7 +368,7 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 	 * https://rtist.hcldoc.com/help/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fapi%2Forg%2Feclipse%2Fosgi%2Futil%2FManifestElement.html
 	 * @return
 	 */
-	private boolean  addOclDependency() {
+	private boolean  addPluginDependency() {
 		try {
 			IPath manifestIPath = ResourcesPlugin.getWorkspace().getRoot().getProject(getProjectName()).getLocation().append("META-INF").append("MANIFEST");
 			manifestIPath=manifestIPath.addFileExtension("MF");
@@ -371,6 +376,11 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 			ManifestChanger manifestChanger = new ManifestChanger(manifestIPath.toString());
 //			String oclVersion= Platform.getBundle("org.eclipse.ocl.xtext.completeocl").getVersion().toString();
 			manifestChanger.addPluginDependency(OCL_BUNDLE);
+			manifestChanger.addPluginDependency(RELATED_SCHEMAS_BUNDLE);
+			manifestChanger.addPluginDependency(EMF_CONVERTES_BUNDLE);
+			
+			manifestChanger.addPluginDependency(JSONASSERT_BUNDLE);
+			manifestChanger.addPluginDependency(JSON_BUNDLE);;
 			manifestChanger.writeManifest();
 //			InputStream in = new FileInputStream(manifestIPath.toString());
 //			Manifest manifest = new Manifest(in);//manifest.getMainAttributes().get("Require-Bundle"); Attributes.Name.
@@ -424,6 +434,7 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 	}
 	
 	private boolean generateAllValidators() {
+		
 		String projectName = getProjectName();
 		String languageToLastDot = getLanguageToLastDot();
 		RelatedSchemas relatedSchemas =runtimeProjectDescriptorJSON.getRelatedSchemas();
@@ -458,7 +469,7 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 			IPath validationFilePath = validationFolderPath.append(className).addFileExtension("java");
 			fileName = validationFilePath.toString(); 
 			try {
-				ValidatorGenerator.create(fileName, classPackage, className, modelPackage, oclPath, runtimeProjectDescriptorJSON.getRootElementEnclosingSchemaMap().get(rootElementEclass), isMainRootElementClass);
+				ValidatorGenerator.create(fileName, classPackage, className, modelPackage, oclPath, runtimeProjectDescriptorJSON.getRootElementEnclosingSchemaMap().get(rootElementEclass), isMainRootElementClass,wizardRelatedSchemasPage.getRelatedSchemasFile());
 			} catch (IOException e) {
 				e.printStackTrace();
 				return false;

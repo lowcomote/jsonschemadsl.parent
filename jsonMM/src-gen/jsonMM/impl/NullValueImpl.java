@@ -110,6 +110,15 @@ public class NullValueImpl extends ValueImpl implements NullValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String toString() {
+		return "null";
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -173,25 +182,10 @@ public class NullValueImpl extends ValueImpl implements NullValue {
 		switch (operationID) {
 		case JsonMMPackage.NULL_VALUE___EQUALS__OBJECT:
 			return equals(arguments.get(0));
+		case JsonMMPackage.NULL_VALUE___TO_STRING:
+			return toString();
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(')');
-		return result.toString();
 	}
 
 } //NullValueImpl

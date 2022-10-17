@@ -132,6 +132,15 @@ public class JsonDocumentImpl extends MinimalEObjectImpl.Container implements Js
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String toString() {
+		return this.value.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -209,6 +218,8 @@ public class JsonDocumentImpl extends MinimalEObjectImpl.Container implements Js
 		switch (operationID) {
 		case JsonMMPackage.JSON_DOCUMENT___EQUALS__OBJECT:
 			return equals(arguments.get(0));
+		case JsonMMPackage.JSON_DOCUMENT___TO_STRING:
+			return toString();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

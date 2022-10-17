@@ -135,7 +135,7 @@ public class JsonSchemaDslValidator extends AbstractJsonSchemaDslValidator {
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();
-			error("Error parsing a Json file", null);
+			error("Error parsing a Json of the enumeration", null);
 		}
 	}
 	

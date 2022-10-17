@@ -22,8 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link relatedSchemas.EnclosingSchema#getIfThenElse <em>If Then Else</em>}</li>
  *   <li>{@link relatedSchemas.EnclosingSchema#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link relatedSchemas.EnclosingSchema#getContains <em>Contains</em>}</li>
- *   <li>{@link relatedSchemas.EnclosingSchema#getEnum <em>Enum</em>}</li>
- *   <li>{@link relatedSchemas.EnclosingSchema#getConst <em>Const</em>}</li>
+ *   <li>{@link relatedSchemas.EnclosingSchema#getConstEnum <em>Const Enum</em>}</li>
  * </ul>
  *
  * @see relatedSchemas.RelatedSchemasPackage#getEnclosingSchema()
@@ -208,47 +207,25 @@ public interface EnclosingSchema extends EObject {
 	void setContains(Contains value);
 
 	/**
-	 * Returns the value of the '<em><b>Enum</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Const Enum</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Enum</em>' containment reference.
-	 * @see #setEnum(relatedSchemas.Enum)
-	 * @see relatedSchemas.RelatedSchemasPackage#getEnclosingSchema_Enum()
+	 * @return the value of the '<em>Const Enum</em>' containment reference.
+	 * @see #setConstEnum(ConstEnum)
+	 * @see relatedSchemas.RelatedSchemasPackage#getEnclosingSchema_ConstEnum()
 	 * @model containment="true"
 	 * @generated
 	 */
-	relatedSchemas.Enum getEnum();
+	ConstEnum getConstEnum();
 
 	/**
-	 * Sets the value of the '{@link relatedSchemas.EnclosingSchema#getEnum <em>Enum</em>}' containment reference.
+	 * Sets the value of the '{@link relatedSchemas.EnclosingSchema#getConstEnum <em>Const Enum</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Enum</em>' containment reference.
-	 * @see #getEnum()
+	 * @param value the new value of the '<em>Const Enum</em>' containment reference.
+	 * @see #getConstEnum()
 	 * @generated
 	 */
-	void setEnum(relatedSchemas.Enum value);
-
-	/**
-	 * Returns the value of the '<em><b>Const</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Const</em>' containment reference.
-	 * @see #setConst(Const)
-	 * @see relatedSchemas.RelatedSchemasPackage#getEnclosingSchema_Const()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Const getConst();
-
-	/**
-	 * Sets the value of the '{@link relatedSchemas.EnclosingSchema#getConst <em>Const</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Const</em>' containment reference.
-	 * @see #getConst()
-	 * @generated
-	 */
-	void setConst(Const value);
+	void setConstEnum(ConstEnum value);
 
 } // EnclosingSchema

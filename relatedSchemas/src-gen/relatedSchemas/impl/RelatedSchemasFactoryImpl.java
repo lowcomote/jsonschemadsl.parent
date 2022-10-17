@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import relatedSchemas.AllOf;
 import relatedSchemas.AnyOf;
 import relatedSchemas.Const;
+import relatedSchemas.ConstEnum;
 import relatedSchemas.Contains;
 import relatedSchemas.Dependencies;
 import relatedSchemas.Dependency;
@@ -92,6 +93,8 @@ public class RelatedSchemasFactoryImpl extends EFactoryImpl implements RelatedSc
 			return createEnum();
 		case RelatedSchemasPackage.CONST:
 			return createConst();
+		case RelatedSchemasPackage.CONST_ENUM:
+			return createConstEnum();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -215,6 +218,16 @@ public class RelatedSchemasFactoryImpl extends EFactoryImpl implements RelatedSc
 	public Const createConst() {
 		ConstImpl const_ = new ConstImpl();
 		return const_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConstEnum createConstEnum() {
+		ConstEnumImpl constEnum = new ConstEnumImpl();
+		return constEnum;
 	}
 
 	/**

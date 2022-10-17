@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import relatedSchemas.AllOf;
 import relatedSchemas.AnyOf;
 import relatedSchemas.Const;
+import relatedSchemas.ConstEnum;
 import relatedSchemas.Contains;
 import relatedSchemas.Dependencies;
 import relatedSchemas.Dependency;
@@ -135,6 +136,11 @@ public class RelatedSchemasAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseConst(Const object) {
 			return createConstAdapter();
+		}
+
+		@Override
+		public Adapter caseConstEnum(ConstEnum object) {
+			return createConstEnumAdapter();
 		}
 
 		@Override
@@ -321,6 +327,20 @@ public class RelatedSchemasAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createConstAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link relatedSchemas.ConstEnum <em>Const Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see relatedSchemas.ConstEnum
+	 * @generated
+	 */
+	public Adapter createConstEnumAdapter() {
 		return null;
 	}
 

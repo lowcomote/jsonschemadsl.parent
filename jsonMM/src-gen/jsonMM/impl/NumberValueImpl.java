@@ -109,6 +109,15 @@ public class NumberValueImpl extends ValueImpl implements NumberValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String toString() {
+		return "" + this.value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -172,25 +181,10 @@ public class NumberValueImpl extends ValueImpl implements NumberValue {
 		switch (operationID) {
 		case JsonMMPackage.NUMBER_VALUE___EQUALS__OBJECT:
 			return equals(arguments.get(0));
+		case JsonMMPackage.NUMBER_VALUE___TO_STRING:
+			return toString();
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(')');
-		return result.toString();
 	}
 
 } //NumberValueImpl

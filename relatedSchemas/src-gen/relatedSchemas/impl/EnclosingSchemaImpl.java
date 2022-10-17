@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import relatedSchemas.AllOf;
 import relatedSchemas.AnyOf;
-import relatedSchemas.Const;
+import relatedSchemas.ConstEnum;
 import relatedSchemas.Contains;
 import relatedSchemas.Dependencies;
 import relatedSchemas.EnclosingSchema;
@@ -38,8 +38,7 @@ import relatedSchemas.RelatedSchemasPackage;
  *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getIfThenElse <em>If Then Else</em>}</li>
  *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getDependencies <em>Dependencies</em>}</li>
  *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getContains <em>Contains</em>}</li>
- *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getEnum <em>Enum</em>}</li>
- *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getConst <em>Const</em>}</li>
+ *   <li>{@link relatedSchemas.impl.EnclosingSchemaImpl#getConstEnum <em>Const Enum</em>}</li>
  * </ul>
  *
  * @generated
@@ -126,24 +125,14 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	protected Contains contains;
 
 	/**
-	 * The cached value of the '{@link #getEnum() <em>Enum</em>}' containment reference.
+	 * The cached value of the '{@link #getConstEnum() <em>Const Enum</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getEnum()
+	 * @see #getConstEnum()
 	 * @generated
 	 * @ordered
 	 */
-	protected relatedSchemas.Enum enum_;
-
-	/**
-	 * The cached value of the '{@link #getConst() <em>Const</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getConst()
-	 * @generated
-	 * @ordered
-	 */
-	protected Const const_;
+	protected ConstEnum constEnum;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -560,8 +549,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public relatedSchemas.Enum getEnum() {
-		return enum_;
+	public ConstEnum getConstEnum() {
+		return constEnum;
 	}
 
 	/**
@@ -569,12 +558,12 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetEnum(relatedSchemas.Enum newEnum, NotificationChain msgs) {
-		relatedSchemas.Enum oldEnum = enum_;
-		enum_ = newEnum;
+	public NotificationChain basicSetConstEnum(ConstEnum newConstEnum, NotificationChain msgs) {
+		ConstEnum oldConstEnum = constEnum;
+		constEnum = newConstEnum;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					RelatedSchemasPackage.ENCLOSING_SCHEMA__ENUM, oldEnum, newEnum);
+					RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST_ENUM, oldConstEnum, newConstEnum);
 			if (msgs == null)
 				msgs = notification;
 			else
@@ -588,71 +577,21 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEnum(relatedSchemas.Enum newEnum) {
-		if (newEnum != enum_) {
+	public void setConstEnum(ConstEnum newConstEnum) {
+		if (newConstEnum != constEnum) {
 			NotificationChain msgs = null;
-			if (enum_ != null)
-				msgs = ((InternalEObject) enum_).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__ENUM, null, msgs);
-			if (newEnum != null)
-				msgs = ((InternalEObject) newEnum).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__ENUM, null, msgs);
-			msgs = basicSetEnum(newEnum, msgs);
+			if (constEnum != null)
+				msgs = ((InternalEObject) constEnum).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST_ENUM, null, msgs);
+			if (newConstEnum != null)
+				msgs = ((InternalEObject) newConstEnum).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST_ENUM, null, msgs);
+			msgs = basicSetConstEnum(newConstEnum, msgs);
 			if (msgs != null)
 				msgs.dispatch();
 		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.ENCLOSING_SCHEMA__ENUM, newEnum,
-					newEnum));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Const getConst() {
-		return const_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetConst(Const newConst, NotificationChain msgs) {
-		Const oldConst = const_;
-		const_ = newConst;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-					RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST, oldConst, newConst);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setConst(Const newConst) {
-		if (newConst != const_) {
-			NotificationChain msgs = null;
-			if (const_ != null)
-				msgs = ((InternalEObject) const_).eInverseRemove(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST, null, msgs);
-			if (newConst != null)
-				msgs = ((InternalEObject) newConst).eInverseAdd(this,
-						EOPPOSITE_FEATURE_BASE - RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST, null, msgs);
-			msgs = basicSetConst(newConst, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST,
-					newConst, newConst));
+			eNotify(new ENotificationImpl(this, Notification.SET, RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST_ENUM,
+					newConstEnum, newConstEnum));
 	}
 
 	/**
@@ -677,10 +616,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 			return basicSetDependencies(null, msgs);
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
 			return basicSetContains(null, msgs);
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ENUM:
-			return basicSetEnum(null, msgs);
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST:
-			return basicSetConst(null, msgs);
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST_ENUM:
+			return basicSetConstEnum(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -711,10 +648,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 			return getDependencies();
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
 			return getContains();
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ENUM:
-			return getEnum();
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST:
-			return getConst();
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST_ENUM:
+			return getConstEnum();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -751,11 +686,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
 			setContains((Contains) newValue);
 			return;
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ENUM:
-			setEnum((relatedSchemas.Enum) newValue);
-			return;
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST:
-			setConst((Const) newValue);
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST_ENUM:
+			setConstEnum((ConstEnum) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -793,11 +725,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
 			setContains((Contains) null);
 			return;
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ENUM:
-			setEnum((relatedSchemas.Enum) null);
-			return;
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST:
-			setConst((Const) null);
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST_ENUM:
+			setConstEnum((ConstEnum) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -827,10 +756,8 @@ public class EnclosingSchemaImpl extends MinimalEObjectImpl.Container implements
 			return dependencies != null;
 		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONTAINS:
 			return contains != null;
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__ENUM:
-			return enum_ != null;
-		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST:
-			return const_ != null;
+		case RelatedSchemasPackage.ENCLOSING_SCHEMA__CONST_ENUM:
+			return constEnum != null;
 		}
 		return super.eIsSet(featureID);
 	}

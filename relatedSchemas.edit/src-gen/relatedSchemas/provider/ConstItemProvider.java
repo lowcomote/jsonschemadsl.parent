@@ -17,8 +17,11 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import relatedSchemas.Const;
 import relatedSchemas.RelatedSchemasPackage;
 
 /**
@@ -51,6 +54,7 @@ public class ConstItemProvider extends ItemProviderAdapter implements IEditingDo
 			super.getPropertyDescriptors(object);
 
 			addConstPropertyDescriptor(object);
+			addPropertyNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -67,6 +71,22 @@ public class ConstItemProvider extends ItemProviderAdapter implements IEditingDo
 						getResourceLocator(), getString("_UI_Const_const_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Const_const_feature", "_UI_Const_type"),
 						RelatedSchemasPackage.Literals.CONST__CONST, true, false, true, null, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Property Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPropertyNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_Const_propertyName_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Const_propertyName_feature",
+								"_UI_Const_type"),
+						RelatedSchemasPackage.Literals.CONST__PROPERTY_NAME, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -98,7 +118,9 @@ public class ConstItemProvider extends ItemProviderAdapter implements IEditingDo
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Const_type");
+		String label = ((Const) object).getPropertyName();
+		return label == null || label.length() == 0 ? getString("_UI_Const_type")
+				: getString("_UI_Const_type") + " " + label;
 	}
 
 	/**
@@ -111,6 +133,12 @@ public class ConstItemProvider extends ItemProviderAdapter implements IEditingDo
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Const.class)) {
+		case RelatedSchemasPackage.CONST__PROPERTY_NAME:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

@@ -349,6 +349,29 @@ public class RelatedSchemasItemProviderAdapterFactory extends RelatedSchemasAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link relatedSchemas.ConstEnum} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ConstEnumItemProvider constEnumItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link relatedSchemas.ConstEnum}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createConstEnumAdapter() {
+		if (constEnumItemProvider == null) {
+			constEnumItemProvider = new ConstEnumItemProvider(this);
+		}
+
+		return constEnumItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -471,6 +494,8 @@ public class RelatedSchemasItemProviderAdapterFactory extends RelatedSchemasAdap
 			enumItemProvider.dispose();
 		if (constItemProvider != null)
 			constItemProvider.dispose();
+		if (constEnumItemProvider != null)
+			constEnumItemProvider.dispose();
 	}
 
 }

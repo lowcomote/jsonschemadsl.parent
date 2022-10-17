@@ -103,6 +103,25 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String toString() {
+		String result = "{";
+		if (keyvaluepair != null) {
+			for (int i = 0; i < keyvaluepair.size(); i++) {
+				result = result.concat(keyvaluepair.get(i).toString());
+				if (i < keyvaluepair.size() - 1) {
+					result = result.concat(",");
+				}
+			}
+		}
+		result = result.concat("}");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -182,6 +201,8 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 		switch (operationID) {
 		case JsonMMPackage.OBJECT_VALUE___EQUALS__OBJECT:
 			return equals(arguments.get(0));
+		case JsonMMPackage.OBJECT_VALUE___TO_STRING:
+			return toString();
 		}
 		return super.eInvoke(operationID, arguments);
 	}

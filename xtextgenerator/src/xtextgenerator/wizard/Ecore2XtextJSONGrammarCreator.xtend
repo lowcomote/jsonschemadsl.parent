@@ -130,7 +130,8 @@ class Ecore2XtextJSONGrammarCreator {
 	 * because both are transformed to a Double, because for example 2.0 is a valid integer in JSON Schema
 	 */
 	def isNumberInArrayOfTypes(EClass eClazz){
-		eClazz.EAnnotations.exists[annotation | annotation.details.get("ArrayOfTypes").equals("number")]
+//		eClazz.EAnnotations.exists[annotation | annotation.details.get("ArrayOfTypes").equals("number")]
+		eClazz.EAnnotations.exists[annotation | annotation.details.get("ArrayOfTypes")!==null && annotation.details.get("ArrayOfTypes").equals("number")]
 	}
 	
 	def isAdditionalProperty(EClass eClazz){
@@ -191,7 +192,13 @@ class Ecore2XtextJSONGrammarCreator {
 	def assignedTerminal(EStructuralFeature it) {
 		switch(it) {
 			EAttribute:
-				it.assignedJSONRuleCall
+				/**
+				 * changed by Alessandro 16/10/2022
+				 * it.assignedJSONRuleCall
+				 */ 
+				if(it.assignedJSONRuleCall==="EString") "VALID_STRING"
+				else it.assignedJSONRuleCall
+				
 			EReference:
 				if(containment)
 					it.EReferenceType.uniqueName
@@ -420,7 +427,7 @@ class Ecore2XtextJSONGrammarCreator {
 			 * In JSON the single quote for String is not admitted
 			 */
 			@Override 
-			terminal STRING:
+			terminal STRING returns ecore::EString:
 				'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"'
 			;	
 			
