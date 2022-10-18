@@ -844,14 +844,7 @@ helper context JSchemaMM!ObjectSchema def:propertiesUpperBound(): Integer =
 if not self.maxProperties.oclIsUndefined() and self.maxProperties.maxProperties.value.floor()>0 then self.maxProperties.maxProperties.value.floor() else -1 endif ; 
 
 
---helper def : ecoreRootContainer(eClass:Ecore!EClass) : Ecore!EClass= 
---	"#native"!"org::eclipse::emf::ecore::util::EcoreUtil".refInvokeStaticOperation('getRootContainer',Sequence{eClass});
---helper def : ecoreRootContainer(eClass:Ecore!EClass) : Ecore!EClass= 
---	if not eClass->debug('eclass').eContainer()->debug('container').oclIsUndefined() and not eClass.eContainer().oclIsKindOf(Ecore!EPackage) 
---	then thisModule.ecoreRootContainer(eClass)
---	else eClass
---	endif
---;
+
 
 ---------- OCL helpers
 
