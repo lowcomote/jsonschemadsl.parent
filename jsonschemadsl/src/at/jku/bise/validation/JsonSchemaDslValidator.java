@@ -88,7 +88,7 @@ public class JsonSchemaDslValidator extends AbstractJsonSchemaDslValidator {
 	
 	
 	public boolean equalJsonDocuments(JsonDocument jsonDocument1, JsonDocument jsonDocument2) {
-		return jsonDocument1.equals(jsonDocument2);
+		return jsonDocument1.semanticEquals(jsonDocument2);
 		 
 	}
 	 

@@ -94,7 +94,7 @@ public class BooleanValueImpl extends ValueImpl implements BooleanValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean equals(final Object obj) {
+	public boolean semanticEquals(final Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -102,6 +102,15 @@ public class BooleanValueImpl extends ValueImpl implements BooleanValue {
 		if (getClass() != obj.getClass())
 			return false;
 		return this.isValue() == ((BooleanValue) obj).isValue();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toString() {
+		return "" + this.value;
 	}
 
 	/**
@@ -170,22 +179,12 @@ public class BooleanValueImpl extends ValueImpl implements BooleanValue {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case JsonMMPackage.BOOLEAN_VALUE___EQUALS__OBJECT:
-			return equals(arguments.get(0));
+		case JsonMMPackage.BOOLEAN_VALUE___SEMANTIC_EQUALS__OBJECT:
+			return semanticEquals(arguments.get(0));
 		case JsonMMPackage.BOOLEAN_VALUE___TO_STRING:
 			return toString();
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		return "" + this.value;
 	}
 
 } //BooleanValueImpl

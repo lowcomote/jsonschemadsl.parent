@@ -45,7 +45,7 @@ public abstract class ValueImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean equals(Object obj) {
+	public boolean semanticEquals(Object obj) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -70,8 +70,8 @@ public abstract class ValueImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case JsonMMPackage.VALUE___EQUALS__OBJECT:
-			return equals(arguments.get(0));
+		case JsonMMPackage.VALUE___SEMANTIC_EQUALS__OBJECT:
+			return semanticEquals(arguments.get(0));
 		case JsonMMPackage.VALUE___TO_STRING:
 			return toString();
 		}

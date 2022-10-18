@@ -376,7 +376,7 @@ class ValidatorGenerator {
 				List<JsonDocument> enumJsonDocuments=enclosingSchema.getConstEnum().getEnum().getEnum();
 				JsonDocument enumJson = enclosingEClass.get«Character.toUpperCase(enumer.propertyName.charAt(0))»«enumer.propertyName.substring(1)»();
 				
-				if (enumJsonDocuments.stream().filter(json ->json.equals(enumJson)).findAny().orElse(null) == null){	
+				if (enumJsonDocuments.stream().filter(json ->json.semanticEquals(enumJson)).findAny().orElse(null) == null){	
 					error("Element "+enumJson.toString()+" not included in the enumeration", null);
 				}
 			}
@@ -400,7 +400,7 @@ class ValidatorGenerator {
 				JsonDocument constJsonDocument=enclosingSchema.getConstEnum().getConst().getConst();
 				JsonDocument inputJsonDocument = enclosingEClass.get«Character.toUpperCase(const.propertyName.charAt(0))»«const.propertyName.substring(1)»();
 				
-				if(!constJsonDocument.equals(inputJsonDocument) ){
+				if(!constJsonDocument.semanticEquals(inputJsonDocument) ){
 					error("Element "+inputJsonDocument.toString()+" is not "+constJsonDocument.toString(), null);
 				}
 			}

@@ -159,7 +159,7 @@ public class KeyValuePairImpl extends MinimalEObjectImpl.Container implements Ke
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean equals(final Object obj) {
+	public boolean semanticEquals(final Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -167,7 +167,16 @@ public class KeyValuePairImpl extends MinimalEObjectImpl.Container implements Ke
 		if (getClass() != obj.getClass())
 			return false;
 		return this.getKey().equals(((KeyValuePair) obj).getKey())
-				&& this.getValue().equals(((KeyValuePair) obj).getValue());
+				&& this.getValue().semanticEquals(((KeyValuePair) obj).getValue());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toString() {
+		return this.key + ":" + this.value.toString();
 	}
 
 	/**
@@ -260,22 +269,12 @@ public class KeyValuePairImpl extends MinimalEObjectImpl.Container implements Ke
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case JsonMMPackage.KEY_VALUE_PAIR___EQUALS__OBJECT:
-			return equals(arguments.get(0));
+		case JsonMMPackage.KEY_VALUE_PAIR___SEMANTIC_EQUALS__OBJECT:
+			return semanticEquals(arguments.get(0));
 		case JsonMMPackage.KEY_VALUE_PAIR___TO_STRING:
 			return toString();
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		return this.key + ":" + this.value.toString();
 	}
 
 } //KeyValuePairImpl

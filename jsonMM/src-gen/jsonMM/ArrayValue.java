@@ -39,7 +39,7 @@ public interface ArrayValue extends Value {
 	 * @model unique="false" required="true" ordered="false" objUnique="false" objRequired="true" objOrdered="false"
 	 * @generated
 	 */
-	boolean equals(Object obj);
+	boolean semanticEquals(Object obj);
 
 	/**
 	 * <!-- begin-user-doc -->

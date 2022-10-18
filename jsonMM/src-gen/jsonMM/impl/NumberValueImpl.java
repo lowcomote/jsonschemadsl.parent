@@ -94,7 +94,7 @@ public class NumberValueImpl extends ValueImpl implements NumberValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean equals(final Object obj) {
+	public boolean semanticEquals(final Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -179,8 +179,8 @@ public class NumberValueImpl extends ValueImpl implements NumberValue {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case JsonMMPackage.NUMBER_VALUE___EQUALS__OBJECT:
-			return equals(arguments.get(0));
+		case JsonMMPackage.NUMBER_VALUE___SEMANTIC_EQUALS__OBJECT:
+			return semanticEquals(arguments.get(0));
 		case JsonMMPackage.NUMBER_VALUE___TO_STRING:
 			return toString();
 		}

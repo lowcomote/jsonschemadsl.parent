@@ -81,7 +81,7 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean equals(final Object obj) {
+	public boolean semanticEquals(final Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -90,12 +90,20 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 			return false;
 		if (this.getKeyvaluepair().size() != ((ObjectValue) obj).getKeyvaluepair().size())
 			return false;
-		java.util.Collection<KeyValuePair> copyKeyvaluepair = new java.util.ArrayList<KeyValuePair>(
-				this.getKeyvaluepair());
-		for (KeyValuePair keyValuePair : ((ObjectValue) obj).getKeyvaluepair()) {
-			copyKeyvaluepair.remove(keyValuePair);
+
+		for (KeyValuePair thisKeyValuePair : this.getKeyvaluepair()) {
+			boolean found = false;
+			for (KeyValuePair objectKeyValuePair : ((ObjectValue) obj).getKeyvaluepair()) {
+				if (thisKeyValuePair.semanticEquals(objectKeyValuePair)) {
+					found = true;
+					break;
+				}
+			}
+			if (!found)
+				return false;
 		}
-		return copyKeyvaluepair.isEmpty();
+		return true;
+
 	}
 
 	/**
@@ -199,8 +207,8 @@ public class ObjectValueImpl extends ValueImpl implements ObjectValue {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case JsonMMPackage.OBJECT_VALUE___EQUALS__OBJECT:
-			return equals(arguments.get(0));
+		case JsonMMPackage.OBJECT_VALUE___SEMANTIC_EQUALS__OBJECT:
+			return semanticEquals(arguments.get(0));
 		case JsonMMPackage.OBJECT_VALUE___TO_STRING:
 			return toString();
 		}

@@ -117,14 +117,14 @@ public class JsonDocumentImpl extends MinimalEObjectImpl.Container implements Js
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean equals(final Object obj) {
+	public boolean semanticEquals(final Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		return this.getValue().equals(((JsonDocument) obj).getValue());
+		return this.getValue().semanticEquals(((JsonDocument) obj).getValue());
 	}
 
 	/**
@@ -216,8 +216,8 @@ public class JsonDocumentImpl extends MinimalEObjectImpl.Container implements Js
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case JsonMMPackage.JSON_DOCUMENT___EQUALS__OBJECT:
-			return equals(arguments.get(0));
+		case JsonMMPackage.JSON_DOCUMENT___SEMANTIC_EQUALS__OBJECT:
+			return semanticEquals(arguments.get(0));
 		case JsonMMPackage.JSON_DOCUMENT___TO_STRING:
 			return toString();
 		}

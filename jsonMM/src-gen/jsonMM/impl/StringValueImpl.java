@@ -94,7 +94,7 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean equals(final Object obj) {
+	public boolean semanticEquals(final Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -110,7 +110,7 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	 * @generated
 	 */
 	public String toString() {
-		return this.value;  
+		return this.value;
 	}
 
 	/**
@@ -179,8 +179,8 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case JsonMMPackage.STRING_VALUE___EQUALS__OBJECT:
-			return equals(arguments.get(0));
+		case JsonMMPackage.STRING_VALUE___SEMANTIC_EQUALS__OBJECT:
+			return semanticEquals(arguments.get(0));
 		case JsonMMPackage.STRING_VALUE___TO_STRING:
 			return toString();
 		}

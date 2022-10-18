@@ -80,7 +80,7 @@ public class ArrayValueImpl extends ValueImpl implements ArrayValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean equals(final Object obj) {
+	public boolean semanticEquals(final Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -89,11 +89,14 @@ public class ArrayValueImpl extends ValueImpl implements ArrayValue {
 			return false;
 		if (this.getValue().size() != ((ArrayValue) obj).getValue().size())
 			return false;
-		java.util.Collection<Value> copyValues = new java.util.ArrayList<Value>(this.getValue());
-		for (Value value : ((ArrayValue) obj).getValue()) {
-			copyValues.remove(value);
+
+		for (int i = 0; i < this.getValue().size(); i++) {
+			if (!this.getValue().get(i).semanticEquals(((ArrayValue) obj).getValue().get(i))) {
+				return false;
+			}
 		}
-		return copyValues.isEmpty();
+		return true;
+
 	}
 
 	/**
@@ -197,8 +200,8 @@ public class ArrayValueImpl extends ValueImpl implements ArrayValue {
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case JsonMMPackage.ARRAY_VALUE___EQUALS__OBJECT:
-			return equals(arguments.get(0));
+		case JsonMMPackage.ARRAY_VALUE___SEMANTIC_EQUALS__OBJECT:
+			return semanticEquals(arguments.get(0));
 		case JsonMMPackage.ARRAY_VALUE___TO_STRING:
 			return toString();
 		}

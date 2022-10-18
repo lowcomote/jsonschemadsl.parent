@@ -78,13 +78,13 @@ public interface JsonMMPackage extends EPackage {
 	int VALUE_FEATURE_COUNT = 0;
 
 	/**
-	 * The operation id for the '<em>Equals</em>' operation.
+	 * The operation id for the '<em>Semantic Equals</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE___EQUALS__OBJECT = 0;
+	int VALUE___SEMANTIC_EQUALS__OBJECT = 0;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -133,13 +133,13 @@ public interface JsonMMPackage extends EPackage {
 	int STRING_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Equals</em>' operation.
+	 * The operation id for the '<em>Semantic Equals</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+	int STRING_VALUE___SEMANTIC_EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -188,13 +188,13 @@ public interface JsonMMPackage extends EPackage {
 	int ARRAY_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Equals</em>' operation.
+	 * The operation id for the '<em>Semantic Equals</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARRAY_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+	int ARRAY_VALUE___SEMANTIC_EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -243,13 +243,13 @@ public interface JsonMMPackage extends EPackage {
 	int NULL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Equals</em>' operation.
+	 * The operation id for the '<em>Semantic Equals</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NULL_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+	int NULL_VALUE___SEMANTIC_EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -298,13 +298,13 @@ public interface JsonMMPackage extends EPackage {
 	int NUMBER_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Equals</em>' operation.
+	 * The operation id for the '<em>Semantic Equals</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+	int NUMBER_VALUE___SEMANTIC_EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -353,13 +353,13 @@ public interface JsonMMPackage extends EPackage {
 	int JSON_DOCUMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The operation id for the '<em>Equals</em>' operation.
+	 * The operation id for the '<em>Semantic Equals</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JSON_DOCUMENT___EQUALS__OBJECT = 0;
+	int JSON_DOCUMENT___SEMANTIC_EQUALS__OBJECT = 0;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -408,13 +408,13 @@ public interface JsonMMPackage extends EPackage {
 	int OBJECT_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Equals</em>' operation.
+	 * The operation id for the '<em>Semantic Equals</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+	int OBJECT_VALUE___SEMANTIC_EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -463,13 +463,13 @@ public interface JsonMMPackage extends EPackage {
 	int BOOLEAN_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Equals</em>' operation.
+	 * The operation id for the '<em>Semantic Equals</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_VALUE___EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
+	int BOOLEAN_VALUE___SEMANTIC_EQUALS__OBJECT = VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -527,13 +527,13 @@ public interface JsonMMPackage extends EPackage {
 	int KEY_VALUE_PAIR_FEATURE_COUNT = 2;
 
 	/**
-	 * The operation id for the '<em>Equals</em>' operation.
+	 * The operation id for the '<em>Semantic Equals</em>' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int KEY_VALUE_PAIR___EQUALS__OBJECT = 0;
+	int KEY_VALUE_PAIR___SEMANTIC_EQUALS__OBJECT = 0;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -585,14 +585,14 @@ public interface JsonMMPackage extends EPackage {
 	EAttribute getStringValue_Value();
 
 	/**
-	 * Returns the meta object for the '{@link jsonMM.StringValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * Returns the meta object for the '{@link jsonMM.StringValue#semanticEquals(java.lang.Object) <em>Semantic Equals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Equals</em>' operation.
-	 * @see jsonMM.StringValue#equals(java.lang.Object)
+	 * @return the meta object for the '<em>Semantic Equals</em>' operation.
+	 * @see jsonMM.StringValue#semanticEquals(java.lang.Object)
 	 * @generated
 	 */
-	EOperation getStringValue__Equals__Object();
+	EOperation getStringValue__SemanticEquals__Object();
 
 	/**
 	 * Returns the meta object for the '{@link jsonMM.StringValue#toString() <em>To String</em>}' operation.
@@ -626,14 +626,14 @@ public interface JsonMMPackage extends EPackage {
 	EReference getArrayValue_Value();
 
 	/**
-	 * Returns the meta object for the '{@link jsonMM.ArrayValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * Returns the meta object for the '{@link jsonMM.ArrayValue#semanticEquals(java.lang.Object) <em>Semantic Equals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Equals</em>' operation.
-	 * @see jsonMM.ArrayValue#equals(java.lang.Object)
+	 * @return the meta object for the '<em>Semantic Equals</em>' operation.
+	 * @see jsonMM.ArrayValue#semanticEquals(java.lang.Object)
 	 * @generated
 	 */
-	EOperation getArrayValue__Equals__Object();
+	EOperation getArrayValue__SemanticEquals__Object();
 
 	/**
 	 * Returns the meta object for the '{@link jsonMM.ArrayValue#toString() <em>To String</em>}' operation.
@@ -667,14 +667,14 @@ public interface JsonMMPackage extends EPackage {
 	EAttribute getNullValue_Value();
 
 	/**
-	 * Returns the meta object for the '{@link jsonMM.NullValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * Returns the meta object for the '{@link jsonMM.NullValue#semanticEquals(java.lang.Object) <em>Semantic Equals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Equals</em>' operation.
-	 * @see jsonMM.NullValue#equals(java.lang.Object)
+	 * @return the meta object for the '<em>Semantic Equals</em>' operation.
+	 * @see jsonMM.NullValue#semanticEquals(java.lang.Object)
 	 * @generated
 	 */
-	EOperation getNullValue__Equals__Object();
+	EOperation getNullValue__SemanticEquals__Object();
 
 	/**
 	 * Returns the meta object for the '{@link jsonMM.NullValue#toString() <em>To String</em>}' operation.
@@ -708,14 +708,14 @@ public interface JsonMMPackage extends EPackage {
 	EAttribute getNumberValue_Value();
 
 	/**
-	 * Returns the meta object for the '{@link jsonMM.NumberValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * Returns the meta object for the '{@link jsonMM.NumberValue#semanticEquals(java.lang.Object) <em>Semantic Equals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Equals</em>' operation.
-	 * @see jsonMM.NumberValue#equals(java.lang.Object)
+	 * @return the meta object for the '<em>Semantic Equals</em>' operation.
+	 * @see jsonMM.NumberValue#semanticEquals(java.lang.Object)
 	 * @generated
 	 */
-	EOperation getNumberValue__Equals__Object();
+	EOperation getNumberValue__SemanticEquals__Object();
 
 	/**
 	 * Returns the meta object for the '{@link jsonMM.NumberValue#toString() <em>To String</em>}' operation.
@@ -749,14 +749,14 @@ public interface JsonMMPackage extends EPackage {
 	EReference getJsonDocument_Value();
 
 	/**
-	 * Returns the meta object for the '{@link jsonMM.JsonDocument#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * Returns the meta object for the '{@link jsonMM.JsonDocument#semanticEquals(java.lang.Object) <em>Semantic Equals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Equals</em>' operation.
-	 * @see jsonMM.JsonDocument#equals(java.lang.Object)
+	 * @return the meta object for the '<em>Semantic Equals</em>' operation.
+	 * @see jsonMM.JsonDocument#semanticEquals(java.lang.Object)
 	 * @generated
 	 */
-	EOperation getJsonDocument__Equals__Object();
+	EOperation getJsonDocument__SemanticEquals__Object();
 
 	/**
 	 * Returns the meta object for the '{@link jsonMM.JsonDocument#toString() <em>To String</em>}' operation.
@@ -790,14 +790,14 @@ public interface JsonMMPackage extends EPackage {
 	EReference getObjectValue_Keyvaluepair();
 
 	/**
-	 * Returns the meta object for the '{@link jsonMM.ObjectValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * Returns the meta object for the '{@link jsonMM.ObjectValue#semanticEquals(java.lang.Object) <em>Semantic Equals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Equals</em>' operation.
-	 * @see jsonMM.ObjectValue#equals(java.lang.Object)
+	 * @return the meta object for the '<em>Semantic Equals</em>' operation.
+	 * @see jsonMM.ObjectValue#semanticEquals(java.lang.Object)
 	 * @generated
 	 */
-	EOperation getObjectValue__Equals__Object();
+	EOperation getObjectValue__SemanticEquals__Object();
 
 	/**
 	 * Returns the meta object for the '{@link jsonMM.ObjectValue#toString() <em>To String</em>}' operation.
@@ -831,14 +831,14 @@ public interface JsonMMPackage extends EPackage {
 	EAttribute getBooleanValue_Value();
 
 	/**
-	 * Returns the meta object for the '{@link jsonMM.BooleanValue#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * Returns the meta object for the '{@link jsonMM.BooleanValue#semanticEquals(java.lang.Object) <em>Semantic Equals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Equals</em>' operation.
-	 * @see jsonMM.BooleanValue#equals(java.lang.Object)
+	 * @return the meta object for the '<em>Semantic Equals</em>' operation.
+	 * @see jsonMM.BooleanValue#semanticEquals(java.lang.Object)
 	 * @generated
 	 */
-	EOperation getBooleanValue__Equals__Object();
+	EOperation getBooleanValue__SemanticEquals__Object();
 
 	/**
 	 * Returns the meta object for the '{@link jsonMM.BooleanValue#toString() <em>To String</em>}' operation.
@@ -861,14 +861,14 @@ public interface JsonMMPackage extends EPackage {
 	EClass getValue();
 
 	/**
-	 * Returns the meta object for the '{@link jsonMM.Value#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * Returns the meta object for the '{@link jsonMM.Value#semanticEquals(java.lang.Object) <em>Semantic Equals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Equals</em>' operation.
-	 * @see jsonMM.Value#equals(java.lang.Object)
+	 * @return the meta object for the '<em>Semantic Equals</em>' operation.
+	 * @see jsonMM.Value#semanticEquals(java.lang.Object)
 	 * @generated
 	 */
-	EOperation getValue__Equals__Object();
+	EOperation getValue__SemanticEquals__Object();
 
 	/**
 	 * Returns the meta object for the '{@link jsonMM.Value#toString() <em>To String</em>}' operation.
@@ -913,14 +913,14 @@ public interface JsonMMPackage extends EPackage {
 	EReference getKeyValuePair_Value();
 
 	/**
-	 * Returns the meta object for the '{@link jsonMM.KeyValuePair#equals(java.lang.Object) <em>Equals</em>}' operation.
+	 * Returns the meta object for the '{@link jsonMM.KeyValuePair#semanticEquals(java.lang.Object) <em>Semantic Equals</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Equals</em>' operation.
-	 * @see jsonMM.KeyValuePair#equals(java.lang.Object)
+	 * @return the meta object for the '<em>Semantic Equals</em>' operation.
+	 * @see jsonMM.KeyValuePair#semanticEquals(java.lang.Object)
 	 * @generated
 	 */
-	EOperation getKeyValuePair__Equals__Object();
+	EOperation getKeyValuePair__SemanticEquals__Object();
 
 	/**
 	 * Returns the meta object for the '{@link jsonMM.KeyValuePair#toString() <em>To String</em>}' operation.
@@ -984,12 +984,12 @@ public interface JsonMMPackage extends EPackage {
 		EAttribute STRING_VALUE__VALUE = eINSTANCE.getStringValue_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * The meta object literal for the '<em><b>Semantic Equals</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation STRING_VALUE___EQUALS__OBJECT = eINSTANCE.getStringValue__Equals__Object();
+		EOperation STRING_VALUE___SEMANTIC_EQUALS__OBJECT = eINSTANCE.getStringValue__SemanticEquals__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
@@ -1018,12 +1018,12 @@ public interface JsonMMPackage extends EPackage {
 		EReference ARRAY_VALUE__VALUE = eINSTANCE.getArrayValue_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * The meta object literal for the '<em><b>Semantic Equals</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation ARRAY_VALUE___EQUALS__OBJECT = eINSTANCE.getArrayValue__Equals__Object();
+		EOperation ARRAY_VALUE___SEMANTIC_EQUALS__OBJECT = eINSTANCE.getArrayValue__SemanticEquals__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
@@ -1052,12 +1052,12 @@ public interface JsonMMPackage extends EPackage {
 		EAttribute NULL_VALUE__VALUE = eINSTANCE.getNullValue_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * The meta object literal for the '<em><b>Semantic Equals</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NULL_VALUE___EQUALS__OBJECT = eINSTANCE.getNullValue__Equals__Object();
+		EOperation NULL_VALUE___SEMANTIC_EQUALS__OBJECT = eINSTANCE.getNullValue__SemanticEquals__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
@@ -1086,12 +1086,12 @@ public interface JsonMMPackage extends EPackage {
 		EAttribute NUMBER_VALUE__VALUE = eINSTANCE.getNumberValue_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * The meta object literal for the '<em><b>Semantic Equals</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation NUMBER_VALUE___EQUALS__OBJECT = eINSTANCE.getNumberValue__Equals__Object();
+		EOperation NUMBER_VALUE___SEMANTIC_EQUALS__OBJECT = eINSTANCE.getNumberValue__SemanticEquals__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
@@ -1120,12 +1120,12 @@ public interface JsonMMPackage extends EPackage {
 		EReference JSON_DOCUMENT__VALUE = eINSTANCE.getJsonDocument_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * The meta object literal for the '<em><b>Semantic Equals</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation JSON_DOCUMENT___EQUALS__OBJECT = eINSTANCE.getJsonDocument__Equals__Object();
+		EOperation JSON_DOCUMENT___SEMANTIC_EQUALS__OBJECT = eINSTANCE.getJsonDocument__SemanticEquals__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
@@ -1154,12 +1154,12 @@ public interface JsonMMPackage extends EPackage {
 		EReference OBJECT_VALUE__KEYVALUEPAIR = eINSTANCE.getObjectValue_Keyvaluepair();
 
 		/**
-		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * The meta object literal for the '<em><b>Semantic Equals</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation OBJECT_VALUE___EQUALS__OBJECT = eINSTANCE.getObjectValue__Equals__Object();
+		EOperation OBJECT_VALUE___SEMANTIC_EQUALS__OBJECT = eINSTANCE.getObjectValue__SemanticEquals__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
@@ -1188,12 +1188,12 @@ public interface JsonMMPackage extends EPackage {
 		EAttribute BOOLEAN_VALUE__VALUE = eINSTANCE.getBooleanValue_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * The meta object literal for the '<em><b>Semantic Equals</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation BOOLEAN_VALUE___EQUALS__OBJECT = eINSTANCE.getBooleanValue__Equals__Object();
+		EOperation BOOLEAN_VALUE___SEMANTIC_EQUALS__OBJECT = eINSTANCE.getBooleanValue__SemanticEquals__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
@@ -1214,12 +1214,12 @@ public interface JsonMMPackage extends EPackage {
 		EClass VALUE = eINSTANCE.getValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * The meta object literal for the '<em><b>Semantic Equals</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation VALUE___EQUALS__OBJECT = eINSTANCE.getValue__Equals__Object();
+		EOperation VALUE___SEMANTIC_EQUALS__OBJECT = eINSTANCE.getValue__SemanticEquals__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
@@ -1256,12 +1256,12 @@ public interface JsonMMPackage extends EPackage {
 		EReference KEY_VALUE_PAIR__VALUE = eINSTANCE.getKeyValuePair_Value();
 
 		/**
-		 * The meta object literal for the '<em><b>Equals</b></em>' operation.
+		 * The meta object literal for the '<em><b>Semantic Equals</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EOperation KEY_VALUE_PAIR___EQUALS__OBJECT = eINSTANCE.getKeyValuePair__Equals__Object();
+		EOperation KEY_VALUE_PAIR___SEMANTIC_EQUALS__OBJECT = eINSTANCE.getKeyValuePair__SemanticEquals__Object();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.
