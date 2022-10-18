@@ -1245,6 +1245,176 @@ rule createGetKeyOperation(objectSchema:JSchemaMM!ObjectSchema, propertyName:Str
 		
 }
 
+-------------
+------------- Annotations they are lazy bo be called from the end point after the enclosing eclasses 
+--------------and their other annotations have been created  
+
+
+
+lazy rule mapSchemaDefinition{
+	from schemaSchemaDefinition: JSchemaMM!SchemaSchemaDefinition 
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.SCHEMA_SCHEMA,
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- thisModule.TITLE,
+			value <- schemaSchemaDefinition.schema
+		)
+	do{
+		schemaSchemaDefinition.refImmediateComposite().resolve().eAnnotations<- schemaSchemaDefinition.refImmediateComposite().resolve().eAnnotations->union (Sequence{eAnnotation});
+	}	
+}
+
+
+lazy rule mapIdSchemaDefinition{
+	from idSchemaDefinition: JSchemaMM!IdSchemaDefinition 
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.ID_SCHEMA,
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- thisModule.TITLE,
+			value <- idSchemaDefinition.id
+		)
+	do{
+		idSchemaDefinition.refImmediateComposite().resolve().eAnnotations<- idSchemaDefinition.refImmediateComposite().resolve().eAnnotations->union (Sequence{eAnnotation});
+	}	
+}
+
+lazy rule mapTitle{
+	from titleSchemaDefinition: JSchemaMM!TitleSchemaDefinition 
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.TITLE,
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- thisModule.TITLE,
+			value <- titleSchemaDefinition.title
+		)
+	do{
+		titleSchemaDefinition.refImmediateComposite().resolve().eAnnotations<- titleSchemaDefinition.refImmediateComposite().resolve().eAnnotations->union (Sequence{eAnnotation});
+	}	
+}
+
+lazy rule mapDescription{
+	from descriptionSchemaDefinition: JSchemaMM!DescriptionSchemaDefinition 
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.DESCRIPTION,
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- thisModule.DESCRIPTION,
+			value <- descriptionSchemaDefinition.description
+		)
+	do{
+		descriptionSchemaDefinition.refImmediateComposite().resolve().eAnnotations<- descriptionSchemaDefinition.refImmediateComposite().resolve().eAnnotations->union (Sequence{eAnnotation});
+	}	
+}
+
+
+lazy rule mapComment{
+	from commentSchemaDefinition: JSchemaMM!CommentSchemaDefinition 
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.COMMENT,
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- thisModule.COMMENT,
+			value <- commentSchemaDefinition.comment
+		)
+	do{
+		commentSchemaDefinition.refImmediateComposite().resolve().eAnnotations<- commentSchemaDefinition.refImmediateComposite().resolve().eAnnotations->union (Sequence{eAnnotation});
+	}	
+}
+
+
+
+lazy rule mapReadOnlySchemaDefinition{
+	from readOnlySchemaDefinition: JSchemaMM!ReadOnlySchemaDefinition 
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.READ_ONLY,
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- thisModule.READ_ONLY,
+			value <- readOnlySchemaDefinition.readOnly.toString()
+		)
+	do{
+		readOnlySchemaDefinition.refImmediateComposite().resolve().eAnnotations<- readOnlySchemaDefinition.refImmediateComposite().resolve().eAnnotations->union (Sequence{eAnnotation});
+	}	
+}
+
+lazy rule mapWriteOnlySchemaDefinition{
+	from writeOnlySchemaDefinition: JSchemaMM!WriteOnlySchemaDefinition 
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.WRITE_ONLY,
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- thisModule.WRITE_ONLY,
+			value <- writeOnlySchemaDefinition.writeOnly.toString()
+		)
+	do{
+		writeOnlySchemaDefinition.refImmediateComposite().resolve().eAnnotations<- writeOnlySchemaDefinition.refImmediateComposite().resolve().eAnnotations->union (Sequence{eAnnotation});
+	}	
+}
+
+
+
+
+lazy rule mapDefaultSchemaDefinition{
+	from defaultSchemaDefinition: JSchemaMM!DefaultSchemaDefinition 
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.DEFAULT,
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- thisModule.DEFAULT,
+			value <- defaultSchemaDefinition.default.toString()
+		)
+	do{
+		defaultSchemaDefinition.refImmediateComposite().resolve().eAnnotations<- defaultSchemaDefinition.refImmediateComposite().resolve().eAnnotations->union (Sequence{eAnnotation});
+	}	
+}
+
+
+lazy rule mapExamplesSchemaDefinition{
+	from examplesSchemaDefinition: JSchemaMM!ExamplesSchemaDefinition 
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.EXAMPLE,
+			details <- thisModule.createEntrySetSequenceForExampleAnnotation(examplesSchemaDefinition, Sequence{}) 
+		)
+	do{
+		examplesSchemaDefinition.refImmediateComposite().resolve().eAnnotations<- examplesSchemaDefinition.refImmediateComposite().resolve().eAnnotations->union (Sequence{eAnnotation});
+	}	
+}
+
+
+rule createEntrySetSequenceForExampleAnnotation(examplesSchemaDefinition: JSchemaMM!ExamplesSchemaDefinition, init:Sequence(Ecore!EStringToStringMapEntry) ){
+	do{
+		examplesSchemaDefinition.examples->collect(jsonDocument | thisModule.createEntrySet('example_'+examplesSchemaDefinition.examples.indexOf(jsonDocument).toString(), jsonDocument.toString()))->flatten();
+	}
+}
+
+rule createEntrySet(key: String, value:String){
+	to entrySet:Ecore!EStringToStringMapEntry(
+			key <- key,
+			value <- value
+		)
+	do{entrySet;}	
+}
+
+
 
 
 endpoint rule CompletEPackageAndJsonGrammar() {
@@ -1280,6 +1450,46 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 					concat(thisModule.allEClass()->excluding(eClass)->select(eClass2 | eClass2.name = eClass.name)->indexOf(eClass2).toString());
 			}
 		}
+		
+		--------- JSON Schema annotations generation
+		
+		
+		for (a in JSchemaMM!SchemaSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.mapSchemaDefinition(a);
+		}
+		
+		for (a in JSchemaMM!IdSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.mapIdSchemaDefinition(a);
+		}
+		
+		for (a in JSchemaMM!TitleSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.mapTitle(a);
+		}	
+		
+		for (a in JSchemaMM!DescriptionSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.mapDescription(a);
+		}	
+		
+		for (a in JSchemaMM!CommentSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.mapComment(a);
+		}
+		
+		for (a in JSchemaMM!ReadOnlySchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.mapReadOnlySchemaDefinition(a);
+		}
+		
+		for (a in JSchemaMM!WriteOnlySchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.mapWriteOnlySchemaDefinition(a);
+		}
+		
+		for (a in JSchemaMM!DefaultSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.mapDefaultSchemaDefinition(a);
+		}
+		
+		for (a in JSchemaMM!ExamplesSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.mapExamplesSchemaDefinition(a);
+		}
+		
 		
 		
 		---- OCL generation--------

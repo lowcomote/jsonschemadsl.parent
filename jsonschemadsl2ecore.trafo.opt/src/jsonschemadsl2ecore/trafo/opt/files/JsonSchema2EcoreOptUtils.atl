@@ -13,6 +13,21 @@ helper def: PATTERN_PROPERTIES: String ='PatternProperties';
 helper def: KEYWORD: String ='Keyword';
 helper def: ENUM: String ='Enum';
 helper def: CONST: String ='Const';
+helper def: TITLE: String ='Title';
+helper def: DESCRIPTION: String ='Description';
+helper def: COMMENT: String ='Comment';
+helper def: SCHEMA_SCHEMA: String ='Schema';
+helper def: ID_SCHEMA: String ='Id';
+helper def: READ_ONLY: String ='ReadOnly';
+helper def: WRITE_ONLY: String ='WriteOnly';
+helper def: DEFAULT: String ='Default';
+helper def: EXAMPLE: String ='Examples';
+
+
+
+
+
+
 --Keywords
 helper def: keywords : Sequence(Ecore!EStructuralFeature) = Sequence{};
 
@@ -844,6 +859,21 @@ helper context JSchemaMM!ObjectSchema def:propertiesUpperBound(): Integer =
 if not self.maxProperties.oclIsUndefined() and self.maxProperties.maxProperties.value.floor()>0 then self.maxProperties.maxProperties.value.floor() else -1 endif ; 
 
 
+
+
+--helper context JSchemaMM!ExamplesSchemaDefinition def: createEntrySetForExampleAnnotation():Sequence(Ecore!EStringToStringMapEntry)=
+--	
+--	self.examples.iterate(jsonDocument; result: Sequence(Ecore!EStringToStringMapEntry)=Sequence{} |
+--		result.append(('example_'.concat(self.examples.indexOf(jsonDocument).toString()), jsonDocument.toString()))
+--			
+----		let entrySet :Ecore!EStringToStringMapEntry = {'example_'.concat(self.examples.indexOf(jsonDocument).toString()), jsonDocument.toString()}
+----		in 
+--	);
+--	let result : Sequence(Ecore!EStringToStringMapEntry)=Sequence{}
+--	in self.examples.iterate(entrySet; var_name: var_type = init_exp |
+--	body
+--)
+	
 
 
 ---------- OCL helpers

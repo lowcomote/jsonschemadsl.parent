@@ -11,17 +11,17 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 
 |Keyword               |JSON Schema Editor   |Language Editor Generation| Comment|
 |----------------------|---------------------|--------------------------|--------
-|"$id"                 |Y                    |N                         | |
-|"$schema"             |Y                    |N                         |It will be converted as an annotation|
+|"$id"                 |Y                    |Y                         |Ecore annotation|
+|"$schema"             |Y                    |Y                         |Ecore annotation|
 |"$ref" (json pointer) |Y                    |Y                         |URI and JSON Pointer validation not available yet| 
 |"$ref"   ($id)        |Y                    |N                         ||
-|"$comment             |Y                    |N                         |It will be converted as an annotation|
-|"title"               |Y                    |N                         |It will be converted as an annotation|
-|"description"         |Y                    |N                         |It will be converted as an annotation|
-|"default"             |Y                    |N                         ||
-|"readOnly"            |Y                    |N                         ||
-|"writeOnly"           |Y                    |N                         ||
-|"examples"            |Y                    |N                         ||
+|"$comment             |Y                    |Y                         |Ecore annotation|
+|"title"               |Y                    |Y                         |Ecore annotation|
+|"description"         |Y                    |Y                         |Ecore annotation|
+|"default"             |Y                    |Y                         |Ecore annotation|
+|"readOnly"            |Y                    |Y                         |Ecore annotation|
+|"writeOnly"           |Y                    |Y                         |Ecore annotation|
+|"examples"            |Y                    |Y                         |Ecore annotation|
 |"multipleOf"          |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"maximum"             |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"exclusiveMaximum"    |Y                    |Y                         |Generate an OCL constraint (like "minimum")|

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test72">
+  <detailedGrammar>
+    <curlyBracesReferences href="test72.ecore#//Test72Root/test72Root"/>
+    <curlyBracesReferences href="test72.ecore#//Test72RootAdditionalProperties/additionalProperties"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMM#//ArrayValue/value"/>
+    <keyValue href="http://at.jku.bise/jsonMM#//KeyValuePair/key"/>
+    <keyValue href="test72.ecore#//Test72RootAdditionalProperties/key"/>
+    <keyValue href="test72.ecore#//Test72RootAdditionalPropertiesAdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMM#//ObjectValue"/>
+    <rootEClass href="test72.ecore#//Test72Root"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>
