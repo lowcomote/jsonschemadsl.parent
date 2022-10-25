@@ -30,9 +30,9 @@ the keywords with N in the column Language Editor Generation, or that are not ne
 |"maxLength"           |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"minLength"           |Y                    |Y                         |Generate an OCL constraint (like "minimum")|
 |"pattern"             |Y                    |Y                         |Create an EOperation that check if it is a regex|
-|"additionalItems"     |Y                    |N                         ||
+|"additionalItems"     |Y                    |Y                         ||
 |"items" (List)        |Y                    |Y                         ||
-|"items" (Tuple)       |Y                    |N                         ||
+|"items" (Tuple)       |Y                    |Y                         ||
 |"maxItems"            |Y                    |N                         |Generate an OCL constraint (like "minimum")|
 |"minItems"            |Y                    |N                         |Generate an OCL constraint (like "minimum")|
 |"uniqueItems"         |Y                    |N                         ||
