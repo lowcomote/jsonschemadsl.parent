@@ -1,0 +1,15 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test73
+import 'http://jku.bise.at/test73'
+
+package test73
+
+	context test73::Test73RootItems0
+
+	inv Test73RootItems0IsInteger('The value of Test73RootItems0.items0 must be integer'):
+	if items0.floor() = items0
+	then true
+	else null
+	endif
+
+endpackage
+

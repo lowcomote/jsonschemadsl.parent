@@ -176,6 +176,15 @@ public class JsongrammarPackageImpl extends EPackageImpl implements JsongrammarP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDetailedGrammar_Tuples() {
+		return (EReference) detailedGrammarEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJsonGrammar() {
 		return jsonGrammarEClass;
 	}
@@ -235,6 +244,7 @@ public class JsongrammarPackageImpl extends EPackageImpl implements JsongrammarP
 		createEReference(detailedGrammarEClass, DETAILED_GRAMMAR__CURLY_BRACES_ECLASS);
 		createEReference(detailedGrammarEClass, DETAILED_GRAMMAR__BRACKETS_ECLASS);
 		createEReference(detailedGrammarEClass, DETAILED_GRAMMAR__ROOT_ECLASS);
+		createEReference(detailedGrammarEClass, DETAILED_GRAMMAR__TUPLES);
 
 		jsonGrammarEClass = createEClass(JSON_GRAMMAR);
 		createEReference(jsonGrammarEClass, JSON_GRAMMAR__DETAILED_GRAMMAR);
@@ -293,6 +303,9 @@ public class JsongrammarPackageImpl extends EPackageImpl implements JsongrammarP
 				-1, DetailedGrammar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDetailedGrammar_RootEClass(), ecorePackage.getEClass(), null, "rootEClass", null, 1, 1,
+				DetailedGrammar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDetailedGrammar_Tuples(), ecorePackage.getEClass(), null, "tuples", null, 0, -1,
 				DetailedGrammar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test73" nsURI="http://jku.bise.at/test73" nsPrefix="test73">
+  <eClassifiers xsi:type="ecore:EClass" name="Test73Root">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test73Root" lowerBound="1"
+        eType="#//Test73RootTuple" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test73RootItems0">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items0" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test73RootItems1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items1" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test73RootItems2">
+    <eAnnotations source="Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test73RootItems3">
+    <eAnnotations source="Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items3" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test73RootTuple">
+    <eAnnotations source="Tuple"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items0" eType="#//Test73RootItems0"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items1" eType="#//Test73RootItems1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" eType="#//Test73RootItems2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items3" eType="#//Test73RootItems3"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" upperBound="-1"
+        eType="#//Test73RootAdditionalItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test73RootAdditionalItems">
+    <eAnnotations source="AdditionalItems"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

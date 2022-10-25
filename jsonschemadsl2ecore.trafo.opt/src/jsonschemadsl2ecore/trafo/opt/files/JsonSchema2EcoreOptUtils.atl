@@ -22,8 +22,8 @@ helper def: READ_ONLY: String ='ReadOnly';
 helper def: WRITE_ONLY: String ='WriteOnly';
 helper def: DEFAULT: String ='Default';
 helper def: EXAMPLE: String ='Examples';
-
-
+helper def: ADDITIONAL_ITEMS: String ='AdditionalItems';
+helper def: TUPLE : String ='Tuple';
 
 
 
@@ -48,6 +48,9 @@ helper def: curlyBracesEClass : Sequence(Ecore!EClass) = Sequence{JsonMM!ObjectV
 
 --Curly Braces EClass
 helper def: bracketsEClass : Sequence(Ecore!EClass) = Sequence{};
+
+--Tuple EClass
+helper def: tuples : Sequence(Ecore!EClass) = Sequence{};
 
 --Return Package Objects
 helper def: packageEObjects() : Sequence(Ecore!EPackage) = Ecore!EPackage.allInstancesFrom('ecoreM');

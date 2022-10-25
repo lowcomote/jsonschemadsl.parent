@@ -5,7 +5,7 @@
     <semanticResources>jsongrammar.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_u8OL0NaCEeyFj_gfuoMH3A">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_u-fcsNaCEeyFj_gfuoMH3A" name="jsongrammar" repPath="#_u9k2sNaCEeyFj_gfuoMH3A" changeId="80b17598-c449-4db7-97a8-8e8d1fbf69dc">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_u-fcsNaCEeyFj_gfuoMH3A" name="jsongrammar" repPath="#_u9k2sNaCEeyFj_gfuoMH3A" changeId="fda37a04-ce11-44df-a720-9efbc7e1408f">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="jsongrammar.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -44,6 +44,10 @@
             <children xmi:type="notation:Node" xmi:id="_ELjQetaDEeyFj_gfuoMH3A" type="3010" element="_ELcittaDEeyFj_gfuoMH3A">
               <styles xmi:type="notation:FontStyle" xmi:id="_ELjQe9aDEeyFj_gfuoMH3A" fontName="Segoe UI" fontHeight="8" bold="true"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_ELjQfNaDEeyFj_gfuoMH3A"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_6fr-4FLMEe2LCKaovA-v-w" type="3010" element="_6fnGYlLMEe2LCKaovA-v-w">
+              <styles xmi:type="notation:FontStyle" xmi:id="_6fr-4VLMEe2LCKaovA-v-w" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_6fr-4lLMEe2LCKaovA-v-w"/>
             </children>
             <styles xmi:type="notation:SortingStyle" xmi:id="_ELjQX9aDEeyFj_gfuoMH3A"/>
             <styles xmi:type="notation:FilteringStyle" xmi:id="_ELjQYNaDEeyFj_gfuoMH3A"/>
@@ -166,6 +170,14 @@
         <semanticElements xmi:type="ecore:EReference" href="jsongrammar.ecore#//DetailedGrammar/rootEClass"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_ELciuNaDEeyFj_gfuoMH3A" labelAlignment="LEFT" description="_ELcit9aDEeyFj_gfuoMH3A" color="114,159,207">
           <labelFormat>bold</labelFormat>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
+      </ownedElements>
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_6fnGYlLMEe2LCKaovA-v-w" name=" tuples : EClass" tooltipText="">
+        <target xmi:type="ecore:EReference" href="jsongrammar.ecore#//DetailedGrammar/tuples"/>
+        <semanticElements xmi:type="ecore:EReference" href="jsongrammar.ecore#//DetailedGrammar/tuples"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_6fntcFLMEe2LCKaovA-v-w" labelAlignment="LEFT" color="114,159,207">
+          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EReferenceNode']"/>
       </ownedElements>

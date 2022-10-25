@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
  *   <li>{@link jsongrammarmm.jsongrammar.DetailedGrammar#getCurlyBracesEClass <em>Curly Braces EClass</em>}</li>
  *   <li>{@link jsongrammarmm.jsongrammar.DetailedGrammar#getBracketsEClass <em>Brackets EClass</em>}</li>
  *   <li>{@link jsongrammarmm.jsongrammar.DetailedGrammar#getRootEClass <em>Root EClass</em>}</li>
+ *   <li>{@link jsongrammarmm.jsongrammar.DetailedGrammar#getTuples <em>Tuples</em>}</li>
  * </ul>
  *
  * @see jsongrammarmm.jsongrammar.JsongrammarPackage#getDetailedGrammar()
@@ -126,5 +127,17 @@ public interface DetailedGrammar extends EObject {
 	 * @generated
 	 */
 	void setRootEClass(EClass value);
+
+	/**
+	 * Returns the value of the '<em><b>Tuples</b></em>' reference list.
+	 * The list contents are of type {@link org.eclipse.emf.ecore.EClass}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tuples</em>' reference list.
+	 * @see jsongrammarmm.jsongrammar.JsongrammarPackage#getDetailedGrammar_Tuples()
+	 * @model
+	 * @generated
+	 */
+	EList<EClass> getTuples();
 
 } // DetailedGrammar

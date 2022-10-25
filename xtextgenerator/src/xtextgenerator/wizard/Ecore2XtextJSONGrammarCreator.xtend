@@ -259,9 +259,23 @@ class Ecore2XtextJSONGrammarCreator {
 							«FOR ref: it.allCrossReferences»
 								«ref.assigment»
 							«ENDFOR»
-							«FOR conti: it.allContainmentReferences»
-								«conti.assigment»
-							«ENDFOR»
+«««							we treat here the case of Tuple this.detailedJsonGrammar
+							«IF this.detailedJsonGrammar.tuples.contains(it)»
+«««								«assignmentKeywordJSON(it)»«IF it instanceof EReference»«it.openParenthesis»«ENDIF»«IF(!required)»(«ENDIF»«IF many»«IF containment»«ELSE»'(' «ENDIF»«ENDIF»«name.quoteIfNeccesary»«assignmentOperator»«assignedTerminal»«IF many» ( "," «name.quoteIfNeccesary»«assignmentOperator»«assignedTerminal»)* «IF containment»«ELSE»')' «ENDIF»«ENDIF»«IF (!required)»)?«ENDIF»«IF it instanceof EReference»«it.closeParenthesis»«ENDIF»
+«««								Tuples have at least one elemenent by Json Schema Specification
+«««								«val firstItem = it.allContainmentReferences.get(0)»
+«««																
+«««								( «IF firstItem.many»«firstItem.name.quoteIfNeccesary»«firstItem.assignmentOperator»«firstItem.assignedTerminal»
+«««								)?
+								«writeTupleItem(it.allContainmentReferences.toList,0)»								
+							«ELSE»
+								«FOR conti: it.allContainmentReferences»
+									«conti.assigment»
+								«ENDFOR»
+							«ENDIF»
+«««							«FOR conti: it.allContainmentReferences»
+«««								«conti.assigment»
+«««							«ENDFOR»
 					«closeParenthesis»«ENDIF»;
 			'''
 			EEnum:
@@ -280,6 +294,14 @@ class Ecore2XtextJSONGrammarCreator {
 		}
 	}	
 	
+	private def  writeTupleItem (List<EReference> containments, int index){
+		if(index<containments.size){
+			val currentItem = containments.get(index)
+			'''
+			(«IF index>0»","«ENDIF»«currentItem.name.quoteIfNeccesary»«currentItem.assignmentOperator»«currentItem.assignedTerminal»«IF currentItem.many» ( "," «currentItem.name.quoteIfNeccesary»«currentItem.assignmentOperator»«currentItem.assignedTerminal»)*  «ENDIF» «writeTupleItem(containments,index+1)»)?
+			'''
+		}
+	}
 	def static String jsonDataTypeRuleBody(EDataType it) {
 		switch (name) {
 			case 'EString': 'VALID_STRING'

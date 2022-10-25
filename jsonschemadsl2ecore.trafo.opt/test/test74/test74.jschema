@@ -1,0 +1,48 @@
+{
+	"type": "object",
+	"properties":{
+		"prop1":{ 
+			"type": "array", 
+			"items" :[
+				{"type": "integer"},
+				{"type": "string"}, 
+				{"enum": ["Street", "Avenue", "Boulevard"]},
+				{"enum": ["NW", "NE", "SW", "SE"]}
+			] 
+		},
+		"prop2":{
+			"type": "array",
+			"items" :[
+				{"type": "integer"},
+				{"type": "number"},
+				{"enum": ["Street", "Avenue", "Boulevard"]},
+				{"enum": ["NW", "NE", "SW", "SE"]}
+			],
+			"additionalItems": {"type": "string"}
+		},
+		"prop3":{
+			"type": "array",
+			"items" :[
+				{"type": "integer"},
+				{"type": "number"},
+				{"enum": ["Street", "Avenue", "Boulevard"]},
+				{"enum": ["NW", "NE", "SW", "SE"]},
+				true
+			],
+			"additionalItems": true
+		},
+		"prop4":{
+			"type": "array",
+			"items" :[
+				{"type": "array"},
+				{"type": "object"},
+				{"enum": ["Street", "Avenue", "Boulevard"]},
+				{"enum": ["NW", "NE", "SW", "SE"]},
+				true
+			],
+			"additionalItems": false
+		}
+	}
+	 
+}
+   

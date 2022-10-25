@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link jsongrammarmm.jsongrammar.impl.DetailedGrammarImpl#getCurlyBracesEClass <em>Curly Braces EClass</em>}</li>
  *   <li>{@link jsongrammarmm.jsongrammar.impl.DetailedGrammarImpl#getBracketsEClass <em>Brackets EClass</em>}</li>
  *   <li>{@link jsongrammarmm.jsongrammar.impl.DetailedGrammarImpl#getRootEClass <em>Root EClass</em>}</li>
+ *   <li>{@link jsongrammarmm.jsongrammar.impl.DetailedGrammarImpl#getTuples <em>Tuples</em>}</li>
  * </ul>
  *
  * @generated
@@ -111,6 +112,16 @@ public class DetailedGrammarImpl extends MinimalEObjectImpl.Container implements
 	 * @ordered
 	 */
 	protected EClass rootEClass;
+
+	/**
+	 * The cached value of the '{@link #getTuples() <em>Tuples</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTuples()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<EClass> tuples;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -254,6 +265,18 @@ public class DetailedGrammarImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<EClass> getTuples() {
+		if (tuples == null) {
+			tuples = new EObjectResolvingEList<EClass>(EClass.class, this, JsongrammarPackage.DETAILED_GRAMMAR__TUPLES);
+		}
+		return tuples;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -273,6 +296,8 @@ public class DetailedGrammarImpl extends MinimalEObjectImpl.Container implements
 			if (resolve)
 				return getRootEClass();
 			return basicGetRootEClass();
+		case JsongrammarPackage.DETAILED_GRAMMAR__TUPLES:
+			return getTuples();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -313,6 +338,10 @@ public class DetailedGrammarImpl extends MinimalEObjectImpl.Container implements
 		case JsongrammarPackage.DETAILED_GRAMMAR__ROOT_ECLASS:
 			setRootEClass((EClass) newValue);
 			return;
+		case JsongrammarPackage.DETAILED_GRAMMAR__TUPLES:
+			getTuples().clear();
+			getTuples().addAll((Collection<? extends EClass>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -346,6 +375,9 @@ public class DetailedGrammarImpl extends MinimalEObjectImpl.Container implements
 		case JsongrammarPackage.DETAILED_GRAMMAR__ROOT_ECLASS:
 			setRootEClass((EClass) null);
 			return;
+		case JsongrammarPackage.DETAILED_GRAMMAR__TUPLES:
+			getTuples().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -372,6 +404,8 @@ public class DetailedGrammarImpl extends MinimalEObjectImpl.Container implements
 			return bracketsEClass != null && !bracketsEClass.isEmpty();
 		case JsongrammarPackage.DETAILED_GRAMMAR__ROOT_ECLASS:
 			return rootEClass != null;
+		case JsongrammarPackage.DETAILED_GRAMMAR__TUPLES:
+			return tuples != null && !tuples.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

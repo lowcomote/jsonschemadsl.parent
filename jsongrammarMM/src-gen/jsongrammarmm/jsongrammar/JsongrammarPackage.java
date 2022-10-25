@@ -130,13 +130,22 @@ public interface JsongrammarPackage extends EPackage {
 	int DETAILED_GRAMMAR__ROOT_ECLASS = 6;
 
 	/**
+	 * The feature id for the '<em><b>Tuples</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DETAILED_GRAMMAR__TUPLES = 7;
+
+	/**
 	 * The number of structural features of the '<em>Detailed Grammar</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DETAILED_GRAMMAR_FEATURE_COUNT = 7;
+	int DETAILED_GRAMMAR_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Detailed Grammar</em>' class.
@@ -281,6 +290,17 @@ public interface JsongrammarPackage extends EPackage {
 	EReference getDetailedGrammar_RootEClass();
 
 	/**
+	 * Returns the meta object for the reference list '{@link jsongrammarmm.jsongrammar.DetailedGrammar#getTuples <em>Tuples</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Tuples</em>'.
+	 * @see jsongrammarmm.jsongrammar.DetailedGrammar#getTuples()
+	 * @see #getDetailedGrammar()
+	 * @generated
+	 */
+	EReference getDetailedGrammar_Tuples();
+
+	/**
 	 * Returns the meta object for class '{@link jsongrammarmm.jsongrammar.JsonGrammar <em>Json Grammar</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -400,6 +420,14 @@ public interface JsongrammarPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DETAILED_GRAMMAR__ROOT_ECLASS = eINSTANCE.getDetailedGrammar_RootEClass();
+
+		/**
+		 * The meta object literal for the '<em><b>Tuples</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DETAILED_GRAMMAR__TUPLES = eINSTANCE.getDetailedGrammar_Tuples();
 
 		/**
 		 * The meta object literal for the '{@link jsongrammarmm.jsongrammar.impl.JsonGrammarImpl <em>Json Grammar</em>}' class.

@@ -18,6 +18,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jsongrammar.ecore#//DetailedGrammar/curlyBracesEClass"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jsongrammar.ecore#//DetailedGrammar/bracketsEClass"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jsongrammar.ecore#//DetailedGrammar/rootEClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference jsongrammar.ecore#//DetailedGrammar/tuples"/>
     </genClasses>
     <genClasses ecoreClass="jsongrammar.ecore#//JsonGrammar">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsongrammar.ecore#//JsonGrammar/detailedGrammar"/>

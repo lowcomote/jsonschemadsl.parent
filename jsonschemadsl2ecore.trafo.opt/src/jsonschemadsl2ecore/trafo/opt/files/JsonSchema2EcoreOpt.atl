@@ -344,13 +344,21 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 			if(schema.items.oclIsUndefined()) {---the keyword "items" is missing
 --				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey(), schema.isKeySchemaPairInProperties())});
 				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey(), schema.needsKeyword())});
-			}else if(schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){ ---- the keyword "items" is present and is not a tuple
+--			}else if(schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){ ---- the keyword "items" is present and is not a tuple
+			}else { ---- the keyword "items" is present and can be or not a tuple
 				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.items.anyOf});
-			}else{ ---- the keyword "items" is present and is a tuple 
-				
-				-----TODO Implement
-				
 			}
+--			else{ ---- the keyword "items" is present and is a tuple  schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf2
+--				
+--				-----TODO Implement TUPLE
+--				----- TODO put intermediate class
+--				eClass.eStructuralFeatures <- eClass.eStructuralFeatures
+--											-> union(schema.items.anyOf.anyOf2.items->collect(inArraySchema|thisModule.createTupleItemContainment(inArraySchema))->flatten())
+--											---- if the keyword "additionalItems" is missing
+----											-> union(if schema.additionalItems.oclIsUndefined()	then Sequence{thisModule.createContainmentToAdditionalItems(schema.buildEClassname(),true)}
+--											-> union(Sequence{thisModule.createContainmentToAdditionalItems(schema,schema.additionalItems.oclIsUndefined())});
+--												
+--			}
 		}else if(simpleType = #"\"null\""){ ------- "type" is present and "type": "null"
 --			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapNullTypeToEReference(schema.getKey(), schema.isKeySchemaPairInProperties())});
 			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapNullTypeToEReference(schema.getKey(), schema.needsKeyword())});
@@ -444,10 +452,126 @@ lazy rule createDefaultAdditionalPropertiesEClass  {
 	}	
 }
 
+
+------ TODO in progress
+rule mapItemsAnyOf2ToContainment{
+	from itemsAnyOf2:JSchemaMM!ItemsAnyOf2
+	using {
+		eReferenceName : String = itemsAnyOf2.refImmediateComposite().refImmediateComposite().getKey();
+		needsKeyword :Boolean = itemsAnyOf2.refImmediateComposite().refImmediateComposite().needsKeyword();
+	}
+	to 
+		eReference :Ecore!EReference ( 
+--			name <- itemsAnyOf1.refImmediateComposite().refImmediateComposite().getKey(),
+			name <- eReferenceName,
+			eType <- thisModule.createTupleClass(itemsAnyOf2),
+			containment <- true,
+			lowerBound <- 1,
+			upperBound <- 1,
+			eAnnotations <- eReference.eAnnotations -> union (if needsKeyword then Sequence{thisModule.createKeywordAnnotation(eReferenceName)} else Sequence{} endif)
+			
+		)
+	do{
+		if(needsKeyword){
+			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
+		}
+		thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
+	}
+}
+
+------ TODO in progress
+unique lazy rule createTupleClass{
+	from itemsAnyOf2:JSchemaMM!ItemsAnyOf2
+	using {
+		schema: JSchemaMM!Schema = itemsAnyOf2.refImmediateComposite().refImmediateComposite();
+	}
+	to
+		eClass : Ecore!EClass (
+			name <-	schema.buildEClassname()+'Tuple',
+			eStructuralFeatures <- schema.items.anyOf.anyOf2.items->collect(inArraySchema|thisModule.createTupleItemContainment(inArraySchema))->flatten()
+											---- manage "additionalItems" 
+--											-> union(Sequence{thisModule.createContainmentToAdditionalItems(schema,schema.additionalItems.oclIsUndefined())}),
+											-> union(
+													-----  in case of additionalItems:false we add nothing
+													if not schema.additionalItems.oclIsUndefined() and schema.additionalItems.additionalItems.oclIsTypeOf((JSchemaMM!BooleanSchema)) and schema.additionalItems.additionalItems.value =false
+													then Sequence{}
+													else
+														Sequence{thisModule.createContainmentToAdditionalItems(schema,schema.additionalItems.oclIsUndefined())}
+													endif),
+			eAnnotations <- Sequence{thisModule.createTupleAnnotation()}
+		)
+	do{
+--		thisModule.bracketsEClass <- thisModule.bracketsEClass->union(Sequence{eClass});
+		thisModule.tuples<-thisModule.tuples->union(Sequence{eClass});
+		eClass;
+	}	
+}
+
+rule createTupleAnnotation(){
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.TUPLE
+		)
+	do{
+		eAnnotation;
+	}	
+}
+
+
+ rule  createContainmentToAdditionalItems(schema : JSchemaMM!ObjectSchema, isDefault:Boolean  ){
+--	from schemaBuildedClassName:String , isDefault:Boolean 
+	to
+		additionalItems: Ecore!EReference(
+			name <- 'additionalItems',
+			containment <- true,
+			lowerBound <- 0,
+			upperBound <- -1,
+			eType <- if isDefault 
+--					then thisModule.createDefaultAdditionalItemsEClass(schemaBuildedClassName)
+					then thisModule.createDefaultAdditionalItemsEClass(schema.buildEClassname())
+					else schema.additionalItems.additionalItems 
+					endif	
+		)
+	do{
+		additionalItems;
+	}	
+	
+}
+
+lazy rule createDefaultAdditionalItemsEClass  {
+	from schemaBuildedClassName:String 
+	using {
+		eClassName:String = schemaBuildedClassName.concat('AdditionalItems');
+	}
+	to
+		eClass : Ecore!EClass (
+			name <-	eClassName,
+			eStructuralFeatures <- Set{thisModule.createContainmentToJsonDocument('additionalItems',false)}.flatten(),
+			eAnnotations <- Sequence{thisModule.createAdditionalItemsAnnotation()}
+		)
+	do{
+		eClass;
+	}	
+}
+ 
+
+
+
+rule createAdditionalItemsAnnotation(){
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.ADDITIONAL_ITEMS
+		)
+	do{
+		eAnnotation;
+	}	
+}
+
 rule mapItemsAnyOf1ToContainment{
 	from itemsAnyOf1:JSchemaMM!ItemsAnyOf1
 	using {
 		eReferenceName : String = itemsAnyOf1.refImmediateComposite().refImmediateComposite().getKey();
+		needsKeyword :Boolean = itemsAnyOf1.refImmediateComposite().refImmediateComposite().needsKeyword();
 	}
 	to 
 		eReference :Ecore!EReference ( 
@@ -457,13 +581,33 @@ rule mapItemsAnyOf1ToContainment{
 			containment <- true,
 			lowerBound <- 0,
 			upperBound <- -1,
-			eAnnotations <- eReference.eAnnotations -> union (Sequence{thisModule.createKeywordAnnotation(eReferenceName)})
+			eAnnotations <- eReference.eAnnotations -> union (if needsKeyword then Sequence{thisModule.createKeywordAnnotation(eReferenceName)} else Sequence{} endif)
 			
 		)
 	do{
-		thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
+		if(needsKeyword){
+			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference});
+		}
 		thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
 	}
+}
+
+
+
+
+--- schema : schema in the SchemaArray
+rule createTupleItemContainment(schema: JSchemaMM!Schema){
+	to
+		eReference :Ecore!EReference ( 
+			name<-schema.getKey(),
+			eType<-schema,
+			containment <- true,
+			lowerBound <- 0,
+			upperBound <- 1
+		)
+	do{
+		eReference;
+	}	
 }
 
 lazy rule createEClassForMissingItems{
@@ -1088,8 +1232,16 @@ rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 --						derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedReference(objectSchema.getKeyForPropertiesContainment(),keySchemaPair)});
 						derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve(), thisModule.createGetterForDerivedReference(containmentPropertyName, keySchemaPair), 1)});
 					}else if (keySchemaPair.value.hasSimpleTypeArray()){
---						derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReferenceMappingTheKey(objectSchema.getKeyForPropertiesContainment(),keySchemaPair, -1)});
-						derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
+						--if(schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1))
+						if(not keySchemaPair.value.items.oclIsUndefined()){
+							if(keySchemaPair.value.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){
+								derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve()->debug('eclass').getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()->debug('key'))->debug('type').getEType(), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
+							}else{
+								---- TODO create derived feature for Tuple
+								derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
+							}	
+						}	
+--						derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve()->debug('eclass').getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()->debug('key'))->debug('type').getEType(), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
 					}else if(keySchemaPair.value.hasSimpleTypeNull()){
 --						derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReferenceMappingTheKey(objectSchema.getKeyForPropertiesContainment(),keySchemaPair, 1)});
 						derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
@@ -1427,6 +1579,7 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		thisModule.jsonGrammarRoot().detailedGrammar.keyValue <- thisModule.keyValues;		
 		thisModule.jsonGrammarRoot().detailedGrammar.curlyBracesEClass <- thisModule.curlyBracesEClass;
 		thisModule.jsonGrammarRoot().detailedGrammar.bracketsEClass <- thisModule.bracketsEClass;
+		thisModule.jsonGrammarRoot().detailedGrammar.tuples <- thisModule.tuples;
 		
 		------ Related Schemas
 		----- Dependencies

@@ -57,6 +57,7 @@ public class DetailedGrammarItemProvider extends ItemProviderAdapter implements 
 			addCurlyBracesEClassPropertyDescriptor(object);
 			addBracketsEClassPropertyDescriptor(object);
 			addRootEClassPropertyDescriptor(object);
+			addTuplesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -168,6 +169,21 @@ public class DetailedGrammarItemProvider extends ItemProviderAdapter implements 
 								"_UI_DetailedGrammar_type"),
 						JsongrammarPackage.Literals.DETAILED_GRAMMAR__ROOT_ECLASS, true, false, true, null, null,
 						null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Tuples feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTuplesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_DetailedGrammar_tuples_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_DetailedGrammar_tuples_feature",
+								"_UI_DetailedGrammar_type"),
+						JsongrammarPackage.Literals.DETAILED_GRAMMAR__TUPLES, true, false, true, null, null, null));
 	}
 
 	/**
