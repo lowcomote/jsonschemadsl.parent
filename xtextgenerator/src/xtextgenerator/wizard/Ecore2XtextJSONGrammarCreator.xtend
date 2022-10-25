@@ -259,14 +259,8 @@ class Ecore2XtextJSONGrammarCreator {
 							«FOR ref: it.allCrossReferences»
 								«ref.assigment»
 							«ENDFOR»
-«««							we treat here the case of Tuple this.detailedJsonGrammar
 							«IF this.detailedJsonGrammar.tuples.contains(it)»
-«««								«assignmentKeywordJSON(it)»«IF it instanceof EReference»«it.openParenthesis»«ENDIF»«IF(!required)»(«ENDIF»«IF many»«IF containment»«ELSE»'(' «ENDIF»«ENDIF»«name.quoteIfNeccesary»«assignmentOperator»«assignedTerminal»«IF many» ( "," «name.quoteIfNeccesary»«assignmentOperator»«assignedTerminal»)* «IF containment»«ELSE»')' «ENDIF»«ENDIF»«IF (!required)»)?«ENDIF»«IF it instanceof EReference»«it.closeParenthesis»«ENDIF»
-«««								Tuples have at least one elemenent by Json Schema Specification
-«««								«val firstItem = it.allContainmentReferences.get(0)»
-«««																
-«««								( «IF firstItem.many»«firstItem.name.quoteIfNeccesary»«firstItem.assignmentOperator»«firstItem.assignedTerminal»
-«««								)?
+«««							we treat here the case of Tuple this.detailedJsonGrammar
 								«writeTupleItem(it.allContainmentReferences.toList,0)»								
 							«ELSE»
 								«FOR conti: it.allContainmentReferences»
