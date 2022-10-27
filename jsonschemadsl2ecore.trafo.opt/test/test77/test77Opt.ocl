@@ -1,0 +1,41 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test77
+import 'http://jku.bise.at/test77'
+
+package test77
+
+	context test77::Test77RootProp1 
+
+	inv Test77RootProp1BooleanSchemaFalse ('Invalid value because the boolean schema is false'):
+	null
+
+	context test77::Test77RootPatternProperties0 
+
+	inv Test77RootPatternProperties0ValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test77::Test77RootPatternProperties0 
+
+	inv Test77RootPatternProperties0ValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test77::Test77RootPatternProperties0 
+
+	inv Test77RootPatternProperties0BooleanSchemaFalse ('Invalid value because the boolean schema is false'):
+	null
+
+	context test77::Test77RootPatternProperties0 
+
+	inv Test77RootPatternProperties0patternProperties0Regex ('the key must match the regular expression ^z_'):
+	if  self.find()
+	then true
+	else null
+	endif
+
+endpackage
+

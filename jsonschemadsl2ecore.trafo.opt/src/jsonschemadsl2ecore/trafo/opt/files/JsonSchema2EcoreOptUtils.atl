@@ -606,97 +606,134 @@ helper context JSchemaMM!ObjectSchema def: hasSimpleType(): Boolean=
 	endif;
 
 ----"type" is present and ( "type": "integer" or "type": "number" or "type": "boolean" or "type": "string")
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeScalar(): Boolean=
-	if not self.type.oclIsUndefined()
-	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"string\"" or self.type.anyOf.type = #"\"integer\"" or self.type.anyOf.type = #"\"number\"" or self.type.anyOf.type= #"\"boolean\""
+--helper context JSchemaMM!ObjectSchema def: hasSimpleTypeScalar(): Boolean=
+helper context JSchemaMM!Schema def: hasSimpleTypeScalar(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #"\"string\"" or self.type.anyOf.type = #"\"integer\"" or self.type.anyOf.type = #"\"number\"" or self.type.anyOf.type= #"\"boolean\""
+			else false
+			endif
 		else false
 		endif
-	else false
 	endif;
 
 ----"type" is present and  "type": "object"  
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeObject(): Boolean=
-	if not self.type.oclIsUndefined()
-	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"object\"" 
+--helper context JSchemaMM!ObjectSchema def: hasSimpleTypeObject(): Boolean=
+helper context JSchemaMM!Schema def: hasSimpleTypeObject(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #"\"object\"" 
+			else false
+			endif
 		else false
 		endif
-	else false
 	endif;
 
 ----"type" is present and  "type": "array"  
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeArray(): Boolean=
-	if not self.type.oclIsUndefined()
-	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"array\"" 
+--helper context JSchemaMM!ObjectSchema def: hasSimpleTypeArray(): Boolean=
+helper context JSchemaMM!Schema def: hasSimpleTypeArray(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #"\"array\"" 
+			else false
+			endif
 		else false
 		endif
-	else false
 	endif;
 
 
 ----"type" is present and  "type": "null"  
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeNull(): Boolean=
-	if not self.type.oclIsUndefined()
-	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"null\"" 
+--helper context JSchemaMM!ObjectSchema def: hasSimpleTypeNull(): Boolean=
+helper context JSchemaMM!Schema def: hasSimpleTypeNull(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #"\"null\"" 
+			else false
+			endif
 		else false
 		endif
-	else false
 	endif;
 
 ----"type" is present and  is and array of types : "type":[...]
-helper context JSchemaMM!ObjectSchema def: hasArrayOfTypes: Boolean=
-	if not self.type.oclIsUndefined()
-	then self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf2) 
-	else false
+--helper context JSchemaMM!ObjectSchema def: hasArrayOfTypes: Boolean=
+helper context JSchemaMM!Schema def: hasArrayOfTypes: Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf2) 
+		else false
+		endif
 	endif;
 
 helper def: isScalar(simpleType:String) : Boolean =
 	simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\"";
 
 ---- missing type or "type":"integer" or "type":[...,"integer",...]
-helper context JSchemaMM!ObjectSchema def: hasTypeInteger(): Boolean=
-	if self.type.oclIsUndefined() ---- it has all types
-	then true
-	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"integer\""
-		else self.type.anyOf.items.includes(#"\"integer\"")
+--helper context JSchemaMM!ObjectSchema def: hasTypeInteger(): Boolean=
+helper context JSchemaMM!Schema def: hasTypeInteger(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if self.type.oclIsUndefined() ---- it has all types
+		then true
+		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #"\"integer\""
+			else self.type.anyOf.items.includes(#"\"integer\"")
+			endif
 		endif
 	endif;
 
 ---- missing type or "type":"number" or "type":[...,"number",...]
-helper context JSchemaMM!ObjectSchema def: hasTypeNumber(): Boolean=
-	if self.type.oclIsUndefined() ---- it has all types
-	then true
-	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"number\""
-		else self.type.anyOf.items.includes(#"\"number\"")
+--helper context JSchemaMM!ObjectSchema def: hasTypeNumber(): Boolean=
+helper context JSchemaMM!Schema def: hasTypeNumber(): Boolean=
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if self.type.oclIsUndefined() ---- it has all types
+		then true
+		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #"\"number\""
+			else self.type.anyOf.items.includes(#"\"number\"")
+			endif
 		endif
 	endif;
 
-helper context JSchemaMM!ObjectSchema def: hasTypeNumeric(): Boolean=
+--helper context JSchemaMM!ObjectSchema def: hasTypeNumeric(): Boolean=
+helper context JSchemaMM!Schema def: hasTypeNumeric(): Boolean=	
 	self.hasTypeInteger() or  self.hasTypeNumber();
 
 
 ---- missing type or "type":"string" or "type":[...,"string",...]
-helper context JSchemaMM!ObjectSchema def: hasTypeString(): Boolean=
-	if self.type.oclIsUndefined() ---- it has all types
-	then true
-	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"string\""
-		else self.type.anyOf.items.includes(#"\"string\"")
+--helper context JSchemaMM!ObjectSchema def: hasTypeString(): Boolean=
+helper context JSchemaMM!Schema def: hasTypeString(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if self.type.oclIsUndefined() ---- it has all types
+		then true
+		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #"\"string\""
+			else self.type.anyOf.items.includes(#"\"string\"")
+			endif
 		endif
 	endif;
 
 ---- missing type or "type":"object" or "type":[...,"object",...]
-helper context JSchemaMM!ObjectSchema def: hasTypeObject(): Boolean=
-	if self.type.oclIsUndefined() ---- it has all types
-	then true
-	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"object\""
-		else self.type.anyOf.items.includes(#"\"object\"")
+--helper context JSchemaMM!ObjectSchema def: hasTypeObject(): Boolean=
+helper context JSchemaMM!Schema def: hasTypeObject(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if self.type.oclIsUndefined() ---- it has all types
+		then true
+		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #"\"object\""
+			else self.type.anyOf.items.includes(#"\"object\"")
+			endif
 		endif
 	endif;
 ------------
@@ -802,6 +839,11 @@ helper def: createBodyForGetKey(objectSchema:JSchemaMM!ObjectSchema, propertyNam
 	then
 		properties->iterate(property; body: String = '' | 
 			body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+--			if objectSchema.resolve().eOperations->select(operation | operation.name='get'+property.stripFirstAndLast().toCamelCase())->size()>0
+--			then
+--				body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+--			else  body.concat('')
+--			endif
 		).concat('java.util.List<java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList<java.lang.Class>();\n\n' )
 		
 		
@@ -828,6 +870,11 @@ helper def: createBodyForGetKey(objectSchema:JSchemaMM!ObjectSchema, propertyNam
 	else 
 		properties->iterate(property; body: String = '' | 
 			body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+--			if objectSchema.resolve().eOperations->select(operation | operation.name='get'+property.stripFirstAndLast().toCamelCase())->size()>0
+--			then
+--				body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+--			else  body.concat('')
+--			endif	
 		).concat('java.util.List<java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList<java.lang.Class>();\n\n' )
 		
 		
@@ -940,6 +987,8 @@ helper def : appendValidatorOnPatternProperties(packageName: String, contextClas
 helper def : appendDependenciesArrayOcl(packageName: String, contextClass: String, inv:String, property: String, values : Sequence(String)) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendDependenciesArray',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, property, values});
 
+helper def : appendValidatorBooleanSchemaFalse(packageName: String, contextClass: String, inv:String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendValidatorBooleanSchemaFalse',Sequence{thisModule.oclFileUri, packageName, contextClass, inv});
 
 
 helper  def : endPackage() : OclAny=
