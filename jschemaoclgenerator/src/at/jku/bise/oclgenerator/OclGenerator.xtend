@@ -281,14 +281,14 @@ class OclGenerator {
 			endif
 	'''
 
-	def static appendValidatorBooleanSchemaFalse(URI fileName, String packageName, String contextClass, String inv) {
-		OclWriter.append(fileName,generateValidatorBooleanSchemaFalse( packageName,  contextClass,  inv))
+	def static appendValidatorBooleanSchemaFalse(URI fileName, String packageName, String contextClass) {
+		OclWriter.append(fileName,generateValidatorBooleanSchemaFalse( packageName,  contextClass))
 	}
 
-	def static generateValidatorBooleanSchemaFalse(String packageName, String contextClass, String inv)'''
+	def static generateValidatorBooleanSchemaFalse(String packageName, String contextClass)'''
 			context «packageName»::«contextClass» 
 		
-			inv «inv» ('Invalid value because the boolean schema is false'):
+			inv «contextClass»BooleanSchemaFalse ('Invalid value because the boolean schema is false'):
 			null
 	'''
 

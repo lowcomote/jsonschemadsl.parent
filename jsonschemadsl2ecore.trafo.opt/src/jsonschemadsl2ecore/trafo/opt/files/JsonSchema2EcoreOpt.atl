@@ -303,7 +303,7 @@ rule mapBooleanSchemaFalseToEClass extends mapSchemaToEClass {
 		eClass : Ecore!EClass
 	do{
 		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword())});
-		thisModule.appendValidatorBooleanSchemaFalse(thisModule.packageName, schema.buildEClassname(), schema.buildEClassname()+'BooleanSchemaFalse');
+--		thisModule.appendValidatorBooleanSchemaFalse(thisModule.packageName, schema.buildEClassname(), schema.buildEClassname()+'BooleanSchemaFalse');
 	}	
 }
 
@@ -1844,6 +1844,24 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 --			}
 		}
 		
+		for(booleanSchema in JSchemaMM!BooleanSchema.allInstancesFrom('jschema')){
+			if(booleanSchema.value=false 
+					and not booleanSchema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)
+					and not booleanSchema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition)){
+				thisModule.appendValidatorBooleanSchemaFalse(thisModule.packageName, booleanSchema.resolve().name);
+			}
+		}
+--		rule mapBooleanSchemaFalseToEClass extends mapSchemaToEClass {
+--	from schema: JSchemaMM!BooleanSchema( schema.value=false 
+--										and not schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)
+--										and not schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition))
+--	to 
+--		eClass : Ecore!EClass
+--	do{
+--		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword())});
+--		thisModule.appendValidatorBooleanSchemaFalse(thisModule.packageName, schema.buildEClassname(), schema.buildEClassname()+'BooleanSchemaFalse');
+--	}	
+--}
 		
 		------------------ Derived Attributes and operation get (String key)
 		for(objectSchema in JSchemaMM!ObjectSchema.allInstancesFrom('jschema')){

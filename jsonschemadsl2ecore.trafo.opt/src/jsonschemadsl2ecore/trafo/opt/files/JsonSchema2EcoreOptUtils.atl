@@ -993,8 +993,8 @@ helper def : appendValidatorOnPatternProperties(packageName: String, contextClas
 helper def : appendDependenciesArrayOcl(packageName: String, contextClass: String, inv:String, property: String, values : Sequence(String)) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendDependenciesArray',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, property, values});
 
-helper def : appendValidatorBooleanSchemaFalse(packageName: String, contextClass: String, inv:String ) : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendValidatorBooleanSchemaFalse',Sequence{thisModule.oclFileUri, packageName, contextClass, inv});
+helper def : appendValidatorBooleanSchemaFalse(packageName: String, contextClass: String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendValidatorBooleanSchemaFalse',Sequence{thisModule.oclFileUri, packageName, contextClass});
 
 
 helper  def : endPackage() : OclAny=
