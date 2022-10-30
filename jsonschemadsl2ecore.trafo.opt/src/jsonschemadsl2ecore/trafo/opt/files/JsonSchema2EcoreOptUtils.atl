@@ -825,9 +825,15 @@ helper def:	createGetterForDerivedReferenceList(propertyName:String, keySchemaPa
 	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().toCamelCase()+'()).orElse(new org.eclipse.emf.common.util.BasicEList<>());'
 ;	
 	
+	
+
+helper context Ecore!EClass def:getSimpleTypeSubClassFromRoot(simpleType:JSchemaMM!SimpleTypes): Ecore!EClass =
+	self.eReferences.get(0).getEType().subClass(simpleType)
+;
+	
 helper context Ecore!EClass def:subClass(simpleType:JSchemaMM!SimpleTypes): Ecore!EClass =
 	let subclasses : Sequence(Ecore!EClass) =
-		self.ePackage.eClassifiers->select(eClass| eClass.oclIsTypeOf(Ecore!EClass))->select(eClass | eClass.eAllSuperTypes.includes(self))->select(eClass|eClass.getEAnnotation(thisModule.ARRAY_OF_TYPES).details->exists(entrySet | entrySet.key = thisModule.ARRAY_OF_TYPES and entrySet.value = thisModule.stripSimpleType(simpleType)))
+		self->debug().ePackage.eClassifiers->select(eClass| eClass.oclIsTypeOf(Ecore!EClass))->select(eClass | eClass.eAllSuperTypes.includes(self))->select(eClass|eClass.getEAnnotation(thisModule.ARRAY_OF_TYPES).details->exists(entrySet | entrySet.key = thisModule.ARRAY_OF_TYPES and entrySet.value = thisModule.stripSimpleType(simpleType)))
 	in
 		if subclasses.isEmpty() then OclUndefined
 		else subclasses.first()
@@ -915,6 +921,9 @@ helper context JSchemaMM!ObjectSchema def:getEStructuralFeatureType(name:String)
 	self.resolve().getEStructuralFeature(name.encodeJavaIdentifier()).getEType();
 
 
+--helper context Ecore!EClass def getArrayOfTypesConcreteClass(simpleType:JSchemaMM!SimpleTypes):Ecore!EClass=
+--	self.
+
 
 
 
@@ -950,8 +959,8 @@ helper def : appendMaxLengthConstraint(packageName: String, contextClass: String
 helper def : appendPatternConstraint(packageName: String, contextClass: String, inv:String, regex: String) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendPatternConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, regex});
 
-helper def : appendMaxProperties0Constraint(packageName: String, contextClass: String, inv:String,  propertyName : String ) : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxProperties0Constraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, propertyName});
+helper def : appendMaxProperties0Constraint(packageName: String, contextClass: String,   propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxProperties0Constraint',Sequence{thisModule.oclFileUri, packageName, contextClass, propertyName});
 
 
 

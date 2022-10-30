@@ -384,9 +384,10 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 		}else if(simpleType = #"\"object\"" ){
 --			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword(), schema.getKey(), schema.minProperties->debug('minProperties'), schema.maxProperties->debug('maxProperties'))->debug('createPropertiesContainment')});
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword(), schema.getKey(), schema.propertiesLowerBound(), schema.propertiesUpperBound())});
-			if(not schema.maxProperties.oclIsUndefined() and schema.maxProperties.maxProperties.value.floor() = 0 ){
-				thisModule.appendMaxProperties0Constraint(thisModule.packageName, eClassName, eClassName+'MaxProperties0', schema.getKeyForPropertiesContainment());
-			}
+			----- Moved in endpoint	
+--			if(not schema.maxProperties.oclIsUndefined() and schema.maxProperties.maxProperties.value.floor() = 0 ){
+--				thisModule.appendMaxProperties0Constraint(thisModule.packageName, eClassName, eClassName+'MaxProperties0', schema.getKeyForPropertiesContainment());
+--			}
 			if(schema.additionalProperties.oclIsUndefined()){ ------ the keyword "additionalProperties" is missing
 				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname(), schema.findPropertiesKeys(),  schema.findPatternPropertiesKeys());
 			}
@@ -1157,6 +1158,27 @@ lazy rule maxLengthConstraintToOcl {
 	}	
 }
 
+
+lazy rule maxProperties0ToOcl{
+	from maxPropertiesSchemaDefinition: JSchemaMM!MaxPropertiesSchemaDefinition(maxPropertiesSchemaDefinition.refImmediateComposite().hasTypeObject()
+																				and maxPropertiesSchemaDefinition.maxProperties.value.floor() = 0 		)
+	using {
+		enclosingSchema : JSchemaMM!ObjectSchema = maxPropertiesSchemaDefinition.refImmediateComposite();
+	}
+	do{
+		
+		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is object because of hasTypeObject()
+			thisModule.appendMaxProperties0Constraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.getKeyForPropertiesContainment());
+		}else{ ---- we are sure it contains object because of hasTypeObject()
+			thisModule.appendMaxProperties0Constraint(thisModule.packageName, enclosingSchema.resolve().getSimpleTypeSubClassFromRoot(#"\"object\"").name,  enclosingSchema.getKeyForPropertiesContainment());
+		}
+		
+		
+	}
+}
+
+
+
 lazy rule patternConstraintToOcl {
 	from patternSchemaDefinition : JSchemaMM!PatternSchemaDefinition(patternSchemaDefinition.refImmediateComposite().hasTypeString())
 	using {
@@ -1733,6 +1755,13 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		for (m in JSchemaMM!MaxLengthSchemaDefinition.allInstancesFrom('jschema')){
 			thisModule.maxLengthConstraintToOcl(m);
 		}
+		
+		for (m in JSchemaMM!MaxPropertiesSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.maxProperties0ToOcl(m);
+		}
+		
+		
+		
 		
 		for (m in JSchemaMM!PatternSchemaDefinition.allInstancesFrom('jschema')){
 			thisModule.patternConstraintToOcl(m);
