@@ -67,6 +67,7 @@ abstract rule mapSchemaToEClass{
 		if(schema.isKeySchemaPairInProperties() or schema.isKeySchemaPairInPatternProperties() ){
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName())};
 			if(schema.isKeySchemaPairInPatternProperties()){
+--				eClass.eAnnotations <- Sequence{thisModule.createPatternPropertiesAnnotation(schema.refImmediateComposite().key)} ->union (	if schema.hasSimpleType() then Sequence{thisModule.createTypeAnnotation(schema.type.anyOf.type)} else Sequence{} endif);
 				eClass.eAnnotations <- Sequence{thisModule.createPatternPropertiesAnnotation(schema.refImmediateComposite().key)};
 				eClass.eOperations <- Sequence{thisModule.createPatternPropertiesMatcher(schema.refImmediateComposite().key), 
 												thisModule.createKeyPatternPropertiesMatcher(schema.refImmediateComposite().key),
@@ -75,10 +76,13 @@ abstract rule mapSchemaToEClass{
 										};
 --				thisModule.appendValidatorOnProperties(thisModule.packageName, eClassName, eClassName);
 --				thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClassName, eClassName);
-			}	
+			}
+--			else{ ---schema.isKeySchemaPairInProperties()
+--				eClass.eAnnotations <-	if schema.hasSimpleType() then Sequence{thisModule.createTypeAnnotation(schema.type.anyOf.type)} else Sequence{} endif;
+--			}	
 		}else if(schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)){ ----- schema is in AdditionalProperties
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName() )};
-			eClass.eAnnotations <- Sequence{thisModule.createAdditionalPropertiesAnnotation()};
+			eClass.eAnnotations <- Sequence{thisModule.createAdditionalPropertiesAnnotation()};----  ->union (	if schema.hasSimpleType() then Sequence{thisModule.createTypeAnnotation(schema.type.anyOf.type)} else Sequence{} endif);
 			eClass.eOperations <- Sequence{thisModule.createValidatorOnPatternProperties(schema.refImmediateComposite().refImmediateComposite().findPatternPropertiesKeys()),
 											thisModule.createValidatorOnProperties(schema.refImmediateComposite().refImmediateComposite().findPropertiesKeys())};
 			
@@ -86,6 +90,9 @@ abstract rule mapSchemaToEClass{
 --			thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClassName, eClassName);								
 			
 		}
+--		else{
+--			eClass.eAnnotations <-	if schema.hasSimpleType() then Sequence{thisModule.createTypeAnnotation(schema.type.anyOf.type)} else Sequence{} endif;
+--		}
 		if(schema.isRoot()){
 			thisModule.jsonGrammarRoot().detailedGrammar.rootEClass <- schema;
 		}	
@@ -352,6 +359,7 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 		}else if (schema.type.oclIsUndefined()){  ---- "type" is missing
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentForArrayOfTypes(schema, eClass, Sequence{#"\"string\"", #"\"integer\"", #"\"number\"", #"\"boolean\"", #"\"object\"", #"\"array\"", #"\"null\""} )});
 		}else if(schema.hasSimpleType()){
+--			eClass.eAnnotations <- eClass.eAnnotations-> union(Sequence{thisModule.createTypeAnnotation(schema.type.anyOf.type)});
 			thisModule.mapSimpleTypeToEStructuralFeatures(schema, eClass , schema.type.anyOf.type, eClass.name); 
 		}else if(schema.hasArrayOfTypes){ ----"type" is present and  is and array of "types" : "type":[...]
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentForArrayOfTypes(schema, eClass, schema.type.anyOf.items )});
@@ -371,9 +379,10 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 		if (simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\""){ 
 			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(simpleType), schema.needsKeyword())});
 			---- manage the case simpleType is Integer to add OCL validation as scalarTypeMapping returns Duoble as 1.0 is a valid integer for JSON Schema
-			if(simpleType = #"\"integer\""){
-				thisModule.appendIntegerConstraint(thisModule.packageName, eClassName, eClassName+'IsInteger',  schema.getKey().toString());
-			}
+			---- moved to endpoint
+--			if(simpleType = #"\"integer\""){
+--				thisModule.appendIntegerConstraint(thisModule.packageName, eClassName, eClassName+'IsInteger',  schema.getKey().toString());
+--			}
 
  			---- manage the case symple type is numeric (i.e., integer or number) for adding  multipleOfValidation eOperation 
 --			if ((simpleType = #"\"integer\"" or simpleType = #"\"number\"")and not schema.multipleOf.oclIsUndefined()){
@@ -723,6 +732,22 @@ rule createArrayOfTypesAnnotation(simpleType:JSchemaMM!SimpleTypes){
 --			key <- 'ArrayOfTypes',
 			key <- thisModule.ARRAY_OF_TYPES,
 --			value <- simpleType.toString().substring(2, simpleType.toString().size()).stripFirstAndLast()
+			value <- thisModule.stripSimpleType(simpleType)
+		)
+	do{
+		eAnnotation;
+	}	
+}
+
+
+rule createTypeAnnotation(simpleType:JSchemaMM!SimpleTypes){
+	to
+		eAnnotation: Ecore!EAnnotation(
+			source <- thisModule.TYPE,
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- thisModule.TYPE,
 			value <- thisModule.stripSimpleType(simpleType)
 		)
 	do{
@@ -1177,6 +1202,21 @@ lazy rule maxProperties0ToOcl{
 	}
 }
 
+rule integerToOcl(eClass:Ecore!EClass){
+	do{
+		if(not eClass.getEAnnotation(thisModule.TYPE).oclIsUndefined()){
+			if(eClass.getEAnnotation(thisModule.TYPE).details -> exists(entrySet | entrySet.key = thisModule.TYPE and entrySet.value = 'integer' )){
+--				thisModule.appendIntegerConstraint(thisModule.packageName, eClass.name, eClass.name+'IsInteger',  propertyName);
+				thisModule.appendIntegerConstraint(thisModule.packageName, eClass.name, eClass.name+'IsInteger',  eClass.eAttributes->select(eAttribute | eAttribute.getEType().name='EDoubleObject')->first().name);
+			}
+		}else if(not eClass.getEAnnotation(thisModule.ARRAY_OF_TYPES).oclIsUndefined()){
+			if(eClass.getEAnnotation(thisModule.ARRAY_OF_TYPES).details -> exists(entrySet | entrySet.key = thisModule.ARRAY_OF_TYPES and entrySet.value = 'integer' )){
+--				thisModule.appendIntegerConstraint(thisModule.packageName, eClass.name, eClass.name+'IsInteger',  propertyName);
+				thisModule.appendIntegerConstraint(thisModule.packageName, eClass.name, eClass.name+'IsInteger',  eClass.eAttributes->select(eAttribute | eAttribute.getEType().name='EDoubleObject')->first().name);
+			}
+		}
+	}
+}
 
 
 lazy rule patternConstraintToOcl {
@@ -1668,6 +1708,13 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		
 		thisModule.relatedSchemasRoot().enclosingschemas<-thisModule.enclosingSchemas;
 		
+		--------  Add Type annotations
+		for (schema in JSchemaMM!ObjectSchema.allInstancesFrom('jschema')){
+			if (schema.hasSimpleType()) {
+				schema.resolve().eAnnotations <- schema.resolve().eAnnotations ->union( Sequence{thisModule.createTypeAnnotation(schema.type.anyOf.type)});
+			}	
+		}
+		
 		-----------  Encode EClass names
 		
 		for (eClass in thisModule.allEClass()){
@@ -1788,6 +1835,14 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 			}
 		}
 		
+		for (eClass in thisModule.allEClass()){
+			thisModule.integerToOcl(eClass);
+--			if(not schema.resolve().getEAnnotation(thisModule.TYPE).oclIsUndefined()){
+--				if(schema.resolve().getEAnnotation(thisModule.TYPE).details -> exists(entrySet | entrySet.key = thisModule.TYPE and entrySet.value = 'integer' )){
+--					thisModule.appendIntegerConstraint(thisModule.packageName, schema.resolve().name, schema.resolve().name+'IsInteger',  schema.getKey().toString());
+--				}
+--			}
+		}
 		
 		
 		------------------ Derived Attributes and operation get (String key)

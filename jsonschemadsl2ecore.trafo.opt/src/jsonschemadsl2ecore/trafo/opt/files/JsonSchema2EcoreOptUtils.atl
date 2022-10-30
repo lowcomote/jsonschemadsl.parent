@@ -8,6 +8,7 @@ helper def: INTEGER_VALIDATION_METHOD: String = 'validateIsInteger';
 --helper def: PROPERTY_NAME: String = 'PropertyName';
 
 helper def: ARRAY_OF_TYPES: String = 'ArrayOfTypes';
+helper def: TYPE: String = 'Type';
 helper def: ADDITIONAL_PROPERTIES: String =  'AdditionalProperties';
 helper def: PATTERN_PROPERTIES: String ='PatternProperties';
 helper def: KEYWORD: String ='Keyword';
@@ -602,10 +603,14 @@ helper context JSchemaMM!TypeSchemaDefinition def: findSimpleType() :String=
 
 
 ----"type" is present and it is a simple type (not an array of types)
-helper context JSchemaMM!ObjectSchema def: hasSimpleType(): Boolean=
-	if not self.type.oclIsUndefined()
-	then  self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-	else false
+--helper context JSchemaMM!ObjectSchema def: hasSimpleType(): Boolean=
+helper context JSchemaMM!Schema def: hasSimpleType(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then  self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		else false
+		endif
 	endif;
 
 ----"type" is present and ( "type": "integer" or "type": "number" or "type": "boolean" or "type": "string")
@@ -833,7 +838,7 @@ helper context Ecore!EClass def:getSimpleTypeSubClassFromRoot(simpleType:JSchema
 	
 helper context Ecore!EClass def:subClass(simpleType:JSchemaMM!SimpleTypes): Ecore!EClass =
 	let subclasses : Sequence(Ecore!EClass) =
-		self->debug().ePackage.eClassifiers->select(eClass| eClass.oclIsTypeOf(Ecore!EClass))->select(eClass | eClass.eAllSuperTypes.includes(self))->select(eClass|eClass.getEAnnotation(thisModule.ARRAY_OF_TYPES).details->exists(entrySet | entrySet.key = thisModule.ARRAY_OF_TYPES and entrySet.value = thisModule.stripSimpleType(simpleType)))
+		self.ePackage.eClassifiers->select(eClass| eClass.oclIsTypeOf(Ecore!EClass))->select(eClass | eClass.eAllSuperTypes.includes(self))->select(eClass|eClass.getEAnnotation(thisModule.ARRAY_OF_TYPES).details->exists(entrySet | entrySet.key = thisModule.ARRAY_OF_TYPES and entrySet.value = thisModule.stripSimpleType(simpleType)))
 	in
 		if subclasses.isEmpty() then OclUndefined
 		else subclasses.first()
