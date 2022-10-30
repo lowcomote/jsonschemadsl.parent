@@ -1,0 +1,12 @@
+{
+	"name":"John",
+	"surname": "Smith",
+	"childrenNames":["Al","MArk"],
+	"grandParents": [
+		["nonno", "nonna"]
+	],
+	"extraName":"alessandro",
+	"extraObject":{
+		"age":49
+	}
+}

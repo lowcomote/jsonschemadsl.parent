@@ -1,0 +1,17 @@
+{
+	"name":"John",
+	"surname": "Smith",
+	"childrenNames":["Al","MArk"],
+	"grandParents": [
+		{"name":"Jim", "surname":"Smith"},
+		{"name":"nonnaMaria"},
+		{
+			"granpaAge":90,
+			"NonnaTown":{"country":"Italy"}
+		}
+	],
+	"extraName":"alessandro",
+	"extraObject":{
+		"age":49
+	}
+}

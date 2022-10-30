@@ -240,9 +240,12 @@ helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
 	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition);
 
 
+
 helper context JSchemaMM!ObjectSchema  def : getKeyForPropertiesContainment(): String=
---	self.getKey() ----- TODO manage here the check if there are not keys in self.properties.keySchemaPairs == sef.getKey   use findPropertiesKeys
---	'propertiesTemp'
+	self.getKeyForPropertiesContainmentUnEncoded().encodeJavaIdentifier()
+;	
+
+helper context JSchemaMM!ObjectSchema  def : getKeyForPropertiesContainmentUnEncoded(): String=
 	if not self.properties.oclIsUndefined() then
 		if not self.properties.keySchemaPairs.containsKey(self.getKey()) then self.getKey()
 		else thisModule.buildPropertiesContainmentName(self.properties.keySchemaPairs, self.getKey(), 1)
@@ -834,7 +837,6 @@ helper context Ecore!EClass def:subClass(simpleType:JSchemaMM!SimpleTypes): Ecor
 
 --helper def: createBodyForGetKey(propertyName:String,  properties:Sequence(String) , propertiesAbstractEClass : Ecore!EClass) :String =
 helper def: createBodyForGetKey(objectSchema:JSchemaMM!ObjectSchema, propertyName:String,  properties:Sequence(String) , propertiesAbstractEClass : Ecore!EClass) :String =
-	
 	if objectSchema.maxProperties.oclIsUndefined() or objectSchema.maxProperties.maxProperties.value.floor()<>1
 	then
 		properties->iterate(property; body: String = '' | 
@@ -909,21 +911,11 @@ helper context JSchemaMM!ObjectSchema def:propertiesUpperBound(): Integer =
 if not self.maxProperties.oclIsUndefined() and self.maxProperties.maxProperties.value.floor()>0 then self.maxProperties.maxProperties.value.floor() else -1 endif ; 
 
 
+helper context JSchemaMM!ObjectSchema def:getEStructuralFeatureType(name:String): Ecore!EClassifier =
+	self.resolve().getEStructuralFeature(name.encodeJavaIdentifier()).getEType();
 
 
---helper context JSchemaMM!ExamplesSchemaDefinition def: createEntrySetForExampleAnnotation():Sequence(Ecore!EStringToStringMapEntry)=
---	
---	self.examples.iterate(jsonDocument; result: Sequence(Ecore!EStringToStringMapEntry)=Sequence{} |
---		result.append(('example_'.concat(self.examples.indexOf(jsonDocument).toString()), jsonDocument.toString()))
---			
-----		let entrySet :Ecore!EStringToStringMapEntry = {'example_'.concat(self.examples.indexOf(jsonDocument).toString()), jsonDocument.toString()}
-----		in 
---	);
---	let result : Sequence(Ecore!EStringToStringMapEntry)=Sequence{}
---	in self.examples.iterate(entrySet; var_name: var_type = init_exp |
---	body
---)
-	
+
 
 
 ---------- OCL helpers
@@ -993,4 +985,12 @@ helper def : appendValidatorBooleanSchemaFalse(packageName: String, contextClass
 
 helper  def : endPackage() : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('endPackage',Sequence{thisModule.oclFileUri});
+
+
+---- https://stackoverflow.com/questions/7440801/how-to-convert-arbitrary-string-to-java-identifier
+helper  context String def : encodeJavaIdentifier() : String=
+	"#native"!"jku::se::atl::transformation::utils::Utils".refInvokeStaticOperation('getIdentifier',Sequence{self});
 	
+
+
+

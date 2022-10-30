@@ -1,0 +1,9 @@
+{
+	"myFamily":{
+		"prop1":{
+			"membername":"Tom",
+			"relativekind": "Uncle",
+			"other":"other"
+		}
+	}
+}

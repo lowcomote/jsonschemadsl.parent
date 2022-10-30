@@ -73,9 +73,8 @@ abstract rule mapSchemaToEClass{
 												thisModule.createValidatorOnPatternProperties(schema.refImmediateComposite().refImmediateComposite().findPatternPropertiesKeysOtherThen(schema.refImmediateComposite().key)),
 												thisModule.createValidatorOnProperties(schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().findPropertiesKeys())
 										};
-				thisModule.appendValidatorOnProperties(thisModule.packageName, eClassName, eClassName);
-				thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClassName, eClassName);
---				eClass.eOperations <- Sequence{thisModule.createPatternPropertiesMatcher(schema.refImmediateComposite().key)};
+--				thisModule.appendValidatorOnProperties(thisModule.packageName, eClassName, eClassName);
+--				thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClassName, eClassName);
 			}	
 		}else if(schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)){ ----- schema is in AdditionalProperties
 			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName() )};
@@ -83,8 +82,8 @@ abstract rule mapSchemaToEClass{
 			eClass.eOperations <- Sequence{thisModule.createValidatorOnPatternProperties(schema.refImmediateComposite().refImmediateComposite().findPatternPropertiesKeys()),
 											thisModule.createValidatorOnProperties(schema.refImmediateComposite().refImmediateComposite().findPropertiesKeys())};
 			
-			thisModule.appendValidatorOnProperties(thisModule.packageName, eClassName, eClassName);
-			thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClassName, eClassName);								
+--			thisModule.appendValidatorOnProperties(thisModule.packageName, eClassName, eClassName);
+--			thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClassName, eClassName);								
 			
 		}
 		if(schema.isRoot()){
@@ -486,8 +485,8 @@ lazy rule createDefaultAdditionalPropertiesEClass  {
 			eOperations <- Sequence{thisModule.createValidatorOnPatternProperties(patterns),thisModule.createValidatorOnProperties(properties)}
 		)
 	do{
-		thisModule.appendValidatorOnProperties(thisModule.packageName, eClassName, eClassName);
-		thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClassName, eClassName);
+--		thisModule.appendValidatorOnProperties(thisModule.packageName, eClassName, eClassName);
+--		thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClassName, eClassName);
 		eClass;
 	}	
 }
@@ -795,8 +794,7 @@ rule mapRefSchemaToEReference{
 		)
 	do {
 		if (isJsonPointerSchemaTypeArray){ 
-			thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
---		}if(refSchemaDefinition.refImmediateComposite().isKeySchemaPairInProperties()) { 
+--			thisModule.bracketsEReferences <- thisModule.bracketsEReferences->union(Sequence{eReference});
 		}if(refSchemaDefinition.refImmediateComposite().needsKeyword()) { 
 			thisModule.keywords <- thisModule.keywords->union(Sequence{eReference}) ;
 		}
@@ -926,7 +924,7 @@ unique lazy rule mapDependency{
 	to 
 		dependency:RelatedSchemasMM!Dependency(
 			dependency <- dependenciesAdditionalPropertiesAnyOf1.anyOf1,
-			property <- dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().key.stripFirstAndLast() 
+			property <- dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().key.stripFirstAndLast().encodeJavaIdentifier()
 		) 
 	do	{
 --		thisModule.createDependencies(enclosingEClass).dependencies->includes(dependency);
@@ -1171,7 +1169,8 @@ lazy rule patternConstraintToOcl {
 		}else{ ---- we are sure it contains string because of hasTypeString()
 			for (eClass in thisModule.allEClass()){
 				if(eClass.name = enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"string\"")){
-					eClass.eOperations <- eClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey())});
+--					eClass.eOperations <- eClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey())});
+					eClass.eOperations <- eClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey().encodeJavaIdentifier())});
 				}
 			}
 			thisModule.appendPatternConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"string\""), enclosingSchema.resolve().name+'Pattern', patternSchemaDefinition.pattern.toString());
@@ -1254,8 +1253,7 @@ lazy rule patternPropertiesRegexToOcl{
 	}
 }
 
------------------ Derived Attributes
---rule createDerivedAttibutes(keySchemaPairs : Sequence(JSchemaMM!KeySchemaPair)){
+----------------- D E R I V E D   F E A T U R E S  --------------------------
 rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 	using {
 		derivedFeatures : Sequence(Ecore!EAttribute)= Sequence{};
@@ -1270,7 +1268,8 @@ rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 						
 						if(keySchemaPair.value.hasSimpleTypeScalar()){
 	--						derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedAttibute(objectSchema.getKeyForPropertiesContainment(),keySchemaPair)});
-							derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedAttibute(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair))});
+--							derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedAttibute(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair))});
+							derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedAttibute(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair))});
 						}else if(keySchemaPair.value.hasSimpleTypeObject()){
 	--						derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedReference(objectSchema.getKeyForPropertiesContainment(),keySchemaPair)});
 							derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve(), thisModule.createGetterForDerivedReference(containmentPropertyName, keySchemaPair), 1)});
@@ -1278,20 +1277,24 @@ rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 							--if(schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1))
 							if(not keySchemaPair.value.items.oclIsUndefined()){
 								if(keySchemaPair.value.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){
-									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve()->debug('eclass').getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()->debug('key'))->debug('type').getEType(), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
+--									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
+									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
 								}else{
 									----  create derived feature for Tuple
-									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
+--									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
+									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
 								}	
 							}	
 --							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve()->debug('eclass').getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()->debug('key'))->debug('type').getEType(), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
 						}else if(keySchemaPair.value.hasSimpleTypeNull()){
 --							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReferenceMappingTheKey(objectSchema.getKeyForPropertiesContainment(),keySchemaPair, 1)});
-							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
+--							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
+							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
 --						}else if(keySchemaPair.value.hasArrayOfTypes or keySchemaPair.value.type.oclIsUndefined()){ --- if it hasArrayOfTypes it has Object for sure because of the condition on the enclosing if : hasTypeObject
 						}else if(keySchemaPair.value.hasArrayOfTypes or(keySchemaPair.value.oclIsTypeOf(JSchemaMM!ObjectSchema) and keySchemaPair.value.type.oclIsUndefined())){ --- if it hasArrayOfTypes it has Object for sure because of the condition on the enclosing if : hasTypeObject	
 --							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReferenceMappingTheKey(objectSchema.getKeyForPropertiesContainment(),keySchemaPair, 1)});
-							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
+--							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
+							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
 						}else if(keySchemaPair.value.oclIsTypeOf(JSchemaMM!BooleanSchema)){
 							---NEW
 							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve(), thisModule.createGetterForDerivedReference(containmentPropertyName, keySchemaPair), 1)});
@@ -1411,7 +1414,7 @@ rule createCommonAnnotationDetails(){
 	
 }
 
---rule createGetKeyOperation(propertyName:String, properties: Sequence(String), propertiesAbstractEClass : Ecore!EClass){
+----- propertyName is already encoded
 rule createGetKeyOperation(objectSchema:JSchemaMM!ObjectSchema, propertyName:String, properties: Sequence(String), propertiesAbstractEClass : Ecore!EClass){
 	to
 		eOperation:Ecore!EOperation(
@@ -1643,6 +1646,15 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		
 		thisModule.relatedSchemasRoot().enclosingschemas<-thisModule.enclosingSchemas;
 		
+		-----------  Encode EClass names
+		
+		for (eClass in thisModule.allEClass()){
+			eClass.name <- eClass.name.encodeJavaIdentifier();
+			for (eStructuralFeature in eClass.eStructuralFeatures){
+				eStructuralFeature.name<- eStructuralFeature.name.encodeJavaIdentifier();
+			}
+		}
+		
 		-----  Refine Class names for unicity	-----------
 					
 		for (eClass in thisModule.allEClass()){
@@ -1740,6 +1752,15 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 			thisModule.dependenciesArrayOcl(dependenciesAdditionalPropertiesAnyOf2);
 		}
 		
+		for (eClass in thisModule.allEClass()){
+			if(not eClass.getEAnnotation(thisModule.ADDITIONAL_PROPERTIES).oclIsUndefined()  or not eClass.getEAnnotation(thisModule.PATTERN_PROPERTIES).oclIsUndefined()){
+				thisModule.appendValidatorOnProperties(thisModule.packageName, eClass.name, eClass.name);
+				thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClass.name, eClass.name);
+			}
+		}
+		
+		
+		
 		------------------ Derived Attributes and operation get (String key)
 		for(objectSchema in JSchemaMM!ObjectSchema.allInstancesFrom('jschema')){
 			if(objectSchema.ref.oclIsUndefined() and objectSchema.enum.oclIsUndefined() and objectSchema.const.oclIsUndefined()){ --- "$ref" "enum" and "const" are not present 
@@ -1755,13 +1776,18 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 				}else if(objectSchema.hasTypeObject()){--- if here surely not hasSimpleTypeObject. So it is missing type or "type":[...,"object",...]
 					---- Look for subclass with annotation 'ArrayOfTypes'  = object
 					if(not objectSchema.properties.oclIsUndefined()){
-						objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures <- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
+--						objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures <- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
+						objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#"\"object\"").eStructuralFeatures <- objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#"\"object\"").eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
 					}
 					------- for object in array of types we use objectSchema.getKey() and not objectSchema.getKeyForPropertiesContainment()
 --					if(objectSchema.maxProperties.oclIsUndefined() or objectSchema.maxProperties.maxProperties.value > 0){
-					objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
-							<- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
-							-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
+--					objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
+--							<- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
+--							-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
+					objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#"\"object\"").eOperations 
+							<- objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#"\"object\"").eOperations 
+							-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#"\"object\"").getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
+
 --					}
 				}
 			}
