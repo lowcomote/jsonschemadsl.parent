@@ -88,5 +88,14 @@ inv BadUriReference ('The reference '+self.ref+' is not a valid uri-reference'):
 if self.isFormatUriReference() then true else null endif
 
 
+context IdSchemaDefinition
+inv BadUriReference ('The id '+self.id+' is not a valid uri-reference'):
+if self.isFormatUriReference() then true else null endif
+
+context SchemaSchemaDefinition
+inv BadUri ('The schema '+self.schema+' is not a valid uri'):
+if self.isFormatUri() then true else null endif
+
+
 
 endpackage

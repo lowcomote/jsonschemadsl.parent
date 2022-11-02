@@ -2,10 +2,14 @@
  */
 package jsonMetaschemaMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.SchemaSchemaDefinition;
 
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -93,6 +97,25 @@ public class SchemaSchemaDefinitionImpl extends KeywordDefinitionImpl implements
 	 * @generated
 	 */
 	@Override
+	public boolean isFormatUri() {
+		boolean isUri = true; 
+		try {
+			org.dmfs.rfc3986.Uri uri = new  org.dmfs.rfc3986.uris.LazyUri(new org.dmfs.rfc3986.encoding.Precoded(getSchema()));
+			if(!uri.scheme().isPresent() || !( uri.authority().isPresent() || !uri.path().isEmpty()  ) ) {   
+				isUri=false;
+			}
+		} catch (Exception e) {
+			isUri=false;
+		}
+		return isUri;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.SCHEMA_SCHEMA_DEFINITION__SCHEMA:
@@ -143,6 +166,20 @@ public class SchemaSchemaDefinitionImpl extends KeywordDefinitionImpl implements
 				return SCHEMA_EDEFAULT == null ? schema != null : !SCHEMA_EDEFAULT.equals(schema);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JsonMetaschemaMMPackage.SCHEMA_SCHEMA_DEFINITION___IS_FORMAT_URI:
+				return isFormatUri();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

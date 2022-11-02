@@ -1465,6 +1465,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getIdSchemaDefinition__IsFormatUriReference() {
+		return idSchemaDefinitionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getConstSchemaDefinition() {
 		return constSchemaDefinitionEClass;
 	}
@@ -2025,6 +2035,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getSchemaSchemaDefinition__IsFormatUri() {
+		return schemaSchemaDefinitionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPropertiesSchemaDefinition() {
 		return propertiesSchemaDefinitionEClass;
 	}
@@ -2506,6 +2526,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		idSchemaDefinitionEClass = createEClass(ID_SCHEMA_DEFINITION);
 		createEAttribute(idSchemaDefinitionEClass, ID_SCHEMA_DEFINITION__ID);
+		createEOperation(idSchemaDefinitionEClass, ID_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE);
 
 		constSchemaDefinitionEClass = createEClass(CONST_SCHEMA_DEFINITION);
 		createEReference(constSchemaDefinitionEClass, CONST_SCHEMA_DEFINITION__CONST);
@@ -2586,6 +2607,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		schemaSchemaDefinitionEClass = createEClass(SCHEMA_SCHEMA_DEFINITION);
 		createEAttribute(schemaSchemaDefinitionEClass, SCHEMA_SCHEMA_DEFINITION__SCHEMA);
+		createEOperation(schemaSchemaDefinitionEClass, SCHEMA_SCHEMA_DEFINITION___IS_FORMAT_URI);
 
 		propertiesSchemaDefinitionEClass = createEClass(PROPERTIES_SCHEMA_DEFINITION);
 		createEReference(propertiesSchemaDefinitionEClass, PROPERTIES_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS);
@@ -2852,6 +2874,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEClass(idSchemaDefinitionEClass, IdSchemaDefinition.class, "IdSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIdSchemaDefinition_Id(), ecorePackage.getEString(), "id", null, 1, 1, IdSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getIdSchemaDefinition__IsFormatUriReference(), ecorePackage.getEBoolean(), "isFormatUriReference", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(constSchemaDefinitionEClass, ConstSchemaDefinition.class, "ConstSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getConstSchemaDefinition_Const(), theJsonMMPackage.getJsonDocument(), null, "const", null, 1, 1, ConstSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2942,6 +2966,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(schemaSchemaDefinitionEClass, SchemaSchemaDefinition.class, "SchemaSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSchemaSchemaDefinition_Schema(), ecorePackage.getEString(), "schema", null, 1, 1, SchemaSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getSchemaSchemaDefinition__IsFormatUri(), ecorePackage.getEBoolean(), "isFormatUri", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(propertiesSchemaDefinitionEClass, PropertiesSchemaDefinition.class, "PropertiesSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropertiesSchemaDefinition_KeySchemaPairs(), this.getKeySchemaPair(), null, "keySchemaPairs", null, 0, -1, PropertiesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

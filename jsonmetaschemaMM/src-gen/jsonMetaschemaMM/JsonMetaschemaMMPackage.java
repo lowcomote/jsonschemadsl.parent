@@ -1329,13 +1329,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int ID_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Is Format Uri Reference</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ID_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Id Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ID_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int ID_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.ConstSchemaDefinitionImpl <em>Const Schema Definition</em>}' class.
@@ -2261,13 +2270,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int SCHEMA_SCHEMA_DEFINITION_FEATURE_COUNT = KEYWORD_DEFINITION_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Is Format Uri</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCHEMA_SCHEMA_DEFINITION___IS_FORMAT_URI = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Schema Schema Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCHEMA_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 0;
+	int SCHEMA_SCHEMA_DEFINITION_OPERATION_COUNT = KEYWORD_DEFINITION_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link jsonMetaschemaMM.impl.PropertiesSchemaDefinitionImpl <em>Properties Schema Definition</em>}' class.
@@ -3780,6 +3798,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EAttribute getIdSchemaDefinition_Id();
 
 	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.IdSchemaDefinition#isFormatUriReference() <em>Is Format Uri Reference</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Format Uri Reference</em>' operation.
+	 * @see jsonMetaschemaMM.IdSchemaDefinition#isFormatUriReference()
+	 * @generated
+	 */
+	EOperation getIdSchemaDefinition__IsFormatUriReference();
+
+	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.ConstSchemaDefinition <em>Const Schema Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4362,6 +4390,16 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSchemaSchemaDefinition_Schema();
+
+	/**
+	 * Returns the meta object for the '{@link jsonMetaschemaMM.SchemaSchemaDefinition#isFormatUri() <em>Is Format Uri</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Is Format Uri</em>' operation.
+	 * @see jsonMetaschemaMM.SchemaSchemaDefinition#isFormatUri()
+	 * @generated
+	 */
+	EOperation getSchemaSchemaDefinition__IsFormatUri();
 
 	/**
 	 * Returns the meta object for class '{@link jsonMetaschemaMM.PropertiesSchemaDefinition <em>Properties Schema Definition</em>}'.
@@ -5462,6 +5500,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		EAttribute ID_SCHEMA_DEFINITION__ID = eINSTANCE.getIdSchemaDefinition_Id();
 
 		/**
+		 * The meta object literal for the '<em><b>Is Format Uri Reference</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ID_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE = eINSTANCE.getIdSchemaDefinition__IsFormatUriReference();
+
+		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.ConstSchemaDefinitionImpl <em>Const Schema Definition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5956,6 +6002,14 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SCHEMA_SCHEMA_DEFINITION__SCHEMA = eINSTANCE.getSchemaSchemaDefinition_Schema();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Format Uri</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SCHEMA_SCHEMA_DEFINITION___IS_FORMAT_URI = eINSTANCE.getSchemaSchemaDefinition__IsFormatUri();
 
 		/**
 		 * The meta object literal for the '{@link jsonMetaschemaMM.impl.PropertiesSchemaDefinitionImpl <em>Properties Schema Definition</em>}' class.

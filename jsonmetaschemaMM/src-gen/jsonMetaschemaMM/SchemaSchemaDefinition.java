@@ -42,4 +42,12 @@ public interface SchemaSchemaDefinition extends KeywordDefinition {
 	 */
 	void setSchema(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false" required="true" ordered="false"
+	 * @generated
+	 */
+	boolean isFormatUri();
+
 } // SchemaSchemaDefinition

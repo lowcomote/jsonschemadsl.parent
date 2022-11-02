@@ -1,0 +1,3 @@
+{
+	"$schema":"http://foo.bar/?baz=qux#quux"
+}

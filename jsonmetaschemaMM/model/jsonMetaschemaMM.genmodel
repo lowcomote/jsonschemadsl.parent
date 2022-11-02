@@ -192,6 +192,8 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//IdSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//IdSchemaDefinition/id"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//IdSchemaDefinition/isFormatUriReference"
+          body="boolean isUri = true; &#xA;try {&#xA;&#x9;org.dmfs.rfc3986.Uri uri = new  org.dmfs.rfc3986.uris.LazyUri(new org.dmfs.rfc3986.encoding.Precoded(getId()));&#xA;&#x9;if(!uri.scheme().isPresent() &amp;&amp; !uri.authority().isPresent() &amp;&amp; uri.path().isEmpty() &amp;&amp; !uri.query().isPresent() &amp;&amp; !uri.fragment().isPresent()) {&#xA;&#x9;&#x9;isUri=false;&#xA;&#x9;}&#xA;} catch (Exception e) {&#xA;&#x9;isUri=false;&#xA;}&#xA;return isUri;"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//ConstSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//ConstSchemaDefinition/const"/>
@@ -285,6 +287,8 @@
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//SchemaSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//SchemaSchemaDefinition/schema"/>
+      <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//SchemaSchemaDefinition/isFormatUri"
+          body="boolean isUri = true; &#xA;try {&#xA;&#x9;org.dmfs.rfc3986.Uri uri = new  org.dmfs.rfc3986.uris.LazyUri(new org.dmfs.rfc3986.encoding.Precoded(getSchema()));&#xA;&#x9;if(!uri.scheme().isPresent() || !( uri.authority().isPresent() || !uri.path().isEmpty()  ) ) {   &#xA;&#x9;&#x9;isUri=false;&#xA;&#x9;}&#xA;} catch (Exception e) {&#xA;&#x9;isUri=false;&#xA;}&#xA;return isUri;"/>
     </genClasses>
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//PropertiesSchemaDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference jsonMetaschemaMM.ecore#//PropertiesSchemaDefinition/keySchemaPairs"/>
