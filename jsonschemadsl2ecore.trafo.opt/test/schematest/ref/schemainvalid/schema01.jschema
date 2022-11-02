@@ -1,0 +1,4 @@
+{
+	"$ref":"\\\\WINDOWS\\fileshare",  
+	"extra":{"type":"string"}
+}         

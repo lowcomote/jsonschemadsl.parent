@@ -258,7 +258,7 @@
     <genClasses ecoreClass="jsonMetaschemaMM.ecore#//RefSchemaDefinition">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute jsonMetaschemaMM.ecore#//RefSchemaDefinition/ref"/>
       <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/isFormatUriReference"
-          body="boolean isUri = true; &#xA;try {&#xA;&#x9;jakarta.ws.rs.core.UriBuilder.fromUri(getRef());&#xA;} catch (Exception e) {&#xA;&#x9;isUri=false;&#xA;}&#xA;return isUri;"/>
+          body="boolean isUri = true; &#xA;try {&#xA;//&#x9;jakarta.ws.rs.core.UriBuilder.fromUri(getRef());&#xA;&#x9;org.dmfs.rfc3986.Uri uri = new  org.dmfs.rfc3986.uris.LazyUri(new org.dmfs.rfc3986.encoding.Precoded(getRef()));&#xA;&#x9;if(!uri.scheme().isPresent() &amp;&amp; !uri.authority().isPresent() &amp;&amp; uri.path().isEmpty() &amp;&amp; !uri.query().isPresent() &amp;&amp; !uri.fragment().isPresent()) {&#xA;&#x9;&#x9;isUri=false;&#xA;&#x9;}&#xA;} catch (Exception e) {&#xA;&#x9;isUri=false;&#xA;}&#xA;return isUri;"/>
       <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/getFragment"
           body="try {&#xA;&#x9;return getRef().substring(getRef().indexOf(&quot;#&quot;), getRef().length());&#xA;} catch (Exception e) {&#xA;&#x9;return null;&#xA;}"/>
       <genOperations ecoreOperation="jsonMetaschemaMM.ecore#//RefSchemaDefinition/getJsonPointerAsList"

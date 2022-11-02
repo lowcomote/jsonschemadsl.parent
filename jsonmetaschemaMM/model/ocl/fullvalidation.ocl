@@ -18,19 +18,7 @@ context NonNegativeIntegerDefault0
 inv IsInteger ('The value must be an Integer'):
 if value.floor() = value then true else null endif
 
- 
 
--- trafo validation
- 
-
---context ObjectSchema
---inv RefAlone ('The $ref keyword, when present, must be the only keyword in a schema'):
---if keywordDefinition->exists(k | k.oclIsTypeOf(RefSchemaDefinition)) and keywordDefinition->size()>1 then null else true endif
-
-
---context ObjectSchema
---inv missingType ('The keyword "type" should be present'):
---	keywordDefinition->select(k|k.oclIsTypeOf(TypeSchemaDefinition))->size()>0
 
 context ObjectSchema
 inv missingType ('The keyword "type" should be present'):
@@ -41,27 +29,7 @@ inv missingType ('The keyword "type" should be present'):
 	endif
 	
 
---context ObjectSchema
---inv missingAdditionalProperties ('The keyword "additionalProperties" should be specified explicitly'):
---	keywordDefinition->select(k|k.oclIsTypeOf(AdditionalPropertiesSchemaDefinition))->size()>0
-	
- 	
-	
----  TODO refactor when type is refactored with the new anyOf
---context ObjectSchema
---inv missingAdditionalProperties ('The keyword "additionalProperties" should be specified explicitly'):
---	let typeSchemaDefinitionSequence : Sequence(TypeSchemaDefinition) = keywordDefinition->select(k|k.oclIsTypeOf(TypeSchemaDefinition)) in
---	if typeSchemaDefinitionSequence ->size()>0 then
---		let typeSchemaDefinition: TypeSchemaDefinition = typeSchemaDefinitionSequence->first() in
---		if not typeSchemaDefinition.typeAnyOf1.oclIsUndefined() then
---			if typeSchemaDefinition.typeAnyOf1= SimpleTypes::object    --SimpleTypes::object ----#"\ and "object\"") 
---			then self.keywordDefinition->select(k|k.oclIsTypeOf(AdditionalPropertiesSchemaDefinition))->size()>0
---			else true
---			endif
---		else true ---TODO manage this case in the refactoring
---		endif 
---	else true
---	endif
+
 
 context ObjectSchema
 inv missingAdditionalProperties ('The keyword "additionalProperties" should be specified explicitly'):
@@ -82,7 +50,6 @@ inv missingAdditionalProperties ('The keyword "additionalProperties" should be s
 
 context ObjectSchema
 inv RepeatedKeywords ('Keywords can not be repeated at the same nested level'):
---if keywordDefinition->isUnique(k|k.oclType()) then true  else null endif
 if keywordDefinition->select(k|k.oclType()<> SchemaObjectAdditionalProperties)->isUnique(k|k.oclType()) then true  else null endif
 
 
@@ -114,6 +81,12 @@ endif
 context PatternSchemaDefinition
 inv IsValidPattern ('The pattern '+self.pattern+' is not a valid regular expression'):
 if self.isValidPattern() then true  else null endif
+
+
+context RefSchemaDefinition
+inv BadUriReference ('The reference '+self.ref+' is not a valid uri-reference'):
+if self.isFormatUriReference() then true else null endif
+
 
 
 endpackage

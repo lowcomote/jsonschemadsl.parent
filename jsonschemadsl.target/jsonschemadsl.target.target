@@ -63,5 +63,11 @@
 			<version>3.0.0</version>
 			<type>jar</type>
 		</location>
+		<location includeDependencyScope="compile" includeSource="true" missingManifest="generate" type="Maven">
+			<groupId>org.dmfs</groupId>
+			<artifactId>rfc3986-uri</artifactId>
+			<version>0.8.1</version>
+			<type>jar</type>
+		</location>
 	</locations>
 </target>
