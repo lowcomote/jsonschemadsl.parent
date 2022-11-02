@@ -196,8 +196,9 @@ class Ecore2XtextJSONGrammarCreator {
 				 * changed by Alessandro 16/10/2022
 				 * it.assignedJSONRuleCall
 				 */ 
-				if(it.assignedJSONRuleCall==="EString") "VALID_STRING"
-				else it.assignedJSONRuleCall
+				 it.assignedJSONRuleCall
+//				if(it.assignedJSONRuleCall==="EString") "VALID_STRING"
+//				else it.assignedJSONRuleCall
 				
 			EReference:
 				if(containment)
@@ -428,7 +429,8 @@ class Ecore2XtextJSONGrammarCreator {
 			 * In JSON the single quote for String is not admitted
 			 */
 			@Override 
-			terminal STRING returns ecore::EString:
+«««			terminal STRING returns ecore::EString:
+			terminal STRING:
 				'"' ( '\\' . /* 'b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\' */ | !('\\'|'"') )* '"'
 			;	
 			

@@ -430,7 +430,8 @@ SchemaObjectDependenciesProperties returns  SchemaObjectDependenciesProperties:
 
 
 SchemaObjectDependenciesAdditionalProperties returns SchemaObjectDependenciesAdditionalProperties:
-	key=VALID_STRING
+//	key=VALID_STRING
+	key=EString
 	':' additionalProperties=SchemaObjectDependenciesAdditionalPropertiesAnyOf
 ;
 
@@ -518,7 +519,8 @@ AdditionalItemsSchemaDefinition returns AdditionalItemsSchemaDefinition:
 
 KeyValuePair returns jsonMM::KeyValuePair:
 	//key=STRING//EString 
-	key=VALID_STRING 
+//	key=VALID_STRING
+	key=EString 
 	':' value=Value
 ;
 //	{KeyValuePair}
@@ -748,7 +750,8 @@ NullValue returns jsonMM::NullValue:
 //	;
 
 StringValue returns jsonMM::StringValue:
-	value=VALID_STRING
+//	value=VALID_STRING
+	value=EString
 ;
 //	'StringValue'
 //	'{'
@@ -817,7 +820,8 @@ SchemaObjectAdditionalProperties returns SchemaObjectAdditionalProperties:
 
 KeySchemaPair returns KeySchemaPair:
 	//'gino' key=EString ':' value=Schema
-	key=VALID_STRING ':' value=Schema
+//	key=VALID_STRING ':' value=Schema
+	key=EString ':' value=Schema
 	//key=EString 'gino' value=Schema
 //	(key=  STRING)| (key=  KEYWORD)  ':' value=Schema
 //	key=  STRING  ':' value=Schema

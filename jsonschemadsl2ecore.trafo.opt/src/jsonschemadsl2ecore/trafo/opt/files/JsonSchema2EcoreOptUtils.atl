@@ -113,22 +113,38 @@ helper def: enclosingSchemas : Sequence(RelatedSchemasMM!EnclosingSchema) = Sequ
 	
 helper def : scalarTypeMapping : Map(String, Ecore!EDataType) =
 	Map{
-		(#"\"string\"", Ecore!EString),
---		(#"\"integer\"", Ecore!EIntegerObject),
-		(#"\"integer\"", Ecore!EDoubleObject), ----- 1.0 is considered a valid integer in JSON Schema
-		(#"\"number\"", Ecore!EDoubleObject),
-		(#"\"boolean\"", Ecore!EBooleanObject)
+--		(#"\"string\"", Ecore!EString),
+----		(#"\"integer\"", Ecore!EIntegerObject),
+--		(#"\"integer\"", Ecore!EDoubleObject), ----- 1.0 is considered a valid integer in JSON Schema
+--		(#"\"number\"", Ecore!EDoubleObject),
+--		(#"\"boolean\"", Ecore!EBooleanObject)
+		-------- quotes eiminated in the enumeration
+		(#string, Ecore!EString),
+--		(#integer, Ecore!EIntegerObject),
+		(#integer, Ecore!EDoubleObject), ----- 1.0 is considered a valid integer in JSON Schema
+		(#number, Ecore!EDoubleObject),
+		(#boolean, Ecore!EBooleanObject)
 	};
 
 helper def : typeToStringMapping : Map(String, String) =
+--	Map{
+--		(#"\"string\"", 'string'),
+--		(#"\"integer\"", 'integer'),
+--		(#"\"number\"",'number'),
+--		(#"\"boolean\"", 'boolean'),
+--		(#"\"object\"", 'object'),
+--		(#"\"array\"", 'array'),
+--		(#"\"null\"", 'null')
+--	};
+-------- quotes eiminated in the enumeration
 	Map{
-		(#"\"string\"", 'string'),
-		(#"\"integer\"", 'integer'),
-		(#"\"number\"",'number'),
-		(#"\"boolean\"", 'boolean'),
-		(#"\"object\"", 'object'),
-		(#"\"array\"", 'array'),
-		(#"\"null\"", 'null')
+		(#string, 'string'),
+		(#integer, 'integer'),
+		(#number,'number'),
+		(#boolean, 'boolean'),
+		(#object, 'object'),
+		(#array, 'array'),
+		(#null, 'null')
 	};
 
 helper def: getRootName() : String = 
@@ -620,7 +636,7 @@ helper context JSchemaMM!Schema def: hasSimpleTypeScalar(): Boolean=
 	else
 		if not self.type.oclIsUndefined()
 		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-			then self.type.anyOf.type = #"\"string\"" or self.type.anyOf.type = #"\"integer\"" or self.type.anyOf.type = #"\"number\"" or self.type.anyOf.type= #"\"boolean\""
+			then self.type.anyOf.type = #string or self.type.anyOf.type = #integer or self.type.anyOf.type = #number or self.type.anyOf.type= #boolean
 			else false
 			endif
 		else false
@@ -634,7 +650,7 @@ helper context JSchemaMM!Schema def: hasSimpleTypeObject(): Boolean=
 	else
 		if not self.type.oclIsUndefined()
 		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-			then self.type.anyOf.type = #"\"object\"" 
+			then self.type.anyOf.type = #object 
 			else false
 			endif
 		else false
@@ -648,7 +664,7 @@ helper context JSchemaMM!Schema def: hasSimpleTypeArray(): Boolean=
 	else
 		if not self.type.oclIsUndefined()
 		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-			then self.type.anyOf.type = #"\"array\"" 
+			then self.type.anyOf.type = #array 
 			else false
 			endif
 		else false
@@ -663,7 +679,7 @@ helper context JSchemaMM!Schema def: hasSimpleTypeNull(): Boolean=
 	else
 		if not self.type.oclIsUndefined()
 		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-			then self.type.anyOf.type = #"\"null\"" 
+			then self.type.anyOf.type = #null 
 			else false
 			endif
 		else false
@@ -682,7 +698,7 @@ helper context JSchemaMM!Schema def: hasArrayOfTypes: Boolean=
 	endif;
 
 helper def: isScalar(simpleType:String) : Boolean =
-	simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\"";
+	simpleType = #string or simpleType = #integer or simpleType = #number or  simpleType = #boolean;
 
 ---- missing type or "type":"integer" or "type":[...,"integer",...]
 --helper context JSchemaMM!ObjectSchema def: hasTypeInteger(): Boolean=
@@ -692,8 +708,8 @@ helper context JSchemaMM!Schema def: hasTypeInteger(): Boolean=
 		if self.type.oclIsUndefined() ---- it has all types
 		then true
 		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-			then self.type.anyOf.type = #"\"integer\""
-			else self.type.anyOf.items.includes(#"\"integer\"")
+			then self.type.anyOf.type = #integer
+			else self.type.anyOf.items.includes(#integer)
 			endif
 		endif
 	endif;
@@ -706,8 +722,8 @@ helper context JSchemaMM!Schema def: hasTypeNumber(): Boolean=
 		if self.type.oclIsUndefined() ---- it has all types
 		then true
 		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-			then self.type.anyOf.type = #"\"number\""
-			else self.type.anyOf.items.includes(#"\"number\"")
+			then self.type.anyOf.type = #number
+			else self.type.anyOf.items.includes(#number)
 			endif
 		endif
 	endif;
@@ -725,8 +741,8 @@ helper context JSchemaMM!Schema def: hasTypeString(): Boolean=
 		if self.type.oclIsUndefined() ---- it has all types
 		then true
 		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-			then self.type.anyOf.type = #"\"string\""
-			else self.type.anyOf.items.includes(#"\"string\"")
+			then self.type.anyOf.type = #string
+			else self.type.anyOf.items.includes(#string)
 			endif
 		endif
 	endif;
@@ -739,8 +755,8 @@ helper context JSchemaMM!Schema def: hasTypeObject(): Boolean=
 		if self.type.oclIsUndefined() ---- it has all types
 		then true
 		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-			then self.type.anyOf.type = #"\"object\""
-			else self.type.anyOf.items.includes(#"\"object\"")
+			then self.type.anyOf.type = #object
+			else self.type.anyOf.items.includes(#object)
 			endif
 		endif
 	endif;
@@ -763,7 +779,8 @@ helper context JSchemaMM!TypeSchemaDefinition def: getEDataType() : Ecore!EDataT
 
 
 helper context String def: stripFirstAndLast() : String=
-self.substring(2, self.size()-1);	
+--self.substring(2, self.size()-1);	changed because we eliminted the quotes ("") from everywhere
+self;
 
 helper context String def : toCamelCase() : String=
 	self.substring(1, 1).toUpperCase() + self.substring(2,self.size());	
@@ -794,13 +811,16 @@ helper context JSchemaMM!PatternPropertiesSchemaDefinition def: findPatternPrope
 
 helper def: createBodyForValidateKeyOnDefinedPatternProperties(patterns:Sequence(String)) : String=
 	patterns->iterate(pattern; body: String = '' | 
-		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.find()){return '+pattern+';}\n\n')
+--		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.find()){return '+pattern+';}\n\n')
+		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile("'+pattern+'");\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.find()){return "'+pattern+'";}\n\n')
 	).concat('return null;\n\n')
 ;
 
 helper def: createBodyForValidateKeyOnDefinedProperties(properties:Sequence(String)) : String=
 	properties->iterate(property; body: String = '' | 
-		body.concat('if (this.key.equals('+property+')){return '+property+';}\n\n')
+--		body.concat('if (this.key.equals('+property+')){return '+property+';}\n\n')
+		body.concat('if (this.key.equals("'+property+'")){return "'+property+'";}\n\n')
+		
 	).concat('return null;\n\n')
 ;
 
@@ -808,10 +828,6 @@ helper def: createBodyForValidateKeyOnDefinedProperties(properties:Sequence(Stri
 --helper def: createGetterForDerivedFeaturesMappingTheKey(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
 helper def: createGetterForDerivedFeature(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
 	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
---	'if (this.'+propertyName+'!=null){\n'
---	+'\treturn this.'+propertyName+'.stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().toCamelCase()+'()).orElse(null);\n'
---	+'}\n'
---	+'return null;'
 	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().toCamelCase()+'()).orElse(null);'
 ;
 
@@ -851,15 +867,9 @@ helper def: createBodyForGetKey(objectSchema:JSchemaMM!ObjectSchema, propertyNam
 	if objectSchema.maxProperties.oclIsUndefined() or objectSchema.maxProperties.maxProperties.value.floor()<>1
 	then
 		properties->iterate(property; body: String = '' | 
-			body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
---			if objectSchema.resolve().eOperations->select(operation | operation.name='get'+property.stripFirstAndLast().toCamelCase())->size()>0
---			then
---				body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
---			else  body.concat('')
---			endif
+--			body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+			body.concat('if ("'+property+'".equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
 		).concat('java.util.List<java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList<java.lang.Class>();\n\n' )
-		
-		
 		.concat(propertiesAbstractEClass.ePackage.eClassifiers->select(subClass | subClass.eAllSuperTypes.includes(propertiesAbstractEClass))
 			->select(subClass | not subClass.getEAnnotation(thisModule.ADDITIONAL_PROPERTIES).oclIsUndefined() or not subClass.getEAnnotation(thisModule.PATTERN_PROPERTIES).oclIsUndefined())
 			->iterate(additionalOrPatternPropertyClass; body: String = '' |
@@ -882,15 +892,9 @@ helper def: createBodyForGetKey(objectSchema:JSchemaMM!ObjectSchema, propertyNam
 		.concat('return null;\n')
 	else 
 		properties->iterate(property; body: String = '' | 
-			body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
---			if objectSchema.resolve().eOperations->select(operation | operation.name='get'+property.stripFirstAndLast().toCamelCase())->size()>0
---			then
---				body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
---			else  body.concat('')
---			endif	
+--			body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+			body.concat('if ("'+property+'".equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
 		).concat('java.util.List<java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList<java.lang.Class>();\n\n' )
-		
-		
 		.concat(propertiesAbstractEClass.ePackage.eClassifiers->select(subClass | subClass.eAllSuperTypes.includes(propertiesAbstractEClass))
 			->select(subClass | not subClass.getEAnnotation(thisModule.ADDITIONAL_PROPERTIES).oclIsUndefined() or not subClass.getEAnnotation(thisModule.PATTERN_PROPERTIES).oclIsUndefined())
 			->iterate(additionalOrPatternPropertyClass; body: String = '' |

@@ -470,13 +470,13 @@
         eType="#//Schema" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="SimpleTypes">
-    <eLiterals name="array" literal="&quot;array&quot;"/>
-    <eLiterals name="boolean" value="1" literal="&quot;boolean&quot;"/>
-    <eLiterals name="integer" value="2" literal="&quot;integer&quot;"/>
-    <eLiterals name="null" value="3" literal="&quot;null&quot;"/>
-    <eLiterals name="number" value="4" literal="&quot;number&quot;"/>
-    <eLiterals name="object" value="5" literal="&quot;object&quot;"/>
-    <eLiterals name="string" value="6" literal="&quot;string&quot;"/>
+    <eLiterals name="array" literal="array"/>
+    <eLiterals name="boolean" value="1" literal="boolean"/>
+    <eLiterals name="integer" value="2" literal="integer"/>
+    <eLiterals name="null" value="3" literal="null"/>
+    <eLiterals name="number" value="4" literal="number"/>
+    <eLiterals name="object" value="5" literal="object"/>
+    <eLiterals name="string" value="6" literal="string"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExamplesSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="examples" upperBound="-1"

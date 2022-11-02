@@ -26,7 +26,7 @@ public enum SimpleTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	ARRAY(0, "array", "\"array\""),
+	ARRAY(0, "array", "array"),
 
 	/**
 	 * The '<em><b>Boolean</b></em>' literal object.
@@ -36,7 +36,7 @@ public enum SimpleTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BOOLEAN(1, "boolean", "\"boolean\""),
+	BOOLEAN(1, "boolean", "boolean"),
 
 	/**
 	 * The '<em><b>Integer</b></em>' literal object.
@@ -46,7 +46,7 @@ public enum SimpleTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INTEGER(2, "integer", "\"integer\""),
+	INTEGER(2, "integer", "integer"),
 
 	/**
 	 * The '<em><b>Null</b></em>' literal object.
@@ -56,7 +56,7 @@ public enum SimpleTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NULL(3, "null", "\"null\""),
+	NULL(3, "null", "null"),
 
 	/**
 	 * The '<em><b>Number</b></em>' literal object.
@@ -66,7 +66,7 @@ public enum SimpleTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	NUMBER(4, "number", "\"number\""),
+	NUMBER(4, "number", "number"),
 
 	/**
 	 * The '<em><b>Object</b></em>' literal object.
@@ -76,7 +76,7 @@ public enum SimpleTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OBJECT(5, "object", "\"object\""),
+	OBJECT(5, "object", "object"),
 
 	/**
 	 * The '<em><b>String</b></em>' literal object.
@@ -86,14 +86,14 @@ public enum SimpleTypes implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	STRING(6, "string", "\"string\"");
+	STRING(6, "string", "string");
 
 	/**
 	 * The '<em><b>Array</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #ARRAY
-	 * @model name="array" literal="\"array\""
+	 * @model name="array"
 	 * @generated
 	 * @ordered
 	 */
@@ -104,7 +104,7 @@ public enum SimpleTypes implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #BOOLEAN
-	 * @model name="boolean" literal="\"boolean\""
+	 * @model name="boolean"
 	 * @generated
 	 * @ordered
 	 */
@@ -115,7 +115,7 @@ public enum SimpleTypes implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #INTEGER
-	 * @model name="integer" literal="\"integer\""
+	 * @model name="integer"
 	 * @generated
 	 * @ordered
 	 */
@@ -126,7 +126,7 @@ public enum SimpleTypes implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #NULL
-	 * @model name="null" literal="\"null\""
+	 * @model name="null"
 	 * @generated
 	 * @ordered
 	 */
@@ -137,7 +137,7 @@ public enum SimpleTypes implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #NUMBER
-	 * @model name="number" literal="\"number\""
+	 * @model name="number"
 	 * @generated
 	 * @ordered
 	 */
@@ -148,7 +148,7 @@ public enum SimpleTypes implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #OBJECT
-	 * @model name="object" literal="\"object\""
+	 * @model name="object"
 	 * @generated
 	 * @ordered
 	 */
@@ -159,7 +159,7 @@ public enum SimpleTypes implements Enumerator {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #STRING
-	 * @model name="string" literal="\"string\""
+	 * @model name="string"
 	 * @generated
 	 * @ordered
 	 */

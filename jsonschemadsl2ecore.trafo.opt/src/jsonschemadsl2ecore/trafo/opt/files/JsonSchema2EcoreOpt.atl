@@ -183,7 +183,7 @@ rule createKeyPatternPropertiesMatcher(pattern : String){
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
 			key <- 'body',
-			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m = p.matcher(this.key);\nreturn m.find();'
+			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile("'+pattern+'");\njava.util.regex.Matcher m = p.matcher(this.key);\nreturn m.find();'
 		)
 		
 	do{
@@ -215,7 +215,7 @@ rule createPatternPropertiesMatcher(pattern : String){
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
 			key <- 'body',
-			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m = p.matcher(toBeEvaluated);\nreturn m.find();'
+			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile("'+pattern+'");\njava.util.regex.Matcher m = p.matcher(toBeEvaluated);\nreturn m.find();'
 		)
 		
 	do{
@@ -357,7 +357,7 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 --			eClass.eAnnotations <- Sequence{thisModule.createEnumAnnotation()};
 			eClass.eAnnotations <- Sequence{} ->union(if not schema.enum.oclIsUndefined() then Sequence{thisModule.createEnumAnnotation()} else Sequence{} endif ) ->union(if not schema.const.oclIsUndefined() then Sequence{thisModule.createConstAnnotation()} else Sequence{} endif ) ;
 		}else if (schema.type.oclIsUndefined()){  ---- "type" is missing
-			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentForArrayOfTypes(schema, eClass, Sequence{#"\"string\"", #"\"integer\"", #"\"number\"", #"\"boolean\"", #"\"object\"", #"\"array\"", #"\"null\""} )});
+			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentForArrayOfTypes(schema, eClass, Sequence{#string, #integer, #number, #boolean, #object, #array, #null} )});
 		}else if(schema.hasSimpleType()){
 --			eClass.eAnnotations <- eClass.eAnnotations-> union(Sequence{thisModule.createTypeAnnotation(schema.type.anyOf.type)});
 			thisModule.mapSimpleTypeToEStructuralFeatures(schema, eClass , schema.type.anyOf.type, eClass.name); 
@@ -376,11 +376,11 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass : Ecore!EClass, simpleType:JSchemaMM!SimpleTypes, eClassName:String)  {
 	
 	do{
-		if (simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\""){ 
+		if (simpleType = #string or simpleType = #integer or simpleType = #number or  simpleType = #boolean){ 
 			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapScalarTypeToEAttribute(schema.getKey(),thisModule.scalarTypeMapping.get(simpleType), schema.needsKeyword())});
 			---- manage the case simpleType is Integer to add OCL validation as scalarTypeMapping returns Duoble as 1.0 is a valid integer for JSON Schema
 			---- moved to endpoint
---			if(simpleType = #"\"integer\""){
+--			if(simpleType = #integer){
 --				thisModule.appendIntegerConstraint(thisModule.packageName, eClassName, eClassName+'IsInteger',  schema.getKey().toString());
 --			}
 
@@ -390,7 +390,7 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 --			}
 			
 		
-		}else if(simpleType = #"\"object\"" ){
+		}else if(simpleType = #object ){
 --			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword(), schema.getKey(), schema.minProperties->debug('minProperties'), schema.maxProperties->debug('maxProperties'))->debug('createPropertiesContainment')});
 			eClass.eStructuralFeatures <- eClass.eStructuralFeatures-> union(Sequence{thisModule.createPropertiesContainment(schema.getKeyForPropertiesContainment(), schema.buildPropertiesAbstractClassName(), schema.needsKeyword(), schema.getKey(), schema.propertiesLowerBound(), schema.propertiesUpperBound())});
 			----- Moved in endpoint	
@@ -400,7 +400,7 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 			if(schema.additionalProperties.oclIsUndefined()){ ------ the keyword "additionalProperties" is missing
 				thisModule.createDefaultAdditionalPropertiesEClass(schema.buildEClassname(), schema.findPropertiesKeys(),  schema.findPatternPropertiesKeys());
 			}
-		}else if (simpleType = #"\"array\""){  
+		}else if (simpleType = #array){  
 			if(schema.items.oclIsUndefined()) {---the keyword "items" is missing
 --				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey(), schema.isKeySchemaPairInProperties())});
 				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey(), schema.needsKeyword())});
@@ -409,7 +409,7 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.items.anyOf});
 			}
 
-		}else if(simpleType = #"\"null\""){ ------- "type" is present and "type": "null"
+		}else if(simpleType = #null){ ------- "type" is present and "type": "null"
 			eClass.eStructuralFeatures  <- eClass.eStructuralFeatures -> union(Sequence{thisModule.mapNullTypeToEReference(schema.getKey(), schema.needsKeyword())});
 		}
 	}
@@ -944,7 +944,7 @@ unique lazy rule mapDependency{
 	using {
 		enclosingEClass: Ecore!EClass = if dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasSimpleTypeObject()
 										then dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve()
-										else thisModule.allEClass()->select(eClass | eClass.name= dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#"\"object\""))->first()    ---- is array of type
+										else thisModule.allEClass()->select(eClass | eClass.name= dependenciesAdditionalPropertiesAnyOf1.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#object))->first()    ---- is array of type
 										endif;
 	}
 	to 
@@ -1038,11 +1038,11 @@ lazy rule minimumConstraintToOcl {
 		}else{ 
 			if(enclosingSchema.hasTypeInteger()){ 
 --				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeInteger'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
-				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"integer\""), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#integer), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
 			}
 			if(enclosingSchema.hasTypeNumber()){ 
 --				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeNumber'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
-				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"number\""), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#number), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
 			}
 		}
 		
@@ -1059,10 +1059,10 @@ lazy rule exclusiveMinimumConstraintToOcl {
 			thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'ExclusiveMinimum', exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey());
 		}else{ 
 			if(enclosingSchema.hasTypeInteger()){ 
-				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"integer\""), enclosingSchema.resolve().name+'ExclusiveMinimum', exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey());
+				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#integer), enclosingSchema.resolve().name+'ExclusiveMinimum', exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey());
 			}
 			if(enclosingSchema.hasTypeNumber()){ 
-				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"number\""), enclosingSchema.resolve().name+'ExclusiveMinimum', exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey());
+				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#number), enclosingSchema.resolve().name+'ExclusiveMinimum', exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey());
 			}
 		}
 	}	
@@ -1078,10 +1078,10 @@ lazy rule maximumConstraintToOcl {
 			thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
 		}else{ 
 			if(enclosingSchema.hasTypeInteger()){ 
-				thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"integer\""), enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
+				thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#integer), enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
 			}
 			if(enclosingSchema.hasTypeNumber()){ 
-				thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"number\""), enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
+				thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#number), enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
 			}
 		}
 	}	
@@ -1097,10 +1097,10 @@ lazy rule exclusiveMaximumConstraintToOcl {
 			thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'ExclusiveMaximum', exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey());
 		}else{ 
 			if(enclosingSchema.hasTypeInteger()){ 
-				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"integer\""), enclosingSchema.resolve().name+'ExclusiveMaximum', exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey());
+				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#integer), enclosingSchema.resolve().name+'ExclusiveMaximum', exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey());
 			}
 			if(enclosingSchema.hasTypeNumber()){ 
-				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"number\""), enclosingSchema.resolve().name+'ExclusiveMaximum', exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey());
+				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#number), enclosingSchema.resolve().name+'ExclusiveMaximum', exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey());
 			}
 		}
 	}	
@@ -1118,10 +1118,10 @@ lazy rule multipleOfConstraintToOcl {
 			thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'MultipleOf', multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey());
 		}else{ 
 			if(enclosingSchema.hasTypeInteger()){ 
-				thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"integer\""), enclosingSchema.resolve().name+'MultipleOf', multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey());
+				thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#integer), enclosingSchema.resolve().name+'MultipleOf', multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey());
 			}
 			if(enclosingSchema.hasTypeNumber()){ 
-				thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"number\""), enclosingSchema.resolve().name+'MultipleOf', multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey());
+				thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#number), enclosingSchema.resolve().name+'MultipleOf', multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey());
 			}
 		}
 	}	
@@ -1164,7 +1164,7 @@ lazy rule minLengthConstraintToOcl {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is string because of hasTypeString()
 			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'MinLength', minLengthSchemaDefinition.minLength.value, enclosingSchema.getKey());
 		}else{ ---- we are sure it contains string because of hasTypeString()
-			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"string\""), enclosingSchema.resolve().name+'MinLength', minLengthSchemaDefinition.minLength.value, enclosingSchema.getKey());
+			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#string), enclosingSchema.resolve().name+'MinLength', minLengthSchemaDefinition.minLength.value, enclosingSchema.getKey());
 		}
 	}	
 }
@@ -1178,7 +1178,7 @@ lazy rule maxLengthConstraintToOcl {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is string because of hasTypeString()
 			thisModule.appendMaxLengthConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'MaxLength', maxLengthSchemaDefinition.maxLength.value, enclosingSchema.getKey());
 		}else{ ---- we are sure it contains string because of hasTypeString()
-			thisModule.appendMaxLengthConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"string\""), enclosingSchema.resolve().name+'MaxLength', maxLengthSchemaDefinition.maxLength.value, enclosingSchema.getKey());
+			thisModule.appendMaxLengthConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#string), enclosingSchema.resolve().name+'MaxLength', maxLengthSchemaDefinition.maxLength.value, enclosingSchema.getKey());
 		}
 	}	
 }
@@ -1195,7 +1195,7 @@ lazy rule maxProperties0ToOcl{
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is object because of hasTypeObject()
 			thisModule.appendMaxProperties0Constraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.getKeyForPropertiesContainment());
 		}else{ ---- we are sure it contains object because of hasTypeObject()
-			thisModule.appendMaxProperties0Constraint(thisModule.packageName, enclosingSchema.resolve().getSimpleTypeSubClassFromRoot(#"\"object\"").name,  enclosingSchema.getKeyForPropertiesContainment());
+			thisModule.appendMaxProperties0Constraint(thisModule.packageName, enclosingSchema.resolve().getSimpleTypeSubClassFromRoot(#object).name,  enclosingSchema.getKeyForPropertiesContainment());
 		}
 		
 		
@@ -1230,12 +1230,12 @@ lazy rule patternConstraintToOcl {
 			thisModule.appendPatternConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Pattern', patternSchemaDefinition.pattern.toString());
 		}else{ ---- we are sure it contains string because of hasTypeString()
 			for (eClass in thisModule.allEClass()){
-				if(eClass.name = enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"string\"")){
+				if(eClass.name = enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#string)){
 --					eClass.eOperations <- eClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey())});
 					eClass.eOperations <- eClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey().encodeJavaIdentifier())});
 				}
 			}
-			thisModule.appendPatternConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#"\"string\""), enclosingSchema.resolve().name+'Pattern', patternSchemaDefinition.pattern.toString());
+			thisModule.appendPatternConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#string), enclosingSchema.resolve().name+'Pattern', patternSchemaDefinition.pattern.toString());
 		}
 	}	
 }
@@ -1271,7 +1271,7 @@ lazy rule requiredInPropertiesToOcl{
 	using {
 --		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
 		enclosingEClassName : String = if requiredSchemaDefinition.refImmediateComposite().hasSimpleTypeObject() then requiredSchemaDefinition.refImmediateComposite().resolve().name
-										 else	requiredSchemaDefinition.refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#"\"object\"")
+										 else	requiredSchemaDefinition.refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#object)
 										 endif;
 		required : Sequence(String) = requiredSchemaDefinition.required.values;
 	}
@@ -1287,7 +1287,7 @@ lazy rule dependenciesArrayOcl{
 	from dependenciesAdditionalPropertiesAnyOf2 : JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf2(dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasTypeObject())
 	using {
 		enclosingEClassName : String = if dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasSimpleTypeObject() then dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve().name
-										 else	dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#"\"object\"")
+										 else	dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#object)
 										 endif;	
 		property : String = dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().key.stripFirstAndLast();
 		values : Sequence(String) = dependenciesAdditionalPropertiesAnyOf2.anyOf2.values;
@@ -1879,16 +1879,16 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 					---- Look for subclass with annotation 'ArrayOfTypes'  = object
 					if(not objectSchema.properties.oclIsUndefined()){
 --						objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures <- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
-						objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#"\"object\"").eStructuralFeatures <- objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#"\"object\"").eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
+						objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eStructuralFeatures <- objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
 					}
 					------- for object in array of types we use objectSchema.getKey() and not objectSchema.getKeyForPropertiesContainment()
 --					if(objectSchema.maxProperties.oclIsUndefined() or objectSchema.maxProperties.maxProperties.value > 0){
 --					objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
 --							<- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
 --							-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
-					objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#"\"object\"").eOperations 
-							<- objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#"\"object\"").eOperations 
-							-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#"\"object\"").getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
+					objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eOperations 
+							<- objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eOperations 
+							-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
 
 --					}
 				}
