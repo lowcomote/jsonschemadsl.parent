@@ -18,14 +18,14 @@ class OclGenerator {
 	'''
 	
 //	def static appendMinimumConstraint (String fileName, String contextClass, String inv, Double minimum){
-	def static appendMinimumConstraint (URI fileName, String packageName, String contextClass, String inv, Double minimum, String propertyName){
-		OclWriter.append(fileName, generateMinimumConstraint(packageName, contextClass, inv, minimum, propertyName))
+	def static appendMinimumConstraint (URI fileName, String packageName, String contextClass,  Double minimum, String propertyName){
+		OclWriter.append(fileName, generateMinimumConstraint(packageName, contextClass,  minimum, propertyName))
 	}
 	
-	def static generateMinimumConstraint(String packageName, String contextClass, String inv, Double minimum, String propertyName)'''
+	def static generateMinimumConstraint(String packageName, String contextClass,  Double minimum, String propertyName)'''
 			context «packageName»::«contextClass»
 		
-			inv «inv»('The value of «contextClass» must be greater or equal than «minimum»'):
+			inv «contextClass»Minimum ('The value of «contextClass» must be greater or equal than «minimum»'):
 			if «propertyName.underscoreIfNecessary» >= «minimum»
 			then true
 			else null

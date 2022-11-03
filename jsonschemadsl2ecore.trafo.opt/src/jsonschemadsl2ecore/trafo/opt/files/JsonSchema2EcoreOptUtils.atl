@@ -941,8 +941,8 @@ helper context JSchemaMM!ObjectSchema def:getEStructuralFeatureType(name:String)
 helper def : createOclFile() : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('createOcl',Sequence{thisModule.oclFileUri, thisModule.nsURI, thisModule.packageName});
 
-helper def : appendMinimumConstraint(packageName: String, contextClass: String, inv:String, minimum: Real, propertyName : String ) : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, minimum, propertyName});
+helper def : appendMinimumConstraint(packageName: String, contextClass: String,  minimum: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  minimum, propertyName});
 
 helper def : appendExclusiveMinimumConstraint(packageName: String, contextClass: String, inv:String, exclusiveMinimum: Real, propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendExclusiveMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, exclusiveMinimum, propertyName});

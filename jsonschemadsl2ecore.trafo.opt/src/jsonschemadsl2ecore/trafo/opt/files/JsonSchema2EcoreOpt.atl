@@ -1026,28 +1026,84 @@ unique lazy rule createRelatedEnclosingSchema{
 
 -------------------- OCL Generation --------------------------------
 
+rule getKeywordPropertyNameForNumberOCL(contextEClass :Ecore!EClass ){
+	do{
+		contextEClass.eStructuralFeatures->select(eStructuralFeature | eStructuralFeature.eAnnotations->exists(eAnnotation | eAnnotation.source=thisModule.KEYWORD ))->first().name;
+	}
+}
+
+rule getIntegerInArrayOfTypeContextClass(enclosingSchema : JSchemaMM!ObjectSchema, enclosingEClass :Ecore!EClass){
+	using {
+		integerInArrayOfTypeContextClass:Ecore!EClass = if not  enclosingSchema.hasSimpleType() then
+															if enclosingSchema.hasTypeInteger() then enclosingEClass.getSimpleTypeSubClassFromRoot(#integer)
+															else OclUndefined
+															endif 
+														else OclUndefined
+														endif;
+	}do{
+		integerInArrayOfTypeContextClass;
+	}
+}
+
+rule getNumberInArrayOfTypeContextClass(enclosingSchema : JSchemaMM!ObjectSchema, enclosingEClass :Ecore!EClass){
+	using {
+		numberInArrayOfTypeContextClass:Ecore!EClass = if not  enclosingSchema.hasSimpleType() then
+															if enclosingSchema.hasTypeNumber() then enclosingEClass.getSimpleTypeSubClassFromRoot(#number)
+															else OclUndefined
+															endif 
+														else OclUndefined
+														endif;
+	}do{
+		numberInArrayOfTypeContextClass;
+	}
+}
+
+
 lazy rule minimumConstraintToOcl {
 	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition(minimumSchemaDefinition.refImmediateComposite().hasTypeNumeric())
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
+		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
+		integerInArrayOfTypeContextClass:Ecore!EClass = thisModule.getIntegerInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
+		numberInArrayOfTypeContextClass:Ecore!EClass = thisModule.getNumberInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
 	}
 	do {
---		thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
-			thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+			thisModule.appendMinimumConstraint(thisModule.packageName, enclosingEClass.name, minimumSchemaDefinition.minimum, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
 		}else{ 
-			if(enclosingSchema.hasTypeInteger()){ 
---				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeInteger'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
-				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#integer), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+			if(not integerInArrayOfTypeContextClass.oclIsUndefined()){ 
+				thisModule.appendMinimumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, minimumSchemaDefinition.minimum, thisModule.getKeywordPropertyNameForNumberOCL(integerInArrayOfTypeContextClass));
 			}
-			if(enclosingSchema.hasTypeNumber()){ 
---				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeNumber'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
-				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#number), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+			if(not numberInArrayOfTypeContextClass.oclIsUndefined()){ 
+				thisModule.appendMinimumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, minimumSchemaDefinition.minimum, thisModule.getKeywordPropertyNameForNumberOCL(numberInArrayOfTypeContextClass));
 			}
 		}
 		
 	}	
 }
+
+--lazy rule minimumConstraintToOcl {
+--	from minimumSchemaDefinition : JSchemaMM!MinimumSchemaDefinition(minimumSchemaDefinition.refImmediateComposite().hasTypeNumeric())
+--	using {
+--		enclosingSchema : JSchemaMM!ObjectSchema = minimumSchemaDefinition.refImmediateComposite();
+--	}
+--	do {
+----		thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+--		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
+--			thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+--		}else{ 
+--			if(enclosingSchema.hasTypeInteger()){ 
+----				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeInteger'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+--				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#integer), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+--			}
+--			if(enclosingSchema.hasTypeNumber()){ 
+----				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name.concat('TypeNumber'), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+--				thisModule.appendMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#number), enclosingSchema.resolve().name+'Minimum', minimumSchemaDefinition.minimum, enclosingSchema.getKey());
+--			}
+--		}
+--		
+--	}	
+--}
 
 lazy rule exclusiveMinimumConstraintToOcl {
 	from exclusiveMinimumSchemaDefinition : JSchemaMM!ExclusiveMinimumSchemaDefinition(exclusiveMinimumSchemaDefinition.refImmediateComposite().hasTypeNumeric())
