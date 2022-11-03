@@ -437,22 +437,22 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				nextSchema = getContains().getContains();
 			}else if ("definitions".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getDefinitions().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
+					nextSchema = getDefinitions().findSchemaByKey(jsonPointer.get(nextIndex));
 					nextIndex++;
 				}
 			}else if ("properties".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getProperties().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
+					nextSchema = getProperties().findSchemaByKey(jsonPointer.get(nextIndex));
 					nextIndex++;
 				}
 			}else if ("patternProperties".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getPatternProperties().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
+					nextSchema = getPatternProperties().findSchemaByKey(jsonPointer.get(nextIndex));
 					nextIndex++;
 				}
 			}else if ("dependencies".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getDependencies().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
+					nextSchema = getDependencies().findSchemaByKey(jsonPointer.get(nextIndex));
 					nextIndex++;
 				}
 			}else if ("propertyNames".equals(currentToken)) {
