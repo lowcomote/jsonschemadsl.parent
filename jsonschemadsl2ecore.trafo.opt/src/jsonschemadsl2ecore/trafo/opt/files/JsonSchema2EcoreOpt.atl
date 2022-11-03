@@ -1379,14 +1379,16 @@ lazy rule requiredInPropertiesToOcl{
 lazy rule dependenciesArrayOcl{
 	from dependenciesAdditionalPropertiesAnyOf2 : JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf2(dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasTypeObject())
 	using {
-		enclosingEClassName : String = if dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().hasSimpleTypeObject() then dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve().name
-										 else	dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#object)
+		enclosingSchema : JSchemaMM!ObjectSchema = dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().refImmediateComposite().refImmediateComposite();
+		enclosingEClass :Ecore!EClass =enclosingSchema.resolve();
+		enclosingEClassName : String = if enclosingSchema.hasSimpleTypeObject() then enclosingEClass.name
+										 else	thisModule.getObjectInArrayOfTypeContextClass(enclosingSchema, enclosingEClass).name
 										 endif;	
-		property : String = dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().key.stripFirstAndLast();
-		values : Sequence(String) = dependenciesAdditionalPropertiesAnyOf2.anyOf2.values;
+		property : String = dependenciesAdditionalPropertiesAnyOf2.refImmediateComposite().key.stripFirstAndLast().encodeJavaIdentifier();
+		values : Sequence(String) = dependenciesAdditionalPropertiesAnyOf2.anyOf2.values->collect(value | value.encodeJavaIdentifier())->flatten();
 	}
 	do{
-		thisModule.appendDependenciesArrayOcl(thisModule.packageName, enclosingEClassName, enclosingEClassName+'DependenciesArray', property, values);
+		thisModule.appendDependenciesArrayOcl(thisModule.packageName, enclosingEClassName, property, values);
 	}
 }
 
