@@ -163,14 +163,14 @@ class OclGenerator {
 			endif
 	'''
 	
-	def static appendRequiredInPropertiesConstraint (URI fileName, String packageName, String contextClass, String inv, String requiredProperty){
-		OclWriter.append(fileName, generateRequiredInPropertiesConstraint(packageName, contextClass, inv, requiredProperty))
+	def static appendRequiredInPropertiesConstraint (URI fileName, String packageName, String contextClass, String requiredProperty){
+		OclWriter.append(fileName, generateRequiredInPropertiesConstraint(packageName, contextClass, requiredProperty))
 	}
 	
-	def static generateRequiredInPropertiesConstraint(String packageName, String contextClass, String inv, String requiredProperty)'''
+	def static generateRequiredInPropertiesConstraint(String packageName, String contextClass, String requiredProperty)'''
 			context «packageName»::«contextClass» 
 		
-			inv «inv»«requiredProperty» ('«contextClass» requires the property «requiredProperty»'):
+			inv «contextClass»Required«requiredProperty» ('«contextClass» requires the property «requiredProperty»'):
 			if  not self.get('«requiredProperty»').oclIsUndefined()
 			then true
 			else null

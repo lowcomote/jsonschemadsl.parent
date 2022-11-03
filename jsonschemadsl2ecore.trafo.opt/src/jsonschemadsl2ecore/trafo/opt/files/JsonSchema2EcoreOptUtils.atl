@@ -978,11 +978,9 @@ helper def : appendIntegerConstraint(packageName: String, contextClass: String, 
 
 
 
---helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String, propertyName : String) : OclAny=
---	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, requiredProperty, requiredClassType, propertyName});
 
-helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, inv:String, requiredProperty: String) : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, requiredProperty});
+helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, requiredProperty: String) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  requiredProperty});
 
 	
 helper def : appendRegexInPatternPropertiesConstraint(packageName: String, contextClass: String, inv:String, regex : String,  propertyName : String): OclAny=

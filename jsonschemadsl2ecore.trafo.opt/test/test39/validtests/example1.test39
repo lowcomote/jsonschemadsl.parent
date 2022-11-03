@@ -1,0 +1,13 @@
+{
+	"family":{
+		"personalInfo":{
+			"name":"john",
+			"surname":"doe"
+		},
+		"professionalInfo":{
+			"job":"engineer",
+			"level":1
+		}
+	},
+	"email":"ale.ale@ale.ale"
+}

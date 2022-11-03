@@ -1343,18 +1343,35 @@ rule createPatternMatcher(pattern : String, propertyName:String){
 	}	
 }
 
+
+rule getObjectInArrayOfTypeContextClass(enclosingSchema : JSchemaMM!ObjectSchema, enclosingEClass :Ecore!EClass){
+	using {
+		objectInArrayOfTypeContextClass:Ecore!EClass = if not  enclosingSchema.hasSimpleType() then
+															if enclosingSchema.hasTypeObject() then enclosingEClass.getSimpleTypeSubClassFromRoot(#object)
+															else OclUndefined
+															endif 
+														else OclUndefined
+														endif;
+	}do{
+		objectInArrayOfTypeContextClass;
+	}
+}
+
 lazy rule requiredInPropertiesToOcl{
 	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition(requiredSchemaDefinition.refImmediateComposite().hasTypeObject() and requiredSchemaDefinition.refImmediateComposite().ref.oclIsUndefined())
 	using {
-		enclosingEClassName : String = if requiredSchemaDefinition.refImmediateComposite().hasSimpleTypeObject() then requiredSchemaDefinition.refImmediateComposite().resolve().name
-										 else	requiredSchemaDefinition.refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#object)
+		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
+		enclosingEClass :Ecore!EClass =enclosingSchema.resolve();
+		enclosingEClassName : String = if enclosingSchema.hasSimpleTypeObject() then enclosingEClass.name
+--										 else	requiredSchemaDefinition.refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#object)
+										else	thisModule.getObjectInArrayOfTypeContextClass(enclosingSchema, enclosingEClass).name
 										 endif;
 		required : Sequence(String) = requiredSchemaDefinition.required.values;
 	}
 	do{
 		for (property in required) {
 --			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName, enclosingSchema.resolve().name,  enclosingSchema.resolve().name+'Required', property);
-			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName, enclosingEClassName,  enclosingEClassName+'Required', property);
+			thisModule.appendRequiredInPropertiesConstraint(thisModule.packageName, enclosingEClassName,   property.encodeJavaIdentifier());
 		}
 	}
 }
