@@ -119,14 +119,14 @@ class OclGenerator {
 			endif
 	'''
 
-	def static appendPatternConstraint (URI fileName, String packageName, String contextClass, String inv, String regex){
-		OclWriter.append(fileName, generatePatternConstraint(packageName, contextClass, inv, regex))
+	def static appendPatternConstraint (URI fileName, String packageName, String contextClass, String regex){
+		OclWriter.append(fileName, generatePatternConstraint(packageName, contextClass, regex))
 	}
 	
-	def static generatePatternConstraint(String packageName, String contextClass, String inv, String regex)'''
+	def static generatePatternConstraint(String packageName, String contextClass, String regex)'''
 			context «packageName»::«contextClass»
 		
-			inv «inv»('The value of «contextClass» must match the regular expression «regex»'):
+			inv «contextClass»Pattern('The value of «contextClass» must match the regular expression «regex»'):
 			if self.regexMatch()
 			then true
 			else null
@@ -140,7 +140,6 @@ class OclGenerator {
 	def static generateMaxProperties0Constraint(String packageName, String contextClass,  String propertyName)'''
 			context «packageName»::«contextClass»
 		
-«««			inv «inv»('No properties are allowed for  «contextClass»'):
 			inv «contextClass»MaxProperties0('No properties are allowed for  «contextClass»'):
 			if  «propertyName.underscoreIfNecessary»->isEmpty()
 			then true
@@ -149,23 +148,15 @@ class OclGenerator {
 	'''
 
 	
-	def static appendIntegerConstraint (URI fileName, String packageName, String contextClass, String inv, String propertyName){
-		OclWriter.append(fileName, generateIntegerConstraint(packageName, contextClass, inv,  propertyName))
+	def static appendIntegerConstraint(URI fileName, String packageName, String contextClass,  String propertyName){
+		OclWriter.append(fileName, generateIntegerConstraint(packageName, contextClass, propertyName))
 	}
 	
-//	def static generateIntegerConstraint(String packageName, String contextClass, String inv,  String propertyName)'''
-//			context «packageName»::«contextClass»
-//		
-//			inv «inv»('The value of «contextClass».«propertyName» must be integer'):
-//			if self.validateIsInteger
-//			then true
-//			else null
-//			endif
-//	'''
-	def static generateIntegerConstraint(String packageName, String contextClass, String inv,  String propertyName)'''
+
+	def static generateIntegerConstraint(String packageName, String contextClass,  String propertyName)'''
 			context «packageName»::«contextClass»
 		
-			inv «inv»('The value of «contextClass».«propertyName» must be integer'):
+			inv «contextClass»IsInteger('The value of «contextClass».«propertyName» must be integer'):
 			if «propertyName.underscoreIfNecessary».floor() = «propertyName.underscoreIfNecessary»
 			then true
 			else null

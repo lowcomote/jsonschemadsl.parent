@@ -1026,11 +1026,11 @@ unique lazy rule createRelatedEnclosingSchema{
 
 -------------------- OCL Generation --------------------------------
 
-rule getKeywordPropertyNameForNumberOCL(contextEClass :Ecore!EClass ){
-	do{
-		contextEClass.eStructuralFeatures->select(eStructuralFeature | eStructuralFeature.eAnnotations->exists(eAnnotation | eAnnotation.source=thisModule.KEYWORD ))->first().name;
-	}
-}
+--rule getKeywordPropertyNameForNumberOCL(contextEClass :Ecore!EClass ){
+--	do{
+--		contextEClass.eStructuralFeatures->select(eStructuralFeature | eStructuralFeature.eAnnotations->exists(eAnnotation | eAnnotation.source=thisModule.KEYWORD ))->first().name;
+--	}
+--}
 
 rule getIntegerInArrayOfTypeContextClass(enclosingSchema : JSchemaMM!ObjectSchema, enclosingEClass :Ecore!EClass){
 	using {
@@ -1069,13 +1069,13 @@ lazy rule minimumConstraintToOcl {
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
-			thisModule.appendMinimumConstraint(thisModule.packageName, enclosingEClass.name, minimumSchemaDefinition.minimum, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
+			thisModule.appendMinimumConstraint(thisModule.packageName, enclosingEClass.name, minimumSchemaDefinition.minimum, enclosingSchema.getKey().encodeJavaIdentifier());
 		}else{ 
 			if(not integerInArrayOfTypeContextClass.oclIsUndefined()){ 
-				thisModule.appendMinimumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, minimumSchemaDefinition.minimum, thisModule.getKeywordPropertyNameForNumberOCL(integerInArrayOfTypeContextClass));
+				thisModule.appendMinimumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, minimumSchemaDefinition.minimum, enclosingSchema.getKey().encodeJavaIdentifier());
 			}
 			if(not numberInArrayOfTypeContextClass.oclIsUndefined()){ 
-				thisModule.appendMinimumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, minimumSchemaDefinition.minimum, thisModule.getKeywordPropertyNameForNumberOCL(numberInArrayOfTypeContextClass));
+				thisModule.appendMinimumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, minimumSchemaDefinition.minimum, enclosingSchema.getKey().encodeJavaIdentifier());
 			}
 		}
 		
@@ -1116,13 +1116,13 @@ lazy rule exclusiveMinimumConstraintToOcl {
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
-			thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingEClass.name, exclusiveMinimumSchemaDefinition.exclusiveMinimum, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
+			thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingEClass.name, exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey().encodeJavaIdentifier());
 		}else{ 
 			if(not integerInArrayOfTypeContextClass.oclIsUndefined()){ 
-				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, exclusiveMinimumSchemaDefinition.exclusiveMinimum, thisModule.getKeywordPropertyNameForNumberOCL(integerInArrayOfTypeContextClass));
+				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey().encodeJavaIdentifier());
 			}
 			if(not numberInArrayOfTypeContextClass.oclIsUndefined()){ 
-				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, exclusiveMinimumSchemaDefinition.exclusiveMinimum, thisModule.getKeywordPropertyNameForNumberOCL(numberInArrayOfTypeContextClass));
+				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey().encodeJavaIdentifier());
 			}
 		}
 	}	
@@ -1138,13 +1138,13 @@ lazy rule maximumConstraintToOcl {
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
-			thisModule.appendMaximumConstraint(thisModule.packageName, enclosingEClass.name, maximumSchemaDefinition.maximum, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
+			thisModule.appendMaximumConstraint(thisModule.packageName, enclosingEClass.name, maximumSchemaDefinition.maximum, enclosingSchema.getKey().encodeJavaIdentifier());
 		}else{ 
 			if(not integerInArrayOfTypeContextClass.oclIsUndefined()){ 
-				thisModule.appendMaximumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name,  maximumSchemaDefinition.maximum, thisModule.getKeywordPropertyNameForNumberOCL(integerInArrayOfTypeContextClass));
+				thisModule.appendMaximumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name,  maximumSchemaDefinition.maximum, enclosingSchema.getKey().encodeJavaIdentifier());
 			}
 			if(not numberInArrayOfTypeContextClass.oclIsUndefined()){ 
-				thisModule.appendMaximumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, maximumSchemaDefinition.maximum, thisModule.getKeywordPropertyNameForNumberOCL(numberInArrayOfTypeContextClass));
+				thisModule.appendMaximumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, maximumSchemaDefinition.maximum, enclosingSchema.getKey().encodeJavaIdentifier());
 			}
 		}
 	}	
@@ -1160,13 +1160,13 @@ lazy rule exclusiveMaximumConstraintToOcl {
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
-			thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingEClass.name,  exclusiveMaximumSchemaDefinition.exclusiveMaximum, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
+			thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingEClass.name,  exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey().encodeJavaIdentifier());
 		}else{ 
 			if(not integerInArrayOfTypeContextClass.oclIsUndefined()){ 
-				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, exclusiveMaximumSchemaDefinition.exclusiveMaximum, thisModule.getKeywordPropertyNameForNumberOCL(integerInArrayOfTypeContextClass));
+				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey().encodeJavaIdentifier());
 			}
 			if(not numberInArrayOfTypeContextClass.oclIsUndefined()){ 
-				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, exclusiveMaximumSchemaDefinition.exclusiveMaximum, thisModule.getKeywordPropertyNameForNumberOCL(numberInArrayOfTypeContextClass));
+				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey().encodeJavaIdentifier());
 			}
 		}
 	}	
@@ -1184,13 +1184,13 @@ lazy rule multipleOfConstraintToOcl {
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
-			thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingEClass.name, multipleOfSchemaDefinition.multipleOf, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
+			thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingEClass.name, multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey().encodeJavaIdentifier());
 		}else{ 
 			if(not integerInArrayOfTypeContextClass.oclIsUndefined()){ 
-				thisModule.appendMultipleOfConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, multipleOfSchemaDefinition.multipleOf, thisModule.getKeywordPropertyNameForNumberOCL(integerInArrayOfTypeContextClass));
+				thisModule.appendMultipleOfConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey().encodeJavaIdentifier());
 			}
 			if(not numberInArrayOfTypeContextClass.oclIsUndefined()){ 
-				thisModule.appendMultipleOfConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, multipleOfSchemaDefinition.multipleOf, thisModule.getKeywordPropertyNameForNumberOCL(numberInArrayOfTypeContextClass));
+				thisModule.appendMultipleOfConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey().encodeJavaIdentifier());
 			}
 		}
 	}	
@@ -1220,9 +1220,9 @@ lazy rule minLengthConstraintToOcl {
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is string because of hasTypeString()
-			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingEClass.name,  minLengthSchemaDefinition.minLength.value, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
+			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingEClass.name,  minLengthSchemaDefinition.minLength.value, enclosingSchema.getKey().encodeJavaIdentifier());
 		}else{ ---- we are sure it contains string because of hasTypeString()
-			thisModule.appendMinLengthConstraint(thisModule.packageName, stringInArrayOfTypeContextClass.name,  minLengthSchemaDefinition.minLength.value, thisModule.getKeywordPropertyNameForNumberOCL(stringInArrayOfTypeContextClass));
+			thisModule.appendMinLengthConstraint(thisModule.packageName, stringInArrayOfTypeContextClass.name,  minLengthSchemaDefinition.minLength.value, enclosingSchema.getKey().encodeJavaIdentifier());
 		}
 	}	
 }
@@ -1236,26 +1236,27 @@ lazy rule maxLengthConstraintToOcl {
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is string because of hasTypeString()
-			thisModule.appendMaxLengthConstraint(thisModule.packageName, enclosingEClass.name,  maxLengthSchemaDefinition.maxLength.value, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
+			thisModule.appendMaxLengthConstraint(thisModule.packageName, enclosingEClass.name,  maxLengthSchemaDefinition.maxLength.value, enclosingSchema.getKey().encodeJavaIdentifier());
 		}else{ ---- we are sure it contains string because of hasTypeString()
-			thisModule.appendMaxLengthConstraint(thisModule.packageName, stringInArrayOfTypeContextClass.name, maxLengthSchemaDefinition.maxLength.value, thisModule.getKeywordPropertyNameForNumberOCL(stringInArrayOfTypeContextClass));
+			thisModule.appendMaxLengthConstraint(thisModule.packageName, stringInArrayOfTypeContextClass.name, maxLengthSchemaDefinition.maxLength.value, enclosingSchema.getKey().encodeJavaIdentifier());
 		}
 	}	
 }
 
-
+---- getKeyForPropertiesContainment come already encoded
 lazy rule maxProperties0ToOcl{
 	from maxPropertiesSchemaDefinition: JSchemaMM!MaxPropertiesSchemaDefinition(maxPropertiesSchemaDefinition.refImmediateComposite().hasTypeObject()
 																				and maxPropertiesSchemaDefinition.maxProperties.value.floor() = 0 		)
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = maxPropertiesSchemaDefinition.refImmediateComposite();
+		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
 	}
 	do{
 		
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is object because of hasTypeObject()
-			thisModule.appendMaxProperties0Constraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.getKeyForPropertiesContainment());
+			thisModule.appendMaxProperties0Constraint(thisModule.packageName, enclosingEClass.name, enclosingSchema.getKeyForPropertiesContainment());
 		}else{ ---- we are sure it contains object because of hasTypeObject()
-			thisModule.appendMaxProperties0Constraint(thisModule.packageName, enclosingSchema.resolve().getSimpleTypeSubClassFromRoot(#object).name,  enclosingSchema.getKeyForPropertiesContainment());
+			thisModule.appendMaxProperties0Constraint(thisModule.packageName, enclosingEClass.getSimpleTypeSubClassFromRoot(#object).name,  enclosingSchema.getKeyForPropertiesContainment());
 		}
 		
 		
@@ -1266,36 +1267,52 @@ rule integerToOcl(eClass:Ecore!EClass){
 	do{
 		if(not eClass.getEAnnotation(thisModule.TYPE).oclIsUndefined()){
 			if(eClass.getEAnnotation(thisModule.TYPE).details -> exists(entrySet | entrySet.key = thisModule.TYPE and entrySet.value = 'integer' )){
---				thisModule.appendIntegerConstraint(thisModule.packageName, eClass.name, eClass.name+'IsInteger',  propertyName);
-				thisModule.appendIntegerConstraint(thisModule.packageName, eClass.name, eClass.name+'IsInteger',  eClass.eAttributes->select(eAttribute | eAttribute.getEType().name='EDoubleObject')->first().name);
+				thisModule.appendIntegerConstraint(thisModule.packageName, eClass.name,   eClass.eAttributes->select(eAttribute | eAttribute.getEType().name='EDoubleObject')->first().name);
 			}
 		}else if(not eClass.getEAnnotation(thisModule.ARRAY_OF_TYPES).oclIsUndefined()){
 			if(eClass.getEAnnotation(thisModule.ARRAY_OF_TYPES).details -> exists(entrySet | entrySet.key = thisModule.ARRAY_OF_TYPES and entrySet.value = 'integer' )){
---				thisModule.appendIntegerConstraint(thisModule.packageName, eClass.name, eClass.name+'IsInteger',  propertyName);
-				thisModule.appendIntegerConstraint(thisModule.packageName, eClass.name, eClass.name+'IsInteger',  eClass.eAttributes->select(eAttribute | eAttribute.getEType().name='EDoubleObject')->first().name);
+				thisModule.appendIntegerConstraint(thisModule.packageName, eClass.name,  eClass.eAttributes->select(eAttribute | eAttribute.getEType().name='EDoubleObject')->first().name);
 			}
 		}
 	}
 }
+
+--lazy rule patternConstraintToOcl {
+--	from patternSchemaDefinition : JSchemaMM!PatternSchemaDefinition(patternSchemaDefinition.refImmediateComposite().hasTypeString())
+--	using {
+--		enclosingSchema : JSchemaMM!ObjectSchema = patternSchemaDefinition.refImmediateComposite();
+--	}
+--	do {
+--		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is string because of hasTypeString()
+--			enclosingSchema.resolve().eOperations <- enclosingSchema.resolve().eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey())});
+--			thisModule.appendPatternConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Pattern', patternSchemaDefinition.pattern.toString());
+--		}else{ ---- we are sure it contains string because of hasTypeString()
+--			for (eClass in thisModule.allEClass()){
+--				if(eClass.name = enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#string)){
+----					eClass.eOperations <- eClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey())});
+--					eClass.eOperations <- eClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey().encodeJavaIdentifier())});
+--				}
+--			}
+--			thisModule.appendPatternConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#string), enclosingSchema.resolve().name+'Pattern', patternSchemaDefinition.pattern.toString());
+--		}
+--	}	
+--}
 
 
 lazy rule patternConstraintToOcl {
 	from patternSchemaDefinition : JSchemaMM!PatternSchemaDefinition(patternSchemaDefinition.refImmediateComposite().hasTypeString())
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = patternSchemaDefinition.refImmediateComposite();
+		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
+		stringInArrayOfTypeContextClass:Ecore!EClass = thisModule.getStringInArrayOfTypeContextClass(enclosingSchema, enclosingEClass);
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is string because of hasTypeString()
-			enclosingSchema.resolve().eOperations <- enclosingSchema.resolve().eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey())});
-			thisModule.appendPatternConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Pattern', patternSchemaDefinition.pattern.toString());
+			enclosingEClass.eOperations <- enclosingEClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,   enclosingSchema.getKey().encodeJavaIdentifier())});
+			thisModule.appendPatternConstraint(thisModule.packageName, enclosingEClass.name,  patternSchemaDefinition.pattern.toString());
 		}else{ ---- we are sure it contains string because of hasTypeString()
-			for (eClass in thisModule.allEClass()){
-				if(eClass.name = enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#string)){
---					eClass.eOperations <- eClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey())});
-					eClass.eOperations <- eClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey().encodeJavaIdentifier())});
-				}
-			}
-			thisModule.appendPatternConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#string), enclosingSchema.resolve().name+'Pattern', patternSchemaDefinition.pattern.toString());
+			stringInArrayOfTypeContextClass.eOperations <- stringInArrayOfTypeContextClass.eOperations -> union (Sequence{thisModule.createPatternMatcher(patternSchemaDefinition.pattern,  enclosingSchema.getKey().encodeJavaIdentifier())});
+			thisModule.appendPatternConstraint(thisModule.packageName, stringInArrayOfTypeContextClass.name, patternSchemaDefinition.pattern.toString());
 		}
 	}	
 }
@@ -1329,7 +1346,6 @@ rule createPatternMatcher(pattern : String, propertyName:String){
 lazy rule requiredInPropertiesToOcl{
 	from requiredSchemaDefinition : JSchemaMM!RequiredSchemaDefinition(requiredSchemaDefinition.refImmediateComposite().hasTypeObject() and requiredSchemaDefinition.refImmediateComposite().ref.oclIsUndefined())
 	using {
---		enclosingSchema : JSchemaMM!ObjectSchema = requiredSchemaDefinition.refImmediateComposite();
 		enclosingEClassName : String = if requiredSchemaDefinition.refImmediateComposite().hasSimpleTypeObject() then requiredSchemaDefinition.refImmediateComposite().resolve().name
 										 else	requiredSchemaDefinition.refImmediateComposite().resolve().buildEClassNameForArrayOfTypes(#object)
 										 endif;
@@ -1897,11 +1913,6 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		
 		for (eClass in thisModule.allEClass()){
 			thisModule.integerToOcl(eClass);
---			if(not schema.resolve().getEAnnotation(thisModule.TYPE).oclIsUndefined()){
---				if(schema.resolve().getEAnnotation(thisModule.TYPE).details -> exists(entrySet | entrySet.key = thisModule.TYPE and entrySet.value = 'integer' )){
---					thisModule.appendIntegerConstraint(thisModule.packageName, schema.resolve().name, schema.resolve().name+'IsInteger',  schema.getKey().toString());
---				}
---			}
 		}
 		
 		for(booleanSchema in JSchemaMM!BooleanSchema.allInstancesFrom('jschema')){
