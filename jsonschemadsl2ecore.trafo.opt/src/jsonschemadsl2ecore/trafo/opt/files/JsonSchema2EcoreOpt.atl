@@ -1178,16 +1178,19 @@ lazy rule multipleOfConstraintToOcl {
 	from multipleOfSchemaDefinition : JSchemaMM!MultipleOfSchemaDefinition(multipleOfSchemaDefinition.refImmediateComposite().hasTypeNumeric())
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = multipleOfSchemaDefinition.refImmediateComposite();
+		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
+		integerInArrayOfTypeContextClass:Ecore!EClass = thisModule.getIntegerInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
+		numberInArrayOfTypeContextClass:Ecore!EClass = thisModule.getNumberInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
-			thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'MultipleOf', multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey());
+			thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingEClass.name, multipleOfSchemaDefinition.multipleOf, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
 		}else{ 
-			if(enclosingSchema.hasTypeInteger()){ 
-				thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#integer), enclosingSchema.resolve().name+'MultipleOf', multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey());
+			if(not integerInArrayOfTypeContextClass.oclIsUndefined()){ 
+				thisModule.appendMultipleOfConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, multipleOfSchemaDefinition.multipleOf, thisModule.getKeywordPropertyNameForNumberOCL(integerInArrayOfTypeContextClass));
 			}
-			if(enclosingSchema.hasTypeNumber()){ 
-				thisModule.appendMultipleOfConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#number), enclosingSchema.resolve().name+'MultipleOf', multipleOfSchemaDefinition.multipleOf, enclosingSchema.getKey());
+			if(not numberInArrayOfTypeContextClass.oclIsUndefined()){ 
+				thisModule.appendMultipleOfConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, multipleOfSchemaDefinition.multipleOf, thisModule.getKeywordPropertyNameForNumberOCL(numberInArrayOfTypeContextClass));
 			}
 		}
 	}	
