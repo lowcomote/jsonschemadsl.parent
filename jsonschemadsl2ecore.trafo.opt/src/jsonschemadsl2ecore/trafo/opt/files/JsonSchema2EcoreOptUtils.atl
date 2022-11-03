@@ -944,8 +944,8 @@ helper def : createOclFile() : OclAny=
 helper def : appendMinimumConstraint(packageName: String, contextClass: String,  minimum: Real, propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  minimum, propertyName});
 
-helper def : appendExclusiveMinimumConstraint(packageName: String, contextClass: String, inv:String, exclusiveMinimum: Real, propertyName : String ) : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendExclusiveMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, exclusiveMinimum, propertyName});
+helper def : appendExclusiveMinimumConstraint(packageName: String, contextClass: String, exclusiveMinimum: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendExclusiveMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  exclusiveMinimum, propertyName});
 
 
 

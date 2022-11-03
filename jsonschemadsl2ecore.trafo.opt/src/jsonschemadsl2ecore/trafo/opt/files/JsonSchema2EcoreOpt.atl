@@ -1109,16 +1109,20 @@ lazy rule exclusiveMinimumConstraintToOcl {
 	from exclusiveMinimumSchemaDefinition : JSchemaMM!ExclusiveMinimumSchemaDefinition(exclusiveMinimumSchemaDefinition.refImmediateComposite().hasTypeNumeric())
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = exclusiveMinimumSchemaDefinition.refImmediateComposite();
+		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
+		integerInArrayOfTypeContextClass:Ecore!EClass = thisModule.getIntegerInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
+		numberInArrayOfTypeContextClass:Ecore!EClass = thisModule.getNumberInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
+
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
-			thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'ExclusiveMinimum', exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey());
+			thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingEClass.name, exclusiveMinimumSchemaDefinition.exclusiveMinimum, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
 		}else{ 
-			if(enclosingSchema.hasTypeInteger()){ 
-				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#integer), enclosingSchema.resolve().name+'ExclusiveMinimum', exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey());
+			if(not integerInArrayOfTypeContextClass.oclIsUndefined()){ 
+				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, exclusiveMinimumSchemaDefinition.exclusiveMinimum, thisModule.getKeywordPropertyNameForNumberOCL(integerInArrayOfTypeContextClass));
 			}
-			if(enclosingSchema.hasTypeNumber()){ 
-				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#number), enclosingSchema.resolve().name+'ExclusiveMinimum', exclusiveMinimumSchemaDefinition.exclusiveMinimum, enclosingSchema.getKey());
+			if(not numberInArrayOfTypeContextClass.oclIsUndefined()){ 
+				thisModule.appendExclusiveMinimumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, exclusiveMinimumSchemaDefinition.exclusiveMinimum, thisModule.getKeywordPropertyNameForNumberOCL(numberInArrayOfTypeContextClass));
 			}
 		}
 	}	

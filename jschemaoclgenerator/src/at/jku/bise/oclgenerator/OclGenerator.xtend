@@ -32,14 +32,14 @@ class OclGenerator {
 			endif
 	'''
 	
-	def static appendExclusiveMinimumConstraint (URI fileName, String packageName, String contextClass, String inv, Double exclusiveMinimum, String propertyName){
-		OclWriter.append(fileName, generateExclusiveMinimumConstraint(packageName, contextClass, inv, exclusiveMinimum, propertyName))
+	def static appendExclusiveMinimumConstraint (URI fileName, String packageName, String contextClass, Double exclusiveMinimum, String propertyName){
+		OclWriter.append(fileName, generateExclusiveMinimumConstraint(packageName, contextClass,  exclusiveMinimum, propertyName))
 	}
 	
-	def static generateExclusiveMinimumConstraint(String packageName, String contextClass, String inv, Double exclusiveMinimum, String propertyName)'''
+	def static generateExclusiveMinimumConstraint(String packageName, String contextClass,  Double exclusiveMinimum, String propertyName)'''
 			context «packageName»::«contextClass»
 		
-			inv «inv»('The value of «contextClass» must be greater than «exclusiveMinimum»'):
+			inv «contextClass»ExclusiveMinimum('The value of «contextClass» must be greater than «exclusiveMinimum»'):
 			if «propertyName.underscoreIfNecessary» > «exclusiveMinimum»
 			then true
 			else null
