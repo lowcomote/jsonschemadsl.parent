@@ -1197,43 +1197,32 @@ lazy rule multipleOfConstraintToOcl {
 }
 
 
---rule createMultipleOfValidationEOperation( enclosingSchema : JSchemaMM!ObjectSchema){---- .....TODO
---	to
---		eOperation:Ecore!EOperation(
---			name<- 'multipleOfValidation',
---			ordered <- false,
---			unique <-false,
---			lowerBound <- 1,
---			upperBound <- 1,
---			eType <- Ecore!EBoolean,
---			eAnnotations <- Sequence{eAnnotation}
---		),
---		eAnnotation: Ecore!EAnnotation(
---			source <- 'http://www.eclipse.org/emf/2002/GenModel',
---			details <- Sequence{entrySet}
---		),
---		entrySet:Ecore!EStringToStringMapEntry(
---			key <- 'body',
---			value <- 'return java.math.BigDecimal.valueOf(this.'+enclosingSchema.getKey()+').remainder(java.math.BigDecimal.valueOf('+enclosingSchema.multipleOf.multipleOf.toString()+'), java.math.MathContext.UNLIMITED).compareTo(java.math.BigDecimal.ZERO) ==0;'
---		)
---		
---	do{
---		
---		eOperation;
---	}
---}
+rule getStringInArrayOfTypeContextClass(enclosingSchema : JSchemaMM!ObjectSchema, enclosingEClass :Ecore!EClass){
+	using {
+		stringInArrayOfTypeContextClass:Ecore!EClass = if not  enclosingSchema.hasSimpleType() then
+															if enclosingSchema.hasTypeString() then enclosingEClass.getSimpleTypeSubClassFromRoot(#string)
+															else OclUndefined
+															endif 
+														else OclUndefined
+														endif;
+	}do{
+		stringInArrayOfTypeContextClass;
+	}
+}
 
 
 lazy rule minLengthConstraintToOcl {
 	from minLengthSchemaDefinition : JSchemaMM!MinLengthSchemaDefinition(minLengthSchemaDefinition.refImmediateComposite().hasTypeString())
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = minLengthSchemaDefinition.refImmediateComposite();
+		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
+		stringInArrayOfTypeContextClass:Ecore!EClass = thisModule.getStringInArrayOfTypeContextClass(enclosingSchema, enclosingEClass);
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is string because of hasTypeString()
-			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'MinLength', minLengthSchemaDefinition.minLength.value, enclosingSchema.getKey());
+			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingEClass.name,  minLengthSchemaDefinition.minLength.value, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
 		}else{ ---- we are sure it contains string because of hasTypeString()
-			thisModule.appendMinLengthConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#string), enclosingSchema.resolve().name+'MinLength', minLengthSchemaDefinition.minLength.value, enclosingSchema.getKey());
+			thisModule.appendMinLengthConstraint(thisModule.packageName, stringInArrayOfTypeContextClass.name,  minLengthSchemaDefinition.minLength.value, thisModule.getKeywordPropertyNameForNumberOCL(stringInArrayOfTypeContextClass));
 		}
 	}	
 }

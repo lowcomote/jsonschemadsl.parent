@@ -91,14 +91,14 @@ class OclGenerator {
 			else null
 			endif
 	'''
-	def static appendMinLengthConstraint (URI fileName, String packageName, String contextClass, String inv, Double minLength, String propertyName){
-		OclWriter.append(fileName, generateMinLengthConstraint(packageName, contextClass, inv, minLength, propertyName))
+	def static appendMinLengthConstraint (URI fileName, String packageName, String contextClass,  Double minLength, String propertyName){
+		OclWriter.append(fileName, generateMinLengthConstraint(packageName, contextClass,  minLength, propertyName))
 	}
 	
-	def static generateMinLengthConstraint(String packageName, String contextClass, String inv, Double minLength, String propertyName)'''
+	def static generateMinLengthConstraint(String packageName, String contextClass, Double minLength, String propertyName)'''
 			context «packageName»::«contextClass»
 		
-			inv «inv»('The length of «contextClass» must be lower than «minLength»'):
+			inv «contextClass»MinLength('The length of «contextClass» must be lower than «minLength»'):
 			if «propertyName.underscoreIfNecessary».size() >= «minLength»
 			then true
 			else null
