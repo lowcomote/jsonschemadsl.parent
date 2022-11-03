@@ -949,8 +949,8 @@ helper def : appendExclusiveMinimumConstraint(packageName: String, contextClass:
 
 
 
-helper def : appendMaximumConstraint(packageName: String, contextClass: String, inv:String, maximum: Real, propertyName : String ) : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaximumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, maximum, propertyName});
+helper def : appendMaximumConstraint(packageName: String, contextClass: String, maximum: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaximumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  maximum, propertyName});
 
 helper def : appendExclusiveMaximumConstraint(packageName: String, contextClass: String, inv:String, exclusiveMaximum: Real, propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendExclusiveMaximumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, exclusiveMaximum, propertyName});

@@ -46,14 +46,14 @@ class OclGenerator {
 			endif
 	'''
 	
-	def static appendMaximumConstraint (URI fileName, String packageName, String contextClass, String inv, Double maximum, String propertyName){
-		OclWriter.append(fileName, generateMaximumConstraint(packageName, contextClass, inv, maximum, propertyName))
+	def static appendMaximumConstraint (URI fileName, String packageName, String contextClass,  Double maximum, String propertyName){
+		OclWriter.append(fileName, generateMaximumConstraint(packageName, contextClass,  maximum, propertyName))
 	}
 	
-	def static generateMaximumConstraint(String packageName, String contextClass, String inv, Double maximum, String propertyName)'''
+	def static generateMaximumConstraint(String packageName, String contextClass,  Double maximum, String propertyName)'''
 			context «packageName»::«contextClass»
 		
-			inv «inv»('The value of «contextClass» must be lower or equal than «maximum»'):
+			inv «contextClass»Maximum('The value of «contextClass» must be lower or equal than «maximum»'):
 			if «propertyName.underscoreIfNecessary» <= «maximum»
 			then true
 			else null

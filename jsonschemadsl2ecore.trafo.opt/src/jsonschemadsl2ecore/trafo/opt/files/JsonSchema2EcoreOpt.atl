@@ -1132,16 +1132,20 @@ lazy rule maximumConstraintToOcl {
 	from maximumSchemaDefinition : JSchemaMM!MaximumSchemaDefinition(maximumSchemaDefinition.refImmediateComposite().hasTypeNumeric())
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = maximumSchemaDefinition.refImmediateComposite();
+		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
+		integerInArrayOfTypeContextClass:Ecore!EClass = thisModule.getIntegerInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
+		numberInArrayOfTypeContextClass:Ecore!EClass = thisModule.getNumberInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
+
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
-			thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
+			thisModule.appendMaximumConstraint(thisModule.packageName, enclosingEClass.name, maximumSchemaDefinition.maximum, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
 		}else{ 
-			if(enclosingSchema.hasTypeInteger()){ 
-				thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#integer), enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
+			if(not integerInArrayOfTypeContextClass.oclIsUndefined()){ 
+				thisModule.appendMaximumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name,  maximumSchemaDefinition.maximum, thisModule.getKeywordPropertyNameForNumberOCL(integerInArrayOfTypeContextClass));
 			}
-			if(enclosingSchema.hasTypeNumber()){ 
-				thisModule.appendMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#number), enclosingSchema.resolve().name+'Maximum', maximumSchemaDefinition.maximum, enclosingSchema.getKey());
+			if(not numberInArrayOfTypeContextClass.oclIsUndefined()){ 
+				thisModule.appendMaximumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, maximumSchemaDefinition.maximum, thisModule.getKeywordPropertyNameForNumberOCL(numberInArrayOfTypeContextClass));
 			}
 		}
 	}	
