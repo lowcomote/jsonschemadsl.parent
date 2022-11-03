@@ -1135,7 +1135,6 @@ lazy rule maximumConstraintToOcl {
 		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
 		integerInArrayOfTypeContextClass:Ecore!EClass = thisModule.getIntegerInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
 		numberInArrayOfTypeContextClass:Ecore!EClass = thisModule.getNumberInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
-
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
@@ -1155,16 +1154,19 @@ lazy rule exclusiveMaximumConstraintToOcl {
 	from exclusiveMaximumSchemaDefinition : JSchemaMM!ExclusiveMaximumSchemaDefinition(exclusiveMaximumSchemaDefinition.refImmediateComposite().hasTypeNumeric())
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = exclusiveMaximumSchemaDefinition.refImmediateComposite();
+		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
+		integerInArrayOfTypeContextClass:Ecore!EClass = thisModule.getIntegerInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
+		numberInArrayOfTypeContextClass:Ecore!EClass = thisModule.getNumberInArrayOfTypeContextClass(enclosingSchema,enclosingEClass);
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is numeric because of hasTypeNumeric()
-			thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'ExclusiveMaximum', exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey());
+			thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingEClass.name,  exclusiveMaximumSchemaDefinition.exclusiveMaximum, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
 		}else{ 
-			if(enclosingSchema.hasTypeInteger()){ 
-				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#integer), enclosingSchema.resolve().name+'ExclusiveMaximum', exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey());
+			if(not integerInArrayOfTypeContextClass.oclIsUndefined()){ 
+				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, integerInArrayOfTypeContextClass.name, exclusiveMaximumSchemaDefinition.exclusiveMaximum, thisModule.getKeywordPropertyNameForNumberOCL(integerInArrayOfTypeContextClass));
 			}
-			if(enclosingSchema.hasTypeNumber()){ 
-				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#number), enclosingSchema.resolve().name+'ExclusiveMaximum', exclusiveMaximumSchemaDefinition.exclusiveMaximum, enclosingSchema.getKey());
+			if(not numberInArrayOfTypeContextClass.oclIsUndefined()){ 
+				thisModule.appendExclusiveMaximumConstraint(thisModule.packageName, numberInArrayOfTypeContextClass.name, exclusiveMaximumSchemaDefinition.exclusiveMaximum, thisModule.getKeywordPropertyNameForNumberOCL(numberInArrayOfTypeContextClass));
 			}
 		}
 	}	
