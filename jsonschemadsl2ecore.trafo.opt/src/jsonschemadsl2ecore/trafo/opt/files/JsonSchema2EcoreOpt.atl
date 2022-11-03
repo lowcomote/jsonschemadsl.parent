@@ -1231,12 +1231,14 @@ lazy rule maxLengthConstraintToOcl {
 	from maxLengthSchemaDefinition : JSchemaMM!MaxLengthSchemaDefinition(maxLengthSchemaDefinition.refImmediateComposite().hasTypeString())
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = maxLengthSchemaDefinition.refImmediateComposite();
+		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
+		stringInArrayOfTypeContextClass:Ecore!EClass = thisModule.getStringInArrayOfTypeContextClass(enclosingSchema, enclosingEClass);
 	}
 	do {
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is string because of hasTypeString()
-			thisModule.appendMaxLengthConstraint(thisModule.packageName, enclosingSchema.resolve().name, enclosingSchema.resolve().name+'MaxLength', maxLengthSchemaDefinition.maxLength.value, enclosingSchema.getKey());
+			thisModule.appendMaxLengthConstraint(thisModule.packageName, enclosingEClass.name,  maxLengthSchemaDefinition.maxLength.value, thisModule.getKeywordPropertyNameForNumberOCL(enclosingEClass));
 		}else{ ---- we are sure it contains string because of hasTypeString()
-			thisModule.appendMaxLengthConstraint(thisModule.packageName, enclosingSchema.resolve().buildEClassNameForArrayOfTypes(#string), enclosingSchema.resolve().name+'MaxLength', maxLengthSchemaDefinition.maxLength.value, enclosingSchema.getKey());
+			thisModule.appendMaxLengthConstraint(thisModule.packageName, stringInArrayOfTypeContextClass.name, maxLengthSchemaDefinition.maxLength.value, thisModule.getKeywordPropertyNameForNumberOCL(stringInArrayOfTypeContextClass));
 		}
 	}	
 }
