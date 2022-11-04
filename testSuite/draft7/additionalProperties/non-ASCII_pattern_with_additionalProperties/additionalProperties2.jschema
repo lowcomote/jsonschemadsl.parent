@@ -1,0 +1,4 @@
+{
+    "patternProperties": {"^á": {}},
+    "additionalProperties": false
+}
