@@ -1,0 +1,27 @@
+{
+	"type":"object",
+	"properties":{
+		
+		"123":{"type":"integer"},
+		"$33":{"type":"integer"},
+		"-&$#":{"type":["null","boolean"]},
+		"a-b$":{
+			"type":"object",
+			"dependencies":{
+				"*a":["*b","*c"],
+				"*b":{
+					"required":["*d"]
+				}
+			}
+		},
+		"##":{
+			"patternProperties":{
+				"^PP_":{"type":"string"}
+			},
+			"required":["PP_-a"]
+		}
+		
+	},
+	"required":["123","$33","-&$#", "a-b$", "##"]
+	  
+}   

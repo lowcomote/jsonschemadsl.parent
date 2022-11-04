@@ -1,0 +1,16 @@
+{
+	"123":123,
+	"$33":33,
+	"-&$#":null,
+	"a-b$":{
+		"foo":"bar",
+		"*a":"aaaaa",
+		"*b":"bbbbbb",
+		"*c":"bdaafafabbbbb",
+		"*d":true
+	},
+	"##":{
+		"PP_":"something",
+		"PP_-a":"something 2"
+	}
+}   

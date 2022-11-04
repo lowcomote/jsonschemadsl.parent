@@ -117,7 +117,7 @@ rule createValidatorOnProperties(properties: Sequence(String)){
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
 			key <- 'body',
-			value <-  thisModule.createBodyForValidateKeyOnDefinedProperties(properties)
+			value <-  thisModule.createBodyForValidateKeyOnDefinedProperties(properties->collect(property | property.encodeJavaIdentifier())->flatten())
 		)
 	do{
 		eOperation;
@@ -308,39 +308,7 @@ rule mapBooleanSchemaFalseToEClass extends mapSchemaToEClass {
 }
 
 
--------- TODO in Progress..
---lazy rule  createContainmentToNoValidEClass{
---	from containmentName:String,  addToKeywords:Boolean
---	to
---		containment: Ecore!EReference(
---			name <- containmentName,
---			containment <- true,
---			lowerBound <- 1,
---			upperBound <- 1,
---			eType <- thisModule.createNoValidEClass('NoValid'),
---			eAnnotations <- containment.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(containmentName)} else Sequence{} endif)
---		)
---	do{ 
---		if(addToKeywords){ 
---			thisModule.keywords <- thisModule.keywords->union(Sequence{containment});
---		}
---		containment;
---	}
---}
---
---
----------- TODO in Progress..
---unique lazy  rule createNoValidEClass{
---	from name:String
---	to 
---		eClass : Ecore!EClass(
---			name<-name
---		)
---	do{
---		eClass;
---	}	
---		
---}
+
 	
 
 rule mapObjectSchemaToEClass extends mapSchemaToEClass{
@@ -1414,43 +1382,28 @@ lazy rule patternPropertiesRegexToOcl{
 rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 	using {
 		derivedFeatures : Sequence(Ecore!EAttribute)= Sequence{};
-		containmentPropertyName:String = objectSchema.getKeyForPropertiesContainment();
+		containmentPropertyName:String = objectSchema.getKeyForPropertiesContainment();---- already encoded
 	}
 	do{
 		if(objectSchema.hasTypeObject()){ -----it has Type object, it is arrayOfTypes with object or type is missing
 			if(not objectSchema.properties.oclIsUndefined()){
 				for(keySchemaPair in objectSchema.properties.keySchemaPairs){
---					if (keySchemaPair.value.oclIsTypeOf(JSchemaMM!ObjectSchema)){
---					if (keySchemaPair.value.oclIsTypeOf(JSchemaMM!ObjectSchema) or keySchemaPair.value.value = true){
-						
 						if(keySchemaPair.value.hasSimpleTypeScalar()){
-	--						derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedAttibute(objectSchema.getKeyForPropertiesContainment(),keySchemaPair)});
---							derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedAttibute(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair))});
 							derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedAttibute(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair))});
 						}else if(keySchemaPair.value.hasSimpleTypeObject()){
-	--						derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedReference(objectSchema.getKeyForPropertiesContainment(),keySchemaPair)});
 							derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve(), thisModule.createGetterForDerivedReference(containmentPropertyName, keySchemaPair), 1)});
 						}else if (keySchemaPair.value.hasSimpleTypeArray()){
-							--if(schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1))
 							if(not keySchemaPair.value.items.oclIsUndefined()){
 								if(keySchemaPair.value.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){
---									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
 									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
 								}else{
 									----  create derived feature for Tuple
---									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
 									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
 								}	
 							}	
---							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve()->debug('eclass').getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()->debug('key'))->debug('type').getEType(), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
 						}else if(keySchemaPair.value.hasSimpleTypeNull()){
---							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReferenceMappingTheKey(objectSchema.getKeyForPropertiesContainment(),keySchemaPair, 1)});
---							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
 							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
---						}else if(keySchemaPair.value.hasArrayOfTypes or keySchemaPair.value.type.oclIsUndefined()){ --- if it hasArrayOfTypes it has Object for sure because of the condition on the enclosing if : hasTypeObject
 						}else if(keySchemaPair.value.hasArrayOfTypes or(keySchemaPair.value.oclIsTypeOf(JSchemaMM!ObjectSchema) and keySchemaPair.value.type.oclIsUndefined())){ --- if it hasArrayOfTypes it has Object for sure because of the condition on the enclosing if : hasTypeObject	
---							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReferenceMappingTheKey(objectSchema.getKeyForPropertiesContainment(),keySchemaPair, 1)});
---							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve().getEStructuralFeature(keySchemaPair.key.stripFirstAndLast()).getEType(), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
 							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
 						}else if(keySchemaPair.value.oclIsTypeOf(JSchemaMM!BooleanSchema)){
 							---NEW
@@ -1469,15 +1422,10 @@ rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 
 
 rule createDerivedAttibute( key:String, eType:Ecore!EClassifier, getterValue:String){
---	using {
---		key:String =keySchemaPair.key.stripFirstAndLast();
---	}
 	to
 		derivedAttribute : Ecore!EAttribute(
---			name <- keySchemaPair.key.stripFirstAndLast(),
-			name <- key,
+			name <- key.encodeJavaIdentifier(),
 			derived <- true,
---			eType <- keySchemaPair.value.resolve().getEStructuralFeature(key).getEType(),
 			eType <- eType,
 			changeable <- false,
 			ordered <- false,
@@ -1495,7 +1443,6 @@ rule createDerivedAttibute( key:String, eType:Ecore!EClassifier, getterValue:Str
 		),
 		getter:Ecore!EStringToStringMapEntry(
 			key <- 'get',
---			value <-  thisModule.createGetterForDerivedFeaturesMappingTheKey(propertyName, keySchemaPair)
 			value <-  getterValue
 		)
 	do{
@@ -1510,7 +1457,7 @@ rule createDerivedReference(key:String, eType:Ecore!EClassifier, getterValue:Str
 --	}
 	to
 		derivedReference : Ecore!EReference(
-			name <- key,
+			name <- key.encodeJavaIdentifier(),
 			derived <- true,
 --			eType <- 	keySchemaPair.value.resolve(),
 			eType <- eType,
@@ -1596,8 +1543,7 @@ rule createGetKeyOperation(objectSchema:JSchemaMM!ObjectSchema, propertyName:Str
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
 			key <- 'body',
---			value <-  thisModule.createBodyForGetKey(propertyName, properties, propertiesAbstractEClass) 
-			value <-  thisModule.createBodyForGetKey(objectSchema, propertyName, properties, propertiesAbstractEClass) 
+			value <-  thisModule.createBodyForGetKey(objectSchema, propertyName, properties->collect(property | property.encodeJavaIdentifier())->flatten(), propertiesAbstractEClass) 
 		)
 	do{
 		eOperation;
@@ -1941,17 +1887,7 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 				thisModule.appendValidatorBooleanSchemaFalse(thisModule.packageName, booleanSchema.resolve().name);
 			}
 		}
---		rule mapBooleanSchemaFalseToEClass extends mapSchemaToEClass {
---	from schema: JSchemaMM!BooleanSchema( schema.value=false 
---										and not schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)
---										and not schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition))
---	to 
---		eClass : Ecore!EClass
---	do{
---		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword())});
---		thisModule.appendValidatorBooleanSchemaFalse(thisModule.packageName, schema.buildEClassname(), schema.buildEClassname()+'BooleanSchemaFalse');
---	}	
---}
+
 		
 		------------------ Derived Attributes and operation get (String key)
 		for(objectSchema in JSchemaMM!ObjectSchema.allInstancesFrom('jschema')){
@@ -1961,21 +1897,13 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 						objectSchema.resolve().eStructuralFeatures <- objectSchema.resolve().eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
 					}
 					----- manage the case upper bound is 0 (the get(key) operation would have a compilation error)
---					objectSchema.resolve().eOperations <- objectSchema.resolve().eOperations-> union (Sequence{thisModule.createGetKeyOperation(objectSchema.getKeyForPropertiesContainment(),  objectSchema.findPropertiesKeys(), objectSchema.resolve().getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
---					if(objectSchema.maxProperties.oclIsUndefined() or objectSchema.maxProperties.maxProperties.value > 0){
 					objectSchema.resolve().eOperations <- objectSchema.resolve().eOperations-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),  objectSchema.findPropertiesKeys(), objectSchema.resolve().getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
---					}
 				}else if(objectSchema.hasTypeObject()){--- if here surely not hasSimpleTypeObject. So it is missing type or "type":[...,"object",...]
 					---- Look for subclass with annotation 'ArrayOfTypes'  = object
 					if(not objectSchema.properties.oclIsUndefined()){
---						objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures <- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
 						objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eStructuralFeatures <- objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
 					}
 					------- for object in array of types we use objectSchema.getKey() and not objectSchema.getKeyForPropertiesContainment()
---					if(objectSchema.maxProperties.oclIsUndefined() or objectSchema.maxProperties.maxProperties.value > 0){
---					objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
---							<- objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").eOperations 
---							-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.resolve().getEStructuralFeature(objectSchema.getKey()).getEType().subClass(#"\"object\"").getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
 					objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eOperations 
 							<- objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eOperations 
 							-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});

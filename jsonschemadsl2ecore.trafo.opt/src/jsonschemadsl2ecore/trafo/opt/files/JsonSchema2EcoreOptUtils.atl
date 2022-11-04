@@ -828,22 +828,18 @@ helper def: createBodyForValidateKeyOnDefinedProperties(properties:Sequence(Stri
 --helper def: createGetterForDerivedFeaturesMappingTheKey(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
 helper def: createGetterForDerivedFeature(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
 	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
-	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().toCamelCase()+'()).orElse(null);'
+	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().encodeJavaIdentifier().toCamelCase()+'()).orElse(null);'
 ;
 
 helper def: createGetterForDerivedReference(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
 	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
---	'if (this.'+propertyName+'!=null){\n'
---	+'return this.'+propertyName+'.stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).orElse(null);\n'
---	+'}\n'
---	+'return null;'
 	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).orElse(null);'
 	
 ;
 	
 helper def:	createGetterForDerivedReferenceList(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
 	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
-	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().toCamelCase()+'()).orElse(new org.eclipse.emf.common.util.BasicEList<>());'
+	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().encodeJavaIdentifier().toCamelCase()+'()).orElse(new org.eclipse.emf.common.util.BasicEList<>());'
 ;	
 	
 	
@@ -879,7 +875,8 @@ helper def: createBodyForGetKey(objectSchema:JSchemaMM!ObjectSchema, propertyNam
 		.concat('\tif (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){\n')
 		.concat('\t\ttry{\n')
 		.concat('\t\t\tjava.lang.reflect.Field keyField = child.getClass().getDeclaredField("key");\n')
-		.concat('\t\t\tif (keyField.get(child).equals(key)) {\n')
+--		.concat('\t\t\tif (keyField.get(child).equals(key)) {\n')
+		.concat('\t\t\tif (jku.se.atl.transformation.utils.Utils.getIdentifier(keyField.get(child).toString()).equals(key)) {\n')
 		.concat('\t\t\t\tjava.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals("additionalProperties") || field.getName().startsWith("patternProperties") ).findAny().get();\n')
 		.concat('\t\t\t\treturn valueField.get(child);\n')
 		.concat('\t\t\t}\n')
@@ -904,7 +901,8 @@ helper def: createBodyForGetKey(objectSchema:JSchemaMM!ObjectSchema, propertyNam
 		.concat('if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){\n')
 		.concat('\ttry{\n')
 		.concat('\t\tjava.lang.reflect.Field keyField = child.getClass().getDeclaredField("key");\n')
-		.concat('\t\tif (keyField.get(child).equals(key)) {\n')
+--		.concat('\t\tif (keyField.get(child).equals(key)) {\n')
+		.concat('\t\t\tif (jku.se.atl.transformation.utils.Utils.getIdentifier(keyField.get(child).toString()).equals(key)) {\n')
 		.concat('\t\t\tjava.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals("additionalProperties") || field.getName().startsWith("patternProperties") ).findAny().get();\n')
 		.concat('\t\t\treturn valueField.get(child);\n')
 		.concat('\t\t}\n')

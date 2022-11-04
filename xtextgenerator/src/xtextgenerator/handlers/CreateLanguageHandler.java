@@ -51,10 +51,11 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.wizards.IWizardDescriptor;
+import org.osgi.framework.BundleException;
 
- 
 import jsongrammarmm.jsongrammar.DetailedGrammar;
 import jsongrammarmm.jsongrammar.JsonGrammar;
+import xtextgenerator.utils.ManifestChanger;
 import xtextgenerator.wizard.NewXtextProjectFromEcoreJsonGrammarWizard;
 
 public class CreateLanguageHandler extends AbstractHandler{
@@ -74,6 +75,7 @@ public class CreateLanguageHandler extends AbstractHandler{
 	public final static String GEN_MODEL_DIR = "src-gen";
 //	public final static String JSON_METASCHEMA_MM_NS_URI = "http://at.jku.bise/jsonMetaschemaMM";
 	public final static String JSON_MM_NS_URI = "http://at.jku.bise/jsonMM";
+	public static final String JKU_UTILS = "jku.se.atl.transformation.utils";
 	
 	
 	@Override
@@ -120,6 +122,7 @@ public class CreateLanguageHandler extends AbstractHandler{
 		 */
 		GenModel genModel =generateGenmodelFile( workspace,  filename,  modelPath, rootProjectPath, resourceSet );
 		generateSources(genModel);
+		updateManifest(rootProjectPath);
 		URI genModelURI = genModel.eResource().getURI();
 		
 		/**
@@ -424,8 +427,26 @@ public class CreateLanguageHandler extends AbstractHandler{
 	 * TODO update the Manifest of model, edit and editor with  
 	 * Bundle-RequiredExecutionEnvironment: JavaSE-11
 	 */
-	private void updateManifest() {
-		
+	private void updateManifest(IPath rootProjectPath) {
+		updateModelManifest(rootProjectPath);
+	}
+	
+	private void updateModelManifest(IPath rootProjectPath) {
+		/**
+		 * add jku.se.atl.transformation.utils bundle
+		 */
+		IPath manifestIPath = rootProjectPath.append("META-INF").append("MANIFEST");
+		manifestIPath=manifestIPath.addFileExtension("MF");
+		IPath manifestLocation =ResourcesPlugin.getWorkspace().getRoot().getFile(manifestIPath).getLocation();
+		try {
+			ManifestChanger manifestChanger = new ManifestChanger(manifestLocation.toString());
+			manifestChanger.addPluginDependency(JKU_UTILS);
+			manifestChanger.writeManifest();
+			
+		} catch (IOException | BundleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	private String toCamelCase (String str) {
