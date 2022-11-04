@@ -43,11 +43,7 @@ rule JsonSchemaToEPackage {
 	}
 }
 
----------TODO Map case when the root is a boolean schema
---rule mapRootBooleanSchemaTrueToJsonDocument{
---	from booleanSchema: JSchemaMM!BooleanSchema(booleanSchema.refImmediateComposite().oclIsTypeOf(JSchemaMM!JsonSchema) and booleanSchema.value=true)
---	to jsonDocument: JSchemaMM!JsonDocument
---}
+
 
 abstract rule mapSchemaToEClass{ 
 	from schema : JSchemaMM!Schema
