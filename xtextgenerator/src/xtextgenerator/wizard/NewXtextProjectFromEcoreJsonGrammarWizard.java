@@ -71,10 +71,15 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 //	public static final String JSON_BUNDLE="org.json";
 	public static final String RELATED_SCHEMAS_BUNDLE="relatedSchemas";
 	public static final String EMF_CONVERTES_BUNDLE="org.eclipse.emf.converter";
+	public static final String JKU_SE_UTILS ="jku.se.atl.transformation.utils";
 	
 	public static final String SOURCE_FOLDER="src";
 	public static final String VALIDATION_FOLDER="validation";
 	public static final String VALIDATOR_CLASS_SUFFIX="Validator";
+	
+	public static final String PARSER_GENERATOR_PACKAGE="jku.se.parser.antlr";
+	public static final String PARSER_GENERATOR_CLASS_NAME="SemanticPredicateXtextAntlrGeneratorFragment2";
+	
 	
 	private final IJdtHelper jdtHelper;
 	
@@ -325,6 +330,9 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 //			result =generateOclValidator();
 			result =generateAllValidators();
 		}
+//		if(result) {
+//			result =generateAntlrGeneratorGeneratorGenerator();
+//		}
 		if(result) {
 			result = launchGenerateMwe2();
 		}
@@ -378,6 +386,10 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 			manifestChanger.addPluginDependency(OCL_BUNDLE);
 			manifestChanger.addPluginDependency(RELATED_SCHEMAS_BUNDLE);
 			manifestChanger.addPluginDependency(EMF_CONVERTES_BUNDLE);
+			manifestChanger.addPluginDependency(JKU_SE_UTILS);
+			
+			
+			
 			
 //			manifestChanger.addPluginDependency(JSONASSERT_BUNDLE);
 //			manifestChanger.addPluginDependency(JSON_BUNDLE);;
@@ -487,6 +499,36 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 //				return false;
 //			}
 //		}
+		return true;
+	}
+	
+	private boolean generateAntlrGeneratorGeneratorGenerator() {
+		String projectName = getProjectName();
+		IPath parserGeneratorPath = ResourcesPlugin.getWorkspace().getRoot().getLocation()
+				.append(projectName+DOT_PARENT).append(projectName).append(SOURCE_FOLDER); 
+		
+		String[] parserGeneratorPackageSplit = PARSER_GENERATOR_PACKAGE.split("\\.");
+		for (String split :parserGeneratorPackageSplit) {
+			parserGeneratorPath = parserGeneratorPath.append(split);
+			File parserGeneratorPathDirectory = parserGeneratorPath.toFile();
+			if(!parserGeneratorPathDirectory.exists()) {
+				parserGeneratorPathDirectory.mkdir();
+			}
+		}
+//		File parserGeneratorDirectory =parserGeneratorPath.toFile();
+//		if(!parserGeneratorDirectory.exists()) {
+//			parserGeneratorDirectory.mkdir();
+//			
+//		}
+		parserGeneratorPath = parserGeneratorPath.append(PARSER_GENERATOR_CLASS_NAME).addFileExtension("xtend");
+		String fileName= parserGeneratorPath.toString();
+		String ePackage = this.ePackageSelectionPage.getEPackageInfos().iterator().next().getEPackageJavaFQN();
+		try {
+			XtextAntlrGeneratorFragment2Generator.create(fileName, PARSER_GENERATOR_PACKAGE, PARSER_GENERATOR_CLASS_NAME, ePackage);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 		return true;
 	}
 

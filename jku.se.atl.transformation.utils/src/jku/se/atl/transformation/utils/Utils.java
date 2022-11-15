@@ -1,5 +1,8 @@
 package jku.se.atl.transformation.utils;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Utils {
 	/**
 	 * 
@@ -27,4 +30,11 @@ public class Utils {
 	    }
 	    return sb.toString();
 	}
+	
+	public static boolean lookingAt(String pattern, String key) {
+   		Pattern p = Pattern.compile(pattern);
+   		Matcher m = p.matcher(key);
+   		boolean b = m.lookingAt();
+   		return b;
+   	}
 }

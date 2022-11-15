@@ -340,6 +340,7 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	} 
 	
 	def workflowLanguage(String languageName, String fileExtensions){
+		val XtextJsonGrammarProjectInfo xtextJsonGrammarProject = config as XtextJsonGrammarProjectInfo;
 		'''
 			language = StandardLanguage {
 				name = "«languageName»"
@@ -367,7 +368,11 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 					// Generates checks for @Deprecated grammar annotations, an IssueProvider and a corresponding PropertyPage
 					generateDeprecationValidation = true
 				}
-				parserGenerator={
+«««				parserGenerator={
+«««				parserGenerator=«NewXtextProjectFromEcoreJsonGrammarWizard.PARSER_GENERATOR_PACKAGE».«NewXtextProjectFromEcoreJsonGrammarWizard.PARSER_GENERATOR_CLASS_NAME»{
+				parserGenerator=jku.se.parser.antlr.SemanticPredicateXtextAntlrGeneratorFragment2{
+«««					ePackageName = "test86.Test86Package" 
+					ePackageName = "«config.ecore2Xtext.EPackageInfos.iterator().next().getEPackageJavaFQN()»"
 					combinedGrammar=false
 					//debugGrammar=true
 				}

@@ -26,7 +26,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.debug.core;bundle-version="3.16.0",
  org.eclipse.debug.ui;bundle-version="3.14.600",
  jsongrammarMM;bundle-version="2.0.0",
- relatedSchemas;bundle-version="2.0.0"
+ relatedSchemas;bundle-version="2.0.0",
+ org.eclipse.xtext.xtext.generator;bundle-version="2.23.0",
+ org.eclipse.xtext.generator;bundle-version="2.23.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: xtextgenerator
 Bundle-ActivationPolicy: lazy
