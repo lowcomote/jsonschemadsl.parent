@@ -1,0 +1,9 @@
+{
+	"not":{
+		"type":"object",
+		"patternProperties":{
+			"S{4}":{"type":"string"},
+			"I{4}":{"type":"integer"}
+		}
+	}
+}
