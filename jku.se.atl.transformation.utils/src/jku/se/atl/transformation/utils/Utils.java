@@ -37,4 +37,11 @@ public class Utils {
    		boolean b = m.lookingAt();
    		return b;
    	}
+	
+	public static boolean find(String pattern, String key) {
+   		Pattern p = Pattern.compile(pattern);
+   		Matcher m = p.matcher(key);
+   		boolean b = m.find();
+   		return b;
+   	}
 }

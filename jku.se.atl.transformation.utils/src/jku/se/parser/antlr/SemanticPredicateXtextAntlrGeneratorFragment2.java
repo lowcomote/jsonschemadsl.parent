@@ -93,7 +93,8 @@ public class SemanticPredicateXtextAntlrGeneratorFragment2 extends XtextAntlrGen
 	
 	private String buildSemanticPredicate(EClassifier patterPropertiesEClass){
 		String pattern= patterPropertiesEClass.getEAnnotation("PatternProperties").getDetails().get("pattern");
-		return "if (!jku.se.atl.transformation.utils.Utils.lookingAt(\""+pattern+"\", input.LT(1).getText().substring(1,input.LT(1).getText().length() - 1)))  return false;";
+//		return "if (!jku.se.atl.transformation.utils.Utils.lookingAt(\""+pattern+"\", input.LT(1).getText().substring(1,input.LT(1).getText().length() - 1)))  return false;";
+		return "if (!jku.se.atl.transformation.utils.Utils.find(\""+pattern+"\", input.LT(1).getText().substring(1,input.LT(1).getText().length() - 1)))  return false;";
 	}
 	
 	private String buildFragmentRegex(String javaParserName, String patternPropertiesName){
