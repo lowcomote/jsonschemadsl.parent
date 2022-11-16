@@ -1,0 +1,27 @@
+{
+	"add1":1,
+	"S_":"I am a string",
+	"I_1":1,
+	"P_": [],
+	"H_":{
+		"test":{
+			"relativekind":"uncle",
+			"age":"100"
+		}
+	},
+	"name":"Alessandro",
+	"surname":"Colantoni",
+	"age":50,
+	"adult":true,
+	"score":1111.1111,
+	"job":{
+		"role":"engineer",
+		"level":1
+	},
+	"car":{
+		"licencePlate":"YYYY435435",
+		"year":1999,
+		"type":"family car"
+	}
+	
+}

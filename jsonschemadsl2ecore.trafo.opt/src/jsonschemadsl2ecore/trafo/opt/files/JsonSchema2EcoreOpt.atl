@@ -1378,10 +1378,10 @@ lazy rule patternPropertiesRegexToOcl{
 rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 	using {
 		derivedFeatures : Sequence(Ecore!EAttribute)= Sequence{};
-		containmentPropertyName:String = objectSchema.getKeyForPropertiesContainment();---- already encoded
+		containmentPropertyName:String = objectSchema.getKeyForPropertiesContainment();---- already encoded ---------
 	}
 	do{
-		if(objectSchema.hasTypeObject()){ -----it has Type object, it is arrayOfTypes with object or type is missing
+		if(objectSchema.hasTypeObject()){ -----it has Type object, it is arrayOfTypes with object or type is missing ---------
 			if(not objectSchema.properties.oclIsUndefined()){
 				for(keySchemaPair in objectSchema.properties.keySchemaPairs){
 						if(keySchemaPair.value.hasSimpleTypeScalar()){
@@ -1389,14 +1389,22 @@ rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 						}else if(keySchemaPair.value.hasSimpleTypeObject()){
 							derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve(), thisModule.createGetterForDerivedReference(containmentPropertyName, keySchemaPair), 1)});
 						}else if (keySchemaPair.value.hasSimpleTypeArray()){
-							if(not keySchemaPair.value.items.oclIsUndefined()){
-								if(keySchemaPair.value.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){
-									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
-								}else{
-									----  create derived feature for Tuple
-									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
-								}	
+--							if(not keySchemaPair.value.items.oclIsUndefined()){
+--								if(keySchemaPair.value.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){
+--									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
+--								}else{
+--									----  derived feature for Tuple ------
+--									derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
+--								}	
+--							}	
+							if(keySchemaPair.value.items.oclIsUndefined() or keySchemaPair.value.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){
+								----- if there is no items it is as ItemsAnyOf1
+								derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
+							}else{
+								----  derived feature for Tuple ------
+								derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
 							}	
+								
 						}else if(keySchemaPair.value.hasSimpleTypeNull()){
 							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
 						}else if(keySchemaPair.value.hasArrayOfTypes or(keySchemaPair.value.oclIsTypeOf(JSchemaMM!ObjectSchema) and keySchemaPair.value.type.oclIsUndefined())){ --- if it hasArrayOfTypes it has Object for sure because of the condition on the enclosing if : hasTypeObject	
@@ -1547,10 +1555,10 @@ rule createGetKeyOperation(objectSchema:JSchemaMM!ObjectSchema, propertyName:Str
 		
 }
 
--------------
+--------------------------
 ------------- Annotations they are lazy bo be called from the end point after the enclosing eclasses 
---------------and their other annotations have been created  
-
+------------- and their other annotations have been created  
+---------------------------
 
 
 lazy rule mapSchemaDefinition{
@@ -1892,19 +1900,18 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 					if(not objectSchema.properties.oclIsUndefined()){
 						objectSchema.resolve().eStructuralFeatures <- objectSchema.resolve().eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
 					}
-					----- manage the case upper bound is 0 (the get(key) operation would have a compilation error)
+					----- manage the case upper bound is 0 (the get(key) operation would have a compilation error) -----------
 					objectSchema.resolve().eOperations <- objectSchema.resolve().eOperations-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),  objectSchema.findPropertiesKeys(), objectSchema.resolve().getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
 				}else if(objectSchema.hasTypeObject()){--- if here surely not hasSimpleTypeObject. So it is missing type or "type":[...,"object",...]
 					---- Look for subclass with annotation 'ArrayOfTypes'  = object
 					if(not objectSchema.properties.oclIsUndefined()){
 						objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eStructuralFeatures <- objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eStructuralFeatures-> union(thisModule.createDerivedFeatures(objectSchema));
 					}
-					------- for object in array of types we use objectSchema.getKey() and not objectSchema.getKeyForPropertiesContainment()
+					------- for object in array of types we use objectSchema.getKey() and not objectSchema.getKeyForPropertiesContainment() --------
 					objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eOperations 
 							<- objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).eOperations 
 							-> union (Sequence{thisModule.createGetKeyOperation(objectSchema, objectSchema.getKeyForPropertiesContainment(),objectSchema.findPropertiesKeys(),  objectSchema.getEStructuralFeatureType(objectSchema.getKey()).subClass(#object).getEStructuralFeature(objectSchema.getKeyForPropertiesContainment()).getEType())});
 
---					}
 				}
 			}
 		}
