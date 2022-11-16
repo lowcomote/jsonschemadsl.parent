@@ -32,7 +32,7 @@ public class SemanticPredicateXtextAntlrGeneratorFragment2 extends XtextAntlrGen
 			Class clazz = Class.forName(ePackageName);
 			Field eInstanceField = clazz.getField("eINSTANCE");
 			this.ePackage  = (EPackage)eInstanceField.get(clazz);
-			System.out.println(this.ePackage);
+//			System.out.println(this.ePackage);
 		} catch (ClassNotFoundException | NoSuchFieldException | SecurityException | IllegalArgumentException
 				| IllegalAccessException e) {
 			e.printStackTrace();
@@ -71,15 +71,17 @@ public class SemanticPredicateXtextAntlrGeneratorFragment2 extends XtextAntlrGen
 			String fragmentRegex = buildFragmentRegex(javaParserName, patterPropertiesEClass.getName());
 			Pattern pattern = Pattern.compile(fragmentRegex, Pattern.MULTILINE);
 			Matcher matcher = pattern.matcher(newInternalParserText);
-			matcher.find();
-			System.out.println(matcher.start()+","+matcher.end());
-			String predicateStringIndex= matcher.group(1);
-			System.out.println(patterPropertiesEClass.getName()+","+predicateStringIndex);
-			
-			String booleanSynpredRegex = buildBooleanSynpredRegex( predicateStringIndex,  javaParserName);
-			String semanticPredicate =buildSemanticPredicate(patterPropertiesEClass);
-			String newBooleanSynpred = buildNewBooleanSynpred( booleanSynpredRegex,  semanticPredicate);
-			newInternalParserText=newInternalParserText.replaceAll(booleanSynpredRegex, newBooleanSynpred);
+			boolean matchFound = matcher.find();
+			if(matchFound) {
+//				System.out.println(matcher.start()+","+matcher.end());
+				String predicateStringIndex= matcher.group(1);
+//				System.out.println(patterPropertiesEClass.getName()+","+predicateStringIndex);
+				
+				String booleanSynpredRegex = buildBooleanSynpredRegex( predicateStringIndex,  javaParserName);
+				String semanticPredicate =buildSemanticPredicate(patterPropertiesEClass);
+				String newBooleanSynpred = buildNewBooleanSynpred( booleanSynpredRegex,  semanticPredicate);
+				newInternalParserText=newInternalParserText.replaceAll(booleanSynpredRegex, newBooleanSynpred);
+			}
 			
 		}
 		return newInternalParserText;
@@ -127,6 +129,10 @@ public class SemanticPredicateXtextAntlrGeneratorFragment2 extends XtextAntlrGen
 		return javaInternalParserFullName;
 	}
 	
+	/**
+	 * 
+	 * @return the EClasses that have the PatternProperties annotation 
+	 */
 	private List<EClassifier> getPatterPropertiesEClasses(){
 		List<EClassifier> patterPropertiesEClasses = ePackage.getEClassifiers().stream()
 			.filter(eClassifier -> eClassifier instanceof EClass)

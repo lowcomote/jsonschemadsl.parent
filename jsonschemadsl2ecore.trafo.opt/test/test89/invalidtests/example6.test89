@@ -1,0 +1,10 @@
+{
+	"add1":{},
+	"add2":[],
+	"add3":"something",
+	"S_1":3,
+	"I_1":{},
+	"S_2":"string here is valid",
+	"I_1":["array here is valid"],
+	"I_3":"no string allowed here"
+}

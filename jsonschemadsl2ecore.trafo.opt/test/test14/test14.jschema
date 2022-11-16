@@ -6,5 +6,4 @@
 		"^S_": { "type": ["string","array","object"] },
     	"^P_": { "type": "string" }
 	}
- 
 }

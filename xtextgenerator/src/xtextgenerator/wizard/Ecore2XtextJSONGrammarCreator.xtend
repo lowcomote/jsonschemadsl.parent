@@ -115,7 +115,7 @@ class Ecore2XtextJSONGrammarCreator {
 		/**
 		 * We put a syntactic predicate to number in array of types since also integer are mapped as Double
 		 */
-		isAdditionalProperty(eClazz) || isPatternProperty(eClazz) || isNumberInArrayOfTypes(eClazz)
+		isAdditionalProperty(eClazz) || isPatternProperty(eClazz) || isNumberInArrayOfTypes(eClazz) 
 	}
 	
 	/**
@@ -141,6 +141,32 @@ class Ecore2XtextJSONGrammarCreator {
 		eClazz.EAnnotations.exists[annotation | annotation.details.containsKey('PatternProperties')]
 	}
 	
+	/**
+	 * if the EClass is is the concrete type of an array of types schema in a PatternProperties
+	 */
+//	def isArrayOfTypesInPatternProperties(EClass eClazz){
+//		var boolean synpred = false
+//		
+//		val boolean isArrayOfType = eClazz.EAnnotations.exists[annotation | annotation.source==='ArrayOfTypes'] 
+//		
+//		if(isArrayOfType){		
+//			val Iterable<EClass> patternpropertiesIterable = eClazz.getEPackage.getEClassifiers.filter(EClass)
+//				.filter(c|c.EAnnotations.exists[annotation | annotation.source==='PatternProperties'])
+//		
+//			if(!patternpropertiesIterable.empty){
+//				synpred = patternpropertiesIterable.exists[c|c.EReferences.exists[r|r.EReferenceType.abstract && eClazz.ESuperTypes.contains(r.EReferenceType)]]
+//			}
+//		
+//		}
+//		return  synpred;
+//		
+//		
+////		eClazz.EAnnotations.exists[annotation | annotation.source==='ArrayOfTypes'] && 
+////		!eClazz.getEPackage.getEClassifiers.filter(EClass)
+////		.filter(c|c.EAnnotations.exists[annotation | annotation.source==='PatternProperties'])
+////		.filter(c|c.EReferences.exists[r|r.EReferenceType.abstract && eClazz.ESuperTypes.contains(eClazz)]).empty;
+//
+//	}
 	
 	def orderedSubClasses(Iterable<EClass> alternativeEClasses){
 		var propertiesEClasses = new ArrayList<EClass>();
