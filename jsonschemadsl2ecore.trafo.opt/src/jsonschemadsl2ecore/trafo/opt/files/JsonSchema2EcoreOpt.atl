@@ -1755,7 +1755,9 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		
 		--------  Add Type annotations
 		for (schema in JSchemaMM!ObjectSchema.allInstancesFrom('jschema')){
-			if (schema.hasSimpleType()) {
+			---and objectSchema.enum.oclIsUndefined() and objectSchema.const.oclIsUndefined()){ --- "$ref" "enum" and "const" are not present 
+--			if (schema.hasSimpleType()) {
+			if (schema.ref.oclIsUndefined() and schema.hasSimpleType() and schema.enum.oclIsUndefined() and schema.const.oclIsUndefined()) {
 				schema.resolve().eAnnotations <- schema.resolve().eAnnotations ->union( Sequence{thisModule.createTypeAnnotation(schema.type.anyOf.type)});
 			}	
 		}
