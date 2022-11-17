@@ -1384,6 +1384,14 @@ rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 		if(objectSchema.hasTypeObject()){ -----it has Type object, it is arrayOfTypes with object or type is missing ---------
 			if(not objectSchema.properties.oclIsUndefined()){
 				for(keySchemaPair in objectSchema.properties.keySchemaPairs){
+						if(keySchemaPair.value.oclIsTypeOf(JSchemaMM!BooleanSchema)){---NEW
+							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve(), thisModule.createGetterForDerivedReference(containmentPropertyName, keySchemaPair), 1)});
+						}else if(keySchemaPair.value.hasArrayOfTypes or keySchemaPair.value.type.oclIsUndefined()
+								or not keySchemaPair.value.ref.oclIsUndefined() or not keySchemaPair.value.enum.oclIsUndefined() or not keySchemaPair.value.const.oclIsUndefined()){ --- if it hasArrayOfTypes it has Object for sure because of the condition on the enclosing if : hasTypeObject	
+							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
+						}else
+					
+					
 						if(keySchemaPair.value.hasSimpleTypeScalar()){
 							derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedAttibute(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair))});
 						}else if(keySchemaPair.value.hasSimpleTypeObject()){
@@ -1407,13 +1415,12 @@ rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 								
 						}else if(keySchemaPair.value.hasSimpleTypeNull()){
 							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
-						}else if(keySchemaPair.value.hasArrayOfTypes or(keySchemaPair.value.oclIsTypeOf(JSchemaMM!ObjectSchema) and keySchemaPair.value.type.oclIsUndefined())){ --- if it hasArrayOfTypes it has Object for sure because of the condition on the enclosing if : hasTypeObject	
-							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
-						}else if(keySchemaPair.value.oclIsTypeOf(JSchemaMM!BooleanSchema)){
-							---NEW
-							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve(), thisModule.createGetterForDerivedReference(containmentPropertyName, keySchemaPair), 1)});
+--						}else if(keySchemaPair.value.hasArrayOfTypes or(keySchemaPair.value.oclIsTypeOf(JSchemaMM!ObjectSchema) and keySchemaPair.value.type.oclIsUndefined())){ --- if it hasArrayOfTypes it has Object for sure because of the condition on the enclosing if : hasTypeObject	
+--							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
+--						}else if(keySchemaPair.value.oclIsTypeOf(JSchemaMM!BooleanSchema)){
+--							---NEW
+--							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve(), thisModule.createGetterForDerivedReference(containmentPropertyName, keySchemaPair), 1)});
 						}
---					}
 				} 
 			}
 		}

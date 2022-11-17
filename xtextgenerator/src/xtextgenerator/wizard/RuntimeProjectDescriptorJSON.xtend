@@ -23,6 +23,8 @@ import java.util.Map
 import java.util.ArrayDeque
 import xtextgenerator.ui.utils.Ecore2XtextJSONExtensions
 import relatedSchemas.Dependency
+import java.util.Set
+import java.util.HashSet
 
 class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	
@@ -30,7 +32,8 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	DetailedGrammar detailedJsonGrammar = null;
 	RelatedSchemas relatedSchemas = null;
 	List<EClass> subRootElementClasses = new ArrayList<EClass>()
-	Map<EClass, List<EnclosingSchema>> rootElementEnclosingSchemaMap = new HashMap<EClass, List<EnclosingSchema>>();
+//	Map<EClass, List<EnclosingSchema>> rootElementEnclosingSchemaMap = new HashMap<EClass, List<EnclosingSchema>>();
+	Map<EClass, Set<EnclosingSchema>> rootElementEnclosingSchemaMap = new HashMap<EClass, Set<EnclosingSchema>>();
 	
 //	List<EClass> constEnumClasses = new ArrayList<EClass>()
 	
@@ -158,7 +161,8 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 	private def mapRootToEnclosingSchema(EClass rootElementClass){
 		if(!rootElementEnclosingSchemaMap.containsKey(rootElementClass)){
 			val List<EClass> processedEClasses = new ArrayList<EClass>()
-			val List<EnclosingSchema> enclosingSchemas = findClosureEnclosingSchema(rootElementClass, processedEClasses)
+//			val List<EnclosingSchema> enclosingSchemas = findClosureEnclosingSchema(rootElementClass, processedEClasses)
+			val Set<EnclosingSchema> enclosingSchemas = findClosureEnclosingSchema(rootElementClass, processedEClasses)
 			val EnclosingSchema rootAsEnclosingSchema = relatedSchemas.enclosingschemas.findFirst[enclosingschema|enclosingschema.enclosingSchema===rootElementClass]
 			if(rootAsEnclosingSchema!==null){
 				enclosingSchemas.add(rootAsEnclosingSchema)
@@ -168,7 +172,8 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 		}
 	}
 	
-	private def List<EnclosingSchema> findClosureEnclosingSchema(EClass containingEClass, List<EClass> processedEClasses){
+//	private def List<EnclosingSchema> findClosureEnclosingSchema(EClass containingEClass, List<EClass> processedEClasses){
+		private def Set<EnclosingSchema> findClosureEnclosingSchema(EClass containingEClass, List<EClass> processedEClasses){
 		if(!processedEClasses.contains(containingEClass)){
 			processedEClasses.add(containingEClass);
 			val List<EClass> containedEClasses = containingEClass.EReferences.filter[r|r.containment].map[EType as EClass].toList
@@ -177,13 +182,15 @@ class RuntimeProjectDescriptorJSON extends RuntimeProjectDescriptor{
 				containedSubClasses.addAll(Ecore2XtextJSONExtensions.subClasses(containedEClass).toList)
 			}
 			containedEClasses.addAll(containedSubClasses);
-			val List<EnclosingSchema> enclosingSchemas = relatedSchemas.enclosingschemas.filter[enclosingschema|containedEClasses.contains(enclosingschema.enclosingSchema)].toList
+//			val List<EnclosingSchema> enclosingSchemas = relatedSchemas.enclosingschemas.filter[enclosingschema|containedEClasses.contains(enclosingschema.enclosingSchema)].toList
+			val Set<EnclosingSchema> enclosingSchemas = relatedSchemas.enclosingschemas.filter[enclosingschema|containedEClasses.contains(enclosingschema.enclosingSchema)].toSet
 			for (EClass containedEClass : containedEClasses){
 				enclosingSchemas.addAll(findClosureEnclosingSchema(containedEClass, processedEClasses))
 			}
 			return enclosingSchemas
 		}else{
-			return new ArrayList<EnclosingSchema>();
+//			return new ArrayList<EnclosingSchema>();
+			return new HashSet<EnclosingSchema>();
 		}
 		
 	}

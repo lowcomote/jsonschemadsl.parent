@@ -14,10 +14,12 @@ import relatedSchemas.IfThenElse
 import relatedSchemas.Dependency
 
 import org.eclipse.core.resources.IFile
+import java.util.Set
 
 class ValidatorGenerator {
 	
-	def static void create(String fileName, String classPackage, String className, String modelPackage, String oclPath, List<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile) throws IOException {
+//	def static void create(String fileName, String classPackage, String className, String modelPackage, String oclPath, List<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile) throws IOException {
+	def static void create(String fileName, String classPackage, String className, String modelPackage, String oclPath, Set<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile) throws IOException {		
 		
 		val BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 	    writer.write(generate ( classPackage,  className,  modelPackage,  oclPath,  enclosingSchemas,  isMainRootElementClass, relatedSchemasFile));
@@ -25,7 +27,8 @@ class ValidatorGenerator {
 	    
 	}
 	
-	def private static String  generate (String classPackage, String className, String modelPackage, String oclPath, List<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile){
+//	def private static String  generate (String classPackage, String className, String modelPackage, String oclPath, List<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile){
+	def private static String  generate (String classPackage, String className, String modelPackage, String oclPath, Set<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile){
 		'''
 			package «classPackage»;
 			
