@@ -812,7 +812,7 @@ helper context JSchemaMM!PatternPropertiesSchemaDefinition def: findPatternPrope
 helper def: createBodyForValidateKeyOnDefinedPatternProperties(patterns:Sequence(String)) : String=
 	patterns->iterate(pattern; body: String = '' | 
 --		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.find()){return '+pattern+';}\n\n')
-		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile("'+pattern+'");\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.find()){return "'+pattern+'";}\n\n')
+		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile("'+pattern.escapeJava()+'");\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.find()){return "'+pattern.escapeJava()+'";}\n\n')
 	).concat('return null;\n\n')
 ;
 
@@ -1004,6 +1004,10 @@ helper  def : endPackage() : OclAny=
 ---- https://stackoverflow.com/questions/7440801/how-to-convert-arbitrary-string-to-java-identifier
 helper  context String def : encodeJavaIdentifier() : String=
 	"#native"!"jku::se::atl::transformation::utils::Utils".refInvokeStaticOperation('getIdentifier',Sequence{self});
+
+
+helper  context String def : escapeJava() : String=
+	"#native"!"jku::se::atl::transformation::utils::Utils".refInvokeStaticOperation('escapeJava',Sequence{self});
 	
 
 

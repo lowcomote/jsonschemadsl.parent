@@ -2,6 +2,7 @@ package at.jku.bise.oclgenerator
 
 import org.eclipse.emf.common.util.URI
 import java.util.List
+import jku.se.atl.transformation.utils.Utils
 
 class OclGenerator {
 
@@ -126,7 +127,7 @@ class OclGenerator {
 	def static generatePatternConstraint(String packageName, String contextClass, String regex)'''
 			context «packageName»::«contextClass»
 		
-			inv «contextClass»Pattern('The value of «contextClass» must match the regular expression «regex»'):
+			inv «contextClass»Pattern('The value of «contextClass» must match the regular expression «Utils.escapeJava(regex)»'):
 			if self.regexMatch()
 			then true
 			else null
@@ -227,7 +228,7 @@ class OclGenerator {
 	def static generateRegexInPatternPropertiesConstraint(String packageName, String contextClass, String inv, String regex, String propertyName)'''
 			context «packageName»::«contextClass» 
 		
-			inv «inv»Regex ('the key must match the regular expression «regex»'):
+			inv «inv»Regex ('the key must match the regular expression «Utils.escapeJava(regex)»'):
 «««			if  «propertyName».matches('«regex»')
 			if  self.find()
 			then true

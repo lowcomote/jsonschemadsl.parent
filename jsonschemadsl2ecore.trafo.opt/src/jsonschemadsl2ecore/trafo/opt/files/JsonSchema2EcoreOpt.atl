@@ -179,7 +179,7 @@ rule createKeyPatternPropertiesMatcher(pattern : String){
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
 			key <- 'body',
-			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile("'+pattern+'");\njava.util.regex.Matcher m = p.matcher(this.key);\nreturn m.find();'
+			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile("'+pattern.escapeJava()+'");\njava.util.regex.Matcher m = p.matcher(this.key);\nreturn m.find();'
 		)
 		
 	do{
@@ -211,7 +211,7 @@ rule createPatternPropertiesMatcher(pattern : String){
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
 			key <- 'body',
-			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile("'+pattern+'");\njava.util.regex.Matcher m = p.matcher(toBeEvaluated);\nreturn m.find();'
+			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile("'+pattern.escapeJava()+'");\njava.util.regex.Matcher m = p.matcher(toBeEvaluated);\nreturn m.find();'
 		)
 		
 	do{
@@ -1299,7 +1299,7 @@ rule createPatternMatcher(pattern : String, propertyName:String){
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
 			key <- 'body',
-			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile("'+pattern+'");\njava.util.regex.Matcher m = p.matcher(this.'+propertyName+');\nreturn m.find();'
+			value <- 'java.util.regex.Pattern  p = java.util.regex.Pattern.compile("'+pattern.escapeJava()+'");\njava.util.regex.Matcher m = p.matcher(this.'+propertyName+');\nreturn m.find();'
 		)
 		
 	do{

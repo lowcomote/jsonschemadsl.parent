@@ -3,6 +3,8 @@ package jku.se.atl.transformation.utils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.StringEscapeUtils;
+
 public class Utils {
 	/**
 	 * 
@@ -43,5 +45,9 @@ public class Utils {
    		Matcher m = p.matcher(key);
    		boolean b = m.find();
    		return b;
+   	}
+	
+	public static String escapeJava(String pattern) {
+   		return StringEscapeUtils.escapeJava(pattern);
    	}
 }
