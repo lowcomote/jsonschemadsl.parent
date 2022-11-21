@@ -20,28 +20,28 @@ if value.floor() = value then true else null endif
 
 
 
-context ObjectSchema
-inv missingType ('The keyword "type" should be present'):
-	if keywordDefinition->select(k|k.oclIsTypeOf(RefSchemaDefinition))->size()=0
-	then
-		keywordDefinition->select(k|k.oclIsTypeOf(TypeSchemaDefinition))->size()>0
-	else true
-	endif
+--context ObjectSchema
+--inv missingType ('The keyword "type" should be present'):
+--	if keywordDefinition->select(k|k.oclIsTypeOf(RefSchemaDefinition))->size()=0
+--	then
+--		keywordDefinition->select(k|k.oclIsTypeOf(TypeSchemaDefinition))->size()>0
+--	else true
+--	endif
 	
 
 
 
-context ObjectSchema
-inv missingAdditionalProperties ('The keyword "additionalProperties" should be specified explicitly'):
-	if not type.oclIsUndefined() then 
-		if type.anyOf.oclIsTypeOf(TypeAnyOf1) then 
-			if type.anyOf.oclAsType(TypeAnyOf1).type = SimpleTypes::object then not additionalProperties.oclIsUndefined()
-			else true
-			endif
-		else true --- TODO manage case of array of types containing "object"
-		endif	
-	else true --- TODO manage case of array of types with all types
-	endif
+--context ObjectSchema
+--inv missingAdditionalProperties ('The keyword "additionalProperties" should be specified explicitly'):
+--	if not type.oclIsUndefined() then 
+--		if type.anyOf.oclIsTypeOf(TypeAnyOf1) then 
+--			if type.anyOf.oclAsType(TypeAnyOf1).type = SimpleTypes::object then not additionalProperties.oclIsUndefined()
+--			else true
+--			endif
+--		else true --- TODO manage case of array of types containing "object"
+--		endif	
+--	else true --- TODO manage case of array of types with all types
+--	endif
 
 
 
