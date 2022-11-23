@@ -462,6 +462,7 @@ class ValidatorGenerator {
 							Method getRule = «grammarAccessFQN».class.getDeclaredMethod("get"+matchingPatternProperties.getName()+"Rule");
 							ParserRule parserRule = (ParserRule) getRule.invoke(grammarAccess);
 							List<Issue> issues = new ArrayList<Issue>();
+							List<Diagnostic> diagnostics=new ArrayList<Diagnostic>();
 							Thread validationThread = new Thread(new Runnable() {
 								@Override
 							    public void run() {
@@ -471,9 +472,10 @@ class ValidatorGenerator {
 										XtextResource xtextResource = (XtextResource) reset.createResource(uri);
 										xtextResource.setEntryPoint(parserRule);
 										xtextResource.load(inputStream, xtextResource.getResourceSet().getLoadOptions());
-										for (Diagnostic diagnostic : xtextResource.getErrors()) {
-											error(diagnostic.getMessage(), null);
-										}
+										diagnostics.addAll(xtextResource.getErrors());
+«««										for (Diagnostic diagnostic : xtextResource.getErrors()) {
+«««											error(diagnostic.getMessage(), null);
+«««										}
 										if(xtextResource.getErrors().isEmpty()) {
 											processedPatternProperties.add(xtextResource.getContents().get(0));
 											IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
@@ -486,6 +488,9 @@ class ValidatorGenerator {
 							}); 		
 							validationThread.start();
 							validationThread.join();
+							for (Diagnostic diagnostic : diagnostics) {
+								error(diagnostic.getMessage(), null);
+							}
 							for(Issue issue :issues) {
 								error(issue.getMessage(), null);
 							}
