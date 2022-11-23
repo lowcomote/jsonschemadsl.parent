@@ -101,6 +101,7 @@ public class SemanticPredicateXtextAntlrGeneratorFragment2 extends XtextAntlrGen
 				String semanticPredicate =buildSemanticPredicate(patterPropertiesEClass);
 				String newBooleanSynpred = buildNewBooleanSynpred( booleanSynpredRegex,  semanticPredicate);
 				newInternalParserText=newInternalParserText.replaceAll(booleanSynpredRegex, newBooleanSynpred);
+//				newInternalParserText=newInternalParserText.replaceAll(booleanSynpredRegex, Matcher.quoteReplacement(newBooleanSynpred));
 			}
 			
 		}
@@ -108,7 +109,8 @@ public class SemanticPredicateXtextAntlrGeneratorFragment2 extends XtextAntlrGen
 	}
 	
 	private String buildNewBooleanSynpred(String booleanSynpredRegex, String semanticPredicate){
-		return booleanSynpredRegex+"\r\n\t\t"+semanticPredicate;
+//		return booleanSynpredRegex+"\r\n\t\t"+semanticPredicate;
+		return booleanSynpredRegex+"\r\n\t\t"+Matcher.quoteReplacement(semanticPredicate);
 	}
 	
 	private String buildSemanticPredicate(EClassifier patterPropertiesEClass){
