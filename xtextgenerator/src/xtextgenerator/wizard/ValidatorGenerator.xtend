@@ -3,32 +3,36 @@ package xtextgenerator.wizard
 import java.io.BufferedWriter
 import java.io.FileWriter
 import java.io.IOException
-import relatedSchemas.AllOf
-import org.eclipse.emf.ecore.EClass
-import relatedSchemas.EnclosingSchema
-import java.util.List
-import relatedSchemas.AnyOf
-import relatedSchemas.OneOf
-import relatedSchemas.Not
-import relatedSchemas.IfThenElse
-import relatedSchemas.Dependency
-
-import org.eclipse.core.resources.IFile
 import java.util.Set
+import org.eclipse.core.resources.IFile
+import org.eclipse.emf.ecore.EClass
+import relatedSchemas.AllOf
+import relatedSchemas.AnyOf
+import relatedSchemas.Const
+import relatedSchemas.Dependency
+import relatedSchemas.EnclosingSchema
+import relatedSchemas.Enum
+import relatedSchemas.IfThenElse
+import relatedSchemas.Not
+import relatedSchemas.OneOf
+import java.util.List
+import xtextgenerator.ui.utils.Ecore2XtextJSONExtensions
+import java.util.HashSet
 
 class ValidatorGenerator {
 	
 //	def static void create(String fileName, String classPackage, String className, String modelPackage, String oclPath, List<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile) throws IOException {
-	def static void create(String fileName, String classPackage, String className, String modelPackage, String oclPath, Set<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile) throws IOException {		
+	def static void create(EClass rootElementEclass, String fileName, String classPackage, String className, String modelPackage, String oclPath, Set<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile, String grammarAccessFQN, String fileExtension) throws IOException {		
 		
 		val BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
-	    writer.write(generate ( classPackage,  className,  modelPackage,  oclPath,  enclosingSchemas,  isMainRootElementClass, relatedSchemasFile));
+	    writer.write(generate ( rootElementEclass, classPackage,  className,  modelPackage,  oclPath,  enclosingSchemas,  isMainRootElementClass, relatedSchemasFile, grammarAccessFQN, fileExtension ));
 	    writer.close();
 	    
 	}
 	
 //	def private static String  generate (String classPackage, String className, String modelPackage, String oclPath, List<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile){
-	def private static String  generate (String classPackage, String className, String modelPackage, String oclPath, Set<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile){
+	def private static String  generate (EClass rootElementEclass, String classPackage, String className, String modelPackage, String oclPath, Set<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile, String grammarAccessFQN, String fileExtension){
+		val patternPropertiesEClasses = findClosurePatternProperties( rootElementEclass)
 		'''
 			package «classPackage»;
 			
@@ -57,7 +61,22 @@ class ValidatorGenerator {
 			import jsonMM.JsonDocument;
 			import org.eclipse.emf.converter.util.ConverterUtil;
 			
+			import jku.se.atl.transformation.utils.Utils;
+			import org.eclipse.xtext.resource.XtextResource;
+			import org.eclipse.xtext.resource.XtextResourceSet;
+			import org.eclipse.xtext.ParserRule;
+			import java.lang.reflect.Method;
+			import com.google.inject.Inject;
+			import org.eclipse.emf.ecore.EClass;
+			import org.eclipse.xtext.nodemodel.ICompositeNode;
+			
+			import org.eclipse.emf.ecore.EObject;
+			
 			public class «className» extends Abstract«className» {
+				
+				@Inject «grammarAccessFQN» grammarAccess;	
+				
+				private List<EObject> processedPatternProperties = new ArrayList<EObject>();
 			«IF isMainRootElementClass»				
 			
 				«generateOclRegister(modelPackage, oclPath)»
@@ -102,6 +121,10 @@ class ValidatorGenerator {
 					«ENDIF»
 				«ENDFOR»
 			«ENDIF»
+			«FOR patternProperties: patternPropertiesEClasses»
+			
+				«generatePatternPropertiesValidation( rootElementEclass,  patternProperties,  modelPackage,  isMainRootElementClass, grammarAccessFQN,  fileExtension)»
+			«ENDFOR»
 			}
 		'''
 	}
@@ -362,7 +385,7 @@ class ValidatorGenerator {
 		'''
 	}
 	
-	def private static generateEnumValidation(EClass enclosingClass, relatedSchemas.Enum enumer,  IFile relatedSchemasFile){
+	def private static generateEnumValidation(EClass enclosingClass, Enum enumer,  IFile relatedSchemasFile){
 		val String enclosingClassType = (enclosingClass.EPackage).name+"."+enclosingClass.name
 		'''
 			@Check
@@ -386,7 +409,7 @@ class ValidatorGenerator {
 		'''
 	}
 	
-	def private static generateConstValidation(EClass enclosingClass, relatedSchemas.Const const,  IFile relatedSchemasFile){
+	def private static generateConstValidation(EClass enclosingClass, Const const,  IFile relatedSchemasFile){
 		val String enclosingClassType = (enclosingClass.EPackage).name+"."+enclosingClass.name
 		'''
 			@Check
@@ -408,5 +431,102 @@ class ValidatorGenerator {
 				}
 			}
 		'''
+	}
+	
+	def private static generatePatternPropertiesValidation(EClass rootElementEclass, EClass patternProperties, String modelPackage, boolean isMainRootElementClass,  String grammarAccessFQN, String fileExtension){
+		val String patternPropertiesType = (patternProperties.EPackage).name+"."+patternProperties.name
+		var  String grammarExtension=fileExtension
+		if(!isMainRootElementClass){
+			grammarExtension=RuntimeProjectDescriptorJSON.getExtension(rootElementEclass)
+		}
+		
+		'''
+			@Check
+			public void validate«patternProperties.name»(«patternPropertiesType» patternProperties){
+				if(this.processedPatternProperties.contains(patternProperties)) return;
+				«modelPackage» ePackage = «modelPackage».eINSTANCE;
+				EClass underValidationEClass = (EClass) ePackage.getEClassifier("«patternProperties.name»");
+				List<EClass> matchingSiblings = Utils.findMatchingPatternPropertiesSiblings(underValidationEClass, patternProperties.getKey(), ePackage);
+				
+				if(!matchingSiblings.isEmpty()){
+					ICompositeNode patternPropertiesINode =NodeModelUtils.getNode(patternProperties);
+					String patternPropertiesText = NodeModelUtils.getTokenText(patternPropertiesINode);
+					InputStream inputStream = new ByteArrayInputStream(patternPropertiesText.getBytes());
+					
+«««					URI uri=URI.createURI("platform:/dummy.«grammarExtension»");
+«««					XtextResourceSet reset = new XtextResourceSet();
+«««					XtextResource xtextResource = (XtextResource) reset.createResource(uri);
+					for(EClass matchingPatternProperties : matchingSiblings){
+						
+						try {
+							Method getRule = «grammarAccessFQN».class.getDeclaredMethod("get"+matchingPatternProperties.getName()+"Rule");
+							ParserRule parserRule = (ParserRule) getRule.invoke(grammarAccess);
+							List<Issue> issues = new ArrayList<Issue>();
+							Thread validationThread = new Thread(new Runnable() {
+								@Override
+							    public void run() {
+							    	try {
+										URI uri=URI.createURI("platform:/dummy.«grammarExtension»");
+										XtextResourceSet reset = new XtextResourceSet();
+										XtextResource xtextResource = (XtextResource) reset.createResource(uri);
+										xtextResource.setEntryPoint(parserRule);
+										xtextResource.load(inputStream, xtextResource.getResourceSet().getLoadOptions());
+										for (Diagnostic diagnostic : xtextResource.getErrors()) {
+											error(diagnostic.getMessage(), null);
+										}
+										if(xtextResource.getErrors().isEmpty()) {
+											processedPatternProperties.add(xtextResource.getContents().get(0));
+											IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
+											issues.addAll(resourceValidator.validate(xtextResource, CheckMode.ALL, CancelIndicator.NullImpl));
+										}
+									} catch (IOException e) {
+										e.printStackTrace();
+									}	
+								}
+							}); 		
+							validationThread.start();
+							validationThread.join();
+							for(Issue issue :issues) {
+								error(issue.getMessage(), null);
+							}
+						}catch (Exception e) {
+							e.printStackTrace();
+						} 
+						
+					}
+				}	
+			}
+		'''
+	}
+	
+	def private static Set<EClass> findClosurePatternProperties(EClass rootElementEclass){
+		 val Set<EClass> processedEClasses =new HashSet<EClass>();
+		 val Set<EClass> closure = findClosure(rootElementEclass,   processedEClasses)
+		 val Set<EClass> patternProperties = closure.filter[c|c.EAnnotations.exists[a|a.source==='PatternProperties']].toSet
+		 patternProperties
+	}
+	
+	def private static Set<EClass> findClosure(EClass containingEClass, Set<EClass> processedEClasses){
+		if(!processedEClasses.contains(containingEClass)){
+			processedEClasses.add(containingEClass);
+			val Set<EClass> containedEClasses = containingEClass.EReferences.filter[r|r.containment].map[EType as EClass].toSet
+			val Set<EClass> containedSubClasses = new HashSet<EClass>();
+			for (EClass containedEClass : containedEClasses){
+				containedSubClasses.addAll(Ecore2XtextJSONExtensions.subClasses(containedEClass).toList)
+			}
+			containedEClasses.addAll(containedSubClasses);
+			var Set<EClass> closure = new HashSet<EClass>();
+			for (EClass containedEClass : containedEClasses){
+				closure.addAll(findClosure(containedEClass, processedEClasses))
+			}
+			containedEClasses.addAll(closure)
+			containedEClasses.add(containingEClass)
+			return containedEClasses
+			
+		}else{
+			return new HashSet<EClass>();
+		}
+			
+			
 	}
 }

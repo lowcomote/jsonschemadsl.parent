@@ -1885,7 +1885,10 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		for (eClass in thisModule.allEClass()){
 			if(not eClass.getEAnnotation(thisModule.ADDITIONAL_PROPERTIES).oclIsUndefined()  or not eClass.getEAnnotation(thisModule.PATTERN_PROPERTIES).oclIsUndefined()){
 				thisModule.appendValidatorOnProperties(thisModule.packageName, eClass.name, eClass.name);
-				thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClass.name, eClass.name);
+				----- We do not check other pattern of other patternProperties if this is a pattern properties		
+				if(eClass.getEAnnotation(thisModule.PATTERN_PROPERTIES).oclIsUndefined()){ ----- if it is not a PatternProperties
+					thisModule.appendValidatorOnPatternProperties(thisModule.packageName, eClass.name, eClass.name);
+				}
 			}
 		}
 		

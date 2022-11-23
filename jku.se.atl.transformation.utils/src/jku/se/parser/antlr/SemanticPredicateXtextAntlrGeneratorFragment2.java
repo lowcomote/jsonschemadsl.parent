@@ -19,6 +19,7 @@ import org.eclipse.xtext.xtext.generator.parser.antlr.AntlrGrammar;
 import org.eclipse.xtext.xtext.generator.parser.antlr.GrammarNaming;
 import org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2;
 
+import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 
 
@@ -39,6 +40,25 @@ public class SemanticPredicateXtextAntlrGeneratorFragment2 extends XtextAntlrGen
 			throw new RuntimeException(e);
 		}
 	}
+	
+//	@Override
+//	public String[] getAntlrParams() {
+////		var params = Lists.newArrayList(antlrParams)
+//		// setting the default conversion timeout to 100secs.
+//		// There seem to be no practical situations where the NFA conversion would hang,
+//		// so Terence suggested here [1] to remove the option all together
+//		// [1] - http://antlr.1301665.n2.nabble.com/Xconversiontimeout-td5294411.html
+////		if (!params.contains("-Xconversiontimeout")) {
+////			params.add(0, "-Xconversiontimeout")
+////			params.add(1, "100000")
+////		}
+//		List<String> paramsList = Lists.newArrayList(super.getAntlrParams());
+//		if(!paramsList.contains("-Xmaxinlinedfastates")) {
+//			paramsList.add(0,"-Xmaxinlinedfastates");
+//			paramsList.add(1,"10");
+//		}
+//		return  paramsList.toArray(new String[0]);
+//	}
 	
 	@Override
 	protected void  generateProductionGrammar() {

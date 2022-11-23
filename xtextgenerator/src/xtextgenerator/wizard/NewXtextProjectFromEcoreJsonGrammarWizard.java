@@ -77,9 +77,10 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 	public static final String VALIDATION_FOLDER="validation";
 	public static final String VALIDATOR_CLASS_SUFFIX="Validator";
 	
-	public static final String PARSER_GENERATOR_PACKAGE="jku.se.parser.antlr";
-	public static final String PARSER_GENERATOR_CLASS_NAME="SemanticPredicateXtextAntlrGeneratorFragment2";
-	
+//	public static final String PARSER_GENERATOR_PACKAGE="jku.se.parser.antlr";
+//	public static final String PARSER_GENERATOR_CLASS_NAME="SemanticPredicateXtextAntlrGeneratorFragment2";
+	public static final String GRAMMAR_ACCESS_SUFFIX= "GrammarAccess";
+	public static final String SERVICES_FOLDER="services";
 	
 	private final IJdtHelper jdtHelper;
 	
@@ -454,6 +455,7 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 		IPath validationFolderPath = ResourcesPlugin.getWorkspace().getRoot().getLocation()
 				.append(projectName+DOT_PARENT).append(projectName).append(SOURCE_FOLDER); 
 		String classPackage = languageToLastDot+"."+VALIDATION_FOLDER;
+		String grammarAccessClassPackage = languageToLastDot+"."+SERVICES_FOLDER;
 		String[] classPackageSplit = classPackage.split("\\.");
 		for (String split :classPackageSplit) {
 			validationFolderPath = validationFolderPath.append(split);
@@ -471,66 +473,35 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 			boolean isMainRootElementClass = rootElementEclass == mainRootElementClass;
 			String className;
 			String fileName;
+			String grammarAccessName;
 			if(isMainRootElementClass) {
 //				isMainRootElementClassProcessed = true;
 				String languageFromLastDot = getLanguageFromLastDot();
 				className = languageFromLastDot+VALIDATOR_CLASS_SUFFIX;
+				grammarAccessName=languageFromLastDot+GRAMMAR_ACCESS_SUFFIX;
 			}else {
 				className = rootElementEclass.getName()+VALIDATOR_CLASS_SUFFIX;
+				grammarAccessName=rootElementEclass.getName()+GRAMMAR_ACCESS_SUFFIX;
 			}
 			IPath validationFilePath = validationFolderPath.append(className).addFileExtension("java");
 			fileName = validationFilePath.toString(); 
+			String grammarAccessFQN = grammarAccessClassPackage+"."+grammarAccessName;
+			/**
+			 * used only for isMainRoot
+			 */
+			String fileExtension =runtimeProjectDescriptorJSON.getConfig().getLanguage().getFileExtensions().iterator().next();
 			try {
-				ValidatorGenerator.create(fileName, classPackage, className, modelPackage, oclPath, runtimeProjectDescriptorJSON.getRootElementEnclosingSchemaMap().get(rootElementEclass), isMainRootElementClass,wizardRelatedSchemasPage.getRelatedSchemasFile());
+				ValidatorGenerator.create(rootElementEclass, fileName, classPackage, className, modelPackage, oclPath, runtimeProjectDescriptorJSON.getRootElementEnclosingSchemaMap().get(rootElementEclass), isMainRootElementClass,wizardRelatedSchemasPage.getRelatedSchemasFile(), grammarAccessFQN,fileExtension);
 			} catch (IOException e) {
 				e.printStackTrace();
 				return false;
 			}
 		}
-//		if(!isMainRootElementClassProcessed) {
-//			String languageFromLastDot = getLanguageFromLastDot();
-//			String className = languageFromLastDot+VALIDATOR_CLASS_SUFFIX;
-//			IPath validationFilePath = validationFolderPath.append(className).addFileExtension("java");
-//			String fileName = validationFilePath.toString(); 
-//			try {
-//				ValidatorGenerator.create(fileName, classPackage, className, modelPackage, oclPath, null, true);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//				return false;
-//			}
-//		}
+
 		return true;
 	}
 	
-	private boolean generateAntlrGeneratorGeneratorGenerator() {
-		String projectName = getProjectName();
-		IPath parserGeneratorPath = ResourcesPlugin.getWorkspace().getRoot().getLocation()
-				.append(projectName+DOT_PARENT).append(projectName).append(SOURCE_FOLDER); 
-		
-		String[] parserGeneratorPackageSplit = PARSER_GENERATOR_PACKAGE.split("\\.");
-		for (String split :parserGeneratorPackageSplit) {
-			parserGeneratorPath = parserGeneratorPath.append(split);
-			File parserGeneratorPathDirectory = parserGeneratorPath.toFile();
-			if(!parserGeneratorPathDirectory.exists()) {
-				parserGeneratorPathDirectory.mkdir();
-			}
-		}
-//		File parserGeneratorDirectory =parserGeneratorPath.toFile();
-//		if(!parserGeneratorDirectory.exists()) {
-//			parserGeneratorDirectory.mkdir();
-//			
-//		}
-		parserGeneratorPath = parserGeneratorPath.append(PARSER_GENERATOR_CLASS_NAME).addFileExtension("xtend");
-		String fileName= parserGeneratorPath.toString();
-		String ePackage = this.ePackageSelectionPage.getEPackageInfos().iterator().next().getEPackageJavaFQN();
-		try {
-			XtextAntlrGeneratorFragment2Generator.create(fileName, PARSER_GENERATOR_PACKAGE, PARSER_GENERATOR_CLASS_NAME, ePackage);
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
+	
 
 	private String getLanguageToLastDot(){
 		String languageName =getLanguageName();

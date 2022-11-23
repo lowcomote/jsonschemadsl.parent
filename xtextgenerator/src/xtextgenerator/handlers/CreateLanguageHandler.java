@@ -326,12 +326,21 @@ public class CreateLanguageHandler extends AbstractHandler{
 		try {
 //			URI genModelURI = URI.createFileURI(genmodelFilePath.toString());
 			URI genModelURI = URI.createPlatformResourceURI(genmodelFilePath.toString(),true);
+			/**
+			 * Revew genModel logging
+			 */
+			/*** add this
+			 * resourceSet.getResource(genModelURI, true);
+			 * */
+			
+			/****  delete from here ****/
 			final XMIResourceImpl genModelResource = new XMIResourceImpl(genModelURI);
 			genModelResource.getDefaultSaveOptions().put(XMLResource.OPTION_ENCODING, GEN_MODEL_XML_ENCODING);
 			 
 			genModelResource.basicSetResourceSet(resourceSet, null); /** Added to solve DML-344*/
 			genModelResource.getContents().add(genModel);
             genModelResource.save(Collections.EMPTY_MAP);
+            /****** to here *****/
 	            
 		} catch (IOException e) {
 			String msg = null;
