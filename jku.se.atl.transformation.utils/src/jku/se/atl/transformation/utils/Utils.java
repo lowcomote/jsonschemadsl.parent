@@ -1,5 +1,6 @@
 package jku.se.atl.transformation.utils;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,12 +10,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
 public class Utils {
+	
+	public final static List<String> JAVA_KEYWORDS =Arrays.asList(
+			"abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class", "continue", "default", "do", "double",  
+			"else", "enum", "extends", "final", "finally", "float", "for", "if", "implements", "import", "instanceof", "int", "interface", 
+			"long", "native", "new", "null", "package", "private", "protected", "public", "return", "short", "static", "strictfp", 
+			"super", "switch", "synchronized", "this", "throw ", "throws", "transient", "try", "void", "volatile", "while", "const", "goto"
+	);
+	
 	/**
 	 * 
 	 * @param str
 	 * @return
 	 */
 	public static String getIdentifier(String str) {
+		if(JAVA_KEYWORDS.contains(str)) {
+			return str+"_";
+		}
 //		String regex = "^([a-zA-Z_$][a-zA-Z\\d_$]*)$";
 		/**
 		 * The regex for Java would be: regex = "^([a-zA-Z_$][a-zA-Z\\d_$]*)$"
