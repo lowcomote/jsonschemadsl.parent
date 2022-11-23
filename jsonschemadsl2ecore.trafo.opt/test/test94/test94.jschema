@@ -1,0 +1,18 @@
+{
+	
+	"allOf":[
+		{
+			"patternProperties":{
+				"ddd":{"type":"string"},
+				"ccc":{"type":"integer"}
+			}
+		},
+		{
+			"patternProperties":{
+				"fff":{"type":"integer", "minimum":4},
+				"eee":{"type":"string","minLength":6}
+			}
+		}
+	]
+	
+} 
