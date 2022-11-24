@@ -760,6 +760,19 @@ helper context JSchemaMM!Schema def: hasTypeObject(): Boolean=
 			endif
 		endif
 	endif;
+
+---- missing type or "type":"array" or "type":[...,"array",...]
+helper context JSchemaMM!Schema def: hasTypeArray(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if self.type.oclIsUndefined() ---- it has all types
+		then true
+		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #array
+			else self.type.anyOf.items.includes(#array)
+			endif
+		endif
+	endif;
 ------------
 
 
@@ -923,6 +936,13 @@ if not self.minProperties.oclIsUndefined() then self.minProperties.minProperties
 helper context JSchemaMM!ObjectSchema def:propertiesUpperBound(): Integer =
 if not self.maxProperties.oclIsUndefined() and self.maxProperties.maxProperties.value.floor()>0 then self.maxProperties.maxProperties.value.floor() else -1 endif ; 
 
+helper context JSchemaMM!ObjectSchema def:itemsLowerBound(): Integer =
+if not self.minItems.oclIsUndefined() then self.minItems.minItems.value.floor() else 0 endif ; 
+
+helper context JSchemaMM!ObjectSchema def:itemsUpperBound(): Integer =
+if not self.maxItems.oclIsUndefined() and self.maxItems.maxItems.value.floor()>0 then self.maxItems.maxItems.value.floor() else -1 endif ; 
+
+
 
 helper context JSchemaMM!ObjectSchema def:getEStructuralFeatureType(name:String): Ecore!EClassifier =
 	self.resolve().getEStructuralFeature(name.encodeJavaIdentifier()).getEType();
@@ -969,6 +989,8 @@ helper def : appendPatternConstraint(packageName: String, contextClass: String, 
 helper def : appendMaxProperties0Constraint(packageName: String, contextClass: String,   propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxProperties0Constraint',Sequence{thisModule.oclFileUri, packageName, contextClass, propertyName});
 
+helper def : appendMaxItems0Constraint(packageName: String, contextClass: String,   propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxItems0Constraint',Sequence{thisModule.oclFileUri, packageName, contextClass, propertyName});
 
 
 helper def : appendIntegerConstraint(packageName: String, contextClass: String,   propertyName : String ) : OclAny=

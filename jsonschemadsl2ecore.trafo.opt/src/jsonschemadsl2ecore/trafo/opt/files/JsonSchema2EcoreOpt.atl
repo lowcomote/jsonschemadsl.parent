@@ -367,7 +367,7 @@ rule mapSimpleTypeToEStructuralFeatures(schema : JSchemaMM!ObjectSchema, eClass 
 		}else if (simpleType = #array){  
 			if(schema.items.oclIsUndefined()) {---the keyword "items" is missing
 --				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey(), schema.isKeySchemaPairInProperties())});
-				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey(), schema.needsKeyword())});
+				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createEClassForMissingItems(schema.buildEClassname(), schema.getKey(), schema.needsKeyword(), schema.itemsLowerBound(), schema.itemsUpperBound())});
 --			}else if(schema.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){ ---- the keyword "items" is present and is not a tuple
 			}else { ---- the keyword "items" is present and can be or not a tuple
 				eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{schema.items.anyOf});
@@ -585,6 +585,10 @@ rule mapItemsAnyOf1ToContainment{
 	using {
 		eReferenceName : String = itemsAnyOf1.refImmediateComposite().refImmediateComposite().getKey();
 		needsKeyword :Boolean = itemsAnyOf1.refImmediateComposite().refImmediateComposite().needsKeyword();
+		lowerBound:Integer=itemsAnyOf1.refImmediateComposite().refImmediateComposite().itemsLowerBound();
+		upperBound:Integer=itemsAnyOf1.refImmediateComposite().refImmediateComposite().itemsUpperBound();
+		
+			
 	}
 	to 
 		eReference :Ecore!EReference ( 
@@ -592,8 +596,10 @@ rule mapItemsAnyOf1ToContainment{
 			name <- eReferenceName,
 			eType <- itemsAnyOf1.anyOf1,
 			containment <- true,
-			lowerBound <- 0,
-			upperBound <- -1,
+--			lowerBound <- 0,
+--			upperBound <- -1,
+			lowerBound <- lowerBound,
+			upperBound <- upperBound,
 			eAnnotations <- eReference.eAnnotations -> union (if needsKeyword then Sequence{thisModule.createKeywordAnnotation(eReferenceName)} else Sequence{} endif)
 			
 		)
@@ -624,7 +630,7 @@ rule createTupleItemContainment(schema: JSchemaMM!Schema){
 }
 
 lazy rule createEClassForMissingItems{
-	from enclosingEClassName:String, referenceName:String, addToKeywords:Boolean
+	from enclosingEClassName:String, referenceName:String, addToKeywords:Boolean, lowerBound:Integer ,  upperBound:Integer
 	to 
 		eClass:  Ecore!EClass (
 			name <- enclosingEClassName.concat('Items'),
@@ -634,8 +640,10 @@ lazy rule createEClassForMissingItems{
 			name <- referenceName,
 			eType <- eClass,
 			containment <- true,
-			lowerBound <- 0,
-			upperBound <- -1,
+--			lowerBound <- 0,
+--			upperBound <- -1,
+			lowerBound <- lowerBound,
+			upperBound <- upperBound,
 			eAnnotations <- eReference.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(referenceName)} else Sequence{} endif)
 		)
 	do{
@@ -1210,22 +1218,36 @@ lazy rule maxLengthConstraintToOcl {
 ---- getKeyForPropertiesContainment come already encoded
 lazy rule maxProperties0ToOcl{
 	from maxPropertiesSchemaDefinition: JSchemaMM!MaxPropertiesSchemaDefinition(maxPropertiesSchemaDefinition.refImmediateComposite().hasTypeObject()
-																				and maxPropertiesSchemaDefinition.maxProperties.value.floor() = 0 		)
+																				and maxPropertiesSchemaDefinition.maxProperties.value.floor() = 0 )
 	using {
 		enclosingSchema : JSchemaMM!ObjectSchema = maxPropertiesSchemaDefinition.refImmediateComposite();
 		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
 	}
 	do{
-		
 		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is object because of hasTypeObject()
 			thisModule.appendMaxProperties0Constraint(thisModule.packageName, enclosingEClass.name, enclosingSchema.getKeyForPropertiesContainment());
 		}else{ ---- we are sure it contains object because of hasTypeObject()
 			thisModule.appendMaxProperties0Constraint(thisModule.packageName, enclosingEClass.getSimpleTypeSubClassFromRoot(#object).name,  enclosingSchema.getKeyForPropertiesContainment());
 		}
-		
-		
 	}
 }
+
+lazy rule maxItems0ToOcl{
+	from maxItemsSchemaDefinition: JSchemaMM!MaxItemsSchemaDefinition(maxItemsSchemaDefinition.refImmediateComposite().hasTypeArray()
+																				and maxItemsSchemaDefinition.maxItems.value.floor() = 0 )
+	using {
+		enclosingSchema : JSchemaMM!ObjectSchema = maxItemsSchemaDefinition.refImmediateComposite();
+		enclosingEClass :Ecore!EClass = enclosingSchema.resolve();
+	}
+	do{
+		if(enclosingSchema.hasSimpleType()){ ---- we are sure it is array because of hasTypeArray()
+			thisModule.appendMaxItems0Constraint(thisModule.packageName, enclosingEClass.name, enclosingSchema.getKey().encodeJavaIdentifier());
+		}else{ ---- we are sure it contains array because of hasTypeArray()
+			thisModule.appendMaxItems0Constraint(thisModule.packageName, enclosingEClass.getSimpleTypeSubClassFromRoot(#array).name,  enclosingSchema.getKey().encodeJavaIdentifier());
+		}
+	}
+}
+
 
 rule integerToOcl(eClass:Ecore!EClass){
 	do{
@@ -1861,6 +1883,9 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 			thisModule.maxProperties0ToOcl(m);
 		}
 		
+		for (m in JSchemaMM!MaxItemsSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.maxItems0ToOcl(m);
+		}
 		
 		
 		

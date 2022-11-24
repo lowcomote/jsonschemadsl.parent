@@ -71,6 +71,8 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 			addMinPropertiesPropertyDescriptor(object);
 			addMaxPropertiesPropertyDescriptor(object);
 			addConstPropertyDescriptor(object);
+			addMinItemsPropertyDescriptor(object);
+			addMaxItemsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -598,6 +600,50 @@ public class ObjectSchemaItemProvider extends SchemaItemProvider {
 				 false,
 				 false,
 				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Min Items feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMinItemsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ObjectSchema_minItems_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_minItems_feature", "_UI_ObjectSchema_type"),
+				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__MIN_ITEMS,
+				 false,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Max Items feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMaxItemsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ObjectSchema_maxItems_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ObjectSchema_maxItems_feature", "_UI_ObjectSchema_type"),
+				 JsonMetaschemaMMPackage.Literals.OBJECT_SCHEMA__MAX_ITEMS,
+				 false,
+				 false,
+				 true,
 				 null,
 				 null,
 				 null));

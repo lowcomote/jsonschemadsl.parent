@@ -331,13 +331,31 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	int OBJECT_SCHEMA__CONST = SCHEMA_FEATURE_COUNT + 24;
 
 	/**
+	 * The feature id for the '<em><b>Min Items</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__MIN_ITEMS = SCHEMA_FEATURE_COUNT + 25;
+
+	/**
+	 * The feature id for the '<em><b>Max Items</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT_SCHEMA__MAX_ITEMS = SCHEMA_FEATURE_COUNT + 26;
+
+	/**
 	 * The number of structural features of the '<em>Object Schema</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 25;
+	int OBJECT_SCHEMA_FEATURE_COUNT = SCHEMA_FEATURE_COUNT + 27;
 
 	/**
 	 * The operation id for the '<em>Find Schema By Key</em>' operation.
@@ -3213,6 +3231,28 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 	EReference getObjectSchema_Const();
 
 	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getMinItems <em>Min Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Min Items</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getMinItems()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_MinItems();
+
+	/**
+	 * Returns the meta object for the reference '{@link jsonMetaschemaMM.ObjectSchema#getMaxItems <em>Max Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Max Items</em>'.
+	 * @see jsonMetaschemaMM.ObjectSchema#getMaxItems()
+	 * @see #getObjectSchema()
+	 * @generated
+	 */
+	EReference getObjectSchema_MaxItems();
+
+	/**
 	 * Returns the meta object for the '{@link jsonMetaschemaMM.ObjectSchema#findSchemaByKey(java.lang.String) <em>Find Schema By Key</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4998,6 +5038,22 @@ public interface JsonMetaschemaMMPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OBJECT_SCHEMA__CONST = eINSTANCE.getObjectSchema_Const();
+
+		/**
+		 * The meta object literal for the '<em><b>Min Items</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__MIN_ITEMS = eINSTANCE.getObjectSchema_MinItems();
+
+		/**
+		 * The meta object literal for the '<em><b>Max Items</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT_SCHEMA__MAX_ITEMS = eINSTANCE.getObjectSchema_MaxItems();
 
 		/**
 		 * The meta object literal for the '<em><b>Find Schema By Key</b></em>' operation.

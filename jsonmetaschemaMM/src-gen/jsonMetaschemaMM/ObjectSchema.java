@@ -38,6 +38,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getMinProperties <em>Min Properties</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getMaxProperties <em>Max Properties</em>}</li>
  *   <li>{@link jsonMetaschemaMM.ObjectSchema#getConst <em>Const</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.ObjectSchema#getMinItems <em>Min Items</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.ObjectSchema#getMaxItems <em>Max Items</em>}</li>
  * </ul>
  *
  * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema()
@@ -321,6 +323,28 @@ public interface ObjectSchema extends Schema {
 	 * @generated
 	 */
 	ConstSchemaDefinition getConst();
+
+	/**
+	 * Returns the value of the '<em><b>Min Items</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Min Items</em>' reference.
+	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_MinItems()
+	 * @model resolveProxies="false" transient="true" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true"
+	 * @generated
+	 */
+	MinItemsSchemaDefinition getMinItems();
+
+	/**
+	 * Returns the value of the '<em><b>Max Items</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Max Items</em>' reference.
+	 * @see jsonMetaschemaMM.JsonMetaschemaMMPackage#getObjectSchema_MaxItems()
+	 * @model resolveProxies="false" transient="true" volatile="true" derived="true" ordered="false" suppressedSetVisibility="true" suppressedIsSetVisibility="true"
+	 * @generated
+	 */
+	MaxItemsSchemaDefinition getMaxItems();
 
 	/**
 	 * <!-- begin-user-doc -->

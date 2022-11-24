@@ -305,6 +305,28 @@
         <details key="get" value="return (ConstSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ConstSchemaDefinition).findFirst().orElse(null);"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="minItems" ordered="false"
+        unique="false" eType="#//MinItemsSchemaDefinition" volatile="true" transient="true"
+        derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="property" value="Readonly"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="get" value="return (MinItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MinItemsSchemaDefinition).findFirst().orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maxItems" ordered="false"
+        unique="false" eType="#//MaxItemsSchemaDefinition" volatile="true" transient="true"
+        derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="get" value="return (MaxItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MaxItemsSchemaDefinition).findFirst().orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MaximumSchemaDefinition" eSuperTypes="#//KeywordDefinition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" lowerBound="1"

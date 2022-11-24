@@ -905,6 +905,26 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EReference getObjectSchema_MinItems() {
+		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getObjectSchema_MaxItems() {
+		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(26);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getObjectSchema__FindSchemaByKey__String() {
 		return objectSchemaEClass.getEOperations().get(0);
 	}
@@ -2444,6 +2464,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__MIN_PROPERTIES);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__MAX_PROPERTIES);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__CONST);
+		createEReference(objectSchemaEClass, OBJECT_SCHEMA__MIN_ITEMS);
+		createEReference(objectSchemaEClass, OBJECT_SCHEMA__MAX_ITEMS);
 		createEOperation(objectSchemaEClass, OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING);
 		createEOperation(objectSchemaEClass, OBJECT_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT);
 
@@ -2779,6 +2801,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEReference(getObjectSchema_MinProperties(), this.getMinPropertiesSchemaDefinition(), null, "minProperties", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getObjectSchema_MaxProperties(), this.getMaxPropertiesSchemaDefinition(), null, "maxProperties", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getObjectSchema_Const(), this.getConstSchemaDefinition(), null, "const", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_MinItems(), this.getMinItemsSchemaDefinition(), null, "minItems", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_MaxItems(), this.getMaxItemsSchemaDefinition(), null, "maxItems", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 
 		EOperation op = initEOperation(getObjectSchema__FindSchemaByKey__String(), this.getSchema(), "findSchemaByKey", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 1, 1, !IS_UNIQUE, !IS_ORDERED);

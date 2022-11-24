@@ -20,7 +20,9 @@ import jsonMetaschemaMM.IfSchemaDefinition;
 import jsonMetaschemaMM.ItemsSchemaDefinition;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.KeywordDefinition;
+import jsonMetaschemaMM.MaxItemsSchemaDefinition;
 import jsonMetaschemaMM.MaxPropertiesSchemaDefinition;
+import jsonMetaschemaMM.MinItemsSchemaDefinition;
 import jsonMetaschemaMM.MinPropertiesSchemaDefinition;
 import jsonMetaschemaMM.MultipleOfSchemaDefinition;
 import jsonMetaschemaMM.NotSchemaDefinition;
@@ -78,6 +80,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMinProperties <em>Min Properties</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMaxProperties <em>Max Properties</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getConst <em>Const</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMinItems <em>Min Items</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMaxItems <em>Max Items</em>}</li>
  * </ul>
  *
  * @generated
@@ -404,6 +408,48 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * @generated
 	 */
 	@Override
+	public MinItemsSchemaDefinition getMinItems() {
+		return (MinItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MinItemsSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinItems(MinItemsSchemaDefinition newMinItems) {
+		// TODO: implement this method to set the 'Min Items' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MaxItemsSchemaDefinition getMaxItems() {
+		return (MaxItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MaxItemsSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxItems(MaxItemsSchemaDefinition newMaxItems) {
+		// TODO: implement this method to set the 'Max Items' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Schema findSchemaByKey(final String key) {
 		return getSchemaObjectAdditionalProperties().stream().filter(s -> key.equals(s.getKey())).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);
 	}
@@ -557,6 +603,10 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getMaxProperties();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__CONST:
 				return getConst();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_ITEMS:
+				return getMinItems();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_ITEMS:
+				return getMaxItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -583,6 +633,12 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
 				setMaxProperties((MaxPropertiesSchemaDefinition)newValue);
 				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_ITEMS:
+				setMinItems((MinItemsSchemaDefinition)newValue);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_ITEMS:
+				setMaxItems((MaxItemsSchemaDefinition)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -606,6 +662,12 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
 				setMaxProperties((MaxPropertiesSchemaDefinition)null);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_ITEMS:
+				setMinItems((MinItemsSchemaDefinition)null);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_ITEMS:
+				setMaxItems((MaxItemsSchemaDefinition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -669,6 +731,10 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getMaxProperties() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__CONST:
 				return getConst() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_ITEMS:
+				return getMinItems() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_ITEMS:
+				return getMaxItems() != null;
 		}
 		return super.eIsSet(featureID);
 	}
