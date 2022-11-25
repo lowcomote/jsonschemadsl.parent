@@ -837,6 +837,22 @@ helper def: createBodyForValidateKeyOnDefinedProperties(properties:Sequence(Stri
 	).concat('return null;\n\n')
 ;
 
+helper context JSchemaMM!ItemsAnyOf2 def:createBodyForGetItemsNumber():String=
+	self.anyOf2.items->iterate(schema; body: String = 'int itemsNumber = 0;\n' |
+		body.concat('if(this.items'+self.anyOf2.items.indexOf(schema).toString()+'!=null) itemsNumber++;\n')
+	).concat(
+		let encosingSchema:JSchemaMM!Schema = self.refImmediateComposite().refImmediateComposite() in 
+		if not encosingSchema.additionalItems.oclIsUndefined() 
+				and encosingSchema.additionalItems.additionalItems.oclIsTypeOf(JSchemaMM!BooleanSchema)
+				and encosingSchema.additionalItems.additionalItems.value=false
+			then ''
+			else 'if(this.additionalItems!=null) itemsNumber=itemsNumber+this.additionalItems.size();\n'
+		endif	
+	).concat(
+		'return itemsNumber;\n'
+	)
+;
+
 --helper def: createGetterForDerivedAttributes(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
 --helper def: createGetterForDerivedFeaturesMappingTheKey(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
 helper def: createGetterForDerivedFeature(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
@@ -991,6 +1007,15 @@ helper def : appendMaxProperties0Constraint(packageName: String, contextClass: S
 
 helper def : appendMaxItems0Constraint(packageName: String, contextClass: String,   propertyName : String ) : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxItems0Constraint',Sequence{thisModule.oclFileUri, packageName, contextClass, propertyName});
+
+
+helper def : appendMaxItemsTupleConstraint(packageName: String, contextClass: String,   maxItems: Real ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxItemsTupleConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, maxItems});
+
+
+helper def : appendMinItemsTupleConstraint(packageName: String, contextClass: String,   minItems: Real ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinItemsTupleConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, minItems});
+
 
 
 helper def : appendIntegerConstraint(packageName: String, contextClass: String,   propertyName : String ) : OclAny=

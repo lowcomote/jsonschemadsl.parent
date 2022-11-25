@@ -503,7 +503,6 @@ unique lazy rule createTupleClass{
 			name <-	schema.buildEClassname()+'Tuple',
 			eStructuralFeatures <- schema.items.anyOf.anyOf2.items->collect(inArraySchema|thisModule.createTupleItemContainment(inArraySchema))->flatten()
 											---- manage "additionalItems" 
---											-> union(Sequence{thisModule.createContainmentToAdditionalItems(schema,schema.additionalItems.oclIsUndefined())}),
 											-> union(
 													-----  in case of additionalItems:false we add nothing
 													if not schema.additionalItems.oclIsUndefined() and schema.additionalItems.additionalItems.oclIsTypeOf((JSchemaMM!BooleanSchema)) and schema.additionalItems.additionalItems.value =false
@@ -511,14 +510,40 @@ unique lazy rule createTupleClass{
 													else
 														Sequence{thisModule.createContainmentToAdditionalItems(schema,schema.additionalItems.oclIsUndefined())}
 													endif),
-			eAnnotations <- Sequence{thisModule.createTupleAnnotation()}
+			eAnnotations <- Sequence{thisModule.createTupleAnnotation()},
+			eOperations <- Sequence{thisModule.createGetItemsNumber(itemsAnyOf2)}
 		)
 	do{
---		thisModule.bracketsEClass <- thisModule.bracketsEClass->union(Sequence{eClass});
 		thisModule.tuples<-thisModule.tuples->union(Sequence{eClass});
 		eClass;
 	}	
 }
+
+rule createGetItemsNumber(itemsAnyOf2:JSchemaMM!ItemsAnyOf2){
+	to
+		eOperation:Ecore!EOperation(
+			name<- 'getItemsNumber',
+			ordered <- false,
+			unique <-false,
+			lowerBound <- 1,
+			upperBound <- 1,
+			eType <- Ecore!EIntegerObject, --- the additional property key can not be equals to the defined property
+			eAnnotations <- Sequence{eAnnotation}
+		),
+		eAnnotation: Ecore!EAnnotation(
+			source <- 'http://www.eclipse.org/emf/2002/GenModel',
+			details <- Sequence{entrySet}
+		),
+		entrySet:Ecore!EStringToStringMapEntry(
+			key <- 'body',
+			value <-  itemsAnyOf2.createBodyForGetItemsNumber()
+		)
+	do{
+		eOperation;
+	}
+		
+}	
+
 
 rule createTupleAnnotation(){
 	to
@@ -1232,6 +1257,43 @@ lazy rule maxProperties0ToOcl{
 	}
 }
 
+--rule maxItemsTupleConstraintToOcl(itemsAnyOf2:JSchemaMM!ItemsAnyOf2){
+--	do{
+--		thisModule.appendMaxItemsTupleConstraint(thisModule.packageName, itemsAnyOf2.resolve(), itemsAnyOf2.refImmediateComposite().refImmediateComposite().maxItems.maxItems);
+--	}
+--
+--}
+
+
+lazy rule minItemsTupleConstraintToOcl{
+	from minItemsSchemaDefinition:JSchemaMM!MinItemsSchemaDefinition(minItemsSchemaDefinition.refImmediateComposite().hasTypeArray() 
+																and not minItemsSchemaDefinition.refImmediateComposite().items.oclIsUndefined()
+																and minItemsSchemaDefinition.refImmediateComposite().items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf2))
+				
+	using {
+		itemsAnyOf2:JSchemaMM!ItemsAnyOf2 = minItemsSchemaDefinition.refImmediateComposite().items.anyOf;
+	}															
+	do{
+		thisModule.appendMinItemsTupleConstraint(thisModule.packageName, itemsAnyOf2.resolve().getEType().name, minItemsSchemaDefinition.minItems.value);
+	}
+
+}
+
+
+lazy rule maxItemsTupleConstraintToOcl{
+	from maxItemsSchemaDefinition:JSchemaMM!MaxItemsSchemaDefinition(maxItemsSchemaDefinition.refImmediateComposite().hasTypeArray() 
+																and not maxItemsSchemaDefinition.refImmediateComposite().items.oclIsUndefined()
+																and maxItemsSchemaDefinition.refImmediateComposite().items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf2))
+				
+	using {
+		itemsAnyOf2:JSchemaMM!ItemsAnyOf2 = maxItemsSchemaDefinition.refImmediateComposite().items.anyOf;
+	}															
+	do{
+		thisModule.appendMaxItemsTupleConstraint(thisModule.packageName, itemsAnyOf2.resolve().getEType().name, maxItemsSchemaDefinition.maxItems.value);
+	}
+
+}
+
 lazy rule maxItems0ToOcl{
 	from maxItemsSchemaDefinition: JSchemaMM!MaxItemsSchemaDefinition(maxItemsSchemaDefinition.refImmediateComposite().hasTypeArray()
 																				and maxItemsSchemaDefinition.maxItems.value.floor() = 0 )
@@ -1882,6 +1944,17 @@ endpoint rule CompletEPackageAndJsonGrammar() {
 		for (m in JSchemaMM!MaxPropertiesSchemaDefinition.allInstancesFrom('jschema')){
 			thisModule.maxProperties0ToOcl(m);
 		}
+		
+		
+		for (m in JSchemaMM!MinItemsSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.minItemsTupleConstraintToOcl(m);
+		}
+		
+		for (m in JSchemaMM!MaxItemsSchemaDefinition.allInstancesFrom('jschema')){
+			thisModule.maxItemsTupleConstraintToOcl(m);
+		}
+		
+
 		
 		for (m in JSchemaMM!MaxItemsSchemaDefinition.allInstancesFrom('jschema')){
 			thisModule.maxItems0ToOcl(m);

@@ -163,6 +163,35 @@ class OclGenerator {
 	'''
 
 	
+	def static appendMaxItemsTupleConstraint (URI fileName, String packageName, String contextClass,   Double maxItems){
+		OclWriter.append(fileName, generateMaxItemsTupleConstraint(packageName, contextClass,  maxItems))
+	}
+	
+	def static generateMaxItemsTupleConstraint(String packageName, String contextClass, Double maxItems)'''
+			context «packageName»::«contextClass»
+		
+			inv «contextClass»MaxItemsTuple('The maximum number of items for «contextClass» is «maxItems»'):
+			if  getItemsNumber() <= «maxItems»
+			then true
+			else null
+			endif
+	'''
+	
+	def static appendMinItemsTupleConstraint (URI fileName, String packageName, String contextClass,   Double minItems){
+		OclWriter.append(fileName, generateMinItemsTupleConstraint(packageName, contextClass,  minItems))
+	}
+	
+	def static generateMinItemsTupleConstraint(String packageName, String contextClass, Double minItems)'''
+			context «packageName»::«contextClass»
+		
+			inv «contextClass»MinItemsTuple('The minimum number of items for «contextClass» is «minItems»'):
+			if  getItemsNumber() >= «minItems»
+			then true
+			else null
+			endif
+	'''
+	
+	
 	def static appendIntegerConstraint(URI fileName, String packageName, String contextClass,  String propertyName){
 		OclWriter.append(fileName, generateIntegerConstraint(packageName, contextClass, propertyName))
 	}
