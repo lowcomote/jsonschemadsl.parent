@@ -18,6 +18,11 @@ import relatedSchemas.OneOf
 import java.util.List
 import xtextgenerator.ui.utils.Ecore2XtextJSONExtensions
 import java.util.HashSet
+import java.util.Map.Entry
+import java.util.Map
+import java.util.HashMap
+import jku.se.atl.transformation.utils.Utils
+import org.eclipse.emf.ecore.EPackage
 
 class ValidatorGenerator {
 	
@@ -32,7 +37,13 @@ class ValidatorGenerator {
 	
 //	def private static String  generate (String classPackage, String className, String modelPackage, String oclPath, List<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile){
 	def private static String  generate (EClass rootElementEclass, String classPackage, String className, String modelPackage, String oclPath, Set<EnclosingSchema> enclosingSchemas, boolean isMainRootElementClass, IFile relatedSchemasFile, String grammarAccessFQN, String fileExtension){
-		val patternPropertiesEClasses = findClosurePatternProperties( rootElementEclass)
+		val Set<EClass> patternPropertiesEClasses = findClosurePatternProperties( rootElementEclass)
+		val Map<EClass,Set<EClass>> propertiesMatchingPatternPropertiesMap = findPropertiesMatchingPatternProperties( rootElementEclass)
+		var  String grammarExtension=fileExtension
+		if(!isMainRootElementClass){
+			grammarExtension=RuntimeProjectDescriptorJSON.getExtension(rootElementEclass)
+		}
+		
 		'''
 			package «classPackage»;
 			
@@ -125,6 +136,13 @@ class ValidatorGenerator {
 			
 				«generatePatternPropertiesValidation( rootElementEclass,  patternProperties,  modelPackage,  isMainRootElementClass, grammarAccessFQN,  fileExtension)»
 			«ENDFOR»
+			«FOR propertyMatchingPatternProperties: propertiesMatchingPatternPropertiesMap.entrySet»
+			
+				«generatePropertiesValidation( rootElementEclass,  propertyMatchingPatternProperties,  modelPackage,  isMainRootElementClass, grammarAccessFQN,  grammarExtension)»
+			«ENDFOR»
+			
+				«generateIndependentValidator(grammarAccessFQN, grammarExtension)»
+			
 			}
 		'''
 	}
@@ -453,9 +471,6 @@ class ValidatorGenerator {
 					String patternPropertiesText = NodeModelUtils.getTokenText(patternPropertiesINode);
 					InputStream inputStream = new ByteArrayInputStream(patternPropertiesText.getBytes());
 					
-«««					URI uri=URI.createURI("platform:/dummy.«grammarExtension»");
-«««					XtextResourceSet reset = new XtextResourceSet();
-«««					XtextResource xtextResource = (XtextResource) reset.createResource(uri);
 					for(EClass matchingPatternProperties : matchingSiblings){
 						
 						try {
@@ -473,9 +488,6 @@ class ValidatorGenerator {
 										xtextResource.setEntryPoint(parserRule);
 										xtextResource.load(inputStream, xtextResource.getResourceSet().getLoadOptions());
 										diagnostics.addAll(xtextResource.getErrors());
-«««										for (Diagnostic diagnostic : xtextResource.getErrors()) {
-«««											error(diagnostic.getMessage(), null);
-«««										}
 										if(xtextResource.getErrors().isEmpty()) {
 											processedPatternProperties.add(xtextResource.getContents().get(0));
 											IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
@@ -503,12 +515,162 @@ class ValidatorGenerator {
 			}
 		'''
 	}
+
+	
+	
+	
+	
+	def private static generatePropertiesValidation(EClass rootElementEclass, Entry<EClass, Set<EClass>> propertyMatchingPatternProperties, String modelPackage, boolean isMainRootElementClass,  String grammarAccessFQN, String grammarExtension){
+		
+		
+		val EClass properties = propertyMatchingPatternProperties.key
+		val String propertiesType = (properties.EPackage).name+"."+properties.name
+//		var  String grammarExtension=fileExtension
+//		if(!isMainRootElementClass){
+//			grammarExtension=RuntimeProjectDescriptorJSON.getExtension(rootElementEclass)
+//		}
+		val Set<EClass> matchingSiblings = propertyMatchingPatternProperties.value
+		
+		'''
+			@Check
+			public void validate«properties.name»(«propertiesType» properties){
+«««				«modelPackage» ePackage = «modelPackage».eINSTANCE;
+«««				EClass underValidationEClass =  properties.eClass();
+«««				String keyword = underValidationEClass.getEStructuralFeatures().stream().filter(sf->sf.getEAnnotation("Keyword")!=null).findFirst().get().getEAnnotation("Keyword").getDetails().get("Keyword");
+«««				List<EClass> matchingSiblings = Utils.findMatchingPatternPropertiesSiblings(underValidationEClass, keyword, ePackage);
+				
+«««				if(!matchingSiblings.isEmpty()){
+				ICompositeNode propertiesINode =NodeModelUtils.getNode(properties);
+				String propertiesText = NodeModelUtils.getTokenText(propertiesINode);
+				InputStream inputStream = new ByteArrayInputStream(propertiesText.getBytes());
+				
+				«FOR matchingPatternProperties: matchingSiblings»
+				independentValidation("«matchingPatternProperties.name»", processedPatternProperties, inputStream);
+				«ENDFOR»
+«««				for(EClass matchingPatternProperties : matchingSiblings){
+«««					try {
+«««						Method getRule = «grammarAccessFQN».class.getDeclaredMethod("get"+matchingPatternProperties.getName()+"Rule");
+«««						ParserRule parserRule = (ParserRule) getRule.invoke(grammarAccess);
+«««						List<Issue> issues = new ArrayList<Issue>();
+«««						List<Diagnostic> diagnostics=new ArrayList<Diagnostic>();
+«««						Thread validationThread = new Thread(new Runnable() {
+«««							@Override
+«««						    public void run() {
+«««						    	try {
+«««									URI uri=URI.createURI("platform:/dummy.«grammarExtension»");
+«««									XtextResourceSet reset = new XtextResourceSet();
+«««									XtextResource xtextResource = (XtextResource) reset.createResource(uri);
+«««									xtextResource.setEntryPoint(parserRule);
+«««									xtextResource.load(inputStream, xtextResource.getResourceSet().getLoadOptions());
+«««									diagnostics.addAll(xtextResource.getErrors());
+«««									if(xtextResource.getErrors().isEmpty()) {
+«««										/**we add the processed pattern properties on purspose. No need to propagate the validation 
+«««										 * because all the matches are going to be processed in this loop
+«««										 */
+«««										processedPatternProperties.add(xtextResource.getContents().get(0));
+«««										IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
+«««										issues.addAll(resourceValidator.validate(xtextResource, CheckMode.ALL, CancelIndicator.NullImpl));
+«««									}
+«««								} catch (IOException e) {
+«««									e.printStackTrace();
+«««								}	
+«««							}
+«««						}); 		
+«««						validationThread.start();
+«««						validationThread.join();
+«««						for (Diagnostic diagnostic : diagnostics) {
+«««							error(diagnostic.getMessage(), null);
+«««						}
+«««						for(Issue issue :issues) {
+«««							error(issue.getMessage(), null);
+«««						}
+«««					}catch (Exception e) {
+«««						e.printStackTrace();
+«««					} 
+«««					
+«««				}
+«««				}	
+			}
+		'''
+	}
+	
+	def private static generateIndependentValidator(String grammarAccessFQN, String grammarExtension){
+		
+		'''
+			private void independentValidation(String eClassName, List<EObject> processedListName, InputStream inputStream){
+				try {
+					Method getRule = «grammarAccessFQN».class.getDeclaredMethod("get"+eClassName+"Rule");
+					ParserRule parserRule = (ParserRule) getRule.invoke(grammarAccess);
+					List<Issue> issues = new ArrayList<Issue>();
+					List<Diagnostic> diagnostics=new ArrayList<Diagnostic>();
+					Thread validationThread = new Thread(new Runnable() {
+						@Override
+					    public void run() {
+					    	try {
+								URI uri=URI.createURI("platform:/dummy.«grammarExtension»");
+								XtextResourceSet reset = new XtextResourceSet();
+								XtextResource xtextResource = (XtextResource) reset.createResource(uri);
+								xtextResource.setEntryPoint(parserRule);
+								xtextResource.load(inputStream, xtextResource.getResourceSet().getLoadOptions());
+								diagnostics.addAll(xtextResource.getErrors());
+								if(xtextResource.getErrors().isEmpty()) {
+									/**we add the processed pattern properties on purspose. No need to propagate the validation 
+									 * because all the matches are going to be processed in this loop
+									 */
+									if(processedListName!=null){
+										processedListName.add(xtextResource.getContents().get(0));
+									}	
+									IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
+									issues.addAll(resourceValidator.validate(xtextResource, CheckMode.ALL, CancelIndicator.NullImpl));
+								}
+							} catch (IOException e) {
+								e.printStackTrace();
+							}	
+						}
+					}); 		
+					validationThread.start();
+					validationThread.join();
+					for (Diagnostic diagnostic : diagnostics) {
+						error(diagnostic.getMessage(), null);
+					}
+					for(Issue issue :issues) {
+						error(issue.getMessage(), null);
+					}
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		'''
+	}
+	
+	
+	
+
+	def private static Map<EClass,Set<EClass>> findPropertiesMatchingPatternProperties(EClass rootElementEclass){
+		val Set<EClass> processedEClasses =new HashSet<EClass>();
+		val Set<EClass> closure = findClosure(rootElementEclass,   processedEClasses)
+		/** 
+		 * select aClasses that have a structural feature that has annnotation Keyword
+		 */
+		val Set<EClass> properties = closure.filter[c|c.EStructuralFeatures.exists[sf|sf.EAnnotations.exists[a|a.source==='Keyword']]].toSet	
+		var Map<EClass,Set<EClass>> propertiesMatchingPatternProperties = new HashMap<EClass,Set<EClass>>()
+		for(property:properties){
+			//String keyword = underValidationEClass.getEStructuralFeatures().stream().filter(sf->sf.getEAnnotation("Keyword")!=null).findFirst().get().getEAnnotation("Keyword").getDetails().get("Keyword");
+			val keyword = property.EStructuralFeatures.findFirst[sf|sf.getEAnnotation("Keyword")!==null].getEAnnotation("Keyword").details.get("Keyword")
+			val List<EClass> matchingPatternPropertiesSiblings =Utils.findMatchingPatternPropertiesSiblings(property, keyword, property.eContainer() as EPackage)
+			if(!matchingPatternPropertiesSiblings.isEmpty){
+				propertiesMatchingPatternProperties.put(property, new HashSet<EClass>(matchingPatternPropertiesSiblings))
+			}
+		}
+		
+		propertiesMatchingPatternProperties
+	}
 	
 	def private static Set<EClass> findClosurePatternProperties(EClass rootElementEclass){
-		 val Set<EClass> processedEClasses =new HashSet<EClass>();
-		 val Set<EClass> closure = findClosure(rootElementEclass,   processedEClasses)
-		 val Set<EClass> patternProperties = closure.filter[c|c.EAnnotations.exists[a|a.source==='PatternProperties']].toSet
-		 patternProperties
+		val Set<EClass> processedEClasses =new HashSet<EClass>();
+		val Set<EClass> closure = findClosure(rootElementEclass,   processedEClasses)
+		val Set<EClass> patternProperties = closure.filter[c|c.EAnnotations.exists[a|a.source==='PatternProperties']].toSet
+		patternProperties
 	}
 	
 	def private static Set<EClass> findClosure(EClass containingEClass, Set<EClass> processedEClasses){
@@ -531,7 +693,7 @@ class ValidatorGenerator {
 		}else{
 			return new HashSet<EClass>();
 		}
-			
-			
 	}
+	
+	
 }

@@ -1,0 +1,7 @@
+{
+	"patternProperties":{
+		"^P_":{"type":"number"},
+		"^Q_":{"type":"number","minimum":3}
+	},
+	"additionalProperties":{"type":"integer"}
+}

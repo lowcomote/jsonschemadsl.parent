@@ -286,7 +286,7 @@ class OclGenerator {
 	def static generateValidatorOnProperties(String packageName, String contextClass, String inv)'''
 			context «packageName»::«contextClass» 
 		
-			inv «inv»ValidatorOnProperties (' key can not be equals to a defined property'):
+			inv «inv»ValidatorOnProperties ('key can not be equals to a defined property'):
 			if  self.validateKeyOnDefinedProperties().oclIsUndefined()
 			then true
 			else null
