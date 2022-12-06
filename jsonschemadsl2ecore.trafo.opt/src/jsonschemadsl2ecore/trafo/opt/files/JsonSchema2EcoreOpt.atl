@@ -1473,10 +1473,7 @@ rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 						}else if(keySchemaPair.value.hasArrayOfTypes or keySchemaPair.value.type.oclIsUndefined()
 								or not keySchemaPair.value.ref.oclIsUndefined() or not keySchemaPair.value.enum.oclIsUndefined() or not keySchemaPair.value.const.oclIsUndefined()){ --- if it hasArrayOfTypes it has Object for sure because of the condition on the enclosing if : hasTypeObject	
 							derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
-						}else
-					
-					
-						if(keySchemaPair.value.hasSimpleTypeScalar()){
+						}else if(keySchemaPair.value.hasSimpleTypeScalar()){
 							derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedAttibute(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair))});
 						}else if(keySchemaPair.value.hasSimpleTypeObject()){
 							derivedFeatures <- derivedFeatures ->union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.resolve(), thisModule.createGetterForDerivedReference(containmentPropertyName, keySchemaPair), 1)});
@@ -1491,7 +1488,8 @@ rule createDerivedFeatures(objectSchema : JSchemaMM!ObjectSchema){
 --							}	
 							if(keySchemaPair.value.items.oclIsUndefined() or keySchemaPair.value.items.anyOf.oclIsTypeOf(JSchemaMM!ItemsAnyOf1)){
 								----- if there is no items it is as ItemsAnyOf1
-								derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
+--								derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedReferenceList(containmentPropertyName, keySchemaPair), -1)});
+								derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(), keySchemaPair.value.resolve(), thisModule.createGetterForDerivedReferenceArray(containmentPropertyName, keySchemaPair), 1)});
 							}else{
 								----  derived feature for Tuple ------
 								derivedFeatures <- derivedFeatures -> union(Sequence{thisModule.createDerivedReference(keySchemaPair.key.stripFirstAndLast(),keySchemaPair.value.getEStructuralFeatureType(keySchemaPair.key.stripFirstAndLast()), thisModule.createGetterForDerivedFeature(containmentPropertyName, keySchemaPair), 1)});
@@ -1547,9 +1545,6 @@ rule createDerivedAttibute( key:String, eType:Ecore!EClassifier, getterValue:Str
 
 --rule createDerivedReference(propertyName:String, keySchemaPair : JSchemaMM!KeySchemaPair, upperBound:Integer) {
 rule createDerivedReference(key:String, eType:Ecore!EClassifier, getterValue:String, upperBound:Integer ) {
---	using {
---		key:String =keySchemaPair.key.stripFirstAndLast();
---	}
 	to
 		derivedReference : Ecore!EReference(
 			name <- key.encodeJavaIdentifier(),
@@ -1574,7 +1569,6 @@ rule createDerivedReference(key:String, eType:Ecore!EClassifier, getterValue:Str
 		),
 		getter:Ecore!EStringToStringMapEntry(
 			key <- 'get',
---			value <-  thisModule.createGetterForDerivedReference(propertyName, keySchemaPair)
 			value <-  getterValue
 		)
 	do{

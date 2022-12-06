@@ -1,0 +1,15 @@
+{
+	"type":"object",
+	"additionalProperties":false,
+	"properties":{
+		"prop1":{
+			"type":"array"
+		},
+		"prop2":{
+			"type":"array",
+			"maxItems":0
+		}
+	},
+	"required":["prop1","prop2"]
+	
+} 

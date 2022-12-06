@@ -866,9 +866,11 @@ helper def: createGetterForDerivedReference(propertyName:String, keySchemaPair :
 	
 ;
 	
-helper def:	createGetterForDerivedReferenceList(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
+--helper def:	createGetterForDerivedReferenceList(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
+helper def:	createGetterForDerivedReferenceArray(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
 	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
-	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().encodeJavaIdentifier().toCamelCase()+'()).orElse(new org.eclipse.emf.common.util.BasicEList<>());'
+--	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().encodeJavaIdentifier().toCamelCase()+'()).orElse(new org.eclipse.emf.common.util.BasicEList<>());'
+	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).orElse(null);'
 ;	
 	
 	
