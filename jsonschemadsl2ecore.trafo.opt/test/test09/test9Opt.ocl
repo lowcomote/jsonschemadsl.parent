@@ -1,7 +1,0 @@
--- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test9
-import 'http://jku.bise.at/test9'
-
-package test9
-
-endpackage
-
