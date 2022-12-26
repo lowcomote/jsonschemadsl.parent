@@ -1,0 +1,29 @@
+{
+	"type":"object",
+	"additionalProperties": {
+		         
+        "not": 
+           	{
+             	"type": "object",  
+	      		"properties": { 
+	      			"runs-on": {"type": "string"}
+				}
+            }
+         
+	},
+	"patternProperties":{
+		"prop1":{
+			"not":{"type":"string", "maxLength":5}
+		},
+		"prop2":{
+			"not":{"type":"integer", "minimum":2}
+		},
+		"prop3":{
+			"not":{"type":"null"}
+		},
+		"prop4":{
+			"not":{"type":"boolean"}
+		}
+	}
+          
+}

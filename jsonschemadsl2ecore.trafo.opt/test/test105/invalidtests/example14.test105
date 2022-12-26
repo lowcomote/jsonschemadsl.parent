@@ -1,0 +1,13 @@
+{
+	"ale":{
+		"runs-on":"soemthing",
+		"foo":1
+	},
+	"prop111":"ok",
+	"prop122":{
+		"prop1":"abef" 
+	},
+	"prop2333":{
+		"prop2":4
+	}
+}  

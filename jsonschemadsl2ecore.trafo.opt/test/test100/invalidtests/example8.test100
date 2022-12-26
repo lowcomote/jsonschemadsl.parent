@@ -1,0 +1,10 @@
+{
+	"ale": {
+		"runs-on": "ubuntu-latest" ,
+		"foo":1
+	} ,
+	"prop1":"aaa",
+	"prop2":5,
+	"prop3":null,
+	"prop4":true
+}                 

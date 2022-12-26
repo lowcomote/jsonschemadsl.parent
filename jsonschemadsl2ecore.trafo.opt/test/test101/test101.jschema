@@ -1,0 +1,40 @@
+{
+	"type":"object",
+	"additionalProperties": {
+		         
+        "anyOf": [
+           	{
+             	"type": "object",  
+	      		"properties": { 
+	      			"runs-on": {"type": "string"}
+				}
+            }
+         ]
+         
+	},
+	"patternProperties":{
+		"prop1":{
+			"anyOf":[
+				{"type":"string", "maxLength":2},
+				{"type":"string", "minLength":5}
+			]
+		},
+		"prop2":{
+			"anyOf":[
+				{"type":"integer", "maximum":2},
+				{"type":"integer", "minimum":5}
+			]
+		},
+		"prop3":{
+			"anyOf":[
+				{"type":"null"}
+			]
+		},
+		"prop4":{
+			"anyOf":[
+				{"type":"boolean"}
+			]
+		}
+	}
+          
+}

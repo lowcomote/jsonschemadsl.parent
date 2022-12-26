@@ -1,0 +1,6 @@
+{
+	"ale":{
+		"runs-on":"soemthing",
+		"foo":1
+	}
+}
