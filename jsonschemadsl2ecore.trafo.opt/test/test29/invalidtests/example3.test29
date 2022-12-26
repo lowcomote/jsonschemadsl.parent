@@ -1,0 +1,7 @@
+{
+	"bool":{
+		"1":true,
+		"0":false
+	},
+	"add1":"additionalProperties is false"
+}
