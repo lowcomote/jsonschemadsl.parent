@@ -1,0 +1,10 @@
+{
+	"name":"John",
+	
+	"job":{
+		"role":"enngineer",
+		"level":6
+	},
+	"add":true
+	
+}
