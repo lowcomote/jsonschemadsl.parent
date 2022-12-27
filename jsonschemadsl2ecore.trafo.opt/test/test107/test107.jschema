@@ -1,0 +1,13 @@
+{
+    "type":"object",
+    "patternProperties": {
+		"^[_a-zA-Z][a-zA-Z0-9_-]*$": {
+			"oneOf": [
+            	{
+              		"type":"string"
+            	}
+          	]
+        }
+	},
+	"additionalProperties": false	
+}

@@ -1,0 +1,47 @@
+{
+	"definitions":{
+		"normalJob": {
+			"type": "object",
+      		"properties": {
+      			"runs-on": {
+      				"oneOf": [ 
+			            {
+			              "$comment": "https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#github-hosted-runners",
+			              "type": "string",
+			              "enum": [
+			                "macos-10.15",
+			                "macos-11",
+			                "macos-12",
+			                "macos-latest",
+			                "self-hosted",
+			                "ubuntu-18.04",
+			                "ubuntu-20.04",
+			                "ubuntu-22.04",
+			                "ubuntu-latest",
+			                "windows-2019",
+			                "windows-2022",
+			                "windows-latest"
+			              ]
+			            }
+			        ]	
+      			}
+      		}
+		}
+	},
+	"properties":{   
+		"jobs": {
+	      "type": "object",
+	      "patternProperties": {
+	        "^[_a-zA-Z][a-zA-Z0-9_-]*$": {
+	          "oneOf": [
+	            {
+	              "$ref": "#/definitions/normalJob"
+	            }
+	          ]
+	        }
+	      },
+	      "minProperties": 1,
+	      "additionalProperties": false
+	    }
+	}
+}
