@@ -1,0 +1,19 @@
+{
+	"propZ":1,
+	"prop3":["a",{"propZ":1}],
+	"prop4":{
+		"prop5":false,
+		"Ingrid":1,
+		"prop51":2,
+		"prop52":null,
+		"I1":1,
+		"S1":"a",
+		"Iland":3,
+		"Sardegna":"Sardegna is the iland"
+	},
+	"prop6":{
+		"prop8":true,
+		"prop8A":true,
+		"prop8B":true
+	}
+}
