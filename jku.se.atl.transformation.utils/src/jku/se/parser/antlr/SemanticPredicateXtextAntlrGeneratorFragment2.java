@@ -120,7 +120,8 @@ public class SemanticPredicateXtextAntlrGeneratorFragment2 extends XtextAntlrGen
 	}
 	
 	private String buildFragmentRegex(String javaParserName, String patternPropertiesName){
-		return "public final void synpred(\\d+)_"+javaParserName+"_fragment\\(\\).*$(\n|\r|\r\n)^.*rule("+patternPropertiesName+")";
+//		return "public final void synpred(\\d+)_"+javaParserName+"_fragment\\(\\).*$(\n|\r|\r\n)^.*rule("+patternPropertiesName+")";
+		return "public final void synpred(\\d+)_"+javaParserName+"_fragment\\(\\).*$(\n|\r|\r\n)^.*rule("+patternPropertiesName+")\\s";
 	}
 	
 	private String buildBooleanSynpredRegex(String predicateStringIndex, String javaParserName){
