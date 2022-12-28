@@ -1,0 +1,62 @@
+{
+  "name": "Link Checker: All English",
+  "on": {
+    "workflow_dispatch": null,
+    "push": {
+      "branches": [
+        "main"
+      ]
+    },
+    "pull_request": null
+  },
+  "permissions": {
+    "contents": "read",
+    "pull-requests": "read"
+  },
+  "concurrency": {
+    "group": "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}",
+    "cancel-in-progress": true
+  },
+  "jobs": {
+    "check-links": {
+      "runs-on": "${{ fromJSON('[\"ubuntu-latest\", \"self-hosted\"]')[github.repository == 'github/docs-internal'] }}",
+      "steps": [
+        {
+          "name": "Checkout",
+          "uses": "actions/checkout@v3"
+        },
+        {
+          "name": "Setup node",
+          "uses": "actions/setup-node@v3",
+          "with": {
+            "node-version": "16.13.x",
+            "cache": "npm"
+          }
+        },
+        {
+          "name": "Install",
+          "run": "npm ci"
+        },
+        {
+          "name": "Gather files changed",
+          "uses": "trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b",
+          "with": {
+            "fileOutput": "json"
+          }
+        },
+        {
+          "name": "Show files changed",
+          "run": "cat $HOME/files.json"
+        },
+        {
+          "name": "Link check (warnings, changed files)",
+          "run": "./script/rendered-content-link-checker.mjs \\\n  --language en \\\n  --max 100 \\\n  --check-anchors \\\n  --check-images \\\n  --verbose \\\n  --list $HOME/files.json\n"
+        },
+        {
+          "name": "Link check (critical, all files)",
+          "run": "./script/rendered-content-link-checker.mjs \\\n  --language en \\\n  --exit \\\n  --verbose \\\n  --check-images \\\n  --level critical\n"
+        }
+      ]
+    }
+  }
+}
