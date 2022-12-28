@@ -23,6 +23,9 @@ import java.util.Map
 import java.util.HashMap
 import jku.se.atl.transformation.utils.Utils
 import org.eclipse.emf.ecore.EPackage
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.EStructuralFeature
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils
 
 class ValidatorGenerator {
 	
@@ -82,6 +85,7 @@ class ValidatorGenerator {
 			import org.eclipse.xtext.nodemodel.ICompositeNode;
 			
 			import org.eclipse.emf.ecore.EObject;
+			import org.eclipse.emf.ecore.EStructuralFeature;
 			
 			public class «className» extends Abstract«className» {
 				
@@ -142,8 +146,10 @@ class ValidatorGenerator {
 			«ENDFOR»
 			
 				«generateIndependentValidator(grammarAccessFQN, grammarExtension)»
+				«generateGetNodeText()»
 			
 			}
+			
 		'''
 	}
 	
@@ -164,7 +170,8 @@ class ValidatorGenerator {
 		'''
 			@Check
 			public void allOfValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
-				String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+			//	String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+				String enclosingEClassText = getNodeText(enclosingEClass);
 				«FOR EClass allOfEClass :allOf.allOfs»
 					InputStream in«allOf.allOfs.indexOf(allOfEClass)» = new ByteArrayInputStream(enclosingEClassText.getBytes());
 					ResourceSet reset«allOf.allOfs.indexOf(allOfEClass)» = new ResourceSetImpl();
@@ -195,7 +202,8 @@ class ValidatorGenerator {
 		'''
 			@Check
 			public void anyOfValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
-				String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+			//	String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+				String enclosingEClassText = getNodeText(enclosingEClass);
 				boolean validSchemaFound = false;
 				«FOR EClass anyOfEClass :anyOf.anyOfs»
 					if(!validSchemaFound){
@@ -230,7 +238,8 @@ class ValidatorGenerator {
 		'''
 			@Check
 			public void oneOfValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
-				String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+			//	String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+				String enclosingEClassText = getNodeText(enclosingEClass);
 				int validSchemasCount = 0;
 				«FOR EClass oneOfEClass :oneOf.oneOfs»
 					InputStream in«oneOf.oneOfs.indexOf(oneOfEClass)» = new ByteArrayInputStream(enclosingEClassText.getBytes());
@@ -265,7 +274,8 @@ class ValidatorGenerator {
 		'''
 			@Check
 			public void notValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
-				String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+			//	String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+				String enclosingEClassText = getNodeText(enclosingEClass);
 				InputStream in = new ByteArrayInputStream(enclosingEClassText.getBytes());
 				ResourceSet reset = new ResourceSetImpl();
 				Resource resource = reset.createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(not.not)»"));
@@ -298,7 +308,8 @@ class ValidatorGenerator {
 			@Check
 			public void ifThenElseValidation«enclosingClass.name»(«enclosingClassType» enclosingEClass){
 				«IF ifThenElse.^if !==null»
-					String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+					//String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+					String enclosingEClassText = getNodeText(enclosingEClass);
 					InputStream inIf = new ByteArrayInputStream(enclosingEClassText.getBytes());
 					ResourceSet resetIf = new ResourceSetImpl();
 					Resource resourceIf = resetIf.createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(ifThenElse.^if)»"));
@@ -378,7 +389,8 @@ class ValidatorGenerator {
 			@Check
 			public void dependenciesValidation«enclosingClass.name»«dependency.property»(«enclosingClassType» enclosingEClass){
 				if(enclosingEClass.get("«dependency.property»")!=null){
-					String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+			//		String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+					String enclosingEClassText = getNodeText(enclosingEClass);
 					InputStream in = new ByteArrayInputStream(enclosingEClassText.getBytes());
 					ResourceSet reset = new ResourceSetImpl();
 					Resource resource = reset.createResource(URI.createURI("platform:/dummy.«RuntimeProjectDescriptorJSON.getExtension(dependency.dependency)»"));
@@ -525,21 +537,12 @@ class ValidatorGenerator {
 		
 		val EClass properties = propertyMatchingPatternProperties.key
 		val String propertiesType = (properties.EPackage).name+"."+properties.name
-//		var  String grammarExtension=fileExtension
-//		if(!isMainRootElementClass){
-//			grammarExtension=RuntimeProjectDescriptorJSON.getExtension(rootElementEclass)
-//		}
 		val Set<EClass> matchingSiblings = propertyMatchingPatternProperties.value
 		
 		'''
 			@Check
 			public void validate«properties.name»(«propertiesType» properties){
-«««				«modelPackage» ePackage = «modelPackage».eINSTANCE;
-«««				EClass underValidationEClass =  properties.eClass();
-«««				String keyword = underValidationEClass.getEStructuralFeatures().stream().filter(sf->sf.getEAnnotation("Keyword")!=null).findFirst().get().getEAnnotation("Keyword").getDetails().get("Keyword");
-«««				List<EClass> matchingSiblings = Utils.findMatchingPatternPropertiesSiblings(underValidationEClass, keyword, ePackage);
 				
-«««				if(!matchingSiblings.isEmpty()){
 				ICompositeNode propertiesINode =NodeModelUtils.getNode(properties);
 				String propertiesText = NodeModelUtils.getTokenText(propertiesINode);
 				InputStream inputStream = new ByteArrayInputStream(propertiesText.getBytes());
@@ -547,49 +550,6 @@ class ValidatorGenerator {
 				«FOR matchingPatternProperties: matchingSiblings»
 				independentValidation("«matchingPatternProperties.name»", processedPatternProperties, inputStream);
 				«ENDFOR»
-«««				for(EClass matchingPatternProperties : matchingSiblings){
-«««					try {
-«««						Method getRule = «grammarAccessFQN».class.getDeclaredMethod("get"+matchingPatternProperties.getName()+"Rule");
-«««						ParserRule parserRule = (ParserRule) getRule.invoke(grammarAccess);
-«««						List<Issue> issues = new ArrayList<Issue>();
-«««						List<Diagnostic> diagnostics=new ArrayList<Diagnostic>();
-«««						Thread validationThread = new Thread(new Runnable() {
-«««							@Override
-«««						    public void run() {
-«««						    	try {
-«««									URI uri=URI.createURI("platform:/dummy.«grammarExtension»");
-«««									XtextResourceSet reset = new XtextResourceSet();
-«««									XtextResource xtextResource = (XtextResource) reset.createResource(uri);
-«««									xtextResource.setEntryPoint(parserRule);
-«««									xtextResource.load(inputStream, xtextResource.getResourceSet().getLoadOptions());
-«««									diagnostics.addAll(xtextResource.getErrors());
-«««									if(xtextResource.getErrors().isEmpty()) {
-«««										/**we add the processed pattern properties on purspose. No need to propagate the validation 
-«««										 * because all the matches are going to be processed in this loop
-«««										 */
-«««										processedPatternProperties.add(xtextResource.getContents().get(0));
-«««										IResourceValidator resourceValidator = xtextResource.getResourceServiceProvider().getResourceValidator();
-«««										issues.addAll(resourceValidator.validate(xtextResource, CheckMode.ALL, CancelIndicator.NullImpl));
-«««									}
-«««								} catch (IOException e) {
-«««									e.printStackTrace();
-«««								}	
-«««							}
-«««						}); 		
-«««						validationThread.start();
-«««						validationThread.join();
-«««						for (Diagnostic diagnostic : diagnostics) {
-«««							error(diagnostic.getMessage(), null);
-«««						}
-«««						for(Issue issue :issues) {
-«««							error(issue.getMessage(), null);
-«««						}
-«««					}catch (Exception e) {
-«««						e.printStackTrace();
-«««					} 
-«««					
-«««				}
-«««				}	
 			}
 		'''
 	}
@@ -643,7 +603,31 @@ class ValidatorGenerator {
 		'''
 	}
 	
-	
+	def private static generateGetNodeText(){
+		
+		'''
+			private String getNodeText(EObject enclosingEClass){
+				EObject enclosingEObject=enclosingEClass;
+				String enclosingEClassText = null;
+				if(enclosingEClass.eClass().getEAnnotation("AdditionalProperties")!=null || enclosingEClass.eClass().getEAnnotation("PatternProperties")!=null) {
+					EStructuralFeature additionalOrPatternPropertiesFeature = enclosingEClass.eClass().getEStructuralFeatures().stream().filter(sf->!sf.getName().equals("key")).findFirst().get();
+					Object additionalOrPatternPropertiesValue = enclosingEClass.eGet(additionalOrPatternPropertiesFeature);
+					if(additionalOrPatternPropertiesValue instanceof EObject) {
+						enclosingEObject=(EObject) enclosingEClass.eGet(additionalOrPatternPropertiesFeature);
+					}else if(additionalOrPatternPropertiesValue instanceof String){
+						enclosingEClassText="\""+additionalOrPatternPropertiesValue.toString()+"\"";
+					}else {
+						enclosingEClassText= additionalOrPatternPropertiesValue.toString();
+					}
+				}
+			//	String enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEClass));
+				if(enclosingEClassText==null) {
+					enclosingEClassText = NodeModelUtils.getTokenText(NodeModelUtils.getNode(enclosingEObject));
+				}
+				return enclosingEClassText;
+			}		
+		'''	
+	}
 	
 
 	def private static Map<EClass,Set<EClass>> findPropertiesMatchingPatternProperties(EClass rootElementEclass){
