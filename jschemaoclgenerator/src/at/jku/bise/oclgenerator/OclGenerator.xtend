@@ -99,7 +99,7 @@ class OclGenerator {
 	def static generateMinLengthConstraint(String packageName, String contextClass, Double minLength, String propertyName)'''
 			context «packageName»::«contextClass»
 		
-			inv «contextClass»MinLength('The length of «contextClass» must be lower than «minLength»'):
+			inv «contextClass»MinLength('The length of «contextClass» must be greater than «minLength»'):
 			if «propertyName.underscoreIfNecessary».size() >= «minLength»
 			then true
 			else null
