@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -67,13 +68,18 @@ public class Utils {
    	}
 	
 	public static List<EClass> findMatchingPatternPropertiesSiblings(EClass patternProperties, String key, EPackage ePackage) {
-		List<EClass> siblings =ePackage.getEClassifiers().stream()
-			.filter(eClass -> eClass  instanceof EClass)
-			.filter(eClass -> ((EClass)eClass).getEAllSuperTypes().contains(patternProperties.getEAllSuperTypes().get(0)))
-			.filter(eClass -> eClass.getName()!=patternProperties.getName())
-			.filter(eClass -> eClass.getEAnnotation("PatternProperties")!=null)
-			.filter(eClass ->  find(eClass.getEAnnotation("PatternProperties").getDetails().get("pattern"),key))
-			.map(EClass.class::cast ).collect(java.util.stream.Collectors.toList());
+		List<EClass> siblings = new BasicEList<EClass>();
+		if(!patternProperties.getEAllSuperTypes().isEmpty()) {
+//		List<EClass> siblings =ePackage.getEClassifiers().stream()
+			siblings =ePackage.getEClassifiers().stream()	
+				.filter(eClass -> eClass  instanceof EClass)
+				.filter(eClass -> ((EClass)eClass).getEAllSuperTypes().contains(patternProperties.getEAllSuperTypes().get(0)))
+				.filter(eClass -> eClass.getName()!=patternProperties.getName())
+				.filter(eClass -> eClass.getEAnnotation("PatternProperties")!=null)
+				.filter(eClass ->  find(eClass.getEAnnotation("PatternProperties").getDetails().get("pattern"),key))
+				.map(EClass.class::cast )
+				.collect(java.util.stream.Collectors.toList());
+		}
 		return siblings;
 	}
 }
