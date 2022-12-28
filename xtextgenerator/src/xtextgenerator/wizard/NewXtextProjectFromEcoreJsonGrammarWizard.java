@@ -492,7 +492,10 @@ public class NewXtextProjectFromEcoreJsonGrammarWizard extends XtextNewProjectWi
 			String fileExtension =runtimeProjectDescriptorJSON.getConfig().getLanguage().getFileExtensions().iterator().next();
 			try {
 				ValidatorGenerator.create(rootElementEclass, fileName, classPackage, className, modelPackage, oclPath, runtimeProjectDescriptorJSON.getRootElementEnclosingSchemaMap().get(rootElementEclass), isMainRootElementClass,wizardRelatedSchemasPage.getRelatedSchemasFile(), grammarAccessFQN,fileExtension);
-			} catch (IOException e) {
+			} catch(RuntimeException e) {
+				e.printStackTrace();
+				return false;
+			}catch (IOException e) {
 				e.printStackTrace();
 				return false;
 			}
