@@ -113,7 +113,8 @@ rule createValidatorOnProperties(properties: Sequence(String)){
 		),
 		entrySet:Ecore!EStringToStringMapEntry(
 			key <- 'body',
-			value <-  thisModule.createBodyForValidateKeyOnDefinedProperties(properties->collect(property | property.encodeJavaIdentifier())->flatten())
+--			value <-  thisModule.createBodyForValidateKeyOnDefinedProperties(properties->collect(property | property.encodeJavaIdentifier())->flatten())
+			value <-  thisModule.createBodyForValidateKeyOnDefinedProperties(properties)
 		)
 	do{
 		eOperation;
@@ -284,8 +285,8 @@ rule mapBooleanSchemaToEClass extends mapSchemaToEClass{
 	to 
 		eClass : Ecore!EClass
 	do{ --- we have to assign eStructuralFeatures in the imperative block, because the union wouldn't work, if a part if different features are added from the two targets of the abstract and concrete rule
---		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.isKeySchemaPairInProperties())});
-		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword())});
+--		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword())});
+		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword(), schema.getKey())});
 	}
 }
 
@@ -298,7 +299,7 @@ rule mapBooleanSchemaFalseToEClass extends mapSchemaToEClass {
 	to 
 		eClass : Ecore!EClass
 	do{
-		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword())});
+		eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword(), schema.getKey())});
 --		thisModule.appendValidatorBooleanSchemaFalse(thisModule.packageName, schema.buildEClassname(), schema.buildEClassname()+'BooleanSchemaFalse');
 	}	
 }
@@ -317,7 +318,7 @@ rule mapObjectSchemaToEClass extends mapSchemaToEClass{
 		}else if (not schema.enum.oclIsUndefined() or not schema.const.oclIsUndefined()){ --- "enum" or "const" is present 
 			
 --			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKey(), schema.needsKeyword())});
-			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKeyForPropertiesContainment(), schema.needsKeyword())});
+			eClass.eStructuralFeatures <- eClass.eStructuralFeatures -> union(Sequence{thisModule.createContainmentToJsonDocument(schema.getKeyForPropertiesContainment(), schema.needsKeyword(), schema.getKey())});
 --			eClass.eAnnotations <- Sequence{thisModule.createEnumAnnotation()};
 			eClass.eAnnotations <- Sequence{} ->union(if not schema.enum.oclIsUndefined() then Sequence{thisModule.createEnumAnnotation()} else Sequence{} endif ) ->union(if not schema.const.oclIsUndefined() then Sequence{thisModule.createConstAnnotation()} else Sequence{} endif ) ;
 		}else if (schema.type.oclIsUndefined()){  ---- "type" is missing
@@ -453,7 +454,7 @@ lazy rule createDefaultAdditionalPropertiesEClass  {
 		eClass : Ecore!EClass (
 --		 	name <-	schemaBuildedClassName.concat('AdditionalProperties'),
 			name <-	eClassName,
-			eStructuralFeatures <- Set{thisModule.createKeyEAttribute('key'), thisModule.createContainmentToJsonDocument('additionalProperties',false)}.flatten(),
+			eStructuralFeatures <- Set{thisModule.createKeyEAttribute('key'), thisModule.createContainmentToJsonDocument('additionalProperties',false, 'additionalProperties')}.flatten(),
 			eSuperTypes <-  Set{thisModule.createAbstractEClass(schemaBuildedClassName.concat('Properties'))},
 			eAnnotations <- Sequence{thisModule.createAdditionalPropertiesAnnotation()},
 			eOperations <- Sequence{thisModule.createValidatorOnPatternProperties(patterns),thisModule.createValidatorOnProperties(properties)}
@@ -466,9 +467,10 @@ lazy rule createDefaultAdditionalPropertiesEClass  {
 }
 
 
- 
+------ Automatic 
 rule mapItemsAnyOf2ToContainment{
-	from itemsAnyOf2:JSchemaMM!ItemsAnyOf2
+	-- (objectSchema.ref.oclIsUndefined() and objectSchema.enum.oclIsUndefined() and objectSchema.const.oclIsUndefined())
+	from itemsAnyOf2:JSchemaMM!ItemsAnyOf2(not itemsAnyOf2.toBeIgnored() )
 	using {
 		eReferenceName : String = itemsAnyOf2.refImmediateComposite().refImmediateComposite().getKey();
 		needsKeyword :Boolean = itemsAnyOf2.refImmediateComposite().refImmediateComposite().needsKeyword();
@@ -584,7 +586,7 @@ lazy rule createDefaultAdditionalItemsEClass  {
 	to
 		eClass : Ecore!EClass (
 			name <-	eClassName,
-			eStructuralFeatures <- Set{thisModule.createContainmentToJsonDocument('additionalItems',false)}.flatten(),
+			eStructuralFeatures <- Set{thisModule.createContainmentToJsonDocument('additionalItems',false, 'additionalItems')}.flatten(),
 			eAnnotations <- Sequence{thisModule.createAdditionalItemsAnnotation()}
 		)
 	do{
@@ -605,8 +607,10 @@ rule createAdditionalItemsAnnotation(){
 	}	
 }
 
+
+------ Automatic
 rule mapItemsAnyOf1ToContainment{
-	from itemsAnyOf1:JSchemaMM!ItemsAnyOf1
+	from itemsAnyOf1:JSchemaMM!ItemsAnyOf1( not itemsAnyOf1.toBeIgnored())
 	using {
 		eReferenceName : String = itemsAnyOf1.refImmediateComposite().refImmediateComposite().getKey();
 		needsKeyword :Boolean = itemsAnyOf1.refImmediateComposite().refImmediateComposite().needsKeyword();
@@ -659,7 +663,8 @@ lazy rule createEClassForMissingItems{
 	to 
 		eClass:  Ecore!EClass (
 			name <- enclosingEClassName.concat('Items'),
-			eStructuralFeatures <- Sequence{thisModule.createContainmentToJsonDocument(('items'),false)}
+--			eStructuralFeatures <- Sequence{thisModule.createContainmentToJsonDocument(('items'),false)}
+			eStructuralFeatures <- Sequence{thisModule.createContainmentToJsonDocument('items',false, 'items')}
 		),
 		eReference :Ecore!EReference ( 
 			name <- referenceName,
@@ -769,16 +774,16 @@ lazy rule createKeyEAttribute{
 }
 
 lazy rule  createContainmentToJsonDocument{
-	from containmentName:String,  addToKeywords:Boolean
+	from containmentName:String,  addToKeywords:Boolean, keyword:String
 	to
 		containment: Ecore!EReference(
 			name <- containmentName,
 			containment <- true,
 			lowerBound <- 1,
 			upperBound <- 1,
---			eType <- JSchemaMM!JsonDocument,
 			eType <- JsonMM!JsonDocument,
-			eAnnotations <- containment.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(containmentName)} else Sequence{} endif)
+--			eAnnotations <- containment.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(containmentName)} else Sequence{} endif)
+			eAnnotations <- containment.eAnnotations -> union (if addToKeywords then Sequence{thisModule.createKeywordAnnotation(keyword)} else Sequence{} endif)
 		)
 	do{ 
 		if(addToKeywords){ 
@@ -793,6 +798,7 @@ lazy rule  createContainmentToJsonDocument{
 -----------------------------------------------------------------------
 
 ---- TODO manage jsonPointerSchema.hasArrayOfTypes
+------ Automatic
 rule mapRefSchemaToEReference{
 	from refSchemaDefinition: JSchemaMM!RefSchemaDefinition 
 	using {
@@ -835,7 +841,7 @@ unique lazy rule createAbstractEClass{
 }
 
 ----------------------- RELATED SCHEMAS
-
+------ Automatic
 rule mapAllOf{
 --	from allOfSchemaDefinition:JSchemaMM!AllOfSchemaDefinition
 --	from allOfSchemaDefinition:JSchemaMM!AllOfSchemaDefinition(allOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
@@ -850,6 +856,7 @@ rule mapAllOf{
 	}
 }
 
+------ Automatic
 rule mapAnyOf{
 --	from anyOfSchemaDefinition:JSchemaMM!AnyOfSchemaDefinition
 --	from anyOfSchemaDefinition:JSchemaMM!AnyOfSchemaDefinition(anyOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
@@ -864,6 +871,7 @@ rule mapAnyOf{
 	}
 }
 
+------ Automatic
 rule mapOneOf{
 --	from oneOfSchemaDefinition:JSchemaMM!OneOfSchemaDefinition
 --	from oneOfSchemaDefinition:JSchemaMM!OneOfSchemaDefinition(oneOfSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
@@ -878,6 +886,7 @@ rule mapOneOf{
 	}
 }
 
+------ Automatic
 rule mapNot{
 --	from notSchemaDefinition:JSchemaMM!NotSchemaDefinition
 --	from notSchemaDefinition:JSchemaMM!NotSchemaDefinition(notSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
@@ -892,7 +901,7 @@ rule mapNot{
 	}
 }
 
-
+------ Automatic
 rule mapEnum{
 	from enumSchemaDefinition:JSchemaMM!EnumSchemaDefinition
 	to 
@@ -905,6 +914,7 @@ rule mapEnum{
 	}
 }
 
+------ Automatic
 rule mapConst{
 	from constSchemaDefinition:JSchemaMM!ConstSchemaDefinition
 	to 
@@ -967,6 +977,7 @@ unique lazy rule createDependencies{
 	}	
 }
 
+------ Automatic
 rule mapIf{
 --	from ifSchemaDefinition:JSchemaMM!IfSchemaDefinition
 --	from ifSchemaDefinition:JSchemaMM!IfSchemaDefinition(ifSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
@@ -976,6 +987,7 @@ rule mapIf{
 	}
 }
 
+------ Automatic
 rule mapThen{
 --	from thenSchemaDefinition:JSchemaMM!ThenSchemaDefinition
 --	from thenSchemaDefinition:JSchemaMM!ThenSchemaDefinition(thenSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())
@@ -985,6 +997,7 @@ rule mapThen{
 	}
 }
 
+------ Automatic
 rule mapElse{
 --	from elseSchemaDefinition:JSchemaMM!ElseSchemaDefinition
 --	from elseSchemaDefinition:JSchemaMM!ElseSchemaDefinition(elseSchemaDefinition.refImmediateComposite().enum.oclIsUndefined())

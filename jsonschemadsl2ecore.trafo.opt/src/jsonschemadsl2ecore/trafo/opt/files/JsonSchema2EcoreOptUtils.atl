@@ -4,8 +4,6 @@ library JsonSchema2EcoreOptUtils;
 
 helper def: INTEGER_VALIDATION_METHOD: String = 'validateIsInteger';
 
---helper def: JSON_SCHEMA_TYPE_INTEGER: String = 'JsonSchemaTypeInteger';
---helper def: PROPERTY_NAME: String = 'PropertyName';
 
 helper def: ARRAY_OF_TYPES: String = 'ArrayOfTypes';
 helper def: TYPE: String = 'Type';
@@ -29,47 +27,47 @@ helper def: TUPLE : String ='Tuple';
 
 
 
---Keywords
+---Keywords
 helper def: keywords : Sequence(Ecore!EStructuralFeature) = Sequence{};
 
---Curly Braces EReferences
+---Curly Braces EReferences
 helper def: curlyBracesEReferences : Sequence(Ecore!EReferece) = Sequence{};
 
---Brackets EReferences
+---Brackets EReferences
 --helper def: bracketsEReferences : Sequence(Ecore!EReferece) = Sequence{JSchemaMM!ArrayValue.getEStructuralFeature('value')};
 helper def: bracketsEReferences : Sequence(Ecore!EReferece) = Sequence{JsonMM!ArrayValue.getEStructuralFeature('value')};
 
---Brackets EReferences
+---Brackets EReferences
 --helper def: keyValues : Sequence(Ecore!EAttribute) = Sequence{JSchemaMM!KeyValuePair.getEStructuralFeature('key')};
 helper def: keyValues : Sequence(Ecore!EAttribute) = Sequence{JsonMM!KeyValuePair.getEStructuralFeature('key')};
 
---Curly Braces EClass
+---Curly Braces EClass
 --helper def: curlyBracesEClass : Sequence(Ecore!EClass) = Sequence{JSchemaMM!ObjectValue};
 helper def: curlyBracesEClass : Sequence(Ecore!EClass) = Sequence{JsonMM!ObjectValue};
 
---Curly Braces EClass
+---Curly Braces EClass
 helper def: bracketsEClass : Sequence(Ecore!EClass) = Sequence{};
 
---Tuple EClass
+---Tuple EClass
 helper def: tuples : Sequence(Ecore!EClass) = Sequence{};
 
---Return Package Objects
+---Return Package Objects
 helper def: packageEObjects() : Sequence(Ecore!EPackage) = Ecore!EPackage.allInstancesFrom('ecoreM');
 
---Return Package Objects
+---Return Package Objects
 helper def: allEClass() : Sequence(Ecore!EClass) = Ecore!EClass.allInstancesFrom('ecoreM');
 
---Return the root Package Object
+---Return the root Package Object
 helper def: packageRoot(): Ecore!EPackage = if (thisModule.packageEObjects().size() > 0) then
 												thisModule.packageEObjects()->first()
 											 else
 											 	OclUndefined
 											 endif;
 
---Return JsonGrammar Objects
+---Return JsonGrammar Objects
 helper def: jsonGrammarObjects() : Sequence(JsonGrammarMM!JsonGrammar) = JsonGrammarMM!JsonGrammar.allInstancesFrom('jsonGrammar');
 
---Return the root JsonGrammar Object
+---Return the root JsonGrammar Object
 helper def: jsonGrammarRoot(): JsonGrammarMM!JsonGrammar = if (thisModule.jsonGrammarObjects().size() > 0) then
 																thisModule.jsonGrammarObjects()->first()
 															 else
@@ -77,10 +75,10 @@ helper def: jsonGrammarRoot(): JsonGrammarMM!JsonGrammar = if (thisModule.jsonGr
 															 endif;
 
 
---Return RelatedSchemas Objects
+---Return RelatedSchemas Objects
 helper def: relatedSchemasObjects() : Sequence(RelatedSchemasMM!RelatedSchemas) = RelatedSchemasMM!RelatedSchemas.allInstancesFrom('relatedSchemas');
 
---Return the root RelatedSchemas
+---Return the root RelatedSchemas
 helper def: relatedSchemasRoot(): RelatedSchemasMM!RelatedSchemas = if (thisModule.relatedSchemasObjects().size() > 0) then
 																thisModule.relatedSchemasObjects()->first()
 															 else
@@ -88,7 +86,7 @@ helper def: relatedSchemasRoot(): RelatedSchemasMM!RelatedSchemas = if (thisModu
 															 endif;
 
 
---EnclosingSchemas
+---EnclosingSchemas
 helper def: enclosingSchemas : Sequence(RelatedSchemasMM!EnclosingSchema) = Sequence{};
 
 --helper def: keywordDefinitionMap : Map (String, OclAny) = ------ TODO should it be OclType????
@@ -153,7 +151,7 @@ helper def: getRootName() : String =
 helper def: retrieveRootSchema() : JSchemaMM!Schema=
 	JSchemaMM!JsonSchema.allInstancesFrom('jschema').first().schema;	
 
----------- NEWW
+
 --- This is similar to the inv UnsolvableReference in fullvalidation.ocl
 helper context JSchemaMM!RefSchemaDefinition def: findSchemaByJsonPointer() : JSchemaMM!Schema=
 	if true =  self.isOnlyFragment() then
@@ -164,53 +162,8 @@ helper context JSchemaMM!RefSchemaDefinition def: findSchemaByJsonPointer() : JS
 		endif
 	else OclUndefined
 	endif;
------------NEWW
 
 
---helper context JSchemaMM!Schema def:findSchemaByJsonPointerFromRoot(jsonPointer:String):  JSchemaMM!Schema=
---	self.findSchemaByJsonPointer(jsonPointer.split('/'));
-
---  the initial input will be JsonSchema.schema
---helper context OclAny def: findSchemaByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
---	if jsonPointer ->notEmpty() 
---	then
---		if jsonPointer.first() = '#' -- OclAny is MM!JsonSchema.schema
---			then
---				self.findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
---			else
---				let keywordDefinitionType : OclAny = thisModule.keywordDefinitionMap.get(jsonPointer.first())
---				in
---					if not keywordDefinitionType.oclIsUndefined()
---					then --In the jsonPointer navigation we are on a keywordDefinition and self is an objectschema
---						let foundKeywordDefinition : JSchemaMM!KeywordDefinition = 
---							self.keywordDefinition->select(
---								keywordDefinition | keywordDefinition.oclIsTypeOf(keywordDefinitionType)
---							)
---						in 
---							if foundKeywordDefinition.isEmpty()	
---							then OclUndefined
---							else
---								foundKeywordDefinition.first().findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
---							endif
---
---					else -- In the jsonPointer navigation we are on a key , we look for a KeySchema with that key
---						 ------ TODO (we could be on an array index, not supported yet)
---						 ------ TODO it could also be a keyValue pair , not supported yet to hold definitions
---						let foundKeySchemaPair : JSchemaMM!KeySchemaPair =
---							self.keySchemaPairs->select(keySchemaPair | keySchemaPair.key.stripFirstAndLast()=jsonPointer.first())
---						in 
---							if foundKeySchemaPair.isEmpty()
---							then OclUndefined	
---							else
---								foundKeySchemaPair.first().value.findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
---							endif
---						 
---					endif
---			endif
---		else
---		self
---	endif
---;
 
 helper  def: popFirst(jsonPointer:Sequence(String)): Sequence(String)=
 	if jsonPointer.size() = 0
@@ -417,26 +370,26 @@ helper context JSchemaMM!Schema def: getContainsSchemaKey() : String=
 	endif
 ;
 
---- TODO complete with all the containment pointing to Schema
+
 helper context JSchemaMM!Schema def: getParentNode(): JSchemaMM!Schema=
 let parent : OclAny = self.refImmediateComposite() in
-if parent.oclIsTypeOf(JSchemaMM!JsonSchema) then OclUndefined --root
+if parent.oclIsTypeOf(JSchemaMM!JsonSchema) then OclUndefined ---Is the root
 else
 	if parent.oclIsTypeOf(JSchemaMM!KeySchemaPair) then
-		if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!DefinitionsSchemaDefinition) then OclUndefined -- other roots
+		if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!DefinitionsSchemaDefinition) then OclUndefined --- other roots inside "definitions"
 		else
 			--- parent.refImmediateComposite() is PropertiesSchemaDefinition or PatternPropertiesSchemaDefinition
 			--- we return the enclosing schema of the PropertiesSchemaDefinition
 			parent.refImmediateComposite().refImmediateComposite()
 		endif
 	else
-		if parent.oclIsTypeOf(JSchemaMM!SchemaObjectAdditionalProperties) then OclUndefined -- other roots
+		if parent.oclIsTypeOf(JSchemaMM!SchemaObjectAdditionalProperties) then OclUndefined --- other roots
 		else
-			if parent.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition) then parent.refImmediateComposite() -- we return the schema enclosing the AdditionalPropertiesSchemaDefinition
+			if parent.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition) then parent.refImmediateComposite() --- we return the schema enclosing the AdditionalPropertiesSchemaDefinition
 	        else 
-	        	if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then parent.refImmediateComposite() -- we return the schema enclosing the AdditionalItemsSchemaDefinition
+	        	if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then parent.refImmediateComposite() --- we return the schema enclosing the AdditionalItemsSchemaDefinition
 	        	else 
-					if parent.oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then  parent.refImmediateComposite().refImmediateComposite() -- we return the schema enclosing the ItemsSchemaDefinition 
+					if parent.oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then  parent.refImmediateComposite().refImmediateComposite() --- we return the schema enclosing the ItemsSchemaDefinition 
 	        		else 
 	        			if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
 							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then parent.refImmediateComposite().refImmediateComposite().refImmediateComposite()  --- we return the schema enclosing the ItemsSchemaDefinition that encloses the schema array
@@ -450,7 +403,7 @@ else
 							endif	
 						else  ---
 							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!NotSchemaDefinition) 
-								or parent.oclIsTypeOf(JSchemaMM!NotSchemaDefinition)
+								or parent.oclIsTypeOf(JSchemaMM!NotSchemaDefinition)--- is this repeated ?? to be deleted??
 								or parent.oclIsTypeOf(JSchemaMM!IfSchemaDefinition)
 								or parent.oclIsTypeOf(JSchemaMM!ThenSchemaDefinition)
 								or parent.oclIsTypeOf(JSchemaMM!ElseSchemaDefinition)
@@ -459,7 +412,11 @@ else
 							else 
 								if parent.oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1)
 								then parent.refImmediateComposite().refImmediateComposite().refImmediateComposite()
-								else  OclUndefined ---- TODO to be completed with the containmentes pointing to Schema. Or check if we are done
+								else 
+									if parent.oclIsTypeOf(JSchemaMM! PropertyNamesSchemaDefinition) 
+									then parent.refImmediateComposite()
+									else OclUndefined ----This case should not be possible we considered all possible parent
+									endif
 								endif
 							endif	
 						endif
@@ -968,9 +925,28 @@ helper context JSchemaMM!ObjectSchema def:getEStructuralFeatureType(name:String)
 	self.resolve().getEStructuralFeature(name.encodeJavaIdentifier()).getEType();
 
 
---helper context Ecore!EClass def getArrayOfTypesConcreteClass(simpleType:JSchemaMM!SimpleTypes):Ecore!EClass=
---	self.
+helper context JSchemaMM!ItemsAnyOf def:toBeIgnored():Boolean=
+	let enclosingSchema:JSchemaMM!ObjectSchema  = self.refImmediateComposite().refImmediateComposite()
+	in not(
+		enclosingSchema.ref.oclIsUndefined() and
+		enclosingSchema.enum.oclIsUndefined() and 
+		enclosingSchema.const.oclIsUndefined() and 
+		enclosingSchema.hasTypeArray()
+	)
+;
 
+----- a schema is ignored if it is inside items (simple or tuble) that have to be ignored
+--helper context JSchemaMM!Schema def:toBeIgnored():Boolean=
+--	if self.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then self.refImmediateComposite().toBeIgnored()
+--	else 
+--		if  self.refImmediateComposite().oclIsTypeOf(JSchemaMM!SchemaArray) then
+--			if self.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then self.refImmediateComposite().refImmediateComposite().toBeIgnored()
+--			else false
+--			endif
+--		else false
+--		endif
+--	endif
+--;	
 
 
 
