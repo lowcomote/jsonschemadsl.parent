@@ -1,0 +1,22 @@
+{
+	"name":"John",
+	"surname":"Smith",
+	"info":{
+		"extraInfo":{
+			"comment":"some comment",
+			"add1":true
+		},
+		"add2":"additional properties default"
+	},
+	"job":{
+		"role":"chief",
+		"level":1.0,
+		"company":{
+			"name":null,
+			"address":"some address"
+		},
+		"alee":1
+	},
+	"aaginoginobbb":1,
+	"add3":"additional properties true"	
+}

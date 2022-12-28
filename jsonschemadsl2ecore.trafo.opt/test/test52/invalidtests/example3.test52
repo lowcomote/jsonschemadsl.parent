@@ -1,0 +1,15 @@
+{
+	"prop1":{
+		"prop1A":"",
+		"prop1B":""
+	},
+	"prop2"	:{
+		"foo":1
+	},
+	"prop4":{
+		"bar":null
+	},
+	"S_1":"a string",
+	"S_2":"other string" 
+	
+}
