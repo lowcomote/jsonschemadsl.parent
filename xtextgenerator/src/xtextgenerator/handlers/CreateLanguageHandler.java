@@ -248,6 +248,16 @@ public class CreateLanguageHandler extends AbstractHandler{
 		genModel.setImportOrganizing(true);
 		genModel.setRootExtendsClass("org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container");
 		genModel.setImporterID("org.eclipse.emf.importer.ecore");
+		//genModel.isDynamicTemplates()
+		
+//		genModel.setDynamicTemplates(true);
+//		genModel.getEcoreGenPackage().isLiteralsInterface();
+//		genModel.getEcoreGenPackage().isLoadedInitialization();
+//		genModel.getEcoreGenPackage().isLoadingInitialization();
+//		genModel.getEcoreGenPackage().isLoadInitialization();
+		
+//		genModel.getEcoreGenPackage().setLiteralsInterface(false);
+		
 		
 		
 //		URI jsonMetaschemaMMGenmodelURI = URI.createURI(jsonMetaschemaMM.Activator.getDefault().getBundle().getResource("model/jsonMetaschemaMM.genmodel").toString());
@@ -320,6 +330,17 @@ public class CreateLanguageHandler extends AbstractHandler{
 		GenPackage genPackage = (GenPackage)genModel.getGenPackages().get(0);
 		//genPackage.setPrefix(packageName);
 		genPackage.setPrefix(toCamelCase(packageName));
+		
+		
+		
+//		genPackage.isLiteralsInterface();
+//		genPackage.isLoadedInitialization();
+//		genPackage.isLoadingInitialization();
+//		genPackage.isLoadInitialization();
+//		
+//		genPackage.setLiteralsInterface(false);
+//		genPackage.setLoadInitialization(true);
+		
 		
 //		genModel.setContainmentProxies(true); this line has been commented out because responsible of the issue DML-260. It makes the xedit editor to crash with a StackOverflowError https://alessandrocolantoni.atlassian.net/jira/software/c/projects/DML/boards/3?selectedIssue=DML-260
 		
