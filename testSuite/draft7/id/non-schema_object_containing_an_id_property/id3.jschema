@@ -1,0 +1,16 @@
+{
+    "definitions": {
+        "const_not_id": {
+            "const": {
+                "$id": "not_a_real_id"
+            }
+        }
+    },
+    "if": {
+        "const": "skip not_a_real_id"
+    },
+    "then": true,
+    "else" : {
+        "$ref": "#/definitions/const_not_id"
+    }
+}
