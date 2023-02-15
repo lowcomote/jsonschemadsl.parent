@@ -1,0 +1,27 @@
+{ 
+        "meta": "root",
+        "nodes": [
+            {
+                "value": 1,
+                "subtree": {
+                    "meta": "child",
+                    "nodes": [
+                        {"value": 1.1},
+                        {"value": 1.2}
+                    ]
+                }
+            },
+            {
+                "value": 2,
+                "subtree": {
+                    "meta": "child",
+                    "nodes": [
+                        {"value": 2.1},
+                        {"value": 2.2}
+                    ]
+                }
+            }
+        ]
+    },
+    "valid": true
+}

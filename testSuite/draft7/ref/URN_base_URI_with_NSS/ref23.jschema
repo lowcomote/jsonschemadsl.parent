@@ -1,0 +1,10 @@
+{
+    "$comment": "RFC 8141 §2.2",
+    "$id": "urn:example:1/406/47452/2",
+    "properties": {
+        "foo": {"$ref": "#/definitions/bar"}
+    },
+    "definitions": {
+        "bar": {"type": "string"}
+    }
+}

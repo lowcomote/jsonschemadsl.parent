@@ -1,0 +1,11 @@
+{
+    "allOf": [
+        {"$ref": "http://example.com/ref/then"},
+        {
+            "then": {
+                "$id": "http://example.com/ref/then",
+                "type": "integer"
+            }
+        }
+    ]
+}

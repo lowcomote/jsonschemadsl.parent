@@ -1,0 +1,10 @@
+{
+    "$comment": "RFC 8141 §2.3.1",
+    "$id": "urn:example:foo-bar-baz-qux?+CCResolve:cc=uk",
+    "properties": {
+        "foo": {"$ref": "#/definitions/bar"}
+    },
+    "definitions": {
+        "bar": {"type": "string"}
+    }
+}

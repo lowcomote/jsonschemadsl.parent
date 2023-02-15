@@ -1,0 +1,8 @@
+{
+    "definitions": {
+        "a": {"type": "integer"},
+        "b": {"$ref": "#/definitions/a"},
+        "c": {"$ref": "#/definitions/b"}
+    },
+    "allOf": [{ "$ref": "#/definitions/c" }]
+}

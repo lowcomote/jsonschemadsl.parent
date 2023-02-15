@@ -1,0 +1,10 @@
+{
+    "$comment": "URIs do not have to have HTTP(s) schemes",
+    "$id": "urn:uuid:deadbeef-1234-00ff-ff00-4321feebdaed",
+    "properties": {
+        "foo": {"$ref": "#/definitions/bar"}
+    },
+    "definitions": {
+        "bar": {"type": "string"}
+    }
+}
