@@ -1,0 +1,5 @@
+{
+	"name":"John",
+	"surname": "Smith",
+	"childrenNames":["Al","Mark",1]
+}

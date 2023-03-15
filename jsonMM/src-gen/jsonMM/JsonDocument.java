@@ -43,4 +43,20 @@ public interface JsonDocument extends EObject {
 	 */
 	void setValue(Value value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false" objUnique="false" objRequired="true" objOrdered="false"
+	 * @generated
+	 */
+	boolean semanticEquals(Object obj);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false"
+	 * @generated
+	 */
+	String toString();
+
 } // JsonDocument

@@ -1,0 +1,17 @@
+{
+	"type":"object",
+	"patternProperties":{
+		"aa":{"type":"string"},
+		"bbb":{"type":"integer"},
+		"b+":{"type":"integer","minimum":5}
+	},
+	"anyOf":[
+		{
+			"patternProperties":{
+				"ddd":{"type":"string"},
+				"eee":{"type":"string","minLength":6}
+			}
+		}
+	]
+	
+} 

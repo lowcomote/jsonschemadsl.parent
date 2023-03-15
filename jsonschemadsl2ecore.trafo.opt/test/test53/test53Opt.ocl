@@ -1,0 +1,103 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test53
+import 'http://jku.bise.at/test53'
+
+package test53
+
+	context test53::Test53RootAdditionalProperties 
+
+	inv Test53RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test53::Test53RootAdditionalProperties 
+
+	inv Test53RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test53::Test53RootProp4AdditionalProperties 
+
+	inv Test53RootProp4AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test53::Test53RootProp4AdditionalProperties 
+
+	inv Test53RootProp4AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test53::Test53RootProp4Dependencies0AdditionalProperties 
+
+	inv Test53RootProp4Dependencies0AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test53::Test53RootProp4Dependencies0AdditionalProperties 
+
+	inv Test53RootProp4Dependencies0AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test53::Test53RootProp4Dependencies0Dependencies0AdditionalProperties 
+
+	inv Test53RootProp4Dependencies0Dependencies0AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test53::Test53RootProp4Dependencies0Dependencies0AdditionalProperties 
+
+	inv Test53RootProp4Dependencies0Dependencies0AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test53::Test53RootProp4Dependencies0Dependencies0Dependencies0AdditionalProperties 
+
+	inv Test53RootProp4Dependencies0Dependencies0Dependencies0AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test53::Test53RootProp4Dependencies0Dependencies0Dependencies0AdditionalProperties 
+
+	inv Test53RootProp4Dependencies0Dependencies0Dependencies0AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test53::Test53RootProp4Dependencies0Dependencies0 
+
+	inv Test53RootProp4Dependencies0Dependencies0Requiredprop7 ('Test53RootProp4Dependencies0Dependencies0 requires the property prop7'):
+	if  not self.get('prop7').oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test53::Test53RootProp4Dependencies0TypeObject 
+
+	inv Test53RootProp4Dependencies0TypeObjectRequiredprop9 ('Test53RootProp4Dependencies0TypeObject requires the property prop9'):
+	if  not self.get('prop9').oclIsUndefined()
+	then true
+	else null
+	endif
+
+endpackage
+

@@ -180,29 +180,29 @@
       </instructions>
     </touchpointData>
   </unit>
-  <unit id='main.source' version='1.0.0.21-dNy0vE'>
-    <properties size='2'>
-      <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl (Sources)'/>
-      <property name='org.eclipse.equinox.p2.type.category' value='true'/>
-    </properties>
-    <provides size='1'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='main.source' version='1.0.0.21-dNy0vE'/>
-    </provides>
-    <requires size='1'>
-      <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.group' range='[1.1.0,1.1.0]'/>
-    </requires>
-    <touchpoint id='null' version='0.0.0'/>
-  </unit>
-  <unit id='main' version='1.0.0.21-dNzCo'>
+  <unit id='main' version='1.0.0.4--dNzCo'>
     <properties size='2'>
       <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl'/>
       <property name='org.eclipse.equinox.p2.type.category' value='true'/>
     </properties>
     <provides size='1'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='main' version='1.0.0.21-dNzCo'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='main' version='1.0.0.4--dNzCo'/>
     </provides>
     <requires size='1'>
-      <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.group' range='[1.1.0,1.1.0]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.feature.group' range='[2.0.0,2.0.0]'/>
+    </requires>
+    <touchpoint id='null' version='0.0.0'/>
+  </unit>
+  <unit id='main.source' version='1.0.0.4--dNy0vE'>
+    <properties size='2'>
+      <property name='org.eclipse.equinox.p2.name' value='JsonSchemaDsl (Sources)'/>
+      <property name='org.eclipse.equinox.p2.type.category' value='true'/>
+    </properties>
+    <provides size='1'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='main.source' version='1.0.0.4--dNy0vE'/>
+    </provides>
+    <requires size='1'>
+      <required namespace='org.eclipse.equinox.p2.iu' name='jsonschemadsl.feature.source.feature.group' range='[2.0.0,2.0.0]'/>
     </requires>
     <touchpoint id='null' version='0.0.0'/>
   </unit>

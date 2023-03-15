@@ -1,0 +1,11 @@
+{
+	"type":true,
+	"enum":1,
+	"integer":1,
+	"prop1":{"number":3.4, "integer":2.000},
+	"prop2":{
+		"otherpro":1,
+		"prop1":"B_something",
+		"B_1":true
+	} 
+} 

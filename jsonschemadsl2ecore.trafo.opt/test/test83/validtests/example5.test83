@@ -1,0 +1,6 @@
+{
+	"type":true,
+	"enum":1,
+	"integer":1,
+	"prop1":"boolean" 
+} 

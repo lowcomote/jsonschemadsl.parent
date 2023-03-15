@@ -1,0 +1,22 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":["integer","number","boolean"],
+			"exclusiveMinimum":3.0 
+		}, 
+		"prop2":{
+			"type":"integer",
+			"exclusiveMinimum":5.0 
+		}, 
+		"prop3":{
+			"type":"number",
+			"exclusiveMinimum":7.0 
+		}, 
+		"prop4":{
+			"type":"boolean",
+			"exclusiveMinimum":8.0 
+		} 
+	}
+ 
+}

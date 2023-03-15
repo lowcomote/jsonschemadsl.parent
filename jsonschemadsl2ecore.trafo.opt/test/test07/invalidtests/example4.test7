@@ -1,0 +1,9 @@
+{
+	"add1":1,
+	"S_1":"this is a string",
+	"I_1":3.0,
+	"P_1":33,
+	"H_1":{
+		"test1":"no object"
+	}
+}

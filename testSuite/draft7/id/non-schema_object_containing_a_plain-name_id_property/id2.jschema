@@ -1,0 +1,16 @@
+{
+    "definitions": {
+        "const_not_anchor": {
+            "const": {
+                "$id": "#not_a_real_anchor"
+            }
+        }
+    },
+    "if": {
+        "const": "skip not_a_real_anchor"
+    },
+    "then": true,
+    "else" : {
+        "$ref": "#/definitions/const_not_anchor"
+    }
+}

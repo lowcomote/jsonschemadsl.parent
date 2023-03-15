@@ -42,4 +42,12 @@ public interface IdSchemaDefinition extends KeywordDefinition {
 	 */
 	void setId(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false" required="true" ordered="false"
+	 * @generated
+	 */
+	boolean isFormatUriReference();
+
 } // IdSchemaDefinition

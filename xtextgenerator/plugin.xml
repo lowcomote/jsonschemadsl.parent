@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.xtext.projectwiz"
+            class="xtextgenerator.ui.XtextExecutableExtensionFactory:xtextgenerator.wizard.NewXtextProjectFromEcoreJsonGrammarWizard"
+            icon="icons/new_xproj.gif"
+            id="xtextgenerator.wizard.NewXtextProjectFromEcoreJsonGrammar"
+            name="Xtext Project From Ecore (Create Json Grammar)"
+            project="true">
+      </wizard>
+   </extension>
+
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any">
+         <menu
+               label="Create Language">
+            <command
+                  commandId="xtextgenerator.createlanuage"
+                  label="Create Language"
+                  style="push">
+            </command>
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <adapt
+                        type="org.eclipse.core.resources.IFile">
+                     <test
+                           property="org.eclipse.core.resources.name"
+                           value="*.jschema">
+                     </test>
+                  </adapt>
+               </iterate>
+            </visibleWhen>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="xtextgenerator.handlers.CreateLanguageHandler"
+            id="xtextgenerator.createlanuage"
+            name="Create Language">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="xtextgenerator.handlers.CreateLanguageHandler"
+            commandId="xtextgenerator.createlanuage">
+      </handler>
+   </extension>
+
+</plugin>

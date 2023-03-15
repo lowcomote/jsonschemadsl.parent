@@ -1,0 +1,11 @@
+{
+	"name":"John",
+	"surname":"Smith",
+	"age":55,
+	"adult":1,
+	"job":{
+		"role":"enngineer",
+		"level":6
+	}
+	
+}

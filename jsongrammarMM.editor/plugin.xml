@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated jsongrammar -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jsongrammarmm.jsongrammar.presentation.JsongrammarModelWizardID"
+            name="%_UI_JsongrammarModelWizard_label"
+            class="jsongrammarmm.jsongrammar.presentation.JsongrammarModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JsongrammarModelFile.gif">
+         <description>%_UI_JsongrammarModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated jsongrammar -->
+      <editor
+            id="jsongrammarmm.jsongrammar.presentation.JsongrammarEditorID"
+            name="%_UI_JsongrammarEditor_label"
+            icon="icons/full/obj16/JsongrammarModelFile.gif"
+            extensions="jsongrammar"
+            class="jsongrammarmm.jsongrammar.presentation.JsongrammarEditor"
+            contributorClass="jsongrammarmm.jsongrammar.presentation.JsongrammarActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

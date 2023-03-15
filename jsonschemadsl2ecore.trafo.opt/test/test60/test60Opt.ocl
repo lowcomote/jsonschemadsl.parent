@@ -1,0 +1,39 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test60
+import 'http://jku.bise.at/test60'
+
+package test60
+
+	context test60::Test60RootAdditionalProperties 
+
+	inv Test60RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test60::Test60RootAdditionalProperties 
+
+	inv Test60RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test60::Test60RootProp1TypeString
+
+	inv Test60RootProp1MinLength('The length of Test60RootProp1TypeString must be lower than 3'):
+	if prop1.size() >= 3
+	then true
+	else null
+	endif
+
+	context test60::Test60RootProp2
+
+	inv Test60RootProp2MinLength('The length of Test60RootProp2 must be lower than 5'):
+	if prop2.size() >= 5
+	then true
+	else null
+	endif
+
+endpackage
+

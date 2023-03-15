@@ -1,0 +1,4 @@
+{
+	"$ref":"#fragment",  
+	"fragment":{"type":"string"}
+}                    

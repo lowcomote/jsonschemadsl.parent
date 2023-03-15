@@ -1,0 +1,28 @@
+{
+	"type":"object",
+	"additionalProperties":false,
+	"properties":{
+		"prop1":{
+			"type":"array",
+			"items":[{"type":"string"}, {"type":"integer"}],
+			"minItems":2.0,
+			"maxItems":3    
+			
+		}, 
+		"prop2":{
+			"type":"array",
+			"items":[{"type":"string"}, {"type":"integer"}],
+			"maxItems":1,
+			"additionalItems":false
+		},
+		"prop3":{ 
+			"type":"array",
+			"items":[{"type":"string"}, {"type":"integer"}],
+			"additionalItems":{"type":"boolean"},
+			"minItems":1,
+			"maxItems":4
+		}
+		 
+	} 
+	 
+}   

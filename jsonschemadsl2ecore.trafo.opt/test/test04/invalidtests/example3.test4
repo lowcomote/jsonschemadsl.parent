@@ -1,0 +1,12 @@
+{
+	"name":"John",
+	"surname":"Smith",
+	"childrenNames":true,
+	"grandParents":[
+		{
+			"name":"Aldo",
+			"surname":"Smith",
+			"gender":"male"
+		}
+	] 
+}

@@ -1,0 +1,10 @@
+{
+	"prop1":"something",
+	"prop2":2.0,
+	"prop3":3.444,
+	"prop4":{"someKey":"some string"},
+	"prop5":{},
+	"ale":true,
+	"zzzaaaaaleaa":true,
+	"other":{}
+}       

@@ -1,0 +1,5 @@
+{
+	"prop1":["foo",1,null,"too many items"],
+	"prop2":["foo"],
+	"prop3":["bar"]
+} 

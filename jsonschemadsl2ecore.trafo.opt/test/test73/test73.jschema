@@ -1,0 +1,10 @@
+{
+	"type": "array",
+	"items" :[
+		{"type": "integer"},
+		{"type": "string"},
+		{"enum": ["Street", "Avenue", "Boulevard"]},
+		{"enum": ["NW", "NE", "SW", "SE"]}
+	] 
+}
+   

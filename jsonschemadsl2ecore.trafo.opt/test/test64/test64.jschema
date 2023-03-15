@@ -1,0 +1,21 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":["integer","string"],
+			"pattern":"^a*$"
+		}, 
+		"prop2":{
+			"type":"string",
+			"pattern":"^b*$"
+		}, 
+		"prop3":{
+			"type":"number",
+			"maxLength":7
+		}
+	},
+ 	"additionalProperties":{
+ 		"type":"string",
+			"pattern":"^ADD_"
+ 	}
+}

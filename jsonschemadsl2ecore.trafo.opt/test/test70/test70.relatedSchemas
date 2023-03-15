@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test70.ecore#//Test70RootProp1"/>
+    <allOf>
+      <allOfs href="test70.ecore#//Test70RootProp1AllOf0"/>
+      <allOfs href="test70.ecore#//Test70RootProp1AllOf1"/>
+    </allOf>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test70.ecore#//Test70RootProp1AllOf0"/>
+    <constEnum>
+      <enum propertyName="prop1">
+        <enum href="../input/test70.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0/@allOf/@items.0/@keywordDefinition.0/@items.0"/>
+        <enum href="../input/test70.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0/@allOf/@items.0/@keywordDefinition.0/@items.1"/>
+        <enum href="../input/test70.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0/@allOf/@items.0/@keywordDefinition.0/@items.2"/>
+      </enum>
+    </constEnum>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test70.ecore#//Test70RootProp1AllOf1"/>
+    <constEnum>
+      <enum propertyName="prop1">
+        <enum href="../input/test70.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0/@allOf/@items.1/@keywordDefinition.0/@items.0"/>
+        <enum href="../input/test70.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0/@allOf/@items.1/@keywordDefinition.0/@items.1"/>
+        <enum href="../input/test70.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0/@allOf/@items.1/@keywordDefinition.0/@items.2"/>
+      </enum>
+    </constEnum>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>

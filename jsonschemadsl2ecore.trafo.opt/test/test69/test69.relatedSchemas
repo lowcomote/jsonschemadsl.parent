@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test69.ecore#//Test69Root"/>
+    <allOf>
+      <allOfs href="test69.ecore#//Test69RootAllOf0"/>
+      <allOfs href="test69.ecore#//Test69RootAllOf1"/>
+    </allOf>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test69.ecore#//Test69RootAllOf0"/>
+    <constEnum>
+      <enum propertyName="test69Root">
+        <enum href="../input/test69.jschema#//@schema/@keywordDefinition.0/@allOf/@items.0/@keywordDefinition.0/@items.0"/>
+        <enum href="../input/test69.jschema#//@schema/@keywordDefinition.0/@allOf/@items.0/@keywordDefinition.0/@items.1"/>
+        <enum href="../input/test69.jschema#//@schema/@keywordDefinition.0/@allOf/@items.0/@keywordDefinition.0/@items.2"/>
+      </enum>
+    </constEnum>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test69.ecore#//Test69RootAllOf1"/>
+    <constEnum>
+      <enum propertyName="test69Root">
+        <enum href="../input/test69.jschema#//@schema/@keywordDefinition.0/@allOf/@items.1/@keywordDefinition.0/@items.0"/>
+        <enum href="../input/test69.jschema#//@schema/@keywordDefinition.0/@allOf/@items.1/@keywordDefinition.0/@items.1"/>
+        <enum href="../input/test69.jschema#//@schema/@keywordDefinition.0/@allOf/@items.1/@keywordDefinition.0/@items.2"/>
+      </enum>
+    </constEnum>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>

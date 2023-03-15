@@ -1,0 +1,4 @@
+{
+	"$ref":"http://foo.bar/?baz=qux#quux",  
+	"extra":{"type":"string"}
+}          

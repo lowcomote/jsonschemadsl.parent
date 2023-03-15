@@ -2,6 +2,8 @@
  */
 package jsonMetaschemaMM;
 
+import jsonMM.JsonDocument;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -23,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
 public interface EnumSchemaDefinition extends KeywordDefinition {
 	/**
 	 * Returns the value of the '<em><b>Items</b></em>' containment reference list.
-	 * The list contents are of type {@link jsonMetaschemaMM.JsonDocument}.
+	 * The list contents are of type {@link jsonMM.JsonDocument}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Items</em>' containment reference list.

@@ -1,0 +1,8 @@
+{
+	"ale": {
+		"runs-on": 1
+	} ,
+	"prop1":"aa",
+	"prop2":1,
+	"prop3":""
+}                 

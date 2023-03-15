@@ -1,0 +1,7 @@
+{
+	"type":"object",
+	"dependencies":{
+		"prop1":["propA","propB"],
+		"prop2":["propC","propD"]
+	}
+}   

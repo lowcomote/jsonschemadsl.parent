@@ -1,0 +1,13 @@
+{
+	"gino":{
+		"prop1":true
+	},
+	"number":3.55,
+	"object":{
+		"prop2":false,
+		"prop4":null
+	},
+	"S_sss":"aa",
+	"S_1":"1.3",
+	"pino":null
+}

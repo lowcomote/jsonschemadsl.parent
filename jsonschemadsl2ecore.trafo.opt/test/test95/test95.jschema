@@ -1,0 +1,15 @@
+{
+	"type":"object",
+	"additionalProperties":false,
+	"properties":{
+		"class":{
+			"type":"string",
+			"minLength":3
+		},
+		"abstract":{
+			"type":"integer",
+			"minimum":2
+		}
+	},
+	"required":["class","abstract"]
+}

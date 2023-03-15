@@ -51,13 +51,22 @@
 			<unit id="org.eclipse.sdk.feature.group" version="4.17.0.v20200902-1800"/>
 		</location>
 		<location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
-			<repository location="https://jku-win-se.github.io/JsonBasedXtextGrammar/"/>
-			<unit id="at.jku.bise.ecore.json.grammar.feature.feature.group" version="2.0.0"/>
+			<repository location="http://download.eclipse.org/releases/2021-06"/>
+			<unit id="org.eclipse.emf.compare.diagram.sirius.feature.group" version="3.3.14.202102231741"/>
+			<unit id="org.eclipse.emf.compare.egit.feature.group" version="3.3.14.202102231741"/>
+			<unit id="org.eclipse.emf.compare.ide.ui.feature.group" version="3.3.14.202102231741"/>
+			<unit id="org.eclipse.emf.compare.uml2.feature.group" version="3.3.14.202102231741"/>
 		</location>
 		<location includeSource="true" missingManifest="generate" type="Maven">
 			<groupId>jakarta.ws.rs</groupId>
 			<artifactId>jakarta.ws.rs-api</artifactId>
 			<version>3.0.0</version>
+			<type>jar</type>
+		</location>
+		<location includeDependencyScope="compile" includeSource="true" missingManifest="generate" type="Maven">
+			<groupId>org.dmfs</groupId>
+			<artifactId>rfc3986-uri</artifactId>
+			<version>0.8.1</version>
 			<type>jar</type>
 		</location>
 	</locations>

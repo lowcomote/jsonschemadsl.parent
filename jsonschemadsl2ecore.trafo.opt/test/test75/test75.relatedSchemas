@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test75.ecore#//Test75RootProp4Items2"/>
+    <constEnum>
+      <enum propertyName="items2">
+        <enum href="../input/test75.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1/@anyOf/@anyOf2/@items.2/@keywordDefinition.0/@items.0"/>
+        <enum href="../input/test75.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1/@anyOf/@anyOf2/@items.2/@keywordDefinition.0/@items.1"/>
+        <enum href="../input/test75.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1/@anyOf/@anyOf2/@items.2/@keywordDefinition.0/@items.2"/>
+      </enum>
+    </constEnum>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test75.ecore#//Test75RootProp4Items3"/>
+    <constEnum>
+      <enum propertyName="items3">
+        <enum href="../input/test75.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1/@anyOf/@anyOf2/@items.3/@keywordDefinition.0/@items.0"/>
+        <enum href="../input/test75.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1/@anyOf/@anyOf2/@items.3/@keywordDefinition.0/@items.1"/>
+        <enum href="../input/test75.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1/@anyOf/@anyOf2/@items.3/@keywordDefinition.0/@items.2"/>
+        <enum href="../input/test75.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.1/@value/@keywordDefinition.1/@anyOf/@anyOf2/@items.3/@keywordDefinition.0/@items.3"/>
+      </enum>
+    </constEnum>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>

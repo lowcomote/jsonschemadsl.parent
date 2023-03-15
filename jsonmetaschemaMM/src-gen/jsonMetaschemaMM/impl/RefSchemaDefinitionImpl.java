@@ -100,7 +100,11 @@ public class RefSchemaDefinitionImpl extends KeywordDefinitionImpl implements Re
 	public boolean isFormatUriReference() {
 		boolean isUri = true; 
 		try {
-			jakarta.ws.rs.core.UriBuilder.fromUri(getRef());
+		//	jakarta.ws.rs.core.UriBuilder.fromUri(getRef());
+			org.dmfs.rfc3986.Uri uri = new  org.dmfs.rfc3986.uris.LazyUri(new org.dmfs.rfc3986.encoding.Precoded(getRef()));
+			if(!uri.scheme().isPresent() && !uri.authority().isPresent() && uri.path().isEmpty() && !uri.query().isPresent() && !uri.fragment().isPresent()) {
+				isUri=false;
+			}
 		} catch (Exception e) {
 			isUri=false;
 		}

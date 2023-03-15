@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: jsonmetaschemaMM.editor;singleton:=true
 Automatic-Module-Name: jsonmetaschemaMM.editor
-Bundle-Version: 1.1.0
+Bundle-Version: 2.0.0
 Bundle-ClassPath: .
 Bundle-Activator: jsonMetaschemaMM.presentation.JsonMetaschemaMMEditorPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -11,9 +11,10 @@ Bundle-Localization: plugin
 Export-Package: jsonMetaschemaMM.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- jsonmetaschemaMM.edit;bundle-version="1.1.0";visibility:=reexport,
+ jsonmetaschemaMM.edit;bundle-version="2.0.0";visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
- org.eclipse.ui.ide;visibility:=reexport
+ org.eclipse.ui.ide;visibility:=reexport,
+ jsonMM.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11

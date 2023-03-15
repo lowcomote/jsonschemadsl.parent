@@ -1,0 +1,4 @@
+{
+	"$ref":"/abc",  
+	"extra":{"type":"string"}
+}           

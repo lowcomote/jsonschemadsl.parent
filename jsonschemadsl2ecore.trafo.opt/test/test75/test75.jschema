@@ -1,0 +1,24 @@
+{
+	"type": "object", 
+	"properties":{ 
+		"prop3":false,
+		
+		"prop4":{
+			"type": "array", 
+			"items" :[
+				{"type": "array"}, 
+				{"type": "object"},
+				{"enum": ["Street", "Avenue", "Boulevard"]},
+				{"enum": ["NW", "NE", "SW", "SE"]},
+				false
+			],
+			"additionalItems": false
+		} 
+	}, 
+	"patternProperties":{
+		"^z_":false
+	},
+	"additionalProperties":false
+	 
+}
+   

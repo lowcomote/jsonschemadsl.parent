@@ -1,0 +1,38 @@
+{
+	"definitions":{
+		"types": {
+	      "type": "array",
+	      "minItems": 1 
+	    }  
+	}, 
+	"type":"object", 
+	"properties": {
+		"types2": {
+  			"$ref": "#/definitions/types",
+  			"items": {
+    			"type": "string",
+    			"enum": ["created", "edited", "deleted"]
+  			}
+		},  
+		"types3": {
+			"$ref": "#/definitions/types",
+  			"items": [
+  				{"type": "string"}, {"type": "number"}
+  			]
+    		 	 
+		},
+		"types4":{
+			"$ref": "#/definitions/types"
+		}, 
+		"types5":{
+			"type": "string",
+			"items":{"type": "string"},
+			"properties":{
+				"prop1":{"type": "boolean"}
+			}
+		}
+		
+		
+	},
+	"additionalProperties":false
+}

@@ -1,0 +1,6 @@
+{
+    "items": [
+        {"type": "integer"},
+        {"type": "string"}
+    ]
+}

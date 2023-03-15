@@ -1,0 +1,8 @@
+{
+	"baz":"Error no good",
+	"quax":"Warn",
+	"bazzz":{
+		"foo":"Warn"
+	},
+	"foossss":"Fatal"
+}

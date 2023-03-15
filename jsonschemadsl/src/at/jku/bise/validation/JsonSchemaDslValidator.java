@@ -3,14 +3,21 @@
  */
 package at.jku.bise.validation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.ocl.xtext.completeocl.validation.CompleteOCLEObjectValidator;
+import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.EValidatorRegistrar;
 
 
-import jsonMetaschemaMM.JsonMetaschemaMMPackage;
+import jsonMM.JsonDocument;
 import jsonMetaschemaMM.Activator;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
+import jsonMetaschemaMM.EnumSchemaDefinition;
+import jsonMetaschemaMM.JsonMetaschemaMMPackage;
+import jsonMetaschemaMM.KeySchemaPair;
+import jsonMetaschemaMM.PatternPropertiesSchemaDefinition;
 
 /**
  * This class contains custom validation rules. 
@@ -19,22 +26,12 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
  */
 public class JsonSchemaDslValidator extends AbstractJsonSchemaDslValidator {
 	
-//	public static final String INVALID_NAME = "invalidName";
-//
-//	@Check
-//	public void checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.getName().charAt(0))) {
-//			warning("Name should start with a capital",
-//					JsonSchemaDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME);
-//		}
-//	}
-	//JsonMetaschemaMMPackage
+
 	
-	 @Override
-	    public void register(EValidatorRegistrar registrar) {
-	        super.register(registrar);
-	        JsonMetaschemaMMPackage ePackage = JsonMetaschemaMMPackage.eINSTANCE;
+	@Override
+	public void register(EValidatorRegistrar registrar) {
+		super.register(registrar);
+		JsonMetaschemaMMPackage ePackage = JsonMetaschemaMMPackage.eINSTANCE;
 	        
 //	        OCL ocl0 = OCL.newInstance();
 //	        URI oclURI = URI.createPlatformResourceURI(
@@ -49,18 +46,53 @@ public class JsonSchemaDslValidator extends AbstractJsonSchemaDslValidator {
 //	        URI basicOclURI = URI.createURI(Activator.getDefault().getBundle().getResource("/jsonmetaschemaMM/model/ocl/fullvalidation.ocl").toString());
 	        
 	        
-	        URI basicOclURI = URI.createURI(Activator.getDefault().getBundle().getResource("model/ocl/fullvalidation.ocl").toString());
-	        registrar.register(ePackage, new CompleteOCLEObjectValidator(ePackage, basicOclURI));
+		URI basicOclURI = URI.createURI(Activator.getDefault().getBundle().getResource("model/ocl/fullvalidation.ocl").toString());
+		registrar.register(ePackage, new CompleteOCLEObjectValidator(ePackage, basicOclURI));
 	        
-	        
-	        
-	       
-	       
-
 	        
 //	        new CompleteOCLEObjectValidator(ePackage, oclURI,ocl0.getEnvironmentFactory()));
 	        
 	        
 	        
-	 }
+	}
+	 
+	@Check
+	public void patternsValidator(PatternPropertiesSchemaDefinition patternPropertiesSchemaDefinition){
+		List<String> invalidPatterns = new ArrayList<String>();
+		for (KeySchemaPair keySchemaPair : patternPropertiesSchemaDefinition.getKeySchemaPairs()) {
+			try{
+				java.util.regex.Pattern.compile(keySchemaPair.getKey());
+			}catch (java.util.regex.PatternSyntaxException e){
+				 invalidPatterns.add(keySchemaPair.getKey());
+			}
+		}
+		if(!invalidPatterns.isEmpty()) {
+			for (String invalidPattern: invalidPatterns) {
+				error("The pattern "+invalidPattern+" is not a valida regular expression", null);
+			}
+		}
+	}
+	 
+	@Check
+	public void enumValidator(EnumSchemaDefinition enumSchemaDefinition){
+	int index=0;
+		for(JsonDocument jsonDocument : enumSchemaDefinition.getItems()) {
+			for (int j=index+1; j<enumSchemaDefinition.getItems().size(); j++ ) {
+				if(equalJsonDocuments(jsonDocument, enumSchemaDefinition.getItems().get(j))) {
+					error("The Json in position "+index+" and "+j+" are equal", null);
+				}
+			}
+			index++;
+		}
+	}
+	
+	
+	public boolean equalJsonDocuments(JsonDocument jsonDocument1, JsonDocument jsonDocument2) {
+		return jsonDocument1.semanticEquals(jsonDocument2);
+		 
+	}
+	 
+	
+	 
+
 }

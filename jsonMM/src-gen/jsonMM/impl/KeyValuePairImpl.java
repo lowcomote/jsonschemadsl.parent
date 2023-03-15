@@ -2,12 +2,16 @@
  */
 package jsonMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import jsonMM.JsonMMPackage;
 import jsonMM.KeyValuePair;
 import jsonMM.Value;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -155,6 +159,31 @@ public class KeyValuePairImpl extends MinimalEObjectImpl.Container implements Ke
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean semanticEquals(final Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return this.getKey().equals(((KeyValuePair) obj).getKey())
+				&& this.getValue().semanticEquals(((KeyValuePair) obj).getValue());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toString() {
+		return this.key + ":" + this.value.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -238,15 +267,14 @@ public class KeyValuePairImpl extends MinimalEObjectImpl.Container implements Ke
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (key: ");
-		result.append(key);
-		result.append(')');
-		return result.toString();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case JsonMMPackage.KEY_VALUE_PAIR___SEMANTIC_EQUALS__OBJECT:
+			return semanticEquals(arguments.get(0));
+		case JsonMMPackage.KEY_VALUE_PAIR___TO_STRING:
+			return toString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //KeyValuePairImpl

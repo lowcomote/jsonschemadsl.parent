@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="relatedSchemas" nsURI="http://at.jku.bise/relatedSchemas" nsPrefix="relatedSchemas">
+  <eClassifiers xsi:type="ecore:EClass" name="RelatedSchemas">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enclosingschemas" upperBound="-1"
+        eType="#//EnclosingSchema" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AnyOf">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyOfs" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnclosingSchema">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enclosingSchema" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="anyOf" eType="#//AnyOf"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allOf" eType="#//AllOf"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oneOf" eType="#//OneOf"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="not" eType="#//Not" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifThenElse" eType="#//IfThenElse"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" eType="#//Dependencies"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" eType="#//Contains"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constEnum" eType="#//ConstEnum"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AllOf">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="allOfs" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OneOf">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="oneOfs" lowerBound="1"
+        upperBound="-1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Not">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="not" lowerBound="1" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IfThenElse">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="if" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="then" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="else" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dependencies">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependencies" upperBound="-1"
+        eType="#//Dependency" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Contains">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contains" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dependency">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dependency" lowerBound="1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Enum">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enum" lowerBound="1" upperBound="-1"
+        eType="ecore:EClass /jsonMM/model/jsonMM.ecore#//JsonDocument"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Const">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="const" lowerBound="1" eType="ecore:EClass /jsonMM/model/jsonMM.ecore#//JsonDocument"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyName" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConstEnum">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="enum" eType="#//Enum" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="const" eType="#//Const"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

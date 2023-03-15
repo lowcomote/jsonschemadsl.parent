@@ -1,0 +1,73 @@
+{
+	"add1":1,
+	"S_":"I am a string",
+	"I_1":1,
+	"P_": [],
+	"H_":{
+		"test":{
+			"relativekind":"uncle",
+			"age":"100"
+		}
+	},
+	"name":"Alessandro",
+	"surname":"Colantoni",
+	"age":50,
+	"adult":true,
+	"score":1111.1111,
+	"job":{
+		"role":"engineer",
+		"level":1
+	},
+	"car":{
+		"licencePlate":"YYYY435435",
+		"year":1999,
+		"type":"family car"
+	},
+	"otherInfo":{
+		"whatever":"a string for example",
+		"anArray":[23,{}]
+	},
+	"childrenNames":["antonio","pino"],
+	"sequentialInfo":["something",1,3.4,true,[],{"name":"alessandro"}],
+	"sequentialInfo2":["something",1,3.4,true,[],{"name":"alessandro"}],
+	"grandParents":[{"name":"gino","surname":"paccheri","nationality":"italian"},{"name":"luigia","surname":"perini","women":true}],
+	"myFamily":{
+		"member1":{
+			"membername":"Ciccio",
+			"relativekind":"brother",
+			"extraInfo":"nice guy"
+		}
+	},
+	"wives":{
+		"wife1":{
+			"wife1": {
+				"membername":"zzzzz",
+				"relativekind":"first wife",
+				"relation":"good"
+			},
+			"wife1.1": {
+				"membername":"zzzzz1111",
+				"relativekind":"first wife 2.0",
+				"current":false
+			}
+		},
+		"wife2":{
+			"wife22": {
+				"membername":"zzz22222zz",
+				"relativekind":"second wife",
+				"relation":"mhhhh"
+			},
+			"wife2.1": {
+				"membername":"zzzzzdadaa1111",
+				"relativekind":"secomdt wife 3.0",
+				"current":false
+			}
+		}
+	},
+	"extraFamilies":[
+		{"friend1":{"membername":"Pasc.","relativekind":"fried"}},
+		{"friend2":{"membername":"Gino","relativekind":"fried"}}		
+	]
+	
+	
+}

@@ -1,0 +1,10 @@
+{
+	"type":"object",
+	"patternProperties":{
+		"^S_":{"type":["integer","string"]},
+		"^I_":{"type":["object","array"]}
+	},
+	"additionalProperties":{
+		"type":["string","object","array"]
+	}
+}

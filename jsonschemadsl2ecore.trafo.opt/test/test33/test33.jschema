@@ -1,0 +1,26 @@
+{
+	"type":"object",
+	"oneOf": [
+		{
+			"type":"object",
+			"properties":{
+				"email":{"type":"string"}
+			},
+			"additionalProperties":false
+		},
+		{
+			"type":"object",
+			"properties":{
+				"telephone":{"type":"string"}
+			},
+			"additionalProperties":false
+		}
+	],
+	"not":{
+		"type":"object",
+		"properties":{
+			"name":{"type":"string"}
+		},
+		"additionalProperties":false
+	}
+}

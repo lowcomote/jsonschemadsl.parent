@@ -1,0 +1,18 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":["integer","string"],
+			"minLength":3
+		}, 
+		"prop2":{
+			"type":"string",
+			"minLength":5 
+		}, 
+		"prop3":{
+			"type":"number",
+			"minLength":7
+		}
+	}
+ 
+}

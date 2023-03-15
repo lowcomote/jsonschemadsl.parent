@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated jsonMM -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="jsonMM.presentation.JsonMMModelWizardID"
+            name="%_UI_JsonMMModelWizard_label"
+            class="jsonMM.presentation.JsonMMModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/JsonMMModelFile.gif">
+         <description>%_UI_JsonMMModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated jsonMM -->
+      <editor
+            id="jsonMM.presentation.JsonMMEditorID"
+            name="%_UI_JsonMMEditor_label"
+            icon="icons/full/obj16/JsonMMModelFile.gif"
+            extensions="jsonmm"
+            class="jsonMM.presentation.JsonMMEditor"
+            contributorClass="jsonMM.presentation.JsonMMActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

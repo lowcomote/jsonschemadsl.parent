@@ -1,0 +1,44 @@
+{
+	"type":"object",
+	"properties":{
+		"children":{
+			"type":"object",
+			"if":{
+				"type":"object",
+				"properties":{
+					"son":{"type":"string"}
+				},
+				"required":["son"]
+			},
+			"else":{
+				"type":"object",
+				"properties":{
+					"daughter":{"type":"string"}
+				},
+				"required":["daughter"]
+			}
+		}
+	},
+	"if" : {
+		"type":"object",
+		"properties":{
+			"father":{"type":"string"}
+		},
+		"required":["father"]
+	},
+	"then" : {
+		"type":"object",
+		"properties":{
+			"grandfather":{"type":"string"}
+		},
+		"required":["grandfather"]
+	},
+	"else":{
+		"type":"object",
+		"properties":{
+			"mother":{"type":"string"},
+			"grandmother":{"type":"string"}
+		},
+		"required":["mother","grandmother"]
+	}
+}

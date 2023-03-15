@@ -1,0 +1,18 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":"string",
+			"allOf":[
+				{"type":"integer","minimum":2},
+				{},
+				{"type":"object"}
+			],
+			"anyOf":[
+				{"type":"boolean"}
+			]
+		},
+		"prop2":{}
+		
+	}
+}

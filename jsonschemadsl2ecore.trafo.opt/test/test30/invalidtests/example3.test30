@@ -1,0 +1,10 @@
+{
+	 
+	"boolean":1,
+	"integer":1.0,
+	"null":null,
+	"number":1.32333,
+	"string":"some string",
+	"object":{},
+	"extra":"extra"
+}

@@ -1,0 +1,82 @@
+{
+  "name": "Check all English links",
+  "on": {
+    "workflow_dispatch": null,
+    "schedule": [
+      {
+        "cron": "40 19 * * *"
+      }
+    ]
+  },
+  "permissions": {
+    "contents": "read",
+    "issues": "write"
+  },
+  "jobs": {
+    "check_all_english_links": {
+      "name": "Check all links",
+      "if": "github.repository == 'github/docs-internal'",
+      "runs-on": "ubuntu-latest",
+      "env": {
+        "GITHUB_TOKEN": "${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}",
+        "FIRST_RESPONDER_PROJECT": "Docs content first responder",
+        "REPORT_AUTHOR": "docubot",
+        "REPORT_LABEL": "broken link report",
+        "REPORT_REPOSITORY": "github/docs-content"
+      },
+      "steps": [
+        {
+          "name": "Check out repo's default branch",
+          "uses": "actions/checkout@v3"
+        },
+        {
+          "name": "Setup Node",
+          "uses": "actions/setup-node@v3",
+          "with": {
+            "node-version": "16.13.x",
+            "cache": "npm"
+          }
+        },
+        {
+          "name": "npm ci",
+          "run": "npm ci"
+        },
+        {
+          "name": "npm run build",
+          "run": "npm run build"
+        },
+        {
+          "name": "Run script",
+          "run": "script/check-english-links.js > broken_links.md\n"
+        },
+        {
+          "if": "${{ failure() }}",
+          "name": "Get title for issue",
+          "id": "check",
+          "run": "echo \"title=$(head -1 broken_links.md)\" >> $GITHUB_OUTPUT"
+        },
+        {
+          "if": "${{ failure() }}",
+          "name": "Create issue from file",
+          "id": "broken-link-report",
+          "uses": "peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e",
+          "with": {
+            "token": "${{ env.GITHUB_TOKEN }}",
+            "title": "${{ steps.check.outputs.title }}",
+            "content-filepath": "./broken_links.md",
+            "repository": "${{ env.REPORT_REPOSITORY }}",
+            "labels": "${{ env.REPORT_LABEL }}"
+          }
+        },
+        {
+          "if": "${{ failure() }}",
+          "name": "Close and/or comment on old issues",
+          "env": {
+            "NEW_REPORT_URL": "https://github.com/${{ env.REPORT_REPOSITORY }}/issues/${{ steps.broken-link-report.outputs.issue-number }}"
+          },
+          "run": "gh alias set list-reports \"issue list \\\n                             --repo ${{ env.REPORT_REPOSITORY }} \\\n                             --author ${{ env.REPORT_AUTHOR }} \\\n                             --label '${{ env.REPORT_LABEL }}'\"\n\n# Link to the previous report from the new report that triggered this\n# workflow run.\n\nprevious_report_url=$(gh list-reports \\\n                        --state all \\\n                        --limit 2 \\\n                        --json url \\\n                        --jq '.[].url' \\\n                        | grep -v ${{ env.NEW_REPORT_URL }} | head -1)\n\ngh issue comment ${{ env.NEW_REPORT_URL }} --body \"⬅️ [Previous report]($previous_report_url)\"\n\n# If an old report is open and assigned to someone, link to the newer\n# report without closing the old report.\n\nfor issue_url in $(gh list-reports \\\n                        --json assignees,url \\\n                        --jq '.[] | select (.assignees != []) | .url'); do\n  if [ \"$issue_url\" != \"${{ env.NEW_REPORT_URL }}\" ]; then\n    gh issue comment $issue_url --body \"➡️ [Newer report](${{ env.NEW_REPORT_URL }})\"\n  fi\ndone\n\n# Link to the newer report from any older report that is still open,\n# then close the older report and remove it from the first responder's\n# project board.\n\nfor issue_url in $(gh list-reports \\\n                        --search 'no:assignee' \\\n                        --json url \\\n                        --jq '.[].url'); do\n  if [ \"$issue_url\" != \"${{ env.NEW_REPORT_URL }}\" ]; then\n    gh issue comment $issue_url --body \"➡️ [Newer report](${{ env.NEW_REPORT_URL }})\"\n    gh issue close $issue_url\n    gh issue edit $issue_url --remove-project \"${{ env.FIRST_RESPONDER_PROJECT }}\"\n  fi\ndone\n"
+        }
+      ]
+    }
+  }
+}

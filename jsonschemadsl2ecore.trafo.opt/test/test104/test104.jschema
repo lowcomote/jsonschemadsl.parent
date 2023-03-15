@@ -1,0 +1,46 @@
+{
+	"type":"object",
+	"additionalProperties": {
+		         
+        "if": 
+           	{
+             	"type": "object",  
+	      		"properties": { 
+	      			"runs-on": {"type": "string"}
+				}
+            },
+         "then":{
+         		"type": "object",
+         		"required":["foo"]
+         } ,
+         "else":{
+         		"type": "object",
+         		"required":["bar"]
+         }   
+            
+         
+	},
+	"patternProperties":{
+		"prop1":{
+			"if":{"type":"string", "maxLength":5},
+			"then":{"type":"string", "minLength":3},
+			"else":{"type":"string","minLength":10, "maxLength":15}
+		},
+		"prop2":{
+			"if":{"type":"integer", "maximum":5},
+			"then":{"type":"integer", "minimum":3},
+			"else":{"type":"integer", "minimum":10, "maximum":15}
+		},
+		"prop3":{
+			"if":{"type":"null"},
+			"then":true,
+			"else":{"type":"string"}
+		},
+		"prop4":{
+			"if":{"type":"boolean"},
+			"then":true,
+			"else":{"type":"integer", "minimum":0, "maximum":1}
+		}
+	}
+          
+}

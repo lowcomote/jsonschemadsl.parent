@@ -1,0 +1,13 @@
+{
+	"type":"object",
+	"definitions":{
+		"family":{},
+		"numberString":{
+			"type":["number","string"]
+		}
+	},
+	"properties":{
+		"prop1":{"$ref":"#/definitions/family"},
+		"prop2":{"$ref":"#/definitions/numberString"}
+	}
+}

@@ -1,0 +1,18 @@
+,\r\n\s*"firstProperty": \[\r\n.*\r\n\s*\]
+
+
+
+,\r\n\s*"ignoreCase": ".*"
+ 
+
+
+"deprecationMessage" ->"$comment"
+
+
+,\r\n\s*"aliases": \[\r\n.*\r\n\s*\]
+
+,\r\n\s*"aliases": \[\r\n.*\r\n\.*\s*.*\r\n\s*\]
+
+
+
+

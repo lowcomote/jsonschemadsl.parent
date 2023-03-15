@@ -1,0 +1,21 @@
+{ 
+	"type":"object",
+	"properties":{
+		"gino":{
+			"required":["prop1"] 
+		},
+		"number":{"type":"number"},
+		"object":{
+			"type":"object",
+			"properties":{
+				"prop2":{"type":"boolean"},  
+				"prop3":{"type":"integer"}
+			},
+			"required":["prop2","prop4"]
+		}
+	}, 
+	"patternProperties":{
+		"^S_":{"type":"string"}
+	},
+	"required":["S_sss","pino"]
+}   

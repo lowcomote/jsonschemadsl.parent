@@ -1,0 +1,9 @@
+{
+	"propZ":1,
+	"prop3":["a",{"propZ":1}],
+	"prop4":{
+		"prop5":false,
+		"I1":1,
+		"S1":"a"
+	}
+}     

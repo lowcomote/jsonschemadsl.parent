@@ -2,10 +2,14 @@
  */
 package jsonMetaschemaMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.PatternSchemaDefinition;
 
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -93,6 +97,22 @@ public class PatternSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 	 * @generated
 	 */
 	@Override
+	public Boolean isValidPattern() {
+		try{
+			java.util.regex.Pattern.compile(this.pattern);
+		}catch (java.util.regex.PatternSyntaxException e){
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.PATTERN_SCHEMA_DEFINITION__PATTERN:
@@ -143,6 +163,20 @@ public class PatternSchemaDefinitionImpl extends KeywordDefinitionImpl implement
 				return PATTERN_EDEFAULT == null ? pattern != null : !PATTERN_EDEFAULT.equals(pattern);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case JsonMetaschemaMMPackage.PATTERN_SCHEMA_DEFINITION___IS_VALID_PATTERN:
+				return isValidPattern();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

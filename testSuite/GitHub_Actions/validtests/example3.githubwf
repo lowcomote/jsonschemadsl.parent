@@ -1,0 +1,129 @@
+{
+  "name": "Node.js Tests",
+  "on": {
+    "workflow_dispatch": null,
+    "pull_request": null,
+    "push": {
+      "branches": [
+        "main"
+      ]
+    }
+  },
+  "permissions": {
+    "contents": "read",
+    "pull-requests": "read"
+  },
+  "concurrency": {
+    "group": "${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}",
+    "cancel-in-progress": true
+  },
+  "jobs": {
+    "test": {
+      "runs-on": "${{ fromJSON('[\"ubuntu-latest\", \"self-hosted\"]')[github.repository == 'github/docs-internal'] }}",
+      "timeout-minutes": 60,
+      "strategy": {
+        "fail-fast": false,
+        "matrix": {
+          "test-group": [
+            "content",
+            "graphql",
+            "meta",
+            "rendering",
+            "routing",
+            "unit",
+            "linting",
+            "translations"
+          ]
+        }
+      },
+      "steps": [
+        {
+          "name": "Check out repo",
+          "uses": "actions/checkout@v3",
+          "with": {
+            "lfs": "${{ matrix.test-group == 'content' }}",
+            "persist-credentials": "false"
+          }
+        },
+        {
+          "name": "Figure out which docs-early-access branch to checkout, if internal repo",
+          "if": "${{ github.repository == 'github/docs-internal' }}",
+          "id": "check-early-access",
+          "uses": "actions/github-script@v6",
+          "env": {
+            "BRANCH_NAME": "${{ github.head_ref || github.ref_name }}"
+          },
+          "with": {
+            "github-token": "${{ secrets.DOCUBOT_REPO_PAT }}",
+            "result-encoding": "string",
+            "script": "// If being run from a PR, this becomes 'my-cool-branch'.\n// If run on main, with the `workflow_dispatch` action for\n// example, the value becomes 'main'.\nconst { BRANCH_NAME } = process.env\ntry {\n  const response = await github.repos.getBranch({\n    owner: 'github',\n    repo: 'docs-early-access',\n    BRANCH_NAME,\n  })\n  console.log(`Using docs-early-access branch called '${BRANCH_NAME}'.`)\n  return BRANCH_NAME\n} catch (err) {\n  if (err.status === 404) {\n    console.log(`There is no docs-early-access branch called '${BRANCH_NAME}' so checking out 'main' instead.`)\n    return 'main'\n  }\n  throw err\n}\n"
+          }
+        },
+        {
+          "name": "Check out docs-early-access too, if internal repo",
+          "if": "${{ github.repository == 'github/docs-internal' }}",
+          "uses": "actions/checkout@v3",
+          "with": {
+            "repository": "github/docs-early-access",
+            "token": "${{ secrets.DOCUBOT_REPO_PAT }}",
+            "path": "docs-early-access",
+            "ref": "${{ steps.check-early-access.outputs.result }}"
+          }
+        },
+        {
+          "name": "Merge docs-early-access repo's folders",
+          "if": "${{ github.repository == 'github/docs-internal' }}",
+          "run": "mv docs-early-access/assets assets/images/early-access\nmv docs-early-access/content content/early-access\nmv docs-early-access/data data/early-access\nrm -r docs-early-access\n"
+        },
+        {
+          "name": "Checkout LFS objects",
+          "run": "git lfs checkout"
+        },
+        {
+          "name": "Gather files changed",
+          "uses": "trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b",
+          "id": "get_diff_files",
+          "with": {
+            "output": " "
+          }
+        },
+        {
+          "name": "Insight into changed files",
+          "run": "\n# Must to do this because the list of files can be HUGE. Especially\n# in a repo-sync when there are lots of translation files involved.\necho \"${{ steps.get_diff_files.outputs.files }}\" > get_diff_files.txt\n"
+        },
+        {
+          "name": "Setup node",
+          "uses": "actions/setup-node@v3",
+          "with": {
+            "node-version": "16.14.x",
+            "cache": "npm"
+          }
+        },
+        {
+          "name": "Install dependencies",
+          "run": "npm ci"
+        },
+        {
+          "name": "Cache nextjs build",
+          "uses": "actions/cache@v3",
+          "with": {
+            "path": ".next/cache",
+            "key": "${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}"
+          }
+        },
+        {
+          "name": "Run build script",
+          "run": "npm run build"
+        },
+        {
+          "name": "Run tests",
+          "env": {
+            "DIFF_FILE": "get_diff_files.txt",
+            "CHANGELOG_CACHE_FILE_PATH": "tests/fixtures/changelog-feed.json"
+          },
+          "run": "npm test -- tests/${{ matrix.test-group }}/"
+        }
+      ]
+    }
+  }
+}

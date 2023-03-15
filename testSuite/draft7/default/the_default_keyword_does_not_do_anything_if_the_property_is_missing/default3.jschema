@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "alpha": {
+            "type": "number",
+            "maximum": 3,
+            "default": 5
+        }
+    }
+}

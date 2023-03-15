@@ -1,0 +1,13 @@
+{
+	"type": "object",
+	"properties":{ 
+		"prop1":false,
+		"prop2":true
+	}, 
+	"patternProperties":{
+		"^z_":false
+	},
+	"additionalProperties":false
+	     
+}   
+      

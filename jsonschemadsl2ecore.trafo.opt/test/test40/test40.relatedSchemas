@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test40.ecore#//Test40RootChildren"/>
+    <ifThenElse>
+      <if href="test40.ecore#//Test40RootChildrenIf"/>
+      <else href="test40.ecore#//Test40RootChildrenElse"/>
+    </ifThenElse>
+  </enclosingschemas>
+  <enclosingschemas>
+    <enclosingSchema href="test40.ecore#//Test40Root"/>
+    <ifThenElse>
+      <if href="test40.ecore#//Test40RootIf"/>
+      <then href="test40.ecore#//Test40RootThen"/>
+      <else href="test40.ecore#//Test40RootElse"/>
+    </ifThenElse>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>

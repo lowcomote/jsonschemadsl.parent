@@ -1,0 +1,7 @@
+{
+	"type":"object",
+	"additionalProperties":false,
+	"patternProperties":{
+		"^S_":{"type":"string"}
+	}
+}

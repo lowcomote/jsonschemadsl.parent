@@ -1,0 +1,87 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test65
+import 'http://jku.bise.at/test65'
+
+package test65
+
+	context test65::Test65RootProp1AdditionalProperties 
+
+	inv Test65RootProp1AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test65::Test65RootProp1AdditionalProperties 
+
+	inv Test65RootProp1AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test65::Test65RootProp2AdditionalProperties 
+
+	inv Test65RootProp2AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test65::Test65RootProp2AdditionalProperties 
+
+	inv Test65RootProp2AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test65::Test65RootProp4AdditionalProperties 
+
+	inv Test65RootProp4AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test65::Test65RootProp4AdditionalProperties 
+
+	inv Test65RootProp4AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test65::Test65RootAdditionalProperties 
+
+	inv Test65RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test65::Test65RootAdditionalProperties 
+
+	inv Test65RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test65::Test65RootProp1TypeString
+
+	inv Test65RootProp1Pattern('The value of Test65RootProp1TypeString must match the regular expression ^a*$'):
+	if self.regexMatch()
+	then true
+	else null
+	endif
+
+	context test65::Test65RootAdditionalProperties
+
+	inv Test65RootAdditionalPropertiesPattern('The value of Test65RootAdditionalProperties must match the regular expression ^ADD_'):
+	if self.regexMatch()
+	then true
+	else null
+	endif
+
+endpackage
+

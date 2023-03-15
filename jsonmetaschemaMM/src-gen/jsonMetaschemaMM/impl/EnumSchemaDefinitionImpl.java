@@ -4,8 +4,9 @@ package jsonMetaschemaMM.impl;
 
 import java.util.Collection;
 
+import jsonMM.JsonDocument;
+
 import jsonMetaschemaMM.EnumSchemaDefinition;
-import jsonMetaschemaMM.JsonDocument;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 
 import org.eclipse.emf.common.notify.NotificationChain;

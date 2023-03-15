@@ -1,0 +1,12 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":"integer",
+			"oneOf":[
+				{"type":"integer"}			
+			],
+			"not":{"type":"string"}
+		}
+	}
+}

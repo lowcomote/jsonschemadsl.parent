@@ -1,0 +1,13 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":"object",
+			"properties":{
+				"prop2":{"type":"string"},
+				"prop3":{"type":"array"},
+				"prop4":{"type":"null"}
+			} 
+		}         
+	}         
+}           

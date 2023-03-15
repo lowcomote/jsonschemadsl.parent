@@ -2,13 +2,13 @@
  */
 package jsonMetaschemaMM.impl;
 
+import jsonMM.JsonMMPackage;
+
 import jsonMetaschemaMM.AdditionalItemsSchemaDefinition;
 import jsonMetaschemaMM.AdditionalPropertiesSchemaDefinition;
 import jsonMetaschemaMM.AllOfSchemaDefinition;
 import jsonMetaschemaMM.AnyOfSchemaDefinition;
-import jsonMetaschemaMM.ArrayValue;
 import jsonMetaschemaMM.BooleanSchema;
-import jsonMetaschemaMM.BooleanValue;
 import jsonMetaschemaMM.CommentSchemaDefinition;
 import jsonMetaschemaMM.ConstSchemaDefinition;
 import jsonMetaschemaMM.ContainsSchemaDefinition;
@@ -30,12 +30,10 @@ import jsonMetaschemaMM.ItemsAnyOf;
 import jsonMetaschemaMM.ItemsAnyOf1;
 import jsonMetaschemaMM.ItemsAnyOf2;
 import jsonMetaschemaMM.ItemsSchemaDefinition;
-import jsonMetaschemaMM.JsonDocument;
 import jsonMetaschemaMM.JsonMetaschemaMMFactory;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.JsonSchema;
 import jsonMetaschemaMM.KeySchemaPair;
-import jsonMetaschemaMM.KeyValuePair;
 import jsonMetaschemaMM.KeywordDefinition;
 import jsonMetaschemaMM.MaxItemsSchemaDefinition;
 import jsonMetaschemaMM.MaxLengthSchemaDefinition;
@@ -49,11 +47,7 @@ import jsonMetaschemaMM.MultipleOfSchemaDefinition;
 import jsonMetaschemaMM.NonNegativeInteger;
 import jsonMetaschemaMM.NonNegativeIntegerDefault0;
 import jsonMetaschemaMM.NotSchemaDefinition;
-import jsonMetaschemaMM.NullEnum;
-import jsonMetaschemaMM.NullValue;
-import jsonMetaschemaMM.NumberValue;
 import jsonMetaschemaMM.ObjectSchema;
-import jsonMetaschemaMM.ObjectValue;
 import jsonMetaschemaMM.OneOfSchemaDefinition;
 import jsonMetaschemaMM.PatternPropertiesSchemaDefinition;
 import jsonMetaschemaMM.PatternSchemaDefinition;
@@ -73,7 +67,6 @@ import jsonMetaschemaMM.SchemaObjectDependenciesProperties;
 import jsonMetaschemaMM.SchemaSchemaDefinition;
 import jsonMetaschemaMM.SimpleTypes;
 import jsonMetaschemaMM.StringArray;
-import jsonMetaschemaMM.StringValue;
 import jsonMetaschemaMM.ThenSchemaDefinition;
 import jsonMetaschemaMM.TitleSchemaDefinition;
 import jsonMetaschemaMM.TypeAnyOf;
@@ -81,7 +74,6 @@ import jsonMetaschemaMM.TypeAnyOf1;
 import jsonMetaschemaMM.TypeAnyOf2;
 import jsonMetaschemaMM.TypeSchemaDefinition;
 import jsonMetaschemaMM.UniqueItemsSchemaDefinition;
-import jsonMetaschemaMM.Value;
 import jsonMetaschemaMM.WriteOnlySchemaDefinition;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -203,13 +195,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass booleanValueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass minItemsSchemaDefinitionEClass = null;
 
 	/**
@@ -238,28 +223,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass nullValueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass minimumSchemaDefinitionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass stringValueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass jsonDocumentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -288,13 +252,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	private EClass schemaEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass objectValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -343,13 +300,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass numberValueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass requiredSchemaDefinitionEClass = null;
 
 	/**
@@ -379,13 +329,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	private EClass additionalItemsSchemaDefinitionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass keyValuePairEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -525,20 +468,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass arrayValueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass valueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass typeAnyOf2EClass = null;
 
 	/**
@@ -647,13 +576,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	private EEnum simpleTypesEEnum = null;
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum nullEnumEEnum = null;
-
-	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -699,6 +621,9 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		JsonMetaschemaMMPackageImpl theJsonMetaschemaMMPackage = registeredJsonMetaschemaMMPackage instanceof JsonMetaschemaMMPackageImpl ? (JsonMetaschemaMMPackageImpl)registeredJsonMetaschemaMMPackage : new JsonMetaschemaMMPackageImpl();
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		JsonMMPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theJsonMetaschemaMMPackage.createPackageContents();
@@ -932,6 +857,66 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	@Override
 	public EReference getObjectSchema_SchemaObjectAdditionalProperties() {
 		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getObjectSchema_MultipleOf() {
+		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getObjectSchema_MinProperties() {
+		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getObjectSchema_MaxProperties() {
+		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getObjectSchema_Const() {
+		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getObjectSchema_MinItems() {
+		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getObjectSchema_MaxItems() {
+		return (EReference)objectSchemaEClass.getEStructuralFeatures().get(26);
 	}
 
 	/**
@@ -1230,26 +1215,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public EClass getBooleanValue() {
-		return booleanValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getBooleanValue_Value() {
-		return (EAttribute)booleanValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getMinItemsSchemaDefinition() {
 		return minItemsSchemaDefinitionEClass;
 	}
@@ -1340,26 +1305,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public EClass getNullValue() {
-		return nullValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getNullValue_Value() {
-		return (EAttribute)nullValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getMinimumSchemaDefinition() {
 		return minimumSchemaDefinitionEClass;
 	}
@@ -1372,46 +1317,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	@Override
 	public EAttribute getMinimumSchemaDefinition_Minimum() {
 		return (EAttribute)minimumSchemaDefinitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getStringValue() {
-		return stringValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getStringValue_Value() {
-		return (EAttribute)stringValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getJsonDocument() {
-		return jsonDocumentEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getJsonDocument_Value() {
-		return (EReference)jsonDocumentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1500,26 +1405,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public EClass getObjectValue() {
-		return objectValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getObjectValue_Keyvaluepair() {
-		return (EReference)objectValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getTypeSchemaDefinition() {
 		return typeSchemaDefinitionEClass;
 	}
@@ -1600,6 +1485,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getIdSchemaDefinition__IsFormatUriReference() {
+		return idSchemaDefinitionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getConstSchemaDefinition() {
 		return constSchemaDefinitionEClass;
 	}
@@ -1642,26 +1537,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	@Override
 	public EOperation getDependenciesSchemaDefinition__FindSchemaByKey__String() {
 		return dependenciesSchemaDefinitionEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getNumberValue() {
-		return numberValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getNumberValue_Value() {
-		return (EAttribute)numberValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1772,36 +1647,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	@Override
 	public EReference getAdditionalItemsSchemaDefinition_AdditionalItems() {
 		return (EReference)additionalItemsSchemaDefinitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getKeyValuePair() {
-		return keyValuePairEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getKeyValuePair_Key() {
-		return (EAttribute)keyValuePairEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getKeyValuePair_Value() {
-		return (EReference)keyValuePairEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1922,6 +1767,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	@Override
 	public EAttribute getPatternSchemaDefinition_Pattern() {
 		return (EAttribute)patternSchemaDefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPatternSchemaDefinition__IsValidPattern() {
+		return patternSchemaDefinitionEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -2200,6 +2055,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
+	public EOperation getSchemaSchemaDefinition__IsFormatUri() {
+		return schemaSchemaDefinitionEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getPropertiesSchemaDefinition() {
 		return propertiesSchemaDefinitionEClass;
 	}
@@ -2242,36 +2107,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	@Override
 	public EReference getPropertyNamesSchemaDefinition_PropertyNames() {
 		return (EReference)propertyNamesSchemaDefinitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getArrayValue() {
-		return arrayValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getArrayValue_Value() {
-		return (EReference)arrayValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getValue() {
-		return valueEClass;
 	}
 
 	/**
@@ -2580,16 +2415,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 	 * @generated
 	 */
 	@Override
-	public EEnum getNullEnum() {
-		return nullEnumEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public JsonMetaschemaMMFactory getJsonMetaschemaMMFactory() {
 		return (JsonMetaschemaMMFactory)getEFactoryInstance();
 	}
@@ -2635,6 +2460,12 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__TYPE);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__ENUM);
 		createEReference(objectSchemaEClass, OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES);
+		createEReference(objectSchemaEClass, OBJECT_SCHEMA__MULTIPLE_OF);
+		createEReference(objectSchemaEClass, OBJECT_SCHEMA__MIN_PROPERTIES);
+		createEReference(objectSchemaEClass, OBJECT_SCHEMA__MAX_PROPERTIES);
+		createEReference(objectSchemaEClass, OBJECT_SCHEMA__CONST);
+		createEReference(objectSchemaEClass, OBJECT_SCHEMA__MIN_ITEMS);
+		createEReference(objectSchemaEClass, OBJECT_SCHEMA__MAX_ITEMS);
 		createEOperation(objectSchemaEClass, OBJECT_SCHEMA___FIND_SCHEMA_BY_KEY__STRING);
 		createEOperation(objectSchemaEClass, OBJECT_SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT);
 
@@ -2678,9 +2509,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		createEReference(definitionsSchemaDefinitionEClass, DEFINITIONS_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS);
 		createEOperation(definitionsSchemaDefinitionEClass, DEFINITIONS_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING);
 
-		booleanValueEClass = createEClass(BOOLEAN_VALUE);
-		createEAttribute(booleanValueEClass, BOOLEAN_VALUE__VALUE);
-
 		minItemsSchemaDefinitionEClass = createEClass(MIN_ITEMS_SCHEMA_DEFINITION);
 		createEReference(minItemsSchemaDefinitionEClass, MIN_ITEMS_SCHEMA_DEFINITION__MIN_ITEMS);
 
@@ -2694,17 +2522,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		maxPropertiesSchemaDefinitionEClass = createEClass(MAX_PROPERTIES_SCHEMA_DEFINITION);
 		createEReference(maxPropertiesSchemaDefinitionEClass, MAX_PROPERTIES_SCHEMA_DEFINITION__MAX_PROPERTIES);
 
-		nullValueEClass = createEClass(NULL_VALUE);
-		createEAttribute(nullValueEClass, NULL_VALUE__VALUE);
-
 		minimumSchemaDefinitionEClass = createEClass(MINIMUM_SCHEMA_DEFINITION);
 		createEAttribute(minimumSchemaDefinitionEClass, MINIMUM_SCHEMA_DEFINITION__MINIMUM);
-
-		stringValueEClass = createEClass(STRING_VALUE);
-		createEAttribute(stringValueEClass, STRING_VALUE__VALUE);
-
-		jsonDocumentEClass = createEClass(JSON_DOCUMENT);
-		createEReference(jsonDocumentEClass, JSON_DOCUMENT__VALUE);
 
 		maxItemsSchemaDefinitionEClass = createEClass(MAX_ITEMS_SCHEMA_DEFINITION);
 		createEReference(maxItemsSchemaDefinitionEClass, MAX_ITEMS_SCHEMA_DEFINITION__MAX_ITEMS);
@@ -2718,9 +2537,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		schemaEClass = createEClass(SCHEMA);
 		createEOperation(schemaEClass, SCHEMA___FIND_SCHEMA_BY_JSON_POINTER__ELIST_INT);
 
-		objectValueEClass = createEClass(OBJECT_VALUE);
-		createEReference(objectValueEClass, OBJECT_VALUE__KEYVALUEPAIR);
-
 		typeSchemaDefinitionEClass = createEClass(TYPE_SCHEMA_DEFINITION);
 		createEReference(typeSchemaDefinitionEClass, TYPE_SCHEMA_DEFINITION__ANY_OF);
 
@@ -2732,6 +2548,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		idSchemaDefinitionEClass = createEClass(ID_SCHEMA_DEFINITION);
 		createEAttribute(idSchemaDefinitionEClass, ID_SCHEMA_DEFINITION__ID);
+		createEOperation(idSchemaDefinitionEClass, ID_SCHEMA_DEFINITION___IS_FORMAT_URI_REFERENCE);
 
 		constSchemaDefinitionEClass = createEClass(CONST_SCHEMA_DEFINITION);
 		createEReference(constSchemaDefinitionEClass, CONST_SCHEMA_DEFINITION__CONST);
@@ -2739,9 +2556,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		dependenciesSchemaDefinitionEClass = createEClass(DEPENDENCIES_SCHEMA_DEFINITION);
 		createEReference(dependenciesSchemaDefinitionEClass, DEPENDENCIES_SCHEMA_DEFINITION__PROPERTIES);
 		createEOperation(dependenciesSchemaDefinitionEClass, DEPENDENCIES_SCHEMA_DEFINITION___FIND_SCHEMA_BY_KEY__STRING);
-
-		numberValueEClass = createEClass(NUMBER_VALUE);
-		createEAttribute(numberValueEClass, NUMBER_VALUE__VALUE);
 
 		requiredSchemaDefinitionEClass = createEClass(REQUIRED_SCHEMA_DEFINITION);
 		createEReference(requiredSchemaDefinitionEClass, REQUIRED_SCHEMA_DEFINITION__REQUIRED);
@@ -2758,10 +2572,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		additionalItemsSchemaDefinitionEClass = createEClass(ADDITIONAL_ITEMS_SCHEMA_DEFINITION);
 		createEReference(additionalItemsSchemaDefinitionEClass, ADDITIONAL_ITEMS_SCHEMA_DEFINITION__ADDITIONAL_ITEMS);
-
-		keyValuePairEClass = createEClass(KEY_VALUE_PAIR);
-		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__KEY);
-		createEReference(keyValuePairEClass, KEY_VALUE_PAIR__VALUE);
 
 		examplesSchemaDefinitionEClass = createEClass(EXAMPLES_SCHEMA_DEFINITION);
 		createEReference(examplesSchemaDefinitionEClass, EXAMPLES_SCHEMA_DEFINITION__EXAMPLES);
@@ -2780,6 +2590,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		patternSchemaDefinitionEClass = createEClass(PATTERN_SCHEMA_DEFINITION);
 		createEAttribute(patternSchemaDefinitionEClass, PATTERN_SCHEMA_DEFINITION__PATTERN);
+		createEOperation(patternSchemaDefinitionEClass, PATTERN_SCHEMA_DEFINITION___IS_VALID_PATTERN);
 
 		keywordDefinitionEClass = createEClass(KEYWORD_DEFINITION);
 
@@ -2818,6 +2629,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		schemaSchemaDefinitionEClass = createEClass(SCHEMA_SCHEMA_DEFINITION);
 		createEAttribute(schemaSchemaDefinitionEClass, SCHEMA_SCHEMA_DEFINITION__SCHEMA);
+		createEOperation(schemaSchemaDefinitionEClass, SCHEMA_SCHEMA_DEFINITION___IS_FORMAT_URI);
 
 		propertiesSchemaDefinitionEClass = createEClass(PROPERTIES_SCHEMA_DEFINITION);
 		createEReference(propertiesSchemaDefinitionEClass, PROPERTIES_SCHEMA_DEFINITION__KEY_SCHEMA_PAIRS);
@@ -2825,11 +2637,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		propertyNamesSchemaDefinitionEClass = createEClass(PROPERTY_NAMES_SCHEMA_DEFINITION);
 		createEReference(propertyNamesSchemaDefinitionEClass, PROPERTY_NAMES_SCHEMA_DEFINITION__PROPERTY_NAMES);
-
-		arrayValueEClass = createEClass(ARRAY_VALUE);
-		createEReference(arrayValueEClass, ARRAY_VALUE__VALUE);
-
-		valueEClass = createEClass(VALUE);
 
 		typeAnyOf2EClass = createEClass(TYPE_ANY_OF2);
 		createEAttribute(typeAnyOf2EClass, TYPE_ANY_OF2__ITEMS);
@@ -2877,7 +2684,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		// Create enums
 		simpleTypesEEnum = createEEnum(SIMPLE_TYPES);
-		nullEnumEEnum = createEEnum(NULL_ENUM);
 	}
 
 	/**
@@ -2903,6 +2709,9 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		JsonMMPackage theJsonMMPackage = (JsonMMPackage)EPackage.Registry.INSTANCE.getEPackage(JsonMMPackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -2921,24 +2730,19 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		thenSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		minLengthSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		definitionsSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
-		booleanValueEClass.getESuperTypes().add(this.getValue());
 		minItemsSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		oneOfSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		maxPropertiesSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
-		nullValueEClass.getESuperTypes().add(this.getValue());
 		minimumSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
-		stringValueEClass.getESuperTypes().add(this.getValue());
 		maxItemsSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		formatSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		readOnlySchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
-		objectValueEClass.getESuperTypes().add(this.getValue());
 		typeSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		additionalPropertiesSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		elseSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		idSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		constSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		dependenciesSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
-		numberValueEClass.getESuperTypes().add(this.getValue());
 		requiredSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		descriptionSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		minPropertiesSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
@@ -2960,7 +2764,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		schemaSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		propertiesSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
 		propertyNamesSchemaDefinitionEClass.getESuperTypes().add(this.getKeywordDefinition());
-		arrayValueEClass.getESuperTypes().add(this.getValue());
 		typeAnyOf2EClass.getESuperTypes().add(this.getTypeAnyOf());
 		booleanSchemaEClass.getESuperTypes().add(this.getSchema());
 		schemaObjectAdditionalPropertiesEClass.getESuperTypes().add(this.getKeywordDefinition());
@@ -2994,6 +2797,12 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEReference(getObjectSchema_Type(), this.getTypeSchemaDefinition(), null, "type", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getObjectSchema_Enum(), this.getEnumSchemaDefinition(), null, "enum", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 		initEReference(getObjectSchema_SchemaObjectAdditionalProperties(), this.getSchemaObjectAdditionalProperties(), null, "schemaObjectAdditionalProperties", null, 0, -1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_MultipleOf(), this.getMultipleOfSchemaDefinition(), null, "multipleOf", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_MinProperties(), this.getMinPropertiesSchemaDefinition(), null, "minProperties", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_MaxProperties(), this.getMaxPropertiesSchemaDefinition(), null, "maxProperties", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_Const(), this.getConstSchemaDefinition(), null, "const", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_MinItems(), this.getMinItemsSchemaDefinition(), null, "minItems", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
+		initEReference(getObjectSchema_MaxItems(), this.getMaxItemsSchemaDefinition(), null, "maxItems", null, 0, 1, ObjectSchema.class, IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, IS_DERIVED, !IS_ORDERED);
 
 		EOperation op = initEOperation(getObjectSchema__FindSchemaByKey__String(), this.getSchema(), "findSchemaByKey", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 1, 1, !IS_UNIQUE, !IS_ORDERED);
@@ -3012,7 +2821,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEAttribute(getCommentSchemaDefinition_Comment(), ecorePackage.getEString(), "comment", null, 1, 1, CommentSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumSchemaDefinitionEClass, EnumSchemaDefinition.class, "EnumSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnumSchemaDefinition_Items(), this.getJsonDocument(), null, "items", null, 1, -1, EnumSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnumSchemaDefinition_Items(), theJsonMMPackage.getJsonDocument(), null, "items", null, 1, -1, EnumSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(uniqueItemsSchemaDefinitionEClass, UniqueItemsSchemaDefinition.class, "UniqueItemsSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUniqueItemsSchemaDefinition_UniqueItems(), ecorePackage.getEBoolean(), "uniqueItems", null, 1, 1, UniqueItemsSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3030,7 +2839,7 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEReference(getItemsSchemaDefinition_AnyOf(), this.getItemsAnyOf(), null, "anyOf", null, 1, 1, ItemsSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(defaultSchemaDefinitionEClass, DefaultSchemaDefinition.class, "DefaultSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDefaultSchemaDefinition_Default(), this.getJsonDocument(), null, "default", null, 1, 1, DefaultSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDefaultSchemaDefinition_Default(), theJsonMMPackage.getJsonDocument(), null, "default", null, 1, 1, DefaultSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(thenSchemaDefinitionEClass, ThenSchemaDefinition.class, "ThenSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getThenSchemaDefinition_Then(), this.getSchema(), null, "then", null, 1, 1, ThenSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3043,9 +2852,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		op = initEOperation(getDefinitionsSchemaDefinition__FindSchemaByKey__String(), this.getSchema(), "findSchemaByKey", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 1, 1, !IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(booleanValueEClass, BooleanValue.class, "BooleanValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBooleanValue_Value(), ecorePackage.getEBoolean(), "value", null, 1, 1, BooleanValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(minItemsSchemaDefinitionEClass, MinItemsSchemaDefinition.class, "MinItemsSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMinItemsSchemaDefinition_MinItems(), this.getNonNegativeIntegerDefault0(), null, "minItems", null, 1, 1, MinItemsSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3062,17 +2868,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEClass(maxPropertiesSchemaDefinitionEClass, MaxPropertiesSchemaDefinition.class, "MaxPropertiesSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMaxPropertiesSchemaDefinition_MaxProperties(), this.getNonNegativeInteger(), null, "maxProperties", null, 1, 1, MaxPropertiesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(nullValueEClass, NullValue.class, "NullValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNullValue_Value(), this.getNullEnum(), "value", null, 1, 1, NullValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(minimumSchemaDefinitionEClass, MinimumSchemaDefinition.class, "MinimumSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMinimumSchemaDefinition_Minimum(), ecorePackage.getEDouble(), "minimum", null, 1, 1, MinimumSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(stringValueEClass, StringValue.class, "StringValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStringValue_Value(), ecorePackage.getEString(), "value", null, 1, 1, StringValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(jsonDocumentEClass, JsonDocument.class, "JsonDocument", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getJsonDocument_Value(), this.getValue(), null, "value", null, 1, 1, JsonDocument.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(maxItemsSchemaDefinitionEClass, MaxItemsSchemaDefinition.class, "MaxItemsSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMaxItemsSchemaDefinition_MaxItems(), this.getNonNegativeInteger(), null, "maxItems", null, 1, 1, MaxItemsSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3089,9 +2886,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		addEParameter(op, ecorePackage.getEString(), "jsonPointer", 0, -1, !IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "currentIndex", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
-		initEClass(objectValueEClass, ObjectValue.class, "ObjectValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getObjectValue_Keyvaluepair(), this.getKeyValuePair(), null, "keyvaluepair", null, 0, -1, ObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(typeSchemaDefinitionEClass, TypeSchemaDefinition.class, "TypeSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTypeSchemaDefinition_AnyOf(), this.getTypeAnyOf(), null, "anyOf", null, 1, 1, TypeSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3104,17 +2898,16 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEClass(idSchemaDefinitionEClass, IdSchemaDefinition.class, "IdSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIdSchemaDefinition_Id(), ecorePackage.getEString(), "id", null, 1, 1, IdSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getIdSchemaDefinition__IsFormatUriReference(), ecorePackage.getEBoolean(), "isFormatUriReference", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(constSchemaDefinitionEClass, ConstSchemaDefinition.class, "ConstSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConstSchemaDefinition_Const(), this.getJsonDocument(), null, "const", null, 1, 1, ConstSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getConstSchemaDefinition_Const(), theJsonMMPackage.getJsonDocument(), null, "const", null, 1, 1, ConstSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dependenciesSchemaDefinitionEClass, DependenciesSchemaDefinition.class, "DependenciesSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDependenciesSchemaDefinition_Properties(), this.getSchemaObjectDependenciesProperties(), null, "properties", null, 0, -1, DependenciesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getDependenciesSchemaDefinition__FindSchemaByKey__String(), this.getSchema(), "findSchemaByKey", 0, 1, !IS_UNIQUE, !IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "key", 1, 1, !IS_UNIQUE, !IS_ORDERED);
-
-		initEClass(numberValueEClass, NumberValue.class, "NumberValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNumberValue_Value(), ecorePackage.getEDouble(), "value", null, 1, 1, NumberValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(requiredSchemaDefinitionEClass, RequiredSchemaDefinition.class, "RequiredSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRequiredSchemaDefinition_Required(), this.getStringArray(), null, "required", null, 1, 1, RequiredSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3134,12 +2927,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEClass(additionalItemsSchemaDefinitionEClass, AdditionalItemsSchemaDefinition.class, "AdditionalItemsSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAdditionalItemsSchemaDefinition_AdditionalItems(), this.getSchema(), null, "additionalItems", null, 1, 1, AdditionalItemsSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(keyValuePairEClass, KeyValuePair.class, "KeyValuePair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getKeyValuePair_Key(), ecorePackage.getEString(), "key", null, 1, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getKeyValuePair_Value(), this.getValue(), null, "value", null, 1, 1, KeyValuePair.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(examplesSchemaDefinitionEClass, ExamplesSchemaDefinition.class, "ExamplesSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getExamplesSchemaDefinition_Examples(), this.getJsonDocument(), null, "examples", null, 0, -1, ExamplesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getExamplesSchemaDefinition_Examples(), theJsonMMPackage.getJsonDocument(), null, "examples", null, 0, -1, ExamplesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ifSchemaDefinitionEClass, IfSchemaDefinition.class, "IfSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIfSchemaDefinition_If(), this.getSchema(), null, "if", null, 1, 1, IfSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3155,6 +2944,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(patternSchemaDefinitionEClass, PatternSchemaDefinition.class, "PatternSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPatternSchemaDefinition_Pattern(), ecorePackage.getEString(), "pattern", null, 1, 1, PatternSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEOperation(getPatternSchemaDefinition__IsValidPattern(), ecorePackage.getEBooleanObject(), "isValidPattern", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(keywordDefinitionEClass, KeywordDefinition.class, "KeywordDefinition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3200,6 +2991,8 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		initEClass(schemaSchemaDefinitionEClass, SchemaSchemaDefinition.class, "SchemaSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSchemaSchemaDefinition_Schema(), ecorePackage.getEString(), "schema", null, 1, 1, SchemaSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEOperation(getSchemaSchemaDefinition__IsFormatUri(), ecorePackage.getEBoolean(), "isFormatUri", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(propertiesSchemaDefinitionEClass, PropertiesSchemaDefinition.class, "PropertiesSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropertiesSchemaDefinition_KeySchemaPairs(), this.getKeySchemaPair(), null, "keySchemaPairs", null, 0, -1, PropertiesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -3208,11 +3001,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 
 		initEClass(propertyNamesSchemaDefinitionEClass, PropertyNamesSchemaDefinition.class, "PropertyNamesSchemaDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPropertyNamesSchemaDefinition_PropertyNames(), this.getSchema(), null, "propertyNames", null, 1, 1, PropertyNamesSchemaDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(arrayValueEClass, ArrayValue.class, "ArrayValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getArrayValue_Value(), this.getValue(), null, "value", null, 0, -1, ArrayValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(valueEClass, Value.class, "Value", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(typeAnyOf2EClass, TypeAnyOf2.class, "TypeAnyOf2", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTypeAnyOf2_Items(), this.getSimpleTypes(), "items", null, 1, -1, TypeAnyOf2.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3225,10 +3013,10 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		addEParameter(op, ecorePackage.getEInt(), "currentIndex", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(nonNegativeIntegerEClass, NonNegativeInteger.class, "NonNegativeInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNonNegativeInteger_Value(), ecorePackage.getEInt(), "value", null, 1, 1, NonNegativeInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNonNegativeInteger_Value(), ecorePackage.getEDouble(), "value", null, 1, 1, NonNegativeInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nonNegativeIntegerDefault0EClass, NonNegativeIntegerDefault0.class, "NonNegativeIntegerDefault0", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNonNegativeIntegerDefault0_Value(), ecorePackage.getEInt(), "value", "0", 1, 1, NonNegativeIntegerDefault0.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNonNegativeIntegerDefault0_Value(), ecorePackage.getEDouble(), "value", "0", 1, 1, NonNegativeIntegerDefault0.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(schemaObjectAdditionalPropertiesEClass, SchemaObjectAdditionalProperties.class, "SchemaObjectAdditionalProperties", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSchemaObjectAdditionalProperties_Key(), ecorePackage.getEString(), "key", null, 1, 1, SchemaObjectAdditionalProperties.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3270,9 +3058,6 @@ public class JsonMetaschemaMMPackageImpl extends EPackageImpl implements JsonMet
 		addEEnumLiteral(simpleTypesEEnum, SimpleTypes.NUMBER);
 		addEEnumLiteral(simpleTypesEEnum, SimpleTypes.OBJECT);
 		addEEnumLiteral(simpleTypesEEnum, SimpleTypes.STRING);
-
-		initEEnum(nullEnumEEnum, NullEnum.class, "NullEnum");
-		addEEnumLiteral(nullEnumEEnum, NullEnum.NULL);
 
 		// Create resource
 		createResource(eNS_URI);

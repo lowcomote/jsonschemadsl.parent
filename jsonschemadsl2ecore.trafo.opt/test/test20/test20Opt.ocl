@@ -1,7 +1,0 @@
--- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test20
-import 'http://jku.bise.at/test20'
-
-package test20
-
-endpackage
-

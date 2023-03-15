@@ -1,0 +1,8 @@
+{
+	"myFamily":{
+		"prop1":{
+			"membername":"Tom"
+		}
+	},
+	"otherProp":"something"
+}

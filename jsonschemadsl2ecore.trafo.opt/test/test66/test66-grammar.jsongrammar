@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test66">
+  <detailedGrammar>
+    <keywords xsi:type="ecore:EReference" href="test66.ecore#//Test66RootProp1TypeObject/prop1"/>
+    <keywords xsi:type="ecore:EAttribute" href="test66.ecore#//Test66RootProp1TypeString/prop1"/>
+    <keywords xsi:type="ecore:EReference" href="test66.ecore#//Test66RootProp2/prop2"/>
+    <keywords xsi:type="ecore:EReference" href="test66.ecore#//Test66RootProp3/prop3"/>
+    <keywords xsi:type="ecore:EReference" href="test66.ecore#//Test66RootProp4/prop4"/>
+    <keywords xsi:type="ecore:EReference" href="test66.ecore#//Test66RootProp5TypeObject/prop5"/>
+    <keywords xsi:type="ecore:EAttribute" href="test66.ecore#//Test66RootProp5TypeString/prop5"/>
+    <keywords xsi:type="ecore:EReference" href="test66.ecore#//Test66RootProp6/prop6"/>
+    <keywords xsi:type="ecore:EReference" href="test66.ecore#//Test66RootProp7/prop7"/>
+    <curlyBracesReferences href="test66.ecore#//Test66Root/test66Root"/>
+    <curlyBracesReferences href="test66.ecore#//Test66RootProp1TypeObject/prop1"/>
+    <curlyBracesReferences href="test66.ecore#//Test66RootProp2/prop2"/>
+    <curlyBracesReferences href="test66.ecore#//Test66RootProp3/prop3"/>
+    <curlyBracesReferences href="test66.ecore#//Test66RootProp4/prop4"/>
+    <curlyBracesReferences href="test66.ecore#//Test66RootProp5TypeObject/prop5"/>
+    <curlyBracesReferences href="test66.ecore#//Test66RootProp6/prop6"/>
+    <curlyBracesReferences href="test66.ecore#//Test66RootProp7/prop7"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMM#//ArrayValue/value"/>
+    <keyValue href="http://at.jku.bise/jsonMM#//KeyValuePair/key"/>
+    <keyValue href="test66.ecore#//Test66RootAdditionalProperties/key"/>
+    <keyValue href="test66.ecore#//Test66RootProp1AdditionalProperties/key"/>
+    <keyValue href="test66.ecore#//Test66RootProp2AdditionalProperties/key"/>
+    <keyValue href="test66.ecore#//Test66RootProp3AdditionalProperties/key"/>
+    <keyValue href="test66.ecore#//Test66RootProp4AdditionalProperties/key"/>
+    <keyValue href="test66.ecore#//Test66RootProp5AdditionalProperties/key"/>
+    <keyValue href="test66.ecore#//Test66RootProp6AdditionalProperties/key"/>
+    <keyValue href="test66.ecore#//Test66RootProp7AdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMM#//ObjectValue"/>
+    <rootEClass href="test66.ecore#//Test66Root"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>

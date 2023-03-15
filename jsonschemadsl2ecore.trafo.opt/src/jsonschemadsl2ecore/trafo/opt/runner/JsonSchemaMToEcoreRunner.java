@@ -17,13 +17,14 @@ public class JsonSchemaMToEcoreRunner implements IApplication{
 //	public final static String JSON_SCHEMA_MODEL_NAME = "shipyard2";
 //	public final static String JSON_SCHEMA_MODEL_NAME = "shipyardLike";
 //	public final static String JSON_SCHEMA_MODEL_NAME = "shipyard";
-//	public final static String JSON_SCHEMA_MODEL_NAME = "test30";
+//	public final static String JSON_SCHEMA_MODEL_NAME = "test97";
 	public final static String JSON_SCHEMA_MODEL_NAME = "testcurrentimplementation";
 	public final static String JSONSCHEMA_MODEL_EXTENSION = "jschema";
 	public final static String JSONSCHEMA_MODEL = "input/" + JSON_SCHEMA_MODEL_NAME + "." + JSONSCHEMA_MODEL_EXTENSION;
 	public final static String OUTPUT_MODEL = "output";
 	public final static String ECORE_MODEL = JSON_SCHEMA_MODEL_NAME + ".ecore";
 	public final static String JSON_GRAMMAR_MODEL = JSON_SCHEMA_MODEL_NAME + "-grammar.jsongrammar";
+	public final static String RELATED_SCHEMAS_MODEL = JSON_SCHEMA_MODEL_NAME + ".relatedSchemas";
 	public final static String TRACE_MODEL = JSON_SCHEMA_MODEL_NAME + "-trace-model.xmi";
 	
 	
@@ -33,6 +34,7 @@ public class JsonSchemaMToEcoreRunner implements IApplication{
 				getModelFile(JSONSCHEMA_MODEL),
 				getOutputModelFile(ECORE_MODEL), 
 				getOutputModelFile(JSON_GRAMMAR_MODEL), 
+				getOutputModelFile(RELATED_SCHEMAS_MODEL),
 				TRACE_MODEL);		
 		return null;
 	}

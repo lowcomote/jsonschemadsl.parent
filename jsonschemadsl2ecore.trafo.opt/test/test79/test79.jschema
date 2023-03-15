@@ -1,0 +1,17 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			"type":["integer","boolean"]
+		}, 
+		"prop2":{
+			"type":"integer"
+		}
+	},
+	"patternProperties":{
+		"^I_":{"type":"integer"}		
+	} ,
+	"additionalProperties":{"type":"integer"}
+	
+    
+}         

@@ -2,6 +2,8 @@
  */
 package jsonMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import java.util.Collection;
 
 import jsonMM.ArrayValue;
@@ -78,6 +80,49 @@ public class ArrayValueImpl extends ValueImpl implements ArrayValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean semanticEquals(final Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		if (this.getValue().size() != ((ArrayValue) obj).getValue().size())
+			return false;
+
+		for (int i = 0; i < this.getValue().size(); i++) {
+			if (!this.getValue().get(i).semanticEquals(((ArrayValue) obj).getValue().get(i))) {
+				return false;
+			}
+		}
+		return true;
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toString() {
+		String result = "[";
+		if (value != null) {
+			for (int i = 0; i < value.size(); i++) {
+				result = result.concat(value.get(i).toString());
+				if (i < value.size() - 1) {
+					result = result.concat(",");
+				}
+			}
+		}
+		result = result.concat("]");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -145,6 +190,22 @@ public class ArrayValueImpl extends ValueImpl implements ArrayValue {
 			return value != null && !value.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case JsonMMPackage.ARRAY_VALUE___SEMANTIC_EQUALS__OBJECT:
+			return semanticEquals(arguments.get(0));
+		case JsonMMPackage.ARRAY_VALUE___TO_STRING:
+			return toString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ArrayValueImpl

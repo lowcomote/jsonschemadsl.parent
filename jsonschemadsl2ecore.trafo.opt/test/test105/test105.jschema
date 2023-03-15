@@ -1,0 +1,51 @@
+{
+	"type":"object",
+	"additionalProperties": {
+		         
+        "dependencies": {
+        	"runs-on":{
+        		"type": "object",
+        		"properties": { 
+	      			"runs-on": {"type": "string"}
+				},
+         		"required":["foo"]
+        	}
+        }
+           
+            
+         
+	},
+	"patternProperties":{
+		"prop1":{
+			"dependencies":{
+				"prop1":{
+					"type": "object",
+					"properties":{
+						"prop1":{"type":"string", "minLength":3, "maxLength":5}
+					},
+					"additionalProperties":false
+				}
+				
+				
+			}
+		},
+		"prop2":{
+			"dependencies":{
+				"prop2":{
+					"type":"integer", "minimum":3, "maximum":5
+				}
+			}
+		},
+		"prop3":{
+			"dependencies":{
+				"prop3":{"type":"null"}
+			}
+		},
+		"prop4":{
+			"dependencies":{
+				"prop4":{"type":"boolean"}
+			}
+		}
+	}
+          
+}

@@ -394,29 +394,6 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.BooleanValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected BooleanValueItemProvider booleanValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jsonMetaschemaMM.BooleanValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createBooleanValueAdapter() {
-		if (booleanValueItemProvider == null) {
-			booleanValueItemProvider = new BooleanValueItemProvider(this);
-		}
-
-		return booleanValueItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.MinItemsSchemaDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -509,29 +486,6 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.NullValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NullValueItemProvider nullValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jsonMetaschemaMM.NullValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNullValueAdapter() {
-		if (nullValueItemProvider == null) {
-			nullValueItemProvider = new NullValueItemProvider(this);
-		}
-
-		return nullValueItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.MinimumSchemaDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -552,52 +506,6 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 		}
 
 		return minimumSchemaDefinitionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.StringValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StringValueItemProvider stringValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jsonMetaschemaMM.StringValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createStringValueAdapter() {
-		if (stringValueItemProvider == null) {
-			stringValueItemProvider = new StringValueItemProvider(this);
-		}
-
-		return stringValueItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.JsonDocument} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected JsonDocumentItemProvider jsonDocumentItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jsonMetaschemaMM.JsonDocument}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createJsonDocumentAdapter() {
-		if (jsonDocumentItemProvider == null) {
-			jsonDocumentItemProvider = new JsonDocumentItemProvider(this);
-		}
-
-		return jsonDocumentItemProvider;
 	}
 
 	/**
@@ -667,29 +575,6 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 		}
 
 		return readOnlySchemaDefinitionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.ObjectValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ObjectValueItemProvider objectValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jsonMetaschemaMM.ObjectValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createObjectValueAdapter() {
-		if (objectValueItemProvider == null) {
-			objectValueItemProvider = new ObjectValueItemProvider(this);
-		}
-
-		return objectValueItemProvider;
 	}
 
 	/**
@@ -831,29 +716,6 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.NumberValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NumberValueItemProvider numberValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jsonMetaschemaMM.NumberValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNumberValueAdapter() {
-		if (numberValueItemProvider == null) {
-			numberValueItemProvider = new NumberValueItemProvider(this);
-		}
-
-		return numberValueItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.RequiredSchemaDefinition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -966,29 +828,6 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 		}
 
 		return additionalItemsSchemaDefinitionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.KeyValuePair} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected KeyValuePairItemProvider keyValuePairItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jsonMetaschemaMM.KeyValuePair}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createKeyValuePairAdapter() {
-		if (keyValuePairItemProvider == null) {
-			keyValuePairItemProvider = new KeyValuePairItemProvider(this);
-		}
-
-		return keyValuePairItemProvider;
 	}
 
 	/**
@@ -1406,29 +1245,6 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.ArrayValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ArrayValueItemProvider arrayValueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link jsonMetaschemaMM.ArrayValue}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createArrayValueAdapter() {
-		if (arrayValueItemProvider == null) {
-			arrayValueItemProvider = new ArrayValueItemProvider(this);
-		}
-
-		return arrayValueItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link jsonMetaschemaMM.TypeAnyOf2} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1800,32 +1616,25 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 		if (thenSchemaDefinitionItemProvider != null) thenSchemaDefinitionItemProvider.dispose();
 		if (minLengthSchemaDefinitionItemProvider != null) minLengthSchemaDefinitionItemProvider.dispose();
 		if (definitionsSchemaDefinitionItemProvider != null) definitionsSchemaDefinitionItemProvider.dispose();
-		if (booleanValueItemProvider != null) booleanValueItemProvider.dispose();
 		if (minItemsSchemaDefinitionItemProvider != null) minItemsSchemaDefinitionItemProvider.dispose();
 		if (oneOfSchemaDefinitionItemProvider != null) oneOfSchemaDefinitionItemProvider.dispose();
 		if (schemaArrayItemProvider != null) schemaArrayItemProvider.dispose();
 		if (maxPropertiesSchemaDefinitionItemProvider != null) maxPropertiesSchemaDefinitionItemProvider.dispose();
-		if (nullValueItemProvider != null) nullValueItemProvider.dispose();
 		if (minimumSchemaDefinitionItemProvider != null) minimumSchemaDefinitionItemProvider.dispose();
-		if (stringValueItemProvider != null) stringValueItemProvider.dispose();
-		if (jsonDocumentItemProvider != null) jsonDocumentItemProvider.dispose();
 		if (maxItemsSchemaDefinitionItemProvider != null) maxItemsSchemaDefinitionItemProvider.dispose();
 		if (formatSchemaDefinitionItemProvider != null) formatSchemaDefinitionItemProvider.dispose();
 		if (readOnlySchemaDefinitionItemProvider != null) readOnlySchemaDefinitionItemProvider.dispose();
-		if (objectValueItemProvider != null) objectValueItemProvider.dispose();
 		if (typeSchemaDefinitionItemProvider != null) typeSchemaDefinitionItemProvider.dispose();
 		if (additionalPropertiesSchemaDefinitionItemProvider != null) additionalPropertiesSchemaDefinitionItemProvider.dispose();
 		if (elseSchemaDefinitionItemProvider != null) elseSchemaDefinitionItemProvider.dispose();
 		if (idSchemaDefinitionItemProvider != null) idSchemaDefinitionItemProvider.dispose();
 		if (constSchemaDefinitionItemProvider != null) constSchemaDefinitionItemProvider.dispose();
 		if (dependenciesSchemaDefinitionItemProvider != null) dependenciesSchemaDefinitionItemProvider.dispose();
-		if (numberValueItemProvider != null) numberValueItemProvider.dispose();
 		if (requiredSchemaDefinitionItemProvider != null) requiredSchemaDefinitionItemProvider.dispose();
 		if (descriptionSchemaDefinitionItemProvider != null) descriptionSchemaDefinitionItemProvider.dispose();
 		if (minPropertiesSchemaDefinitionItemProvider != null) minPropertiesSchemaDefinitionItemProvider.dispose();
 		if (patternPropertiesSchemaDefinitionItemProvider != null) patternPropertiesSchemaDefinitionItemProvider.dispose();
 		if (additionalItemsSchemaDefinitionItemProvider != null) additionalItemsSchemaDefinitionItemProvider.dispose();
-		if (keyValuePairItemProvider != null) keyValuePairItemProvider.dispose();
 		if (examplesSchemaDefinitionItemProvider != null) examplesSchemaDefinitionItemProvider.dispose();
 		if (ifSchemaDefinitionItemProvider != null) ifSchemaDefinitionItemProvider.dispose();
 		if (allOfSchemaDefinitionItemProvider != null) allOfSchemaDefinitionItemProvider.dispose();
@@ -1844,7 +1653,6 @@ public class JsonMetaschemaMMItemProviderAdapterFactory extends JsonMetaschemaMM
 		if (schemaSchemaDefinitionItemProvider != null) schemaSchemaDefinitionItemProvider.dispose();
 		if (propertiesSchemaDefinitionItemProvider != null) propertiesSchemaDefinitionItemProvider.dispose();
 		if (propertyNamesSchemaDefinitionItemProvider != null) propertyNamesSchemaDefinitionItemProvider.dispose();
-		if (arrayValueItemProvider != null) arrayValueItemProvider.dispose();
 		if (typeAnyOf2ItemProvider != null) typeAnyOf2ItemProvider.dispose();
 		if (booleanSchemaItemProvider != null) booleanSchemaItemProvider.dispose();
 		if (nonNegativeIntegerItemProvider != null) nonNegativeIntegerItemProvider.dispose();

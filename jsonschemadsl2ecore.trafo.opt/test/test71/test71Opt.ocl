@@ -1,0 +1,23 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test71
+import 'http://jku.bise.at/test71'
+
+package test71
+
+	context test71::Test71RootAdditionalProperties 
+
+	inv Test71RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test71::Test71RootAdditionalProperties 
+
+	inv Test71RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+endpackage
+

@@ -1,0 +1,9 @@
+{
+	"type": "object",
+	"properties":{
+		"prop1":{
+			"enum":[1,2,3],
+			"const":1
+		}
+	}
+}

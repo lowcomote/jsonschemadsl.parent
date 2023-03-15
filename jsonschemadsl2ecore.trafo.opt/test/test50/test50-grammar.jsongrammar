@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test50">
+  <detailedGrammar>
+    <keywords xsi:type="ecore:EAttribute" href="test50.ecore#//Test50RootName/name"/>
+    <keywords xsi:type="ecore:EAttribute" href="test50.ecore#//Test50RootCredit_card/credit_card"/>
+    <keywords xsi:type="ecore:EAttribute" href="test50.ecore#//Test50RootDependencies0Billing_address/billing_address"/>
+    <curlyBracesReferences href="test50.ecore#//Test50RootTypeObject/test50Root"/>
+    <curlyBracesReferences href="test50.ecore#//Test50RootDependencies0TypeObject/test50Root"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <bracketsReferences href="test50.ecore#//Test50RootTypeArray/test50Root"/>
+    <bracketsReferences href="test50.ecore#//Test50RootDependencies0TypeArray/test50Root"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="test50.ecore#//Test50RootAdditionalProperties/key"/>
+    <keyValue href="test50.ecore#//Test50RootDependencies0AdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
+    <rootEClass href="test50.ecore#//Test50Root"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>

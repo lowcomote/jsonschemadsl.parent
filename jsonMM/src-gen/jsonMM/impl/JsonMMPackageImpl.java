@@ -18,6 +18,7 @@ import jsonMM.Value;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -187,6 +188,24 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getStringValue__SemanticEquals__Object() {
+		return stringValueEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getStringValue__ToString() {
+		return stringValueEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getArrayValue() {
 		return arrayValueEClass;
 	}
@@ -198,6 +217,24 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 */
 	public EReference getArrayValue_Value() {
 		return (EReference) arrayValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getArrayValue__SemanticEquals__Object() {
+		return arrayValueEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getArrayValue__ToString() {
+		return arrayValueEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -223,6 +260,24 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getNullValue__SemanticEquals__Object() {
+		return nullValueEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getNullValue__ToString() {
+		return nullValueEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getNumberValue() {
 		return numberValueEClass;
 	}
@@ -234,6 +289,24 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 */
 	public EAttribute getNumberValue_Value() {
 		return (EAttribute) numberValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getNumberValue__SemanticEquals__Object() {
+		return numberValueEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getNumberValue__ToString() {
+		return numberValueEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -259,6 +332,24 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getJsonDocument__SemanticEquals__Object() {
+		return jsonDocumentEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getJsonDocument__ToString() {
+		return jsonDocumentEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getObjectValue() {
 		return objectValueEClass;
 	}
@@ -270,6 +361,24 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 */
 	public EReference getObjectValue_Keyvaluepair() {
 		return (EReference) objectValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getObjectValue__SemanticEquals__Object() {
+		return objectValueEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getObjectValue__ToString() {
+		return objectValueEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -295,8 +404,44 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getBooleanValue__SemanticEquals__Object() {
+		return booleanValueEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getBooleanValue__ToString() {
+		return booleanValueEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getValue() {
 		return valueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getValue__SemanticEquals__Object() {
+		return valueEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getValue__ToString() {
+		return valueEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -324,6 +469,24 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 	 */
 	public EReference getKeyValuePair_Value() {
 		return (EReference) keyValuePairEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getKeyValuePair__SemanticEquals__Object() {
+		return keyValuePairEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getKeyValuePair__ToString() {
+		return keyValuePairEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -366,30 +529,48 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 		// Create classes and their features
 		stringValueEClass = createEClass(STRING_VALUE);
 		createEAttribute(stringValueEClass, STRING_VALUE__VALUE);
+		createEOperation(stringValueEClass, STRING_VALUE___SEMANTIC_EQUALS__OBJECT);
+		createEOperation(stringValueEClass, STRING_VALUE___TO_STRING);
 
 		arrayValueEClass = createEClass(ARRAY_VALUE);
 		createEReference(arrayValueEClass, ARRAY_VALUE__VALUE);
+		createEOperation(arrayValueEClass, ARRAY_VALUE___SEMANTIC_EQUALS__OBJECT);
+		createEOperation(arrayValueEClass, ARRAY_VALUE___TO_STRING);
 
 		nullValueEClass = createEClass(NULL_VALUE);
 		createEAttribute(nullValueEClass, NULL_VALUE__VALUE);
+		createEOperation(nullValueEClass, NULL_VALUE___SEMANTIC_EQUALS__OBJECT);
+		createEOperation(nullValueEClass, NULL_VALUE___TO_STRING);
 
 		numberValueEClass = createEClass(NUMBER_VALUE);
 		createEAttribute(numberValueEClass, NUMBER_VALUE__VALUE);
+		createEOperation(numberValueEClass, NUMBER_VALUE___SEMANTIC_EQUALS__OBJECT);
+		createEOperation(numberValueEClass, NUMBER_VALUE___TO_STRING);
 
 		jsonDocumentEClass = createEClass(JSON_DOCUMENT);
 		createEReference(jsonDocumentEClass, JSON_DOCUMENT__VALUE);
+		createEOperation(jsonDocumentEClass, JSON_DOCUMENT___SEMANTIC_EQUALS__OBJECT);
+		createEOperation(jsonDocumentEClass, JSON_DOCUMENT___TO_STRING);
 
 		objectValueEClass = createEClass(OBJECT_VALUE);
 		createEReference(objectValueEClass, OBJECT_VALUE__KEYVALUEPAIR);
+		createEOperation(objectValueEClass, OBJECT_VALUE___SEMANTIC_EQUALS__OBJECT);
+		createEOperation(objectValueEClass, OBJECT_VALUE___TO_STRING);
 
 		booleanValueEClass = createEClass(BOOLEAN_VALUE);
 		createEAttribute(booleanValueEClass, BOOLEAN_VALUE__VALUE);
+		createEOperation(booleanValueEClass, BOOLEAN_VALUE___SEMANTIC_EQUALS__OBJECT);
+		createEOperation(booleanValueEClass, BOOLEAN_VALUE___TO_STRING);
 
 		valueEClass = createEClass(VALUE);
+		createEOperation(valueEClass, VALUE___SEMANTIC_EQUALS__OBJECT);
+		createEOperation(valueEClass, VALUE___TO_STRING);
 
 		keyValuePairEClass = createEClass(KEY_VALUE_PAIR);
 		createEAttribute(keyValuePairEClass, KEY_VALUE_PAIR__KEY);
 		createEReference(keyValuePairEClass, KEY_VALUE_PAIR__VALUE);
+		createEOperation(keyValuePairEClass, KEY_VALUE_PAIR___SEMANTIC_EQUALS__OBJECT);
+		createEOperation(keyValuePairEClass, KEY_VALUE_PAIR___TO_STRING);
 
 		// Create enums
 		nullEnumEEnum = createEEnum(NULL_ENUM);
@@ -437,21 +618,47 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 		initEAttribute(getStringValue_Value(), ecorePackage.getEString(), "value", null, 1, 1, StringValue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getStringValue__SemanticEquals__Object(), ecorePackage.getEBoolean(),
+				"semanticEquals", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "obj", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getStringValue__ToString(), ecorePackage.getEString(), "toString", 1, 1, !IS_UNIQUE,
+				!IS_ORDERED);
+
 		initEClass(arrayValueEClass, ArrayValue.class, "ArrayValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getArrayValue_Value(), this.getValue(), null, "value", null, 0, -1, ArrayValue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = initEOperation(getArrayValue__SemanticEquals__Object(), ecorePackage.getEBoolean(), "semanticEquals", 1, 1,
+				!IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "obj", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getArrayValue__ToString(), ecorePackage.getEString(), "toString", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(nullValueEClass, NullValue.class, "NullValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNullValue_Value(), this.getNullEnum(), "value", null, 1, 1, NullValue.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getNullValue__SemanticEquals__Object(), ecorePackage.getEBoolean(), "semanticEquals", 1, 1,
+				!IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "obj", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getNullValue__ToString(), ecorePackage.getEString(), "toString", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
 		initEClass(numberValueEClass, NumberValue.class, "NumberValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNumberValue_Value(), ecorePackage.getEDouble(), "value", null, 1, 1, NumberValue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getNumberValue__SemanticEquals__Object(), ecorePackage.getEBoolean(), "semanticEquals", 1,
+				1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "obj", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getNumberValue__ToString(), ecorePackage.getEString(), "toString", 1, 1, !IS_UNIQUE,
+				!IS_ORDERED);
 
 		initEClass(jsonDocumentEClass, JsonDocument.class, "JsonDocument", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -459,18 +666,45 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getJsonDocument__SemanticEquals__Object(), ecorePackage.getEBoolean(), "semanticEquals", 1,
+				1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "obj", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getJsonDocument__ToString(), ecorePackage.getEString(), "toString", 1, 1, !IS_UNIQUE,
+				!IS_ORDERED);
+
 		initEClass(objectValueEClass, ObjectValue.class, "ObjectValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getObjectValue_Keyvaluepair(), this.getKeyValuePair(), null, "keyvaluepair", null, 0, -1,
 				ObjectValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = initEOperation(getObjectValue__SemanticEquals__Object(), ecorePackage.getEBoolean(), "semanticEquals", 1,
+				1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "obj", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getObjectValue__ToString(), ecorePackage.getEString(), "toString", 1, 1, !IS_UNIQUE,
+				!IS_ORDERED);
 
 		initEClass(booleanValueEClass, BooleanValue.class, "BooleanValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanValue_Value(), ecorePackage.getEBoolean(), "value", null, 1, 1, BooleanValue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		op = initEOperation(getBooleanValue__SemanticEquals__Object(), ecorePackage.getEBoolean(), "semanticEquals", 1,
+				1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "obj", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getBooleanValue__ToString(), ecorePackage.getEString(), "toString", 1, 1, !IS_UNIQUE,
+				!IS_ORDERED);
+
 		initEClass(valueEClass, Value.class, "Value", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = initEOperation(getValue__SemanticEquals__Object(), ecorePackage.getEBoolean(), "semanticEquals", 1, 1,
+				!IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "obj", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getValue__ToString(), ecorePackage.getEString(), "toString", 1, 1, !IS_UNIQUE, !IS_ORDERED);
 
 		initEClass(keyValuePairEClass, KeyValuePair.class, "KeyValuePair", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -479,6 +713,13 @@ public class JsonMMPackageImpl extends EPackageImpl implements JsonMMPackage {
 		initEReference(getKeyValuePair_Value(), this.getValue(), null, "value", null, 1, 1, KeyValuePair.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getKeyValuePair__SemanticEquals__Object(), ecorePackage.getEBoolean(), "semanticEquals", 1,
+				1, !IS_UNIQUE, !IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "obj", 1, 1, !IS_UNIQUE, !IS_ORDERED);
+
+		initEOperation(getKeyValuePair__ToString(), ecorePackage.getEString(), "toString", 1, 1, !IS_UNIQUE,
+				!IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(nullEnumEEnum, NullEnum.class, "NullEnum");

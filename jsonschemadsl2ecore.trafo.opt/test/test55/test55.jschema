@@ -1,0 +1,7 @@
+{
+	"allOf":[
+		{"required":["prop1"]},
+		{"required":["prop2"]},
+		{"minimum":2}
+	]
+}

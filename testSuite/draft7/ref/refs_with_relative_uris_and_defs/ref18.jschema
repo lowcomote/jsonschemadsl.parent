@@ -1,0 +1,17 @@
+{
+    "$id": "http://example.com/schema-relative-uri-defs1.json",
+    "properties": {
+        "foo": {
+            "$id": "schema-relative-uri-defs2.json",
+            "definitions": {
+                "inner": {
+                    "properties": {
+                        "bar": { "type": "string" }
+                    }
+                }
+            },
+            "allOf": [ { "$ref": "#/definitions/inner" } ]
+        }
+    },
+    "allOf": [ { "$ref": "schema-relative-uri-defs2.json" } ]
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test43">
+  <detailedGrammar>
+    <keywords xsi:type="ecore:EAttribute" href="test43.ecore#//Test43RootName/name"/>
+    <keywords xsi:type="ecore:EAttribute" href="test43.ecore#//Test43RootSurname/surname"/>
+    <keywords xsi:type="ecore:EReference" href="test43.ecore#//Test43RootJobTypeObject/job"/>
+    <keywords xsi:type="ecore:EAttribute" href="test43.ecore#//Test43RootJobTypeString/job"/>
+    <keywords xsi:type="ecore:EAttribute" href="test43.ecore#//Test43RootJobRole/role"/>
+    <keywords xsi:type="ecore:EAttribute" href="test43.ecore#//Test43RootJobLevel/level"/>
+    <keywords xsi:type="ecore:EAttribute" href="test43.ecore#//Test43RootJobAdult/adult"/>
+    <keywords xsi:type="ecore:EAttribute" href="test43.ecore#//Test43RootJobScore/score"/>
+    <curlyBracesReferences href="test43.ecore#//Test43Root/test43Root"/>
+    <curlyBracesReferences href="test43.ecore#//Test43RootJobTypeObject/job"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
+    <rootEClass href="test43.ecore#//Test43Root"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>

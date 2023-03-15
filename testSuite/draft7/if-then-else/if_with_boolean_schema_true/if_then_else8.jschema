@@ -1,0 +1,5 @@
+{
+    "if": true,
+    "then": { "const": "then" },
+    "else": { "const": "else" }
+}

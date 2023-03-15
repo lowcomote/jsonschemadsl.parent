@@ -42,4 +42,12 @@ public interface PatternSchemaDefinition extends KeywordDefinition {
 	 */
 	void setPattern(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation" unique="false" required="true" ordered="false"
+	 * @generated
+	 */
+	Boolean isValidPattern();
+
 } // PatternSchemaDefinition

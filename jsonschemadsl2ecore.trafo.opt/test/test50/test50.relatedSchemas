@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test50.ecore#//Test50RootTypeObject"/>
+    <dependencies>
+      <dependencies property="credit_card">
+        <dependency href="test50.ecore#//Test50RootDependencies0"/>
+      </dependencies>
+    </dependencies>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>

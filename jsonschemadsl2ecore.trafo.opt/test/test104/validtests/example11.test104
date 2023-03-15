@@ -1,0 +1,8 @@
+{
+	"ale":{
+		"runs-on":1,
+		"bar":true
+	},
+	"prop1":"abcdefghilmn"	,
+	"prop2":4
+} 

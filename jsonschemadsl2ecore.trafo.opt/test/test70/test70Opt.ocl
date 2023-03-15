@@ -1,0 +1,47 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test70
+import 'http://jku.bise.at/test70'
+
+package test70
+
+	context test70::Test70RootAdditionalProperties 
+
+	inv Test70RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test70::Test70RootAdditionalProperties 
+
+	inv Test70RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test70::Test70RootProp1TypeInteger
+
+	inv Test70RootProp1TypeIntegerIsInteger('The value of Test70RootProp1TypeInteger.prop1 must be integer'):
+	if prop1.floor() = prop1
+	then true
+	else null
+	endif
+
+	context test70::Test70RootProp1AdditionalProperties 
+
+	inv Test70RootProp1AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test70::Test70RootProp1AdditionalProperties 
+
+	inv Test70RootProp1AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+endpackage
+

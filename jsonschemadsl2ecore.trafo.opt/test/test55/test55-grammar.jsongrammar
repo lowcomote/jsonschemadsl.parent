@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<jsongrammar:JsonGrammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:jsongrammar="http://at.jku.bise/jsongrammar/1.0" nsURI="http://jku.bise.at/test55">
+  <detailedGrammar>
+    <curlyBracesReferences href="test55.ecore#//Test55RootTypeObject/test55Root"/>
+    <curlyBracesReferences href="test55.ecore#//Test55RootAllOf0TypeObject/test55Root"/>
+    <curlyBracesReferences href="test55.ecore#//Test55RootAllOf1TypeObject/test55Root"/>
+    <curlyBracesReferences href="test55.ecore#//Test55RootAllOf2TypeObject/test55Root"/>
+    <bracketsReferences href="http://at.jku.bise/jsonMetaschemaMM#//ArrayValue/value"/>
+    <bracketsReferences href="test55.ecore#//Test55RootTypeArray/test55Root"/>
+    <bracketsReferences href="test55.ecore#//Test55RootAllOf0TypeArray/test55Root"/>
+    <bracketsReferences href="test55.ecore#//Test55RootAllOf1TypeArray/test55Root"/>
+    <bracketsReferences href="test55.ecore#//Test55RootAllOf2TypeArray/test55Root"/>
+    <keyValue href="http://at.jku.bise/jsonMetaschemaMM#//KeyValuePair/key"/>
+    <keyValue href="test55.ecore#//Test55RootAdditionalProperties/key"/>
+    <keyValue href="test55.ecore#//Test55RootAllOf0AdditionalProperties/key"/>
+    <keyValue href="test55.ecore#//Test55RootAllOf1AdditionalProperties/key"/>
+    <keyValue href="test55.ecore#//Test55RootAllOf2AdditionalProperties/key"/>
+    <curlyBracesEClass href="http://at.jku.bise/jsonMetaschemaMM#//ObjectValue"/>
+    <rootEClass href="test55.ecore#//Test55Root"/>
+  </detailedGrammar>
+</jsongrammar:JsonGrammar>

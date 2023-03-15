@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/relatedSchemas/src-gen" creationIcons="false"
+    editDirectory="/relatedSchemas.edit/src-gen" editorDirectory="/relatedSchemas.editor/src-gen"
+    modelPluginID="relatedSchemas" modelName="RelatedSchemas" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" usedGenPackages="../../jsonMM/model/jsonMM.genmodel#//jsonMM"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>relatedSchemas.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="RelatedSchemas" disposableProviderFactory="true" ecorePackage="relatedSchemas.ecore#/">
+    <genClasses ecoreClass="relatedSchemas.ecore#//RelatedSchemas">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//RelatedSchemas/enclosingschemas"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//AnyOf">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//AnyOf/anyOfs"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//EnclosingSchema">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/enclosingSchema"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/anyOf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/allOf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/oneOf"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/not"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/ifThenElse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/dependencies"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/contains"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//EnclosingSchema/constEnum"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//AllOf">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//AllOf/allOfs"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//OneOf">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//OneOf/oneOfs"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//Not">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Not/not"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//IfThenElse">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//IfThenElse/if"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//IfThenElse/then"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//IfThenElse/else"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//Dependencies">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Dependencies/dependencies"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//Contains">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Contains/contains"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//Dependency">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Dependency/dependency"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relatedSchemas.ecore#//Dependency/property"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//Enum">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Enum/enum"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relatedSchemas.ecore#//Enum/propertyName"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//Const">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//Const/const"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute relatedSchemas.ecore#//Const/propertyName"/>
+    </genClasses>
+    <genClasses ecoreClass="relatedSchemas.ecore#//ConstEnum">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//ConstEnum/enum"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference relatedSchemas.ecore#//ConstEnum/const"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

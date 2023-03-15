@@ -1,0 +1,8 @@
+{
+    "$comment": "URIs do not have to have HTTP(s) schemes",
+    "$id": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed",
+    "minimum": 30,
+    "properties": {
+        "foo": {"$ref": "urn:uuid:deadbeef-1234-ffff-ffff-4321feebdaed"}
+    }
+}

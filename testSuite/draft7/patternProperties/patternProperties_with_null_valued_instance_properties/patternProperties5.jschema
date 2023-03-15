@@ -1,0 +1,5 @@
+{
+    "patternProperties": {
+        "^.*bar$": {"type": "null"}
+    }
+}

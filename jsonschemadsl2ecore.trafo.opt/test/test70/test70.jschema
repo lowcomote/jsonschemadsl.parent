@@ -1,0 +1,18 @@
+{
+	"type":"object",
+	"properties":{
+		"prop1":{
+			
+			"allOf":[
+				{
+					"enum":[1,2,3]
+				},
+				{
+					"enum":[3,4,5]
+				}
+			]
+		}
+	}
+	
+	
+}

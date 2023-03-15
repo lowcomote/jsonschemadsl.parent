@@ -1,0 +1,10 @@
+{
+	"prop1":1,
+	"prop2"	:{
+		"foo":1
+	},
+	"prop4":{
+		"bar":null
+	},
+	"S_1":"a string"
+}

@@ -28,9 +28,25 @@ public interface ObjectValue extends Value {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Keyvaluepair</em>' containment reference list.
 	 * @see jsonMM.JsonMMPackage#getObjectValue_Keyvaluepair()
-	 * @model containment="true"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<KeyValuePair> getKeyvaluepair();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false" objUnique="false" objRequired="true" objOrdered="false"
+	 * @generated
+	 */
+	boolean semanticEquals(Object obj);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model unique="false" required="true" ordered="false"
+	 * @generated
+	 */
+	String toString();
 
 } // ObjectValue

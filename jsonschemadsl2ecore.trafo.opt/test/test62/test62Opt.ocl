@@ -1,0 +1,47 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test62
+import 'http://jku.bise.at/test62'
+
+package test62
+
+	context test62::Test62RootAdditionalProperties 
+
+	inv Test62RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test62::Test62RootAdditionalProperties 
+
+	inv Test62RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test62::Test62RootProp1TypeInteger
+
+	inv Test62RootProp1TypeIntegerIsInteger('The value of Test62RootProp1TypeInteger.prop1 must be integer'):
+	if prop1.floor() = prop1
+	then true
+	else null
+	endif
+
+	context test62::Test62RootProp1TypeString
+
+	inv Test62RootProp1MaxLength('The length of Test62RootProp1TypeString must be lower than 3.0'):
+	if prop1.size() <= 3.0
+	then true
+	else null
+	endif
+
+	context test62::Test62RootProp2
+
+	inv Test62RootProp2MaxLength('The length of Test62RootProp2 must be lower than 5.0'):
+	if prop2.size() <= 5.0
+	then true
+	else null
+	endif
+
+endpackage
+

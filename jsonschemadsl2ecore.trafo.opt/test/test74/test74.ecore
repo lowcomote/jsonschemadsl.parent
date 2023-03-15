@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test74" nsURI="http://jku.bise.at/test74" nsPrefix="test74">
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp3Items4">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items4" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp3AdditionalItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp4Items4">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items4" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74Root">
+    <eOperations name="get" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (&quot;prop1&quot;.equals(key) ){return this.getProp1();}&#xA;&#xA;if (&quot;prop2&quot;.equals(key) ){return this.getProp2();}&#xA;&#xA;if (&quot;prop3&quot;.equals(key) ){return this.getProp3();}&#xA;&#xA;if (&quot;prop4&quot;.equals(key) ){return this.getProp4();}&#xA;&#xA;java.util.List&lt;java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList&lt;java.lang.Class>();&#xA;&#xA;additionalOrPatternPropertyClasses.add(test74.Test74RootAdditionalProperties.class); &#xA;&#xA;for (Test74RootPropertiesAbstract child : this.test74Root){&#xA;&#x9;if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){&#xA;&#x9;&#x9;try{&#xA;&#x9;&#x9;&#x9;java.lang.reflect.Field keyField = child.getClass().getDeclaredField(&quot;key&quot;);&#xA;&#x9;&#x9;&#x9;if (keyField.get(child).equals(key)) {&#xA;&#x9;&#x9;&#x9;&#x9;java.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals(&quot;additionalProperties&quot;) || field.getName().startsWith(&quot;patternProperties&quot;) ).findAny().get();&#xA;&#x9;&#x9;&#x9;&#x9;return valueField.get(child);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} catch (Exception e) {&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xA;&#x9;&#x9;&#x9;throw new RuntimeException(e);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;return null;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="test74Root" upperBound="-1"
+        eType="#//Test74RootPropertiesAbstract" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" ordered="false"
+        unique="false" eType="#//Test74RootProp1Tuple" changeable="false" volatile="true"
+        transient="true" derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest74Root().stream().filter(test74.Test74RootProp1.class::isInstance).findAny().map(test74.Test74RootProp1.class::cast).map(instance->instance.getProp1()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop2" ordered="false"
+        unique="false" eType="#//Test74RootProp2Tuple" changeable="false" volatile="true"
+        transient="true" derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest74Root().stream().filter(test74.Test74RootProp2.class::isInstance).findAny().map(test74.Test74RootProp2.class::cast).map(instance->instance.getProp2()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop3" ordered="false"
+        unique="false" eType="#//Test74RootProp3Tuple" changeable="false" volatile="true"
+        transient="true" derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest74Root().stream().filter(test74.Test74RootProp3.class::isInstance).findAny().map(test74.Test74RootProp3.class::cast).map(instance->instance.getProp3()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop4" ordered="false"
+        unique="false" eType="#//Test74RootProp4Tuple" changeable="false" volatile="true"
+        transient="true" derived="true" resolveProxies="false">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="suppressedIsSetVisibility" value="true"/>
+        <details key="suppressedUnsetVisibility" value="true"/>
+        <details key="suppressedSetVisibility" value="true"/>
+        <details key="notify" value="false"/>
+        <details key="property" value="Readonly"/>
+        <details key="get" value="return this.getTest74Root().stream().filter(test74.Test74RootProp4.class::isInstance).findAny().map(test74.Test74RootProp4.class::cast).map(instance->instance.getProp4()).orElse(null);"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp1" eSuperTypes="#//Test74RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop1" lowerBound="1" eType="#//Test74RootProp1Tuple"
+        containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop1"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp1Items0">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items0" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp1Items1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items1" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp1Items2">
+    <eAnnotations source="Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp1Items3">
+    <eAnnotations source="Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items3" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp2" eSuperTypes="#//Test74RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop2" lowerBound="1" eType="#//Test74RootProp2Tuple"
+        containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop2"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp2Items0">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items0" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp2Items1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items1" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp2Items2">
+    <eAnnotations source="Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp2Items3">
+    <eAnnotations source="Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items3" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp2AdditionalItems">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="additionalItems" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp3" eSuperTypes="#//Test74RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop3" lowerBound="1" eType="#//Test74RootProp3Tuple"
+        containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop3"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp3Items0">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items0" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp3Items1">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="items1" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp3Items2">
+    <eAnnotations source="Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp3Items3">
+    <eAnnotations source="Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items3" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp4" eSuperTypes="#//Test74RootPropertiesAbstract">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prop4" lowerBound="1" eType="#//Test74RootProp4Tuple"
+        containment="true">
+      <eAnnotations source="Keyword">
+        <details key="Keyword" value="prop4"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp4Items0">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items0" upperBound="-1"
+        eType="#//Test74RootProp4Items0Items" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp4Items1">
+    <eOperations name="get" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="java.util.List&lt;java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList&lt;java.lang.Class>();&#xA;&#xA;additionalOrPatternPropertyClasses.add(test74.Test74RootProp4Items1AdditionalProperties.class); &#xA;&#xA;for (Test74RootProp4Items1PropertiesAbstract child : this.items1){&#xA;&#x9;if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){&#xA;&#x9;&#x9;try{&#xA;&#x9;&#x9;&#x9;java.lang.reflect.Field keyField = child.getClass().getDeclaredField(&quot;key&quot;);&#xA;&#x9;&#x9;&#x9;if (keyField.get(child).equals(key)) {&#xA;&#x9;&#x9;&#x9;&#x9;java.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals(&quot;additionalProperties&quot;) || field.getName().startsWith(&quot;patternProperties&quot;) ).findAny().get();&#xA;&#x9;&#x9;&#x9;&#x9;return valueField.get(child);&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} catch (Exception e) {&#xA;&#x9;&#x9;&#x9;e.printStackTrace();&#xA;&#x9;&#x9;&#x9;throw new RuntimeException(e);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;return null;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items1" upperBound="-1"
+        eType="#//Test74RootProp4Items1PropertiesAbstract" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp4Items2">
+    <eAnnotations source="Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp4Items3">
+    <eAnnotations source="Enum"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items3" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp1Tuple">
+    <eAnnotations source="Tuple"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items0" eType="#//Test74RootProp1Items0"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items1" eType="#//Test74RootProp1Items1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" eType="#//Test74RootProp1Items2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items3" eType="#//Test74RootProp1Items3"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" upperBound="-1"
+        eType="#//Test74RootProp1AdditionalItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp1AdditionalItems">
+    <eAnnotations source="AdditionalItems"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp2Tuple">
+    <eAnnotations source="Tuple"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items0" eType="#//Test74RootProp2Items0"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items1" eType="#//Test74RootProp2Items1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" eType="#//Test74RootProp2Items2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items3" eType="#//Test74RootProp2Items3"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" upperBound="-1"
+        eType="#//Test74RootProp2AdditionalItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp3Tuple">
+    <eAnnotations source="Tuple"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items0" eType="#//Test74RootProp3Items0"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items1" eType="#//Test74RootProp3Items1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" eType="#//Test74RootProp3Items2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items3" eType="#//Test74RootProp3Items3"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items4" eType="#//Test74RootProp3Items4"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalItems" upperBound="-1"
+        eType="#//Test74RootProp3AdditionalItems" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp4Tuple">
+    <eAnnotations source="Tuple"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items0" eType="#//Test74RootProp4Items0"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items1" eType="#//Test74RootProp4Items1"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items2" eType="#//Test74RootProp4Items2"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items3" eType="#//Test74RootProp4Items3"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items4" eType="#//Test74RootProp4Items4"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootPropertiesAbstract" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootAdditionalProperties" eSuperTypes="#//Test74RootPropertiesAbstract">
+    <eAnnotations source="AdditionalProperties">
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this.key.equals(&quot;prop1&quot;)){return &quot;prop1&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop2&quot;)){return &quot;prop2&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop3&quot;)){return &quot;prop3&quot;;}&#xA;&#xA;if (this.key.equals(&quot;prop4&quot;)){return &quot;prop4&quot;;}&#xA;&#xA;return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp4Items0Items">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp4Items1PropertiesAbstract"
+      abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Test74RootProp4Items1AdditionalProperties"
+      eSuperTypes="#//Test74RootProp4Items1PropertiesAbstract">
+    <eAnnotations source="AdditionalProperties">
+      <details key="AdditionalProperties" value="true"/>
+    </eAnnotations>
+    <eOperations name="validateKeyOnDefinedPatternProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eOperations name="validateKeyOnDefinedProperties" ordered="false" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return null;&#xA;&#xA;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="additionalProperties" lowerBound="1"
+        eType="ecore:EClass http://at.jku.bise/jsonMM#//JsonDocument" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

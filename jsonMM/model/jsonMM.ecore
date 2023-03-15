@@ -2,31 +2,133 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="jsonMM" nsURI="http://at.jku.bise/jsonMM" nsPrefix="jsonMM">
   <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="#//Value">
+    <eOperations name="semanticEquals" ordered="false" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.getValue().equals(((StringValue)obj).getValue());"/>
+      </eAnnotations>
+      <eParameters name="obj" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="toString" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return  this.value;"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ArrayValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" upperBound="-1"
-        eType="#//Value" containment="true"/>
+    <eOperations name="semanticEquals" ordered="false" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;if (this.getValue().size() != ((ArrayValue) obj).getValue().size())&#xA;&#x9;return false;&#xA;&#x9;&#x9;&#xA;for (int i=0; i&lt;this.getValue().size();i++) {&#xA;&#x9;if(!this.getValue().get(i).semanticEquals(((ArrayValue) obj).getValue().get(i))) {&#xA;&#x9;&#x9;return false;&#xA;&#x9;}&#xA;}&#xA;return true;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="obj" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="toString" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="String result =&quot;[&quot;;&#xA;if(value!=null){&#xA;&#x9;for (int i=0; i&lt;value.size(); i++){&#xA;&#x9;&#x9;result=result.concat(value.get(i).toString());&#xA;&#x9;&#x9;if(i&lt;value.size()-1){&#xA;&#x9;&#x9;&#x9;result=result.concat(&quot;,&quot;);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;result=result.concat(&quot;]&quot;);&#xA;return result;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" ordered="false"
+        upperBound="-1" eType="#//Value" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NullValue" eSuperTypes="#//Value">
+    <eOperations name="semanticEquals" ordered="false" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.getValue().equals(((NullValue)obj).getValue());"/>
+      </eAnnotations>
+      <eParameters name="obj" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="toString" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return &quot;null&quot;;"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="#//NullEnum"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NumberValue" eSuperTypes="#//Value">
+    <eOperations name="semanticEquals" ordered="false" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.getValue()==((NumberValue) obj).getValue();"/>
+      </eAnnotations>
+      <eParameters name="obj" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="toString" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return &quot;&quot;+this.value;"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JsonDocument">
+    <eOperations name="semanticEquals" ordered="false" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.getValue().semanticEquals(((JsonDocument)obj).getValue());"/>
+      </eAnnotations>
+      <eParameters name="obj" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="toString" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return this.value.toString();"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Value"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectValue" eSuperTypes="#//Value">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="keyvaluepair" upperBound="-1"
-        eType="#//KeyValuePair" containment="true"/>
+    <eOperations name="semanticEquals" ordered="false" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;if (this.getKeyvaluepair().size() != ((ObjectValue) obj).getKeyvaluepair().size())&#xA;&#x9;return false;&#xA;&#x9;&#x9;&#xA;for(KeyValuePair thisKeyValuePair:this.getKeyvaluepair()) {&#xA;&#x9;boolean found = false;&#xA;&#x9;for(KeyValuePair objectKeyValuePair:((ObjectValue) obj).getKeyvaluepair()) {&#xA;&#x9;&#x9;if(thisKeyValuePair.semanticEquals(objectKeyValuePair)) {&#xA;&#x9;&#x9;&#x9;found=true;&#xA;&#x9;&#x9;&#x9;break;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;if(!found) return false;&#xA;}&#xA;return true;&#xA;"/>
+      </eAnnotations>
+      <eParameters name="obj" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="toString" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="String result =&quot;{&quot;;&#xA;if(keyvaluepair!=null){&#xA;&#x9;for (int i=0; i&lt;keyvaluepair.size(); i++){&#xA;&#x9;&#x9;result=result.concat(keyvaluepair.get(i).toString());&#xA;&#x9;&#x9;if(i&lt;keyvaluepair.size()-1){&#xA;&#x9;&#x9;&#x9;result=result.concat(&quot;,&quot;);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;}&#xA;result=result.concat(&quot;}&quot;);&#xA;return result;"/>
+      </eAnnotations>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="keyvaluepair" ordered="false"
+        upperBound="-1" eType="#//KeyValuePair" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanValue" eSuperTypes="#//Value">
+    <eOperations name="semanticEquals" ordered="false" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this == obj)&#xA;&#x9;&#x9;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.isValue()==((BooleanValue)obj).isValue();"/>
+      </eAnnotations>
+      <eParameters name="obj" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="toString" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return &quot;&quot;+this.value;"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true">
+    <eOperations name="semanticEquals" ordered="false" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="obj" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="toString" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="KeyValuePair">
+    <eOperations name="semanticEquals" ordered="false" unique="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="if (this == obj)&#xA;&#x9;return true;&#xA;if (obj == null)&#xA;&#x9;return false;&#xA;if (getClass() != obj.getClass())&#xA;&#x9;return false;&#xA;return this.getKey().equals(((KeyValuePair)obj).getKey()) &amp;&amp; this.getValue().semanticEquals(((KeyValuePair)obj).getValue());"/>
+      </eAnnotations>
+      <eParameters name="obj" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+    <eOperations name="toString" ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="body" value="return this.key+&quot;:&quot;+this.value.toString();"/>
+      </eAnnotations>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//Value"
         containment="true"/>

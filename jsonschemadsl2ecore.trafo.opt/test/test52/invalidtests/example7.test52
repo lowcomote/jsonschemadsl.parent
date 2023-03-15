@@ -1,0 +1,15 @@
+{
+	"prop1":1.0,
+	"prop2"	:{
+		"foo":1,
+		"baz":true
+	},
+	"prop4":{
+		"bar":null,
+		"prop5":1,
+		"prop6":true
+	},
+	"S_1":"a string",
+	"S_2":"other string" 
+	
+}

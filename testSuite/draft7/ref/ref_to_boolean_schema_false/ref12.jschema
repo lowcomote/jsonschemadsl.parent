@@ -1,0 +1,6 @@
+{
+    "allOf": [{ "$ref": "#/definitions/bool" }],
+    "definitions": {
+        "bool": false
+    }
+}

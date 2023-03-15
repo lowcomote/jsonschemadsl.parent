@@ -1,0 +1,16 @@
+{
+	"family":{
+		"personalInfo":{
+			 "name":"john",
+			"surname":"doe"
+		},
+		"professionalInfo":{
+			"job":"engineer",
+			"level":1
+		},
+		"mother":"Peppina",
+		"grandparent":"peppinella"
+	},
+	"telephone":"05040404",
+	"country":"Italia"
+}

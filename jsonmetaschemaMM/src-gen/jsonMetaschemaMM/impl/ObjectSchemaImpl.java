@@ -10,6 +10,7 @@ import jsonMetaschemaMM.AdditionalItemsSchemaDefinition;
 import jsonMetaschemaMM.AdditionalPropertiesSchemaDefinition;
 import jsonMetaschemaMM.AllOfSchemaDefinition;
 import jsonMetaschemaMM.AnyOfSchemaDefinition;
+import jsonMetaschemaMM.ConstSchemaDefinition;
 import jsonMetaschemaMM.ContainsSchemaDefinition;
 import jsonMetaschemaMM.DefinitionsSchemaDefinition;
 import jsonMetaschemaMM.DependenciesSchemaDefinition;
@@ -19,6 +20,11 @@ import jsonMetaschemaMM.IfSchemaDefinition;
 import jsonMetaschemaMM.ItemsSchemaDefinition;
 import jsonMetaschemaMM.JsonMetaschemaMMPackage;
 import jsonMetaschemaMM.KeywordDefinition;
+import jsonMetaschemaMM.MaxItemsSchemaDefinition;
+import jsonMetaschemaMM.MaxPropertiesSchemaDefinition;
+import jsonMetaschemaMM.MinItemsSchemaDefinition;
+import jsonMetaschemaMM.MinPropertiesSchemaDefinition;
+import jsonMetaschemaMM.MultipleOfSchemaDefinition;
 import jsonMetaschemaMM.NotSchemaDefinition;
 import jsonMetaschemaMM.ObjectSchema;
 import jsonMetaschemaMM.OneOfSchemaDefinition;
@@ -70,6 +76,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getType <em>Type</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getEnum <em>Enum</em>}</li>
  *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getSchemaObjectAdditionalProperties <em>Schema Object Additional Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMultipleOf <em>Multiple Of</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMinProperties <em>Min Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMaxProperties <em>Max Properties</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getConst <em>Const</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMinItems <em>Min Items</em>}</li>
+ *   <li>{@link jsonMetaschemaMM.impl.ObjectSchemaImpl#getMaxItems <em>Max Items</em>}</li>
  * </ul>
  *
  * @generated
@@ -323,6 +335,121 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 	 * @generated
 	 */
 	@Override
+	public MultipleOfSchemaDefinition getMultipleOf() {
+		return (MultipleOfSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MultipleOfSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMultipleOf(MultipleOfSchemaDefinition newMultipleOf) {
+		// TODO: implement this method to set the 'Multiple Of' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MinPropertiesSchemaDefinition getMinProperties() {
+		return (MinPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MinPropertiesSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinProperties(MinPropertiesSchemaDefinition newMinProperties) {
+		// TODO: implement this method to set the 'Min Properties' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MaxPropertiesSchemaDefinition getMaxProperties() {
+		return (MaxPropertiesSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MaxPropertiesSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxProperties(MaxPropertiesSchemaDefinition newMaxProperties) {
+		// TODO: implement this method to set the 'Max Properties' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ConstSchemaDefinition getConst() {
+		return (ConstSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof ConstSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MinItemsSchemaDefinition getMinItems() {
+		return (MinItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MinItemsSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMinItems(MinItemsSchemaDefinition newMinItems) {
+		// TODO: implement this method to set the 'Min Items' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MaxItemsSchemaDefinition getMaxItems() {
+		return (MaxItemsSchemaDefinition) getKeywordDefinition().stream().filter(kd -> kd instanceof MaxItemsSchemaDefinition).findFirst().orElse(null);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setMaxItems(MaxItemsSchemaDefinition newMaxItems) {
+		// TODO: implement this method to set the 'Max Items' reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Schema findSchemaByKey(final String key) {
 		return getSchemaObjectAdditionalProperties().stream().filter(s -> key.equals(s.getKey())).findFirst().map(SchemaObjectAdditionalProperties::getAdditionalProperties).orElse(null);
 	}
@@ -356,22 +483,22 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				nextSchema = getContains().getContains();
 			}else if ("definitions".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getDefinitions().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
+					nextSchema = getDefinitions().findSchemaByKey(jsonPointer.get(nextIndex));
 					nextIndex++;
 				}
 			}else if ("properties".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getProperties().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
+					nextSchema = getProperties().findSchemaByKey(jsonPointer.get(nextIndex));
 					nextIndex++;
 				}
 			}else if ("patternProperties".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getPatternProperties().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
+					nextSchema = getPatternProperties().findSchemaByKey(jsonPointer.get(nextIndex));
 					nextIndex++;
 				}
 			}else if ("dependencies".equals(currentToken)) {
 				if(nextIndex <jsonPointer.size()) {
-					nextSchema = getDependencies().findSchemaByKey("\""+jsonPointer.get(nextIndex)+"\"");
+					nextSchema = getDependencies().findSchemaByKey(jsonPointer.get(nextIndex));
 					nextIndex++;
 				}
 			}else if ("propertyNames".equals(currentToken)) {
@@ -468,6 +595,18 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getEnum();
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES:
 				return getSchemaObjectAdditionalProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
+				return getMultipleOf();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_PROPERTIES:
+				return getMinProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
+				return getMaxProperties();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__CONST:
+				return getConst();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_ITEMS:
+				return getMinItems();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_ITEMS:
+				return getMaxItems();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -485,6 +624,21 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				getKeywordDefinition().clear();
 				getKeywordDefinition().addAll((Collection<? extends KeywordDefinition>)newValue);
 				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
+				setMultipleOf((MultipleOfSchemaDefinition)newValue);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_PROPERTIES:
+				setMinProperties((MinPropertiesSchemaDefinition)newValue);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
+				setMaxProperties((MaxPropertiesSchemaDefinition)newValue);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_ITEMS:
+				setMinItems((MinItemsSchemaDefinition)newValue);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_ITEMS:
+				setMaxItems((MaxItemsSchemaDefinition)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -499,6 +653,21 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 		switch (featureID) {
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__KEYWORD_DEFINITION:
 				getKeywordDefinition().clear();
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
+				setMultipleOf((MultipleOfSchemaDefinition)null);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_PROPERTIES:
+				setMinProperties((MinPropertiesSchemaDefinition)null);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
+				setMaxProperties((MaxPropertiesSchemaDefinition)null);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_ITEMS:
+				setMinItems((MinItemsSchemaDefinition)null);
+				return;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_ITEMS:
+				setMaxItems((MaxItemsSchemaDefinition)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -554,6 +723,18 @@ public class ObjectSchemaImpl extends SchemaImpl implements ObjectSchema {
 				return getEnum() != null;
 			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__SCHEMA_OBJECT_ADDITIONAL_PROPERTIES:
 				return !getSchemaObjectAdditionalProperties().isEmpty();
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MULTIPLE_OF:
+				return getMultipleOf() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_PROPERTIES:
+				return getMinProperties() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_PROPERTIES:
+				return getMaxProperties() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__CONST:
+				return getConst() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MIN_ITEMS:
+				return getMinItems() != null;
+			case JsonMetaschemaMMPackage.OBJECT_SCHEMA__MAX_ITEMS:
+				return getMaxItems() != null;
 		}
 		return super.eIsSet(featureID);
 	}

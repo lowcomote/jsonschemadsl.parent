@@ -1,0 +1,18 @@
+{
+	"prop1":"something",
+	"prop2":3,
+	"prop3":3.444,
+	"prop4":{"someKey":"some string"},
+	"prop5":{
+		"prop6":"something"
+	},
+	"prop6":{
+		"zzzzaazzz":"string ok",
+		"other":["whatever",{}]
+	},
+	"ale":true,
+	"zzzaaaaaleaa":true,
+	"other":{},
+	"aleale":false,
+	"P_1":["starting with P_ always match the other pattern P",22]
+}       

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<relatedSchemas:RelatedSchemas xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:relatedSchemas="http://at.jku.bise/relatedSchemas">
+  <enclosingschemas>
+    <enclosingSchema href="test71.ecore#//Test71RootProp1"/>
+    <constEnum>
+      <enum propertyName="prop1">
+        <enum href="../input/test71.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0/@items.0"/>
+        <enum href="../input/test71.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0/@items.1"/>
+        <enum href="../input/test71.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.0/@items.2"/>
+      </enum>
+      <const propertyName="prop1">
+        <const href="../input/test71.jschema#//@schema/@keywordDefinition.1/@keySchemaPairs.0/@value/@keywordDefinition.1/@const"/>
+      </const>
+    </constEnum>
+  </enclosingschemas>
+</relatedSchemas:RelatedSchemas>

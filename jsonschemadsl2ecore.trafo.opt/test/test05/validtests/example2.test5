@@ -1,0 +1,18 @@
+{
+	"wives":{
+		"prop1":{
+			"prop2":{
+				"membername":"Tata",
+				"relativekind":"Auntie"
+			}
+		}
+	},
+	"extraFamilies":[
+		{
+			"prop3":{
+				"membername":"Tata2",
+				"relativekind": "other aunt"
+			}
+		}
+	]
+}

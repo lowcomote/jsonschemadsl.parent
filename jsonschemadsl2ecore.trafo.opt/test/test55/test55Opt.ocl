@@ -1,0 +1,103 @@
+-- OCL contraints for /Users/aless/git/jsonschemadsl.parent/jsonschemadsl2ecore.trafo.opt/input/test55
+import 'http://jku.bise.at/test55'
+
+package test55
+
+	context test55::Test55RootAdditionalProperties 
+
+	inv Test55RootAdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test55::Test55RootAdditionalProperties 
+
+	inv Test55RootAdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test55::Test55RootAllOf0AdditionalProperties 
+
+	inv Test55RootAllOf0AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test55::Test55RootAllOf0AdditionalProperties 
+
+	inv Test55RootAllOf0AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test55::Test55RootAllOf1AdditionalProperties 
+
+	inv Test55RootAllOf1AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test55::Test55RootAllOf1AdditionalProperties 
+
+	inv Test55RootAllOf1AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test55::Test55RootAllOf2AdditionalProperties 
+
+	inv Test55RootAllOf2AdditionalPropertiesValidatorOnProperties (' key can not be equals to a defined property'):
+	if  self.validateKeyOnDefinedProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test55::Test55RootAllOf2AdditionalProperties 
+
+	inv Test55RootAllOf2AdditionalPropertiesValidatorOnPatternProperties (' key can not match the patterns of the defined pattern properties'):
+	if  self.validateKeyOnDefinedPatternProperties().oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test55::Test55RootAllOf2TypeInteger
+
+	inv Test55RootAllOf2Minimum('The value of Test55RootAllOf2TypeInteger must be greater or equal than 2.0'):
+	if test55Root >= 2.0
+	then true
+	else null
+	endif
+
+	context test55::Test55RootAllOf2TypeNumber
+
+	inv Test55RootAllOf2Minimum('The value of Test55RootAllOf2TypeNumber must be greater or equal than 2.0'):
+	if test55Root >= 2.0
+	then true
+	else null
+	endif
+
+	context test55::Test55RootAllOf0TypeObject 
+
+	inv Test55RootAllOf0TypeObjectRequiredprop1 ('Test55RootAllOf0TypeObject requires the property prop1'):
+	if  not self.get('prop1').oclIsUndefined()
+	then true
+	else null
+	endif
+
+	context test55::Test55RootAllOf1TypeObject 
+
+	inv Test55RootAllOf1TypeObjectRequiredprop2 ('Test55RootAllOf1TypeObject requires the property prop2'):
+	if  not self.get('prop2').oclIsUndefined()
+	then true
+	else null
+	endif
+
+endpackage
+

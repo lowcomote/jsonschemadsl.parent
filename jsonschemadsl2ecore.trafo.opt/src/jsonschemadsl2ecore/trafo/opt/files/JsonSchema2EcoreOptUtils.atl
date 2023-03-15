@@ -2,47 +2,92 @@
 
 library JsonSchema2EcoreOptUtils;
 
---Keywords
+helper def: INTEGER_VALIDATION_METHOD: String = 'validateIsInteger';
+
+
+helper def: ARRAY_OF_TYPES: String = 'ArrayOfTypes';
+helper def: TYPE: String = 'Type';
+helper def: ADDITIONAL_PROPERTIES: String =  'AdditionalProperties';
+helper def: PATTERN_PROPERTIES: String ='PatternProperties';
+helper def: KEYWORD: String ='Keyword';
+helper def: ENUM: String ='Enum';
+helper def: CONST: String ='Const';
+helper def: TITLE: String ='Title';
+helper def: DESCRIPTION: String ='Description';
+helper def: COMMENT: String ='Comment';
+helper def: SCHEMA_SCHEMA: String ='Schema';
+helper def: ID_SCHEMA: String ='Id';
+helper def: READ_ONLY: String ='ReadOnly';
+helper def: WRITE_ONLY: String ='WriteOnly';
+helper def: DEFAULT: String ='Default';
+helper def: EXAMPLE: String ='Examples';
+helper def: ADDITIONAL_ITEMS: String ='AdditionalItems';
+helper def: TUPLE : String ='Tuple';
+
+
+
+
+---Keywords
 helper def: keywords : Sequence(Ecore!EStructuralFeature) = Sequence{};
 
---Curly Braces EReferences
+---Curly Braces EReferences
 helper def: curlyBracesEReferences : Sequence(Ecore!EReferece) = Sequence{};
 
---Brackets EReferences
-helper def: bracketsEReferences : Sequence(Ecore!EReferece) = Sequence{JSchemaMM!ArrayValue.getEStructuralFeature('value')};
+---Brackets EReferences
+--helper def: bracketsEReferences : Sequence(Ecore!EReferece) = Sequence{JSchemaMM!ArrayValue.getEStructuralFeature('value')};
+helper def: bracketsEReferences : Sequence(Ecore!EReferece) = Sequence{JsonMM!ArrayValue.getEStructuralFeature('value')};
 
---Brackets EReferences
-helper def: keyValues : Sequence(Ecore!EAttribute) = Sequence{JSchemaMM!KeyValuePair.getEStructuralFeature('key')};
+---Brackets EReferences
+--helper def: keyValues : Sequence(Ecore!EAttribute) = Sequence{JSchemaMM!KeyValuePair.getEStructuralFeature('key')};
+helper def: keyValues : Sequence(Ecore!EAttribute) = Sequence{JsonMM!KeyValuePair.getEStructuralFeature('key')};
 
---Curly Braces EClass
-helper def: curlyBracesEClass : Sequence(Ecore!EClass) = Sequence{JSchemaMM!ObjectValue};
+---Curly Braces EClass
+--helper def: curlyBracesEClass : Sequence(Ecore!EClass) = Sequence{JSchemaMM!ObjectValue};
+helper def: curlyBracesEClass : Sequence(Ecore!EClass) = Sequence{JsonMM!ObjectValue};
 
---Curly Braces EClass
+---Curly Braces EClass
 helper def: bracketsEClass : Sequence(Ecore!EClass) = Sequence{};
 
---Return Package Objects
+---Tuple EClass
+helper def: tuples : Sequence(Ecore!EClass) = Sequence{};
+
+---Return Package Objects
 helper def: packageEObjects() : Sequence(Ecore!EPackage) = Ecore!EPackage.allInstancesFrom('ecoreM');
 
---Return Package Objects
+---Return Package Objects
 helper def: allEClass() : Sequence(Ecore!EClass) = Ecore!EClass.allInstancesFrom('ecoreM');
 
---Return the root Package Object
+---Return the root Package Object
 helper def: packageRoot(): Ecore!EPackage = if (thisModule.packageEObjects().size() > 0) then
 												thisModule.packageEObjects()->first()
 											 else
 											 	OclUndefined
 											 endif;
 
---Return JsonGrammar Objects
+---Return JsonGrammar Objects
 helper def: jsonGrammarObjects() : Sequence(JsonGrammarMM!JsonGrammar) = JsonGrammarMM!JsonGrammar.allInstancesFrom('jsonGrammar');
 
---Return the root JsonGrammar Object
+---Return the root JsonGrammar Object
 helper def: jsonGrammarRoot(): JsonGrammarMM!JsonGrammar = if (thisModule.jsonGrammarObjects().size() > 0) then
 																thisModule.jsonGrammarObjects()->first()
 															 else
 															 	OclUndefined
 															 endif;
 
+
+---Return RelatedSchemas Objects
+helper def: relatedSchemasObjects() : Sequence(RelatedSchemasMM!RelatedSchemas) = RelatedSchemasMM!RelatedSchemas.allInstancesFrom('relatedSchemas');
+
+---Return the root RelatedSchemas
+helper def: relatedSchemasRoot(): RelatedSchemasMM!RelatedSchemas = if (thisModule.relatedSchemasObjects().size() > 0) then
+																thisModule.relatedSchemasObjects()->first()
+															 else
+															 	OclUndefined
+															 endif;
+
+
+---EnclosingSchemas
+helper def: enclosingSchemas : Sequence(RelatedSchemasMM!EnclosingSchema) = Sequence{};
 
 --helper def: keywordDefinitionMap : Map (String, OclAny) = ------ TODO should it be OclType????
 --	Map{
@@ -66,21 +111,38 @@ helper def: jsonGrammarRoot(): JsonGrammarMM!JsonGrammar = if (thisModule.jsonGr
 	
 helper def : scalarTypeMapping : Map(String, Ecore!EDataType) =
 	Map{
-		(#"\"string\"", Ecore!EString),
-		(#"\"integer\"", Ecore!EInt),
-		(#"\"number\"", Ecore!EDouble),
-		(#"\"boolean\"", Ecore!EBoolean)
+--		(#"\"string\"", Ecore!EString),
+----		(#"\"integer\"", Ecore!EIntegerObject),
+--		(#"\"integer\"", Ecore!EDoubleObject), ----- 1.0 is considered a valid integer in JSON Schema
+--		(#"\"number\"", Ecore!EDoubleObject),
+--		(#"\"boolean\"", Ecore!EBooleanObject)
+		-------- quotes eiminated in the enumeration
+		(#string, Ecore!EString),
+--		(#integer, Ecore!EIntegerObject),
+		(#integer, Ecore!EDoubleObject), ----- 1.0 is considered a valid integer in JSON Schema
+		(#number, Ecore!EDoubleObject),
+		(#boolean, Ecore!EBooleanObject)
 	};
 
 helper def : typeToStringMapping : Map(String, String) =
+--	Map{
+--		(#"\"string\"", 'string'),
+--		(#"\"integer\"", 'integer'),
+--		(#"\"number\"",'number'),
+--		(#"\"boolean\"", 'boolean'),
+--		(#"\"object\"", 'object'),
+--		(#"\"array\"", 'array'),
+--		(#"\"null\"", 'null')
+--	};
+-------- quotes eiminated in the enumeration
 	Map{
-		(#"\"string\"", 'string'),
-		(#"\"integer\"", 'integer'),
-		(#"\"number\"",'number'),
-		(#"\"boolean\"", 'boolean'),
-		(#"\"object\"", 'object'),
-		(#"\"array\"", 'array'),
-		(#"\"null\"", 'null')
+		(#string, 'string'),
+		(#integer, 'integer'),
+		(#number,'number'),
+		(#boolean, 'boolean'),
+		(#object, 'object'),
+		(#array, 'array'),
+		(#null, 'null')
 	};
 
 helper def: getRootName() : String = 
@@ -89,7 +151,7 @@ helper def: getRootName() : String =
 helper def: retrieveRootSchema() : JSchemaMM!Schema=
 	JSchemaMM!JsonSchema.allInstancesFrom('jschema').first().schema;	
 
----------- NEWW
+
 --- This is similar to the inv UnsolvableReference in fullvalidation.ocl
 helper context JSchemaMM!RefSchemaDefinition def: findSchemaByJsonPointer() : JSchemaMM!Schema=
 	if true =  self.isOnlyFragment() then
@@ -100,53 +162,8 @@ helper context JSchemaMM!RefSchemaDefinition def: findSchemaByJsonPointer() : JS
 		endif
 	else OclUndefined
 	endif;
------------NEWW
 
 
---helper context JSchemaMM!Schema def:findSchemaByJsonPointerFromRoot(jsonPointer:String):  JSchemaMM!Schema=
---	self.findSchemaByJsonPointer(jsonPointer.split('/'));
-
---  the initial input will be JsonSchema.schema
---helper context OclAny def: findSchemaByJsonPointer(jsonPointer:Sequence(String)): OclAny =	
---	if jsonPointer ->notEmpty() 
---	then
---		if jsonPointer.first() = '#' -- OclAny is MM!JsonSchema.schema
---			then
---				self.findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
---			else
---				let keywordDefinitionType : OclAny = thisModule.keywordDefinitionMap.get(jsonPointer.first())
---				in
---					if not keywordDefinitionType.oclIsUndefined()
---					then --In the jsonPointer navigation we are on a keywordDefinition and self is an objectschema
---						let foundKeywordDefinition : JSchemaMM!KeywordDefinition = 
---							self.keywordDefinition->select(
---								keywordDefinition | keywordDefinition.oclIsTypeOf(keywordDefinitionType)
---							)
---						in 
---							if foundKeywordDefinition.isEmpty()	
---							then OclUndefined
---							else
---								foundKeywordDefinition.first().findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
---							endif
---
---					else -- In the jsonPointer navigation we are on a key , we look for a KeySchema with that key
---						 ------ TODO (we could be on an array index, not supported yet)
---						 ------ TODO it could also be a keyValue pair , not supported yet to hold definitions
---						let foundKeySchemaPair : JSchemaMM!KeySchemaPair =
---							self.keySchemaPairs->select(keySchemaPair | keySchemaPair.key.stripFirstAndLast()=jsonPointer.first())
---						in 
---							if foundKeySchemaPair.isEmpty()
---							then OclUndefined	
---							else
---								foundKeySchemaPair.first().value.findSchemaByJsonPointer(thisModule.popFirst(jsonPointer))
---							endif
---						 
---					endif
---			endif
---		else
---		self
---	endif
---;
 
 helper  def: popFirst(jsonPointer:Sequence(String)): Sequence(String)=
 	if jsonPointer.size() = 0
@@ -186,8 +203,37 @@ helper context JSchemaMM!Schema  def : isKeySchemaPairInPatternProperties() : Bo
 		parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition) 
 	else false
 	endif;
-	
-	 
+
+
+
+helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition);
+
+
+
+helper context JSchemaMM!ObjectSchema  def : getKeyForPropertiesContainment(): String=
+	self.getKeyForPropertiesContainmentUnEncoded().encodeJavaIdentifier()
+;	
+
+helper context JSchemaMM!ObjectSchema  def : getKeyForPropertiesContainmentUnEncoded(): String=
+	if not self.properties.oclIsUndefined() then
+		if not self.properties.keySchemaPairs.containsKey(self.getKey()) then self.getKey()
+		else thisModule.buildPropertiesContainmentName(self.properties.keySchemaPairs, self.getKey(), 1)
+		endif
+	else self.getKey()
+	endif
+;	
+
+helper def:buildPropertiesContainmentName(keySchemaPairs:Sequence(JSchemaMM!KeySchemaPair), key:String, i:Integer) : String=
+	if keySchemaPairs.containsKey(key+i.toString()) then thisModule.buildPropertiesContainmentName(keySchemaPairs, key, i+1)
+	else key+i.toString()
+	endif
+;	
+
+helper context Sequence(JSchemaMM!KeySchemaPair) def: containsKey(key:String) :Boolean=
+	self->exists(keySchemaPair | keySchemaPair.key.stripFirstAndLast()=key )
+;	
+
 helper context JSchemaMM!Schema def: getKey() : String=
 let parent : OclAny = self.refImmediateComposite() in
 if parent.oclIsTypeOf(JSchemaMM!JsonSchema) then thisModule.getRootName() + 'Root'  
@@ -203,90 +249,176 @@ else
 		else
 			if parent.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition) then 'additionalProperties'
 			else
---				if parent.oclIsTypeOf(JSchemaMM!PatternPropertiesSchemaDefinition) then 'patternProperties'.concat(parent.keySchemaPairs.indexOf(self).toString())
---				else
-					if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then 'additionalItems'
+				if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then 'additionalItems'
+				else 
+					if parent.oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then 'items'
 					else 
---						if parent.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'
-						if parent.oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then 'items'
-						else 
-							if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
-							    ---- TODO change when refactoring ItemsSchemaDefinition
---								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then 'items'.concat(parent.items.indexOf(self).toString())
-								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then 'items'.concat(parent.items.indexOf(self).toString())
-								else 
-									if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition) then 'allOf'.concat(parent.items.indexOf(self).toString())
-									else
-										if  parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition) then 'anyOf'.concat(parent.items.indexOf(self).toString())
-										else
-											if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition) then 'oneOf'.concat(parent.items.indexOf(self).toString())
-											else  OclUndefined --- This case should not exist
-											endif
-										endif 
-									endif	
-									
+						if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
+						    if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then 'items'.concat(parent.items.indexOf(self).toString())
+							else 
+--								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition) then 'allOf'.concat(parent.items.indexOf(self).toString())
+								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition) 
+										or parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition)
+										or parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition)
+									then parent.refImmediateComposite().refImmediateComposite().getKey()
+								else  OclUndefined --- This case should not exist	
+--								else 
+--									if  parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition) then 'anyOf'.concat(parent.items.indexOf(self).toString())
+--									else
+--										if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition) then 'oneOf'.concat(parent.items.indexOf(self).toString())
+--										else  OclUndefined --- This case should not exist
+--										endif
+--									endif 
 								endif	
+								
+							endif	
+						else
+--							if parent.oclIsTypeOf(JSchemaMM!NotSchemaDefinition) then 'not'
+							if parent.oclIsTypeOf(JSchemaMM!NotSchemaDefinition) 
+								or parent.oclIsTypeOf(JSchemaMM!IfSchemaDefinition) 
+								or parent.oclIsTypeOf(JSchemaMM!ThenSchemaDefinition) 
+								or parent.oclIsTypeOf(JSchemaMM!ElseSchemaDefinition) 
+							then parent.refImmediateComposite().getKey()
 							else
-								if parent.oclIsTypeOf(JSchemaMM!NotSchemaDefinition) then 'not'
-								else
-									if parent.oclIsTypeOf(JSchemaMM!IfSchemaDefinition) then 'if'
-									else
-										if parent.oclIsTypeOf(JSchemaMM!ThenSchemaDefinition) then 'then'
-										else 
-											if parent.oclIsTypeOf(JSchemaMM!ElseSchemaDefinition) then 'else'
+--								if parent.oclIsTypeOf(JSchemaMM!IfSchemaDefinition) then 'if'
+--								else
+--									if parent.oclIsTypeOf(JSchemaMM!ThenSchemaDefinition) then 'then'
+--									else 
+--										if parent.oclIsTypeOf(JSchemaMM!ElseSchemaDefinition) then 'else'
+--										else 
+											if parent.oclIsTypeOf(JSchemaMM!PropertyNamesSchemaDefinition) then 'propertyNames'
 											else 
-												if parent.oclIsTypeOf(JSchemaMM!PropertyNamesSchemaDefinition) then 'propertyNames'
+												if parent.oclIsTypeOf(JSchemaMM!ContainsSchemaDefinition) then 'contains'
 												else 
-													if parent.oclIsTypeOf(JSchemaMM!ContainsSchemaDefinition) then 'contains'
-													else 
-														if parent.oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1) then 'dependencies'.concat(parent.refImmediateComposite().refImmediateComposite().properties.indexOf(parent.refImmediateComposite()).toString())
-														else OclUndefined ---- TODO  add other keywords pointing to Schema (check if are already all)
-														endif 
+													if parent.oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1) --then 'dependencies'.concat(parent.refImmediateComposite().refImmediateComposite().properties.indexOf(parent.refImmediateComposite()).toString())
+													then parent.refImmediateComposite().refImmediateComposite().refImmediateComposite().getKey()
+													else OclUndefined ---- TODO  add other keywords pointing to Schema (check if are already all)
 													endif 
-												endif
+												endif 
 											endif
-										endif
-									endif
-								endif
+--										endif
+--									endif
+--								endif
 							endif
 						endif
 					endif
---				endif		
+				endif
 			endif
 		endif 
 	endif
 endif;
 
+helper context JSchemaMM!Schema def: getRelatedSchemaKey() : String= 
+	if self.isInRelatedSchema() then
+		if self.isInCombinedSchema() then self.getCombinedSchemaKey()
+		else
+			if self.isInConditionalSchema() then self.getConditionalSchemaKey() 
+			else
+				if self.isInDependenciesSchema() then self.getDependenciesSchemaKey()
+				else
+					if self.isInContainsSchema() then self.getContainsSchemaKey()
+					else OclUndefined --- This case should not be possible
+					endif
+				endif 	
+			endif	
+		endif	
+	else OclUndefined
+	endif
+;
+
+helper context JSchemaMM!Schema def: getCombinedSchemaKey() : String= 
+	if self.isInCombinedSchema() then
+		if self.isInAllOf() then 'allOf'.concat(self.refImmediateComposite().items.indexOf(self).toString())
+		else
+			if self.isInAnyOf() then 'anyOf'.concat(self.refImmediateComposite().items.indexOf(self).toString())
+			else
+				if self.isInOneOf() then 'oneOf'.concat(self.refImmediateComposite().items.indexOf(self).toString())
+				else
+					if self.isInNot() then 'not'
+					else OclUndefined ---- This should not be possible
+					endif	
+				endif	
+			endif	
+		endif	
+	else OclUndefined
+	endif	
+;
+
+helper context JSchemaMM!Schema def: getConditionalSchemaKey() : String= 
+	if self.isInConditionalSchema() then 
+		if self.isInIf() then 'if'
+		else if self.isInThen() then 'then' 
+			else if self.isInElse() then 'else' 
+				else OclUndefined  ---- This condition should be unreachable
+				endif
+			endif
+		endif
+	else OclUndefined
+	endif
+;	
+
+helper context JSchemaMM!Schema def: getDependenciesSchemaKey() : String= 
+	if self.isInDependenciesSchema() ---then OclUndefined  ---- TODO
+	then 'dependencies'.concat(self.refImmediateComposite().refImmediateComposite().refImmediateComposite().properties.indexOf(self.refImmediateComposite().refImmediateComposite()).toString())
+	else OclUndefined
+	endif
+;
+
+helper context JSchemaMM!Schema def: getContainsSchemaKey() : String= 
+	if self.isInContainsSchema() then OclUndefined  ---- TODO
+	else OclUndefined
+	endif
+;
 
 
--- TODO complete with all the containment pointing to Schema
 helper context JSchemaMM!Schema def: getParentNode(): JSchemaMM!Schema=
 let parent : OclAny = self.refImmediateComposite() in
-if parent.oclIsTypeOf(JSchemaMM!JsonSchema) then OclUndefined --root
+if parent.oclIsTypeOf(JSchemaMM!JsonSchema) then OclUndefined ---Is the root
 else
 	if parent.oclIsTypeOf(JSchemaMM!KeySchemaPair) then
-		if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!DefinitionsSchemaDefinition) then OclUndefined -- other roots
+		if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!DefinitionsSchemaDefinition) then OclUndefined --- other roots inside "definitions"
 		else
 			--- parent.refImmediateComposite() is PropertiesSchemaDefinition or PatternPropertiesSchemaDefinition
 			--- we return the enclosing schema of the PropertiesSchemaDefinition
 			parent.refImmediateComposite().refImmediateComposite()
 		endif
 	else
-		if parent.oclIsTypeOf(JSchemaMM!SchemaObjectAdditionalProperties) then OclUndefined -- other roots
+		if parent.oclIsTypeOf(JSchemaMM!SchemaObjectAdditionalProperties) then OclUndefined --- other roots
 		else
-			if parent.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition) then parent.refImmediateComposite() -- we return the schema enclosing the AdditionalPropertiesSchemaDefinition
+			if parent.oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition) then parent.refImmediateComposite() --- we return the schema enclosing the AdditionalPropertiesSchemaDefinition
 	        else 
-	        	if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then parent.refImmediateComposite() -- we return the schema enclosing the AdditionalItemsSchemaDefinition
+	        	if parent.oclIsTypeOf(JSchemaMM!AdditionalItemsSchemaDefinition) then parent.refImmediateComposite() --- we return the schema enclosing the AdditionalItemsSchemaDefinition
 	        	else 
---	        		if parent.oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then  parent.refImmediateComposite() -- we return the schema enclosing the ItemsSchemaDefinition
-					if parent.oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then  parent.refImmediateComposite().refImmediateComposite() -- we return the schema enclosing the ItemsSchemaDefinition 
+					if parent.oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then  parent.refImmediateComposite().refImmediateComposite() --- we return the schema enclosing the ItemsSchemaDefinition 
 	        		else 
 	        			if parent.oclIsTypeOf(JSchemaMM!SchemaArray) then
---							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsSchemaDefinition) then parent.refImmediateComposite().refImmediateComposite() --we return the schema enclosing the ItemsSchemaDefinition that encloses the schema array
-							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then parent.refImmediateComposite().refImmediateComposite().refImmediateComposite()  --we return the schema enclosing the ItemsSchemaDefinition that encloses the schema array
-							else OclUndefined --add AllOfSchemaDefinition,  AnyOfSchemaDefinition, OneOfSchemaDefinition 
+							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then parent.refImmediateComposite().refImmediateComposite().refImmediateComposite()  --- we return the schema enclosing the ItemsSchemaDefinition that encloses the schema array
+							else
+								if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition) 
+										or parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition)
+										or parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition)
+								then parent.refImmediateComposite().refImmediateComposite() --- return the schema enclosing the AllOf/AnyOf/OneOf SchemaDefinition
+								else OclUndefined --- This case should not be possible
+								endif	
 							endif	
-						else OclUndefined -- -- TODO to be completed with the containmentes pointing to Schema
+						else  ---
+							if parent.refImmediateComposite().oclIsTypeOf(JSchemaMM!NotSchemaDefinition) 
+								or parent.oclIsTypeOf(JSchemaMM!NotSchemaDefinition)--- is this repeated ?? to be deleted??
+								or parent.oclIsTypeOf(JSchemaMM!IfSchemaDefinition)
+								or parent.oclIsTypeOf(JSchemaMM!ThenSchemaDefinition)
+								or parent.oclIsTypeOf(JSchemaMM!ElseSchemaDefinition)
+								or parent.oclIsTypeOf(JSchemaMM!ContainsSchemaDefinition)
+							then parent.refImmediateComposite()
+							else 
+								if parent.oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1)
+								then parent.refImmediateComposite().refImmediateComposite().refImmediateComposite()
+								else 
+									if parent.oclIsTypeOf(JSchemaMM! PropertyNamesSchemaDefinition) 
+									then parent.refImmediateComposite()
+									else OclUndefined ----This case should not be possible we considered all possible parent
+									endif
+								endif
+							endif	
 						endif
 					endif
 				endif
@@ -294,115 +426,310 @@ else
 		endif
 	endif	
 endif;
-	
-helper context JSchemaMM!Schema def: buildEClassname(): String=
-let localName : String = self.getKey().toCamelCase() in
-let parentNode: JSchemaMM!Schema = self.getParentNode() in
-if not parentNode.oclIsUndefined() then parentNode.buildEClassname().concat(localName)
-else localName
-endif; 
 
---- TODO verify the refactor with the new anyOf
+helper context Ecore!EClass def: buildEClassNameForArrayOfTypes(simpleType:JSchemaMM!SimpleTypes): String=
+	self.name.concat('Type').concat(thisModule.typeToStringMapping.get(simpleType).toCamelCase())
+;	
+
+helper context JSchemaMM!Schema def: buildEClassname(): String=
+let key : String = 	if self.isInRelatedSchema() then self.getRelatedSchemaKey()
+					else self.getKey()
+					endif
+in					
+--	let localName : String = self.getKey().toCamelCase() in
+	let localName : String = key.toCamelCase() in
+	let parentNode: JSchemaMM!Schema = self.getParentNode() in
+	if not parentNode.oclIsUndefined() then parentNode.buildEClassname().concat(localName)
+	else localName
+	endif; 
+
+helper context JSchemaMM!Schema def: buildPropertiesAbstractClassName(): String=
+	self.buildEClassname().concat('Properties'); 
+
+
+
+helper context JSchemaMM!Schema  def : isInRelatedSchema() : Boolean =
+	self.isInCombinedSchema() or self.isInConditionalSchema() or self.isInDependenciesSchema() or self.isInContainsSchema();
+
+helper context JSchemaMM!Schema  def : isInConditionalSchema() : Boolean =
+	self.isInIf() or self.isInThen() or self.isInElse();  
+	
+helper context JSchemaMM!Schema  def : isInDependenciesSchema() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!SchemaObjectDependenciesAdditionalPropertiesAnyOf1)
+;
+
+helper context JSchemaMM!Schema  def : isInContainsSchema() : Boolean =
+	false; ---- TODO	
+
+helper context JSchemaMM!Schema  def : isInCombinedSchema() : Boolean =
+	self.isInAllOf() or self.isInAnyOf() or self.isInOneOf() or self.isInNot();
+
+helper context JSchemaMM!Schema  def : isInAllOf() : Boolean =
+	self.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!AllOfSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isInAnyOf() : Boolean =
+	self.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!AnyOfSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isInOneOf() : Boolean =
+	self.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!OneOfSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isInNot() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!NotSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isInIf() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!IfSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isInThen() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!ThenSchemaDefinition);
+
+helper context JSchemaMM!Schema  def : isInElse() : Boolean =
+	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!ElseSchemaDefinition);
+
+
+
+
+helper context JSchemaMM!Schema  def : needsKeyword() : Boolean =
+	self.isKeySchemaPairInProperties() or
+		if self.isInRelatedSchema() then self.getRecursiveRelatedEnclosingSchema().isKeySchemaPairInProperties()
+		else false
+		endif
+;
+
+
+------------------
+helper context JSchemaMM!Schema  def : getRecursiveRelatedEnclosingSchema() : JSchemaMM!Schema =	
+	if self.isInRelatedSchema() 
+	then 
+		let enclosingSchema :JSchemaMM!Schema = self. getRelatedEnclosingSchema()
+		in if enclosingSchema.isInRelatedSchema() then enclosingSchema.getRecursiveRelatedEnclosingSchema()
+			else enclosingSchema
+			endif
+	else OclUndefined
+	endif
+;
+
+helper context JSchemaMM!Schema def : getRelatedEnclosingSchema() : JSchemaMM!Schema =	
+	if self.isInCombinedSchema() then 	self.getCombinedEnclosingSchema()
+	else if self.isInConditionalSchema() then self.getConditionalEnclosingSchema()
+		else if self.isInDependenciesSchema() then self.getDependenciesEnclosingSchema()
+			else if self.isInContainsSchema() then self.getContainsEnclosingSchema()
+				else OclUndefined ----- self is not in a related schemas
+				endif
+			endif	
+		endif	
+	endif	
+;
+		
+helper context JSchemaMM!Schema def : getCombinedEnclosingSchema() : JSchemaMM!Schema =		
+	if self.isInAllOf() or self.isInAnyOf() or self.isInOneOf() then self.getAllAnyOneOfEnclosingSchema()
+	else self.getNotEnclosingSchema() ---- if it is not self.isInNot() OclUndefined will be returned 
+	endif	
+;	
+	
+helper context JSchemaMM!Schema def : getConditionalEnclosingSchema() : JSchemaMM!Schema =		
+	if self.isInConditionalSchema() then self.refImmediateComposite().refImmediateComposite()
+	else OclUndefined  
+	endif	
+;		
+
+helper context JSchemaMM!Schema def : getAllAnyOneOfEnclosingSchema() : JSchemaMM!Schema =
+	if self.isInAllOf() or self.isInAnyOf() or self.isInOneOf()
+	then self.refImmediateComposite().refImmediateComposite().refImmediateComposite()
+	else OclUndefined
+	endif
+;
+
+helper context JSchemaMM!Schema def : getNotEnclosingSchema() : JSchemaMM!Schema =
+	if self.isInNot()
+	then self.refImmediateComposite().refImmediateComposite()
+	else OclUndefined
+	endif
+;
+
+helper context JSchemaMM!Schema def : getDependenciesEnclosingSchema() : JSchemaMM!Schema =
+	if self.isInDependenciesSchema()
+	then self.refImmediateComposite().refImmediateComposite().refImmediateComposite().refImmediateComposite()
+	else OclUndefined
+	endif
+;
+
+helper context JSchemaMM!Schema def : getContainsEnclosingSchema() : JSchemaMM!Schema =
+	if self.isInContainsSchema()
+	then OclUndefined ---------- TODO
+	else OclUndefined
+	endif
+;
+
+
+
+
 helper context JSchemaMM!TypeSchemaDefinition def: findSimpleType() :String=
 	if not self.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1)
 	then self.anyOf.type
 	else OclUndefined
 	endif;
---	if not self.typeAnyOf1.oclIsUndefined()
---	then self.typeAnyOf1
---	else OclUndefined
---	endif;
 
 
 
 
---------TODO move next to isKeySchemaPairInPatternProperties
-helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
-	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition);
---------TODO move nexto to buildClassName
-helper context JSchemaMM!Schema def: buildPropertiesAbstractClassName(): String=
-	self.buildEClassname().concat('Properties'); 
+
+
 
 ----"type" is present and it is a simple type (not an array of types)
-helper context JSchemaMM!ObjectSchema def: hasSimpleType(): Boolean=
-	if not self.type.oclIsUndefined()
-	then  self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-	else false
+--helper context JSchemaMM!ObjectSchema def: hasSimpleType(): Boolean=
+helper context JSchemaMM!Schema def: hasSimpleType(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then  self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+		else false
+		endif
 	endif;
 
 ----"type" is present and ( "type": "integer" or "type": "number" or "type": "boolean" or "type": "string")
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeScalar(): Boolean=
-	if not self.type.oclIsUndefined()
-	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"string\"" or self.type.anyOf.type = #"\"integer\"" or self.type.anyOf.type = #"\"number\"" or self.type.anyOf.type= #"\"boolean\""
+--helper context JSchemaMM!ObjectSchema def: hasSimpleTypeScalar(): Boolean=
+helper context JSchemaMM!Schema def: hasSimpleTypeScalar(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #string or self.type.anyOf.type = #integer or self.type.anyOf.type = #number or self.type.anyOf.type= #boolean
+			else false
+			endif
 		else false
 		endif
-	else false
 	endif;
 
 ----"type" is present and  "type": "object"  
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeObject(): Boolean=
-	if not self.type.oclIsUndefined()
-	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"object\"" 
+--helper context JSchemaMM!ObjectSchema def: hasSimpleTypeObject(): Boolean=
+helper context JSchemaMM!Schema def: hasSimpleTypeObject(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #object 
+			else false
+			endif
 		else false
 		endif
-	else false
 	endif;
 
 ----"type" is present and  "type": "array"  
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeArray(): Boolean=
-	if not self.type.oclIsUndefined()
-	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"array\"" 
+--helper context JSchemaMM!ObjectSchema def: hasSimpleTypeArray(): Boolean=
+helper context JSchemaMM!Schema def: hasSimpleTypeArray(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #array 
+			else false
+			endif
 		else false
 		endif
-	else false
 	endif;
 
 
 ----"type" is present and  "type": "null"  
-helper context JSchemaMM!ObjectSchema def: hasSimpleTypeNull(): Boolean=
-	if not self.type.oclIsUndefined()
-	then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"null\"" 
+--helper context JSchemaMM!ObjectSchema def: hasSimpleTypeNull(): Boolean=
+helper context JSchemaMM!Schema def: hasSimpleTypeNull(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #null 
+			else false
+			endif
 		else false
 		endif
-	else false
 	endif;
 
 ----"type" is present and  is and array of types : "type":[...]
-helper context JSchemaMM!ObjectSchema def: hasArrayOfTypes: Boolean=
-	if not self.type.oclIsUndefined()
-	then self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf2) 
-	else false
+--helper context JSchemaMM!ObjectSchema def: hasArrayOfTypes: Boolean=
+helper context JSchemaMM!Schema def: hasArrayOfTypes: Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if not self.type.oclIsUndefined()
+		then self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf2) 
+		else false
+		endif
 	endif;
 
 helper def: isScalar(simpleType:String) : Boolean =
-	simpleType = #"\"string\"" or simpleType = #"\"integer\"" or simpleType = #"\"number\"" or  simpleType = #"\"boolean\"";
+	simpleType = #string or simpleType = #integer or simpleType = #number or  simpleType = #boolean;
 
 ---- missing type or "type":"integer" or "type":[...,"integer",...]
-helper context JSchemaMM!ObjectSchema def: hasTypeInteger(): Boolean=
-	if self.type.oclIsUndefined() ---- it has all types
-	then true
-	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"integer\""
-		else self.type.anyOf.items.includes(#"\"integer\"")
+--helper context JSchemaMM!ObjectSchema def: hasTypeInteger(): Boolean=
+helper context JSchemaMM!Schema def: hasTypeInteger(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if self.type.oclIsUndefined() ---- it has all types
+		then true
+		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #integer
+			else self.type.anyOf.items.includes(#integer)
+			endif
 		endif
 	endif;
 
 ---- missing type or "type":"number" or "type":[...,"number",...]
-helper context JSchemaMM!ObjectSchema def: hasTypeNumber(): Boolean=
-	if self.type.oclIsUndefined() ---- it has all types
-	then true
-	else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
-		then self.type.anyOf.type = #"\"number\""
-		else self.type.anyOf.items.includes(#"\"number\"")
+--helper context JSchemaMM!ObjectSchema def: hasTypeNumber(): Boolean=
+helper context JSchemaMM!Schema def: hasTypeNumber(): Boolean=
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if self.type.oclIsUndefined() ---- it has all types
+		then true
+		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #number
+			else self.type.anyOf.items.includes(#number)
+			endif
 		endif
 	endif;
 
-helper context JSchemaMM!ObjectSchema def: hasTypeNumeric(): Boolean=
+--helper context JSchemaMM!ObjectSchema def: hasTypeNumeric(): Boolean=
+helper context JSchemaMM!Schema def: hasTypeNumeric(): Boolean=	
 	self.hasTypeInteger() or  self.hasTypeNumber();
+
+
+---- missing type or "type":"string" or "type":[...,"string",...]
+--helper context JSchemaMM!ObjectSchema def: hasTypeString(): Boolean=
+helper context JSchemaMM!Schema def: hasTypeString(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if self.type.oclIsUndefined() ---- it has all types
+		then true
+		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #string
+			else self.type.anyOf.items.includes(#string)
+			endif
+		endif
+	endif;
+
+---- missing type or "type":"object" or "type":[...,"object",...]
+--helper context JSchemaMM!ObjectSchema def: hasTypeObject(): Boolean=
+helper context JSchemaMM!Schema def: hasTypeObject(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if self.type.oclIsUndefined() ---- it has all types
+		then true
+		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #object
+			else self.type.anyOf.items.includes(#object)
+			endif
+		endif
+	endif;
+
+---- missing type or "type":"array" or "type":[...,"array",...]
+helper context JSchemaMM!Schema def: hasTypeArray(): Boolean=	
+	if self.oclIsTypeOf(JSchemaMM!BooleanSchema) then false
+	else
+		if self.type.oclIsUndefined() ---- it has all types
+		then true
+		else if self.type.anyOf.oclIsTypeOf(JSchemaMM!TypeAnyOf1) 
+			then self.type.anyOf.type = #array
+			else self.type.anyOf.items.includes(#array)
+			endif
+		endif
+	endif;
 ------------
 
 
@@ -422,10 +749,15 @@ helper context JSchemaMM!TypeSchemaDefinition def: getEDataType() : Ecore!EDataT
 
 
 helper context String def: stripFirstAndLast() : String=
-self.substring(2, self.size()-1);	
+--self.substring(2, self.size()-1);	changed because we eliminted the quotes ("") from everywhere
+self;
 
 helper context String def : toCamelCase() : String=
 	self.substring(1, 1).toUpperCase() + self.substring(2,self.size());	
+
+helper def : stripSimpleType(simpleType:JSchemaMM!SimpleTypes):String=
+	simpleType.toString().substring(2, simpleType.toString().size()).stripFirstAndLast()
+;
 
 ----------------------------
 helper context JSchemaMM!ObjectSchema def: findPatternPropertiesKeys(): Sequence(String) =
@@ -449,27 +781,232 @@ helper context JSchemaMM!PatternPropertiesSchemaDefinition def: findPatternPrope
 
 helper def: createBodyForValidateKeyOnDefinedPatternProperties(patterns:Sequence(String)) : String=
 	patterns->iterate(pattern; body: String = '' | 
-		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.find()){return '+pattern+';}\n\n')
+--		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile('+pattern+');\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.find()){return '+pattern+';}\n\n')
+		body.concat('java.util.regex.Pattern  p'+patterns.indexOf(pattern).toString()+' = java.util.regex.Pattern.compile("'+pattern.escapeJava()+'");\njava.util.regex.Matcher m'+patterns.indexOf(pattern).toString()+' = p'+patterns.indexOf(pattern).toString()+'.matcher(this.key);\nif (m'+patterns.indexOf(pattern).toString()+'.find()){return "'+pattern.escapeJava()+'";}\n\n')
 	).concat('return null;\n\n')
 ;
 
 helper def: createBodyForValidateKeyOnDefinedProperties(properties:Sequence(String)) : String=
 	properties->iterate(property; body: String = '' | 
-		body.concat('if (this.key.equals('+property+')){return '+property+';}\n\n')
+--		body.concat('if (this.key.equals('+property+')){return '+property+';}\n\n')
+		body.concat('if (this.key.equals("'+property+'")){return "'+property+'";}\n\n')
+		
 	).concat('return null;\n\n')
 ;
+
+helper context JSchemaMM!ItemsAnyOf2 def:createBodyForGetItemsNumber():String=
+	self.anyOf2.items->iterate(schema; body: String = 'int itemsNumber = 0;\n' |
+		body.concat('if(this.items'+self.anyOf2.items.indexOf(schema).toString()+'!=null) itemsNumber++;\n')
+	).concat(
+		let encosingSchema:JSchemaMM!Schema = self.refImmediateComposite().refImmediateComposite() in 
+		if not encosingSchema.additionalItems.oclIsUndefined() 
+				and encosingSchema.additionalItems.additionalItems.oclIsTypeOf(JSchemaMM!BooleanSchema)
+				and encosingSchema.additionalItems.additionalItems.value=false
+			then ''
+			else 'if(this.additionalItems!=null) itemsNumber=itemsNumber+this.additionalItems.size();\n'
+		endif	
+	).concat(
+		'return itemsNumber;\n'
+	)
+;
+
+--helper def: createGetterForDerivedAttributes(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
+--helper def: createGetterForDerivedFeaturesMappingTheKey(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
+helper def: createGetterForDerivedFeature(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
+	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
+	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().encodeJavaIdentifier().toCamelCase()+'()).orElse(null);'
+;
+
+helper def: createGetterForDerivedReference(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
+	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
+	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).orElse(null);'
+	
+;
+	
+--helper def:	createGetterForDerivedReferenceList(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =
+helper def:	createGetterForDerivedReferenceArray(propertyName:String, keySchemaPair :JSchemaMM!KeySchemaPair ) : String =	
+	let keySchemaPairEClass : Ecore!EClass = keySchemaPair.value.resolve() in
+--	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).map(instance->instance.get'+keySchemaPair.key.stripFirstAndLast().encodeJavaIdentifier().toCamelCase()+'()).orElse(new org.eclipse.emf.common.util.BasicEList<>());'
+	'return this.get'+propertyName.toCamelCase()+'().stream().filter('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::isInstance).findAny().map('+keySchemaPairEClass.getEPackage().name+'.'+keySchemaPairEClass.name+'.class::cast).orElse(null);'
+;	
+	
+	
+
+helper context Ecore!EClass def:getSimpleTypeSubClassFromRoot(simpleType:JSchemaMM!SimpleTypes): Ecore!EClass =
+	self.eReferences.get(0).getEType().subClass(simpleType)
+;
+	
+helper context Ecore!EClass def:subClass(simpleType:JSchemaMM!SimpleTypes): Ecore!EClass =
+	let subclasses : Sequence(Ecore!EClass) =
+		self.ePackage.eClassifiers->select(eClass| eClass.oclIsTypeOf(Ecore!EClass))->select(eClass | eClass.eAllSuperTypes.includes(self))->select(eClass|eClass.getEAnnotation(thisModule.ARRAY_OF_TYPES).details->exists(entrySet | entrySet.key = thisModule.ARRAY_OF_TYPES and entrySet.value = thisModule.stripSimpleType(simpleType)))
+	in
+		if subclasses.isEmpty() then OclUndefined
+		else subclasses.first()
+		endif
+;	
+
+
+--helper def: createBodyForGetKey(propertyName:String,  properties:Sequence(String) , propertiesAbstractEClass : Ecore!EClass) :String =
+helper def: createBodyForGetKey(objectSchema:JSchemaMM!ObjectSchema, propertyName:String,  properties:Sequence(String) , propertiesAbstractEClass : Ecore!EClass) :String =
+	if objectSchema.maxProperties.oclIsUndefined() or objectSchema.maxProperties.maxProperties.value.floor()<>1
+	then
+		properties->iterate(property; body: String = '' | 
+--			body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+			body.concat('if ("'+property+'".equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+		).concat('java.util.List<java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList<java.lang.Class>();\n\n' )
+		.concat(propertiesAbstractEClass.ePackage.eClassifiers->select(subClass | subClass.eAllSuperTypes.includes(propertiesAbstractEClass))
+			->select(subClass | not subClass.getEAnnotation(thisModule.ADDITIONAL_PROPERTIES).oclIsUndefined() or not subClass.getEAnnotation(thisModule.PATTERN_PROPERTIES).oclIsUndefined())
+			->iterate(additionalOrPatternPropertyClass; body: String = '' |
+				body.concat('additionalOrPatternPropertyClasses.add('+propertiesAbstractEClass.ePackage.name+'.'+additionalOrPatternPropertyClass.name+'.class); \n\n')
+				)
+--		).concat('for ('+ propertiesAbstractEClass.name + ' child : this.'+propertyName+'){\n')
+		).concat('for ('+ propertiesAbstractEClass.name + ' child : this.get'+propertyName.toCamelCase()+'()){\n')
+		.concat('\tif (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){\n')
+		.concat('\t\ttry{\n')
+		.concat('\t\t\tjava.lang.reflect.Field keyField = child.getClass().getDeclaredField("key");\n')
+--		.concat('\t\t\tif (keyField.get(child).equals(key)) {\n')
+		.concat('\t\t\tif (jku.se.atl.transformation.utils.Utils.getIdentifier(keyField.get(child).toString()).equals(key)) {\n')
+		.concat('\t\t\t\tjava.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals("additionalProperties") || field.getName().startsWith("patternProperties") ).findAny().get();\n')
+		.concat('\t\t\t\treturn valueField.get(child);\n')
+		.concat('\t\t\t}\n')
+		.concat('\t\t} catch (Exception e) {\n')
+		.concat('\t\t\te.printStackTrace();\n')
+		.concat('\t\t\tthrow new RuntimeException(e);\n')
+		.concat('\t\t}\n')
+		.concat('\t}\n')
+		.concat('}\n')
+		.concat('return null;\n')
+	else 
+		properties->iterate(property; body: String = '' | 
+--			body.concat('if ('+property+'.equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+			body.concat('if ("'+property+'".equals(key) ){return this.get'+property.stripFirstAndLast().toCamelCase()+'();}\n\n')
+		).concat('java.util.List<java.lang.Class> additionalOrPatternPropertyClasses = new java.util.ArrayList<java.lang.Class>();\n\n' )
+		.concat(propertiesAbstractEClass.ePackage.eClassifiers->select(subClass | subClass.eAllSuperTypes.includes(propertiesAbstractEClass))
+			->select(subClass | not subClass.getEAnnotation(thisModule.ADDITIONAL_PROPERTIES).oclIsUndefined() or not subClass.getEAnnotation(thisModule.PATTERN_PROPERTIES).oclIsUndefined())
+			->iterate(additionalOrPatternPropertyClass; body: String = '' |
+				body.concat('additionalOrPatternPropertyClasses.add('+propertiesAbstractEClass.ePackage.name+'.'+additionalOrPatternPropertyClass.name+'.class); \n\n')
+				)
+--		).concat(propertiesAbstractEClass.name + ' child = this.'+propertyName+';\n')
+		).concat(propertiesAbstractEClass.name + ' child = this.get'+propertyName.toCamelCase()+'();\n')
+		.concat('if (!java.util.Collections.disjoint(additionalOrPatternPropertyClasses, java.util.Arrays.asList(child.getClass().getInterfaces()))){\n')
+		.concat('\ttry{\n')
+		.concat('\t\tjava.lang.reflect.Field keyField = child.getClass().getDeclaredField("key");\n')
+--		.concat('\t\tif (keyField.get(child).equals(key)) {\n')
+		.concat('\t\t\tif (jku.se.atl.transformation.utils.Utils.getIdentifier(keyField.get(child).toString()).equals(key)) {\n')
+		.concat('\t\t\tjava.lang.reflect.Field valueField = java.util.Arrays.asList(child.getClass().getDeclaredFields()).stream().filter(field -> field.getName().equals("additionalProperties") || field.getName().startsWith("patternProperties") ).findAny().get();\n')
+		.concat('\t\t\treturn valueField.get(child);\n')
+		.concat('\t\t}\n')
+		.concat('\t} catch (Exception e) {\n')
+		.concat('\t\te.printStackTrace();\n')
+		.concat('\t\tthrow new RuntimeException(e);\n')
+		.concat('\t}\n')
+		.concat('}\n')
+		.concat('return null;\n')
+	endif
+;
+	 
+
+helper context JSchemaMM!ObjectSchema def:propertiesLowerBound(): Integer =
+if not self.minProperties.oclIsUndefined() then self.minProperties.minProperties.value.floor() else 0 endif ; 
+
+
+helper context JSchemaMM!ObjectSchema def:propertiesUpperBound(): Integer =
+if not self.maxProperties.oclIsUndefined() and self.maxProperties.maxProperties.value.floor()>0 then self.maxProperties.maxProperties.value.floor() else -1 endif ; 
+
+helper context JSchemaMM!ObjectSchema def:itemsLowerBound(): Integer =
+if not self.minItems.oclIsUndefined() then self.minItems.minItems.value.floor() else 0 endif ; 
+
+helper context JSchemaMM!ObjectSchema def:itemsUpperBound(): Integer =
+if not self.maxItems.oclIsUndefined() and self.maxItems.maxItems.value.floor()>0 then self.maxItems.maxItems.value.floor() else -1 endif ; 
+
+
+
+helper context JSchemaMM!ObjectSchema def:getEStructuralFeatureType(name:String): Ecore!EClassifier =
+	self.resolve().getEStructuralFeature(name.encodeJavaIdentifier()).getEType();
+
+
+helper context JSchemaMM!ItemsAnyOf def:toBeIgnored():Boolean=
+	let enclosingSchema:JSchemaMM!ObjectSchema  = self.refImmediateComposite().refImmediateComposite()
+	in not(
+		enclosingSchema.ref.oclIsUndefined() and
+		enclosingSchema.enum.oclIsUndefined() and 
+		enclosingSchema.const.oclIsUndefined() and 
+		enclosingSchema.hasTypeArray()
+	)
+;
+
+----- a schema is ignored if it is inside items (simple or tuble) that have to be ignored
+--helper context JSchemaMM!Schema def:toBeIgnored():Boolean=
+--	if self.refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf1) then self.refImmediateComposite().toBeIgnored()
+--	else 
+--		if  self.refImmediateComposite().oclIsTypeOf(JSchemaMM!SchemaArray) then
+--			if self.refImmediateComposite().refImmediateComposite().oclIsTypeOf(JSchemaMM!ItemsAnyOf2) then self.refImmediateComposite().refImmediateComposite().toBeIgnored()
+--			else false
+--			endif
+--		else false
+--		endif
+--	endif
+--;	
+
+
 
 ---------- OCL helpers
 
 helper def : createOclFile() : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('createOcl',Sequence{thisModule.oclFileUri, thisModule.nsURI, thisModule.packageName});
 
-helper def : appendMinimumConstraint(packageName: String, contextClass: String, inv:String, minimum: Real, propertyName : String ) : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, minimum, propertyName});
+helper def : appendMinimumConstraint(packageName: String, contextClass: String,  minimum: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  minimum, propertyName});
 
-helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, inv:String, requiredProperty: String,   requiredClassType : String, propertyName : String) : OclAny=
-	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, requiredProperty, requiredClassType, propertyName});
-	
+helper def : appendExclusiveMinimumConstraint(packageName: String, contextClass: String, exclusiveMinimum: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendExclusiveMinimumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  exclusiveMinimum, propertyName});
+
+
+
+helper def : appendMaximumConstraint(packageName: String, contextClass: String, maximum: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaximumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  maximum, propertyName});
+
+helper def : appendExclusiveMaximumConstraint(packageName: String, contextClass: String, exclusiveMaximum: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendExclusiveMaximumConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  exclusiveMaximum, propertyName});
+
+
+helper def : appendMultipleOfConstraint(packageName: String, contextClass: String,  multipleOf: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMultipleOfConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  multipleOf, propertyName});
+
+helper def : appendMinLengthConstraint(packageName: String, contextClass: String,  minLength: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinLengthConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  minLength, propertyName});
+
+helper def : appendMaxLengthConstraint(packageName: String, contextClass: String, maxLength: Real, propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxLengthConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  maxLength, propertyName});
+
+helper def : appendPatternConstraint(packageName: String, contextClass: String, regex: String) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendPatternConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  regex});
+
+helper def : appendMaxProperties0Constraint(packageName: String, contextClass: String,   propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxProperties0Constraint',Sequence{thisModule.oclFileUri, packageName, contextClass, propertyName});
+
+helper def : appendMaxItems0Constraint(packageName: String, contextClass: String,   propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxItems0Constraint',Sequence{thisModule.oclFileUri, packageName, contextClass, propertyName});
+
+
+helper def : appendMaxItemsTupleConstraint(packageName: String, contextClass: String,   maxItems: Real ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMaxItemsTupleConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, maxItems});
+
+
+helper def : appendMinItemsTupleConstraint(packageName: String, contextClass: String,   minItems: Real ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendMinItemsTupleConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, minItems});
+
+
+
+helper def : appendIntegerConstraint(packageName: String, contextClass: String,   propertyName : String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendIntegerConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,   propertyName});
+
+
+
+
+helper def : appendRequiredInPropertiesConstraint(packageName: String, contextClass: String, requiredProperty: String) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRequiredInPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass,  requiredProperty});
+
 	
 helper def : appendRegexInPatternPropertiesConstraint(packageName: String, contextClass: String, inv:String, regex : String,  propertyName : String): OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendRegexInPatternPropertiesConstraint',Sequence{thisModule.oclFileUri, packageName, contextClass, inv, regex, propertyName});
@@ -480,7 +1017,25 @@ helper def : appendValidatorOnProperties(packageName: String, contextClass: Stri
 helper def : appendValidatorOnPatternProperties(packageName: String, contextClass: String,  inv: String): OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendValidatorOnPatternProperties', Sequence{thisModule.oclFileUri, packageName, contextClass,  inv});
 
+helper def : appendDependenciesArrayOcl(packageName: String, contextClass: String,  property: String, values : Sequence(String)) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendDependenciesArray',Sequence{thisModule.oclFileUri, packageName, contextClass, property, values});
+
+helper def : appendValidatorBooleanSchemaFalse(packageName: String, contextClass: String ) : OclAny=
+	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('appendValidatorBooleanSchemaFalse',Sequence{thisModule.oclFileUri, packageName, contextClass});
+
 
 helper  def : endPackage() : OclAny=
 	"#native"!"at::jku::bise::oclgenerator::OclGenerator".refInvokeStaticOperation('endPackage',Sequence{thisModule.oclFileUri});
+
+
+---- https://stackoverflow.com/questions/7440801/how-to-convert-arbitrary-string-to-java-identifier
+helper  context String def : encodeJavaIdentifier() : String=
+	"#native"!"jku::se::atl::transformation::utils::Utils".refInvokeStaticOperation('getIdentifier',Sequence{self});
+
+
+helper  context String def : escapeJava() : String=
+	"#native"!"jku::se::atl::transformation::utils::Utils".refInvokeStaticOperation('escapeJava',Sequence{self});
 	
+
+
+

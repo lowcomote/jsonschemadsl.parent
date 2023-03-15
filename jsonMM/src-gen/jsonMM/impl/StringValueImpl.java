@@ -2,10 +2,14 @@
  */
 package jsonMM.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
 import jsonMM.JsonMMPackage;
 import jsonMM.StringValue;
 
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -90,6 +94,30 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean semanticEquals(final Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		return this.getValue().equals(((StringValue) obj).getValue());
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String toString() {
+		return this.value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -149,15 +177,14 @@ public class StringValueImpl extends ValueImpl implements StringValue {
 	 * @generated
 	 */
 	@Override
-	public String toString() {
-		if (eIsProxy())
-			return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (value: ");
-		result.append(value);
-		result.append(')');
-		return result.toString();
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+		case JsonMMPackage.STRING_VALUE___SEMANTIC_EQUALS__OBJECT:
+			return semanticEquals(arguments.get(0));
+		case JsonMMPackage.STRING_VALUE___TO_STRING:
+			return toString();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //StringValueImpl

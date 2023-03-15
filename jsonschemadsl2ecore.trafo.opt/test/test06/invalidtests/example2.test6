@@ -1,0 +1,6 @@
+{
+	"sequentialInfo":[1,"", {}, [], null,true,3.3],
+	"sequentialInfo2":[2.3, "aaa", {"a":1},[{}], null, false,4.0, 5],
+	"add1":1,
+	"add2":true
+}
