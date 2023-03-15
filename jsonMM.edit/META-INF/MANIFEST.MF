@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: jsonMM.edit;singleton:=true
 Automatic-Module-Name: jsonMM.edit
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 2.0.0
 Bundle-ClassPath: .
 Bundle-Activator: jsonMM.provider.JsonMMEditPlugin$Implementation
 Bundle-Vendor: %providerName
