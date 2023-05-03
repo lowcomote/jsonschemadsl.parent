@@ -64,7 +64,10 @@ public class Utils {
    	}
 	
 	public static String escapeJava(String pattern) {
-   		return StringEscapeUtils.escapeJava(pattern);
+//   		return StringEscapeUtils.escapeJava(pattern);
+		String escaped = StringEscapeUtils.escapeJava(pattern);
+		return escaped.replaceAll("'", "\\\\'");
+   		
    	}
 	
 	public static List<EClass> findMatchingPatternPropertiesSiblings(EClass patternProperties, String key, EPackage ePackage) {
