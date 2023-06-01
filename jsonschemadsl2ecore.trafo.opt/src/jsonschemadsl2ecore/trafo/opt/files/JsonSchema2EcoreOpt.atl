@@ -61,7 +61,9 @@ abstract rule mapSchemaToEClass{
 		)
 	do{
 		if(schema.isKeySchemaPairInProperties() or schema.isKeySchemaPairInPatternProperties() ){
-			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName())};
+			if (schema.isSchemaInPropertiesPatternPropertiesNoSiblingsRefEnumConst()){
+				eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName())};
+			}
 			if(schema.isKeySchemaPairInPatternProperties()){
 --				eClass.eAnnotations <- Sequence{thisModule.createPatternPropertiesAnnotation(schema.refImmediateComposite().key)} ->union (	if schema.hasSimpleType() then Sequence{thisModule.createTypeAnnotation(schema.type.anyOf.type)} else Sequence{} endif);
 				eClass.eAnnotations <- Sequence{thisModule.createPatternPropertiesAnnotation(schema.refImmediateComposite().key)};
@@ -77,7 +79,9 @@ abstract rule mapSchemaToEClass{
 --				eClass.eAnnotations <-	if schema.hasSimpleType() then Sequence{thisModule.createTypeAnnotation(schema.type.anyOf.type)} else Sequence{} endif;
 --			}	
 		}else if(schema.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition)){ ----- schema is in AdditionalProperties
-			eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName() )};
+			if(schema.isSchemaInAdditionalPropertiesNoSiblingsRefEnumConst()){
+				eClass.eSuperTypes <-  Sequence{thisModule.createAbstractEClass(schema.refImmediateComposite().refImmediateComposite().buildPropertiesAbstractClassName() )};
+			}  	   
 			eClass.eAnnotations <- Sequence{thisModule.createAdditionalPropertiesAnnotation()};----  ->union (	if schema.hasSimpleType() then Sequence{thisModule.createTypeAnnotation(schema.type.anyOf.type)} else Sequence{} endif);
 			eClass.eOperations <- Sequence{thisModule.createValidatorOnPatternProperties(schema.refImmediateComposite().refImmediateComposite().findPatternPropertiesKeys()),
 											thisModule.createValidatorOnProperties(schema.refImmediateComposite().refImmediateComposite().findPropertiesKeys())};
