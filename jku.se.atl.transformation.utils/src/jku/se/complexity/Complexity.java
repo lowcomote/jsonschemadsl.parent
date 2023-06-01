@@ -49,39 +49,18 @@ Resource res = reset.getResource(..)
 	
 	public static final String STRING ="string";
 	
-//	public  static void main(String[] args) {
-//		Scanner obj = new Scanner (System.in);
-//		System.out.println("Enter json schema name:");
-//		//String jschemaName=obj.nextLine();
-//		final File jschemaFile = new File("src/jku/se/complexity/examples/githubwf.jschema");
-//	    try {
-//			//final InputStream inputStream = new FileInputStream(jschemaFile);
-//			//new ByteArrayInputStream(FileUtils.readFileToByteArray(file))
-//	    	final InputStream inputStream = new ByteArrayInputStream(FileUtils.readFileToByteArray(jschemaFile));
-//			Complexity complexity = new Complexity();
-//			EcoreElementsCount ecoreElementsCount = complexity.calculateCompexity(inputStream);
-//			System.out.println("EClasses :"+ecoreElementsCount.getClassesCount());
-//			System.out.println("EFeatures :"+ecoreElementsCount.getFeaturesCount());
-//			System.out.println("EOperationss :"+ecoreElementsCount.getOperationsCount());
-//			
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
 	
-//	public EcoreElementsCount calculateCompexity(InputStream schemaInputStream) throws Exception{
-//		EcoreElementsCount ecoreElementsCount = new EcoreElementsCount();
-//		ResourceSet reset = new ResourceSetImpl();
-//		Resource resource = reset.createResource(URI.createURI("platform:/dummy.jschema"));
-//		 
-//		resource.load(schemaInputStream,reset.getLoadOptions());
-//		EObject root = resource.getContents().get(0);
-//		Metrics metrics = countMetrics( root);
-//		ecoreElementsCount.calculateCompexity(metrics);
-//		 
-//		return ecoreElementsCount;
-//	}
+	public Metrics collectMetrics(EObject root) {
+		Metrics metrics = new Metrics();
+		TreeIterator<EObject> iterator = root.eAllContents();
+		while (iterator.hasNext()) {
+			EObject element = iterator.next();
+			collectElementMetrics(metrics,  element);
+		}	
+		return metrics;
+		
+	}
+
 	
 	public void collectElementMetrics(Metrics metrics, EObject element) {
 		/**
@@ -152,7 +131,7 @@ Resource res = reset.getResource(..)
 		
 	}
 	
-	public Metrics countMetrics(EObject root) {
+	private Metrics countMetrics(EObject root) {
 		Metrics metrics = new Metrics();
 		TreeIterator<EObject> iterator = root.eAllContents();
 		Integer defaultType=0;
