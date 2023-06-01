@@ -58,7 +58,50 @@ public class Metrics {
 	 *	schema not equal to false. This means that values not present in a tuple are allowed
 	 */
 	private Integer NoAI=0;
+	
+	
+	private Integer NoEnum=0;
+	
+	private Integer NoConst=0;
+	
+	private Integer NoRef=0;
+	
+	
+	
+	private Integer numNoFalseSchemas =0;
+	
+	private Integer numScalarTypes =0;
+	
+	private Integer numObjectTypes =0;
+	
+	private Integer numArrayTypes =0;
+	
+	private Integer numTuples =0;
+	
+	private Integer numDefaultAdditionalProperties =0;
+		
+	private Integer numDefaultItems =0;
+	
+	private Integer numDefaultAdditionalItems =0;
+	
+	private Integer numMultiTypes=0;
 
+	private Integer numTypesInMultyTypes=0;
+	
+	private Integer numExplicitAdditionalProperties=0;
+	
+	private Integer numNoFalseSchemasInProperties=0;
+	
+	private Integer numNoFalseSchemasInPatternProperties=0;
+	
+	private Integer numTuplesFields=0;
+	
+	private Integer numExplicitAdditionalItems=0;
+	
+	private Integer numPattern=0;
+	
+	
+	
 	public Integer getNoS() {
 		return NoS;
 	}
@@ -203,7 +246,259 @@ public class Metrics {
 		setNoSPPP(getNoSPPP() + noSPPP);
 		return getNoSPPP();
 	}
+
+	public Integer getNoEnum() {
+		return NoEnum;
+	}
+
+	public void setNoEnum(Integer noEnum) {
+		NoEnum = noEnum;
+	}
+
+	public Integer addNoEnum(Integer noEnum) {
+		setNoEnum(getNoEnum() + noEnum);
+		return getNoEnum();
+	}
 	
+	public Integer getNoConst() {
+		return NoConst;
+	}
+
+	public void setNoConst(Integer noConst) {
+		NoConst = noConst;
+	}
+	
+	public Integer addNoConst(Integer noConst) {
+		setNoConst(getNoConst() + noConst);
+		return getNoConst();
+	}
+
+	public Integer getNoRef() {
+		return NoRef;
+	}
+
+	public void setNoRef(Integer noRef) {
+		NoRef = noRef;
+	}
+	
+	public Integer addNoRef(Integer noRef) {
+		setNoRef(getNoRef() + noRef);
+		return getNoRef() ;
+	}
+	
+	
+	
+
+	public Integer getNumNoFalseSchemas() {
+		return numNoFalseSchemas;
+	}
+
+	public void setNumNoFalseSchemas(Integer numNoFalseSchemas) {
+		this.numNoFalseSchemas = numNoFalseSchemas;
+	}
+	
+	public Integer addNumNoFalseSchemas(Integer numNoFalseSchemas) {
+		setNumNoFalseSchemas(getNumNoFalseSchemas() + numNoFalseSchemas);
+		return getNumNoFalseSchemas();
+	}
+
+	public Integer getNumScalarTypes() {
+		return numScalarTypes;
+	}
+
+	public void setNumScalarTypes(Integer numScalarTypes) {
+		this.numScalarTypes = numScalarTypes;
+	}
+	
+	public Integer addNumScalarTypes(Integer numScalarTypes) {
+		setNumScalarTypes(getNumScalarTypes() + numScalarTypes);
+		return  getNumScalarTypes();
+	}
+
+	public Integer getNumObjectTypes() {
+		return numObjectTypes;
+	}
+
+	public void setNumObjectTypes(Integer numObjectTypes) {
+		this.numObjectTypes = numObjectTypes;
+	}
+	
+	public Integer addNumObjectTypes(Integer numObjectTypes) {
+		setNumObjectTypes( getNumObjectTypes() + numObjectTypes);
+		return getNumObjectTypes();
+	}
+
+	public Integer getNumArrayTypes() {
+		return numArrayTypes;
+	}
+
+	public void setNumArrayTypes(Integer numArrayTypes) {
+		this.numArrayTypes = numArrayTypes;
+	}
+	
+	public Integer addNumArrayTypes(Integer numArrayTypes) {
+		setNumArrayTypes(getNumArrayTypes() + numArrayTypes);
+		return getNumArrayTypes();
+	}
+
+	public Integer getNumTuples() {
+		return numTuples;
+	}
+
+	public void setNumTuples(Integer numTuples) {
+		this.numTuples = numTuples;
+	}
+	
+	public Integer addNumTuples(Integer numTuples) {
+		setNumTuples(getNumTuples() + numTuples);
+		return getNumTuples();
+	}
+
+	public Integer getNumDefaultAdditionalProperties() {
+		return numDefaultAdditionalProperties;
+	}
+
+	public void setNumDefaultAdditionalProperties(Integer numDefaultAdditionalProperties) {
+		this.numDefaultAdditionalProperties = numDefaultAdditionalProperties;
+	}
+	
+	public Integer addNumDefaultAdditionalProperties(Integer numDefaultAdditionalProperties) {
+		setNumDefaultAdditionalProperties(getNumDefaultAdditionalProperties() + numDefaultAdditionalProperties);
+		return getNumDefaultAdditionalProperties();
+	}
+
+	public Integer getNumDefaultItems() {
+		return numDefaultItems;
+	}
+
+	public void setNumDefaultItems(Integer numDefaultItems) {
+		this.numDefaultItems = numDefaultItems;
+	}
+	
+	public Integer addNumDefaultItems(Integer numDefaultItems) {
+		setNumDefaultItems(getNumDefaultItems() + numDefaultItems);
+		return getNumDefaultItems();
+	}
+
+	public Integer getNumDefaultAdditionalItems() {
+		return numDefaultAdditionalItems;
+	}
+
+	public void setNumDefaultAdditionalItems(Integer numDefaultAdditionalItems) {
+		this.numDefaultAdditionalItems = numDefaultAdditionalItems;
+	}
+	
+	public Integer addNumDefaultAdditionalItems(Integer numDefaultAdditionalItems) {
+		setNumDefaultAdditionalItems(getNumDefaultAdditionalItems() + numDefaultAdditionalItems);
+		return getNumDefaultAdditionalItems();
+	}
+
+	public Integer getNumMultiTypes() {
+		return numMultiTypes;
+	}
+
+	public void setNumMultiTypes(Integer numMultiTypes) {
+		this.numMultiTypes = numMultiTypes;
+	}
+	
+	public Integer addNumMultiTypes(Integer numMultiTypes) {
+		setNumMultiTypes(getNumMultiTypes() + numMultiTypes);
+		return getNumMultiTypes();
+	}
+
+	
+	
+	public Integer getNumTypesInMultyTypes() {
+		return numTypesInMultyTypes;
+	}
+
+	public void setNumTypesInMultyTypes(Integer numTypesInMultyTypes) {
+		this.numTypesInMultyTypes = numTypesInMultyTypes;
+	}
+
+	public Integer addNumTypesInMultyTypes(Integer numTypesInMultyTypes) {
+		setNumTypesInMultyTypes(getNumTypesInMultyTypes() + numTypesInMultyTypes);
+		return getNumTypesInMultyTypes();
+	}
+
+	public Integer getNumExplicitAdditionalProperties() {
+		return numExplicitAdditionalProperties;
+	}
+
+	public void setNumExplicitAdditionalProperties(Integer numExplicitAdditionalProperties) {
+		this.numExplicitAdditionalProperties = numExplicitAdditionalProperties;
+	}
+	
+	public Integer addNumExplicitAdditionalProperties(Integer numExplicitAdditionalProperties) {
+		setNumExplicitAdditionalProperties(getNumExplicitAdditionalProperties() + numExplicitAdditionalProperties);
+		return getNumExplicitAdditionalProperties();
+	}
+
+	public Integer getNumNoFalseSchemasInProperties() {
+		return numNoFalseSchemasInProperties;
+	}
+
+	public void setNumNoFalseSchemasInProperties(Integer numNoFalseSchemasInProperties) {
+		this.numNoFalseSchemasInProperties = numNoFalseSchemasInProperties;
+	}
+	
+	public Integer addNumNoFalseSchemasInProperties(Integer numNoFalseSchemasInProperties) {
+		setNumNoFalseSchemasInProperties(getNumNoFalseSchemasInProperties() + numNoFalseSchemasInProperties);
+		return getNumNoFalseSchemasInProperties();
+	}
+
+	public Integer getNumNoFalseSchemasInPatternProperties() {
+		return numNoFalseSchemasInPatternProperties;
+	}
+
+	public void setNumNoFalseSchemasInPatternProperties(Integer numNoFalseSchemasInPatternProperties) {
+		this.numNoFalseSchemasInPatternProperties = numNoFalseSchemasInPatternProperties;
+	}
+	
+	
+	public Integer addNumNoFalseSchemasInPatternProperties(Integer numNoFalseSchemasInPatternProperties) {
+		setNumNoFalseSchemasInPatternProperties(getNumNoFalseSchemasInPatternProperties() + numNoFalseSchemasInPatternProperties);
+		return getNumNoFalseSchemasInPatternProperties();
+	}
+
+	public Integer getNumTuplesFields() {
+		return numTuplesFields;
+	}
+
+	public void setNumTuplesFields(Integer numTuplesFields) {
+		this.numTuplesFields = numTuplesFields;
+	}
+	
+	public Integer addNumTuplesFields(Integer numTuplesFields) {
+		setNumTuplesFields( getNumTuplesFields() + numTuplesFields);
+		return  getNumTuplesFields();
+	}
+
+	public Integer getNumExplicitAdditionalItems() {
+		return numExplicitAdditionalItems;
+	}
+
+	public void setNumExplicitAdditionalItems(Integer numExplicitAdditionalItems) {
+		this.numExplicitAdditionalItems = numExplicitAdditionalItems;
+	}
+	
+	public Integer addNumExplicitAdditionalItems(Integer numExplicitAdditionalItems) {
+		setNumExplicitAdditionalItems(getNumExplicitAdditionalItems()+ numExplicitAdditionalItems) ;
+		return getNumExplicitAdditionalItems();
+	}
+
+	public Integer getNumPattern() {
+		return numPattern;
+	}
+
+	public void setNumPattern(Integer numPattern) {
+		this.numPattern = numPattern;
+	}
+	
+	public Integer addNumPattern(Integer numPattern) {
+		setNumPattern(getNumPattern() + numPattern);
+		return getNumPattern();
+	}
 	
 	
 	
