@@ -41,6 +41,10 @@ public class TestComplexity {
 		EcoreElementsCount ecoreElementsCount = new EcoreElementsCount();
 	
 		Metrics metrics = complexity.collectMetrics( root);
+		
+		System.out.println(metrics.toString());
+		
+		
 		ecoreElementsCount.calculateCompexity(metrics);
 		
 		System.out.println("EClasses :"+ecoreElementsCount.getClassesCount());

@@ -66,7 +66,7 @@ public class Metrics {
 	
 	private Integer NoRef=0;
 	
-	
+	////////////////////////////////////
 	
 	private Integer numNoFalseSchemas =0;
 	
@@ -498,6 +498,19 @@ public class Metrics {
 	public Integer addNumPattern(Integer numPattern) {
 		setNumPattern(getNumPattern() + numPattern);
 		return getNumPattern();
+	}
+
+	@Override
+	public String toString() {
+		return "Metrics [numNoFalseSchemas=" + numNoFalseSchemas + ", numObjectTypes=" + numObjectTypes + ", numTuples="
+				+ numTuples + ", numDefaultAdditionalProperties=" + numDefaultAdditionalProperties
+				+ ", numDefaultItems=" + numDefaultItems + ", numDefaultAdditionalItems=" + numDefaultAdditionalItems
+				+ ", numMultiTypes=" + numMultiTypes + ", numTypesInMultyTypes=" + numTypesInMultyTypes
+				+ ", numExplicitAdditionalProperties=" + numExplicitAdditionalProperties
+				+ ", numNoFalseSchemasInProperties=" + numNoFalseSchemasInProperties
+				+ ", numNoFalseSchemasInPatternProperties=" + numNoFalseSchemasInPatternProperties
+				+ ", numTuplesFields=" + numTuplesFields + ", numExplicitAdditionalItems=" + numExplicitAdditionalItems
+				+ ", numPattern=" + numPattern + "]";
 	}
 	
 	
