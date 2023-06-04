@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: xtextgenerator;singleton:=true
-Bundle-Version: 2.0.0
+Bundle-Version: 2.0.1
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -25,11 +25,11 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.converter;bundle-version="2.10.0",
  org.eclipse.debug.core;bundle-version="3.16.0",
  org.eclipse.debug.ui;bundle-version="3.14.600",
- jsongrammarMM;bundle-version="2.0.0",
- relatedSchemas;bundle-version="2.0.0",
+ jsongrammarMM;bundle-version="2.0.1",
+ relatedSchemas;bundle-version="2.0.1",
  org.eclipse.xtext.xtext.generator;bundle-version="2.23.0",
  org.eclipse.xtext.generator;bundle-version="2.23.0",
- jku.se.atl.transformation.utils;bundle-version="2.0.0"
+ jku.se.atl.transformation.utils;bundle-version="2.0.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: xtextgenerator
 Bundle-ActivationPolicy: lazy
