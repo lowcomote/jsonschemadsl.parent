@@ -197,6 +197,7 @@ helper context JSchemaMM!Schema  def : isKeySchemaPairInProperties() : Boolean =
 	else false
 	endif;
 
+
 helper context JSchemaMM!Schema  def : isKeySchemaPairInPatternProperties() : Boolean =
 	let parent : OclAny = self.refImmediateComposite() in
 	if parent.oclIsTypeOf(JSchemaMM!KeySchemaPair)  then 
@@ -204,11 +205,32 @@ helper context JSchemaMM!Schema  def : isKeySchemaPairInPatternProperties() : Bo
 	else false
 	endif;
 
-
+--- The schema is a PatternProperties or Properties that does not have  have Enum, Consto or Ref as siblings
+helper context JSchemaMM!Schema  def : isSchemaInPropertiesPatternPropertiesNoSiblingsRefEnumConst() : Boolean =
+	if self.isKeySchemaPairInProperties() or self.isKeySchemaPairInPatternProperties() 
+	then
+		let enclosingSchema : JSchemaMM!Schema= self.refImmediateComposite().refImmediateComposite().refImmediateComposite() in
+		if enclosingSchema.ref.oclIsUndefined() and enclosingSchema.enum.oclIsUndefined() and enclosingSchema.const.oclIsUndefined() 
+		then true
+		else false
+		endif
+	else false
+	endif;
 
 helper context JSchemaMM!Schema  def : isInAdditionalProperties() : Boolean =
 	self.refImmediateComposite().oclIsTypeOf(JSchemaMM!AdditionalPropertiesSchemaDefinition);
 
+--- The schema is a AdditionalProperties that does not have  have Enum, Consto or Ref as siblings
+helper context JSchemaMM!Schema  def : isSchemaInAdditionalPropertiesNoSiblingsRefEnumConst() : Boolean =
+	if self.isInAdditionalProperties() 
+	then
+		let enclosingSchema : JSchemaMM!Schema= self.refImmediateComposite().refImmediateComposite() in
+		if enclosingSchema.ref.oclIsUndefined() and enclosingSchema.enum.oclIsUndefined() and enclosingSchema.const.oclIsUndefined() 
+		then true
+		else false
+		endif
+	else false
+	endif;
 
 
 helper context JSchemaMM!ObjectSchema  def : getKeyForPropertiesContainment(): String=
