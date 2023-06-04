@@ -2,6 +2,8 @@
 grammar at.jku.bise.JsonSchemaDsl with org.eclipse.xtext.common.Terminals
 
 import "http://at.jku.bise/jsonMetaschemaMM" 
+import "http://at.jku.bise/jsonMM" as jsonMM
+//import "platform:/resource/jsonMM/model/jsonMM.ecore" as jsonMM
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 JsonSchema returns JsonSchema:
@@ -70,10 +72,9 @@ KeywordDefinition returns KeywordDefinition:
 //	KeyValuePair
 ;
 
-Value returns Value:
-	IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
-//	BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
-//	IntegerValue | BooleanValue
+Value returns jsonMM::Value:
+//	=>IntegerValue | BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
+	BooleanValue | NullValue | StringValue | ObjectValue | NumberValue | ArrayValue
 ;
 
 
@@ -98,7 +99,8 @@ BooleanSchema returns BooleanSchema:
 //	;
 
 MaximumSchemaDefinition returns MaximumSchemaDefinition:
-	'"maximum"' ':' maximum=EDOUBLE
+//	'"maximum"' ':' maximum=EDOUBLE
+	'"maximum"' ':' maximum=EDouble
 ;
 //	'MaximumSchemaDefinition'
 //	'{'
@@ -190,9 +192,21 @@ TitleSchemaDefinition returns TitleSchemaDefinition:
  */
 ItemsSchemaDefinition returns ItemsSchemaDefinition:
 	{ItemsSchemaDefinition} 
-	'"items"' ':' 
-		(itemsAnyOf1=Schema)?
-		(itemsAnyOf2=SchemaArray)?
+	'"items"' ':' anyOf= ItemsAnyOf
+//		(itemsAnyOf1=Schema)?
+//		(itemsAnyOf2=SchemaArray)?
+;
+
+ItemsAnyOf returns ItemsAnyOf:
+	ItemsAnyOf1 | ItemsAnyOf2
+;
+
+ItemsAnyOf1 returns ItemsAnyOf1:
+    anyOf1=Schema 
+;
+
+ItemsAnyOf2 returns ItemsAnyOf2:
+    anyOf2=SchemaArray
 ;
 //	{ItemsSchemaDefinition}
 //	'ItemsSchemaDefinition'
@@ -278,7 +292,8 @@ MaxPropertiesSchemaDefinition returns MaxPropertiesSchemaDefinition:
 //	'}';
 
 MinimumSchemaDefinition returns MinimumSchemaDefinition:
-	'"minimum"' ':' minimum=EDOUBLE
+//	'"minimum"' ':' minimum=EDOUBLE
+	'"minimum"' ':' minimum=EDouble
 ;
 //	'MinimumSchemaDefinition'
 //	'{'
@@ -333,10 +348,19 @@ ReadOnlySchemaDefinition returns ReadOnlySchemaDefinition:
  */
 TypeSchemaDefinition returns TypeSchemaDefinition:
 	{TypeSchemaDefinition} 
-	'"type"' ':' 
-		(typeAnyOf1=SimpleTypes)?
-		(typesAnyOf2=TypesAnyOf2)?
+	'"type"' ':' anyOf=TypeAnyOf
 ;
+TypeAnyOf returns TypeAnyOf:
+	TypeAnyOf1 | TypeAnyOf2
+;
+
+
+//TypeSchemaDefinition returns TypeSchemaDefinition:
+//	{TypeSchemaDefinition} 
+//	'"type"' ':' 
+//		(typeAnyOf1=SimpleTypes)?
+//		(typesAnyOf2=TypesAnyOf2)?
+//;
 //	{TypeSchemaDefinition}
 //	'TypeSchemaDefinition'
 //	'{'
@@ -407,7 +431,8 @@ SchemaObjectDependenciesProperties returns  SchemaObjectDependenciesProperties:
 
 
 SchemaObjectDependenciesAdditionalProperties returns SchemaObjectDependenciesAdditionalProperties:
-	key=VALID_STRING
+//	key=VALID_STRING
+	key=EString
 	':' additionalProperties=SchemaObjectDependenciesAdditionalPropertiesAnyOf
 ;
 
@@ -493,9 +518,10 @@ AdditionalItemsSchemaDefinition returns AdditionalItemsSchemaDefinition:
 //		'additionalItems' additionalItems=Schema
 //	'}';
 
-KeyValuePair returns KeyValuePair:
+KeyValuePair returns jsonMM::KeyValuePair:
 	//key=STRING//EString 
-	key=VALID_STRING 
+//	key=VALID_STRING
+	key=EString 
 	':' value=Value
 ;
 //	{KeyValuePair}
@@ -547,12 +573,9 @@ ContentEncodingSchemaDefinition returns ContentEncodingSchemaDefinition:
 //	'}';
 
 MultipleOfSchemaDefinition returns MultipleOfSchemaDefinition:
-	'"multipleOf"' ':' multipleOf=EDOUBLE
+//	'"multipleOf"' ':' multipleOf=EDOUBLE
+	'"multipleOf"' ':' multipleOf=EDouble
 ;
-//	'MultipleOfSchemaDefinition'
-//	'{'
-//		'multipleOf' multipleOf=EDouble
-//	'}';
 
 /**
  * TODO validate "format": "regex"
@@ -586,7 +609,8 @@ NotSchemaDefinition returns NotSchemaDefinition:
 //	'}';
 
 ExclusiveMaximumSchemaDefinition returns ExclusiveMaximumSchemaDefinition:
-	'"exclusiveMaximum"' ':' exclusiveMaximum=EDOUBLE
+//	'"exclusiveMaximum"' ':' exclusiveMaximum=EDOUBLE
+	'"exclusiveMaximum"' ':' exclusiveMaximum=EDouble
 ;
 //	'ExclusiveMaximumSchemaDefinition'
 //	'{'
@@ -630,12 +654,9 @@ ContentMediaTypeSchemaDefinition returns ContentMediaTypeSchemaDefinition:
 //	'}';
 
 ExclusiveMinimumSchemaDefinition returns ExclusiveMinimumSchemaDefinition:
-	'"exclusiveMinimum"' ':' exclusiveMinimum=EDOUBLE
+//	'"exclusiveMinimum"' ':' exclusiveMinimum=EDOUBLE
+	'"exclusiveMinimum"' ':' exclusiveMinimum=EDouble
 ;
-//	'ExclusiveMinimumSchemaDefinition'
-//	'{'
-//		'exclusiveMinimum' exclusiveMinimum=EDouble
-//	'}';
 
 
 /**
@@ -689,7 +710,7 @@ PropertyNamesSchemaDefinition returns PropertyNamesSchemaDefinition:
 //		('items' '{' items+=JsonDocument ( "," items+=JsonDocument)* '}' )?
 //	'}';
 
-JsonDocument returns JsonDocument:
+JsonDocument returns jsonMM::JsonDocument:
 	value=Value
 ;
 //	{JsonDocument}
@@ -704,55 +725,59 @@ Value_Impl returns Value:
 	'Value'
 	;
  */
-IntegerValue returns IntegerValue:
-	value=EINT
-;
+ 
+////  IntegerValue is not part of json specification
+//IntegerValue returns IntegerValue:
+//	value=EInt
+//;
 //	'IntegerValue'
 //	'{'
 //		'value' value=EInt
 //	'}';
 
-BooleanValue returns BooleanValue:
+BooleanValue returns jsonMM::BooleanValue:
 	value=EBoolean
 ;
 //	value?='value'
 //	'BooleanValue'
 //	;
 
-NullValue returns NullValue:
-	{NullValue}
+NullValue returns jsonMM::NullValue:
+	{jsonMM::NullValue}
 	value=NullEnum
 ;
 //	{NullValue}
 //	'NullValue'
 //	;
 
-StringValue returns StringValue:
-	value=VALID_STRING
+StringValue returns jsonMM::StringValue:
+//	value=VALID_STRING
+	value=EString
 ;
 //	'StringValue'
 //	'{'
 //		'value' value=EString
 //	'}';
 
-ObjectValue returns ObjectValue:
-	{ObjectValue}
+ObjectValue returns jsonMM::ObjectValue:
+	{jsonMM::ObjectValue}
 	'{'
 		(keyvaluepair+=KeyValuePair ( "," keyvaluepair+=KeyValuePair)*  )?
 	'}'
 ;
 
 
-NumberValue returns NumberValue:
-	value=EDOUBLE
+NumberValue returns jsonMM::NumberValue:
+//	value=EDOUBLE
+	value=EDouble
 ;
 //	'NumberValue'
 //	'{'
 //		'value' value=EDouble
 //	'}';
 
-ArrayValue returns ArrayValue:
-	{ArrayValue}
+ArrayValue returns jsonMM::ArrayValue:
+	{jsonMM::ArrayValue}
 	'[' (  value+=Value ( "," value+=Value)*  )? ']'
 ;
 //	{ArrayValue}
@@ -781,7 +806,9 @@ SchemaArray returns SchemaArray:
 	}
  */
 NonNegativeIntegerDefault0 returns NonNegativeIntegerDefault0:
-	value=EINT
+//	value=EINT
+//	value=EInt
+	value=EDouble
 ;
 //	'NonNegativeIntegerDefault0'
 //	'{'
@@ -794,7 +821,8 @@ SchemaObjectAdditionalProperties returns SchemaObjectAdditionalProperties:
 
 KeySchemaPair returns KeySchemaPair:
 	//'gino' key=EString ':' value=Schema
-	key=VALID_STRING ':' value=Schema
+//	key=VALID_STRING ':' value=Schema
+	key=EString ':' value=Schema
 	//key=EString 'gino' value=Schema
 //	(key=  STRING)| (key=  KEYWORD)  ':' value=Schema
 //	key=  STRING  ':' value=Schema
@@ -810,11 +838,13 @@ KeySchemaPair returns KeySchemaPair:
 	}
  */
 NonNegativeInteger returns NonNegativeInteger:
-	value=EINT
+//	value=EINT
+//	value=EInt
+	value=EDouble
 ;
 
 
-enum NullEnum returns NullEnum:
+enum NullEnum returns jsonMM::NullEnum:
 	null = 'null'
 ;
 
@@ -822,8 +852,12 @@ enum SimpleTypes returns SimpleTypes:
 	array = '"array"' | boolean = '"boolean"' | integer = '"integer"' | null = '"null"' | number = '"number"' | object = '"object"' | string = '"string"'
 ;
 
-TypesAnyOf2 returns TypesAnyOf2:
+TypeAnyOf2 returns TypeAnyOf2:
 	'[' items+=SimpleTypes ( "," items+=SimpleTypes)* ']' 
+;
+
+TypeAnyOf1 returns TypeAnyOf1:
+	type=SimpleTypes
 ;
 //	'TypesAnyOf2'
 //	'{'
@@ -849,21 +883,20 @@ StringArray returns StringArray:
 
 
 
-/**
- * Not auto generated. Manually introduced
- */
-//terminal JSON_NUMBER returns ecore::EFloat:
-//	'-'? ('0'|'1'..'9' ('0'..'9')*) ('.' ('0'..'9')+)? (('E'|'e')('+'|'-')('0'..'9')+)?
-//;
-//EDouble returns ecore::EDouble:
-//	JSON_NUMBER
-//;
 
-terminal EINT returns ecore::EInt:
+EDouble returns ecore::EDouble:
+	E_INT | E_DOUBLE
+;
+
+EInt returns ecore::EInt:
+	E_INT 
+;
+
+terminal E_INT :
 	'-'? INT;
 
 
-terminal EDOUBLE returns ecore::EDouble:
+terminal E_DOUBLE :
 	'-'? INT ('.' INT+)? (('E'|'e') ('+'|'-')? INT)?
 
 ;
@@ -901,7 +934,8 @@ KEYWORD: '"$id"' | '"$schema"' | '"$ref"' | '"$comment"' | '"title"' | '"descrip
 	'"pattern"' | '"additionalItems"' | '"items"' | '"maxItems"' | '"minItems"' | '"uniqueItems"' | '"contains"' |  
 	'"maxProperties"' | '"minProperties"' | '"required"' | '"additionalProperties"' | '"definitions"' | '"properties"' |
 	'"patternProperties"' | '"dependencies"' | '"propertyNames"' | '"const"' | '"enum"' | '"type"' | '"format"' | '"contentMediaType"' | '"contentEncoding"' |
-	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"'
+	'"if"' | '"then"' | '"else"' | '"allOf"' | '"anyOf"' | '"oneOf"' | '"not"' | 
+	'"array"' | '"boolean"' | '"integer"' | '"null"' | '"number"' | '"object"' | '"string"'
 ;
 
 
